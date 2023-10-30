@@ -357,6 +357,7 @@
 "Lb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /obj/docking_port/mobile{
 	dir = 2;
 	shuttle_id = "whiteship";

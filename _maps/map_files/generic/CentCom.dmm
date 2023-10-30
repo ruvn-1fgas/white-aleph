@@ -1220,6 +1220,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Backup Emergency Escape Shuttle"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/centcom/tdome/administration)
@@ -2051,6 +2052,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Supply Shuttle"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -6556,6 +6558,7 @@
 /area/centcom/central_command_areas/control)
 "Dq" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -8425,6 +8428,7 @@
 /area/centcom/central_command_areas/fore)
 "Oz" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
@@ -9347,6 +9351,7 @@
 /area/centcom/central_command_areas/prison)
 "Sp" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/centcom/tdome/observation)
@@ -10472,6 +10477,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Ferry Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},

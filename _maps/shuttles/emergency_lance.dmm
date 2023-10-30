@@ -64,6 +64,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/trimline/dark_blue/arrow_ccw{
 	dir = 8
 	},
@@ -127,6 +128,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -289,6 +291,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/trimline/dark_blue/arrow_ccw{
 	dir = 8
 	},
@@ -534,6 +537,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -574,6 +578,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -610,6 +615,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/iron/dark/textured,
@@ -683,6 +689,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -869,6 +876,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -888,6 +896,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -1200,6 +1209,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},

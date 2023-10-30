@@ -49,6 +49,7 @@
 	id_tag = "servicemaintleft_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "servicemaintleft_internal";
 	idSelf = "servicemaintleft_airlock_control";
@@ -233,6 +234,7 @@
 	id_tag = "servicemaintleft_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "servicemaintleft_external";
 	idSelf = "servicemaintleft_airlock_control";
@@ -521,6 +523,7 @@
 	id_tag = "servicemaintright_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/central/greater)
@@ -587,6 +590,7 @@
 	id_tag = "servicemaintright_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/central/greater)
 "MX" = (

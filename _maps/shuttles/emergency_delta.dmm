@@ -622,6 +622,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emergency Recovery Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -662,6 +663,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emergency Recovery Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/shuttle/escape)

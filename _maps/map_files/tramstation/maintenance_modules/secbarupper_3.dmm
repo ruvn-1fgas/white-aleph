@@ -115,6 +115,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -368,6 +369,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},

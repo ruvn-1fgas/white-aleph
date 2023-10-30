@@ -77,6 +77,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "dabonthehatersdabdab"
@@ -91,6 +92,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "dabonthehatersdabdab"

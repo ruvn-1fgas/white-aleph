@@ -708,6 +708,7 @@
 /area/station/hallway/secondary/service)
 "dZ" = (
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -851,6 +852,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /obj/structure/fans/tiny,
 /turf/open/floor/iron,
 /area/station/engineering/storage)
@@ -1123,6 +1125,7 @@
 /area/station/engineering/storage)
 "oh" = (
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -1436,6 +1439,7 @@
 /area/space)
 "CA" = (
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -1589,6 +1593,7 @@
 /area/space/nearstation)
 "Kd" = (
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},

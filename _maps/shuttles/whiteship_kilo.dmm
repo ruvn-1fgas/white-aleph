@@ -185,6 +185,7 @@
 	id_tag = "ntms_exterior";
 	name = "NTMS-037 Mining Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "exterior_whiteship"
@@ -235,6 +236,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "External Freight Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -805,6 +807,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "NTMS-037 Mining Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "exterior_whiteship"

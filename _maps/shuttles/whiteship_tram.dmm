@@ -453,6 +453,7 @@
 	},
 /obj/effect/turf_decal/stripes/white/box,
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/abandoned/engine)
@@ -490,6 +491,7 @@
 "bT" = (
 /obj/effect/turf_decal/stripes/white/box,
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -1358,6 +1360,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Escape Pod Loader"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 1

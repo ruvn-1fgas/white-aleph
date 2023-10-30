@@ -90,6 +90,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/engineering/main)
@@ -756,6 +757,7 @@
 	name = "Labor Camp Shuttle Airlock"
 	},
 /obj/structure/fans/tiny,
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "dj" = (
@@ -1086,6 +1088,7 @@
 	name = "Escape Pod One"
 	},
 /obj/structure/fans/tiny,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
 "ez" = (
@@ -1179,6 +1182,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Supply Dock Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -1194,6 +1198,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Supply Dock Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -1247,6 +1252,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Departure Lounge Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/delivery,
 /obj/structure/fans/tiny,
 /turf/open/floor/iron,
@@ -1359,6 +1365,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Transport Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
@@ -1578,6 +1585,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Auxiliary Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
@@ -1887,6 +1895,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/medical/medbay)
 "qb" = (
@@ -2388,6 +2397,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/medical/medbay)
 "Qu" = (
@@ -2524,6 +2534,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/engineering/main)

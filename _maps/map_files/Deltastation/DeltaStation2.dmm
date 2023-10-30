@@ -252,6 +252,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Gulag Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -586,6 +587,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Auxiliary Base Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -1495,6 +1497,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Security External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -2415,6 +2418,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -3123,6 +3127,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Security External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/effect/turf_decal/stripes/line,
@@ -3494,6 +3499,7 @@
 /obj/machinery/door/airlock/external{
 	name = "MiniSat Exterior Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/construction,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
@@ -4237,6 +4243,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Solar Access"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -5200,6 +5207,7 @@
 	name = "External Docking Port";
 	space_dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "bmG" = (
@@ -5220,6 +5228,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -5623,6 +5632,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining Dock Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -6098,6 +6108,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Observatory"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/external,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -7879,6 +7890,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -9310,6 +9322,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -10798,6 +10811,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Supply Door Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -13678,6 +13692,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining Dock Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -13758,6 +13773,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Gulag Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -15144,6 +15160,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/sign/directions/engineering{
 	desc = "A sign that shows there are doors here. There are doors everywhere!";
 	icon_state = "doors";
@@ -17938,6 +17955,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -18494,6 +18512,7 @@
 	name = "Escape Pod 2";
 	space_dir = 1
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -19276,6 +19295,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Observatory"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/external,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -20435,6 +20455,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -25703,6 +25724,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Solar Access"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -28239,6 +28261,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Supply Door Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -30617,6 +30640,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -30676,6 +30700,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Supply Door Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -31746,6 +31771,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Solar Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -32041,6 +32067,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -33968,6 +33995,7 @@
 	name = "Escape Pod 4";
 	space_dir = 4
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -39584,6 +39612,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Solar Access"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -40219,6 +40248,7 @@
 	name = "External Docking Port";
 	space_dir = 1
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -43573,6 +43603,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Gulag Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -45135,6 +45166,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Observatory"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/maintenance/space_hut/observatory)
 "ljz" = (
@@ -45192,6 +45224,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Solar Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -46238,6 +46271,7 @@
 	name = "External Docking Port";
 	space_dir = 4
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -51589,6 +51623,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -56288,6 +56323,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Solar Access"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -56564,6 +56600,7 @@
 	name = "Escape Pod 2";
 	space_dir = 1
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -59916,6 +59953,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "pck" = (
@@ -61644,6 +61682,7 @@
 	name = "External Docking Port";
 	space_dir = 4
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -63375,6 +63414,7 @@
 	name = "External Docking Port";
 	space_dir = 8
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -64380,6 +64420,7 @@
 	name = "Escape Pod 3";
 	space_dir = 4
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -68389,6 +68430,7 @@
 	name = "Escape Pod 2";
 	space_dir = 1
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -69073,6 +69115,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Atmos Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
 /turf/open/floor/iron,
@@ -69232,6 +69275,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -70095,6 +70139,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -72546,6 +72591,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -74583,6 +74629,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Solar Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -76703,6 +76750,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -80660,6 +80708,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -81469,6 +81518,7 @@
 	name = "Escape Pod 4";
 	space_dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron,
 /area/station/security/execution/transfer)
 "uqK" = (
@@ -83741,6 +83791,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Gulag Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -84247,6 +84298,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -84343,6 +84395,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Solar Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -89189,6 +89242,7 @@
 /obj/machinery/door/airlock/external{
 	name = "MiniSat Exterior Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -93900,6 +93954,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Atmos Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
 /turf/open/floor/iron,
@@ -94053,6 +94108,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Docking Port"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -94611,6 +94667,7 @@
 	name = "Escape Pod 3";
 	space_dir = 4
 	},
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},

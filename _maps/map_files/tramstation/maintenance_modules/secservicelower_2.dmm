@@ -68,6 +68,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -234,6 +235,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
 /area/station/maintenance/central/greater)
@@ -356,6 +358,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -367,6 +370,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -609,6 +613,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
@@ -654,6 +659,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4

@@ -824,6 +824,7 @@
 	id_tag = "infiltrator_portdoor";
 	name = "Infiltrator Port Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/pod/dark,
 /area/shuttle/syndicate/airlock)

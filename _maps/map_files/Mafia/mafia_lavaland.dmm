@@ -42,6 +42,7 @@
 	max_integrity = 99999;
 	name = "Maintenance"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating,
 /area/centcom/mafia)

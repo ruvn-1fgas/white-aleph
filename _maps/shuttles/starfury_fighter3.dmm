@@ -7,6 +7,7 @@
 	id_tag = "SBC_fighter3_bolt";
 	name = "Syndicate Fighter Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/docking_port/mobile/syndicate_fighter/fighter_three,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/turf_decal/siding/thinplating_new/dark{

@@ -744,6 +744,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "ce" = (
@@ -784,6 +785,7 @@
 /area/shuttle/escape)
 "cn" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "co" = (
@@ -821,6 +823,7 @@
 /area/shuttle/escape)
 "ct" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/escape)
@@ -1458,6 +1461,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emegency Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/docking_port/mobile/emergency{
 	name = "CentCom Raven Cruiser"
 	},

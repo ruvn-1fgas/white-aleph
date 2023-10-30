@@ -94,6 +94,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Engine Maintenance Access"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/escape)
 "ft" = (
@@ -618,6 +619,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Engine Maintenance Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/escape)

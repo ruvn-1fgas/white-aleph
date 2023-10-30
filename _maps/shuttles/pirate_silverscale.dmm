@@ -33,6 +33,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "pirateportexternal"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
@@ -250,6 +251,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "pirateportexternal"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -405,6 +407,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "piratestarboardexternal"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
@@ -453,6 +456,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "piratestarboardexternal"
 	},
+/obj/structure/fans/tiny,
 /obj/docking_port/stationary{
 	dir = 4;
 	dwidth = 13;

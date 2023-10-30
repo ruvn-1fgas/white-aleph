@@ -11,6 +11,7 @@
 /area/shuttle/transport)
 "d" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /turf/open/floor/pod/dark,
 /area/shuttle/transport)
 "e" = (
@@ -89,6 +90,7 @@
 /area/shuttle/transport)
 "r" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /turf/open/floor/pod/light,
 /area/shuttle/transport)
 

@@ -199,6 +199,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Economy-Class"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "jC" = (

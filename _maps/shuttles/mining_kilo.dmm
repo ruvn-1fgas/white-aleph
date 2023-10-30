@@ -268,6 +268,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Mining Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
@@ -306,6 +307,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Mining Shuttle External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},

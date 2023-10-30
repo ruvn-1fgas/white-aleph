@@ -125,6 +125,7 @@
 "Dt" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/external/glass,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating,
 /area/centcom/basketball)

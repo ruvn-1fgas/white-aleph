@@ -32,6 +32,7 @@
 /area/shuttle/escape)
 "df" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/turf_decal/siding/blue,
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
@@ -88,6 +89,7 @@
 /area/shuttle/escape)
 "eU" = (
 /obj/machinery/door/airlock/external/glass,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "evac3"
 	},
@@ -161,6 +163,7 @@
 /area/shuttle/escape)
 "ji" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/siding/blue,
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
@@ -176,6 +179,7 @@
 /area/shuttle/escape)
 "kB" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "evac3"
 	},
@@ -534,6 +538,7 @@
 /area/shuttle/escape)
 "Fw" = (
 /obj/machinery/door/airlock/external/glass,
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "evac3"
@@ -653,6 +658,7 @@
 /area/shuttle/escape)
 "MU" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "evac3"
@@ -690,6 +696,7 @@
 /area/shuttle/escape/brig)
 "Ot" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "evac3"
@@ -765,6 +772,7 @@
 /area/shuttle/escape)
 "VL" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "evac3"
 	},
@@ -794,6 +802,7 @@
 /area/shuttle/escape)
 "Xv" = (
 /obj/machinery/door/airlock/external/glass,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "XQ" = (

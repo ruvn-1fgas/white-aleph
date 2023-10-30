@@ -256,6 +256,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /obj/effect/turf_decal/sand/plating,
@@ -300,6 +301,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},

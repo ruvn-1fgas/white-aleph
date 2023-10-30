@@ -176,6 +176,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	id_tag = "whiteship_northbolt"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -194,6 +195,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	id_tag = "whiteship_southbolt"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /turf/open/floor/iron/large,
 /area/shuttle/abandoned/crew)
@@ -379,6 +381,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	id_tag = "whiteship_westbolt"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -416,6 +419,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	id_tag = "whiteship_southbolt"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -582,6 +586,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	id_tag = "whiteship_westbolt"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -638,6 +643,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	id_tag = "whiteship_northbolt"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -711,6 +717,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	id_tag = "whiteship_southbolt"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -865,6 +872,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	id_tag = "whiteship_northbolt"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /obj/docking_port/mobile{
 	callTime = 250;

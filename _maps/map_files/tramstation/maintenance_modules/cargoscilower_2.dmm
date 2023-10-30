@@ -129,6 +129,7 @@
 	name = "Escape Pod Three";
 	space_dir = 4
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -333,6 +334,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Defunct Podbay"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},

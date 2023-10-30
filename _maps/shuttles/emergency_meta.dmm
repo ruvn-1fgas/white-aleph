@@ -279,6 +279,7 @@
 /obj/machinery/door/airlock/external/ruin{
 	name = "Emergency Recovery Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/shuttle/escape)
