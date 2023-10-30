@@ -230,6 +230,7 @@
 /area/shuttle/abandoned/crew)
 "aI" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -287,6 +288,7 @@
 "aQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
@@ -700,6 +702,7 @@
 /area/shuttle/abandoned/bridge)
 "ch" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -714,6 +717,7 @@
 /area/shuttle/abandoned/engine)
 "cj" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -1132,6 +1136,7 @@
 "dt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
@@ -1238,6 +1243,7 @@
 /area/shuttle/abandoned/bar)
 "dP" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -1408,6 +1414,7 @@
 /area/shuttle/abandoned/cargo)
 "ej" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -1667,6 +1674,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
@@ -1764,6 +1772,7 @@
 /area/shuttle/abandoned/cargo)
 "EU" = (
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/docking_port/mobile{
 	callTime = 250;
@@ -1981,6 +1990,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},

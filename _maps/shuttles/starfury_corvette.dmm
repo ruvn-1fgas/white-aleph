@@ -70,6 +70,7 @@
 	id_tag = "SBC_corvette_bolt";
 	name = "Syndicate Corvette Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/docking_port/mobile/syndicate_corvette,
 /obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
@@ -229,6 +230,7 @@
 	id_tag = "SBC_corvette_bolt";
 	name = "Syndicate Corvette Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/turf_decal/siding/thinplating_new/dark,

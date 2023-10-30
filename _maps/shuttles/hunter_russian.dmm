@@ -310,6 +310,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "russia_ship_bolt_n"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -560,6 +561,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "russia_ship_bolt_n"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -641,6 +643,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "russia_ship_bolt_s"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/locked,

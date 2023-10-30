@@ -40,6 +40,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_public_west"
 	},
@@ -102,6 +103,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/unres,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
@@ -242,6 +244,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Lavaland Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/textured_large,
 /area/mine/lounge)
 "bQ" = (
@@ -283,6 +286,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
@@ -296,6 +300,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_gulag_monitoring_east"
 	},
@@ -333,6 +338,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/disposalpipe/segment,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_services_north"
@@ -370,6 +376,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_living_east"
 	},
@@ -465,6 +472,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_services_north"
 	},
@@ -557,6 +565,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_public_west"
 	},
@@ -723,6 +732,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -1062,6 +1072,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -1757,6 +1768,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_living_east"
 	},
@@ -2012,6 +2024,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production)
 "lN" = (
@@ -2564,6 +2577,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -2679,6 +2693,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_mining_north"
 	},
@@ -2728,6 +2743,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_living_west"
 	},
@@ -2834,6 +2850,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_living_west"
 	},
@@ -3035,6 +3052,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -4060,6 +4078,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_mining_west"
 	},
@@ -4101,6 +4120,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Lavaland Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/textured_large,
 /area/mine/lounge)
 "xO" = (
@@ -4178,6 +4198,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -4235,6 +4256,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -4354,6 +4376,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
@@ -4412,6 +4435,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
@@ -4484,6 +4508,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_mining_west"
 	},
@@ -4643,6 +4668,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
@@ -4708,6 +4734,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_living_east"
 	},
@@ -4826,6 +4853,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp Shuttle Prisoner Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/smooth_large,
 /area/mine/laborcamp)
 "Dl" = (
@@ -4880,6 +4908,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -5192,6 +5221,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -5894,6 +5924,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_mining_north"
 	},
@@ -6307,6 +6338,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_living_east"
 	},
@@ -6382,6 +6414,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/mine/maintenance/production)
@@ -6427,6 +6460,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
@@ -6454,6 +6488,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_public_south"
 	},
@@ -6527,6 +6562,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_gulag_monitoring_east"
 	},
@@ -6776,6 +6812,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -7106,6 +7143,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production)
 "RY" = (
@@ -7247,6 +7285,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp Shuttle Prisoner Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/smooth_large,
 /area/mine/laborcamp)
 "SO" = (
@@ -7309,6 +7348,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/mine/maintenance/production)
@@ -7552,6 +7592,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -7603,6 +7644,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_mining_west"
 	},
@@ -7666,6 +7708,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_gulag_east"
 	},
@@ -7765,6 +7808,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "lavaland_mining_west"
 	},
@@ -7863,6 +7907,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -8356,6 +8401,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining External Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,

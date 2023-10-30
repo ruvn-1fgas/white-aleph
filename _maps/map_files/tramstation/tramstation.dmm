@@ -7,6 +7,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
@@ -20,6 +21,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -149,6 +151,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 2"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -358,6 +361,7 @@
 	name = "Escape Pod Bay";
 	space_dir = 8
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -376,6 +380,7 @@
 	name = "Escape Pod Bay";
 	space_dir = 8
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -2722,6 +2727,7 @@
 "amq" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /turf/open/floor/plating/airless,
@@ -4380,6 +4386,7 @@
 	id_tag = "mostleft_upper_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "mostleft_upper_eva_external";
 	idSelf = "mostleft_upper_eva_airlock_control";
@@ -4709,6 +4716,7 @@
 	id_tag = "mostleft_lower_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "mostleft_lower_eva_internal";
 	idSelf = "mostleft_lower_eva_airlock_control";
@@ -4726,6 +4734,7 @@
 	id_tag = "middleleft_lower_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleleft_lower_eva_internal";
 	idSelf = "middleleft_lower_eva_airlock_control";
@@ -4778,6 +4787,7 @@
 	id_tag = "middleright_lower_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleright_lower_eva_internal";
 	idSelf = "middleright_lower_eva_airlock_control";
@@ -4817,6 +4827,7 @@
 	id_tag = "rightmost_lower_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "rightmost_lower_eva_internal";
 	idSelf = "rightmost_lower_eva_airlock_control";
@@ -6514,6 +6525,7 @@
 	name = "Port Docking Bay 1";
 	space_dir = 1
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
 "bfX" = (
@@ -7103,6 +7115,7 @@
 	id_tag = "rightmost_lower_upper_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "rightmost_lower_upper_eva_external";
 	idSelf = "rightmost_lower_upper_eva_airlock_control";
@@ -8839,6 +8852,7 @@
 	id_tag = "rightmost_lower_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "rightmost_lower_eva_external";
 	idSelf = "rightmost_lower_eva_airlock_control";
@@ -9569,6 +9583,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Labor Camp Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/effect/turf_decal/sand/plating,
@@ -9626,6 +9641,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -10512,6 +10528,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Escape Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/landmark/navigate_destination{
 	location = "Escape"
 	},
@@ -12028,6 +12045,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/door/airlock/external/glass,
+/obj/structure/fans/tiny,
 /obj/effect/turf_decal/sand/plating,
 /turf/open/floor/plating,
 /area/station/commons/vacant_room)
@@ -12590,6 +12608,7 @@
 	id_tag = "middleright_lower_upper_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleright_lower_upper_eva_external";
 	idSelf = "middleright_lower_upper_eva_airlock_control";
@@ -12666,6 +12685,7 @@
 	id_tag = "middleleft_lower_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleleft_lower_eva_external";
 	idSelf = "middleleft_lower_eva_airlock_control";
@@ -14253,6 +14273,7 @@
 "dRu" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -14571,6 +14592,7 @@
 	id_tag = "middleleft_upper_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleleft_upper_eva_internal";
 	idSelf = "middleleft_upper_eva_airlock_control";
@@ -15154,6 +15176,7 @@
 	id_tag = "rightmost_lower_lower_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "rightmost_lower_lower_eva_external";
 	idSelf = "rightmost_lower_lower_eva_airlock_control";
@@ -15446,6 +15469,7 @@
 	id_tag = "middleright_upper_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleright_upper_eva_external";
 	idSelf = "middleright_upper_eva_airlock_control";
@@ -16908,6 +16932,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Common Mining Dock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -16944,6 +16969,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Labor Camp Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -17370,6 +17396,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -19236,6 +19263,7 @@
 	id_tag = "middleright_lower_lower_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleright_lower_lower_eva_internal";
@@ -21167,6 +21195,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -21429,6 +21458,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/access/any/command/minisat,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -22471,6 +22501,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 4"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
@@ -23952,6 +23983,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 1"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
 "hEp" = (
@@ -24466,6 +24498,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 2"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -24881,6 +24914,7 @@
 	id_tag = "mostleft_lower_lower_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "mostleft_lower_lower_eva_external";
@@ -26121,6 +26155,7 @@
 	name = "Port Docking Bay 1";
 	space_dir = 1
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
@@ -26433,6 +26468,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Common Mining Dock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -27141,6 +27177,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/door/airlock/external/glass,
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plating,
@@ -27619,6 +27656,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Supply Door Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -29213,6 +29251,7 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Supply Door Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /turf/open/floor/plating,
@@ -29904,6 +29943,7 @@
 	name = "Escape Airlock";
 	space_dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
 "jJR" = (
@@ -30398,6 +30438,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/any/command/minisat,
@@ -31161,6 +31202,7 @@
 	id_tag = "middleleft_upper_lower_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleleft_upper_lower_eva_external";
 	idSelf = "middleleft_upper_lower_eva_airlock_control";
@@ -32380,6 +32422,7 @@
 	id_tag = "rightmost_lower_upper_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "rightmost_lower_upper_eva_internal";
 	idSelf = "rightmost_lower_upper_eva_airlock_control";
@@ -32648,6 +32691,7 @@
 	name = "Port Docking Bay 1";
 	space_dir = 2
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
 "kHd" = (
@@ -33477,6 +33521,7 @@
 	id_tag = "mostleft_lower_lower_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "mostleft_lower_lower_eva_internal";
@@ -34723,6 +34768,7 @@
 	name = "Security Escape Airlock";
 	space_dir = 4
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
@@ -35172,6 +35218,7 @@
 	id_tag = "rightmost_upper_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "rightmost_upper_eva_external";
@@ -35252,6 +35299,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
@@ -35761,6 +35809,7 @@
 	id_tag = "mostleft_upper_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "mostleft_upper_eva_internal";
 	idSelf = "mostleft_upper_eva_airlock_control";
@@ -37300,6 +37349,7 @@
 	id_tag = "middleright_lower_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleright_lower_eva_external";
 	idSelf = "middleright_lower_eva_airlock_control";
@@ -37487,6 +37537,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 1"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
 "mlC" = (
@@ -37563,6 +37614,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/cable,
@@ -38709,6 +38761,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/turf_decal/sand/plating,
@@ -39180,6 +39233,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /obj/structure/cable/layer1,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
@@ -40103,6 +40157,7 @@
 	id_tag = "rightmost_lower_lower_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "rightmost_lower_lower_eva_internal";
 	idSelf = "rightmost_lower_lower_eva_airlock_control";
@@ -40304,6 +40359,7 @@
 	id_tag = "middleleft_upper_lower_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleleft_upper_lower_eva_internal";
 	idSelf = "middleleft_upper_lower_eva_airlock_control";
@@ -44395,6 +44451,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 4"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -45463,6 +45520,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Cargo Escape Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
 "pow" = (
@@ -47493,6 +47551,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -47981,6 +48040,7 @@
 	id_tag = "mostleft_upper_lower_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "mostleft_upper_lower_eva_external";
 	idSelf = "mostleft_upper_lower_eva_airlock_control";
@@ -48859,6 +48919,7 @@
 /area/station/security/courtroom)
 "qwr" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -49151,6 +49212,7 @@
 	id_tag = "middleleft_lower_lower_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleleft_lower_lower_eva_internal";
 	idSelf = "middleleft_lower_lower_eva_airlock_control";
@@ -49433,6 +49495,7 @@
 	id_tag = "rightmost_upper_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "rightmost_upper_eva_internal";
@@ -49725,6 +49788,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 3"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
@@ -50246,6 +50310,7 @@
 	id_tag = "middleright_lower_lower_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleright_lower_lower_eva_external";
@@ -50400,6 +50465,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Escape Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/sign/warning/vacuum/external{
 	pixel_y = 32
 	},
@@ -50409,6 +50475,7 @@
 /obj/machinery/door/airlock/external{
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -50480,6 +50547,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Construction Zone"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
 /area/station/construction/mining/aux_base)
@@ -50978,6 +51046,7 @@
 /area/station/service/hydroponics)
 "riv" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -51945,6 +52014,7 @@
 	id_tag = "middleleft_lower_lower_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleleft_lower_lower_eva_external";
 	idSelf = "middleleft_lower_lower_eva_airlock_control";
@@ -54467,6 +54537,7 @@
 	id_tag = "middleright_upper_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleright_upper_eva_internal";
 	idSelf = "middleright_upper_eva_airlock_control";
@@ -54825,6 +54896,7 @@
 /area/station/service/bar)
 "sDz" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -57505,6 +57577,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Labor Camp Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/turf_decal/sand/plating,
 /turf/open/floor/plating,
@@ -57670,6 +57743,7 @@
 	id_tag = "mostleft_lower_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "mostleft_lower_eva_external";
 	idSelf = "mostleft_lower_eva_airlock_control";
@@ -59373,6 +59447,7 @@
 	name = "Cargo Escape Airlock";
 	space_dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
 "uhf" = (
@@ -59488,6 +59563,7 @@
 	id_tag = "mostleft_upper_lower_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "mostleft_upper_lower_eva_internal";
 	idSelf = "mostleft_upper_lower_eva_airlock_control";
@@ -62598,6 +62674,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Security Escape Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
@@ -63534,6 +63611,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 1"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/landmark/navigate_destination{
 	location = "Arrival Shuttle"
 	},
@@ -63724,6 +63802,7 @@
 	id_tag = "middleright_lower_upper_eva_internal";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleright_lower_upper_eva_internal";
 	idSelf = "middleright_lower_upper_eva_airlock_control";
@@ -64344,6 +64423,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 3"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -64357,6 +64437,7 @@
 	id_tag = "middleleft_upper_eva_external";
 	name = "External Access"
 	},
+/obj/structure/fans/tiny,
 /obj/machinery/door_buttons/access_button{
 	idDoor = "middleleft_upper_eva_external";
 	idSelf = "middleleft_upper_eva_airlock_control";
@@ -66525,6 +66606,7 @@
 /area/station/science/xenobiology)
 "wDh" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
 /turf/open/floor/plating,
@@ -69044,6 +69126,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance"
 	},
+/obj/structure/fans/tiny,
 /obj/structure/cable,
 /obj/structure/cable/layer1,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
@@ -69147,6 +69230,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Labor Camp Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -69927,6 +70011,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Mining Dock Airlock"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},

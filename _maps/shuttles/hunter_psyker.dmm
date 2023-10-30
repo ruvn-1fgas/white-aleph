@@ -948,6 +948,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "psykerexternal"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -1020,6 +1021,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "psykerexternal"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{

@@ -445,6 +445,7 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/small,
@@ -568,6 +569,7 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/external/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},

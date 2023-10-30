@@ -315,6 +315,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "pirateportexternal"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/pod/light,
 /area/shuttle/pirate)
@@ -409,6 +410,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "piratestarboardexternal"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/pod/light,
 /area/shuttle/pirate)
@@ -1313,6 +1315,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "piratestarboardexternal"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/docking_port/stationary{
 	dwidth = 13;
@@ -1550,6 +1553,7 @@
 /obj/machinery/door/airlock/external/glass/ruin{
 	id_tag = "pirateportexternal"
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/pod/light,
 /area/shuttle/pirate)

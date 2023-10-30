@@ -901,6 +901,7 @@
 "SB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /obj/docking_port/mobile{
 	dir = 2;
 	shuttle_id = "whiteship";
@@ -975,6 +976,7 @@
 /area/shuttle/abandoned/cargo)
 "XT" = (
 /obj/machinery/door/airlock/external/glass/ruin,
+/obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/catwalk_floor/iron_dark,
