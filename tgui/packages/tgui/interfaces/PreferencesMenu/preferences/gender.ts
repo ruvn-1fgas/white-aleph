@@ -15,14 +15,4 @@ export const GENDERS = {
     icon: 'venus',
     text: 'She/Her',
   },
-
-  [Gender.Other]: {
-    icon: 'transgender',
-    text: 'They/Them',
-  },
-
-  [Gender.Other2]: {
-    icon: 'neuter',
-    text: 'It/Its',
-  },
 };

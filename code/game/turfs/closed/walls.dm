@@ -4,7 +4,7 @@
 /turf/closed/wall
 	name = "wall"
 	desc = "A huge chunk of iron used to separate rooms."
-	icon = 'icons/turf/walls/wall.dmi'
+	icon = 'icons/turf/walls/baywall.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	explosive_resistance = 1

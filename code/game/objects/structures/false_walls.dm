@@ -5,7 +5,7 @@
 	name = "wall"
 	desc = "A huge chunk of metal used to separate rooms."
 	anchored = TRUE
-	icon = 'icons/turf/walls/wall.dmi'
+	icon = 'icons/turf/walls/baywall.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	layer = LOW_OBJ_LAYER
@@ -148,7 +148,7 @@
 /obj/structure/falsewall/reinforced
 	name = "reinforced wall"
 	desc = "A huge chunk of reinforced metal used to separate rooms."
-	icon = 'icons/turf/walls/reinforced_wall.dmi'
+	icon = 'icons/turf/walls/rbaywall.dmi'
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"
 	walltype = /turf/closed/wall/r_wall
