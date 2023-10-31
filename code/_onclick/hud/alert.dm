@@ -490,8 +490,8 @@
 //BLOBS
 
 /atom/movable/screen/alert/nofactory
-	name = "No Factory"
-	desc = "You have no factory, and are slowly dying!"
+	name = "Нет производящей массы"
+	desc = "Нет производящей массы, я медленно умираю!"
 	icon_state = "blobbernaut_nofactory"
 	alerttooltipstyle = "blob"
 
