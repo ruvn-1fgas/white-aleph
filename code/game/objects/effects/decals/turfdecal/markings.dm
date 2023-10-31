@@ -335,7 +335,8 @@
 
 /obj/effect/turf_decal/siding/wood
 	icon_state = "siding_wood"
-	color = "#5d341f"
+//	color = "#5d341f" WD EDIT
+	color = "#55391A"
 
 /obj/effect/turf_decal/siding/wood/corner
 	icon_state = "siding_wood_corner"

@@ -27,10 +27,12 @@
 	var/allow_replacement = TRUE
 
 /turf/open/floor/plating/broken_states()
-	return list("damaged1", "damaged2", "damaged4")
+//	return list("damaged1", "damaged2", "damaged4")
+	return list("platingdmg1", "platingdmg2", "platingdmg3")
 
 /turf/open/floor/plating/burnt_states()
-	return list("floorscorched1", "floorscorched2")
+//	return list("floorscorched1", "floorscorched2")
+	return list("panelscorched")
 
 /turf/open/floor/plating/examine(mob/user)
 	. = ..()

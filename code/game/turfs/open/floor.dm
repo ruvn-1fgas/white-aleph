@@ -1,7 +1,8 @@
 /// Anything above a lattice should go here.
 /turf/open/floor
-	name = "floor"
-	icon = 'icons/turf/floors.dmi'
+	name = "пол"
+//	icon = 'icons/turf/floors.dmi' // WD EDIT
+	icon = 'white/icons/turf/floors.dmi'
 	base_icon_state = "floor"
 	baseturfs = /turf/open/floor/plating
 
@@ -20,7 +21,9 @@
 
 
 	overfloor_placed = TRUE
-	damaged_dmi = 'icons/turf/damaged.dmi'
+	icon = 'white/icons/turf/floors.dmi'
+//	damaged_dmi = 'icons/turf/damaged.dmi'  // WD EDIT
+	damaged_dmi = 'white/icons/turf/damaged.dmi'
 	/// Path of the tile that this floor drops
 	var/floor_tile = null
 	/// Determines if you can deconstruct this with a RCD
