@@ -1,8 +1,6 @@
 export enum Gender {
   Male = 'male',
   Female = 'female',
-  Other = 'plural',
-  Other2 = 'neuter',
 }
 
 export const GENDERS = {

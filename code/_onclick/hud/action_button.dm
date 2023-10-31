@@ -434,15 +434,19 @@ GLOBAL_LIST_INIT(palette_removed_matrix, list(1.4,0,0,0, 0.7,0.4,0,0, 0.4,0,0.6,
 		our_hud = null
 	return ..()
 
+/// WD EDIT START
+
 /// Exists so you have a place to put your buttons when you move them around
 /atom/movable/screen/action_landing
-	name = "Button Space"
-	desc = "<b>Drag and drop</b> a button into this spot<br>to add it to the group"
+	name = "ПРОСТРАНСТВО КНОПОК"
+	desc = "<b>Перемещай</b> кнопки сюда, <br>чтобы добавить их в группу"
 	icon = 'icons/hud/screen_gen.dmi'
 	icon_state = "reserved"
 	// We want our whole 32x32 space to be clickable, so dropping's forgiving
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	var/datum/action_group/owner
+
+/// WD EDIT END
 
 /atom/movable/screen/action_landing/Destroy()
 	if(owner)
