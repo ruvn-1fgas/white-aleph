@@ -41,7 +41,7 @@
 		var/atom/movable/screen/inventory/inv_box
 
 		inv_box = new /atom/movable/screen/inventory(null, src)
-		inv_box.name = "internal storage"
+		inv_box.name = "внутреннее хранилище"
 		inv_box.icon = ui_style
 		inv_box.icon_state = "suit_storage"
 		inv_box.screen_loc = ui_id
@@ -104,8 +104,8 @@
 
 /atom/movable/screen/guardian/manifest
 	icon_state = "manifest"
-	name = "Manifest"
-	desc = "Spring forth into battle!"
+	name = "Манифест"
+	desc = "Выйти в бой!"
 
 /atom/movable/screen/guardian/manifest/Click()
 	if(isguardian(usr))
@@ -115,8 +115,8 @@
 
 /atom/movable/screen/guardian/recall
 	icon_state = "recall"
-	name = "Recall"
-	desc = "Return to your user."
+	name = "Возврат"
+	desc = "Вернуться к своему владельцу."
 
 /atom/movable/screen/guardian/recall/Click()
 	if(isguardian(usr))
@@ -125,8 +125,8 @@
 
 /atom/movable/screen/guardian/toggle_mode
 	icon_state = "toggle"
-	name = "Toggle Mode"
-	desc = "Switch between ability modes."
+	name = "Переключить режим"
+	desc = "Переключить режимы способностей."
 
 /atom/movable/screen/guardian/toggle_mode/Click()
 	if(isguardian(usr))
@@ -138,18 +138,17 @@
 
 /atom/movable/screen/guardian/toggle_mode/assassin
 	icon_state = "stealth"
-	name = "Toggle Stealth"
-	desc = "Enter or exit stealth."
+	name = "Переключить режим"
+	desc = "Войти или выйти из режима невидимости."
 
 /atom/movable/screen/guardian/toggle_mode/gases
 	icon_state = "gases"
-	name = "Toggle Gas"
-	desc = "Switch between possible gases."
-
+	name = "Переключить режим"
+	desc = "Переключить режимы газов."
 /atom/movable/screen/guardian/communicate
 	icon_state = "communicate"
-	name = "Communicate"
-	desc = "Communicate telepathically with your user."
+	name = "Общение"
+	desc = "Общайтесь с вашим владельцем."
 
 /atom/movable/screen/guardian/communicate/Click()
 	if(isguardian(usr))
@@ -159,8 +158,8 @@
 
 /atom/movable/screen/guardian/toggle_light
 	icon_state = "light"
-	name = "Toggle Light"
-	desc = "Glow like star dust."
+	name = "Переключить свет"
+	desc = "Светись, словно звездочка!"
 
 /atom/movable/screen/guardian/toggle_light/Click()
 	if(isguardian(usr))
