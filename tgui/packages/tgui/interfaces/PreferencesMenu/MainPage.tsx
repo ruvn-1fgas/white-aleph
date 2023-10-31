@@ -188,7 +188,7 @@ const GenderButton = (
       popperContent={
         genderMenuOpen && (
           <Stack backgroundColor="white" ml={0.5} p={0.3}>
-            {[Gender.Male, Gender.Female, Gender.Other, Gender.Other2].map(
+            {[Gender.Male, Gender.Female].map(
               (gender) => {
                 return (
                   <Stack.Item key={gender}>
