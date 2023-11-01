@@ -8,34 +8,34 @@
 
 /datum/fantasy_affix/cosmetic_suffixes/New()
 	goodSuffixes = list(
-		"dexterity",
-		"constitution",
-		"intelligence",
-		"wisdom",
-		"charisma",
-		"the forest",
-		"the hills",
-		"the plains",
-		"the sea",
-		"the sun",
-		"the moon",
-		"the void",
-		"the world",
-		"many secrets",
-		"many tales",
-		"many colors",
-		"rending",
-		"sundering",
-		"the night",
-		"the day",
+		"ловкости",
+		"конституции",
+		"интеллекта",
+		"мудрости",
+		"харизмы",
+		"леса",
+		"холмов",
+		"равнин",
+		"моря",
+		"солнца",
+		"луны",
+		"пустоты",
+		"мира",
+		"многих секретов",
+		"многих сказок",
+		"многих цветов",
+		"раздирания",
+		"раскола",
+		"ночи",
+		"дня",
 		)
 	badSuffixes = list(
-		"draining",
-		"burden",
-		"discomfort",
-		"awkwardness",
-		"poor hygiene",
-		"timidity",
+		"осушения",
+		"груза",
+		"дискомфорта",
+		"неловкости",
+		"плохой гигиены",
+		"застенчивости",
 		)
 
 	weight = (length(goodSuffixes) + length(badSuffixes)) * 10
@@ -85,7 +85,7 @@
 	var/obj/item/master = comp.parent
 	master.AddElement(/datum/element/bane, target_type = picked_mobtype)
 	target_types_by_comp[comp] = picked_mobtype
-	return "[newName] of [initial(picked_mobtype.name)] slaying"
+	return "[newName] убийства [initial(picked_mobtype.name)]"
 
 /datum/fantasy_affix/bane/remove(datum/component/fantasy/comp)
 	var/picked_mobtype = target_types_by_comp[comp]
@@ -132,7 +132,7 @@
 		max_mobs = max_mobs,\
 		spawn_delay = spawn_delay,\
 	)
-	return "[newName] of [initial(picked_mobtype.name)] summoning"
+	return "[newName] призыва [initial(picked_mobtype.name)]"
 
 /datum/fantasy_affix/shrapnel
 	name = "shrapnel"
@@ -167,7 +167,7 @@
 
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/mirv, picked_projectiletype)
-	return "[newName] of [initial(picked_projectiletype.name)] shrapnel"
+	return "[newName] шрапнели [initial(picked_projectiletype.name)]"
 
 /datum/fantasy_affix/strength
 	name = "of strength (knockback)"
@@ -178,7 +178,7 @@
 	. = ..()
 	var/obj/item/master = comp.parent
 	master.AddElement(/datum/element/knockback, CEILING(comp.quality/2, 1), FLOOR(comp.quality/10, 1))
-	return "[newName] of strength"
+	return "[newName] силы"
 
 /datum/fantasy_affix/strength/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -195,7 +195,7 @@
 	. = ..()
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg' = 1), 50, falloff_exponent = 20)
-	return "[newName] of the fool"
+	return "[newName] дурака"
 
 /datum/fantasy_affix/curse_of_hunger
 	name = "curse of hunger"
