@@ -47,9 +47,9 @@
 	switch(source_disease.stage)
 		if(1, 2)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, span_warning("Глаза чешутся."))
+				to_chat(infected_mob, span_warning("Глаза чешутся."))
 		if(3, 4)
-			to_chat(M, span_warning("<b>ГЛАЗА ГОРЯТ!</b>"))
+			to_chat(infected_mob, span_warning("<b>ГЛАЗА ГОРЯТ!</b>"))
 			infected_mob.set_eye_blur_if_lower(20 SECONDS)
 			eyes.apply_organ_damage(1)
 

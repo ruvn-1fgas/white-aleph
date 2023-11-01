@@ -1,7 +1,7 @@
 /// Caused by dirty food. Makes you vomit stars.
 /datum/disease/advance/nebula_nausea
 	name = "Туманная тошнота"
-	decs = "Вы не можете сдержать красочную красоту космоса внутри."
+	desc = "Вы не можете сдержать красочную красоту космоса внутри."
 	form = "Состояния"
 	agent = "Stars"
 	cures = list(/datum/reagent/bluespace)
