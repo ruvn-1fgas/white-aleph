@@ -29,8 +29,9 @@
 
 /// Ashwalker ore sensor crafted from brimdemon ash
 /obj/item/ore_sensor
-	name = "ore sensor"
-	desc = "Using demonic frequencies, this ear-mounted tool detects ores in the nearby terrain."
+	name = "датчик руды"
+	// desc = "Using demonic frequencies, this ear-mounted tool detects ores in the nearby terrain."
+	desc = "Используя демонические частоты, этот инструмент, установленный на ухо, обнаруживает руды в близлежащей местности."
 	icon_state = "oresensor"
 	icon = 'icons/obj/mining.dmi'
 	slot_flags = ITEM_SLOT_EARS

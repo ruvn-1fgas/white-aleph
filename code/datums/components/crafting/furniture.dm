@@ -1,5 +1,5 @@
 /datum/crafting_recipe/curtain
-	name = "Curtains"
+	name = "Занавески"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 4,
 		/obj/item/stack/rods = 1,
@@ -8,7 +8,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/showercurtain
-	name = "Shower Curtains"
+	name = "Занавески для душа"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 2,
 		/obj/item/stack/sheet/plastic = 2,
@@ -18,7 +18,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/aquarium
-	name = "Aquarium"
+	name = "Аквариум"
 	result = /obj/structure/aquarium
 	time = 10 SECONDS
 	reqs = list(
@@ -29,7 +29,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/mirror
-	name = "Mirror"
+	name = "Зеркало"
 	result = /obj/item/wallframe/mirror
 	reqs = list(
 		/obj/item/stack/sheet/glass = 5,
@@ -38,7 +38,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/surgery_tray
-	name = "Surgery Tray"
+	name = "Хирургический стол"
 	reqs = list(
 		/obj/item/stack/sheet/mineral/silver = 1,
 		/obj/item/stack/rods = 2

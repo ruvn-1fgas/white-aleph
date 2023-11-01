@@ -256,8 +256,8 @@
  * This base type is an empty shell that needs the assembly added to it first to work.
  */
 /obj/item/trapdoor_remote
-	name = "trapdoor remote"
-	desc = "A small machine that interfaces with a trapdoor controller for easy use."
+	name = "пульт дистанционного управления люком"
+	desc = "Маленькое устройство, которое связывается с контроллером люка для удобного использования."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "trapdoor_remote"
 	COOLDOWN_DECLARE(trapdoor_cooldown)
@@ -267,22 +267,22 @@
 /obj/item/trapdoor_remote/examine(mob/user)
 	. = ..()
 	if(!internals)
-		. += span_warning("[src] has no internals! It needs a trapdoor controller to function.")
+		. += span_warning("[capitalize(src)] не имеет начинки! Нужен контроллер люка для работы.")
 		return
-	. += span_notice("The internals can be removed with a screwdriver.")
+	. += span_notice("Контроллер люка может быть удалён отвёрткой.")
 	if(!internals.linked)
-		. += span_warning("[src] is not linked to a trapdoor.")
+		. += span_warning("[src] не привязан к люку.")
 		return
-	. += span_notice("[src] is linked to a trapdoor.")
+	. += span_notice("[src] привязан к люку.")
 	if(!COOLDOWN_FINISHED(src, trapdoor_cooldown))
-		. += span_warning("It is on a short cooldown.")
+		. += span_warning("На перезарядке.")
 
 /obj/item/trapdoor_remote/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(!internals)
-		to_chat(user, span_warning("[src] has no internals!"))
+		to_chat(user, span_warning("[capitalize(src)] не имеет начинки!"))
 		return
-	to_chat(user, span_notice("You pop [internals] out of [src]."))
+	to_chat(user, span_notice("Вытаскиваю начинку из [src]."))
 	internals.forceMove(get_turf(src))
 	internals = null
 
@@ -291,9 +291,9 @@
 	if(. || !istype(assembly))
 		return
 	if(internals)
-		to_chat(user, span_warning("[src] already has internals!"))
+		to_chat(user, span_warning("[capitalize(src)] переполнен начинкой!"))
 		return
-	to_chat(user, span_notice("You add [assembly] to [src]."))
+	to_chat(user, span_notice("Добавляю [assembly] к [src]."))
 	internals = assembly
 	assembly.forceMove(src)
 
@@ -303,24 +303,24 @@
 		return TRUE
 
 	if(!internals)
-		user.balloon_alert(user, "no device!")
+		user.balloon_alert(user, "нет начинки!")
 		return TRUE
 
 	if(!internals.linked)
 		internals.pulsed(user)
 		// The pulse linked successfully
 		if(internals.linked)
-			user.balloon_alert(user, "linked")
+			user.balloon_alert(user, "соединён")
 		// The pulse failed to link
 		else
-			user.balloon_alert(user, "link failed!")
+			user.balloon_alert(user, "соеинение не удалось")
 		return TRUE
 
 	if(!COOLDOWN_FINISHED(src, trapdoor_cooldown))
-		user.balloon_alert(user, "on cooldown!")
+		user.balloon_alert(user, "на перезарядке!")
 		return TRUE
 
-	user.balloon_alert(user, "trapdoor triggered")
+	user.balloon_alert(user, "активирую люки")
 	playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 	icon_state = "trapdoor_pressed"
 	addtimer(VARSET_CALLBACK(src, icon_state, initial(icon_state)), trapdoor_cooldown_time)
@@ -339,8 +339,8 @@
 
 /// trapdoor parts kit, allows trapdoors to be made by players
 /obj/item/trapdoor_kit
-	name = "trapdoor parts kit"
-	desc = "A kit containing all the parts needed to build a trapdoor. Can only be used on open space."
+	name = "комплект для сборки люка"
+	desc = "Всё для создания люка. Используется на открытом пространстве."
 	icon = 'icons/obj/weapons/improvised.dmi'
 	icon_state = "kitsuitcase"
 	var/in_use = FALSE
@@ -360,7 +360,7 @@
 	if(!isopenspaceturf(target_turf))
 		return
 	in_use = TRUE
-	balloon_alert(user, "constructing trapdoor")
+	balloon_alert(user, "создаём люк")
 	if(!do_after(user, 5 SECONDS, target = target))
 		in_use = FALSE
 		return
@@ -369,6 +369,6 @@
 		return
 	var/turf/new_turf = target_turf.PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 	new_turf.AddComponent(/datum/component/trapdoor, starts_open = FALSE, conspicuous = TRUE)
-	balloon_alert(user, "trapdoor constructed")
+	balloon_alert(user, "люк создан")
 	qdel(src)
 	return

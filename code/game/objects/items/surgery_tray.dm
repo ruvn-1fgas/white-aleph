@@ -29,8 +29,8 @@
  * Can be folded up and carried. Click it to draw a random tool.
  */
 /obj/item/surgery_tray
-	name = "surgery tray"
-	desc = "A Deforest brand medical cart. It is a folding model, meaning the wheels on the bottom can be retracted and the body used as a tray."
+	name = "хирургический стол"
+	desc = "Хирургический стол Deforest. Это складная модель, что означает, что колеса внизу могут быть убраны."
 	icon = 'icons/obj/medicart.dmi'
 	icon_state = "tray"
 	w_class = WEIGHT_CLASS_BULKY

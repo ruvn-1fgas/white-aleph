@@ -1,5 +1,5 @@
 /datum/crafting_recipe/paperframes
-	name = "Paper Frames"
+	name = "Бумажные рамки"
 	time = 1 SECONDS
 	reqs = list(
 		/obj/item/stack/sheet/mineral/wood = 5,
@@ -10,7 +10,7 @@
 	category = CAT_STRUCTURE
 
 /datum/crafting_recipe/rib
-	name = "Colossal Rib"
+	name = "Ребро Колосса"
 	always_available = FALSE
 	reqs = list(
 		/obj/item/stack/sheet/bone = 10,
@@ -20,7 +20,7 @@
 	category = CAT_STRUCTURE
 
 /datum/crafting_recipe/skull
-	name = "Skull Carving"
+	name = "Вырезать череп"
 	always_available = FALSE
 	reqs = list(
 		/obj/item/stack/sheet/bone = 6,
@@ -30,7 +30,7 @@
 	category = CAT_STRUCTURE
 
 /datum/crafting_recipe/halfskull
-	name = "Cracked Skull Carving"
+	name = "Вырезать половину черепа"
 	always_available = FALSE
 	reqs = list(
 		/obj/item/stack/sheet/bone = 3,
@@ -40,7 +40,7 @@
 	category = CAT_STRUCTURE
 
 /datum/crafting_recipe/firecabinet
-	name = "Fire Axe Cabinet"
+	name = "Шкаф для пожарного топора"
 	result = /obj/item/wallframe/fireaxecabinet
 	time = 8 SECONDS
 	reqs = list(
@@ -51,7 +51,7 @@
 	category = CAT_STRUCTURE
 
 /datum/crafting_recipe/mechcabinet
-	name = "Mech Removal Cabinet"
+	name = "Шкаф для лома против мехов"
 	result = /obj/item/wallframe/fireaxecabinet/mechremoval
 	time = 8 SECONDS
 	reqs = list(
@@ -62,7 +62,7 @@
 	category = CAT_STRUCTURE
 
 /datum/crafting_recipe/syndicate_uplink_beacon
-	name = "Syndicate Uplink Beacon"
+	name = "Маяк аплинка Синдиката"
 	result = /obj/structure/syndicate_uplink_beacon
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	always_available = FALSE

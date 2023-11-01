@@ -140,8 +140,8 @@
 	return ..()
 
 /obj/item/shield/riot/flash
-	name = "strobe shield"
-	desc = "A shield with a built in, high intensity light capable of blinding and disorienting suspects. Takes regular handheld flashes as bulbs."
+	name = "ослепляющий щит"
+	desc = "Щит со встроенным высокоинтенсивным светом, способным ослеплять и дезориентировать подозреваемых. Принимает обычные ручные флэшки в виде лампочек."
 	icon_state = "flashshield"
 	inhand_icon_state = "flashshield"
 	var/obj/item/assembly/flash/handheld/embedded_flash = /obj/item/assembly/flash/handheld
@@ -204,10 +204,10 @@
 	if(istype(attackby_item, /obj/item/assembly/flash/handheld))
 		var/obj/item/assembly/flash/handheld/flash = attackby_item
 		if(flash.burnt_out)
-			to_chat(user, span_warning("No sense replacing it with a broken bulb!"))
+			to_chat(user, span_warning("Нет смысла заменять её сгоревшей вспышкой!"))
 			return
 		else
-			to_chat(user, span_notice("You begin to replace the bulb..."))
+			to_chat(user, span_notice("Устанавливаю новую вспышку..."))
 			if(do_after(user, 20, target = user))
 				if(QDELETED(flash) || flash.burnt_out)
 					return
@@ -237,7 +237,7 @@
 /obj/item/shield/riot/flash/examine(mob/user)
 	. = ..()
 	if (embedded_flash?.burnt_out)
-		. += span_info("The mounted bulb has burnt out. You can try replacing it with a new <b>flash</b>.")
+		. += span_info("Установленная вспышка перегорела. Стоит попробовать заменить её на новую..")
 
 /obj/item/shield/energy
 	name = "energy combat shield"

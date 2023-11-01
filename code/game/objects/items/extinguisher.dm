@@ -75,8 +75,8 @@
 	starting_water = FALSE
 
 /obj/item/extinguisher/crafted
-	name = "Improvised cooling spray"
-	desc = "Spraycan turned coolant dispenser. Can be sprayed on containers to cool them. Refill using water."
+	name = "Импровизированный охлаждающий спрей"
+	desc = "Спрей, который может мощно пшикнуть."
 	icon_state = "coolant0"
 	worn_icon_state = "miniFE"
 	inhand_icon_state = "miniFE"
@@ -95,7 +95,7 @@
 /obj/item/extinguisher/crafted/attack_self(mob/user)
 	safety = !safety
 	icon_state = "[sprite_name][!safety]"
-	to_chat(user, "[safety ? "You remove the straw and put it on the side of the cool canister" : "You insert the straw, readying it for use"].")
+	to_chat(user, "[safety ? "Убираю трубочку и прикрепляю её к боку канистры" : "Устанавливаю трубочку в качестве дула, спрей готов к использованию"].")
 
 /obj/item/extinguisher/proc/refill()
 	if(!chem)

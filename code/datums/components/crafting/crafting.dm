@@ -192,15 +192,15 @@
 			if(recipe.one_per_turf)
 				for(var/content in get_turf(crafter))
 					if(istype(content, recipe.result))
-						return ", object already present."
+						return ", уже создано."
 			//If we're a mob we'll try a do_after; non mobs will instead instantly construct the item
 			if(ismob(crafter) && !do_after(crafter, recipe.time, target = crafter))
 				return "."
 			contents = get_surroundings(crafter, recipe.blacklist)
 			if(!check_contents(crafter, recipe, contents))
-				return ", missing component."
+				return ", не хватает компонента."
 			if(!check_tools(crafter, recipe, contents))
-				return ", missing tool."
+				return ", нет инструмента."
 			var/list/parts = del_reqs(recipe, crafter)
 			var/atom/movable/result
 			if(ispath(recipe.result, /obj/item/stack))
@@ -216,8 +216,8 @@
 			if(send_feedback)
 				SSblackbox.record_feedback("tally", "object_crafted", 1, result.type)
 			return result //Send the item back to whatever called this proc so it can handle whatever it wants to do with the new item
-		return ", missing tool."
-	return ", missing component."
+		return ", нет инструмента."
+	return ", не хватает компонента."
 
 /*Del reqs works like this:
 
@@ -470,11 +470,11 @@
 				else
 					if(!istype(result, /obj/effect/spawner))
 						result.forceMove(user.drop_location())
-				to_chat(user, span_notice("[crafting_recipe.name] crafted."))
+				to_chat(user, span_notice("[crafting_recipe.name] создано."))
 				user.investigate_log("crafted [crafting_recipe]", INVESTIGATE_CRAFTING)
 				crafting_recipe.on_craft_completion(user, result)
 			else
-				to_chat(user, span_warning("Construction failed[result]"))
+				to_chat(user, span_warning("Создание провалено[result]"))
 			busy = FALSE
 		if("toggle_recipes")
 			display_craftable_only = !display_craftable_only

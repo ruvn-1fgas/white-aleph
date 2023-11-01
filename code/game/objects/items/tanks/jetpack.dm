@@ -140,8 +140,8 @@
 	return OXYLOSS
 
 /obj/item/tank/jetpack/improvised
-	name = "improvised jetpack"
-	desc = "A jetpack made from two air tanks, a fire extinguisher and some atmospherics equipment. It doesn't look like it can hold much."
+	name = "самодельный реактивный ранец"
+	desc = "Реактивный ранец, сделанный из двух баллонов с воздухом, огнетушителя и некоторого атмосферного оборудования. Не похоже, что он вмещает много газа."
 	icon_state = "jetpack-improvised"
 	inhand_icon_state = "jetpack-improvised"
 	worn_icon = null
@@ -156,7 +156,7 @@
 
 	var/mob/user = loc
 	if(rand(0,250) == 0)
-		to_chat(user, span_notice("You feel your jetpack's engines cut out."))
+		to_chat(user, span_notice("Мне кажется, что двигатели реактивного ранца отказывают."))
 		turn_off(user)
 		return
 	return ..()
