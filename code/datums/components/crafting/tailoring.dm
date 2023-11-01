@@ -359,7 +359,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/atmospherics_gas_mask
-	name = "atmospherics gas mask"
+	name = "Противогаз атмостеха"
 	result = /obj/item/clothing/mask/gas/atmos
 	tool_behaviors = list(TOOL_WELDER)
 	time = 8 SECONDS
@@ -371,7 +371,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/paper_hat
-	name = "Paper Hat"
+	name = "Бумажная шляпка"
 	result = /obj/item/clothing/head/costume/paper_hat
 	time = 5 SECONDS
 	reqs = list(

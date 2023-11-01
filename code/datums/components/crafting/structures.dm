@@ -74,3 +74,12 @@
 		/obj/item/stack/ore/bluespace_crystal = 1,
 	)
 	category = CAT_STRUCTURE
+
+/datum/crafting_recipe/bonfire
+	name = "Костёр"
+	time = 6 SECONDS
+	reqs = list(/obj/item/grown/log = 5)
+	parts = list(/obj/item/grown/log = 5)
+	blacklist = list(/obj/item/grown/log/steel)
+	result = /obj/structure/bonfire
+	category = CAT_STRUCTURE
