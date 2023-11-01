@@ -5,7 +5,7 @@ export const JOB2RUSSIAN = {
   'AI': 'ИИ',
   'Assistant': 'Ассистент',
   'Atmospheric Technician': 'Атмосферный Техник',
-  'Bartender': 'Бермен',
+  'Bartender': 'Бармен',
   'Bitrunner': 'Битраннер',
   'Botanist': 'Ботаник',
   'Captain': 'Капитан',
