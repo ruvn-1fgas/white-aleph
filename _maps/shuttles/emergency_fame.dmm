@@ -125,6 +125,7 @@
 /obj/machinery/door/airlock/titanium{
 	name = "Emergency Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "gm" = (
@@ -167,6 +168,7 @@
 /obj/machinery/door/airlock/command/glass{
 	name = "Cockpit"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
 "jQ" = (
@@ -274,6 +276,7 @@
 /area/shuttle/escape)
 "mc" = (
 /obj/machinery/door/airlock/maintenance_hatch,
+/obj/structure/fans/tiny,
 /turf/open/floor/catwalk_floor,
 /area/shuttle/escape)
 "mm" = (
@@ -453,6 +456,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/airlock/external,
 /obj/structure/fans/tiny,
+/obj/structure/fans/tiny,
 /turf/open/floor/catwalk_floor,
 /area/shuttle/escape)
 "so" = (
@@ -489,6 +493,7 @@
 	name = "Brig"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/escape/brig)
 "vL" = (
@@ -566,6 +571,7 @@
 	dir = 2;
 	name = "Hall of fame emergency shuttle"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "yc" = (
@@ -673,6 +679,7 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /obj/structure/fans/tiny,
 /turf/open/floor/catwalk_floor,
 /area/shuttle/escape)

@@ -54,17 +54,26 @@
 /obj/machinery/power/shuttle_engine/propulsion,
 /turf/open/floor/plating/airless,
 /area/shuttle/escape/meteor)
+"p" = (
+/obj/structure/fans/tiny/invisible,
+/turf/open/misc/asteroid,
+/area/shuttle/escape/meteor)
 "u" = (
 /obj/machinery/power/terminal{
 	dir = 1
 	},
 /turf/open/misc/asteroid,
 /area/shuttle/escape/meteor)
+"B" = (
+/obj/structure/fans/tiny/invisible,
+/turf/closed/mineral/asteroid/porous,
+/area/shuttle/escape/meteor)
 "L" = (
 /obj/docking_port/mobile/emergency{
 	movement_force = list("KNOCKDOWN"=3,"THROW"=6);
 	name = "\proper a meteor with engines strapped to it"
 	},
+/obj/structure/fans/tiny/invisible,
 /turf/open/misc/asteroid,
 /area/shuttle/escape/meteor)
 
@@ -72,40 +81,40 @@
 a
 a
 a
-b
-b
-b
-b
-b
-b
-b
-b
-d
-d
-d
-b
-b
-b
-d
-d
-d
+B
+B
+B
+B
+B
+B
+B
+B
+p
+p
+p
+B
+B
+B
+p
+p
+p
 L
-d
-d
-b
-d
-d
-d
-d
-d
-b
-b
-b
-b
-b
-b
-b
-b
+p
+p
+B
+p
+p
+p
+p
+p
+B
+B
+B
+B
+B
+B
+B
+B
 a
 a
 a

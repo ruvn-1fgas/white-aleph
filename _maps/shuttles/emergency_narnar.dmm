@@ -116,6 +116,7 @@
 /area/shuttle/escape)
 "x" = (
 /obj/machinery/door/airlock/cult/friendly,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "y" = (
@@ -152,6 +153,7 @@
 /obj/docking_port/mobile/emergency{
 	name = "shuttle 667"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "F" = (

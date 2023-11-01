@@ -4,6 +4,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/wood,
 /area/shuttle/escape)
 "ca" = (
@@ -233,6 +234,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/wood,
 /area/shuttle/escape)
 "qI" = (
@@ -454,6 +456,7 @@
 /obj/docking_port/mobile/emergency{
 	name = "The NTSS Independence"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/wood,
 /area/shuttle/escape)
 "Dn" = (
