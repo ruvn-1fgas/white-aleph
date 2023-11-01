@@ -59,6 +59,7 @@
 	name = "Shuttle Airlock"
 	},
 /obj/docking_port/mobile/monastery,
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/pod_1)
 "W" = (

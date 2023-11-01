@@ -149,6 +149,7 @@
 /obj/docking_port/mobile/emergency{
 	name = "Snappop(tm)!"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "aK" = (
@@ -165,6 +166,7 @@
 /obj/machinery/door/airlock/bananium{
 	name = "Emergency Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "aS" = (

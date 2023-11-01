@@ -200,6 +200,7 @@
 	name = "Economy-Class"
 	},
 /obj/structure/fans/tiny,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "jC" = (
@@ -676,6 +677,7 @@
 /obj/machinery/door/airlock/silver{
 	name = "First Class"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/carpet/blue,
 /area/shuttle/escape/luxury)
 "CP" = (
@@ -704,6 +706,7 @@
 /obj/machinery/door/airlock/silver{
 	name = "First Class"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/carpet/blue,
 /area/shuttle/escape/luxury)
 "Dj" = (
@@ -736,6 +739,7 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Escape Shuttle Cell"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/carpet/red,
 /area/shuttle/escape/brig)
 "DK" = (

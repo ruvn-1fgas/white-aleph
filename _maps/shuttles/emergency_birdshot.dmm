@@ -237,6 +237,7 @@
 	dir = 8;
 	name = "birdshot emergency shuttle"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "lp" = (
@@ -244,6 +245,7 @@
 	name = "Emergency Shuttle Airlock"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "lE" = (
@@ -251,6 +253,7 @@
 	name = "Emergency Shuttle Cockpit"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "lI" = (
@@ -617,6 +620,13 @@
 	},
 /turf/open/floor/mineral/titanium/tiled/blue,
 /area/shuttle/escape)
+"Cu" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Emergency Shuttle Door"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/escape)
 "De" = (
 /turf/open/floor/mineral/titanium/tiled,
 /area/shuttle/escape)
@@ -963,12 +973,14 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Emergency Shuttle Door"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/purple,
 /area/shuttle/escape)
 "Xy" = (
 /obj/machinery/door/airlock/titanium{
 	name = "Emergency Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "ZA" = (
@@ -1188,7 +1200,7 @@ nQ
 ax
 LX
 LX
-hF
+Cu
 LX
 LX
 ax
@@ -1196,7 +1208,7 @@ nQ
 nQ
 mU
 Sm
-hF
+Cu
 LX
 rZ
 LX
@@ -1312,7 +1324,7 @@ nQ
 ax
 LX
 LX
-hF
+Cu
 LX
 LX
 ax
@@ -1320,7 +1332,7 @@ nQ
 nQ
 mU
 Sm
-hF
+Cu
 LX
 rZ
 LX

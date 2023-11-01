@@ -4166,8 +4166,8 @@
 /turf/open/floor/iron,
 /area/station/command/gateway)
 "buN" = (
-/obj/structure/flora/bush/large/style_random,
 /obj/structure/disposalpipe/segment,
+/obj/item/kirbyplants/random,
 /turf/open/floor/grass,
 /area/station/medical/treatment_center)
 "buT" = (
@@ -4759,6 +4759,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
+/obj/machinery/iv_drip,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "bHN" = (
@@ -26726,10 +26727,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
 "jFB" = (
-/obj/machinery/iv_drip,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/machinery/computer/operating,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "jFK" = (
@@ -29566,6 +29567,14 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/main)
+"kEP" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/duct,
+/obj/machinery/iv_drip,
+/turf/open/floor/iron/white,
+/area/station/medical/treatment_center)
 "kFg" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 1
@@ -63261,9 +63270,9 @@
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
 "wvP" = (
-/obj/machinery/iv_drip,
 /obj/machinery/airalarm/directional/north,
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/machinery/computer/operating,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "wvR" = (
@@ -88813,7 +88822,7 @@ ahg
 grm
 sSp
 wvP
-wUQ
+kEP
 kui
 ckE
 ckE

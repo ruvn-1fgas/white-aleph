@@ -25,6 +25,7 @@
 /obj/machinery/door/airlock/titanium/glass{
 	name = "Escape Pod Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/carpet/executive,
 /area/shuttle/pod_1)
 "Q" = (
