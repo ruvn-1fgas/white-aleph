@@ -28,7 +28,7 @@ export const GamePreferencesPage = (props, context) => {
   )) {
     const feature = features[featureId];
 
-    let nameInner: InfernoNode = feature?.name || featureId;
+    let nameInner: InfernoNode = feature?.name_ru || feature?.name || featureId;
 
     if (feature?.description) {
       nameInner = (

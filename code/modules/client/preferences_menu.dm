@@ -1,7 +1,7 @@
 /datum/verbs/menu/Preferences/verb/open_character_preferences()
 	set category = "OOC"
-	set name = "Open Character Preferences"
-	set desc = "Open Character Preferences"
+	set name = "Настройки персонажа"
+	set desc = "Открыть настройки персонажа"
 
 	var/datum/preferences/preferences = usr?.client?.prefs
 	if (!preferences)
@@ -13,8 +13,8 @@
 
 /datum/verbs/menu/Preferences/verb/open_game_preferences()
 	set category = "OOC"
-	set name = "Open Game Preferences"
-	set desc = "Open Game Preferences"
+	set name = "Настройки игры"
+	set desc = "Открыть настройки игры"
 
 	var/datum/preferences/preferences = usr?.client?.prefs
 	if (!preferences)

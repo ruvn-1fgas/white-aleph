@@ -3,11 +3,12 @@ import { Feature, FeatureDropdownInput } from '../base';
 
 export const preferred_map: Feature<string> = {
   name: 'Preferred map',
+  name_ru: 'Любимая карта',
   category: 'GAMEPLAY',
   description: multiline`
-    During map rotation, prefer this map be chosen.
-    This does not affect the map vote, only random rotation when a vote
-    is not held.
+    Во время ротации карт, предпочитать эту карту.
+    Это не влияет на голосование за карту, только на случайную ротацию,
+    когда голосование не проводится.
   `,
   component: FeatureDropdownInput,
 };

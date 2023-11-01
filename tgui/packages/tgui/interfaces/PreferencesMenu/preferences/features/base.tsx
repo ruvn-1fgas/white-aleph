@@ -15,6 +15,7 @@ export type Feature<
   TServerData = undefined
 > = {
   name: string;
+  name_ru?: string;
   component: FeatureValue<TReceiving, TSending, TServerData>;
   category?: string;
   description?: string;

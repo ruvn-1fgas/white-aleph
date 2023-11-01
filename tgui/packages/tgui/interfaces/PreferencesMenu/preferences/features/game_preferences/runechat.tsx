@@ -2,28 +2,31 @@ import { CheckboxInput, FeatureNumberInput, FeatureNumeric, FeatureToggle } from
 
 export const chat_on_map: FeatureToggle = {
   name: 'Enable Runechat',
+  name_ru: 'Включить рунчат',
   category: 'RUNECHAT',
-  description: 'Chat messages will show above heads.',
+  description: 'Сообщения будут отображаться над головами.',
   component: CheckboxInput,
 };
 
 export const see_chat_non_mob: FeatureToggle = {
   name: 'Enable Runechat on objects',
+  name_ru: 'Включить рунчат для объектов',
   category: 'RUNECHAT',
-  description: 'Chat messages will show above objects when they speak.',
+  description: 'Сообщения будут отображаться над объектами, когда они говорят.',
   component: CheckboxInput,
 };
 
 export const see_rc_emotes: FeatureToggle = {
   name: 'Enable Runechat emotes',
+  name_ru: 'Включить рунчат для эмоутов',
   category: 'RUNECHAT',
-  description: 'Emotes will show above heads.',
+  description: 'Эмоуты будут отображаться над головами.',
   component: CheckboxInput,
 };
 
 export const max_chat_length: FeatureNumeric = {
   name: 'Max chat length',
+  name_ru: 'Максимальная длина сообщения',
   category: 'RUNECHAT',
-  description: 'The maximum length a Runechat message will show as.',
   component: FeatureNumberInput,
 };

@@ -2,7 +2,7 @@ import { FeatureColorInput, Feature } from '../base';
 
 export const ooccolor: Feature<string> = {
   name: 'OOC color',
+  name_ru: 'Цвет OOC',
   category: 'CHAT',
-  description: 'The color of your OOC messages.',
   component: FeatureColorInput,
 };
