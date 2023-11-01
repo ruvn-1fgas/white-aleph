@@ -3,8 +3,9 @@ import { FeatureToggle, CheckboxInput } from '../base';
 
 export const chat_bankcard: FeatureToggle = {
   name: 'Enable income updates',
+  name_ru: 'Оповещение о зарплате',
   category: 'CHAT',
-  description: 'Receive notifications for your bank account.',
+  description: 'Получать уведомления о состоянии вашего банковского счета.',
   component: CheckboxInput,
 };
 
@@ -71,6 +72,7 @@ export const chat_login_logout: FeatureToggle = {
 
 export const chat_ooc: FeatureToggle = {
   name: 'Enable OOC',
+  name_ru: 'Включить OOC',
   category: 'CHAT',
   component: CheckboxInput,
 };
@@ -81,9 +83,11 @@ export const chat_prayer: FeatureToggle = {
   component: CheckboxInput,
 };
 
+// Это говно всё равно не работает
 export const chat_pullr: FeatureToggle = {
   name: 'Enable pull request notifications',
+  name_ru: 'Уведомления о пулл реквестах',
   category: 'CHAT',
-  description: 'Be notified when a pull request is made, closed, or merged.',
+  description: 'Получать уведомления о создании, закрытии или слиянии пулл реквестов.',
   component: CheckboxInput,
 };

@@ -16,7 +16,7 @@
 /datum/preference/choiced/backpack
 	savefile_key = "backpack"
 	savefile_identifier = PREFERENCE_CHARACTER
-	main_feature_name = "Backpack"
+	main_feature_name = "Рюкзак"
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 
@@ -32,6 +32,9 @@
 		DDUFFELBAG,
 		DMESSENGER,
 	)
+
+/datum/preference/choiced/backpack/create_default_value()
+	return GBACKPACK
 
 /datum/preference/choiced/backpack/icon_for(value)
 	switch (value)
@@ -59,6 +62,7 @@
 		if (DMESSENGER)
 			return /obj/item/storage/backpack/messenger/med
 
+
 /datum/preference/choiced/backpack/apply_to_human(mob/living/carbon/human/target, value)
 	target.backpack = value
 
@@ -66,7 +70,7 @@
 /datum/preference/choiced/jumpsuit
 	savefile_key = "jumpsuit_style"
 	savefile_identifier = PREFERENCE_CHARACTER
-	main_feature_name = "Jumpsuit"
+	main_feature_name = "Комбез"
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 
@@ -90,7 +94,7 @@
 /datum/preference/choiced/socks
 	savefile_key = "socks"
 	savefile_identifier = PREFERENCE_CHARACTER
-	main_feature_name = "Socks"
+	main_feature_name = "Носки"
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 
@@ -114,7 +118,7 @@
 /datum/preference/choiced/undershirt
 	savefile_key = "undershirt"
 	savefile_identifier = PREFERENCE_CHARACTER
-	main_feature_name = "Undershirt"
+	main_feature_name = "Футболка"
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 
@@ -149,7 +153,7 @@
 /datum/preference/choiced/underwear
 	savefile_key = "underwear"
 	savefile_identifier = PREFERENCE_CHARACTER
-	main_feature_name = "Underwear"
+	main_feature_name = "Бельё"
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 

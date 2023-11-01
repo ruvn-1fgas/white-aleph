@@ -33,7 +33,7 @@ const CharacterControls = (props: {
           onClick={props.handleRotate}
           fontSize="22px"
           icon="undo"
-          tooltip="Rotate"
+          tooltip="Повернуть"
           tooltipPosition="top"
         />
       </Stack.Item>
@@ -43,7 +43,7 @@ const CharacterControls = (props: {
           onClick={props.handleOpenSpecies}
           fontSize="22px"
           icon="paw"
-          tooltip="Species"
+          tooltip="Расы"
           tooltipPosition="top"
         />
       </Stack.Item>
@@ -114,7 +114,7 @@ const ChoicedSelection = (
                   'font-size': '14px',
                   'text-align': 'center',
                 }}>
-                Select {props.name.toLowerCase()}
+                Выберите {props.name.toLowerCase()}
               </Box>
             </Stack.Item>
 
@@ -216,7 +216,7 @@ const GenderButton = (
         }}
         fontSize="22px"
         icon={GENDERS[props.gender].icon}
-        tooltip="Gender"
+        tooltip="Пол"
         tooltipPosition="top"
       />
     </Popper>

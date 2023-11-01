@@ -246,7 +246,7 @@ const SpeciesPageInner = (
         <Button
           icon="arrow-left"
           onClick={props.handleClose}
-          content="Go Back"
+          content="Назад"
         />
       </Stack.Item>
 

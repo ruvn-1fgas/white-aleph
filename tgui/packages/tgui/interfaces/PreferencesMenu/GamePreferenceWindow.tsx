@@ -35,7 +35,7 @@ export const GamePreferenceWindow = (
   }
 
   return (
-    <Window title="Game Preferences" width={920} height={770}>
+    <Window title="Настройки игры" width={920} height={770}>
       <Window.Content>
         <Stack vertical fill>
           <Stack.Item>
@@ -45,7 +45,7 @@ export const GamePreferenceWindow = (
                   currentPage={currentPage}
                   page={GamePreferencesSelectedPage.Settings}
                   setPage={setCurrentPage}>
-                  Settings
+                  Настройки
                 </PageButton>
               </Stack.Item>
 
@@ -54,7 +54,7 @@ export const GamePreferenceWindow = (
                   currentPage={currentPage}
                   page={GamePreferencesSelectedPage.Keybindings}
                   setPage={setCurrentPage}>
-                  Keybindings
+                  Сочетания клавиш
                 </PageButton>
               </Stack.Item>
             </Stack>

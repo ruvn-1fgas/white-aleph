@@ -3,21 +3,21 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
 	priority = PREFERENCE_PRIORITY_NAME_MODIFICATIONS //this will be overwritten by names otherwise
-	main_feature_name = "Vampire status"
+	main_feature_name = "Статус вампира"
 	should_generate_icons = TRUE
 	relevant_inherent_trait = TRAIT_BLOOD_CLANS
 
 /datum/preference/choiced/vampire_status/create_default_value()
-	return "Inoculated" //eh, have em try out the mechanic first
+	return "Привитый" //eh, have em try out the mechanic first
 
 /datum/preference/choiced/vampire_status/init_possible_values()
-	return list("Inoculated", "Outcast")
+	return list("Привитый", "Изгой")
 
 /datum/preference/choiced/vampire_status/icon_for(value)
 	switch (value)
-		if ("Inoculated")
+		if ("Привитый")
 			return icon('icons/obj/drinks/drinks.dmi', "bloodglass")
-		if ("Outcast")
+		if ("Изгой")
 			return icon('icons/obj/medical/bloodpack.dmi', "generic_bloodpack")
 
 ///list that stores a vampire house name for each department
@@ -27,7 +27,7 @@ GLOBAL_LIST_EMPTY(vampire_houses)
 	if(!HAS_TRAIT(target, TRAIT_BLOOD_CLANS))
 		return
 
-	if(value != "Inoculated")
+	if(value != "Привитый")
 		return
 
 	//find and setup the house (department) this vampire is joining

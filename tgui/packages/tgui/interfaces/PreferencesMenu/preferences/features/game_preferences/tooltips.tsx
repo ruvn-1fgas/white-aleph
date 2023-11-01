@@ -3,18 +3,20 @@ import { CheckboxInput, Feature, FeatureNumberInput, FeatureToggle } from '../ba
 
 export const enable_tips: FeatureToggle = {
   name: 'Enable tooltips',
+  name_ru: 'Включить подсказки',
   category: 'TOOLTIPS',
   description: multiline`
-    Do you want to see tooltips when hovering over items?
+    Подсказки при наведении на предметы.
   `,
   component: CheckboxInput,
 };
 
 export const tip_delay: Feature<number> = {
   name: 'Tooltip delay (in milliseconds)',
+  name_ru: 'Задержка подсказки (в миллисекундах)',
   category: 'TOOLTIPS',
   description: multiline`
-    How long should it take to see a tooltip when hovering over items?
+    Как долго должна отображаться подсказка при наведении на предметы?
   `,
   component: FeatureNumberInput,
 };

@@ -1207,3 +1207,90 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 /proc/endswith(input_text, ending)
 	var/input_length = LAZYLEN(ending)
 	return !!findtext(input_text, ending, -input_length)
+
+/proc/ru_job_parse(job)
+	switch(job)
+		if (JOB_ASSISTANT)
+			return "Ассистент"
+		if (JOB_CAPTAIN)
+			return "Капитан"
+		if (JOB_CHIEF_ENGINEER)
+			return "Старший Инженер"
+		if (JOB_STATION_ENGINEER)
+			return "Инженер"
+		if (JOB_ATMOSPHERIC_TECHNICIAN)
+			return "Атмосферный Техник"
+		if (JOB_CHIEF_MEDICAL_OFFICER)
+			return "Главный Врач"
+		if (JOB_MEDICAL_DOCTOR)
+			return "Врач"
+		if (JOB_PARAMEDIC)
+			return "Парамедик"
+		if (JOB_VIROLOGIST)
+			return "Вирусолог"
+		if (JOB_CHEMIST)
+			return "Химик"
+		if (JOB_CORONER)
+			return "Коронер"
+		if (JOB_RESEARCH_DIRECTOR)
+			return "Научный Руководитель"
+		if (JOB_SCIENTIST)
+			return "Учёный"
+		if (JOB_GENETICIST)
+			return "Генетик"
+		if (JOB_ROBOTICIST)
+			return "Робототехник"
+		if (JOB_HEAD_OF_SECURITY)
+			return "Начальник Охраны"
+		if (JOB_WARDEN)
+			return "Надзиратель"
+		if (JOB_DETECTIVE)
+			return "Детектив"
+		if (JOB_SECURITY_OFFICER)
+			return "Офицер"
+		if (JOB_SECURITY_OFFICER_SUPPLY)
+			return "Офицер (Снабжение)"
+		if (JOB_SECURITY_OFFICER_ENGINEERING)
+			return "Офицер (Инженерный)"
+		if (JOB_SECURITY_OFFICER_MEDICAL)
+			return "Офицер (Медбей)"
+		if (JOB_SECURITY_OFFICER_SCIENCE)
+			return "Офицер (Научный)"
+		if (JOB_QUARTERMASTER)
+			return "Квартирмейстер"
+		if (JOB_CARGO_TECHNICIAN)
+			return "Грузчик"
+		if (JOB_SHAFT_MINER)
+			return "Шахтёр"
+		if (JOB_BITRUNNER)
+			return "Битраннер"
+		if (JOB_HEAD_OF_PERSONNEL)
+			return "Глава Персонала"
+		if (JOB_BARTENDER)
+			return "Бармен"
+		if (JOB_BOTANIST)
+			return "Ботаник"
+		if (JOB_COOK)
+			return "Повар"
+		if (JOB_JANITOR)
+			return "Уборщик"
+		if (JOB_CURATOR)
+			return "Куратор"
+		if (JOB_PSYCHOLOGIST)
+			return "Психолог"
+		if (JOB_LAWYER)
+			return "Адвокат"
+		if (JOB_CHAPLAIN)
+			return "Капеллан"
+		if (JOB_CLOWN)
+			return "Клоун"
+		if (JOB_MIME)
+			return "Мим"
+		if (JOB_PRISONER)
+			return "Заключённый"
+		if ("red")
+			return "Красный"
+		if ("blue")
+			return "Синий"
+		else
+			return job

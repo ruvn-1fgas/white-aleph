@@ -2,7 +2,8 @@ import { CheckboxInput, FeatureToggle } from '../base';
 
 export const multiz_parallax: FeatureToggle = {
   name: 'Enable multi-z parallax',
+  name_ru: 'Эффект глубины',
   category: 'GAMEPLAY',
-  description: 'Enable multi-z parallax, for a 3D effect.',
+  description: 'Вкл / Выкл',
   component: CheckboxInput,
 };

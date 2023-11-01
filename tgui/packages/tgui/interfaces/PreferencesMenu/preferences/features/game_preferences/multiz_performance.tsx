@@ -2,8 +2,9 @@ import { createDropdownInput, Feature } from '../base';
 
 export const multiz_performance: Feature<number> = {
   name: 'Multi-Z Detail',
+  name_ru: 'Ограничение глубины',
   category: 'GAMEPLAY',
-  description: 'How detailed multi-z is. Lower this to improve performance',
+  description: 'Детализация Multi-Z (чем ниже, тем лучше производительность)',
   component: createDropdownInput({
     [-1]: 'Standard',
     2: 'High',

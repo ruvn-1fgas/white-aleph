@@ -1,6 +1,6 @@
 import { CheckboxInput, FeatureToggle } from '../base';
 
 export const persistent_scars: FeatureToggle = {
-  name: 'Persistent Scars',
+  name: 'Получение шрамов',
   component: CheckboxInput,
 };

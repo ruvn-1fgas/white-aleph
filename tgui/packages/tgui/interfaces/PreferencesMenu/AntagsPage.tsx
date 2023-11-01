@@ -132,7 +132,7 @@ const AntagSelection = (
                   <Tooltip
                     content={
                       isBanned
-                        ? `You are banned from ${antagonist.name}.`
+                        ? `Вам запрещено играть за ${antagonist.name}.`
                         : antagonist.description.map((text, index) => {
                           return (
                             <div key={antagonist.key + index}>
@@ -189,17 +189,17 @@ export const AntagsPage = () => {
   return (
     <Box className="PreferencesMenu__Antags">
       <AntagSelection
-        name="Roundstart"
+        name="В начале раунда"
         antagonists={antagsByCategory.get(Category.Roundstart)!}
       />
 
       <AntagSelection
-        name="Midround"
+        name="Посреди раунда"
         antagonists={antagsByCategory.get(Category.Midround)!}
       />
 
       <AntagSelection
-        name="Latejoin"
+        name="После начала раунда"
         antagonists={antagsByCategory.get(Category.Latejoin)!}
       />
     </Box>

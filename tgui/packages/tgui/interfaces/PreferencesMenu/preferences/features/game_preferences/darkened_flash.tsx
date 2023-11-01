@@ -3,10 +3,11 @@ import { CheckboxInput, FeatureToggle } from '../base';
 
 export const darkened_flash: FeatureToggle = {
   name: 'Enable darkened flashes',
+  name_ru: 'Темные вспышки',
   category: 'GAMEPLAY',
   description: multiline`
-    When toggled, being flashed will show a dark screen rather than a
-    bright one.
+    Когда включено, вспышка будет вызывать темный экран, вместо белого.
   `,
+
   component: CheckboxInput,
 };

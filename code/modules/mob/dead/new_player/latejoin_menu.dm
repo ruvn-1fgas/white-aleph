@@ -1,6 +1,6 @@
-#define JOB_CHOICE_YES "Yes"
-#define JOB_CHOICE_REROLL "Reroll"
-#define JOB_CHOICE_CANCEL "Cancel"
+#define JOB_CHOICE_YES "Согласиться"
+#define JOB_CHOICE_REROLL "Перебросить"
+#define JOB_CHOICE_CANCEL "Отмена"
 
 GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 
@@ -10,8 +10,7 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
 		jobs += job.title
 
-	var/input_contents = input(user, "Pick a job to join as:", "Latejoin Job Selection") as null|anything in jobs
-
+	var/input_contents = input(user, "Выбери должность", "Выбор должности") as null|anything in jobs
 	if(!input_contents)
 		return
 
@@ -31,12 +30,12 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 			user.jobs_menu_mounted = FALSE
 			addtimer(CALLBACK(src, PROC_REF(scream_at_player), user), 5 SECONDS)
 
-		ui = new(user, src, "JobSelection", "Latejoin Menu")
+		ui = new(user, src, "JobSelection", "Выбор должности")
 		ui.open()
 
 /datum/latejoin_menu/proc/scream_at_player(mob/dead/new_player/player)
 	if(!player.jobs_menu_mounted)
-		to_chat(player, span_notice("If the late join menu isn't showing, hold CTRL while clicking the join button!"))
+		to_chat(player, span_notice("Если меню выбора должности не отображается, удерживайте CTRL при нажатии кнопки входа!"))
 
 /datum/latejoin_menu/ui_data(mob/user)
 	var/mob/dead/new_player/owner = user
@@ -49,10 +48,10 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 	if(SSshuttle.emergency)
 		switch(SSshuttle.emergency.mode)
 			if(SHUTTLE_ESCAPE)
-				data["shuttle_status"] = "The station has been evacuated."
+				data["shuttle_status"] = "Станция эвакуирована."
 			if(SHUTTLE_CALL, SHUTTLE_DOCKED, SHUTTLE_IGNITING, SHUTTLE_ESCAPE)
 				if(!SSshuttle.canRecall())
-					data["shuttle_status"] = "The station is currently undergoing evacuation procedures."
+					data["shuttle_status"] = "Станция готовится к эвакуации."
 
 	for(var/datum/job/prioritized_job in SSjob.prioritized_jobs)
 		if(prioritized_job.current_positions >= prioritized_job.total_positions)
@@ -141,11 +140,11 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 				params["job"] = job
 
 			if(!SSticker?.IsRoundInProgress())
-				tgui_alert(owner, "The round is either not ready, or has already finished...", "Oh No!")
+				tgui_alert(owner, "Раунд ещё не начался или уже завершился...", "О нет!")
 				return TRUE
 
 			if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
-				tgui_alert(owner, "There is an administrative lock on entering the game for non-observers!", "Oh No!")
+				tgui_alert(owner, "Нельзя!", "О нет!")
 				return TRUE
 
 			//Determines Relevent Population Cap
@@ -159,7 +158,7 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 
 			if(SSticker.queued_players.len && !(ckey(owner.key) in GLOB.admin_datums))
 				if((living_player_count() >= relevant_cap) || (owner != SSticker.queued_players[1]))
-					tgui_alert(owner, "The server is full!", "Oh No!")
+					tgui_alert(owner, "Полновато здесь", "О нет!")
 					return TRUE
 
 			// SAFETY: AttemptLateSpawn has it's own sanity checks. This is perfectly safe.
@@ -192,20 +191,20 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 			dept_data += job_datum.title
 
 	if(dept_data.len <= 0) //Congratufuckinglations
-		tgui_alert(owner, "There are literally no random jobs available for you on this server, ahelp for assistance.", "Oh No!")
+		tgui_alert(owner, "Полновато здесь, спроси в ахелп", "О нет!")
 		return
 
 	var/random_job
 
 	while(random_job != JOB_CHOICE_YES)
 		if(dept_data.len <= 0)
-			tgui_alert(owner, "It seems that there are no more random jobs available for you!", "Oh No!")
+			tgui_alert(owner, "Полновато здесь!", "О нет!")
 			return
 
 		var/random = pick_n_take(dept_data)
 		var/list/random_job_options = list(JOB_CHOICE_YES, JOB_CHOICE_REROLL, JOB_CHOICE_CANCEL)
-
-		random_job = tgui_alert(owner, "[random]?", "Random Job", random_job_options)
+		var/job_title_ru = ru_job_parse(random)
+		random_job = tgui_alert(owner, "[job_title_ru]?", "Случайная должность", random_job_options)
 
 		if(random_job == JOB_CHOICE_CANCEL)
 			return

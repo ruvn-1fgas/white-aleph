@@ -61,7 +61,7 @@
 	savefile_key = "feature_lizard_frills"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Frills"
+	main_feature_name = "Украшения"
 	should_generate_icons = TRUE
 
 /datum/preference/choiced/lizard_frills/init_possible_values()
@@ -77,7 +77,7 @@
 	savefile_key = "feature_lizard_horns"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Horns"
+	main_feature_name = "Рожки"
 	should_generate_icons = TRUE
 
 /datum/preference/choiced/lizard_horns/init_possible_values()
@@ -105,7 +105,7 @@
 	savefile_key = "feature_lizard_snout"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Snout"
+	main_feature_name = "Морда"
 	should_generate_icons = TRUE
 
 /datum/preference/choiced/lizard_snout/init_possible_values()

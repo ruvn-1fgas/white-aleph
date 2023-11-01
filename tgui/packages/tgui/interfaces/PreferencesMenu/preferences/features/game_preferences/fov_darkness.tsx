@@ -1,9 +1,8 @@
 import { Feature, FeatureNumberInput } from '../base';
 
 export const fov_darkness: Feature<number> = {
-  name: 'Field of view darkness',
+  name: 'FOV',
   category: 'GAMEPLAY',
-  description:
-    'The density of darkness of field of vision cones you may have by wearing restrictive eye cover.',
+  description: "Степень темноты FOV'а, когда вы надеваете что-либо, что закрывает вам глаза.",
   component: FeatureNumberInput,
 };

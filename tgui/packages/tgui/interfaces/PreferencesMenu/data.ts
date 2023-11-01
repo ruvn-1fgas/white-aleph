@@ -73,6 +73,7 @@ export type Department = {
 };
 
 export type Job = {
+  name_ru: string;
   description: string;
   department: string;
 };

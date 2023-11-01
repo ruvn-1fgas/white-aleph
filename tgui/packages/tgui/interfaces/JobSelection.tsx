@@ -4,6 +4,7 @@ import { Window } from '../layouts';
 import { Color } from 'common/color';
 import { SFC } from 'inferno';
 import { JOB2ICON } from './common/JobToIcon';
+import { JOB2RUSSIAN } from './common/JobToRussian';
 import { deepMerge } from 'common/collections';
 import { BooleanLike } from 'common/react';
 
@@ -38,7 +39,7 @@ export const JobEntry: SFC<{
   department: Department;
   onClick: () => void;
 }> = (data) => {
-  const jobName = data.jobName;
+  const jobName = JOB2RUSSIAN[data.jobName] || data.jobName;
   const job = data.job;
   const department = data.department;
   const jobIcon = JOB2ICON[jobName] || null;
@@ -67,7 +68,7 @@ export const JobEntry: SFC<{
         (job.prioritized ? (
           <>
             <p style={{ 'margin-top': '0px' }}>
-              <b>The HoP wants more people in this job!</b>
+              <b>ХоП хочет больше людей в этой должности!</b>
             </p>
             {job.description}
           </>
@@ -120,13 +121,13 @@ export const JobSelection = (props, context) => {
                 <NoticeBox info>{data.shuttle_status}</NoticeBox>
               )}
               <span style={{ 'color': 'grey' }}>
-                It is currently {data.round_duration} into the shift.
+                Длительность раунда: {data.round_duration}
               </span>
               <Button
                 style={{ 'position': 'absolute', 'right': '1em' }}
                 onClick={() => act('select_job', { 'job': 'Random' })}
-                content="Random Job!"
-                tooltip="Roll target random job. You can re-roll or cancel your random job if you don't like it."
+                content="Случайная должность!"
+                tooltip="Выберите случайную должность. Вы можете перебросить или отказаться, если она вам не нравится."
               />
             </>
           }
@@ -173,7 +174,23 @@ export const JobSelection = (props, context) => {
                         .toString(),
                     }}>
                     <Stack vertical>
-                      {Object.entries(entry.jobs).map((job) => (
+                      {Object.entries(entry.jobs).sort((a, b) => {
+                        if (a[1].command && !b[1].command) {
+                          return -1;
+                        }
+
+                        if (!a[1].command && b[1].command) {
+                          return 1;
+                        }
+
+                        if(a[1].command && b[1].command) {
+                          return 0;
+                        }
+
+                        const jobNameA = JOB2RUSSIAN[a[0]] || a[0];
+                        const jobNameB = JOB2RUSSIAN[b[0]] || b[0];
+                        return jobNameA.localeCompare(jobNameB);
+                    }).map((job) => (
                         <Stack.Item key={job[0]}>
                           <JobEntry
                             key={job[0]}
