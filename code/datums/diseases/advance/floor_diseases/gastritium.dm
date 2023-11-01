@@ -2,7 +2,7 @@
 /datum/disease/advance/gastritium
 	name = "Гастрит"
 	desc = "Если не лечить, может привести к серьезному ожогу от триума."
-	form = "Infection"
+	form = "Инфекция"
 	agent = "Atmobacter Polyri"
 	cures = list(/datum/reagent/firefighting_foam)
 	viable_mobtypes = list(/mob/living/carbon/human)

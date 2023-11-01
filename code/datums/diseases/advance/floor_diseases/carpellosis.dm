@@ -4,7 +4,7 @@
 /datum/disease/advance/carpellosis
 	name = "Карпеллозиз"
 	desc = "У вас внутри злой космический карп."
-	form = "Parasite"
+	form = "Паразит"
 	agent = "Carp Ella"
 	cures = list(/datum/reagent/carpet)
 	viable_mobtypes = list(/mob/living/carbon/human)

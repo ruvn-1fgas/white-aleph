@@ -2,7 +2,7 @@
 /datum/disease/advance/nebula_nausea
 	name = "Туманная тошнота"
 	decs = "Вы не можете сдержать красочную красоту космоса внутри."
-	form = "Condition"
+	form = "Состояния"
 	agent = "Stars"
 	cures = list(/datum/reagent/bluespace)
 	viable_mobtypes = list(/mob/living/carbon/human)
