@@ -1,7 +1,7 @@
 /// Caused by dirty food. Makes you burp out Tritium, sometimes burning hot!
 /datum/disease/advance/gastritium
-	name = "Gastritium"
-	desc = "If left untreated, may manifest in severe Tritium heartburn."
+	name = "Гастрит"
+	desc = "Если не лечить, может привести к серьезному ожогу от триума."
 	form = "Infection"
 	agent = "Atmobacter Polyri"
 	cures = list(/datum/reagent/firefighting_foam)
@@ -33,17 +33,17 @@
 				affected_mob.emote("burp")
 		if(3)
 			if(SPT_PROB(1, seconds_per_tick) && affected_mob.stat == CONSCIOUS)
-				to_chat(affected_mob, span_warning("Your stomach makes turbine noises..."))
+				to_chat(affected_mob, span_warning("Желудок издаёт звуки турбины..."))
 			else if(SPT_PROB(1, seconds_per_tick))
 				affected_mob.emote("burp")
 		if(4)
 			if(SPT_PROB(1, seconds_per_tick) && affected_mob.stat == CONSCIOUS)
-				to_chat(affected_mob, span_warning("You're starting to feel like a burn chamber..."))
+				to_chat(affected_mob, span_warning("Что-то жжёт внутри..."))
 			else if(SPT_PROB(1, seconds_per_tick))
 				tritium_burp()
 		if(5)
 			if(SPT_PROB(1, seconds_per_tick) && affected_mob.stat == CONSCIOUS)
-				to_chat(affected_mob, span_warning("You feel like you're about to delam..."))
+				to_chat(affected_mob, span_warning("Ощущение, что сейчас желудок начнёт расслаиваться..."))
 			else if(SPT_PROB(1, seconds_per_tick))
 				tritium_burp(hot_chance = TRUE)
 
@@ -55,6 +55,6 @@
 	if(hot_chance && prob(tritium_burp_hot_chance))
 		burp.temperature = TRITIUM_MINIMUM_BURN_TEMPERATURE
 		if(affected_mob.stat == CONSCIOUS)
-			to_chat(affected_mob, span_warning("Your throat feels hot!"))
-	affected_mob.visible_message("burps out green gas.", visible_message_flags = EMOTE_MESSAGE)
+			to_chat(affected_mob, span_warning("В ГОРЛЕ ГОРЯЧО!"))
+	affected_mob.visible_message("выпускает зелёный газ.", visible_message_flags = EMOTE_MESSAGE)
 	affected_mob.loc.assume_air(burp)
