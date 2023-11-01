@@ -50,6 +50,7 @@
 			)
 
 		jobs[job.title] = list(
+			"name_ru" = ru_job_parse(job.title),
 			"description" = job.description,
 			"department" = department_name,
 		)

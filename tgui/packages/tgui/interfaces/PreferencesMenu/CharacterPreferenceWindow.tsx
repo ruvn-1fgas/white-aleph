@@ -35,7 +35,7 @@ const CharacterProfiles = (props: {
               props.onClick(slot);
             }}
             fluid>
-            {profile ?? 'New Character'}
+            {profile ?? 'Новый персонаж'}
           </Button>
         </Stack.Item>
       ))}
@@ -81,7 +81,7 @@ export const CharacterPreferenceWindow = (props, context) => {
   }
 
   return (
-    <Window title="Character Preferences" width={920} height={770}>
+    <Window title="Настройки персонажа" width={920} height={770}>
       <Window.Content scrollable>
         <Stack vertical fill>
           <Stack.Item>
@@ -112,7 +112,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                   page={Page.Main}
                   setPage={setCurrentPage}
                   otherActivePages={[Page.Species]}>
-                  Character
+                  Персонаж
                 </PageButton>
               </Stack.Item>
 
@@ -125,7 +125,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                     Fun fact: This isn't "Jobs" so that it intentionally
                     catches your eyes, because it's really important!
                   */}
-                  Occupations
+                  Должности
                 </PageButton>
               </Stack.Item>
 
@@ -134,7 +134,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                   currentPage={currentPage}
                   page={Page.Antags}
                   setPage={setCurrentPage}>
-                  Antagonists
+                  Антаги
                 </PageButton>
               </Stack.Item>
 
@@ -143,7 +143,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                   currentPage={currentPage}
                   page={Page.Quirks}
                   setPage={setCurrentPage}>
-                  Quirks
+                  Особенности
                 </PageButton>
               </Stack.Item>
             </Stack>

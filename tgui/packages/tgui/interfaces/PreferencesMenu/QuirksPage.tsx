@@ -139,7 +139,7 @@ export const QuirksPage = (props, context) => {
     <ServerPreferencesFetcher
       render={(data) => {
         if (!data) {
-          return <Box>Loading quirks...</Box>;
+          return <Box>Система особенностей ещё не инициализирована. Надо подождать...</Box>;
         }
 
         const {
@@ -178,9 +178,9 @@ export const QuirksPage = (props, context) => {
 
           if (quirk.value > 0) {
             if (positiveQuirks >= maxPositiveQuirks) {
-              return "You can't have any more positive quirks!";
+              return 'У вас уже максимальное количество положительных особенностей!';
             } else if (balance + quirk.value > 0) {
-              return 'You need a negative quirk to balance this out!';
+              return 'Выберите отрицательную особенность, чтобы баланс был положительным!';
             }
           }
 
@@ -198,7 +198,7 @@ export const QuirksPage = (props, context) => {
                 incompatibleQuirk !== quirk.name &&
                 selectedQuirkNames.indexOf(incompatibleQuirk) !== -1
               ) {
-                return `This is incompatible with ${incompatibleQuirk}!`;
+                return `Эта особенность несовместима с ${incompatibleQuirk}!`;
               }
             }
           }
@@ -210,7 +210,7 @@ export const QuirksPage = (props, context) => {
           const quirk = quirkInfo[quirkName];
 
           if (balance - quirk.value > 0) {
-            return 'You need to remove a positive quirk first!';
+            return 'Сначала уберите положительную особенность!';
           }
 
           return undefined;
@@ -221,7 +221,7 @@ export const QuirksPage = (props, context) => {
             <Stack.Item basis="50%">
               <Stack vertical fill align="center">
                 <Stack.Item>
-                  <Box fontSize="1.3em">Positive Quirks</Box>
+                  <Box fontSize="1.3em">Положительные особенности</Box>
                 </Stack.Item>
 
                 <Stack.Item>
@@ -232,7 +232,7 @@ export const QuirksPage = (props, context) => {
 
                 <Stack.Item>
                   <Box as="b" fontSize="1.6em">
-                    Available Quirks
+                    Доступные особенности
                   </Box>
                 </Stack.Item>
 
@@ -272,7 +272,7 @@ export const QuirksPage = (props, context) => {
             <Stack.Item basis="50%">
               <Stack vertical fill align="center">
                 <Stack.Item>
-                  <Box fontSize="1.3em">Quirk Balance</Box>
+                  <Box fontSize="1.3em">Баланс особенностей</Box>
                 </Stack.Item>
 
                 <Stack.Item>
@@ -281,7 +281,7 @@ export const QuirksPage = (props, context) => {
 
                 <Stack.Item>
                   <Box as="b" fontSize="1.6em">
-                    Current Quirks
+                    Текущие особенности
                   </Box>
                 </Stack.Item>
 

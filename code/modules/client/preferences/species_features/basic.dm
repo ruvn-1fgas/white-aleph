@@ -7,7 +7,7 @@
 	var/icon/final_icon = new(head_icon)
 	if (!isnull(sprite_accessory))
 		ASSERT(istype(sprite_accessory))
-		
+
 		var/icon/head_accessory_icon = icon(sprite_accessory.icon, sprite_accessory.icon_state)
 		if(y_offset)
 			head_accessory_icon.Shift(NORTH, y_offset)
@@ -56,7 +56,7 @@
 	savefile_key = "facial_style_name"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Facial hair"
+	main_feature_name = "Растительность на лице"
 	should_generate_icons = TRUE
 	relevant_head_flag = HEAD_FACIAL_HAIR
 
@@ -132,7 +132,7 @@
 	savefile_key = "hairstyle_name"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Hairstyle"
+	main_feature_name = "Волосы"
 	should_generate_icons = TRUE
 	relevant_head_flag = HEAD_HAIR
 
