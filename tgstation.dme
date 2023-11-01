@@ -425,6 +425,7 @@
 #include "code\__HELPERS\piping_colors_lists.dm"
 #include "code\__HELPERS\priority_announce.dm"
 #include "code\__HELPERS\pronouns.dm"
+#include "code\__HELPERS\pronouns_ru.dm"
 #include "code\__HELPERS\qdel.dm"
 #include "code\__HELPERS\radiation.dm"
 #include "code\__HELPERS\radio.dm"
