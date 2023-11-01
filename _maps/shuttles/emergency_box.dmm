@@ -138,6 +138,7 @@
 	name = "Emergency Shuttle Airlock"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/escape/brig)
 "aJ" = (
@@ -161,6 +162,7 @@
 /obj/docking_port/mobile/emergency{
 	name = "Box emergency shuttle"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "aQ" = (
@@ -176,6 +178,7 @@
 /obj/machinery/door/airlock/titanium{
 	name = "Emergency Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "aW" = (

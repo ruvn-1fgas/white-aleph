@@ -19,6 +19,7 @@
 /obj/docking_port/mobile/pod{
 	port_direction = 2
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/pod_1)
 "Q" = (

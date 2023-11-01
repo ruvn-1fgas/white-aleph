@@ -265,6 +265,7 @@
 	name = "Emergency Shuttle Airlock"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape/brig)
 "bw" = (
@@ -311,6 +312,7 @@
 /obj/docking_port/mobile/emergency{
 	name = "Cere emergency shuttle"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "bF" = (
@@ -424,6 +426,7 @@
 /obj/machinery/door/airlock/shuttle{
 	name = "Emergency Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "bZ" = (
@@ -947,6 +950,13 @@
 /obj/effect/turf_decal/tile/purple/fourcorners,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"Ba" = (
+/obj/machinery/door/airlock{
+	name = "Bathroom"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/iron/freezer,
 /area/shuttle/escape)
 "CO" = (
 /obj/machinery/computer/records/security{
@@ -1604,7 +1614,7 @@ ab
 ab
 ab
 ab
-cQ
+Ba
 ab
 ab
 ab

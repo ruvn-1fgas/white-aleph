@@ -10,6 +10,7 @@
 	name = "Escape Pod Airlock"
 	},
 /obj/structure/fans/tiny,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/pod_1)
 "U" = (

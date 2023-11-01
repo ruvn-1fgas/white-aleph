@@ -132,6 +132,7 @@
 /area/shuttle/escape)
 "aG" = (
 /obj/machinery/door/airlock/titanium,
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "aH" = (
@@ -151,6 +152,7 @@
 /area/shuttle/escape)
 "aJ" = (
 /obj/machinery/light/small/directional/south,
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "aK" = (
@@ -160,6 +162,7 @@
 	name = "Birdboat emergency escape shuttle";
 	port_direction = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "aL" = (

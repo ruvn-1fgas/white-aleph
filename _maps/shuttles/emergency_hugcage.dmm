@@ -130,6 +130,7 @@
 /obj/machinery/door/airlock/titanium{
 	name = "Emergency Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/escape)
 "kZ" = (
@@ -321,6 +322,7 @@
 /obj/machinery/door/airlock/medical/glass{
 	name = "Emergency Shuttle Medical"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/escape)
 "KT" = (
@@ -349,6 +351,14 @@
 /area/shuttle/escape)
 "Ns" = (
 /obj/item/radio/intercom/chapel/directional/west,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/escape/brig)
+"Nu" = (
+/obj/effect/mapping_helpers/airlock/access/all/security/general,
+/obj/machinery/door/airlock/security/glass{
+	name = "Emergency Shuttle Brig"
+	},
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/escape/brig)
 "Ok" = (
@@ -446,7 +456,7 @@ cQ
 cQ
 cQ
 cQ
-JE
+Nu
 cQ
 JF
 gc

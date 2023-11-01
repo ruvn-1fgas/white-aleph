@@ -333,6 +333,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/white,
 /area/shuttle/escape)
 "aP" = (
@@ -377,6 +378,7 @@
 	port_direction = 4;
 	preferred_direction = 2
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "aX" = (
@@ -561,6 +563,7 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/white,
 /area/shuttle/escape/brig)
 "bw" = (
@@ -626,6 +629,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "bM" = (
@@ -929,6 +933,15 @@
 /obj/item/storage/fancy/donut_box,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"sQ" = (
+/obj/machinery/door/airlock/command/glass{
+	name = "Cockpit"
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/structure/fans/tiny,
+/turf/open/floor/iron,
 /area/shuttle/escape)
 "wU" = (
 /obj/structure/table/reinforced,
@@ -1370,7 +1383,7 @@ ai
 nD
 nD
 bX
-bu
+sQ
 JT
 JT
 PO
@@ -1401,7 +1414,7 @@ ai
 nD
 nD
 bX
-bu
+sQ
 JT
 JT
 Jl

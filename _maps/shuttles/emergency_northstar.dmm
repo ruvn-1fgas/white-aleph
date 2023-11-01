@@ -271,6 +271,7 @@
 /obj/machinery/door/airlock/survival_pod{
 	name = "Emergency Shuttle Access"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "AW" = (
@@ -334,6 +335,7 @@
 /obj/machinery/door/airlock/survival_pod{
 	name = "Emergency Shuttle Access"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "DJ" = (
