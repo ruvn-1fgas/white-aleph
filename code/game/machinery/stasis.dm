@@ -1,7 +1,7 @@
 #define STASIS_TOGGLE_COOLDOWN 50
 /obj/machinery/stasis
-	name = "lifeform stasis unit"
-	desc = "A not so comfortable looking bed with some nozzles at the top and bottom. It will keep someone in stasis."
+	name = "стазисная кровать"
+	desc = "Не очень комфортная кровать, которая постоянно жужжит, однако она помещает пациента в стазис с надеждой, что когда-нибудь он все-таки дождется помощи."
 	icon = 'icons/obj/machines/stasis.dmi'
 	icon_state = "stasis"
 	base_icon_state = "stasis"
@@ -17,13 +17,23 @@
 	var/stasis_can_toggle = 0
 	var/mattress_state = "stasis_on"
 	var/obj/effect/overlay/vis/mattress_on
+	var/obj/machinery/computer/operating/op_computer
+
+/obj/machinery/stasis/Initialize(mapload)
+	. = ..()
+	for(var/direction in GLOB.alldirs)
+		op_computer = locate(/obj/machinery/computer/operating) in get_step(src, direction)
+		if(op_computer)
+			op_computer.sbed = src
+			break
+
 
 /obj/machinery/stasis/Destroy()
 	. = ..()
 
 /obj/machinery/stasis/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click to [stasis_enabled ? "turn off" : "turn on"] the machine.")
+	. += "<hr><span class='notice'>Alt + Клик для [stasis_enabled ? "<b>выключения</b>" : "<b>включения</b>"] машины.</span>"
 
 /obj/machinery/stasis/proc/play_power_sound()
 	var/_running = stasis_running()
@@ -43,9 +53,9 @@
 		stasis_enabled = !stasis_enabled
 		stasis_can_toggle = world.time + STASIS_TOGGLE_COOLDOWN
 		playsound(src, 'sound/machines/click.ogg', 60, TRUE)
-		user.visible_message(span_notice("\The [src] [stasis_enabled ? "powers on" : "shuts down"]."), \
-					span_notice("You [stasis_enabled ? "power on" : "shut down"] \the [src]."), \
-					span_hear("You hear a nearby machine [stasis_enabled ? "power on" : "shut down"]."))
+		user.visible_message(span_notice("<b>[capitalize(src)]</b> [stasis_enabled ? "включается" : "выключается"].") , \
+					span_notice("[stasis_enabled ? "Включаю" : "Выключаю"] <b>[src.name]</b>.") , \
+					span_hear("Слышу звук [stasis_enabled ? "включения" : "выключения"] машины."))
 		play_power_sound()
 		update_appearance()
 

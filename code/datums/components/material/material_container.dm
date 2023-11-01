@@ -92,7 +92,7 @@
 		var/datum/material/M = I
 		var/amt = materials[I] / SHEET_MATERIAL_AMOUNT
 		if(amt)
-			examine_texts += span_notice("It has [amt] sheets of [lowertext(M.name)] stored.")
+			examine_texts += span_notice("Внутри [amt] листов [lowertext(M.name)]")
 
 /datum/component/material_container/vv_edit_var(var_name, var_value)
 	var/old_flags = mat_container_flags
@@ -279,7 +279,7 @@
 		for(var/obj/item/weapon in contents)
 			total_amount += get_item_material_amount(weapon, breakdown_flags)
 		if(!has_space(total_amount))
-			to_chat(user, span_warning("[parent] doesn't have enough space for [held_item] [contents.len > 1 ? "And it's contents" : ""]!"))
+			to_chat(user, span_warning("[parent] не имеет достаточно места для [held_item] [contents.len > 1 ? "и его содержимого" : ""]!"))
 			return
 
 	/**
@@ -300,7 +300,7 @@
 		//item is either not allowed for redemption, not in the allowed types
 		if((target.item_flags & NO_MAT_REDEMPTION) || (allowed_item_typecache && !is_type_in_typecache(target, allowed_item_typecache)))
 			if(!(mat_container_flags & MATCONTAINER_SILENT))
-				to_chat(user, span_warning("[parent] won't accept [target]!"))
+				to_chat(user, span_warning("[parent] не принимает [target]!"))
 			continue
 
 		//untouchable, move it out the way, code copied from recycler
@@ -331,7 +331,7 @@
 		if(original_item != active_held)
 			original_item = null
 		if(!isnull(original_item) && !user.temporarilyRemoveItemFromInventory(original_item)) //remove from hand(if split remove the original stack else the target)
-			to_chat(user, span_warning("[held_item] is stuck to you and cannot be placed into [parent]."))
+			to_chat(user, span_warning("[held_item] прилип и не может быть убран в [parent]."))
 			return
 
 		//insert the item

@@ -201,10 +201,10 @@ GLOBAL_DATUM_INIT(acid_overlay, /mutable_appearance, mutable_appearance('icons/e
 		overlays += acid_overlay
 
 /// Alerts any examiners to the acid on the parent atom.
-/datum/component/acid/proc/on_examine(atom/source, mob/user, list/examine_list)
+/datum/component/acid/proc/on_examine(atom/A, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += span_danger("[source.p_Theyre()] covered in a corrosive liquid!")
+	examine_list += span_danger("\n[A] покрыт[A.ru_a()] кислотой!")
 
 /// Makes it possible to clean acid off of objects.
 /datum/component/acid/proc/on_clean(atom/source, clean_types)
@@ -239,7 +239,7 @@ GLOBAL_DATUM_INIT(acid_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return NONE
 
 	affecting.receive_damage(burn = 5)
-	to_chat(user, span_userdanger("The acid on \the [source] burns your hand!"))
+	to_chat(user, span_warning("Трогаю [source] и обжигаюсь кислотой!"))
 	INVOKE_ASYNC(user, TYPE_PROC_REF(/mob, emote), "scream")
 	playsound(source, SFX_SEAR, 50, TRUE)
 	user.update_damage_overlays()
@@ -265,5 +265,5 @@ GLOBAL_DATUM_INIT(acid_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(!crosser.acid_act(acid_power, acid_used, FEET))
 		return
 	playsound(crosser, SFX_SEAR, 50, TRUE)
-	to_chat(crosser, span_userdanger("The acid on the [parent] burns you!"))
+	to_chat(crosser, span_userdanger("Наступаю на [parent] и обжигаюсь кислотой!"))
 	set_volume(max(acid_volume - acid_used, 10))

@@ -1,10 +1,10 @@
 /obj/item/style_meter
-	name = "style meter attachment"
-	desc = "Attach this to a pair of glasses to install a style meter system in them. \
-		You get style points from performing stylish acts and lose them for breaking your style. \
-		The style affects the quality of your mining, with you being able to mine ore better during a good chain. \
-		A responsive data HUD gives you the ability to reflect lavaland-based projectiles by punching them with an empty hand. \
-		In addition, at high style, you are able to swap an item in your hand with one in your backpack by <b>hitting</b> one with another."
+	name = "измеритель стиля"
+	desc = "Прикрепите это к очкам, чтобы установить в них систему измерения стиля. \
+		Вы получаете очки стиля за выполнение стильных действий и теряете их за нарушение своего стиля. \
+		Стиль влияет на качество вашей добычи, и вы можете добывать руду лучше во время хорошей цепочки. \
+		Отзывчивый HUD данных дает вам возможность отражать лавалендские снаряды, ударив их пустой рукой. \
+		Кроме того, при высоком уровне стиля вы можете поменять предмет в руке на тот, который находится в вашем рюкзаке, <b>ударив</b> один другим."
 	icon_state = "style_meter"
 	icon = 'icons/obj/clothing/glasses.dmi'
 	/// The style meter component we give.
@@ -26,7 +26,7 @@
 
 /obj/item/style_meter/examine(mob/user)
 	. = ..()
-	. += span_notice("You feel like a <b>multitool</b> could be used on this.")
+	. += span_notice("Кажется, я моуг использовать <b>мультитул<b> на этом.")
 
 /obj/item/style_meter/afterattack(atom/movable/attacked_atom, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -40,7 +40,7 @@
 	RegisterSignal(attacked_atom, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(attacked_atom, COMSIG_CLICK_ALT, PROC_REF(on_altclick))
 	RegisterSignal(attacked_atom, COMSIG_ATOM_TOOL_ACT(TOOL_MULTITOOL), PROC_REF(on_multitool))
-	balloon_alert(user, "style meter attached")
+	balloon_alert(user, "измеритель стиля прикреплен")
 	playsound(src, 'sound/machines/click.ogg', 30, TRUE)
 	if(!iscarbon(attacked_atom.loc))
 		return
@@ -84,8 +84,8 @@
 /obj/item/style_meter/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += span_notice("You feel like a <b>multitool</b> could be used on this.")
-	examine_list += span_notice("<b>Alt-click</b> to remove the style meter.")
+	examine_list += span_notice("Кажется, я могу использовать <b>мультитул</b> на этом.")
+	examine_list += span_notice("<b>Alt-клик</b> чтобы убрать измеритель стиля.")
 
 
 /// Signal proc to remove from glasses
@@ -105,7 +105,7 @@
 	if(style_meter)
 		SEND_SIGNAL(style_meter, COMSIG_ATOM_TOOL_ACT(TOOL_MULTITOOL), user, tool, recipes)
 	else
-		balloon_alert(user, "meter [multitooled ? "" : "un"]hacked")
+		balloon_alert(user, "измеритель [multitooled ? "взломан" : "нормальный"]")
 
 
 /// Unregister signals and just generally clean up ourselves after being removed from glasses

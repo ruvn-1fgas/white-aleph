@@ -118,7 +118,7 @@
 				var/turf/chasm = get_turf(victim)
 				var/fall_into_chasm = jaunter.chasm_react(victim)
 				if(!fall_into_chasm)
-					chasm.visible_message(span_boldwarning("[victim] falls into the [chasm]!")) //To freak out any bystanders
+					chasm.visible_message(span_boldwarning("[victim] падает в [chasm]!")) //To freak out any bystanders
 				return fall_into_chasm ? CHASM_DROPPING : CHASM_NOT_DROPPING
 	return CHASM_DROPPING
 
@@ -145,8 +145,8 @@
 			return
 
 		// send to the turf below
-		dropped_thing.visible_message(span_boldwarning("[dropped_thing] falls into [parent]!"), span_userdanger("[fall_message]"))
-		below_turf.visible_message(span_boldwarning("[dropped_thing] falls from above!"))
+		dropped_thing.visible_message(span_boldwarning("<b>[dropped_thing]</b> падает в [parent]!"), span_userdanger("[fall_message]"))
+		below_turf.visible_message(span_boldwarning("<b>[dropped_thing]</b> падает сверху!"))
 		dropped_thing.forceMove(below_turf)
 		if(isliving(dropped_thing))
 			var/mob/living/fallen = dropped_thing
@@ -156,7 +156,7 @@
 		return
 
 	// send to oblivion
-	dropped_thing.visible_message(span_boldwarning("[dropped_thing] falls into [parent]!"), span_userdanger("[oblivion_message]"))
+	dropped_thing.visible_message(span_boldwarning("<b>[dropped_thing]</b> падает в <b>[parent]</b>!"), span_userdanger("[oblivion_message]"))
 	if (isliving(dropped_thing))
 		var/mob/living/falling_mob = dropped_thing
 		ADD_TRAIT(falling_mob, TRAIT_NO_TRANSFORM, REF(src))
@@ -195,7 +195,7 @@
 	dropped_thing.pixel_y = oldoffset
 
 	if(!dropped_thing.forceMove(storage))
-		parent.visible_message(span_boldwarning("[parent] spits out [dropped_thing]!"))
+		parent.visible_message(span_boldwarning("[parent] выплёвывает [dropped_thing]!"))
 		dropped_thing.throw_at(get_edge_target_turf(parent, pick(GLOB.alldirs)), rand(1, 10), rand(1, 10))
 
 	else if(isliving(dropped_thing))
@@ -226,8 +226,8 @@ GLOBAL_LIST_EMPTY(chasm_fallen_mobs)
  * An abstract object which is basically just a bag that the chasm puts people inside
  */
 /obj/effect/abstract/chasm_storage
-	name = "chasm depths"
-	desc = "The bottom of a hole. You shouldn't be able to interact with this."
+	name = "глубины"
+	desc = "Дно бездны. Ммм?"
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
@@ -258,10 +258,10 @@ GLOBAL_LIST_EMPTY(chasm_fallen_mobs)
 	SIGNAL_HANDLER
 	var/turf/turf = get_turf(src)
 	if(turf.GetComponent(/datum/component/chasm))
-		turf.visible_message(span_boldwarning("After a long climb, [escapee] leaps out of [turf]!"))
+		turf.visible_message(span_boldwarning("После долгого подъёма [escapee] выползает из [turf]!"))
 	else
 		playsound(turf, 'sound/effects/bang.ogg', 50, TRUE)
-		turf.visible_message(span_boldwarning("[escapee] busts through [turf], leaping out of the chasm below"))
+		turf.visible_message(span_boldwarning("[escapee] прорывается через [turf], выпрыгивая из бездны"))
 		turf.ScrapeAway(2, flags = CHANGETURF_INHERIT_AIR)
 	ADD_TRAIT(escapee, TRAIT_MOVE_FLYING, CHASM_TRAIT) //Otherwise they instantly fall back in
 	escapee.forceMove(turf)

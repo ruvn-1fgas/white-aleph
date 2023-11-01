@@ -918,7 +918,7 @@
 	armor_type = /datum/armor/hardsuit_clown
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/clown
 
-/obj/item/clothing/suit/space/hardsuit/clown/mob_can_equip(mob/M, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+/obj/item/clothing/suit/space/hardsuit/clown/mob_can_equip(mob/M, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
 	if(!..() || !ishuman(M))
 		return FALSE
 	var/mob/living/carbon/human/H = M

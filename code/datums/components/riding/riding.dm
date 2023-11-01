@@ -104,7 +104,7 @@
 	SIGNAL_HANDLER
 	if(target == parent)
 		var/mob/living/ridden = parent
-		ridden.balloon_alert(rider_pulling, "not while riding it!")
+		ridden.balloon_alert(rider_pulling, "не могу!")
 		return COMSIG_LIVING_CANCEL_PULL
 
 /// Some ridable atoms may want to only show on top of the rider in certain directions, like wheelchairs

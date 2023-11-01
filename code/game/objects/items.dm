@@ -726,7 +726,7 @@
  * * ignore_equipped ignores any already equipped items in that slot
  * * indirect_action allows inserting into "soft locked" bags, things that can be easily opened by the owner
  */
-/obj/item/proc/mob_can_equip(mob/living/M, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
+/obj/item/proc/mob_can_equip(mob/living/M, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE, indirect_action = FALSE)
 	if(!M)
 		return FALSE
 
