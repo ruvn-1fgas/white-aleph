@@ -8,8 +8,8 @@
  */
 
 /datum/symptom/choking
-	name = "Choking"
-	desc = "The virus causes inflammation of the host's air conduits, leading to intermittent choking."
+	name = "Удушье"
+	desc = "Вирус вызывает воспаление дыхательных путей носителя, что приводит к периодическому удушью."
 	illness = "Pneumatic Tubes"
 	stealth = -3
 	resistance = -2
@@ -22,8 +22,8 @@
 	symptom_delay_max = 30
 	required_organ = ORGAN_SLOT_LUNGS
 	threshold_descs = list(
-		"Stage Speed 8" = "Causes choking more frequently.",
-		"Stealth 4" = "The symptom remains hidden until active."
+		"Скорость 8" = "Чаще вызывает удушье.",
+		"Скрытность 4" = "Симптом остается скрытым до тех пор, пока не станет активным."
 	)
 
 /datum/symptom/choking/Start(datum/disease/advance/A)
@@ -36,28 +36,25 @@
 	if(A.totalStealth() >= 4)
 		suppress_warning = TRUE
 
-/datum/symptom/choking/Activate(datum/disease/advance/advanced_disease)
-	. = ..()
-	if(!.)
+/datum/symptom/choking/Activate(datum/disease/advance/A)
+	if(!..())
 		return
-
-	var/mob/living/carbon/infected_mob = advanced_disease.affected_mob
-
-	switch(advanced_disease.stage)
+	var/mob/living/M = A.affected_mob
+	switch(A.stage)
 		if(1, 2)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(infected_mob, span_warning("[pick("You're having difficulty breathing.", "Your breathing becomes heavy.")]"))
+				to_chat(M, span_warning("[pick("Дышать сложно.", "Моё дыхание становится более тяжелым.")]"))
 		if(3, 4)
 			if(!suppress_warning)
-				to_chat(infected_mob, span_warning("[pick("Your windpipe feels like a straw.", "Your breathing becomes tremendously difficult.")]"))
+				to_chat(M, span_warning("[pick("Моё дыхательное горлышко похоже на соломинку.", "Дышать невероятно сложно.")]"))
 			else
-				to_chat(infected_mob, span_warning("You feel very [pick("dizzy","woozy","faint")].")) //fake bloodloss messages
-			Choke_stage_3_4(infected_mob, advanced_disease)
-			infected_mob.emote("gasp")
+				to_chat(M, span_warning("Чувствую себя очень [pick("плохо","дурно","слабо")].")) //fake bloodloss messages
+			Choke_stage_3_4(M, A)
+			M.emote("gasp")
 		else
-			to_chat(infected_mob, span_userdanger("[pick("You're choking!", "You can't breathe!")]"))
-			Choke(infected_mob, advanced_disease)
-			infected_mob.emote("gasp")
+			to_chat(M, span_userdanger("[pick("Задыхаюсь!", "Не могу дышать!")]"))
+			Choke(M, A)
+			M.emote("gasp")
 
 /datum/symptom/choking/proc/Choke_stage_3_4(mob/living/M, datum/disease/advance/A)
 	M.adjustOxyLoss(rand(6,13))
@@ -85,8 +82,8 @@ Bonus
 */
 
 /datum/symptom/asphyxiation
-	name = "Acute respiratory distress syndrome"
-	desc = "The virus causes shrinking of the host's lungs, causing severe asphyxiation. May also lead to heart attacks."
+	name = "Острый респираторный дистресс-синдром"
+	desc = "Вирус вызывает сокращение легких хозяина, вызывая тяжелое удушье. Также может привести к сердечным приступам."
 	illness = "Iron Lungs"
 	stealth = -2
 	resistance = -0
@@ -99,8 +96,8 @@ Bonus
 	symptom_delay_max = 30
 	required_organ = ORGAN_SLOT_LUNGS
 	threshold_descs = list(
-		"Stage Speed 8" = "Additionally synthesizes pancuronium and sodium thiopental inside the host.",
-		"Transmission 8" = "Doubles the damage caused by the symptom."
+		"Скорость 8" = "Дополнительно внутри хозяина синтезирует панкуроний и тиопентал натрия.",
+		"Передача 8" = "Удваивает ущерб, нанесенный симптомом."
 	)
 	var/paralysis = FALSE
 
@@ -115,21 +112,20 @@ Bonus
 		power = 2
 
 /datum/symptom/asphyxiation/Activate(datum/disease/advance/A)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
 	var/mob/living/M = A.affected_mob
 	switch(A.stage)
 		if(3, 4)
-			to_chat(M, span_warning("<b>[pick("Your windpipe feels thin.", "Your lungs feel small.")]"))
+			to_chat(M, span_warning("<b>[pick("Кажется, что горло сжалось.", "Легкие уменьшились.")]"))
 			Asphyxiate_stage_3_4(M, A)
 			M.emote("gasp")
 		if(5)
-			to_chat(M, span_userdanger("[pick("Your lungs hurt!", "It hurts to breathe!")]"))
+			to_chat(M, span_userdanger("[pick("В груди очень сильно болит!", "Больно дышать!")]"))
 			Asphyxiate(M, A)
 			M.emote("gasp")
 			if(M.getOxyLoss() >= 120)
-				M.visible_message(span_warning("[M] stops breathing, as if their lungs have totally collapsed!"))
+				M.visible_message(span_warning("[M] перестает дышать, как будто легкие полностью сжались!"))
 				Asphyxiate_death(M, A)
 	return
 

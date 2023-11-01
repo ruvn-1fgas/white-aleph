@@ -245,7 +245,7 @@
 		playsound(assembly_turf, 'sound/machines/chime.ogg', 25, TRUE)
 		assembly_turf.visible_message("<span class='notice'>[capitalize(src)] успешно привязывается к ближайшему люку!</span>", vision_distance = SAMETILE_MESSAGE_RANGE)
 	else
-		playsound(assembly_turf, 'white/valtos/sounds/error1.ogg', 50, FALSE)
+		playsound(assembly_turf, 'sound/misc/error1.ogg', 50, FALSE)
 		assembly_turf.visible_message(span_warning("[capitalize(src)] не может найти люк."), vision_distance = SAMETILE_MESSAGE_RANGE)
 
 /**
