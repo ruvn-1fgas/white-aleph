@@ -41,7 +41,7 @@
 
 /datum/component/crank_recharge/proc/crank(obj/source, mob/user)
 	if(charging_cell.charge >= charging_cell.maxcharge)
-		source.balloon_alert(user, "already charged!")
+		source.balloon_alert(user, "уже заряжен!")
 		return
 	if(is_charging)
 		return
@@ -49,11 +49,11 @@
 	if(COOLDOWN_FINISHED(src, charge_sound_cooldown))
 		COOLDOWN_START(src, charge_sound_cooldown, charge_sound_cooldown_time)
 		playsound(source, charge_sound, 40)
-	source.balloon_alert(user, "charging...")
+	source.balloon_alert(user, "заряжается...")
 	if(!do_after(user, cooldown_time, source, interaction_key = DOAFTER_SOURCE_CHARGE_CRANKRECHARGE))
 		is_charging = FALSE
 		return
 	charging_cell.give(charge_amount)
 	source.update_appearance()
 	is_charging = FALSE
-	source.balloon_alert(user, "charged")
+	source.balloon_alert(user, "заряжен")

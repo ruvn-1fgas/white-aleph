@@ -1,6 +1,6 @@
 /obj/item/pressure_plate
-	name = "pressure plate"
-	desc = "An electronic device that triggers when stepped on."
+	name = "нажимная плита"
+	desc = "Электронное устройство, которое срабатывает при наступлении на него."
 	desc_controls = "Ctrl-Click to toggle the pressure plate off and on."
 	icon = 'icons/obj/fluff/puzzle_small.dmi'
 	inhand_icon_state = "flashtool"

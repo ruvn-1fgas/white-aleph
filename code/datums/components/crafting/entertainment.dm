@@ -1,5 +1,5 @@
 /datum/crafting_recipe/mothplush
-	name = "Moth Plushie"
+	name = "Плюшевая моль"
 	result = /obj/item/toy/plush/moth
 	reqs = list(
 		/obj/item/stack/sheet/animalhide/mothroach = 1,
@@ -9,7 +9,7 @@
 	category = CAT_ENTERTAINMENT
 
 /datum/crafting_recipe/mixedbouquet
-	name = "Mixed bouquet"
+	name = "Смешанный букет"
 	result = /obj/item/bouquet
 	reqs = list(
 		/obj/item/food/grown/poppy/lily = 2,
@@ -19,25 +19,25 @@
 	category = CAT_ENTERTAINMENT
 
 /datum/crafting_recipe/sunbouquet
-	name = "Sunflower bouquet"
+	name = "Букет из подсолнухов"
 	result = /obj/item/bouquet/sunflower
 	reqs = list(/obj/item/food/grown/sunflower = 6)
 	category = CAT_ENTERTAINMENT
 
 /datum/crafting_recipe/poppybouquet
-	name = "Poppy bouquet"
+	name = "Маковый букет"
 	result = /obj/item/bouquet/poppy
 	reqs = list (/obj/item/food/grown/poppy = 6)
 	category = CAT_ENTERTAINMENT
 
 /datum/crafting_recipe/rosebouquet
-	name = "Rose bouquet"
+	name = "Букет роз"
 	result = /obj/item/bouquet/rose
 	reqs = list(/obj/item/food/grown/rose = 6)
 	category = CAT_ENTERTAINMENT
 
 /datum/crafting_recipe/spooky_camera
-	name = "Camera Obscura"
+	name = "Камера обскура"
 	result = /obj/item/camera/spooky
 	time = 1.5 SECONDS
 	reqs = list(

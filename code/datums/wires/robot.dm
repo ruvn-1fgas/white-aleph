@@ -22,11 +22,12 @@
 /datum/wires/robot/get_status()
 	var/mob/living/silicon/robot/R = holder
 	var/list/status = list()
-	status += "The law sync module is [R.lawupdate ? "on" : "off"]."
-	status += "The intelligence link display shows [R.connected_ai ? R.connected_ai.name : "NULL"]."
-	status += "The camera light is [!isnull(R.builtInCamera) && R.builtInCamera.status ? "on" : "off"]."
-	status += "The lockdown indicator is [R.lockcharge ? "on" : "off"]."
-	status += "There is a star symbol above the [get_color_of_wire(WIRE_RESET_MODEL)] wire."
+	status += "Индикатор синхронизации законов [R.lawupdate ? "горит" : "не горит"]."
+	status += "Индикатор соединения с ИИ показывает [R.connected_ai ? R.connected_ai.name : "NULL"]."
+	status += "Индикатор питания камеры [!isnull(R.builtInCamera) && R.builtInCamera.status ? "горит" : "не горит"]."
+	status += "Индикатор блокировки [R.lockcharge ? "горит" : "не горит"]."
+//	status += "Здесь есть символ звёздочки под проводом цвета [get_wire_name(WIRE_RESET_MODULE)]."	// не работает
+	status += "На одном из проводов висит бирка \"Сброс модуля\"."
 	return status
 
 /datum/wires/robot/on_pulse(wire, user)
@@ -51,11 +52,11 @@
 		if(WIRE_CAMERA) // Pulse to disable the camera.
 			if(!QDELETED(R.builtInCamera) && !R.scrambledcodes)
 				R.builtInCamera.toggle_cam(usr, FALSE)
-				R.visible_message(span_notice("[R]'s camera lens focuses loudly."), span_notice("Your camera lens focuses loudly."))
+				R.visible_message(span_notice("Линза камеры <b>[R.name]</b> медленно фокусируется.") , span_notice("Линза моей камеры медленно фокусируется."))
 				log_silicon("[key_name(usr)] toggled [key_name(R)]'s camera to [R.builtInCamera.status ? "on" : "off"] via pulse")
 		if(WIRE_LAWSYNC) // Forces a law update if possible.
 			if(R.lawupdate)
-				R.visible_message(span_notice("[R] gently chimes."), span_notice("LawSync protocol engaged."))
+				R.visible_message(span_notice("<b>[R.name]</b> изящно звянькает.") , span_notice("Протоколы синхронизации законов задействованы."))
 				log_silicon("[key_name(usr)] forcibly synced [key_name(R)]'s laws via pulse")
 				// TODO, log the laws they gained here
 				R.lawsync()
@@ -66,7 +67,7 @@
 
 		if(WIRE_RESET_MODEL)
 			if(R.has_model())
-				R.visible_message(span_notice("[R]'s model servos twitch."), span_notice("Your model display flickers."))
+				R.visible_message(span_notice("<b>[R.name]</b> начинает дёргаться.") , span_notice("Дисплей модулей мерцает."))
 
 /datum/wires/robot/on_cut(wire, mend, source)
 	var/mob/living/silicon/robot/R = holder
@@ -92,7 +93,7 @@
 			if(!QDELETED(R.builtInCamera) && !R.scrambledcodes)
 				R.builtInCamera.status = mend
 				R.builtInCamera.toggle_cam(usr, 0)
-				R.visible_message(span_notice("[R]'s camera lens focuses loudly."), span_notice("Your camera lens focuses loudly."))
+				R.visible_message(span_notice("Линза камеры <b>[R.name]</b> громко фокусируется.") , span_notice("Линза моей камеры громко фокусируется."))
 				R.logevent("Camera Module fault [mend?"cleared":"detected"]")
 				log_silicon("[key_name(usr)] [mend ? "enabled" : "disabled"] [key_name(R)]'s camera via wire")
 		if(WIRE_LOCKDOWN) // Simple lockdown.

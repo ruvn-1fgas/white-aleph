@@ -1,20 +1,17 @@
 /datum/station_trait/bananium_shipment
-	name = "Bananium Shipment"
+	name = "Отгрузка бананиума"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
-	report_message = "Rumors has it that the clown planet has been sending support packages to clowns in this system"
+	report_message = "Ходят слухи, что планета клоунов отправляет пакеты поддержки клоунам в этой системе."
 	trait_to_give = STATION_TRAIT_BANANIUM_SHIPMENTS
 
 /datum/station_trait/unnatural_atmosphere
-	name = "Unnatural atmospherical properties"
+	name = "Неестественные атмосферные свойства"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
 	show_in_report = TRUE
-	report_message = "System's local planet has irregular atmospherical properties"
+	report_message = "Локальная планета системы имеет необычные атмосферные свойства."
 	trait_to_give = STATION_TRAIT_UNNATURAL_ATMOSPHERE
-
-	// This station trait modifies the atmosphere, which is too far past the time admins are able to revert it
-	can_revert = FALSE
 
 /datum/station_trait/spider_infestation
 	name = "Spider Infestation"
@@ -24,12 +21,11 @@
 	trait_to_give = STATION_TRAIT_SPIDER_INFESTATION
 
 /datum/station_trait/unique_ai
-	name = "Unique AI"
+	name = "Уникальный ИИ"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
 	show_in_report = TRUE
-	report_message = "For experimental purposes, this station AI might show divergence from default lawset. Do not meddle with this experiment, we've removed \
-		access to your set of alternative upload modules because we know you're already thinking about meddling with this experiment."
+	report_message = "В экспериментальных целях ИИ этой станции может показывать отклонение от установленного по умолчанию закона. Не вмешивайтесь в этот эксперимент."
 	trait_to_give = STATION_TRAIT_UNIQUE_AI
 
 /datum/station_trait/unique_ai/on_round_start()
@@ -38,11 +34,11 @@
 		ai.show_laws()
 
 /datum/station_trait/ian_adventure
-	name = "Ian's Adventure"
+	name = "Приключение Яна"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
 	show_in_report = FALSE
-	report_message = "Ian has gone exploring somewhere in the station."
+	report_message = "Ян отправился исследовать станцию."
 
 /datum/station_trait/ian_adventure/on_round_start()
 	for(var/mob/living/basic/pet/dog/corgi/dog in GLOB.mob_list)
@@ -96,44 +92,12 @@
 	if(!gibbed) //The old dog will now disappear so we won't have more than one Ian at a time.
 		qdel(old_dog)
 
-/datum/station_trait/glitched_pdas
-	name = "PDA glitch"
-	trait_type = STATION_TRAIT_NEUTRAL
-	weight = 15
-	show_in_report = TRUE
-	report_message = "Something seems to be wrong with the PDAs issued to you all this shift. Nothing too bad though."
-	trait_to_give = STATION_TRAIT_PDA_GLITCHED
-
-/datum/station_trait/announcement_intern
-	name = "Announcement Intern"
-	trait_type = STATION_TRAIT_NEUTRAL
-	weight = 1
-	show_in_report = TRUE
-	report_message = "Please be nice to him."
-	blacklist = list(/datum/station_trait/announcement_medbot, /datum/station_trait/birthday)
-
-/datum/station_trait/announcement_intern/New()
-	. = ..()
-	SSstation.announcer = /datum/centcom_announcer/intern
-
-/datum/station_trait/announcement_medbot
-	name = "Announcement \"System\""
-	trait_type = STATION_TRAIT_NEUTRAL
-	weight = 1
-	show_in_report = TRUE
-	report_message = "Our announcement system is under scheduled maintanance at the moment. Thankfully, we have a backup."
-	blacklist = list(/datum/station_trait/announcement_intern, /datum/station_trait/birthday)
-
-/datum/station_trait/announcement_medbot/New()
-	. = ..()
-	SSstation.announcer = /datum/centcom_announcer/medbot
-
 /datum/station_trait/colored_assistants
-	name = "Colored Assistants"
+	name = "Цветные ассистенты"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 10
 	show_in_report = TRUE
-	report_message = "Due to a shortage in standard issue jumpsuits, we have provided your assistants with one of our backup supplies."
+	report_message = "Из-за нехватки стандартных комбинезонов мы предоставили вашим ассистентам комбинезоны из наших резервных запасов."
 
 /datum/station_trait/colored_assistants/New()
 	. = ..()
@@ -196,13 +160,12 @@
 	gorilla.poll_for_gorilla()
 
 /datum/station_trait/birthday
-	name = "Employee Birthday"
+	name = "День рождения сотрудинка"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 2
 	show_in_report = TRUE
-	report_message = "We here at Nanotrasen would all like to wish Employee Name a very happy birthday"
+	report_message = "Сегодня у нас день рождения сотрудника. Поздравляем сотрудника с днем рождения!"
 	trait_to_give = STATION_TRAIT_BIRTHDAY
-	blacklist = list(/datum/station_trait/announcement_intern, /datum/station_trait/announcement_medbot) //Overiding the annoucer hides the birthday person in the annoucement message.
 	///Variable that stores a reference to the person selected to have their birthday celebrated.
 	var/mob/living/carbon/human/birthday_person
 	///Variable that holds the real name of the birthday person once selected, just incase the birthday person's real_name changes.
@@ -251,8 +214,8 @@
 
 
 /datum/station_trait/birthday/proc/announce_birthday()
-	report_message = "We here at Nanotrasen would all like to wish [birthday_person ? birthday_person_name : "Employee Name"] a very happy birthday"
-	priority_announce("Happy birthday to [birthday_person ? birthday_person_name : "Employee Name"]! Nanotrasen wishes you a very happy [birthday_person ? thtotext(birthday_person.age + 1) : "255th"] birthday.")
+	report_message = "Сегодня у нас день рождения [birthday_person ? birthday_person_name : "сотрудника"]. Поздравляем [birthday_person ? birthday_person_name : "сотрудника"] с днем рождения!"
+	priority_announce("Сегодня у нас день рождения [birthday_person ? birthday_person_name : "сотрудника"]. Поздравляем [birthday_person ? birthday_person_name : "сотрудника"] с днем рождения!")
 	if(birthday_person)
 		playsound(birthday_person, 'sound/items/party_horn.ogg', 50)
 		birthday_person.add_mood_event("birthday", /datum/mood_event/birthday)
@@ -289,19 +252,19 @@
 			spawned_mob.equip_to_slot_or_del(birthday_invite, ITEM_SLOT_BACKPACK) //Just incase someone spawns with both hands full.
 
 /obj/item/birthday_invite
-	name = "birthday invitation"
-	desc = "A card stating that it's someone's birthday today."
+	name = "приглашение на день рождения"
+	desc = "Карточка, указывающая, что сегодня день рождения кого-то."
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/birthday_invite/proc/setup_card(birthday_name)
-	desc = "A card stating that its [birthday_name]'s birthday today."
+	desc = "Карточка, указывающая, что сегодня день рождения [birthday_name]."
 	icon_state = "paperslip_words"
 	icon = 'icons/obj/service/bureaucracy.dmi'
 
 /obj/item/clothing/head/costume/party
-	name = "party hat"
-	desc = "A crappy paper hat that you are REQUIRED to wear."
+	name = "праздничная бумажная шапочка"
+	desc = "Дешёвая бумажная шапочка, которую вы ОБЯЗАНЫ носить."
 	icon_state = "party_hat"
 	greyscale_config =  /datum/greyscale_config/party_hat
 	greyscale_config_worn = /datum/greyscale_config/party_hat/worn
@@ -321,18 +284,18 @@
 	return ..()
 
 /obj/item/clothing/head/costume/party/festive
-	name = "festive paper hat"
+	name = "фестивальная бумажная шапочка"
 	icon_state = "xmashat_grey"
 	greyscale_config = /datum/greyscale_config/festive_hat
 	greyscale_config_worn = /datum/greyscale_config/festive_hat/worn
 
 /// Tells the area map generator to ADD MORE TREEEES
 /datum/station_trait/forested
-	name = "Forested"
+	name = "Лесистая местность"
 	trait_type = STATION_TRAIT_NEUTRAL
 	trait_to_give = STATION_TRAIT_FORESTED
 	trait_flags = STATION_TRAIT_PLANETARY
 	weight = 10
 	show_in_report = TRUE
-	report_message = "There sure are a lot of trees out there."
+	report_message = "Джонни, они на деревьях! Варите напалм!"
 

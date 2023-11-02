@@ -1,9 +1,9 @@
 /datum/quirk/phobia
-	name = "Phobia"
-	desc = "You are irrationally afraid of something."
+	name = "Фобия"
+	desc = "Чего-то боюсь."
 	icon = FA_ICON_SPIDER
 	value = 0
-	medical_record_text = "Patient has an irrational fear of something."
+	medical_record_text = "Пациент чего-то очень сильно боится."
 	mail_goodies = list(/obj/item/clothing/glasses/blindfold, /obj/item/storage/pill_bottle/psicodine)
 
 // Phobia will follow you between transfers

@@ -7,8 +7,8 @@
 * a pH booklet that contains pH paper pages that will change color depending on the pH of the reagents datum it's attacked onto
 */
 /obj/item/ph_booklet
-	name = "pH indicator booklet"
-	desc = "A booklet containing paper soaked in universal indicator."
+	name = "буклет с индикатором pH"
+	desc = "Буклет, содержащий бумагу, пропитанную универсальным индикатором."
 	icon_state = "pHbooklet"
 	icon = 'icons/obj/medical/chemical.dmi'
 	item_flags = NOBLUDGEON
@@ -23,13 +23,13 @@
 		if(number_of_pages == 50)
 			icon_state = "pHbooklet_open"
 		if(!number_of_pages)
-			to_chat(user, span_warning("[src] is empty!"))
+			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> пуст!"))
 			add_fingerprint(user)
 			return
 		var/obj/item/ph_paper/page = new(get_turf(user))
 		page.add_fingerprint(user)
 		user.put_in_active_hand(page)
-		to_chat(user, span_notice("You take [page] out of \the [src]."))
+		to_chat(user, span_notice("Достаю [page] из [src.name]."))
 		number_of_pages--
 		playsound(user.loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
 		add_fingerprint(user)
@@ -48,7 +48,7 @@
 	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 		return
 	if(!number_of_pages)
-		to_chat(user, span_warning("[src] is empty!"))
+		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> пуст!"))
 		add_fingerprint(user)
 		return
 	if(number_of_pages == 50)
@@ -56,7 +56,7 @@
 	var/obj/item/ph_paper/P = new(get_turf(user))
 	P.add_fingerprint(user)
 	user.put_in_active_hand(P)
-	to_chat(user, span_notice("You take [P] out of \the [src]."))
+	to_chat(user, span_notice("Достаю [P] из [src.name]."))
 	number_of_pages--
 	playsound(user.loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
 	add_fingerprint(user)
@@ -67,8 +67,8 @@
 * pH paper will change color depending on the pH of the reagents datum it's attacked onto
 */
 /obj/item/ph_paper
-	name = "pH indicator strip"
-	desc = "A piece of paper that will change colour depending on the pH of a solution."
+	name = "индикаторная полоска pH"
+	desc = "Лист бумаги, который меняет цвет в зависимости от pH раствора."
 	icon_state = "pHpaper"
 	icon = 'icons/obj/medical/chemical.dmi'
 	item_flags = NOBLUDGEON
@@ -84,13 +84,13 @@
 	. |= AFTERATTACK_PROCESSED_ITEM
 	var/obj/item/reagent_containers/cont = target
 	if(used == TRUE)
-		to_chat(user, span_warning("[src] has already been used!"))
+		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> уже использована!"))
 		return
 	if(!LAZYLEN(cont.reagents.reagent_list))
 		return
 	CONVERT_PH_TO_COLOR(round(cont.reagents.ph, 1), color)
-	desc += " The paper looks to be around a pH of [round(cont.reagents.ph, 1)]"
-	name = "used [name]"
+	desc += " Бумага выглядит примерно с pH равным [round(cont.reagents.ph, 1)]"
+	name = "использованная [name]"
 	used = TRUE
 
 /*
@@ -139,8 +139,8 @@
 	desc = "An electrode attached to a small circuit box that will display details of a solution. Can be toggled to provide a description of each of the reagents. The screen currently displays detected vol: [round(cont.volume, 0.01)] detected pH:[round(cont.reagents.ph, 0.1)]."
 
 /obj/item/burner
-	name = "burner"
-	desc = "A small table size burner used for heating up beakers."
+	name = "спиртовая горелка"
+	desc = "Ёмкость, которая используется для нагрева жидкостей в пробирках."
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "burner"
 	grind_results = list(/datum/reagent/consumable/ethanol = 5, /datum/reagent/silicon = 10)
@@ -167,25 +167,25 @@
 		if(lit)
 			var/obj/item/reagent_containers/container = I
 			container.reagents.expose_temperature(get_temperature())
-			to_chat(user, span_notice("You heat up the [I] with the [src]."))
+			to_chat(user, span_notice("Нагреваю [I] используя [src.name]."))
 			playsound(user.loc, 'sound/chemistry/heatdam.ogg', 50, TRUE)
 			return
 		else if(I.is_drainable()) //Transfer FROM it TO us. Special code so it only happens when flame is off.
 			var/obj/item/reagent_containers/container = I
 			if(!container.reagents.total_volume)
-				to_chat(user, span_warning("[container] is empty and can't be poured!"))
+				to_chat(user, span_warning("[capitalize(container)] пуст!"))
 				return
 
 			if(reagents.holder_full())
-				to_chat(user, span_warning("[src] is full."))
+				to_chat(user, span_warning("[src.name] переполнена."))
 				return
 
 			var/trans = container.reagents.trans_to(src, container.amount_per_transfer_from_this, transferred_by = user)
-			to_chat(user, span_notice("You fill [src] with [trans] unit\s of the contents of [container]."))
+			to_chat(user, span_notice("Заполняю [src.name] используя [trans] единиц содержимого [container]."))
 	if(I.heat < 1000)
 		return
 	set_lit(TRUE)
-	user.visible_message(span_notice("[user] lights up the [src]."))
+	user.visible_message(span_notice("[user] поджигает [src.name]."))
 
 /obj/item/burner/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -194,7 +194,7 @@
 		if(is_reagent_container(target))
 			var/obj/item/reagent_containers/container = target
 			container.reagents.expose_temperature(get_temperature())
-			to_chat(user, span_notice("You heat up the [src]."))
+			to_chat(user, span_notice("Нагреваю [src.name]."))
 			playsound(user.loc, 'sound/chemistry/heatdam.ogg', 50, TRUE)
 			return .
 	else if(isitem(target))
@@ -202,7 +202,7 @@
 		if(item.heat > 1000)
 			. |= AFTERATTACK_PROCESSED_ITEM
 			set_lit(TRUE)
-			user.visible_message(span_notice("[user] lights up the [src]."))
+			user.visible_message(span_notice("[user] поджигает [src.name]."))
 
 	return .
 
@@ -240,7 +240,7 @@
 		return
 	if(lit)
 		set_lit(FALSE)
-		user.visible_message(span_notice("[user] snuffs out [src]'s flame."))
+		user.visible_message(span_notice("[user] задувает пламя [src.name]."))
 
 /obj/item/burner/attack(mob/living/carbon/M, mob/living/carbon/user)
 	if(lit && M.ignite_mob())
@@ -272,16 +272,18 @@
 	return lit * heat
 
 /obj/item/burner/oil
+	name = "масляная горелка"
 	reagent_type = /datum/reagent/fuel/oil
 	grind_results = list(/datum/reagent/fuel/oil = 5, /datum/reagent/silicon = 10)
 
 /obj/item/burner/fuel
+	name = "топливная горелка"
 	reagent_type = /datum/reagent/fuel
 	grind_results = list(/datum/reagent/fuel = 5, /datum/reagent/silicon = 10)
 
 /obj/item/thermometer
-	name = "thermometer"
-	desc = "A thermometer for checking a beaker's temperature"
+	name = "термометр"
+	desc = "Используется для проверки температуры в сосудах."
 	icon_state = "thermometer"
 	icon = 'icons/obj/medical/chemical.dmi'
 	item_flags = NOBLUDGEON
@@ -301,7 +303,7 @@
 		if(!user.transferItemToLoc(src, target))
 			return .
 		attached_to_reagents = target.reagents
-		to_chat(user, span_notice("You add the [src] to the [target]."))
+		to_chat(user, span_notice("Прикрепляю [src.name] в [target]."))
 		ui_interact(usr, null)
 	return .
 
@@ -335,7 +337,7 @@
 	attached_to_reagents = null
 
 /obj/item/thermometer/proc/try_put_in_hand(obj/object, mob/living/user)
-	to_chat(user, span_notice("You remove the [src] from the [attached_to_reagents.my_atom]."))
+	to_chat(user, span_notice("Убираю [src.name] из [attached_to_reagents.my_atom]."))
 	if(!issilicon(user) && in_range(src.loc, user))
 		user.put_in_hands(object)
 	else

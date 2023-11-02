@@ -1,5 +1,5 @@
 /datum/crafting_recipe/ed209
-	name = "ED209"
+	name = "ED-209 Боевой Робот"
 	result = /mob/living/simple_animal/bot/secbot/ed209
 	reqs = list(
 		/obj/item/robot_suit = 1,
@@ -17,7 +17,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/secbot
-	name = "Secbot"
+	name = "Секьюритрон"
 	result = /mob/living/simple_animal/bot/secbot
 	reqs = list(
 		/obj/item/assembly/signaler = 1,
@@ -31,7 +31,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/cleanbot
-	name = "Cleanbot"
+	name = "Клинбот"
 	result = /mob/living/simple_animal/bot/cleanbot
 	reqs = list(
 		/obj/item/reagent_containers/cup/bucket = 1,
@@ -43,7 +43,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/floorbot
-	name = "Floorbot"
+	name = "Флурбот"
 	result = /mob/living/simple_animal/bot/floorbot
 	reqs = list(
 		/obj/item/storage/toolbox = 1,
@@ -55,7 +55,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/medbot
-	name = "Medbot"
+	name = "Медбот"
 	result = /mob/living/simple_animal/bot/medbot
 	reqs = list(
 		/obj/item/healthanalyzer = 1,
@@ -94,7 +94,7 @@
 	bot.update_appearance()
 
 /datum/crafting_recipe/honkbot
-	name = "Honkbot"
+	name = "Хонкбот"
 	result = /mob/living/simple_animal/bot/secbot/honkbot
 	reqs = list(
 		/obj/item/storage/box/clown = 1,
@@ -106,7 +106,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/firebot
-	name = "Firebot"
+	name = "Пожарный бот"
 	result = /mob/living/simple_animal/bot/firebot
 	reqs = list(
 		/obj/item/extinguisher = 1,
@@ -118,7 +118,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/vibebot
-	name = "Vibebot"
+	name = "Вайб-бот"
 	result = /mob/living/simple_animal/bot/vibebot
 	reqs = list(
 		/obj/item/light/bulb = 2,
@@ -130,7 +130,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/hygienebot
-	name = "Hygienebot"
+	name = "Гигиенобот"
 	result = /mob/living/simple_animal/bot/hygienebot
 	reqs = list(
 		/obj/item/bot_assembly/hygienebot = 1,
@@ -142,7 +142,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/vim
-	name = "Vim"
+	name = "Вим"
 	result = /obj/vehicle/sealed/car/vim
 	reqs = list(
 		/obj/item/clothing/head/helmet/space/eva = 1,
@@ -190,7 +190,7 @@
 	qdel(base_card)
 
 /datum/crafting_recipe/mod_core_standard
-	name = "MOD core (Standard)"
+	name = "МОД ядро (Стандартное)"
 	result = /obj/item/mod/core/standard
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 10 SECONDS
@@ -203,7 +203,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/mod_core_ethereal
-	name = "MOD core (Ethereal)"
+	name = "МОД ядро (Этериал)"
 	result = /obj/item/mod/core/ethereal
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 10 SECONDS

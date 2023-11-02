@@ -47,8 +47,8 @@
 	donktype = /obj/item/food/donkpocket/honk
 
 /obj/item/storage/box/papersack
-	name = "paper sack"
-	desc = "A sack neatly crafted out of paper."
+	name = "бумажный мешок"
+	desc = "Мешочек, аккуратно сделанный из бумаги."
 	icon = 'icons/obj/storage/paperbag.dmi'
 	icon_state = "paperbag_None"
 	inhand_icon_state = null

@@ -56,8 +56,8 @@
 	)
 
 /obj/item/storage/backpack/holding
-	name = "bag of holding"
-	desc = "A backpack that opens into a localized pocket of bluespace."
+	name = "блюспейс сумка"
+	desc = "Рюкзак, который открывает портал в локализованный карман блюспейс пространства."
 	icon_state = "bag_of_holding"
 	inhand_icon_state = "holdingpack"
 	resistance_flags = FIRE_PROOF
@@ -70,7 +70,7 @@
 	acid = 50
 
 /obj/item/storage/backpack/holding/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is jumping into [src]! It looks like [user.p_theyre()] trying to commit suicide."))
+	user.visible_message(span_suicide("[user] прыгает в [src]! Похоже, [user.ru_who()] пытается совершить суицид."))
 	user.dropItemToGround(src, TRUE)
 	user.Stun(100, ignore_canstun = TRUE)
 	sleep(2 SECONDS)

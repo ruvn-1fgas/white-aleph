@@ -439,8 +439,8 @@
 	range_flame = 2
 
 /obj/item/bombcore/chemical
-	name = "chemical payload"
-	desc = "An explosive payload designed to spread chemicals, dangerous or otherwise, across a large area. Properties of the core may vary with grenade casing type, and must be loaded before use."
+	name = "химический боезаряд"
+	desc = "Взрывоопасный заряд предназначенный для распространения химикатов. Свойства ядра могут варьироваться с типом корпуса гранаты. Граната должна быть установлена перед использованием"
 	icon_state = "chemcore"
 	/// The initial volume of the reagent holder the bombcore has.
 	var/core_holder_volume = 1000
@@ -519,9 +519,9 @@
 			if(!user.transferItemToLoc(I, src))
 				return
 			beakers += I
-			to_chat(user, span_notice("You load [src] with [I]."))
+			to_chat(user, span_notice("Устанавливаю [src] вместе с [I]."))
 		else
-			to_chat(user, span_warning("[I] won't fit! \The [src] can only hold up to [max_beakers] containers."))
+			to_chat(user, span_warning("[I] не вмещается! <b>[src.name]</b> может содержать до [max_beakers] контейнеров."))
 			return
 	..()
 

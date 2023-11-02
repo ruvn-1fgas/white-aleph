@@ -1,5 +1,5 @@
 /datum/crafting_recipe/improv_explosive
-	name = "IED"
+	name = "Самодельная зажигательная бомба"
 	result = /obj/item/grenade/iedcasing
 	reqs = list(
 		/datum/reagent/fuel = 50,
@@ -12,7 +12,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/molotov
-	name = "Molotov"
+	name = "Коктейль Молотова"
 	result = /obj/item/reagent_containers/cup/glass/bottle/molotov
 	reqs = list(
 		/obj/item/reagent_containers/cup/rag = 1,
@@ -23,7 +23,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/chemical_payload
-	name = "Chemical Payload (C4)"
+	name = "Химический боезаряд"
 	result = /obj/item/bombcore/chemical
 	reqs = list(
 		/obj/item/stock_parts/matter_bin = 1,
@@ -35,7 +35,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/chemical_payload2
-	name = "Chemical Payload (Gibtonite)"
+	name = "Химический боезаряд (Гибтонит)"
 	result = /obj/item/bombcore/chemical
 	reqs = list(
 		/obj/item/stock_parts/matter_bin = 1,
@@ -47,7 +47,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/alcohol_burner
-	name = "Burner (Ethanol)"
+	name = "Спиртовая горелка"
 	result = /obj/item/burner
 	time = 5 SECONDS
 	reqs = list(
@@ -58,7 +58,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/oil_burner
-	name = "Burner (Oil)"
+	name = "Масляная горелка"
 	result = /obj/item/burner/oil
 	time = 5 SECONDS
 	reqs = list(
@@ -69,7 +69,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/fuel_burner
-	name = "Burner (Fuel)"
+	name = "Топливная горелка"
 	result = /obj/item/burner/fuel
 	time = 5 SECONDS
 	reqs = list(
@@ -80,7 +80,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/thermometer
-	name = "Thermometer"
+	name = "Термометр"
 	tool_behaviors = list(TOOL_WELDER)
 	result = /obj/item/thermometer
 	time = 5 SECONDS
@@ -91,7 +91,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/thermometer_alt
-	name = "Thermometer"
+	name = "Термометр"
 	result = /obj/item/thermometer/pen
 	time = 5 SECONDS
 	reqs = list(
@@ -101,7 +101,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/ph_booklet
-	name = "pH booklet"
+	name = "Буклет с индикатором pH"
 	result = /obj/item/ph_booklet
 	time = 5 SECONDS
 	reqs = list(
@@ -111,7 +111,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/dropper //Maybe make a glass pipette icon?
-	name = "Dropper"
+	name = "Пипетка"
 	result = /obj/item/reagent_containers/dropper
 	tool_behaviors = list(TOOL_WELDER)
 	time = 5 SECONDS
@@ -121,7 +121,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/improvised_chem_heater
-	name = "Improvised chem heater"
+	name = "Самодельный нагреватель химикатов"
 	result = /obj/machinery/space_heater/improvised_chem_heater
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_MULTITOOL, TOOL_WIRECUTTER)
 	time = 15 SECONDS
@@ -145,7 +145,7 @@
 	heater.attackby(cell, user) //puts it into the heater
 
 /datum/crafting_recipe/improvised_coolant
-	name = "Improvised cooling spray"
+	name = "импровизированный охлаждающий спрей"
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/extinguisher/crafted
 	time = 10 SECONDS

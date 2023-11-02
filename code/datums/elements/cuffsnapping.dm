@@ -56,10 +56,10 @@
 	var/examine_string
 	if(isnull(snap_time_weak))
 		return
-	examine_string = "It looks like it could cut zipties or cable restraints off someone in [snap_time_weak] seconds"
+	examine_string = "Похоже, этим можно перерезать стяжки за [snap_time_weak]с."
 
 	if(!isnull(snap_time_strong))
-		examine_string += ", and handcuffs in [snap_time_strong] seconds."
+		examine_string += ", и наручники за [snap_time_strong]с."
 	else
 		examine_string += "."
 
@@ -80,12 +80,12 @@
 		return
 
 	if(cuffs.restraint_strength && isnull(src.snap_time_strong))
-		cutter_user.visible_message(span_notice("[cutter_user] tries to cut through [target]'s restraints with [cutter], but fails!"))
+		cutter_user.visible_message(span_notice("[cutter_user] пытается перерезать стяжки с помощью [skloname(cutter, RODITELNI, gender=cutter.gender)], но не может!"))
 		playsound(source = get_turf(cutter), soundin = cutter.usesound ? cutter.usesound : cutter.hitsound, vol = cutter.get_clamped_volume(), vary = TRUE)
 		return COMPONENT_SKIP_ATTACK
 
 	else if(isnull(src.snap_time_weak))
-		cutter_user.visible_message(span_notice("[cutter_user] tries to cut through [target]'s restraints with [cutter], but fails!"))
+		cutter_user.visible_message(span_notice("[cutter_user] пытается перерезать стяжки с помощью [skloname(cutter, RODITELNI, gender=cutter.gender)], но не может!"))
 		playsound(source = get_turf(cutter), soundin = cutter.usesound ? cutter.usesound : cutter.hitsound, vol = cutter.get_clamped_volume(), vary = TRUE)
 		return COMPONENT_SKIP_ATTACK
 
@@ -105,7 +105,7 @@
 
 	if(snap_time == 0 || do_after(cutter_user, snap_time, target, interaction_key = cutter)) // If 0 just do it. This to bypass the do_after() creating a needless progress bar.
 		cutter_user.do_attack_animation(target, used_item = cutter)
-		cutter_user.visible_message(span_notice("[cutter_user] cuts [target]'s restraints with [cutter]!"))
+		cutter_user.visible_message(span_notice("[cutter_user] перерезает стяжки с помощью [skloname(cutter, RODITELNI, gender=cutter.gender)]!"))
 		qdel(target.handcuffed)
 		playsound(source = get_turf(cutter), soundin = cutter.usesound ? cutter.usesound : cutter.hitsound, vol = cutter.get_clamped_volume(), vary = TRUE)
 

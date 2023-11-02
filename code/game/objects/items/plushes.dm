@@ -711,7 +711,8 @@
 		. += "goat_dart"
 
 /obj/item/toy/plush/moth
-	name = "moth plushie"
+	name = "плюшевая моль"
+	desc = "Плюшевая игрушка, изображающая очаровательного мотылька. Это обнимающийся жучок!"
 	desc = "A plushie depicting an adorable mothperson. It's a huggable bug!"
 	icon_state = "moffplush"
 	inhand_icon_state = null
@@ -722,12 +723,12 @@
 	var/suicide_count = 0
 
 /obj/item/toy/plush/moth/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] stares deeply into the eyes of [src] and it begins consuming [user.p_them()]!  It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] пристально смотрит в глаза [src] и начинает поглощать [user.ru_na()]! Похоже, [user.p_theyre()] пытается совершить самоубийство!"))
 	suicide_count++
 	if(suicide_count < 3)
-		desc = "A plushie depicting an unsettling mothperson. After killing [suicide_count] [suicide_count == 1 ? "person" : "people"] it's not looking so huggable now..."
+		desc = "Плюшевая игрушка, изображающая тревожного мотылька. После убийства [suicide_count] [suicide_count == 1 ? "человека" : "людей"] оно не выглядит таким обнимательным..."
 	else
-		desc = "A plushie depicting a creepy mothperson. It's killed [suicide_count] people! I don't think I want to hug it any more!"
+		desc = "Плюшевая игрушка, изображающая жуткого мотылька. Он убил [suicide_count] человек! Я не думаю, что хочу больше обнимать его!"
 		divine = TRUE
 		resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	playsound(src, 'sound/hallucinations/wail.ogg', 50, TRUE, -1)

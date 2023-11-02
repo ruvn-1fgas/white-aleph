@@ -1,5 +1,5 @@
 /datum/crafting_recipe/naturalpaper
-	name = "Hand-Pressed Paper"
+	name = "Спрессованная руками бумага"
 	time = 3 SECONDS
 	reqs = list(/datum/reagent/water = 50, /obj/item/stack/sheet/mineral/wood = 1)
 	tool_paths = list(/obj/item/hatchet)
@@ -7,7 +7,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/skeleton_key
-	name = "Skeleton Key"
+	name = "Скелетный ключ"
 	time = 3 SECONDS
 	reqs = list(/obj/item/stack/sheet/bone = 5)
 	result = /obj/item/skeleton_key
@@ -15,7 +15,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/coffee_cartridge
-	name = "Bootleg Coffee Cartridge"
+	name = "Картридж Бутлег-кофе"
 	result = /obj/item/coffee_cartridge/bootleg
 	time = 2 SECONDS
 	reqs = list(
@@ -25,7 +25,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/corporate_paper_slip
-	name = "Corporate Plastic Card"
+	name = "Корпоративный нож для бумаги"
 	result = /obj/item/paper/paperslip/corporate
 	time = 3 SECONDS
 	reqs = list(
@@ -36,7 +36,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/cardboard_id
-	name = "Cardboard ID Card"
+	name = "Картонная ID карта"
 	tool_behaviors = list(TOOL_WIRECUTTER)
 	result = /obj/item/card/cardboard
 	time = 4 SECONDS

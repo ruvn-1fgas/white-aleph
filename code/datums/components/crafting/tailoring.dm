@@ -1,5 +1,5 @@
 /datum/crafting_recipe/durathread_vest
-	name = "Durathread Vest"
+	name = "Дюратканевый бронежилет"
 	result = /obj/item/clothing/suit/armor/vest/durathread
 	reqs = list(/obj/item/stack/sheet/durathread = 5,
 				/obj/item/stack/sheet/leather = 4)
@@ -7,7 +7,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/durathread_helmet
-	name = "Durathread Helmet"
+	name = "Дюратканевый шлем"
 	result = /obj/item/clothing/head/helmet/durathread
 	reqs = list(/obj/item/stack/sheet/durathread = 4,
 				/obj/item/stack/sheet/leather = 5)
@@ -15,7 +15,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/fannypack
-	name = "Fannypack"
+	name = "Барсетка"
 	result = /obj/item/storage/belt/fannypack
 	reqs = list(/obj/item/stack/sheet/cloth = 2,
 				/obj/item/stack/sheet/leather = 1)
@@ -23,7 +23,7 @@
 	category = CAT_CONTAINERS
 
 /datum/crafting_recipe/hudsunsec
-	name = "Security HUDsunglasses"
+	name = "Тактические очки офицера"
 	result = /obj/item/clothing/glasses/hud/security/sunglasses
 	time = 2 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -33,7 +33,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/hudsunsecremoval
-	name = "Security HUD removal"
+	name = "Разборка тактических очков офицера"
 	result = /obj/item/clothing/glasses/sunglasses
 	time = 2 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -41,7 +41,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/hudsunmed
-	name = "Medical HUDsunglasses"
+	name = "Тактические медицинские очки"
 	result = /obj/item/clothing/glasses/hud/health/sunglasses
 	time = 2 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -51,7 +51,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/hudsunmedremoval
-	name = "Medical HUD removal"
+	name = "Разборка тактических медицинских очков"
 	result = /obj/item/clothing/glasses/sunglasses
 	time = 2 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -59,7 +59,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/hudsundiag
-	name = "Diagnostic HUDsunglasses"
+	name = "Тактические диагностические очки"
 	result = /obj/item/clothing/glasses/hud/diagnostic/sunglasses
 	time = 2 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -69,7 +69,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/hudsundiagremoval
-	name = "Diagnostic HUD removal"
+	name = "Разборка тактических диагностических очков"
 	result = /obj/item/clothing/glasses/sunglasses
 	time = 2 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -77,7 +77,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/scienceglasses
-	name = "Science Glasses"
+	name = "Тактические научные очки"
 	result = /obj/item/clothing/glasses/sunglasses/chemical
 	time = 2 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -87,7 +87,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/scienceglassesremoval
-	name = "Chemical Scanner removal"
+	name = "Разборка тактических научных очков"
 	result = /obj/item/clothing/glasses/sunglasses
 	time = 2 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -95,7 +95,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/ghostsheet
-	name = "Ghost Sheet"
+	name = "Саван неприкаянного"
 	result = /obj/item/clothing/suit/costume/ghost_sheet
 	time = 0.5 SECONDS
 	tool_behaviors = list(TOOL_WIRECUTTER)
@@ -103,14 +103,14 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lizardboots
-	name = "Lizard Skin Boots"
+	name = "Сапоги из кожи ящера"
 	result = /obj/effect/spawner/random/clothing/lizardboots
 	reqs = list(/obj/item/stack/sheet/animalhide/lizard = 1, /obj/item/stack/sheet/leather = 1)
 	time = 6 SECONDS
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/prisonsuit
-	name = "Prisoner Uniform (Suit)"
+	name = "Комбинезон заключенного"
 	result = /obj/item/clothing/under/rank/prisoner
 	reqs = list(/obj/item/stack/sheet/cloth = 3, /obj/item/stack/license_plates = 1)
 	time = 2 SECONDS
@@ -124,14 +124,14 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/prisonshoes
-	name = "Orange Prison Shoes"
+	name = "Юбкомбез заключенной"
 	result = /obj/item/clothing/shoes/sneakers/orange
 	reqs = list(/obj/item/stack/sheet/cloth = 2, /obj/item/stack/license_plates = 1)
 	time = 1 SECONDS
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/tv_helmet
-	name = "Television Helmet"
+	name = "Шлем телевизор"
 	result = /obj/item/clothing/head/costume/tv_head
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_CROWBAR)
 	reqs = list(/obj/item/wallframe/status_display = 1)
@@ -139,21 +139,21 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lizardhat
-	name = "Lizard Cloche Hat"
+	name = "Шляпа из хвоста ящера"
 	result = /obj/item/clothing/head/costume/lizard
 	time = 1 SECONDS
 	reqs = list(/obj/item/organ/external/tail/lizard = 1)
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lizardhat_alternate
-	name = "Lizard Cloche Hat"
+	name = "Шляпа из искусственного хвоста ящера"
 	result = /obj/item/clothing/head/costume/lizard
 	time = 1 SECONDS
 	reqs = list(/obj/item/stack/sheet/animalhide/lizard = 1)
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/kittyears
-	name = "Kitty Ears"
+	name = "Кошачьи уши"
 	result = /obj/item/clothing/head/costume/kitty/genuine
 	time = 1 SECONDS
 	reqs = list(
@@ -163,14 +163,14 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/bonearmor
-	name = "Bone Armor"
+	name = "Костяная броня"
 	result = /obj/item/clothing/suit/armor/bone
 	time = 3 SECONDS
 	reqs = list(/obj/item/stack/sheet/bone = 6)
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/bonetalisman
-	name = "Bone Talisman"
+	name = "Костяной талисман"
 	result = /obj/item/clothing/accessory/talisman
 	time = 2 SECONDS
 	reqs = list(
@@ -180,7 +180,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/bonecodpiece
-	name = "Skull Codpiece"
+	name = "Костяной гульфик"
 	result = /obj/item/clothing/accessory/skullcodpiece
 	time = 2 SECONDS
 	reqs = list(
@@ -190,7 +190,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/skilt
-	name = "Sinew Kilt"
+	name = "Килт из сухожилий"
 	result = /obj/item/clothing/accessory/skilt
 	time = 2 SECONDS
 	reqs = list(
@@ -200,7 +200,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/bracers
-	name = "Bone Bracers"
+	name = "Костяные наручи"
 	result = /obj/item/clothing/gloves/bracer
 	time = 2 SECONDS
 	reqs = list(
@@ -210,14 +210,14 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/skullhelm
-	name = "Skull Helmet"
+	name = "Костяной шлем"
 	result = /obj/item/clothing/head/helmet/skull
 	time = 3 SECONDS
 	reqs = list(/obj/item/stack/sheet/bone = 4)
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/goliathcloak
-	name = "Goliath Cloak"
+	name = "Накидка из голиафа"
 	result = /obj/item/clothing/suit/hooded/cloak/goliath
 	time = 5 SECONDS
 	reqs = list(
@@ -228,7 +228,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/drakecloak
-	name = "Ash Drake Armour"
+	name = "Доспехи дракона"
 	result = /obj/item/clothing/suit/hooded/cloak/drake
 	time = 6 SECONDS
 	reqs = list(
@@ -239,7 +239,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/godslayer
-	name = "Godslayer Armour"
+	name = "Доспехи Бога"
 	result = /obj/item/clothing/suit/hooded/cloak/godslayer
 	time = 6 SECONDS
 	reqs = list(
@@ -250,7 +250,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/mummy
-	name = "Mummification Bandages (Mask)"
+	name = "Повязки для мумификации (Голова)"
 	result = /obj/item/clothing/mask/mummy
 	time = 1 SECONDS
 	tool_paths = list(/obj/item/nullrod/egyptian)
@@ -258,12 +258,12 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/mummy/body
-	name = "Mummification Bandages (Body)"
+	name = "Повязки для мумификации (Тело)"
 	result = /obj/item/clothing/under/costume/mummy
 	reqs = list(/obj/item/stack/sheet/cloth = 5)
 
 /datum/crafting_recipe/chaplain_hood
-	name = "Follower Hoodie"
+	name = "Роба последователей священника"
 	result = /obj/item/clothing/suit/hooded/chaplain_hoodie
 	time = 1 SECONDS
 	tool_paths = list(
@@ -274,7 +274,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/flower_garland
-	name = "Flower Garland"
+	name = "Цветочный венок"
 	result = /obj/item/clothing/head/costume/garland
 	time = 1 SECONDS
 	reqs = list(
@@ -285,7 +285,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/poppy_crown
-	name = "Poppy Crown"
+	name = "Корона из маков"
 	result = /obj/item/clothing/head/costume/garland/poppy
 	time = 1 SECONDS
 	reqs = list(
@@ -295,7 +295,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lily_crown
-	name = "Lily Crown"
+	name = "Корона из лилий"
 	result = /obj/item/clothing/head/costume/garland/lily
 	time = 1 SECONDS
 	reqs = list(
@@ -305,7 +305,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/sunflower_crown
-	name = "Sunflower Crown"
+	name = "Корона из подсолнухов"
 	result = /obj/item/clothing/head/costume/garland/sunflower
 	time = 1 SECONDS
 	reqs = list(
@@ -315,7 +315,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/rainbow_bunch_crown
-	name = "Rainbow Flower Crown"
+	name = "Радужная корона"
 	result = /obj/item/clothing/head/costume/garland/rainbowbunch
 	time = 1 SECONDS
 	reqs = list(
@@ -325,7 +325,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/pillow_suit
-	name = "pillow suit"
+	name = "Подушечный костюм"
 	result = /obj/item/clothing/suit/pillow_suit
 	time = 2 SECONDS
 	reqs = list(
@@ -335,7 +335,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/pillow_hood
-	name = "pillow hood"
+	name = "Подушечный капюшон"
 	result = /obj/item/clothing/head/pillow_hood
 	tool_behaviors = list(TOOL_WIRECUTTER, TOOL_KNIFE)
 	time = 2 SECONDS
@@ -346,7 +346,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/sturdy_shako
-	name = "Sturdy Shako"
+	name = "Прочный Кивер"
 	result = /obj/item/clothing/head/hats/hos/shako
 	tool_behaviors = list(TOOL_WELDER, TOOL_KNIFE)
 	time = 5 SECONDS
@@ -359,7 +359,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/atmospherics_gas_mask
-	name = "atmospherics gas mask"
+	name = "Противогаз атмостеха"
 	result = /obj/item/clothing/mask/gas/atmos
 	tool_behaviors = list(TOOL_WELDER)
 	time = 8 SECONDS
@@ -371,7 +371,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/paper_hat
-	name = "Paper Hat"
+	name = "Бумажная шляпка"
 	result = /obj/item/clothing/head/costume/paper_hat
 	time = 5 SECONDS
 	reqs = list(

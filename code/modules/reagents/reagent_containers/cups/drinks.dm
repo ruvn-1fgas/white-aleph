@@ -358,8 +358,8 @@
 
 
 /obj/item/reagent_containers/cup/glass/sillycup
-	name = "paper cup"
-	desc = "A paper water cup."
+	name = "бумажный стаканчик"
+	desc = "Для воды."
 	icon_state = "water_cup_e"
 	possible_transfer_amounts = list(10)
 	volume = 10

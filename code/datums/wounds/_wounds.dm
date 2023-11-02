@@ -23,13 +23,15 @@
 
 /datum/wound
 	/// What it's named
-	var/name = "Wound"
+	var/name = "Рана"
+	/// Склонение в винительном падеже
+	var/skloname = "Раны"
 	/// The description shown on the scanners
 	var/desc = ""
 	/// The basic treatment suggested by health analyzers
 	var/treat_text = ""
 	/// What the limb looks like on a cursory examine
-	var/examine_desc = "is badly hurt"
+	var/examine_desc = "сильно болит"
 
 	/// Simple description, shortened for clarity if defined. Otherwise just takes the normal desc in the analyzer proc.
 	var/simple_desc
@@ -103,7 +105,7 @@
 	var/base_xadone_progress_to_qdel = 33
 
 	/// What kind of scars this wound will create description wise once healed
-	var/scar_keyword = "generic"
+	var/scar_keyword = "уродливые шрамы"
 	/// If we've already tried scarring while removing (remove_wound can be called twice in a del chain, let's be nice to our code yeah?) TODO: make this cleaner
 	var/already_scarred = FALSE
 	/// The source of how we got the wound, typically a weapon.
@@ -217,14 +219,14 @@
 		return
 
 	if(!silent && !demoted)
-		var/msg = span_danger("[victim]'s [limb.plaintext_zone] [occur_text]!")
+		var/msg = span_smalldanger("[capitalize(limb.name)] <b>[victim]</b> [occur_text]!")
 		var/vis_dist = COMBAT_MESSAGE_RANGE
 
 		if(severity > WOUND_SEVERITY_MODERATE)
 			msg = "<b>[msg]</b>"
 			vis_dist = DEFAULT_MESSAGE_RANGE
 
-		victim.visible_message(msg, span_userdanger("Your [limb.plaintext_zone] [occur_text]!"), vision_distance = vis_dist)
+		victim.visible_message(msg, span_userdanger("Моя [limb.name] [occur_text]!") , vision_distance = vis_dist)
 		if(sound_effect)
 			playsound(L.owner, sound_effect, sound_volume + (20 * severity), TRUE)
 
@@ -485,7 +487,7 @@
 
 	// now that we've determined we have a valid attempt at treating, we can stomp on their dreams if we're already interacting with the patient or if their part is obscured
 	if(DOING_INTERACTION_WITH_TARGET(user, victim))
-		to_chat(user, span_warning("You're already interacting with [victim]!"))
+		to_chat(user, span_warning("Уже взаимодействую с [victim]!"))
 		return TRUE
 
 	// next we check if the bodypart in actually accessible (not under thick clothing). We skip the species trait check since skellies
@@ -603,11 +605,9 @@
  * * mob/user: The user examining the wound's owner, if that matters
  */
 /datum/wound/proc/get_examine_description(mob/user)
-	. = get_wound_description(user)
-	if(HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
-		. += span_notice("\nThere is a holo-image next to the wound that seems to contain indications for treatment.")
+	. = "[victim.ru_ego(TRUE)] [limb.name] [examine_desc]"
+	. = severity <= WOUND_SEVERITY_MODERATE ? "[.]." : "<B>[.]!</B>"
 
-	return .
 
 /datum/wound/proc/get_wound_description(mob/user)
 	var/desc
@@ -649,21 +649,21 @@
 	return "[desc]."
 
 /datum/wound/proc/get_scanner_description(mob/user)
-	return "Type: [name]\nSeverity: [severity_text(simple = FALSE)]\nDescription: [desc]\nRecommended Treatment: [treat_text]"
+	return "Тип: [name]\nТяжесть: [severity_text()]\nОписание: [desc]\nВозможное лечение: [treat_text]"
 
 /datum/wound/proc/get_simple_scanner_description(mob/user)
-	return "[name] detected!\nRisk: [severity_text(simple = TRUE)]\nDescription: [simple_desc ? simple_desc : desc]\n<i>Treatment Guide: [simple_treat_text]</i>\n<i>Homemade Remedies: [homemade_treat_text]</i>"
+	return "Тип: [name]\nТяжесть: [severity_text()]\nОписание: [desc]\nВозможное лечение: [treat_text]"
 
-/datum/wound/proc/severity_text(simple = FALSE)
+/datum/wound/proc/severity_text()
 	switch(severity)
 		if(WOUND_SEVERITY_TRIVIAL)
-			return "Trivial"
+			return "Тривиальная"
 		if(WOUND_SEVERITY_MODERATE)
-			return "Moderate" + (simple ? "!" : "")
+			return "Умеренная"
 		if(WOUND_SEVERITY_SEVERE)
-			return "Severe" + (simple ? "!!" : "")
+			return "Тяжёлая"
 		if(WOUND_SEVERITY_CRITICAL)
-			return "Critical" + (simple ? "!!!" : "")
+			return "Критическая"
 
 /// Returns TRUE if our limb is the head or chest, FALSE otherwise.
 /// Essential in the sense of "we cannot live without it".

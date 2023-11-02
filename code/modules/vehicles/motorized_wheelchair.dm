@@ -1,6 +1,6 @@
 /obj/vehicle/ridden/wheelchair/motorized
-	name = "motorized wheelchair"
-	desc = "A chair with big wheels. It seems to have a motor in it."
+	name = "моторизованное инвалидное кресло"
+	desc = "Кресло с большими колесами. Кажется, в нём есть мотор."
 	icon_state = "motorized_wheelchair"
 	overlay_icon = "motorized_wheelchair_overlay"
 	foldabletype = null

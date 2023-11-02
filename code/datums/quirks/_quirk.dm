@@ -219,7 +219,7 @@
 		dat += medical ? candidate.medical_record_text : candidate.name
 
 	if(!dat.len)
-		return medical ? "No issues have been declared." : "None"
+		return medical ? "Нет значительных отклонений." : "Нет"
 	return medical ?  dat.Join("<br>") : dat.Join(", ")
 
 /mob/living/proc/cleanse_quirk_datums() //removes all trait datums

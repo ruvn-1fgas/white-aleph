@@ -1,10 +1,10 @@
 /datum/quirk/empath
-	name = "Empath"
-	desc = "Whether it's a sixth sense or careful study of body language, it only takes you a quick glance at someone to understand how they feel."
+	name = "Эмпатия"
+	desc = "Или шестое чувство, или просто тщательное изучение языка тела, но мне просто будет достаточно взгляда на кого-нибудь, чтобы понять, как он себя чувствует."
 	icon = FA_ICON_SMILE_BEAM
 	value = 8
 	mob_trait = TRAIT_EMPATH
-	gain_text = span_notice("You feel in tune with those around you.")
-	lose_text = span_danger("You feel isolated from others.")
-	medical_record_text = "Patient is highly perceptive of and sensitive to social cues, or may possibly have ESP. Further testing needed."
+	gain_text = span_notice("Чувствую себя в гармонии с теми, кто окружает меня.")
+	lose_text = span_danger("Чувствую себя изолированными ото всех.")
+	medical_record_text = "Пациент очень восприимчив и чувствителен к социальным сигналам, или возможно имеет экстрасенсорные способности. Необходимо дальнейшее изучение."
 	mail_goodies = list(/obj/item/toy/foamfinger)

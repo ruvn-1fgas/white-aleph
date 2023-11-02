@@ -1,5 +1,5 @@
 /datum/crafting_recipe/meteorslug
-	name = "Meteorslug Shell"
+	name = "12 Калибр: Метеоритный патрон"
 	result = /obj/item/ammo_casing/shotgun/meteorslug
 	reqs = list(
 		/obj/item/ammo_casing/shotgun/techshell = 1,
@@ -13,7 +13,7 @@
 	category = CAT_WEAPON_AMMO
 
 /datum/crafting_recipe/pulseslug
-	name = "Pulse Slug Shell"
+	name = "12 Калибр: Импульсный патрон"
 	result = /obj/item/ammo_casing/shotgun/pulseslug
 	reqs = list(
 		/obj/item/ammo_casing/shotgun/techshell = 1,
@@ -25,7 +25,7 @@
 	category = CAT_WEAPON_AMMO
 
 /datum/crafting_recipe/dragonsbreath
-	name = "Dragonsbreath Shell"
+	name = "12 Калибр: Драконье дыхание"
 	result = /obj/item/ammo_casing/shotgun/dragonsbreath
 	reqs = list(
 		/obj/item/ammo_casing/shotgun/techshell = 1,
@@ -36,7 +36,7 @@
 	category = CAT_WEAPON_AMMO
 
 /datum/crafting_recipe/frag12
-	name = "FRAG-12 Slug Shell"
+	name = "12 Калибр: FRAG-12"
 	result = /obj/item/ammo_casing/shotgun/frag12
 	reqs = list(
 		/obj/item/ammo_casing/shotgun/techshell = 1,
@@ -48,7 +48,7 @@
 	category = CAT_WEAPON_AMMO
 
 /datum/crafting_recipe/ionslug
-	name = "Ion Scatter Shell"
+	name = "12 Калибр: Ионная Картечь"
 	result = /obj/item/ammo_casing/shotgun/ion
 	reqs = list(
 		/obj/item/ammo_casing/shotgun/techshell = 1,
@@ -60,7 +60,7 @@
 	category = CAT_WEAPON_AMMO
 
 /datum/crafting_recipe/improvisedslug
-	name = "Improvised Shotgun Shell"
+	name = "12 Калибр: Самодельный патрон"
 	result = /obj/item/ammo_casing/shotgun/improvised
 	reqs = list(
 		/obj/item/stack/sheet/iron = 2,
@@ -73,7 +73,7 @@
 	category = CAT_WEAPON_AMMO
 
 /datum/crafting_recipe/trashball
-	name = "Trashball"
+	name = "Мусорный шар"
 	always_available = FALSE
 	result = /obj/item/stack/cannonball/trashball
 	reqs = list(

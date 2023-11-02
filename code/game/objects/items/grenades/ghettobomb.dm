@@ -1,8 +1,8 @@
 //improvised explosives//
 
 /obj/item/grenade/iedcasing
-	name = "improvised firebomb"
-	desc = "A weak, improvised incendiary device."
+	name = "самодельная зажигательная бомба"
+	desc = "Слабое, импровизированное зажигательное устройство."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/weapons/grenade.dmi'
 	icon_state = "improvised_grenade"
@@ -78,4 +78,4 @@
 
 /obj/item/grenade/iedcasing/examine(mob/user)
 	. = ..()
-	. += "You can't tell when it will explode!"
+	. += "<hr>Интересно, а не рванёт ли она в руках?!"

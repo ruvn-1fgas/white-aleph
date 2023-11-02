@@ -7,8 +7,8 @@
  * Bonus: Causes intermittent loss of hearing.
 */
 /datum/symptom/deafness
-	name = "Deafness"
-	desc = "The virus causes inflammation of the eardrums, causing intermittent deafness."
+	name = "Глухота"
+	desc = "Вирус вызывает воспаление барабанных перепонок, вызывая периодическую глухоту."
 	illness = "Aural Perforation"
 	stealth = -1
 	resistance = -2
@@ -21,8 +21,8 @@
 	symptom_delay_max = 80
 	required_organ = ORGAN_SLOT_EARS
 	threshold_descs = list(
-		"Resistance 9" = "Causes permanent deafness, instead of intermittent.",
-		"Stealth 4" = "The symptom remains hidden until active.",
+		"Сопротивление 9" = "Вызывает постоянную глухоту, а не периодическую.",
+		"Скрытность 4" = "Симптом остается скрытым до тех пор, пока не станет активным.",
 	)
 	var/causes_permanent_deafness = FALSE
 
@@ -50,17 +50,17 @@
 	switch(advanced_disease.stage)
 		if(3, 4)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(infected_mob, span_warning("[pick("You hear a ringing in your ear.", "Your ears pop.")]"))
+				to_chat(infected_mob, span_warning("[pick("Слышу звон в ушах.", "В ушах стреляет.")]"))
 		if(5)
 			if(causes_permanent_deafness)
 				if(ears.damage < ears.maxHealth)
-					to_chat(infected_mob, span_userdanger("Your ears pop painfully and start bleeding!"))
+					to_chat(infected_mob, span_userdanger("Уши болезненно стреляют и начинают кровоточить!"))
 					// Just absolutely murder me man
 					ears.apply_organ_damage(ears.maxHealth)
 					infected_mob.emote("scream")
 					ADD_TRAIT(infected_mob, TRAIT_DEAF, DISEASE_TRAIT)
 			else
-				to_chat(infected_mob, span_userdanger("Your ears pop and begin ringing loudly!"))
+				to_chat(infected_mob, span_userdanger("В УШАХ ЗВЕНИТ!"))
 				ears.deaf = min(20, ears.deaf + 15)
 
 /datum/symptom/deafness/on_stage_change(datum/disease/advance/advanced_disease)

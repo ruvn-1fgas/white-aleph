@@ -17426,7 +17426,7 @@
 	dir = 1
 	},
 /obj/machinery/computer/operating{
-	dir = 4
+	dir = 1
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
@@ -24868,7 +24868,9 @@
 /area/station/security/tram)
 "iVu" = (
 /obj/structure/transport/linear/tram,
-/obj/machinery/transport/tram_controller,
+/obj/machinery/transport/tram_controller{
+	req_access = list("brig")
+	},
 /obj/structure/tram,
 /turf/open/floor/tram,
 /area/station/security/tram)
@@ -25438,9 +25440,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
-/obj/machinery/computer/operating{
-	dir = 4
-	},
+/obj/machinery/computer/operating,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "jeV" = (
@@ -70276,7 +70276,9 @@
 /obj/effect/turf_decal/tile/dark_red/opposingcorners,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/button/door/directional/west{
-	id = 228
+	id = 228;
+	req_access = list("brig");
+	silicon_access_disabled = 1
 	},
 /turf/open/floor/iron,
 /area/station/security/prison)

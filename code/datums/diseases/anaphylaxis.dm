@@ -1,17 +1,17 @@
 /datum/disease/anaphylaxis
-	form = "Shock"
-	name = "Anaphylaxis"
-	desc = "Patient is undergoing a life-threatening allergic reaction and will die if not treated."
+	form = "Шок"
+	name = "Анафилактический шок"
+	desc = "Пациент переживает угрожающую жизни аллергическую реакцию и умрет, если не будет лечиться."
 	max_stages = 3
-	cure_text = "Epinephrine"
+	cure_text = "Эпинефрин"
 	cures = list(/datum/reagent/medicine/epinephrine)
 	cure_chance = 20
-	agent = "Allergy"
+	agent = "Аллергия"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	disease_flags = CURABLE
 	severity = DISEASE_SEVERITY_DANGEROUS
 	spread_flags = DISEASE_SPREAD_NON_CONTAGIOUS
-	spread_text = "None"
+	spread_text = "Нет"
 	visibility_flags = HIDDEN_PANDEMIC
 	bypasses_immunity = TRUE
 	stage_prob = 5
@@ -32,37 +32,37 @@
 		// early symptoms: mild shakes and dizziness
 		if(1)
 			if(affected_mob.num_hands >= 1 && SPT_PROB(5, seconds_per_tick))
-				to_chat(affected_mob, span_warning("You feel your hand[affected_mob.num_hands == 1 ? "":"s"] start to shake."))
+				to_chat(affected_mob, span_warning("Чувствую как [affected_mob.num_hands == 1 ? "моя рука начинает" : "мои руки начинают"] дрожать."))
 				affected_mob.adjust_jitter_up_to(4 SECONDS * seconds_per_tick, 1 MINUTES)
 			if(affected_mob.num_legs >= 1 && SPT_PROB(5, seconds_per_tick))
-				to_chat(affected_mob, span_warning("You feel your leg[affected_mob.num_hands == 1 ? "":"s"] start to shake."))
+				to_chat(affected_mob, span_warning("Чувствую как [affected_mob.num_legs == 1 ? "моя нога начинает" : "мои ноги начинают"] дрожать."))
 				affected_mob.adjust_jitter_up_to(4 SECONDS * seconds_per_tick, 1 MINUTES)
 			if(SPT_PROB(2, seconds_per_tick))
 				affected_mob.adjust_dizzy_up_to(5 SECONDS * seconds_per_tick, 1 MINUTES)
 			if(SPT_PROB(1, seconds_per_tick))
-				to_chat(affected_mob, span_danger("Your throat itches."))
+				to_chat(affected_mob, span_danger("Горло чешется."))
 
 		// warning symptoms: violent shakes, dizziness, blurred vision, difficulty breathing
 		if(2)
 			affected_mob.apply_damage(0.33 * seconds_per_tick, TOX, spread_damage = TRUE)
 
 			if(affected_mob.num_hands >= 1 && SPT_PROB(5, seconds_per_tick))
-				to_chat(affected_mob, span_warning("You feel your hand[affected_mob.num_hands == 1 ? "":"s"] shake violently."))
+				to_chat(affected_mob, span_warning("Чувствую как [affected_mob.num_hands == 1 ? "моя рука сильно дрожит" : "мои руки сильно дрожат"]."))
 				affected_mob.adjust_jitter_up_to(8 SECONDS * seconds_per_tick, 1 MINUTES)
 				if(prob(20))
 					affected_mob.drop_all_held_items()
 			if(affected_mob.num_legs >= 1 && SPT_PROB(5, seconds_per_tick))
-				to_chat(affected_mob, span_warning("You feel your leg[affected_mob.num_hands == 1 ? "":"s"] shake violently."))
+				to_chat(affected_mob, span_warning("Чувствую как [affected_mob.num_legs == 1 ? "моя нога сильно дрожит" : "мои ноги сильно дрожат"] дрожать."))
 				affected_mob.adjust_jitter_up_to(8 SECONDS * seconds_per_tick, 1 MINUTES)
 				if(prob(40) && affected_mob.getStaminaLoss() < 75)
 					affected_mob.adjustStaminaLoss(15)
 			if(affected_mob.get_organ_slot(ORGAN_SLOT_EYES) && SPT_PROB(4, seconds_per_tick))
 				affected_mob.adjust_eye_blur(4 SECONDS * seconds_per_tick)
-				to_chat(affected_mob, span_warning("It's getting harder to see clearly."))
+				to_chat(affected_mob, span_warning("Зрение ухудшается."))
 			if(!HAS_TRAIT(affected_mob, TRAIT_NOBREATH) && SPT_PROB(4, seconds_per_tick))
 				affected_mob.apply_damage(2 * seconds_per_tick, OXY)
 				affected_mob.losebreath += (2 * seconds_per_tick)
-				to_chat(affected_mob, span_warning("It's getting harder to breathe."))
+				to_chat(affected_mob, span_warning("Тяжело дышать."))
 			if(SPT_PROB(2, seconds_per_tick))
 				affected_mob.adjust_drowsiness_up_to(3 SECONDS * seconds_per_tick, 30 SECONDS)
 			if(SPT_PROB(2, seconds_per_tick))
@@ -74,7 +74,7 @@
 			if(SPT_PROB(1, seconds_per_tick))
 				affected_mob.emote("cough")
 			if(SPT_PROB(1, seconds_per_tick))
-				to_chat(affected_mob, span_danger("Your throat feels sore."))
+				to_chat(affected_mob, span_danger("Болит горло."))
 
 		// "you are too late" symptoms: death.
 		if(3)
