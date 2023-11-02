@@ -1,9 +1,9 @@
 /datum/quirk/monochromatic
-	name = "Monochromacy"
-	desc = "You suffer from full colorblindness, and perceive nearly the entire world in blacks and whites."
+	name = "Монохромия"
+	desc = "Не могу различать цвета и вижу весь мир в черно-белых тонах."
 	icon = FA_ICON_ADJUST
 	value = 0
-	medical_record_text = "Patient is afflicted with almost complete color blindness."
+	medical_record_text = "У пациента было обнаружено нарушение цветового зрения."
 	mail_goodies = list( // Noir detective wannabe
 		/obj/item/clothing/suit/jacket/det_suit/noir,
 		/obj/item/clothing/suit/jacket/det_suit/dark,
@@ -16,7 +16,7 @@
 
 /datum/quirk/monochromatic/post_add()
 	if(is_detective_job(quirk_holder.mind.assigned_role))
-		to_chat(quirk_holder, span_boldannounce("Mmm. Nothing's ever clear on this station. It's all shades of gray..."))
+		to_chat(quirk_holder, span_boldannounce("Ммм. На этой станции нет ничего чистого. Это всё оттенки серого..."))
 		quirk_holder.playsound_local(quirk_holder, 'sound/ambience/ambidet1.ogg', 50, FALSE)
 
 /datum/quirk/monochromatic/remove()
