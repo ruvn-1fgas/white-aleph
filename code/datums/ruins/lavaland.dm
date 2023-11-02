@@ -74,7 +74,7 @@
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/lavaland/gaia
-	name = "Patch of Eden"
+	name = "Клочок Эдэма"
 	id = "gaia"
 	description = "Who would have thought that such a peaceful place could be on such a horrific planet?"
 	cost = 5
@@ -127,7 +127,7 @@
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/lavaland/hierophant
-	name = "Hierophant's Arena"
+	name = "Арена Иерофанта"
 	id = "hierophant"
 	description = "A strange, square chunk of metal of massive size. Inside awaits only death and many, many squares."
 	suffix = "lavaland_surface_hierophant.dmm"
@@ -175,7 +175,7 @@
 	cost = 20
 
 /datum/map_template/ruin/lavaland/fountain
-	name = "Fountain Hall"
+	name = "Фонтан-Холл"
 	id = "lava_fountain"
 	description = "The fountain has a warning on the side. DANGER: May have undeclared side effects that only become obvious when implemented."
 	prefix = "_maps/RandomRuins/AnywhereRuins/"
@@ -237,7 +237,7 @@
 	cost = 2
 
 /datum/map_template/ruin/lavaland/puzzle
-	name = "Ancient Puzzle"
+	name = "Древняя головоломка"
 	id = "puzzle"
 	description = "Mystery to be solved."
 	suffix = "lavaland_surface_puzzle.dmm"
@@ -253,7 +253,7 @@
 	allow_duplicates = TRUE
 
 /datum/map_template/ruin/lavaland/elephant_graveyard
-	name = "Elephant Graveyard"
+	name = "Кладбище слонов"
 	id = "Graveyard"
 	description = "An abandoned graveyard, calling to those unable to continue."
 	suffix = "lavaland_surface_elephant_graveyard.dmm"
