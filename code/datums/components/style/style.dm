@@ -213,11 +213,11 @@
 
 			if((rank < hotswap_rank) && (rank_changed >= hotswap_rank))
 				var/mob/mob_parent = parent
-				mob_parent.balloon_alert(mob_parent, "hotswapping enabled")
+				mob_parent.balloon_alert(mob_parent, "хотсвап включен")
 
 			else if((rank >= hotswap_rank) && (rank_changed < hotswap_rank))
 				var/mob/mob_parent = parent
-				mob_parent.balloon_alert(mob_parent, "hotswapping disabled")
+				mob_parent.balloon_alert(mob_parent, "хотсвап выключен")
 
 			rank = rank_changed
 	meter.maptext = "[format_rank_string(rank)][generate_multiplier()][generate_actions()]"
@@ -335,17 +335,17 @@
 	var/datum/storage/atom_storage = item_target.loc.atom_storage
 
 	if(!atom_storage.can_insert(weapon, source, messages = FALSE))
-		source.balloon_alert(source, "unable to hotswap!")
+		source.balloon_alert(source, "не могу!")
 		return
 
 	atom_storage.attempt_insert(weapon, source, override = TRUE)
 	INVOKE_ASYNC(source, TYPE_PROC_REF(/mob/living, put_in_hands), target)
-	source.visible_message(span_notice("[source] quickly swaps [weapon] out with [target]!"), span_notice("You quickly swap [weapon] with [target]."))
+	source.visible_message(span_notice("[source] быстро меняет [weapon] на [target]!"), span_notice("Быстро меняю [weapon] на [target]."))
 
 
 /datum/component/style/proc/on_parent_multitool(datum/source, mob/living/user, obj/item/tool, list/recipes)
 	multitooled = !multitooled
-	user.balloon_alert(user, "meter [multitooled ? "" : "un"]hacked")
+	user.balloon_alert(user, "измеритель [multitooled ? "взломан" : "нормальный"]")
 
 
 // Point givers

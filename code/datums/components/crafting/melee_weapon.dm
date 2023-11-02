@@ -1,5 +1,5 @@
 /datum/crafting_recipe/stunprod
-	name = "Stunprod"
+	name = "Самодельный электрошокер"
 	result = /obj/item/melee/baton/security/cattleprod
 	reqs = list(
 		/obj/item/restraints/handcuffs/cable = 1,
@@ -10,7 +10,7 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/teleprod
-	name = "Teleprod"
+	name = "Телепортационное копьё"
 	result = /obj/item/melee/baton/security/cattleprod/teleprod
 	reqs = list(
 		/obj/item/restraints/handcuffs/cable = 1,
@@ -22,7 +22,7 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/telecrystalprod
-	name = "Snatcherprod"
+	name = "Телепортационное копьё с теле-кристаллом"
 	result = /obj/item/melee/baton/security/cattleprod/telecrystalprod
 	reqs = list(
 		/obj/item/restraints/handcuffs/cable = 1,
@@ -34,7 +34,7 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/tailclub
-	name = "Tail Club"
+	name = "Бита из хвоста"
 	result = /obj/item/tailclub
 	reqs = list(
 		/obj/item/organ/external/tail/lizard = 1,
@@ -45,7 +45,7 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/tailwhip
-	name = "Liz O' Nine Tails"
+	name = "Плеть из хвостов ящериц"
 	result = /obj/item/melee/chainofcommand/tailwhip
 	reqs = list(
 		/obj/item/organ/external/tail/lizard = 1,
@@ -56,7 +56,7 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/catwhip
-	name = "Cat O' Nine Tails"
+	name = "Плеть из кошачьих хвостов"
 	result = /obj/item/melee/chainofcommand/tailwhip/kitty
 	reqs = list(
 		/obj/item/organ/external/tail/cat = 1,
@@ -66,7 +66,7 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/chainsaw
-	name = "Chainsaw"
+	name = "Бензопила"
 	result = /obj/item/chainsaw
 	reqs = list(
 		/obj/item/circular_saw = 1,
@@ -78,7 +78,7 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/spear
-	name = "Spear"
+	name = "Копьё"
 	result = /obj/item/spear
 	reqs = list(
 		/obj/item/restraints/handcuffs/cable = 1,
@@ -90,7 +90,7 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/toysword
-	name = "Toy Sword"
+	name = "Игрушечный меч"
 	reqs = list(
 		/obj/item/light/bulb = 1,
 		/obj/item/stack/cable_coil = 1,
@@ -100,14 +100,14 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/bonedagger
-	name = "Bone Dagger"
+	name = "Костяной нож"
 	result = /obj/item/knife/combat/bone
 	time = 2 SECONDS
 	reqs = list(/obj/item/stack/sheet/bone = 2)
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/bonespear
-	name = "Bone Spear"
+	name = "Костяное копьё"
 	result = /obj/item/spear/bonespear
 	time = 3 SECONDS
 	reqs = list(
@@ -117,7 +117,7 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/boneaxe
-	name = "Bone Axe"
+	name = "Костяной топор"
 	result = /obj/item/fireaxe/boneaxe
 	time = 5 SECONDS
 	reqs = list(
@@ -127,7 +127,7 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/house_edge
-	name = "House Edge"
+	name = "Домашний край"
 	result = /obj/item/house_edge
 	always_available = FALSE
 	tool_behaviors = list(TOOL_WRENCH, TOOL_SCREWDRIVER, TOOL_WELDER)

@@ -1,18 +1,18 @@
 /obj/item/electronics/firealarm
-	name = "fire alarm electronics"
-	desc = "A fire alarm circuit. Can handle heat levels up to 40 degrees celsius."
+	name = "электроника пожарной сигнализации"
+	desc = "Схема пожарной сигнализации. Может выдерживать температуру до 40 градусов по Цельсию."
 
 /obj/item/wallframe/firealarm
-	name = "fire alarm frame"
-	desc = "Used for building fire alarms."
+	name = "рамка пожарной сигнализации"
+	desc = "Используется для создания пожарной сигнализации."
 	icon = 'icons/obj/machines/wallmounts.dmi'
 	icon_state = "fire_bitem"
 	result_path = /obj/machinery/firealarm
 	pixel_shift = 26
 
 /obj/machinery/firealarm
-	name = "fire alarm"
-	desc = "Pull this in case of emergency. Thus, keep pulling it forever."
+	name = "пожарная тревога"
+	desc = "<i>\"Потяните в случае чрезвычайной ситуации\"</i>. То есть тяните его постоянно."
 	icon = 'icons/obj/machines/wallmounts.dmi'
 	icon_state = "fire0"
 	max_integrity = 250
@@ -62,15 +62,15 @@
 
 	AddElement( \
 		/datum/element/contextual_screentip_bare_hands, \
-		lmb_text = "Turn on", \
-		rmb_text = "Turn off", \
+		lmb_text = "Включить", \
+		rmb_text = "Выключить", \
 	)
 
 	AddComponent( \
 		/datum/component/redirect_attack_hand_from_turf, \
 		screentip_texts = list( \
-			lmb_text = "Turn on alarm", \
-			rmb_text = "Turn off alarm", \
+			lmb_text = "Включить", \
+			rmb_text = "Выключить", \
 		), \
 	)
 
@@ -170,8 +170,8 @@
 		return
 
 	if(obj_flags & EMAGGED)
-		. += mutable_appearance(icon, "fire_emag")
-		. += emissive_appearance(icon, "fire_emag_e", src, alpha = src.alpha)
+		. += mutable_appearance(icon, "fire_emagged")
+		. += emissive_appearance(icon, "fire_emagged", src, alpha = src.alpha)
 		set_light(l_color = LIGHT_COLOR_BLUE)
 
 	else if(!(my_area?.fire || LAZYLEN(my_area?.active_firelocks)))
@@ -179,7 +179,7 @@
 			if(is_station_level(z))
 				var/current_level = SSsecurity_level.get_current_level_as_number()
 				. += mutable_appearance(icon, "fire_[current_level]")
-				. += emissive_appearance(icon, "fire_level_e", src, alpha = src.alpha)
+				. += emissive_appearance(icon, "fire_overlay", src, alpha = src.alpha)
 				switch(current_level)
 					if(SEC_LEVEL_GREEN)
 						set_light(l_color = LIGHT_COLOR_BLUEGREEN)
@@ -191,20 +191,20 @@
 						set_light(l_color = LIGHT_COLOR_INTENSE_RED)
 			else
 				. += mutable_appearance(icon, "fire_offstation")
-				. += emissive_appearance(icon, "fire_level_e", src, alpha = src.alpha)
+				. += emissive_appearance(icon, "fire_overlay", src, alpha = src.alpha)
 				set_light(l_color = LIGHT_COLOR_FAINT_BLUE)
 		else
 			. += mutable_appearance(icon, "fire_disabled")
-			. += emissive_appearance(icon, "fire_level_e", src, alpha = src.alpha)
+			. += emissive_appearance(icon, "fire_overlay", src, alpha = src.alpha)
 			set_light(l_color = COLOR_WHITE)
 
 	else if(my_area?.fire_detect && my_area?.fire)
-		. += mutable_appearance(icon, "fire_alerting")
-		. += emissive_appearance(icon, "fire_alerting_e", src, alpha = src.alpha)
+		. += mutable_appearance(icon, "fire_detected")
+		. += emissive_appearance(icon, "fire_on_e", src, alpha = src.alpha)
 		set_light(l_color = LIGHT_COLOR_INTENSE_RED)
 	else
-		. += mutable_appearance(icon, "fire_alerting")
-		. += emissive_appearance(icon, "fire_alerting_e", src, alpha = src.alpha)
+		. += mutable_appearance(icon, "fire_detected")
+		. += emissive_appearance(icon, "fire_on_e", src, alpha = src.alpha)
 		set_light(l_color = LIGHT_COLOR_INTENSE_RED)
 
 /obj/machinery/firealarm/emp_act(severity)
@@ -221,9 +221,9 @@
 		return FALSE
 	obj_flags |= EMAGGED
 	update_appearance()
-	visible_message(span_warning("Sparks fly out of [src]!"))
+	visible_message(span_warning("Искры вылетают из [src]!"))
 	if(user)
-		balloon_alert(user, "speaker disabled")
+		balloon_alert(user, "пожарная тревога отключена")
 		user.log_message("emagged [src].", LOG_ATTACK)
 	playsound(src, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	set_status()
@@ -259,7 +259,7 @@
 	for(var/obj/machinery/door/firedoor/firelock in my_area.firedoors)
 		firelock.activate(FIRELOCK_ALARM_TYPE_GENERIC)
 	if(user)
-		balloon_alert(user, "triggered alarm!")
+		balloon_alert(user, "включил пожарную тревогу!")
 		user.log_message("triggered a fire alarm.", LOG_GAME)
 	soundloop.start() //Manually pulled fire alarms will make the sound, rather than the doors.
 	SEND_SIGNAL(src, COMSIG_FIREALARM_ON_TRIGGER)
@@ -280,7 +280,7 @@
 	for(var/obj/machinery/door/firedoor/firelock in my_area.firedoors)
 		firelock.crack_open()
 	if(user)
-		balloon_alert(user, "reset alarm")
+		balloon_alert(user, "выключил пожарную тревогу")
 		user.log_message("reset a fire alarm.", LOG_GAME)
 	soundloop.stop()
 	SEND_SIGNAL(src, COMSIG_FIREALARM_ON_RESET)
@@ -318,7 +318,7 @@
 	if(tool.tool_behaviour == TOOL_SCREWDRIVER && buildstage == FIRE_ALARM_BUILD_SECURED)
 		tool.play_tool_sound(src)
 		toggle_panel_open()
-		to_chat(user, span_notice("The wires have been [panel_open ? "exposed" : "unexposed"]."))
+		to_chat(user, span_notice("Провода теперь [panel_open ? "видно" : "скрыты"]."))
 		update_appearance()
 		return
 
@@ -329,12 +329,12 @@
 				if(!tool.tool_start_check(user, amount=1))
 					return
 
-				to_chat(user, span_notice("You begin repairing [src]..."))
+				to_chat(user, span_notice("Начинаю чинить [src]..."))
 				if(tool.use_tool(src, user, 40, volume=50))
 					atom_integrity = max_integrity
-					to_chat(user, span_notice("You repair [src]."))
+					to_chat(user, span_notice("Чиню [src]."))
 			else
-				to_chat(user, span_warning("[src] is already in good condition!"))
+				to_chat(user, span_warning("[src] уже целая!"))
 			return
 
 		switch(buildstage)
@@ -346,7 +346,7 @@
 					buildstage = FIRE_ALARM_BUILD_NO_WIRES
 					tool.play_tool_sound(src)
 					new /obj/item/stack/cable_coil(user.loc, 5)
-					to_chat(user, span_notice("You cut the wires from \the [src]."))
+					to_chat(user, span_notice("Снимаю проводку [src]."))
 					update_appearance()
 					return
 
@@ -361,31 +361,31 @@
 				if(istype(tool, /obj/item/stack/cable_coil))
 					var/obj/item/stack/cable_coil/coil = tool
 					if(coil.get_amount() < 5)
-						to_chat(user, span_warning("You need more cable for this!"))
+						to_chat(user, span_warning("Мне потребуется больше проводов!"))
 					else
 						coil.use(5)
 						buildstage = FIRE_ALARM_BUILD_SECURED
-						to_chat(user, span_notice("You wire \the [src]."))
+						to_chat(user, span_notice("Делаю проводку [src]."))
 						update_appearance()
 					return
 
 				else if(tool.tool_behaviour == TOOL_CROWBAR)
-					user.visible_message(span_notice("[user.name] removes the electronics from [src.name]."), \
-										span_notice("You start prying out the circuit..."))
+					user.visible_message(span_notice("[user.name] удаляет электронику из [src.name]."), \
+										span_notice("Начинаю вытаскивать плату..."))
 					if(tool.use_tool(src, user, 20, volume=50))
 						if(buildstage == FIRE_ALARM_BUILD_NO_WIRES)
 							if(machine_stat & BROKEN)
-								to_chat(user, span_notice("You remove the destroyed circuit."))
+								to_chat(user, span_notice("Удаляю разрушенную плату."))
 								set_machine_stat(machine_stat & ~BROKEN)
 							else
-								to_chat(user, span_notice("You pry out the circuit."))
+								to_chat(user, span_notice("Вытаскиваю плату."))
 								new /obj/item/electronics/firealarm(user.loc)
 							buildstage = FIRE_ALARM_BUILD_NO_CIRCUIT
 							update_appearance()
 					return
 			if(0)
 				if(istype(tool, /obj/item/electronics/firealarm))
-					to_chat(user, span_notice("You insert the circuit."))
+					to_chat(user, span_notice("Вставляю плату."))
 					qdel(tool)
 					buildstage = FIRE_ALARM_BUILD_NO_WIRES
 					update_appearance()
@@ -395,15 +395,15 @@
 					var/obj/item/electroadaptive_pseudocircuit/pseudoc = tool
 					if(!pseudoc.adapt_circuit(user, 15))
 						return
-					user.visible_message(span_notice("[user] fabricates a circuit and places it into [src]."), \
-					span_notice("You adapt a fire alarm circuit and slot it into the assembly."))
+					user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в [src]."), \
+					span_notice("Создаю специальную плату и вставляю."))
 					buildstage = FIRE_ALARM_BUILD_NO_WIRES
 					update_appearance()
 					return
 
 				else if(tool.tool_behaviour == TOOL_WRENCH)
-					user.visible_message(span_notice("[user] removes the fire alarm assembly from the wall."), \
-						span_notice("You remove the fire alarm assembly from the wall."))
+					user.visible_message(span_notice("[user] снимает пожарную тревогу со стены."), \
+						span_notice("Снимаю пожарную тревогу со стены."))
 					var/obj/item/wallframe/firealarm/frame = new /obj/item/wallframe/firealarm()
 					frame.forceMove(user.drop_location())
 					tool.play_tool_sound(src)
@@ -419,7 +419,7 @@
 /obj/machinery/firealarm/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, list/rcd_data)
 	switch(rcd_data["[RCD_DESIGN_MODE]"])
 		if(RCD_WALLFRAME)
-			balloon_alert(user, "circuit installed")
+			balloon_alert(user, "плата установлена")
 			buildstage = FIRE_ALARM_BUILD_NO_WIRES
 			update_appearance()
 			return TRUE
@@ -457,16 +457,12 @@
 /obj/machinery/firealarm/examine(mob/user)
 	. = ..()
 	if((my_area?.fire || LAZYLEN(my_area?.active_firelocks)))
-		. += "The local area hazard light is flashing."
-		if(is_station_level(z))
-			. += "The station security alert level is [SSsecurity_level.get_current_level_as_text()]."
-		. += "<b>Left-Click</b> to activate all firelocks in this area."
-		. += "<b>Right-Click</b> to reset firelocks in this area."
+		. += "<hr>Лампочка горит."
+		. += "\n<b>ЛКМ</b> для активации всех пожарных шлюзов."
+		. += "\n<b>ПКМ</b> для деактивации всех пожарных шлюзов."
 	else
-		if(is_station_level(z))
-			. += "The station security alert level is [SSsecurity_level.get_current_level_as_text()]."
-		. += "The local area thermal detection light is [my_area.fire_detect ? "lit" : "unlit"]."
-		. += "<b>Left-Click</b> to activate all firelocks in this area."
+		. += "<hr>Температурный датчик [my_area.fire_detect ? "горит" : "не горит"]."
+		. += "\n<b>ЛКМ</b> для активации всех пожарных шлюзов."
 
 // Allows Silicons to disable thermal sensor
 /obj/machinery/firealarm/BorgCtrlClick(mob/living/silicon/robot/user)
@@ -477,7 +473,7 @@
 
 /obj/machinery/firealarm/AICtrlClick(mob/living/silicon/robot/user)
 	if(obj_flags & EMAGGED)
-		to_chat(user, span_warning("The control circuitry of [src] appears to be malfunctioning."))
+		to_chat(user, span_warning("Плата внутри [src] не отвечает."))
 		return
 	toggle_fire_detect(user)
 
@@ -486,7 +482,7 @@
 	for(var/obj/machinery/firealarm/fire_panel in my_area.firealarms)
 		fire_panel.update_icon()
 	if (user)
-		balloon_alert(user, "thermal sensors [my_area.fire_detect ? "enabled" : "disabled"]")
+		to_chat(user, span_notice("[ my_area.fire_detect ? "Включаю" : "Выключаю" ] термальные датчики!"))
 		user.log_message("[ my_area.fire_detect ? "enabled" : "disabled" ] firelock sensors using [src].", LOG_GAME)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, 26)
@@ -499,8 +495,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, 26)
 	var/party = FALSE
 
 /obj/machinery/firealarm/partyalarm
-	name = "\improper PARTY BUTTON"
-	desc = "Cuban Pete is in the house!"
+	name = "ПАТИ"
+	desc = "Ruzone went up!"
 	var/static/party_overlay
 
 /obj/machinery/firealarm/partyalarm/reset()
@@ -516,7 +512,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, 26)
 	if (machine_stat & (NOPOWER|BROKEN))
 		return
 	var/area/area = get_area(src)
-	if (!area || area.party || area.name == "Space")
+	if (!area || area.party || area.name == "Космос" || area.name == "Space")
 		return
 	area.party = TRUE
 	if (!party_overlay)
@@ -524,8 +520,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, 26)
 	area.add_overlay(party_overlay)
 
 /obj/item/circuit_component/firealarm
-	display_name = "Fire Alarm"
-	desc = "Allows you to interface with the Fire Alarm."
+	display_name = "Пожарная тревога"
+	desc = "Позволяет работать с пожарной тревогой."
 
 	var/datum/port/input/alarm_trigger
 	var/datum/port/input/reset_trigger
@@ -540,12 +536,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, 26)
 	var/obj/machinery/firealarm/attached_alarm
 
 /obj/item/circuit_component/firealarm/populate_ports()
-	alarm_trigger = add_input_port("Set", PORT_TYPE_SIGNAL)
-	reset_trigger = add_input_port("Reset", PORT_TYPE_SIGNAL)
+	alarm_trigger = add_input_port("Установить", PORT_TYPE_SIGNAL)
+	reset_trigger = add_input_port("Сбросить", PORT_TYPE_SIGNAL)
 
-	is_on = add_output_port("Is On", PORT_TYPE_NUMBER)
-	triggered = add_output_port("Triggered", PORT_TYPE_SIGNAL)
-	reset = add_output_port("Reset", PORT_TYPE_SIGNAL)
+	is_on = add_output_port("Включена", PORT_TYPE_NUMBER)
+	triggered = add_output_port("Триггер", PORT_TYPE_SIGNAL)
+	reset = add_output_port("Сброс", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/firealarm/register_usb_parent(atom/movable/parent)
 	. = ..()

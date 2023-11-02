@@ -1,7 +1,8 @@
 ///It's gross, gets the name of it's owner, and is all kinds of fucked up
 /datum/material/meat
-	name = "meat"
-	desc = "Meat"
+	name = "мясо"
+	skloname = "мяса"
+	desc = "Ням?"
 	id = /datum/material/meat // So the bespoke versions are categorized under this
 	color = rgb(214, 67, 67)
 	greyscale_colors = rgb(214, 67, 67)
@@ -36,7 +37,7 @@
 		initial_reagents = list(/datum/reagent/consumable/nutriment = nutriment_count, /datum/reagent/consumable/nutriment/fat/oil = oil_count), \
 		foodtypes = RAW | MEAT | GROSS, \
 		eat_time = 3 SECONDS, \
-		tastes = list("Meaty"))
+		tastes = list("Мясной"))
 
 
 	source.AddComponent(
@@ -66,7 +67,7 @@
 	if(!istype(source))
 		return FALSE
 
-	name = "[source?.name ? "[source.name]'s" : "mystery"] [initial(name)]"
+	name = "[source?.name ? "[source.name]" : "мистическое"] [initial(name)]"
 
 	if(source.real_name)
 		subjectname = source.real_name
@@ -86,5 +87,5 @@
 	if(!istype(source))
 		return FALSE
 
-	name = "[source?.name || "mystery"] [initial(name)]"
+	name = "[source?.name || "мистическое"] [initial(name)]"
 	return ..()

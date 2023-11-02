@@ -301,8 +301,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 			playsound(src, 'sound/effects/hit_on_shattered_glass.ogg', 70, TRUE)
 
 /obj/item/wallframe/mirror
-	name = "mirror"
-	desc = "An unmounted mirror. Attach it to a wall to use."
+	name = "зеркало"
+	desc = "Неприкреплённое зеркало. Прикрепите его к стене, чтобы использовать."
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "mirror"
 	custom_materials = list(

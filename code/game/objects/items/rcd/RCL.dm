@@ -322,7 +322,7 @@
 /obj/item/rcl/ghetto
 	actions_types = list()
 	max_amount = 30
-	name = "makeshift rapid pipe cleaner layer"
+	name = "самодельная катушка проводов"
 	ghetto = TRUE
 
 /obj/item/rcl/ghetto/update_icon_state()
@@ -340,11 +340,11 @@
 	return ..()
 
 /datum/action/item_action/rcl_col
-	name = "Change Cable Color"
+	name = "Изменить цвет провода"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "rcl_rainbow"
 
 /datum/action/item_action/rcl_gui
-	name = "Toggle Fast Wiring Gui"
+	name = "Быстрая установка провода"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "rcl_gui"

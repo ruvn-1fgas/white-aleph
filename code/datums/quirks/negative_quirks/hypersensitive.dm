@@ -1,11 +1,11 @@
 /datum/quirk/hypersensitive
-	name = "Hypersensitive"
-	desc = "For better or worse, everything seems to affect your mood more than it should."
+	name = "Нытик"
+	desc = "Хорошо ли это, или плохо, но влияние на мое настроение будет более сильнее, чем должно быть."
 	icon = FA_ICON_FLUSHED
 	value = -2
-	gain_text = span_danger("You seem to make a big deal out of everything.")
-	lose_text = span_notice("You don't seem to make a big deal out of everything anymore.")
-	medical_record_text = "Patient demonstrates a high level of emotional volatility."
+	gain_text = span_danger("Мне хочется создать одну огромную проблему из всего.")
+	lose_text = span_notice("Мне больше не хочется устраивать кипиш.")
+	medical_record_text = "Пациент демонстрирует высокие перепады настроения."
 	hardcore_value = 3
 	mail_goodies = list(/obj/effect/spawner/random/entertainment/plushie_delux)
 

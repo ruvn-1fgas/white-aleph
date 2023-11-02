@@ -23,7 +23,7 @@
 	src.bite_chance = bite_chance
 	src.minimum_scale = minimum_scale
 	initial_reagent_volume = atom_parent.reagents.total_volume
-	notify_ghosts("[parent] is edible by ghosts!", source = parent, action = NOTIFY_ORBIT, header="Something Tasty!")
+	notify_ghosts("[parent] можно есть призракам!", source = parent, action = NOTIFY_ORBIT, header="Что-то вкусненькое!")
 
 /datum/component/ghost_edible/RegisterWithParent()
 	START_PROCESSING(SSdcs, src)
@@ -48,7 +48,7 @@
 	playsound(atom_parent.loc,'sound/items/eatfood.ogg', vol = rand(10,50), vary = TRUE)
 	atom_parent.reagents.remove_any(bite_consumption)
 	if (atom_parent.reagents.total_volume <= 0)
-		atom_parent.visible_message(span_notice("[atom_parent] disappears completely!"))
+		atom_parent.visible_message(span_notice("[atom_parent] исчезает!"))
 		new /obj/item/ectoplasm(atom_parent.loc)
 		qdel(parent)
 		return

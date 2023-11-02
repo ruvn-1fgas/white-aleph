@@ -8,8 +8,8 @@
  */
 
 /datum/symptom/fire
-	name = "Spontaneous Combustion"
-	desc = "The virus turns fat into an extremely flammable compound, and raises the body's temperature, making the host burst into flames spontaneously."
+	name = "Случайное возгорание"
+	desc = "Вирус превращает жир в чрезвычайно легковоспламеняющееся соединение и повышает температуру тела, в результате чего хозяин самопроизвольно загорается."
 	illness = "Spontaneous Combustion"
 	stealth = -1
 	resistance = -4
@@ -22,10 +22,10 @@
 	symptom_delay_max = 75
 	var/infective = FALSE
 	threshold_descs = list(
-		"Stage Speed 4" = "Increases the intensity of the flames.",
-		"Stage Speed 8" = "Further increases flame intensity.",
-		"Transmission 8" = "Host will spread the virus through skin flakes when bursting into flame.",
-		"Stealth 4" = "The symptom remains hidden until active.",
+		"Скорость 4" = "Увеличивает интенсивность пламени.",
+		"Скорость 8" = "Еще больше увеличивает интенсивность пламени.",
+		"Передача 8" = "Хозяин будет распространять вирус через чешуйки кожи, когда вспыхивает.",
+		"Скрытность 4" = "Симптом остается скрытым до тех пор, пока не станет активным..",
 	)
 
 /datum/symptom/fire/Start(datum/disease/advance/A)
@@ -58,8 +58,8 @@
 			living_mob.take_overall_damage(burn = ((advanced_stage ? 5 : 3) * power), required_bodytype = BODYTYPE_ORGANIC)
 			living_mob.ignite_mob(silent = TRUE)
 			if(living_mob.on_fire) //check to make sure they actually caught on fire, or if it was prevented cause they were wet.
-				living_mob.visible_message(span_warning("[living_mob] catches fire!"), ignored_mobs = living_mob)
-				to_chat(living_mob, span_userdanger((advanced_stage ? "Your skin erupts into an inferno!" : "Your skin bursts into flames!")))
+				living_mob.visible_message(span_warning("[living_mob] горит!"), ignored_mobs = living_mob)
+				to_chat(living_mob, span_userdanger((advanced_stage ? "Кожа горит!" : "Моя кожа буквально пылает!")))
 				living_mob.emote("scream")
 			else if(!suppress_warning)
 				warn_mob(living_mob)
@@ -69,9 +69,9 @@
 
 /datum/symptom/fire/proc/warn_mob(mob/living/living_mob)
 	if(prob(33.33))
-		living_mob.audible_message(self_message = "You hear a crackling noise.")
+		living_mob.audible_message(self_message = "Слышу треск.")
 	else
-		to_chat(living_mob, span_warning("[pick("You feel hot.", "You smell smoke.")]"))
+		to_chat(living_mob, span_warning("[pick("Жарко.", "Что-то щёлкает.", "Пахнет дымом.")]"))
 
 /*
 Alkali perspiration
@@ -87,8 +87,8 @@ Bonus
 
 /datum/symptom/alkali
 
-	name = "Alkali perspiration"
-	desc = "The virus attaches to sudoriparous glands, synthesizing a chemical that bursts into flames when reacting with water, leading to self-immolation."
+	name = "Щелочной пот"
+	desc = "Вирус прикрепляется к потовым железам, синтезируя химическое вещество, которое загорается при реакции с водой, что приводит к самосожжению."
 	illness = "Crispy Skin"
 	stealth = 2
 	resistance = -2
@@ -102,9 +102,9 @@ Bonus
 	var/chems = FALSE
 	var/explosion_power = 1
 	threshold_descs = list(
-		"Resistance 9" = "Doubles the intensity of the immolation effect, but reduces the frequency of all of this symptom's effects.",
-		"Stage Speed 8" = "Increases explosion radius and explosion damage to the host when the host is wet.",
-		"Transmission 8" = "Additionally synthesizes chlorine trifluoride and napalm inside the host. More chemicals are synthesized if the resistance 9 threshold has been met."
+		"Сопротивление 9" = "Удваивает интенсивность эффекта жертвоприношения, но снижает частоту всех эффектов этого симптома.",
+		"Скорость 8" = "Увеличивает радиус взрыва и урон от взрыва хозяину, когда он мокрый.",
+		"Передача 8" = "Дополнительно внутри хозяина синтезирует трифторид хлора и напалм. Если достигнут порог устойчивости 9, синтезируется больше химикатов."
 	)
 
 /datum/symptom/alkali/Start(datum/disease/advance/A)
@@ -128,22 +128,22 @@ Bonus
 	switch(A.stage)
 		if(3)
 			if(prob(base_message_chance))
-				to_chat(M, span_warning("[pick("Your veins boil.", "You feel hot.", "You smell meat cooking.")]"))
+				to_chat(M, span_warning("[pick("Вены кипят.", "Жарко.", "Кто-то готовит мясо.")]"))
 		if(4)
 			if(M.fire_stacks < 0)
-				M.visible_message(span_warning("[M]'s sweat sizzles and pops on contact with water!"))
+				M.visible_message(span_warning("Потная кожа [M] шипит и трескается при контакте с водой!"))
 				explosion(M, devastation_range = -1, heavy_impact_range = (-1 + explosion_power), light_impact_range = (2 * explosion_power), explosion_cause = src)
 			Alkali_fire_stage_4(M, A)
 			M.ignite_mob()
-			to_chat(M, span_userdanger("Your sweat bursts into flames!"))
+			to_chat(M, span_userdanger("Ваш пот загорается!"))
 			M.emote("scream")
 		if(5)
 			if(M.fire_stacks < 0)
-				M.visible_message(span_warning("[M]'s sweat sizzles and pops on contact with water!"))
+				M.visible_message(span_warning("Потная кожа [M] шипит и трескается при контакте с водой!"))
 				explosion(M, devastation_range = -1, heavy_impact_range = (-1 + explosion_power), light_impact_range = (2 * explosion_power), explosion_cause = src)
 			Alkali_fire_stage_5(M, A)
 			M.ignite_mob()
-			to_chat(M, span_userdanger("Your skin erupts into an inferno!"))
+			to_chat(M, span_userdanger("Моя кожа буквально пылает!"))
 			M.emote("scream")
 
 /datum/symptom/alkali/proc/Alkali_fire_stage_4(mob/living/M, datum/disease/advance/A)

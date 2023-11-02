@@ -8,8 +8,8 @@ and your disease can spread via people walking on vomit.
 */
 
 /datum/symptom/vomit
-	name = "Vomiting"
-	desc = "The virus causes nausea and irritates the stomach, causing occasional vomit."
+	name = "Рвота"
+	desc = "Вирус вызывает тошноту и раздражает желудок, иногда вызывая рвоту."
 	illness = "Cyclonic Irritation"
 	stealth = -2
 	resistance = -1
@@ -22,9 +22,9 @@ and your disease can spread via people walking on vomit.
 	symptom_delay_max = 80
 	required_organ = ORGAN_SLOT_STOMACH
 	threshold_descs = list(
-		"Resistance 7" = "Host will vomit blood, causing internal damage.",
-		"Transmission 7" = "Host will projectile vomit, increasing vomiting range.",
-		"Stealth 4" = "The symptom remains hidden until active."
+		"Сопротивление 7" =  "Хозяина будет рвать кровью, что приведет к повреждению внутренних органов.",
+		"Передача 7" =  "Хозяина рвёт струёй, увеличивая дальность рвоты.",
+		"Скрытность 4" =  "Симптом остается скрытым до тех пор, пока не станет активным."
 	)
 	var/vomit_nebula = FALSE
 	var/vomit_blood = FALSE
@@ -49,7 +49,7 @@ and your disease can spread via people walking on vomit.
 	switch(A.stage)
 		if(1, 2, 3, 4)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, span_warning("[pick("You feel nauseated.", "You feel like you're going to throw up!")]"))
+				to_chat(M, span_warning("[pick("Меня тошнит.", "Меня сейчас вырвет!")]"))
 		else
 			vomit(M)
 

@@ -3,15 +3,15 @@
  * and is gained each time one is completed.
  */
 /datum/skill/fishing
-	name = "Fishing"
-	title = "Fisher"
-	desc = "How empty and alone you are on this barren Earth."
+	name = "Рыбалка"
+	title = "Рыбак"
+	desc = "Как пусто и одиноко на этой бесплодной Земле."
 	modifiers = list(SKILL_VALUE_MODIFIER = list(1, 1, 0, -1, -2, -4, -6))
 	skill_item_path = /obj/item/clothing/head/soft/fishing_hat
 
 /datum/skill/fishing/New()
 	. = ..()
-	levelUpMessages[SKILL_LEVEL_MASTER] = span_nicegreen("After lots of practice, I've begun to truly understand the surprising depth behind [name]. As a master [title], I can take an easier guess of what I'm trying to catch now.")
+	levelUpMessages[SKILL_LEVEL_MASTER] = span_nicegreen("После долгих практик я начал понимать насколько глубоки воды. Как мастер рыбалки, теперь я могу понимать что пытаюсь поймать.")
 
 /datum/skill/fishing/level_gained(datum/mind/mind, new_level, old_level, silent)
 	. = ..()

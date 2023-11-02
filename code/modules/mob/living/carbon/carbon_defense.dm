@@ -513,7 +513,7 @@
 		// No moodlets for people who hate touches
 		if(!HAS_TRAIT(src, TRAIT_BADTOUCH))
 			if (helper.grab_state >= GRAB_AGGRESSIVE)
-				add_mood_event("hug", /datum/mood_event/bear_hug)
+				add_mood_event("hug", /datum/mood_event/hug)
 			else
 				if(bodytemperature > helper.bodytemperature)
 					if(!HAS_TRAIT(helper, TRAIT_BADTOUCH))

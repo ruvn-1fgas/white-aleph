@@ -12,8 +12,8 @@
 	threshold_minimum = WOUND_DISMEMBER_OUTRIGHT_THRESH // not actually used since dismembering is handled differently, but may as well assign it since we got it
 
 /datum/wound/loss
-	name = "Dismemberment Wound"
-	desc = "oof ouch!!"
+	name = "Потеря конечности"
+	desc = "Ай, мля!!"
 
 	sound_effect = 'sound/effects/dismember.ogg'
 	severity = WOUND_SEVERITY_LOSS
@@ -32,17 +32,33 @@
 		return
 
 	set_victim(dismembered_part.owner)
-	var/self_msg
 
 	if(dismembered_part.body_zone == BODY_ZONE_CHEST)
-		occur_text = "is split open, causing [victim.p_their()] internal organs to spill out!"
-		self_msg = "is split open, causing your internal organs to spill out!"
+		occur_text = "была разорвана, внутренние органы вылетают с [prob(35) ? "вкусным" : "неприятным"] звуком!" //[prob(35) ? "вкусно"] жрал?
+	else if(outright)
+		switch(wounding_type)
+			if(WOUND_BLUNT)
+				occur_text = "кость была раздроблена, отделяя конечность от тела"
+			if(WOUND_SLASH)
+				occur_text = "плоть была разрублена, отделяя конечность от тела"
+			if(WOUND_PIERCE)
+				occur_text = "плоть была раскромсана, отделяя конечность от тела"
+			if(WOUND_BURN)
+				occur_text = "часть была сожжена, превращая конечность в пыль"
 	else
-		occur_text = dismembered_part.get_dismember_message(wounding_type, outright)
+		switch(wounding_type)
+			if(WOUND_BLUNT)
+				occur_text = "кость была раздроблена, отделяя конечность от тела"
+			if(WOUND_SLASH)
+				occur_text = "плоть была разрублена, отделяя конечность от тела"
+			if(WOUND_PIERCE)
+				occur_text = "плоть была раскромсана, отделяя конечность от тела"
+			if(WOUND_BURN)
+				occur_text = "часть была сожжена, превращая конечность в пыль"
 
-	var/msg = span_bolddanger("[victim]'s [dismembered_part.plaintext_zone] [occur_text]")
+	var/msg = span_smalldanger("Последняя кость удерживающая [ru_parse_zone(dismembered_part.name)] <b>[victim]</b> [occur_text]!")
 
-	victim.visible_message(msg, span_userdanger("Your [dismembered_part.plaintext_zone] [self_msg ? self_msg : occur_text]"))
+	victim.visible_message(msg, span_userdanger("Моя последняя кость удерживающая [ru_parse_zone(dismembered_part.name)] [occur_text]!"))
 
 	loss_wounding_type = wounding_type
 
@@ -55,31 +71,3 @@
 	qdel(src)
 	return TRUE
 
-/obj/item/bodypart/proc/get_dismember_message(wounding_type, outright)
-	var/occur_text
-
-	if(outright)
-		switch(wounding_type)
-			if(WOUND_BLUNT)
-				occur_text = "is outright smashed to a gross pulp, severing it completely!"
-			if(WOUND_SLASH)
-				occur_text = "is outright slashed off, severing it completely!"
-			if(WOUND_PIERCE)
-				occur_text = "is outright blasted apart, severing it completely!"
-			if(WOUND_BURN)
-				occur_text = "is outright incinerated, falling to dust!"
-	else
-		var/bone_text = get_internal_description()
-		var/tissue_text = get_external_description()
-
-		switch(wounding_type)
-			if(WOUND_BLUNT)
-				occur_text = "is shattered through the last [bone_text] holding it together, severing it completely!"
-			if(WOUND_SLASH)
-				occur_text = "is slashed through the last [tissue_text] holding it together, severing it completely!"
-			if(WOUND_PIERCE)
-				occur_text = "is pierced through the last [tissue_text] holding it together, severing it completely!"
-			if(WOUND_BURN)
-				occur_text = "is completely incinerated, falling to dust!"
-
-	return occur_text

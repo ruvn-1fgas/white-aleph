@@ -1,6 +1,6 @@
 /obj/item/assembly/mousetrap
-	name = "mousetrap"
-	desc = "A handy little spring-loaded trap for catching pesty rodents."
+	name = "мышеловка"
+	desc = "Удобная маленькая пружинная ловушка для ловли надоедливых грызунов."
 	icon_state = "mousetrap"
 	inhand_icon_state = "mousetrap"
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT)

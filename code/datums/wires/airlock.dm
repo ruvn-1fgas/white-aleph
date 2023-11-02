@@ -82,13 +82,13 @@
 /datum/wires/airlock/get_status()
 	var/obj/machinery/door/airlock/A = holder
 	var/list/status = list()
-	status += "The door bolts [A.locked ? "have engaged!" : "have disengaged."]"
-	status += "The test light is [A.hasPower() ? "on" : "off"]."
-	status += "The AI connection light is [A.aiControlDisabled || (A.obj_flags & EMAGGED) ? "off" : "on"]."
-	status += "The check wiring light is [A.safe ? "off" : "on"]."
-	status += "The timer is powered [A.autoclose ? "on" : "off"]."
-	status += "The speed light is [A.normalspeed ? "on" : "off"]."
-	status += "The emergency light is [A.emergency ? "on" : "off"]."
+	status += "Дверные болты [A.locked ? "упали!" : "подняты."]"
+	status += "Индикатор питания [A.hasPower() ? "горит" : "не горит"]."
+	status += "Индикатор соединения с ИИ [A.aiControlDisabled || (A.obj_flags & EMAGGED) ? "не горит" : "горит"]."
+	status += "Индикатор безопасности [A.safe ? "горит" : "не горит"]."
+	status += "Индикатор автозакрытия [A.autoclose ? "горит" : "не горит"]."
+	status += "Индикатор задержки автозакрытия [A.normalspeed ? "горит" : "не горит"]."
+	status += "Индикатор аварийного доступа [A.emergency ? "горит" : "не горит"]."
 
 	if(A.unres_sensor)
 		status += "The unrestricted exit display is [A.unres_sides ? "indicating that it is letting people pass from the [dir2text(REVERSE_DIR(A.unres_sides))]" : "faintly flickering"]."

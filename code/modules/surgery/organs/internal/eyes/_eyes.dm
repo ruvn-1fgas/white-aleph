@@ -346,8 +346,8 @@
 	flash_protect = FLASH_PROTECTION_SENSITIVE
 
 /obj/item/organ/internal/eyes/robotic/flashlight
-	name = "flashlight eyes"
-	desc = "It's two flashlights rigged together with some wire. Why would you put these in someone's head?"
+	name = "глаза фонарики"
+	desc = "Это два фонарика, соединенных проволокой. Зачем вы вбиваете это кому-то в голову?"
 	eye_color_left ="fee5a3"
 	eye_color_right ="fee5a3"
 	icon = 'icons/obj/lighting.dmi'

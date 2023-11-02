@@ -113,7 +113,7 @@
 	if(who_placed_us)
 		ADD_TRAIT(grilled_result, TRAIT_FOOD_CHEF_MADE, who_placed_us)
 
-	grill_source.visible_message("<span class='[positive_result ? "notice" : "warning"]'>[parent] turns into \a [grilled_result]!</span>")
+	grill_source.visible_message("<span class='[positive_result ? "notice" : "warning"]'>[capitalize(original_object.name)] превращается в [grilled_result]!</span>")
 	grilled_result.pixel_x = original_object.pixel_x
 	grilled_result.pixel_y = original_object.pixel_y
 	qdel(parent)
@@ -124,19 +124,16 @@
 
 	if(!current_cook_time) //Not grilled yet
 		if(positive_result)
-			if(initial(cook_result.name) == PLURAL)
-				examine_list += span_notice("[parent] can be [span_bold("grilled")] into some [initial(cook_result.name)].")
-			else
-				examine_list += span_notice("[parent] can be [span_bold("grilled")] into \a [initial(cook_result.name)].")
+			examine_list += span_notice("\n[capitalize(A.name)] можно <b>обжарить</b>.")
 		return
 
 	if(positive_result)
 		if(current_cook_time <= required_cook_time * 0.75)
-			examine_list += span_notice("[parent] probably needs to be cooked a bit longer!")
+			examine_list += span_notice("\n[capitalize(A.name)] еще не прожари[A.ru_sya(null, TRUE)]!")
 		else if(current_cook_time <= required_cook_time)
-			examine_list += span_notice("[parent] seems to be almost finished cooking!")
+			examine_list += span_notice("\n[capitalize(A.name)] почти прожари[A.ru_sya(null, TRUE)]!")
 	else
-		examine_list += span_danger("[parent] should probably not be put on the grill.")
+		examine_list += span_danger("\n[capitalize(A.name)] прожари[A.ru_sya(null, TRUE)] как следует!")
 
 ///Ran when an object moves from the grill
 /datum/component/grillable/proc/on_moved(atom/source, atom/OldLoc, Dir, Forced)

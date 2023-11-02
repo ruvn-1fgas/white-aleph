@@ -1,8 +1,8 @@
 /datum/quirk/skittish
-	name = "Skittish"
-	desc = "You're easy to startle, and hide frequently. Run into a closed locker to jump into it, as long as you have access. You can walk to avoid this."
+	name = "Настороженный"
+	desc = "Можно легко скрывать себя от опасности. СRTL+SHIFT+ПКМ по шкафчику, чтобы залезть в него быстро, если имеется соответствующий доступ."
 	icon = FA_ICON_TRASH
 	value = 8
 	mob_trait = TRAIT_SKITTISH
-	medical_record_text = "Patient demonstrates a high aversion to danger and has described hiding in containers out of fear."
+	medical_record_text = "Пациент демонстрирует антипатию к опасности, и описывает свою склонность к скрытию в шкафчиках из-за своего страха."
 	mail_goodies = list(/obj/structure/closet/cardboard)

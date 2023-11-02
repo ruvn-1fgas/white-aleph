@@ -242,9 +242,9 @@
  * instead of INSPECTOR_POWER_USAGE_NORMAL cell units.
  */
 /obj/item/inspector/clown/bananium
-	name = "\improper Bananium HONK-spect scanner"
-	desc = "Honkmother-blessed inspection device. Performs inspections according to Clown protocols when activated, then \
-			prints a clowncrypted report regarding the maintenance of the station. Hard to replace."
+	name = "Бананиевый ХОНК-спектральный сканер"
+	desc = "Освященный хонкоматерью инспекционный прибор. При активации проводит инспекцию в соответствии с протоколами клоуна, затем \
+			печатает зашифрованный отчет о состоянии станции. Трудно заменить."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "bananium_inspector"
 	w_class = WEIGHT_CLASS_SMALL

@@ -97,8 +97,8 @@
 	skill_mod = 7
 
 /obj/item/clothing/gloves/tackler/offbrand
-	name = "improvised gripper gloves"
-	desc = "Ratty looking fingerless gloves wrapped with sticky tape. Beware anyone wearing these, for they clearly have no shame and nothing to lose."
+	name = "импровизированные перчатки перехвата"
+	desc = "Жалко выглядящие перчатки без пальцев обмотанные клейкой лентой. Остерегайтесь тех кто их носит, ибо им нечего стыдиться и нечего терять."
 	icon_state = "fingerless"
 	inhand_icon_state = null
 

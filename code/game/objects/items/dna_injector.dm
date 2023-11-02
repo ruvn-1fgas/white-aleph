@@ -359,14 +359,6 @@
 	desc = "Will make you...less hairy."
 	remove_mutations = list(/datum/mutation/human/race)
 
-/obj/item/dnainjector/illiterate
-	name = "\improper DNA injector (Illiterate)"
-	add_mutations = list(/datum/mutation/human/illiterate)
-
-/obj/item/dnainjector/antiilliterate
-	name = "\improper DNA injector (Anti-Illiterate)"
-	remove_mutations = list(/datum/mutation/human/illiterate)
-
 /obj/item/dnainjector/insulated
 	name = "\improper DNA injector (Insulated)"
 	add_mutations = list(/datum/mutation/human/insulated)
@@ -407,14 +399,6 @@
 	name = "\improper DNA injector (Anti-Olfaction)"
 	remove_mutations = list(/datum/mutation/human/olfaction)
 
-/obj/item/dnainjector/piglatinmut
-	name = "\improper DNA injector (Pig Latin)"
-	add_mutations = list(/datum/mutation/human/piglatin)
-
-/obj/item/dnainjector/antipiglatin
-	name = "\improper DNA injector (Anti-Pig Latin)"
-	remove_mutations = list(/datum/mutation/human/piglatin)
-
 /obj/item/dnainjector/paranoia
 	name = "\improper DNA injector (Paranoia)"
 	add_mutations = list(/datum/mutation/human/paranoia)
@@ -426,12 +410,12 @@
 /obj/item/dnainjector/pressuremut
 	name = "\improper DNA injector (Pressure Adaptation)"
 	desc = "Gives you fire."
-	add_mutations = list(/datum/mutation/human/pressure_adaptation)
+	add_mutations = list(/datum/mutation/human/space_adaptation)
 
 /obj/item/dnainjector/antipressure
 	name = "\improper DNA injector (Anti-Pressure Adaptation)"
 	desc = "Cures fire."
-	remove_mutations = list(/datum/mutation/human/pressure_adaptation)
+	remove_mutations = list(/datum/mutation/human/space_adaptation)
 
 /obj/item/dnainjector/radioactive
 	name = "\improper DNA injector (Radioactive)"
@@ -497,23 +481,10 @@
 	desc = "Will make you not able to control your mind."
 	remove_mutations = list(/datum/mutation/human/telekinesis)
 
-/obj/item/dnainjector/firemut
-	name = "\improper DNA injector (Temp Adaptation)"
-	desc = "Gives you fire."
-	add_mutations = list(/datum/mutation/human/temperature_adaptation)
-
-/obj/item/dnainjector/antifire
-	name = "\improper DNA injector (Anti-Temp Adaptation)"
-	desc = "Cures fire."
-	remove_mutations = list(/datum/mutation/human/temperature_adaptation)
-
 /obj/item/dnainjector/thermal
 	name = "\improper DNA injector (Thermal Vision)"
 	add_mutations = list(/datum/mutation/human/thermal)
 
-/obj/item/dnainjector/antithermal
-	name = "\improper DNA injector (Anti-Thermal Vision)"
-	remove_mutations = list(/datum/mutation/human/thermal)
 
 /obj/item/dnainjector/tourmut
 	name = "\improper DNA injector (Tour.)"
@@ -574,11 +545,3 @@
 /obj/item/dnainjector/antiwebbing
 	name = "\improper DNA injector (Anti-Webbing)"
 	remove_mutations = list(/datum/mutation/human/webbing)
-
-/obj/item/dnainjector/clever
-	name = "\improper DNA injector (Clever)"
-	add_mutations = list(/datum/mutation/human/clever)
-
-/obj/item/dnainjector/anticlever
-	name = "\improper DNA injector (Anti-Clever)"
-	remove_mutations = list(/datum/mutation/human/clever)

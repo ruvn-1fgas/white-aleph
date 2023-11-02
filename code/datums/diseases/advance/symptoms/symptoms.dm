@@ -1,9 +1,9 @@
 // Symptoms are the effects that engineered advanced diseases do.
 
 /datum/symptom
-	var/name = "8-bitten bugs"
+	var/name = ""
 	///Basic symptom description
-	var/desc = "If you see this something went very wrong."
+	var/desc = "Здесь был NoCringe!"
 	///Potential illness name caused by the symptom
 	var/illness = "Unidentified"
 	///Descriptions of threshold effects

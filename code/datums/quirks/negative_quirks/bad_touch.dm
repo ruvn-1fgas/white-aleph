@@ -1,6 +1,6 @@
 /datum/quirk/bad_touch
-	name = "Bad Touch"
-	desc = "You don't like hugs. You'd really prefer if people just left you alone."
+	name = "Плохое прикосновение"
+	desc = "Не люблю обниматься. Будет предпочтительнее, если меня оставят в покое."
 	icon = "tg-bad-touch"
 	mob_trait = TRAIT_BADTOUCH
 	value = -1

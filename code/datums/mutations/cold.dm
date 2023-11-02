@@ -1,16 +1,16 @@
 /datum/mutation/human/geladikinesis
-	name = "Geladikinesis"
-	desc = "Allows the user to concentrate moisture and sub-zero forces into snow."
+	name = "Аквакрионика"
+	desc = "Позволяет сконденсировать влагу из воздуха в руках и обратить ее в снег."
 	quality = POSITIVE
-	text_gain_indication = "<span class='notice'>Your hand feels cold.</span>"
+	text_gain_indication = span_notice("Мои руки холодные, как снег...")
 	instability = 10
 	difficulty = 10
 	synchronizer_coeff = 1
 	power_path = /datum/action/cooldown/spell/conjure_item/snow
 
 /datum/action/cooldown/spell/conjure_item/snow
-	name = "Create Snow"
-	desc = "Concentrates cryokinetic forces to create snow, useful for snow-like construction."
+	name = "Десублимация влаги"
+	desc = "Позволяет сконденсировать влагу из воздуха в руках и обратить ее в снег."
 	button_icon_state = "snow"
 
 	cooldown_time = 5 SECONDS
@@ -21,10 +21,10 @@
 	delete_on_failure = FALSE
 
 /datum/mutation/human/cryokinesis
-	name = "Cryokinesis"
-	desc = "Draws negative energy from the sub-zero void to freeze surrounding temperatures at subject's will."
+	name = "Криокинез"
+	desc = "Псионическая способность заморозить цель на расстоянии."
 	quality = POSITIVE //upsides and downsides
-	text_gain_indication = "<span class='notice'>Your hand feels cold.</span>"
+	text_gain_indication = span_notice("Мои руки холодные, как лед...")
 	instability = 30
 	difficulty = 12
 	synchronizer_coeff = 1
@@ -32,8 +32,8 @@
 	power_path = /datum/action/cooldown/spell/pointed/projectile/cryo
 
 /datum/action/cooldown/spell/pointed/projectile/cryo
-	name = "Cryobeam"
-	desc = "This power fires a frozen bolt at a target."
+	name = "Криокинез"
+	desc = "Псионическая способность заморозить цель на расстоянии."
 	button_icon_state = "icebeam"
 	base_icon_state = "icebeam"
 	active_overlay_icon_state = "bg_spell_border_active_blue"
@@ -41,6 +41,6 @@
 	spell_requirements = NONE
 	antimagic_flags = NONE
 
-	active_msg = "You focus your cryokinesis!"
-	deactive_msg = "You relax."
+	active_msg = "Выпускаю стужу на свободу!"
+	deactive_msg = "Втягиваю холод обратно в себя."
 	projectile_type = /obj/projectile/temp/cryo

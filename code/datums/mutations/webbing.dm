@@ -1,9 +1,8 @@
 //spider webs
 /datum/mutation/human/webbing
-	name = "Webbing Production"
-	desc = "Allows the user to lay webbing, and travel through it."
+	name = "Создание паутины"
+	desc = "Хорошее средство для самозащиты, замедляет потенциальных недоброжелателей, но не препятствует вашему движению."
 	quality = POSITIVE
-	text_gain_indication = "<span class='notice'>Your skin feels webby.</span>"
 	instability = 15
 	power_path = /datum/action/cooldown/mob_cooldown/lay_web/genetic
 	energy_coeff = 1

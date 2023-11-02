@@ -936,8 +936,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	return TRUE
 
 /obj/item/extendohand
-	name = "extendo-hand"
-	desc = "Futuristic tech has allowed these classic spring-boxing toys to essentially act as a fully functional hand-operated hand prosthetic."
+	name = "длинн-о-рука"
+	desc = "Футуристическая технология позволила этим классическим пружинным игрушкам для бокса практически действовать как полностью функциональный протез."
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "extendohand"
 	inhand_icon_state = "extendohand"
@@ -949,13 +949,13 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	var/min_reach = 2
 
 /obj/item/extendohand/acme
-	name = "\improper ACME Extendo-Hand"
-	desc = "A novelty extendo-hand produced by the ACME corporation. Originally designed to knock out roadrunners."
+	name = "длинн-о-рука ACME"
+	desc = "Новинка длинн-о-рука, произведенная корпорацией ACME. Изначально разработана для нокаута дорожных бегунов."
 
 /obj/item/extendohand/attack(atom/M, mob/living/carbon/human/user, params)
 	var/dist = get_dist(M, user)
 	if(dist < min_reach)
-		to_chat(user, span_warning("[M] is too close to use [src] on."))
+		to_chat(user, span_warning("Вы слишком близко, чтобы использовать [src] на [M]."))
 		return
 	var/list/modifiers = params2list(params)
 	M.attack_hand(user, modifiers)

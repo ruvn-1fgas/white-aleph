@@ -1,11 +1,11 @@
 /datum/quirk/item_quirk/allergic
-	name = "Extreme Medicine Allergy"
-	desc = "Ever since you were a kid, you've been allergic to certain chemicals..."
+	name = "Аллергия"
+	desc = "С детства у меня имеется аллергия к некоторым препаратам и реагентам."
 	icon = FA_ICON_PRESCRIPTION_BOTTLE
 	value = -6
-	gain_text = span_danger("You feel your immune system shift.")
-	lose_text = span_notice("You feel your immune system phase back into perfect shape.")
-	medical_record_text = "Patient's immune system responds violently to certain chemicals."
+	gain_text = span_danger("Чувствую сдвиг вашей иммунной системы.")
+	lose_text = span_notice("Чувствую, что ваш иммунитет стал более устойчивее.")
+	medical_record_text = "Иммунитет пациента очень резко реагирует на определенные препараты."
 	hardcore_value = 3
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_PROCESSES
 	mail_goodies = list(/obj/item/reagent_containers/hypospray/medipen) // epinephrine medipen stops allergic reactions
@@ -33,7 +33,7 @@
 
 	allergy_string = allergy_chem_names.Join(", ")
 	name = "Extreme [allergy_string] Allergies"
-	medical_record_text = "Patient's immune system responds violently to [allergy_string]"
+	medical_record_text = "Иммунитет пациента сильно реагирует на [allergy_string]!"
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/clothing/accessory/dogtag/allergy/dogtag = new(get_turf(human_holder), allergy_string)
@@ -42,7 +42,7 @@
 
 /datum/quirk/item_quirk/allergic/post_add()
 	quirk_holder.add_mob_memory(/datum/memory/key/quirk_allergy, allergy_string = allergy_string)
-	to_chat(quirk_holder, span_boldnotice("You are allergic to [allergy_string], make sure not to consume any of these!"))
+	to_chat(quirk_holder, span_boldnotice("У меня аллергия к [allergy_string]!"))
 
 /datum/quirk/item_quirk/allergic/process(seconds_per_tick)
 	if(!iscarbon(quirk_holder))

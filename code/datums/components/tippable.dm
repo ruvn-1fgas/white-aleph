@@ -107,18 +107,15 @@
 		return
 
 	if(tip_time > 0)
-		to_chat(tipper, span_warning("You begin tipping over [tipped_mob]..."))
+		to_chat(tipper, span_warning("Начинаю переворачивать [tipped_mob]..."))
 		tipped_mob.visible_message(
-			span_warning("[tipper] begins tipping over [tipped_mob]."),
-			span_userdanger("[tipper] begins tipping you over!"),
+			span_warning("[tipper] начинает переворачивать [tipped_mob]."),
+			span_userdanger("[tipper] начинает меня переворачивать!"),
 			ignored_mobs = tipper
 		)
 
 		if(!do_after(tipper, tip_time, target = tipped_mob))
-			if(!isnull(tipped_mob.client))
-				tipped_mob.log_message("was attempted to tip over by [key_name(tipper)]", LOG_VICTIM, log_globally = FALSE)
-				tipper.log_message("failed to tip over [key_name(tipped_mob)]", LOG_ATTACK)
-			to_chat(tipper, span_danger("You fail to tip over [tipped_mob]."))
+			to_chat(tipper, span_danger("Не удалось перевернуть [tipped_mob]."))
 			return
 	do_tip(tipped_mob, tipper)
 
@@ -136,13 +133,10 @@
 	if (is_tipped) // sanity check in case multiple people try to tip at the same time
 		return
 
-	to_chat(tipper, span_warning("You tip over [tipped_mob]."))
-	if (!isnull(tipped_mob.client))
-		tipped_mob.log_message("has been tipped over by [key_name(tipper)].", LOG_ATTACK)
-		tipper.log_message("has tipped over [key_name(tipped_mob)].", LOG_ATTACK)
+	to_chat(tipper, span_warning("Переворачиваю [tipped_mob]."))
 	tipped_mob.visible_message(
-		span_warning("[tipper] tips over [tipped_mob]."),
-		span_userdanger("You are tipped over by [tipper]!"),
+		span_warning("[tipper] переворачивает [tipped_mob]."),
+		span_userdanger("[tipper] переворачивает меня!"),
 		ignored_mobs = tipper
 		)
 
@@ -164,15 +158,15 @@
  */
 /datum/component/tippable/proc/try_untip(mob/living/tipped_mob, mob/untipper)
 	if(untip_time > 0)
-		to_chat(untipper, span_notice("You begin righting [tipped_mob]..."))
+		to_chat(untipper, span_notice("Начинаю ставить на место [tipped_mob]..."))
 		tipped_mob.visible_message(
-			span_notice("[untipper] begins righting [tipped_mob]."),
-			span_notice("[untipper] begins righting you."),
+			span_notice("[untipper] начинает ставить на место [tipped_mob]."),
+			span_notice("[untipper] начинает ставить меня на место."),
 			ignored_mobs = untipper
 		)
 
 		if(!do_after(untipper, untip_time, target = tipped_mob))
-			to_chat(untipper, span_warning("You fail to right [tipped_mob]."))
+			to_chat(untipper, span_warning("Не вышло поставить на место [tipped_mob]."))
 			return
 
 	do_untip(tipped_mob, untipper)
@@ -190,10 +184,10 @@
 	if (!is_tipped) // sanity check in case multiple people try to untip at the same time
 		return
 
-	to_chat(untipper, span_notice("You right [tipped_mob]."))
+	to_chat(untipper, span_notice("Ставлю на место [tipped_mob]."))
 	tipped_mob.visible_message(
-		span_notice("[untipper] rights [tipped_mob]."),
-		span_notice("You are righted by [untipper]!"),
+		span_notice("[untipper] ставит на место [tipped_mob]."),
+		span_notice("[untipper] ставит меня на место!"),
 		ignored_mobs = untipper
 		)
 
@@ -216,8 +210,8 @@
 	post_untipped_callback?.Invoke()
 
 	tipped_mob.visible_message(
-		span_notice("[tipped_mob] rights itself."),
-		span_notice("You right yourself.")
+		span_notice("[tipped_mob] переворачивается сам по себе."),
+		span_notice("Переворачиваюсь.")
 		)
 
 /**
