@@ -10,6 +10,7 @@ type Data = {
 };
 
 type Wire = {
+  wname: string;
   color: string;
   cut: BooleanLike;
   attached: BooleanLike;
@@ -28,7 +29,7 @@ export const Wires = (props, context) => {
           {!!proper_name && (
             <Stack.Item>
               <NoticeBox textAlign="center">
-                {proper_name} Wire Configuration
+                {proper_name} Настройка проводов
               </NoticeBox>
             </Stack.Item>
           )}
@@ -63,13 +64,13 @@ const WireMap = (props, context) => {
         <LabeledList.Item
           key={wire.color}
           className="candystripe"
-          label={wire.color}
+          label={wire.wname}
           labelColor={wire.color}
           color={wire.color}
           buttons={
             <>
               <Button
-                content={wire.cut ? 'Mend' : 'Cut'}
+                content={wire.cut ? 'Паять' : 'Кусать'}
                 onClick={() =>
                   act('cut', {
                     wire: wire.color,
@@ -77,7 +78,7 @@ const WireMap = (props, context) => {
                 }
               />
               <Button
-                content="Pulse"
+                content="Пульс"
                 onClick={() =>
                   act('pulse', {
                     wire: wire.color,
@@ -85,7 +86,7 @@ const WireMap = (props, context) => {
                 }
               />
               <Button
-                content={wire.attached ? 'Detach' : 'Attach'}
+                content={wire.attached ? 'Отсо.' : 'Прис.'}
                 onClick={() =>
                   act('attach', {
                     wire: wire.color,

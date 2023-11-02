@@ -34,16 +34,14 @@
 		return TRUE
 
 /datum/wires/vending/get_status()
-	var/obj/machinery/vending/vending_machine = holder
-	var/datum/language_holder/vending_languages = vending_machine.get_language_holder()
-	var/datum/language/current_language = GLOB.language_datum_instances[vending_languages.get_selected_language()]
+	var/obj/machinery/vending/V = holder
 	var/list/status = list()
-	status += "The orange light is [vending_machine.seconds_electrified ? "on" : "off"]."
-	status += "The red light is [vending_machine.shoot_inventory ? "off" : "blinking"]."
-	status += "The green light is [vending_machine.extended_inventory ? "on" : "off"]."
-	status += "A [vending_machine.scan_id ? "purple" : "yellow"] light is on."
-	status += "A white light is [vending_machine.age_restrictions ? "on" : "off"]."
-	status += "The speaker light is [vending_machine.shut_up ? "off" : "on"]. The language is set to [current_language.name]."
+	status += "Оранжевый индикатор [V.seconds_electrified ? "горит" : "не горит"]."
+	status += "Красный индикатор [V.shoot_inventory ? "не горит" : "мигает"]."
+	status += "Зелёный индикатор [V.extended_inventory ? "горит" : "не горит"]."
+	status += "[V.scan_id ? "Фиолетовый" : "Жёлтый"] индикатор горит."
+	status += "Белый индикатор [V.age_restrictions ? "горит" : "не горит"]."
+	status += "Индикатор динамика [V.shut_up ? "не горит" : "горит"]."
 	return status
 
 /datum/wires/vending/on_pulse(wire)

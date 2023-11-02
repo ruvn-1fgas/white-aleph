@@ -27,7 +27,7 @@
 	/// Key that enables wire assignments to be common across different holders. If null, will use the holder_type as a key.
 	var/dictionary_key = null
 	/// The display name for the wire set shown in station blueprints. Not shown in blueprints if randomize is TRUE or it's an item NT wouldn't know about (Explosives/Nuke). Also used in the hacking interface.
-	var/proper_name = "Unknown"
+	var/proper_name = "Неизвестно"
 
 	/// List of all wires.
 	var/list/wires = list()
@@ -110,6 +110,27 @@
 
 	for(var/wire in shuffle(wires))
 		colors[pick_n_take(my_possible_colors)] = wire
+
+/datum/wires/proc/get_wire_name(CC)
+	var/list/colors_ = list(
+	"blue" 	 	 = "синий",
+	"brown" 	 = "коричневый",
+	"crimson"    = "малиновый",
+	"cyan"  	 = "бирюзовый",
+	"gold"    	 = "золотой",
+	"grey"		 = "серый",
+	"green"	 	 = "зелёный",
+	"magenta"    = "пурпурный",
+	"orange"   	 = "оранжевый",
+	"pink"		 = "розовый",
+	"purple" 	 = "фиолетовый",
+	"red"	 	 = "красный",
+	"silver" 	 = "серебряный",
+	"violet"	 = "лиловый",
+	"white"		 = "белый",
+	"yellow"	 = "жёлтый"
+	)
+	return colors_[CC]
 
 /datum/wires/proc/shuffle_wires()
 	colors.Cut()
@@ -299,6 +320,7 @@
 	for(var/color in colors)
 		payload.Add(list(list(
 			"color" = color,
+			"wname" = get_wire_name(color),
 			"wire" = (((reveal_wires || always_reveal_wire(color)) && !is_dud_color(color)) ? get_wire(color) : null),
 			"cut" = is_color_cut(color),
 			"attached" = is_attached(color)
@@ -324,7 +346,7 @@
 				cut_color(target_wire, source = L)
 				. = TRUE
 			else
-				to_chat(L, span_warning("You need wirecutters!"))
+				to_chat(L, span_warning("Нужны кусачки!"))
 		if("pulse")
 			I = L.is_holding_tool_quality(TOOL_MULTITOOL)
 			if(I || isAdminGhostAI(usr))
@@ -333,7 +355,7 @@
 				pulse_color(target_wire, L)
 				. = TRUE
 			else
-				to_chat(L, span_warning("You need a multitool!"))
+				to_chat(L, span_warning("Нужен мультитул!"))
 		if("attach")
 			if(is_attached(target_wire))
 				I = detach_assembly(target_wire)
@@ -351,6 +373,6 @@
 							A.forceMove(L.drop_location())
 						. = TRUE
 					else
-						to_chat(L, span_warning("You need an attachable assembly!"))
+						to_chat(L, span_warning("Нужна штука, которую я смогу прикрепить!"))
 
 #undef MAXIMUM_EMP_WIRES

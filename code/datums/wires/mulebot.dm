@@ -43,21 +43,21 @@
 				log_combat(source, mule, "[is_cut(WIRE_AVOIDANCE) ? "cut" : "mended"] the MULE safety wire of")
 
 /datum/wires/mulebot/on_pulse(wire)
-	var/mob/living/simple_animal/bot/mulebot/mule = holder
-	if(!mule.has_power(TRUE))
+	var/mob/living/simple_animal/bot/mulebot/M = holder
+	if(!M.has_power(TRUE))
 		return //logically mulebots can't flash and beep if they don't have power.
 	switch(wire)
 		if(WIRE_POWER1, WIRE_POWER2)
-			holder.visible_message(span_notice("[icon2html(mule, viewers(holder))] The charge light flickers."))
+			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Индикатор зарядки мигает."))
 		if(WIRE_AVOIDANCE)
-			holder.visible_message(span_notice("[icon2html(mule, viewers(holder))] The external warning lights flash briefly."))
-			flick("[mule.base_icon]1", mule)
+			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Внешние сигнальные огни кратковременно мигают."))
+			flick("[M.base_icon]1", M)
 		if(WIRE_LOADCHECK)
-			holder.visible_message(span_notice("[icon2html(mule, viewers(holder))] The load platform clunks."))
+			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Грузовая платформа гремит."))
 		if(WIRE_MOTOR1, WIRE_MOTOR2)
-			holder.visible_message(span_notice("[icon2html(mule, viewers(holder))] The drive motor whines briefly."))
+			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Двигатель коротко скулит."))
 		else
-			holder.visible_message(span_notice("[icon2html(mule, viewers(holder))] You hear a radio crackle."))
+			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Трещит на языке радио."))
 
 #undef FAST_MOTOR_SPEED
 #undef AVERAGE_MOTOR_SPEED
