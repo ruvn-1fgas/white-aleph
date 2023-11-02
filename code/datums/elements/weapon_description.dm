@@ -10,6 +10,10 @@
 
 	// Additional proc to be run for specific object types
 	var/attached_proc
+	// Flavor text crimes used in build_weapon_text()
+	var/list/crimes = list("Нападениях", "Убийствах", "Ограблениях", "Террористических актах", "Различных проступках", "Случаях уклонения от налогов", "Мятежах")
+	var/list/victims = list("человека", "моль", "фелинида", "ящера", "агента синдиката", "клоуна", "мима", "противника", "мимокрокодила")
+
 
 /datum/element/weapon_description/Attach(datum/target, attached_proc)
 	. = ..()
@@ -39,7 +43,7 @@
 	SIGNAL_HANDLER
 
 	if(item.force >= 5 || item.throwforce >= 5 || item.override_notes || item.offensive_notes || attached_proc) /// Only show this tag for items that could feasibly be weapons, shields, or those that have special notes
-		examine_texts += span_notice("<a href='?src=[REF(item)];examine=1'>See combat information.</a>")
+		examine_texts += span_notice("<hr>На [item.ru_na()] есть обновляющася блюспейс <a href='?src=[REF(item)];examine=1'>этикетка</a>.")
 
 /**
  *
@@ -69,22 +73,25 @@
  *  * source - The object whose stats are being examined
  */
 /datum/element/weapon_description/proc/build_label_text(obj/item/source)
-	var/list/readout = list() // Readout is used to store the text block output to the user so it all can be sent in one message
+	var/list/readout = list("") // Readout is used to store the text block output to the user so it all can be sent in one message
+
+	// Meaningless flavor text. The number of crimes is constantly changing because of the complex Nanotrasen legal system and the esoteric nature of time itself!
+	readout += "[span_warning("ВНИМАНИЕ:")] Этот предмет был обозначен NT как потенциально опасный ввиду его использования в [span_warning("[rand(2,99)] [crimes[rand(1, crimes.len)]]")] за прошедший час.\n"
 
 	// Doesn't show the base notes for items that have the override notes variable set to true
 	if(!source.override_notes)
 		// Make sure not to divide by 0 on accident
 		if(source.force > 0)
-			readout += "It takes about [span_warning("[HITS_TO_CRIT(source.force)] melee hit\s")] to take down an enemy."
+			readout += "Наши исследования показали, что нужно ударить всего [span_warning("[HITS_TO_CRIT(source.force)] раз")] чтобы отправить в нокаут [victims[rand(1, victims.len)]] без брони."
 		else
-			readout += "It does not deal noticeable melee damage."
+			readout += "Согласно нашим исследованиям, этим нельзя никому навредить."
 
 		if(source.throwforce > 0)
-			readout += "It takes about [span_warning("[HITS_TO_CRIT(source.throwforce)] throwing hit\s")] to take down an enemy."
+			readout += "В случае с бросками, понадобится бросить [span_warning("[HITS_TO_CRIT(source.throwforce)] раз")]."
 		else
-			readout += "It does not deal noticeable throwing damage."
+			readout += "В случае с бросками, эта штука не сможет никому навредить."
 		if(source.armour_penetration > 0 || source.block_chance > 0)
-			readout += "It has [span_warning("[weapon_tag_convert(source.armour_penetration)]")] armor-piercing capability and [span_warning("[weapon_tag_convert(source.block_chance)]")] blocking capability."
+			readout += "Предмет имеет [span_warning("[weapon_tag_convert(source.armour_penetration)]")] пробивную характеристику и [span_warning("[weapon_tag_convert(source.block_chance)]")] возможность блокирования ударов."
 	// Custom manual notes
 	if(source.offensive_notes)
 		readout += source.offensive_notes
@@ -107,14 +114,14 @@
 /datum/element/weapon_description/proc/weapon_tag_convert(tag_val)
 	switch(tag_val)
 		if(0)
-			return "NO"
+			return "нулевую"
 		if(1 to 25)
-			return "LITTLE"
+			return "незначительную"
 		if(26 to 50)
-			return "AVERAGE"
+			return "стандартную"
 		if(51 to 75)
-			return "ABOVE-AVERAGE"
+			return "выдающуюся"
 		if(76 to INFINITY)
-			return "EXCELLENT"
+			return "крайне выдающуюся"
 		else
-			return "WEIRD"
+			return "странную"

@@ -58,13 +58,13 @@
 	user.do_attack_animation(target)
 	if (target == user)
 		user.visible_message(
-			span_danger("[user] stabs [user.p_them()]self in the eye with [item]!"),
-			span_userdanger("You stab yourself in the eye with [item]!"),
+			span_danger("[user] протыкает свой глаз с помощью [item]!"),
+			span_userdanger("Протыкаю себе глаз с помощью [item]!"),
 		)
 	else
 		target.visible_message(
-			span_danger("[user] stabs [target] in the eye with [item]!"),
-			span_userdanger("[user] stabs you in the eye with [item]!"),
+			span_danger("[user] протыкает глаз [target] с помощью [item]!"),
+			span_userdanger("[user] протыкает ваш глаз с помощью [item]!"),
 		)
 
 	if (target_limb)
@@ -87,7 +87,7 @@
 	// At over 10 damage we apply a lot of eye blur
 	target.adjust_eye_blur_up_to(30 SECONDS, EYESTAB_MAX_BLUR)
 	if (target.stat != DEAD)
-		to_chat(target, span_danger("Your eyes start to bleed profusely!"))
+		to_chat(target, span_danger("Мои глаза начинают обильно кровоточить!"))
 
 	// At over 10 damage, we cause at least enough eye damage to force nearsightedness
 	if (!target.is_nearsighted_from(EYE_DAMAGE) && eyes.damage <= eyes.low_threshold)
@@ -96,7 +96,7 @@
 	// At over 10 damage, there is a 50% chance they drop all their items
 	if (prob(50))
 		if (target.stat != DEAD && target.drop_all_held_items())
-			to_chat(target, span_danger("You drop what you're holding and clutch at your eyes!"))
+			to_chat(target, span_danger("Роняю то, что держу в руках, и хватаюсь за глаза!"))
 		target.adjust_eye_blur_up_to(20 SECONDS, EYESTAB_MAX_BLUR)
 		target.Unconscious(2 SECONDS)
 		target.Paralyze(4 SECONDS)

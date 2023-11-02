@@ -55,26 +55,29 @@
 	if(!is_type_in_list(target, food_types))
 		return FALSE
 	var/eat_verb
+	var/eat_verb_self
 	if(drinking)
-		eat_verb = pick("slurp","sip","guzzle","drink","quaff","suck")
+		eat_verb = pick("пьет", "попивает", "глотает", "сосет")
+		eat_verb_self = pick("Пью", "Попиваю", "Глотаю", "Сосу")
 	else
-		eat_verb = pick("bite","chew","nibble","gnaw","gobble","chomp")
+		eat_verb = pick("кусает", "жует", "грызет", "пожирает", "проглатывает", "поглощает", "проглатывает", "съедает", "проглатывает")
+		eat_verb_self = pick("Кусаю", "Жую", "Грызу", "Пожираю", "Проглатываю", "Поглощаю", "Проглатываю", "Съедаю", "Проглотил")
 
 	if (heal_amt > 0)
 		var/healed = heal_amt && eater.health < eater.maxHealth
 		if(heal_amt)
 			eater.heal_overall_damage(heal_amt)
-		eater.visible_message(span_notice("[eater] [eat_verb]s [target]."), span_notice("You [eat_verb] [target][healed ? ", restoring some health" : ""]."))
+		eater.visible_message(span_notice("[eater] [eat_verb] [target]."), span_notice("[eat_verb_self] [target][healed ? ", восстанавливая немного здоровья" : ""]."))
 		finish_eating(eater, target)
 		return TRUE
 
 	if (damage_amount > 0 && damage_type)
 		eater.apply_damage(damage_amount, damage_type)
-		eater.visible_message(span_notice("[eater] [eat_verb]s [target], and seems to hurt itself."), span_notice("You [eat_verb] [target], hurting yourself in the process."))
+		eater.visible_message(span_notice("[eater] [eat_verb] [target] и, похоже, вредит себе."), span_notice("[eat_verb_self] [target], вредя себе."))
 		finish_eating(eater, target)
 		return TRUE
 
-	eater.visible_message(span_notice("[eater] [eat_verb]s [target]."), span_notice("You [eat_verb] [target]."))
+	eater.visible_message(span_notice("[eater] [eat_verb] [target]."), span_notice("[eat_verb_self] [target]."))
 	finish_eating(eater, target)
 	return TRUE
 

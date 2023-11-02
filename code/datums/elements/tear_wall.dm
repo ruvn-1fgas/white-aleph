@@ -39,7 +39,7 @@
 	if(DOING_INTERACTION_WITH_TARGET(attacker, thewall))
 		attacker.balloon_alert(attacker, "busy!")
 		return
-	to_chat(attacker, span_warning("You begin tearing through the wall..."))
+	to_chat(attacker, span_warning("Начинаю прорываться сквозь стену..."))
 	playsound(attacker, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
 	if(do_after(attacker, prying_time, target = thewall))
 		if(isopenturf(thewall))

@@ -58,7 +58,7 @@ GLOBAL_LIST_INIT(freon_color_matrix, list("#2E5E69", "#60A2A8", "#A1AFB1", rgb(0
 /datum/element/frozen/proc/shatter_on_throw(datum/target)
 	SIGNAL_HANDLER
 	var/obj/obj_target = target
-	obj_target.visible_message(span_danger("[obj_target] shatters into a million pieces!"))
+	obj_target.visible_message(span_danger("[obj_target] разбивается на миллион кусочков!"))
 	obj_target.flags_1 |= NODECONSTRUCT_1	// disable item spawning
 	obj_target.deconstruct(FALSE)			// call pre-deletion specialized code -- internals release gas etc
 
