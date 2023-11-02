@@ -1,4 +1,4 @@
-	/datum/wires/suit_storage_unit
+/datum/wires/suit_storage_unit
 	holder_type = /obj/machinery/suit_storage_unit
 	proper_name = "Блок хранения костюма"
 
