@@ -1,14 +1,14 @@
 /datum/disease/magnitis
-	name = "Magnitis"
+name = "Магнитис"
 	max_stages = 4
-	spread_text = "Airborne"
-	cure_text = "Iron"
+	spread_text = "Воздушное"
+	cure_text = "Железо"
 	cures = list(/datum/reagent/iron)
-	agent = "Fukkos Miracos"
+	agent = "Фуккос Миракос"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	disease_flags = CAN_CARRY|CAN_RESIST|CURABLE
 	spreading_modifier = 0.75
-	desc = "This disease disrupts the magnetic field of your body, making it act as if a powerful magnet. Injections of iron help stabilize the field."
+	desc = "Эта болезнь нарушает магнитное поле тела, заставляя его действовать как мощный магнит. Инъекции железа помогают стабилизировать поле зрения."
 	severity = DISEASE_SEVERITY_MEDIUM
 	infectable_biotypes = MOB_ORGANIC|MOB_ROBOTIC
 	process_dead = TRUE
@@ -22,7 +22,7 @@
 	switch(stage)
 		if(2)
 			if(SPT_PROB(1, seconds_per_tick))
-				to_chat(affected_mob, span_danger("Your skin tingles with energy."))
+				to_chat(affected_mob, span_danger("Ощущаю удар током всем своим телом."))
 			if(SPT_PROB(1, seconds_per_tick))
 				for(var/obj/nearby_object in orange(2, affected_mob))
 					if(nearby_object.anchored || !(nearby_object.flags_1 & CONDUCT_1))
@@ -36,9 +36,9 @@
 					nearby_silicon.Move(get_step(nearby_silicon, move_dir), move_dir)
 		if(3)
 			if(SPT_PROB(1, seconds_per_tick))
-				to_chat(affected_mob, span_danger("Your hair stands on end."))
+				to_chat(affected_mob, span_danger("Ощущаю удар током всем своим телом."))
 			if(SPT_PROB(2, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You feel a light shock course through your body."))
+				to_chat(affected_mob, span_danger("Ощущаю себя как клоуна."))
 				for(var/obj/nearby_object in orange(4, affected_mob))
 					if(nearby_object.anchored || !(nearby_object.flags_1 & CONDUCT_1))
 						continue
@@ -51,9 +51,9 @@
 						nearby_silicon.throw_at(affected_mob, 4, 3)
 		if(4)
 			if(SPT_PROB(1, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You query upon the nature of miracles."))
+				to_chat(affected_mob, span_danger("Ощущаю сильный удар током всем своим телом."))
 			if(SPT_PROB(4, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You feel a powerful shock course through your body."))
+				to_chat(affected_mob, span_danger("Природа чудесная."))
 				for(var/obj/nearby_object in orange(6, affected_mob))
 					if(nearby_object.anchored || !(nearby_object.flags_1 & CONDUCT_1))
 						continue

@@ -9,7 +9,7 @@
  */
 
 /datum/symptom/chills
-	name = "Похолодание"
+	name = "Холод"
 	desc = "Вирус подавляет терморегуляцию организма, охлаждая его."
 	illness = "Cold Shoulder"
 	stealth = 0
