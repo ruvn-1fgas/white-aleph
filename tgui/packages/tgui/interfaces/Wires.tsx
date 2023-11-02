@@ -2,6 +2,7 @@ import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
 import { Box, Button, LabeledList, NoticeBox, Section, Stack } from '../components';
 import { Window } from '../layouts';
+import { WIRE2RUSSIAN } from './common/WireToRussian';
 
 type Data = {
   proper_name: string;
@@ -10,7 +11,6 @@ type Data = {
 };
 
 type Wire = {
-  wname: string;
   color: string;
   cut: BooleanLike;
   attached: BooleanLike;
@@ -64,7 +64,7 @@ const WireMap = (props, context) => {
         <LabeledList.Item
           key={wire.color}
           className="candystripe"
-          label={wire.wname}
+          label={WIRE2RUSSIAN[wire.color]}
           labelColor={wire.color}
           color={wire.color}
           buttons={

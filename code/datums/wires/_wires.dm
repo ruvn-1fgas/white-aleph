@@ -111,27 +111,6 @@
 	for(var/wire in shuffle(wires))
 		colors[pick_n_take(my_possible_colors)] = wire
 
-/datum/wires/proc/get_wire_name(CC)
-	var/list/colors_ = list(
-	"blue" 	 	 = "синий",
-	"brown" 	 = "коричневый",
-	"crimson"    = "малиновый",
-	"cyan"  	 = "бирюзовый",
-	"gold"    	 = "золотой",
-	"grey"		 = "серый",
-	"green"	 	 = "зелёный",
-	"magenta"    = "пурпурный",
-	"orange"   	 = "оранжевый",
-	"pink"		 = "розовый",
-	"purple" 	 = "фиолетовый",
-	"red"	 	 = "красный",
-	"silver" 	 = "серебряный",
-	"violet"	 = "лиловый",
-	"white"		 = "белый",
-	"yellow"	 = "жёлтый"
-	)
-	return colors_[CC]
-
 /datum/wires/proc/shuffle_wires()
 	colors.Cut()
 	randomize()
@@ -320,7 +299,6 @@
 	for(var/color in colors)
 		payload.Add(list(list(
 			"color" = color,
-			"wname" = get_wire_name(color),
 			"wire" = (((reveal_wires || always_reveal_wire(color)) && !is_dud_color(color)) ? get_wire(color) : null),
 			"cut" = is_color_cut(color),
 			"attached" = is_attached(color)
