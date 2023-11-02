@@ -1,5 +1,5 @@
 /datum/disease/magnitis
-name = "Магнитис"
+	name = "Магнитис"
 	max_stages = 4
 	spread_text = "Воздушное"
 	cure_text = "Железо"

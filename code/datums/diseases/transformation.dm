@@ -15,7 +15,7 @@
 	var/list/stage3 = list("Чувствую равнодушие.")
 	var/list/stage4 = list("Чувствую белый хлеб.")
 	var/list/stage5 = list("О, человечество!")
-	vvar/new_form = /mob/living/carbon/human
+	var/new_form = /mob/living/carbon/human
 	var/bantype
 	var/transformed_antag_datum //Do we add a specific antag datum once the transformation is complete?
 
@@ -319,7 +319,7 @@
 	desc = "Потребление мяса гондолы обходится ужасно."
 	severity = DISEASE_SEVERITY_BIOHAZARD
 	visibility_flags = NONE
-	tage1	= list("Походка стала немного легче.")
+	stage1	= list("Походка стала немного легче.")
 	stage2	= list("Улыбаюсь.")
 	stage3	= list(span_danger("Жестокое чувство покоя овладевает мной.") , span_danger("Не чувствую рук!") , span_danger("Больше не хочу бить клоуна."))
 	stage4	= list(span_danger("Больше не ощущаю руки. Да и это меня не волнует.") , span_danger("Прощаю клоуну все пакости в мою сторону."))

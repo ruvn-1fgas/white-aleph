@@ -19,7 +19,7 @@
 	if(!.)
 		return
 
-	var/obj/item/organ/liver/affected_liver = affected_mob.getorgan(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/internal/liver/affected_liver = affected_mob.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(!affected_liver)
 		affected_mob.visible_message(span_notice("<B>Печень [affected_mob] покрыта крошечными личинками! Они быстро сморщиваются и умирают после пребывания на открытом воздухе.</B>"))
 		cure()
