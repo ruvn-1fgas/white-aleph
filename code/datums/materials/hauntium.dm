@@ -1,6 +1,7 @@
 /datum/material/hauntium
-	name = "hauntium"
-	desc = "very scary!"
+	name = "привидениум"
+	skloname = "привидениума"
+	desc = "пугающий!"
 	color = list(460/255, 464/255, 460/255, 0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	greyscale_colors = "#FFFFFF64"
 	alpha = 100
