@@ -48,16 +48,16 @@
 			dialed_holopads += connected_holopad
 			if(head_call)
 				if(connected_holopad.secure)
-					calling_pad.say("Auto-connection refused, falling back to call mode.")
-					connected_holopad.say("Incoming call.")
+					calling_pad.say("Авто-соединение отклонено, возвращаемся к обычному режиму звонка.")
+					connected_holopad.say("Входящий звонок.")
 				else
-					connected_holopad.say("Incoming connection.")
+					connected_holopad.say("Входящее соединение.")
 			else
-				connected_holopad.say("Incoming call.")
+				connected_holopad.say("Входящий звонок.")
 			connected_holopad.set_holocall(src)
 
 	if(!dialed_holopads.len)
-		calling_pad.say("Connection failure.")
+		calling_pad.say("Ошибка соединения.")
 		qdel(src)
 		return
 
@@ -101,9 +101,9 @@
 	testing("Holocall disconnect")
 	if(H == connected_holopad)
 		var/area/A = get_area(connected_holopad)
-		calling_holopad.say("[A] holopad disconnected.")
+		calling_holopad.say("[A] отключается.")
 	else if(H == calling_holopad && connected_holopad)
-		connected_holopad.say("[user] disconnected.")
+		connected_holopad.say("[user] отключается.")
 
 	ConnectionFailure(H, TRUE)
 
@@ -112,7 +112,7 @@
 	testing("Holocall connection failure: graceful [graceful]")
 	if(disconnected_holopad == connected_holopad || disconnected_holopad == calling_holopad)
 		if(!graceful && disconnected_holopad != calling_holopad)
-			calling_holopad.say("Connection failure.")
+			calling_holopad.say("Ошибка соединения.")
 		qdel(src)
 		return
 
@@ -121,7 +121,7 @@
 	dialed_holopads -= disconnected_holopad
 	if(!dialed_holopads.len)
 		if(graceful)
-			calling_holopad.say("Call rejected.")
+			calling_holopad.say("Звонок отклонён.")
 		testing("No recipients, terminating")
 		qdel(src)
 
@@ -160,7 +160,7 @@
 	eye.origin = answering_holopad
 	eye.eye_initialized = TRUE
 	eye.eye_user = user
-	eye.name = "Camera Eye ([user.name])"
+	eye.name = "Глаз-камера ([user.name])"
 	user.remote_control = eye
 	user.reset_perspective(eye)
 	eye.setLoc(answering_holopad.loc)
@@ -168,7 +168,7 @@
 	hangup = new(eye, src)
 	hangup.Grant(user)
 	playsound(answering_holopad, 'sound/machines/ping.ogg', 100)
-	answering_holopad.say("Connection established.")
+	answering_holopad.say("Соединение установлено.")
 
 //Checks the validity of a holocall and qdels itself if it's not. Returns TRUE if valid, FALSE otherwise
 /datum/holocall/proc/Check()
@@ -185,7 +185,7 @@
 		if(!connected_holopad)
 			. = world.time < (call_start_time + HOLOPAD_MAX_DIAL_TIME)
 			if(!.)
-				calling_holopad.say("No answer received.")
+				calling_holopad.say("Нет ответа.")
 
 	if(!.)
 		testing("Holocall Check fail")
@@ -207,7 +207,7 @@
 
 //RECORDS
 /datum/holorecord
-	var/caller_name = "Unknown" //Caller name
+	var/caller_name = "Неизвестно" //Caller name
 	var/image/caller_image
 	var/list/entries = list()
 	var/language = /datum/language/common //Initial language, can be changed by HOLORECORD_LANGUAGE entries
@@ -219,8 +219,8 @@
 	user.setDir(olddir)
 
 /obj/item/disk/holodisk
-	name = "holorecord disk"
-	desc = "Stores recorder holocalls."
+	name = "голодиск"
+	desc = "Хранит записи с Holo-платформ"
 	icon_state = "holodisk"
 	obj_flags = UNIQUE_RENAME
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
@@ -248,10 +248,10 @@
 			record.caller_image = holodiskOriginal.record.caller_image
 			record.entries = holodiskOriginal.record.entries.Copy()
 			record.language = holodiskOriginal.record.language
-			to_chat(user, span_notice("You copy the record from [holodiskOriginal] to [src] by connecting the ports!"))
+			to_chat(user, span_notice("Копирую запись с [holodiskOriginal] на [src] используя специальные порты!"))
 			name = holodiskOriginal.name
 		else
-			to_chat(user, span_warning("[holodiskOriginal] has no record on it!"))
+			to_chat(user, span_warning("[capitalize(holodiskOriginal)] не имеет записей!"))
 	..()
 
 /obj/item/disk/holodisk/proc/build_record()

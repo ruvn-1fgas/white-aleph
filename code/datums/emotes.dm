@@ -192,7 +192,7 @@
 	var/mob/living/living_user = user
 
 	if(!muzzle_ignore && user.is_muzzled() && emote_type & EMOTE_AUDIBLE)
-		return "makes a [pick("strong ", "weak ", "")]noise."
+		return "издаёт [pick("громкий ", "слабый ", "")]звук."
 	if(HAS_MIND_TRAIT(user, TRAIT_MIMING) && message_mime)
 		. = message_mime
 	if(isalienadult(user) && message_alien)
@@ -243,16 +243,16 @@
 				return FALSE
 			switch(user.stat)
 				if(SOFT_CRIT)
-					to_chat(user, span_warning("You cannot [key] while in a critical condition!"))
+					to_chat(user, span_warning("Не могу сделать [key] в критическом состоянии!"))
 				if(UNCONSCIOUS, HARD_CRIT)
-					to_chat(user, span_warning("You cannot [key] while unconscious!"))
+					to_chat(user, span_warning("Не могу сделать [key] без сознания!"))
 				if(DEAD)
-					to_chat(user, span_warning("You cannot [key] while dead!"))
+					to_chat(user, span_warning("Не могу сделать [key] в мёртвом состоянии!"))
 			return FALSE
 		if(hands_use_check && HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 			if(!intentional)
 				return FALSE
-			to_chat(user, span_warning("You cannot use your hands to [key] right now!"))
+			to_chat(user, span_warning("Не могу сделать [key] сейчас!"))
 			return FALSE
 
 	if(HAS_TRAIT(user, TRAIT_EMOTEMUTE))
