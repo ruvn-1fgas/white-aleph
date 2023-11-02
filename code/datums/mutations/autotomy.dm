@@ -1,8 +1,8 @@
 /datum/mutation/human/self_amputation
-	name = "Autotomy"
-	desc = "Allows a creature to voluntary discard a random appendage."
+	name = "Аутотомия"
+	desc = "Позволяет существу добровольно сбросить выбранную часть тела по своему желанию."
 	quality = POSITIVE
-	text_gain_indication = span_notice("Your joints feel loose.")
+	text_gain_indication = span_notice("У меня такое ощущение что моя рука вот-вот отвалится...")
 	instability = 30
 	power_path = /datum/action/cooldown/spell/self_amputation
 
@@ -10,8 +10,8 @@
 	synchronizer_coeff = 1
 
 /datum/action/cooldown/spell/self_amputation
-	name = "Drop a limb"
-	desc = "Concentrate to make a random limb pop right off your body."
+	name = "Сброс конечности"
+	desc = "Благодаря геному ящера и позволяет сбросить конечность в случае опасности, а также вырастить новую."
 	button_icon_state = "autotomy"
 
 	cooldown_time = 10 SECONDS
@@ -23,7 +23,7 @@
 /datum/action/cooldown/spell/self_amputation/cast(mob/living/carbon/cast_on)
 	. = ..()
 	if(HAS_TRAIT(cast_on, TRAIT_NODISMEMBER))
-		to_chat(cast_on, span_notice("You concentrate really hard, but nothing happens."))
+		to_chat(cast_on, span_notice("Сосредотачиваюсь, но ничего не происходит."))
 		return
 
 	var/list/parts = list()
@@ -35,7 +35,7 @@
 		parts += to_remove
 
 	if(!length(parts))
-		to_chat(cast_on, span_notice("You can't shed any more limbs!"))
+		to_chat(cast_on, span_notice("Я не могу сбросить больше конечностей!"))
 		return
 
 	var/obj/item/bodypart/to_remove = pick(parts)
