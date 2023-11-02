@@ -30,10 +30,13 @@
 
 /obj/machinery/stasis/Destroy()
 	. = ..()
+	if(op_computer && op_computer.sbed == src)
+		op_computer.sbed = null
 
 /obj/machinery/stasis/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Alt + Клик для [stasis_enabled ? "<b>выключения</b>" : "<b>включения</b>"] машины.</span>"
+	. += span_notice("\n<b>[src.name]</b> [op_computer ? "синхронизирована" : "<b>НЕ</b> синхронизирована"] с операционным компьютером.")
 
 /obj/machinery/stasis/proc/play_power_sound()
 	var/_running = stasis_running()

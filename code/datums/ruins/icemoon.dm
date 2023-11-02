@@ -12,12 +12,6 @@
 
 // above ground only
 
-/datum/map_template/ruin/icemoon/gas
-	name = "Lizard Gas Station"
-	id = "lizgasruin"
-	description = "A gas station. It appears to have been recently open and is in mint condition."
-	suffix = "icemoon_surface_gas.dmm"
-
 /datum/map_template/ruin/icemoon/lust
 	name = "Ruin of Lust"
 	id = "lust"
@@ -37,7 +31,7 @@
 	suffix = "icemoon_surface_engioutpost.dmm"
 
 /datum/map_template/ruin/icemoon/fountain
-	name = "Фонтан-Холл"
+	name = "Fountain Hall"
 	id = "ice_fountain"
 	description = "The fountain has a warning on the side. DANGER: May have undeclared side effects that only become obvious when implemented."
 	prefix = "_maps/RandomRuins/AnywhereRuins/"
@@ -105,7 +99,7 @@
 	suffix = "icemoon_underground_abandoned_village.dmm"
 
 /datum/map_template/ruin/icemoon/underground/library
-	name = "Погребённая библиотека"
+	name = "Buried Library"
 	id = "buriedlibrary"
 	description = "A once grand library, now lost to the confines of the Ice Moon."
 	suffix = "icemoon_underground_library.dmm"
@@ -129,13 +123,13 @@
 	suffix = "icemoon_underground_lavaland.dmm"
 
 /datum/map_template/ruin/icemoon/underground/puzzle
-	name = "Древняя головоломка"
+	name = "Ancient Puzzle"
 	id = "puzzle"
 	description = "Mystery to be solved."
 	suffix = "icemoon_underground_puzzle.dmm"
 
 /datum/map_template/ruin/icemoon/underground/bathhouse
-	name = "Баня"
+	name = "Bath House"
 	id = "bathhouse"
 	description = "A warm, safe place."
 	suffix = "icemoon_underground_bathhouse.dmm"
@@ -147,7 +141,7 @@
 	suffix = "icemoon_underground_wendigo_cave.dmm"
 
 /datum/map_template/ruin/icemoon/underground/free_golem
-	name = "Корабль свободных големов"
+	name = "Free Golem Ship"
 	id = "golem-ship"
 	description = "Lumbering humanoids, made out of precious metals, move inside this ship. They frequently leave to mine more minerals, which they somehow turn into more of them. \
 	Seem very intent on research and individual liberty, and also geology-based naming?"

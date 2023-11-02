@@ -73,9 +73,12 @@
 /obj/machinery/computer/operating/proc/find_table()
 	for(var/direction in GLOB.alldirs)
 		table = locate(/obj/structure/table/optable) in get_step(src, direction)
-		if(table)
-			table.computer = src
-			break
+		if(table && table.computer == src)
+			table.computer = null
+		else
+			sbed = locate(/obj/machinery/stasis) in get_step(src, direction)
+			if(sbed && sbed.op_computer == src)
+				sbed.op_computer = null
 
 /obj/machinery/computer/operating/ui_state(mob/user)
 	return GLOB.not_incapacitated_state
@@ -98,15 +101,23 @@
 	data["surgeries"] = all_surgeries
 
 	//If there's no patient just hop to it yeah?
-	if(!table)
+	if(!table && !sbed)
 		data["patient"] = null
 		return data
 
-	data["table"] = table
+	var/mob/living/carbon/human/patient
 	data["patient"] = list()
-	if(!table.patient)
-		return data
-	var/mob/living/carbon/patient = table.patient
+
+	if(table)
+		data["table"] = table
+		// check if table has a patient, if not, return null
+		if(!table.patient)
+			return data
+	else
+		data["table"] = sbed
+		if(!sbed.occupant)
+			return data
+		patient = sbed.occupant
 
 	switch(patient.stat)
 		if(CONSCIOUS)

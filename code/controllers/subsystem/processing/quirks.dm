@@ -16,12 +16,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/quadruple_amputee, /datum/quirk/paraplegic),
 	list(/datum/quirk/quadruple_amputee, /datum/quirk/frail),
 	list(/datum/quirk/social_anxiety, /datum/quirk/mute),
-	list(/datum/quirk/mute),
-	list(/datum/quirk/poor_aim),
 	list(/datum/quirk/bilingual, /datum/quirk/foreigner),
-	list(/datum/quirk/paraplegic),
 	list(/datum/quirk/photophobia, /datum/quirk/nyctophobia),
-	list(/datum/quirk/freerunning),
 	list(/datum/quirk/numb, /datum/quirk/selfaware),
 ))
 

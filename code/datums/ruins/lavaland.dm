@@ -74,7 +74,7 @@
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/lavaland/gaia
-	name = "Клочок Эдэма"
+	name = "Patch of Eden"
 	id = "gaia"
 	description = "Who would have thought that such a peaceful place could be on such a horrific planet?"
 	cost = 5
@@ -127,7 +127,7 @@
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/lavaland/hierophant
-	name = "Арена Иерофанта"
+	name = "Hierophant's Arena"
 	id = "hierophant"
 	description = "A strange, square chunk of metal of massive size. Inside awaits only death and many, many squares."
 	suffix = "lavaland_surface_hierophant.dmm"
@@ -175,7 +175,7 @@
 	cost = 20
 
 /datum/map_template/ruin/lavaland/fountain
-	name = "Фонтан-Холл"
+	name = "Fountain Hall"
 	id = "lava_fountain"
 	description = "The fountain has a warning on the side. DANGER: May have undeclared side effects that only become obvious when implemented."
 	prefix = "_maps/RandomRuins/AnywhereRuins/"
@@ -237,7 +237,7 @@
 	cost = 2
 
 /datum/map_template/ruin/lavaland/puzzle
-	name = "Древняя головоломка"
+	name = "Ancient Puzzle"
 	id = "puzzle"
 	description = "Mystery to be solved."
 	suffix = "lavaland_surface_puzzle.dmm"
@@ -253,7 +253,7 @@
 	allow_duplicates = TRUE
 
 /datum/map_template/ruin/lavaland/elephant_graveyard
-	name = "Кладбище слонов"
+	name = "Elephant Graveyard"
 	id = "Graveyard"
 	description = "An abandoned graveyard, calling to those unable to continue."
 	suffix = "lavaland_surface_elephant_graveyard.dmm"
@@ -283,14 +283,6 @@
 	suffix = "lavaland_battle_site.dmm"
 	allow_duplicates = TRUE
 	cost = 3
-
-/datum/map_template/ruin/lavaland/watcher_grave
-	name = "Watchers' Grave"
-	id = "watcher-grave"
-	description = "A lonely cave where an orphaned child awaits a new parent."
-	suffix = "lavaland_surface_watcher_grave.dmm"
-	cost = 5
-	allow_duplicates = FALSE
 
 /datum/map_template/ruin/lavaland/mook_village
 	name = "Mook Village"

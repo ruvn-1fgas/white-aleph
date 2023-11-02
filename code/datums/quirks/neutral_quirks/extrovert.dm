@@ -1,5 +1,5 @@
 /datum/quirk/extrovert
-	name = "Экстроверт"
+	name = "Экстраверт"
 	desc = "Люблю общаться с другими людьми, и проводить свободное время в баре."
 	icon = FA_ICON_USERS
 	value = 0
