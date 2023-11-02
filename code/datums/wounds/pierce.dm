@@ -42,14 +42,14 @@
 		if(1 to 6)
 			victim.bleed(blood_bled, TRUE)
 		if(7 to 13)
-			victim.visible_message("<span class='smalldanger'>Blood droplets fly from the hole in [victim]'s [limb.plaintext_zone].</span>", span_danger("You cough up a bit of blood from the blow to your [limb.plaintext_zone]."), vision_distance=COMBAT_MESSAGE_RANGE)
+			victim.visible_message(span_smalldanger("Капельки крови вылетают из [ru_otkuda_zone(limb.name)] [victim]."), span_danger("Капельки крови выходят из моей [ru_otkuda_zone(limb.name)].") , vision_distance=COMBAT_MESSAGE_RANGE)
 			victim.bleed(blood_bled, TRUE)
 		if(14 to 19)
-			victim.visible_message("<span class='smalldanger'>A small stream of blood spurts from the hole in [victim]'s [limb.plaintext_zone]!</span>", span_danger("You spit out a string of blood from the blow to your [limb.plaintext_zone]!"), vision_distance=COMBAT_MESSAGE_RANGE)
+			victim.visible_message(span_smalldanger("Небольшая струйка крови начинает течь из [ru_otkuda_zone(limb.name)] [victim]!"), span_danger("Небольшая струйка крови начинает течь из моей [ru_otkuda_zone(limb.name)]!") , vision_distance=COMBAT_MESSAGE_RANGE)
 			new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
 			victim.bleed(blood_bled)
 		if(20 to INFINITY)
-			victim.visible_message(span_danger("A spray of blood streams from the gash in [victim]'s [limb.plaintext_zone]!"), span_danger("<b>You choke up on a spray of blood from the blow to your [limb.plaintext_zone]!</b>"), vision_distance=COMBAT_MESSAGE_RANGE)
+			victim.visible_message(span_smalldanger("Неконтроллируемая струя крови начинает хлестать из [ru_otkuda_zone(limb.name)] [victim]!"), span_danger("<b>Из моей [ru_otkuda_zone(limb.name)] начинает выходить кровь ужасным темпом!</b>") , vision_distance=COMBAT_MESSAGE_RANGE)
 			victim.bleed(blood_bled)
 			new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
 			victim.add_splatter_floor(get_step(victim.loc, victim.dir))
@@ -74,7 +74,7 @@
 		if(victim.bodytemperature < (BODYTEMP_NORMAL - 10))
 			adjust_blood_flow(-0.1 * seconds_per_tick)
 			if(SPT_PROB(2.5, seconds_per_tick))
-				to_chat(victim, span_notice("You feel the [lowertext(name)] in your [limb.plaintext_zone] firming up from the cold!"))
+				to_chat(victim, span_notice("Ощущаю как кровь в моей [ru_gde_zone(limb.name)] начинает сгущаться от холода!"))
 
 		if(HAS_TRAIT(victim, TRAIT_BLOODY_MESS))
 			adjust_blood_flow(0.25 * seconds_per_tick) // old heparin used to just add +2 bleed stacks per tick, this adds 0.5 bleed flow to all open cuts which is probably even stronger as long as you can cut them first
@@ -118,14 +118,12 @@
 
 	if(HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
 		treatment_delay *= 0.5
-		user.visible_message(span_notice("[user] begins expertly stitching [victim]'s [limb.plaintext_zone] with [I]..."), span_notice("You begin stitching [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I], keeping the holo-image information in mind..."))
-	else
-		user.visible_message(span_notice("[user] begins stitching [victim]'s [limb.plaintext_zone] with [I]..."), span_notice("You begin stitching [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I]..."))
+
+	user.visible_message(span_notice("<b>[user]</b> начинает зашивать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I.name]...") , span_notice("Начинаю зашивать [ru_parse_zone(limb.name)] [user == victim ? "" : "<b>[victim]</b> "]используя [I.name]..."))
 
 	if(!do_after(user, treatment_delay, target = victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return TRUE
-	var/bleeding_wording = (!limb.can_bleed() ? "holes" : "bleeding")
-	user.visible_message(span_green("[user] stitches up some of the [bleeding_wording] on [victim]."), span_green("You stitch up some of the [bleeding_wording] on [user == victim ? "yourself" : "[victim]"]."))
+	user.visible_message(span_green("<b>[user]</b> успешно замедляет кровотечение <b>[victim]</b>.") , span_green("Успешно зашиваю некоторые кровотечения на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"]."))
 	var/blood_sutured = I.stop_bleeding / self_penalty_mult
 	adjust_blood_flow(-blood_sutured)
 	limb.heal_damage(I.heal_brute, I.heal_burn)
@@ -134,7 +132,7 @@
 	if(blood_flow > 0)
 		return try_treating(I, user)
 	else
-		to_chat(user, span_green("You successfully close the hole in [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone]."))
+		to_chat(user, span_green("Успешно останавливаю кровотечение на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"]."))
 		return TRUE
 
 /// If someone is using either a cautery tool or something with heat to cauterize this pierce
@@ -147,15 +145,13 @@
 
 	if(HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
 		treatment_delay *= 0.5
-		user.visible_message(span_danger("[user] begins expertly cauterizing [victim]'s [limb.plaintext_zone] with [I]..."), span_warning("You begin cauterizing [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I], keeping the holo-image indications in mind..."))
-	else
-		user.visible_message(span_danger("[user] begins cauterizing [victim]'s [limb.plaintext_zone] with [I]..."), span_warning("You begin cauterizing [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I]..."))
+
+	user.visible_message(span_smalldanger("<b>[user]</b> начинает прижигать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I.name]..."), span_danger("Начинаю прижигать [ru_parse_zone(limb.name)] [user == victim ? "" : "<b>[victim]</b> "]используя [I.name]..."))
 
 	if(!do_after(user, treatment_delay, target = victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return TRUE
 
-	var/bleeding_wording = (!limb.can_bleed() ? "holes" : "bleeding")
-	user.visible_message(span_green("[user] cauterizes some of the [bleeding_wording] on [victim]."), span_green("You cauterize some of the [bleeding_wording] on [victim]."))
+	user.visible_message(span_green("<b>[user]</b> успешно прижигает некоторые кровотечения <b>[victim]</b>.") , span_green("Успешно прижигаю некоторые кровотечения на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"]."))
 	limb.receive_damage(burn = 2 + severity, wound_bonus = CANT_WOUND)
 	if(prob(30))
 		victim.emote("scream")
@@ -178,11 +174,11 @@
 	return span_warning("The flesh on this limb appears badly perforated.")
 
 /datum/wound/pierce/bleed/moderate
-	name = "Minor Skin Breakage"
-	desc = "Patient's skin has been broken open, causing severe bruising and minor internal bleeding in affected area."
-	treat_text = "Treat affected site with bandaging or exposure to extreme cold. In dire cases, brief exposure to vacuum may suffice." // space is cold in ss13, so it's like an ice pack!
-	examine_desc = "has a small, circular hole, gently bleeding"
-	occur_text = "spurts out a thin stream of blood"
+	name = "Незначительная колотая рана"
+	desc = "Кожный покров пациента был проткнут, приводя к сильным кровоподтекам и незначительному внутреннему кровотечению в данной области."
+	treat_text = "Приложить холод к поражённому участку либо наложение бинта. В случае дефицита медикаментов достаточно кратковременного воздействия вакуума." // space is cold in ss13, so it's like an ice pack!
+	examine_desc = "имеет маленькое, слегка кровоточащее круглое отверстие,"
+	occur_text = "выплескивает небольшой поток крови"
 	sound_effect = 'sound/effects/wounds/pierce1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
 	initial_flow = 1.5
@@ -209,11 +205,11 @@
 		occur_text = "splits a small hole open"
 
 /datum/wound/pierce/bleed/severe
-	name = "Open Puncture"
-	desc = "Patient's internal tissue is penetrated, causing sizeable internal bleeding and reduced limb stability."
-	treat_text = "Repair punctures in skin by suture or cautery, extreme cold may also work."
-	examine_desc = "is pierced clear through, with bits of tissue obscuring the open hole"
-	occur_text = "looses a violent spray of blood, revealing a pierced wound"
+	name = "открытая колотая рана"
+	desc = "Пациент получил глубокую колотую рану, сопровождающуюся значительным кровотечением и сниженную целостность конечностей."
+	treat_text = "Наложение шва на рану или прижигания, либо временная заморозка раны."
+	examine_desc = "пробита насквозь, куски кожи закрывают отверстие"
+	occur_text = "начинает сильно брызгать кровью, открывая колотую рану"
 	sound_effect = 'sound/effects/wounds/pierce2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	initial_flow = 2.25
@@ -239,11 +235,11 @@
 		occur_text = "tears a hole open"
 
 /datum/wound/pierce/bleed/critical
-	name = "Ruptured Cavity"
-	desc = "Patient's internal tissue and circulatory system is shredded, causing significant internal bleeding and damage to internal organs."
-	treat_text = "Surgical repair of puncture wound, followed by supervised resanguination."
-	examine_desc = "is ripped clear through, barely held together by exposed bone"
-	occur_text = "blasts apart, sending chunks of viscera flying in all directions"
+	name = "Полостная рана"
+	desc = "Внутренние ткани и система кровообращения пациента разорваны, что сопровождается значительным внутренним кровотечением. Высок риск повреждения внутренних органов."
+	treat_text = "Срочное хирургическое вмешательство с последующим переливанием крови при тяжёлой потери крови."
+	examine_desc = "разорвана насквозь, едва удерживаясь костями"
+	occur_text = "разрывается на куски мяса, летящие во всех направлениях"
 	sound_effect = 'sound/effects/wounds/pierce3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	initial_flow = 3
