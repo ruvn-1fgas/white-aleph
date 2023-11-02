@@ -283,8 +283,10 @@ SUBSYSTEM_DEF(tts)
 	/// 	return
 	/// WD-EDIT END
 
-	var/shell_scrubbed_input = tts_speech_filter(message)
-	shell_scrubbed_input = copytext(shell_scrubbed_input, 1, 300)
+	/// WD-EDIT START
+	var/shell_scrubbed_input = message
+	///shell_scrubbed_input = copytext(shell_scrubbed_input, 1, 300)
+	/// WD-EDIT END
 	var/identifier = "[sha1(speaker + filter + num2text(pitch) + special_filters + shell_scrubbed_input)].[world.time]"
 	if(!(speaker in available_speakers))
 		return
