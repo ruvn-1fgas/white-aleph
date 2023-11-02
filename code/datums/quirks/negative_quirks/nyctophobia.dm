@@ -1,9 +1,9 @@
 /datum/quirk/nyctophobia
-	name = "Nyctophobia"
-	desc = "As far as you can remember, you've always been afraid of the dark. While in the dark without a light source, you instinctively act careful, and constantly feel a sense of dread."
+	name = "Боязнь темноты"
+	desc = "Боюсь темноты. Будучи в темноте без света, необходимо идти шагом или..."
 	icon = FA_ICON_LIGHTBULB
 	value = -3
-	medical_record_text = "Patient demonstrates a fear of the dark. (Seriously?)"
+	medical_record_text = "Пациент демонстрирует страх к темноте."
 	hardcore_value = 5
 	mail_goodies = list(/obj/effect/spawner/random/engineering/flashlight)
 
@@ -41,6 +41,6 @@
 		return
 
 	if(quirk_holder.move_intent == MOVE_INTENT_RUN)
-		to_chat(quirk_holder, span_warning("Easy, easy, take it slow... you're in the dark..."))
+		to_chat(quirk_holder, span_warning("Так, спокойно, спокойно... ничего страшного..."))
 		quirk_holder.toggle_move_intent()
 	quirk_holder.add_mood_event("nyctophobia", /datum/mood_event/nyctophobia)

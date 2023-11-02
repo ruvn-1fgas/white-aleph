@@ -16,7 +16,7 @@
 /datum/mutation/human/epilepsy/proc/trigger_seizure()
 	if(owner.stat != CONSCIOUS)
 		return
-		owner.Unconscious(200 * GET_MUTATION_POWER(src))
+	owner.Unconscious(200 * GET_MUTATION_POWER(src))
 	owner.Unconscious(200 * GET_MUTATION_POWER(src))
 	owner.set_jitter(2000 SECONDS * GET_MUTATION_POWER(src)) //yes this number looks crazy but the jitter animations are amplified based on the duration.
 	owner.add_mood_event("epilepsy", /datum/mood_event/epilepsy)

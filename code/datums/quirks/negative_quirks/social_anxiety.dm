@@ -1,11 +1,11 @@
 /datum/quirk/social_anxiety
-	name = "Social Anxiety"
-	desc = "Talking to people is very difficult for you, and you often stutter or even lock up."
+	name = "Социофоб"
+	desc = "Разговор с людьми очень сложен для вас, и вы будете заикаться при попытке заговорить, или просто молчать."
 	icon = FA_ICON_COMMENT_SLASH
 	value = -3
-	gain_text = span_danger("You start worrying about what you're saying.")
-	lose_text = span_notice("You feel easier about talking again.") //if only it were that easy!
-	medical_record_text = "Patient is usually anxious in social encounters and prefers to avoid them."
+	gain_text = span_danger("Начинаю волноваться насчёт мнения окружающих.")
+	lose_text = span_notice("Становится легче говорить.")  //if only it were that easy!
+	medical_record_text = "Пациент, как правило, беспокоится о социальных связях и предпочитает избегать их."
 	hardcore_value = 4
 	mob_trait = TRAIT_ANXIOUS
 	mail_goodies = list(/obj/item/storage/pill_bottle/psicodine)
@@ -44,7 +44,7 @@
 				new_message += pick("uh,","erm,","um,")
 				if(prob(min(5,(0.05*(nearby_people*12.5)*moodmod)))) //Max 1 in 20 chance of cutoff after a successful filler roll, for 50% odds in a 15 word sentence
 					quirker.set_silence_if_lower(6 SECONDS)
-					to_chat(quirker, span_danger("You feel self-conscious and stop talking. You need a moment to recover!"))
+					to_chat(quirker, span_danger("Решаю просто немного помолчать. Мне <i>совсем</i> не хочется разговаривать."))
 					break
 			if(prob(max(5,(nearby_people*12.5*moodmod)))) //Minimum 1/20 chance of stutter
 				// Add a short stutter, THEN treat our word
@@ -58,17 +58,17 @@
 	var/mob/living/carbon/human/quirker = quirk_holder
 	if(prob(min(50,(0.50*(nearby_people*12.5)*moodmod)))) //Max 50% chance of not talking
 		if(dumb_thing)
-			to_chat(quirker, span_userdanger("You think of a dumb thing you said a long time ago and scream internally."))
+			to_chat(quirker, span_userdanger("Вспоминаю дурацкую вещь, которую сказали давным давно и испытываю внутреннюю боль."))
 			dumb_thing = FALSE //only once per life
 			if(prob(1))
 				new/obj/item/food/spaghetti/pastatomato(get_turf(quirker)) //now that's what I call spaghetti code
 		else
-			to_chat(quirk_holder, span_warning("You think that wouldn't add much to the conversation and decide not to say it."))
+			to_chat(quirk_holder, span_warning("Решаю, что мне лучше промолчать."))
 			if(prob(min(25,(0.25*(nearby_people*12.75)*moodmod)))) //Max 25% chance of silence stacks after successful not talking roll
-				to_chat(quirker, span_danger("You retreat into yourself. You <i>really</i> don't feel up to talking."))
+				to_chat(quirker, span_danger("Решаю просто немного помолчать. Мне <i>совсем</i> не хочется разговаривать."))
 				quirker.set_silence_if_lower(10 SECONDS)
 
-		speech_args[SPEECH_MESSAGE] = pick("Uh.","Erm.","Um.")
+		speech_args[SPEECH_MESSAGE] = pick("Эм.","Ааа.","Мгм.")
 	else
 		speech_args[SPEECH_MESSAGE] = message
 
@@ -89,26 +89,26 @@
 		return
 	var/msg
 	if(triggering_examiner)
-		msg = "You make eye contact with [other_mob], "
+		msg = "[capitalize(other_mob.name)] смотрит прямо на меня, "
 	else
-		msg = "[other_mob] makes eye contact with you, "
+		msg = "[capitalize(other_mob.name)] смотрит прямо на меня, "
 
 	switch(rand(1,3))
 		if(1)
 			quirk_holder.set_jitter_if_lower(20 SECONDS)
-			msg += "causing you to start fidgeting!"
+			msg += "жуть!"
 		if(2)
 			quirk_holder.set_stutter_if_lower(6 SECONDS)
-			msg += "causing you to start stuttering!"
+			msg += "страшно!"
 		if(3)
 			quirk_holder.Stun(2 SECONDS)
-			msg += "causing you to freeze up!"
+			msg += "АХ!"
 
 	quirk_holder.add_mood_event("anxiety_eyecontact", /datum/mood_event/anxiety_eyecontact)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), quirk_holder, span_userdanger("[msg]")), 3) // so the examine signal has time to fire and this will print after
 	return COMSIG_BLOCK_EYECONTACT
 
 /datum/mood_event/anxiety_eyecontact
-	description = "Sometimes eye contact makes me so nervous..."
+	description = "<span class='warning'>Sometimes eye contact makes me so nervous...</span>\n"
 	mood_change = -5
 	timeout = 3 MINUTES

@@ -1,10 +1,10 @@
 /datum/quirk/item_quirk/junkie
-	name = "Junkie"
-	desc = "You can't get enough of hard drugs."
+	name = "Наркоман"
+	desc = "Страдаю от наркотической зависимости."
 	icon = FA_ICON_PILLS
 	value = -6
-	gain_text = span_danger("You suddenly feel the craving for drugs.")
-	medical_record_text = "Patient has a history of hard drugs."
+	gain_text = span_danger("Внезапно ощущаю тягу к наркотикам.")
+	medical_record_text = "Пациент страдает от зависимости и тяжелых наркотиков."
 	hardcore_value = 4
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_PROCESSES
 	mail_goodies = list(/obj/effect/spawner/random/contraband/narcotics)
@@ -89,18 +89,17 @@
 				human_holder.last_mind?.add_addiction_points(addiction, 1000) ///Max that shit out
 
 /datum/quirk/item_quirk/junkie/smoker
-	name = "Smoker"
-	desc = "Sometimes you just really want a smoke. Probably not great for your lungs."
+	name = "Курильщик"
+	desc = "Страдаю от никотиновой зависимости и мне придется регулярно выкуривать пачку сигарет. Не очень-то и полезно для легких."
 	icon = FA_ICON_SMOKING
 	value = -4
-	gain_text = span_danger("You could really go for a smoke right about now.")
-	lose_text = span_notice("You don't feel nearly as hooked to nicotine anymore.")
-	medical_record_text = "Patient is a current smoker."
+	gain_text = span_danger("Мне стоит снова закурить.")
+	medical_record_text = "Пациент является курильщиком."
 	reagent_type = /datum/reagent/drug/nicotine
 	accessory_type = /obj/item/lighter/greyscale
 	mob_trait = TRAIT_SMOKER
 	hardcore_value = 1
-	drug_flavour_text = "Make sure you get your favorite brand when you run out."
+	drug_flavour_text = "Главное не забыть найти купить своих любимых сигарет."
 	mail_goodies = list(
 		/obj/effect/spawner/random/entertainment/cigarette_pack,
 		/obj/effect/spawner/random/entertainment/cigar,
@@ -148,18 +147,18 @@
 			quirk_holder.add_mood_event("wrong_cigs", /datum/mood_event/wrong_brand)
 
 /datum/quirk/item_quirk/junkie/alcoholic
-	name = "Alcoholic"
-	desc = "You just can't live without alcohol. Your liver is a machine that turns ethanol into acetaldehyde."
+	name = "Алкоголик"
+	desc = "Не могу жить без алкоголя. Моя печень - это машина, которая превращает этанол в ацетальдегид."
 	icon = FA_ICON_WINE_GLASS
 	value = -4
-	gain_text = span_danger("You really need a drink.")
-	lose_text = span_notice("Alcohol doesn't seem nearly as enticing anymore.")
-	medical_record_text = "Patient is an alcoholic."
+	gain_text = span_danger("Мне нужно выпить.")
+	lose_text = span_notice("Алкоголь больше меня не волнует.")
+	medical_record_text = "Пациент алкоголик."
 	reagent_type = /datum/reagent/consumable/ethanol
 	drug_container_type = /obj/item/reagent_containers/cup/glass/bottle/whiskey
 	mob_trait = TRAIT_HEAVY_DRINKER
 	hardcore_value = 1
-	drug_flavour_text = "Make sure you get your favorite type of drink when you run out."
+	drug_flavour_text = "Надо найти моё любимое пойло, пока то, что я пронёс с собой не закончилось."
 	mail_goodies = list(
 		/obj/effect/spawner/random/food_or_drink/booze,
 		/obj/item/book/bible/booze,

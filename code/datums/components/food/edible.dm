@@ -505,11 +505,6 @@ Behavior that's still missing from this component that original food items had t
 	last_check_time = world.time
 
 	var/food_quality = get_perceived_food_quality(gourmand)
-	if(food_quality <= FOOD_QUALITY_DANGEROUS && (foodtypes & gourmand.get_allergic_foodtypes())) // Only cause anaphylaxis if we're ACTUALLY allergic, otherwise it just tastes horrible
-		if(gourmand.ForceContractDisease(new /datum/disease/anaphylaxis(), make_copy = FALSE, del_on_fail = TRUE))
-			to_chat(gourmand, span_warning("Чувствую, как моё горло начинает чесаться."))
-			gourmand.add_mood_event("allergic_food", /datum/mood_event/allergic_food)
-		return
 
 	if(food_quality <= TOXIC_FOOD_QUALITY_THRESHOLD)
 		to_chat(gourmand,span_warning("ГОСПОДИ, ЭТО ОТВРАТИТЕЛЬНО!"))
@@ -563,8 +558,6 @@ Behavior that's still missing from this component that original food items had t
 				return FOOD_QUALITY_DANGEROUS
 
 	if(ishuman(eater))
-		if(foodtypes & eater.get_allergic_foodtypes())
-			return FOOD_QUALITY_DANGEROUS
 		if(count_matching_foodtypes(foodtypes, eater.get_toxic_foodtypes())) //if the food is toxic, we don't care about anything else
 			return TOXIC_FOOD_QUALITY_THRESHOLD
 		if(HAS_TRAIT(eater, TRAIT_AGEUSIA)) //if you can't taste it, it doesn't taste good
