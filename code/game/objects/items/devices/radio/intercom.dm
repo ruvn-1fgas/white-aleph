@@ -49,14 +49,14 @@
 
 /obj/item/radio/intercom/examine(mob/user)
 	. = ..()
-	. += span_notice("Use [MODE_TOKEN_INTERCOM] when nearby to speak into it.")
+	. += span_notice("Используй [MODE_TOKEN_INTERCOM], когда ты находишься рядом, чтобы говорить в него.")
 	if(!unscrewed)
-		. += span_notice("It's <b>screwed</b> and secured to the wall.")
+		. += span_notice("Это <b>прикручено</b> крепко к стене.")
 	else
-		. += span_notice("It's <i>unscrewed</i> from the wall, and can be <b>detached</b>.")
+		. += span_notice("Это <i>откручено</i> от стены и может быть <b>отсоединено</b>.")
 
 	if(anonymize)
-		. += span_notice("Speaking through this intercom will anonymize your voice.")
+		. += span_notice("Интерком может <b>скрыть</b> твой голос.")
 
 	if(freqlock == RADIO_FREQENCY_UNLOCKED)
 		if(obj_flags & EMAGGED)
@@ -66,26 +66,26 @@
 
 /obj/item/radio/intercom/screwdriver_act(mob/living/user, obj/item/tool)
 	if(unscrewed)
-		user.visible_message(span_notice("[user] starts tightening [src]'s screws..."), span_notice("You start screwing in [src]..."))
+		user.visible_message(span_notice("[user] начинает затягивать винтики [src.name]...") , span_notice("Начинаю прикручивать [src.name]..."))
 		if(tool.use_tool(src, user, 30, volume=50))
-			user.visible_message(span_notice("[user] tightens [src]'s screws!"), span_notice("You tighten [src]'s screws."))
+			user.visible_message(span_notice("[user] затягивает винтики [src.name]!") , span_notice("Прикручиваю [src.name]."))
 			unscrewed = FALSE
 	else
-		user.visible_message(span_notice("[user] starts loosening [src]'s screws..."), span_notice("You start unscrewing [src]..."))
+		user.visible_message(span_notice("[user] начинает откручивать винтики [src.name]...") , span_notice("Начинаю откручивать [src.name]..."))
 		if(tool.use_tool(src, user, 40, volume=50))
-			user.visible_message(span_notice("[user] loosens [src]'s screws!"), span_notice("You unscrew [src], loosening it from the wall."))
+			user.visible_message(span_notice("[user] откручивает винтики [src.name]!") , span_notice("Откручиваю [src.name] от стены."))
 			unscrewed = TRUE
 	return TRUE
 
 /obj/item/radio/intercom/wrench_act(mob/living/user, obj/item/tool)
 	. = TRUE
 	if(!unscrewed)
-		to_chat(user, span_warning("You need to unscrew [src] from the wall first!"))
+		to_chat(user, span_warning("Нужно открутить [src.name] от стены!"))
 		return
-	user.visible_message(span_notice("[user] starts unsecuring [src]..."), span_notice("You start unsecuring [src]..."))
+	user.visible_message(span_notice("[user] начинает снимать [src.name]...") , span_notice("Начинаю снимать [src.name]..."))
 	tool.play_tool_sound(src)
 	if(tool.use_tool(src, user, 80))
-		user.visible_message(span_notice("[user] unsecures [src]!"), span_notice("You detach [src] from the wall."))
+		user.visible_message(span_notice("[user] снимает [src.name]!") , span_notice("Снимаю [src.name] со стены."))
 		playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
 		knock_down()
 
@@ -190,8 +190,8 @@
 
 //Created through the autolathe or through deconstructing intercoms. Can be applied to wall to make a new intercom on it!
 /obj/item/wallframe/intercom
-	name = "intercom frame"
-	desc = "A ready-to-go intercom. Just slap it on a wall and screw it in!"
+	name = "каркас интеркома"
+	desc = "Готовый интерком. Просто ударьте им по стене и прикрутите!"
 	icon = 'icons/obj/machines/wallmounts.dmi'
 	icon_state = "intercom"
 	result_path = /obj/item/radio/intercom/unscrewed
@@ -201,8 +201,7 @@
 MAPPING_DIRECTIONAL_HELPERS(/obj/item/radio/intercom, 27)
 
 /obj/item/radio/intercom/chapel
-	name = "Confessional intercom"
-	desc = "Talk through this... to confess your many sins. Conceals your voice, to keep them secret."
+	name = "Конфессиональный интерком"
 	anonymize = TRUE
 	freqlock = RADIO_FREQENCY_EMAGGABLE_LOCK
 

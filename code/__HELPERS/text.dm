@@ -1450,3 +1450,41 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 			return "голова"
 		else
 			return zone
+
+/proc/ru_comms(freq)
+	if(freq == "Common")
+		return "Основной"
+	else if (freq == "Security")
+		return "Безопасность"
+	else if (freq == "Engineering")
+		return "Инженерия"
+	else if (freq == "Command")
+		return "Командование"
+	else if (freq == "Science")
+		return "Научный"
+	else if (freq == "Medical")
+		return "Медбей"
+	else if (freq == "Supply")
+		return "Снабжение"
+	else if (freq == "Service")
+		return "Обслуживание"
+	else if (freq == "Exploration")
+		return "Рейнджеры"
+	else if (freq == "AI Private")
+		return "Приватный ИИ"
+	else if (freq == "Syndicate")
+		return "Синдикат"
+	else if (freq == "CentCom")
+		return "ЦентКом"
+	else if (freq == "Red Team")
+		return "Советы"
+	else if (freq == "Blue Team")
+		return "Нацисты"
+	else if (freq == "Green Team")
+		return "Чечня"
+	else if (freq == "Yellow Team")
+		return "Хохлы"
+	else if (freq == "Yohei")
+		return "Криптосвязь"
+	else
+		return freq
