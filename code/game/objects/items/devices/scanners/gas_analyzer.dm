@@ -1,6 +1,6 @@
 /obj/item/analyzer
-	desc = "A hand-held environmental scanner which reports current gas levels."
-	name = "gas analyzer"
+	name = "газоанализатор"
+	desc = "Ручной анализатор, который сканирует состояние воздуха в помещении. ПКМ, чтобы использовать барометр."
 	custom_price = PAYCHECK_LOWER * 0.9
 	icon = 'icons/obj/device.dmi'
 	icon_state = "analyzer"
@@ -45,8 +45,8 @@
 
 /obj/item/analyzer/examine(mob/user)
 	. = ..()
-	. += span_notice("Right-click [src] to open the gas reference.")
-	. += span_notice("Alt-click [src] to activate the barometer function.")
+	. += span_notice("ПКМ для открытия описания газа.")
+	. += span_notice("Alt-клик для активации барометра.")
 
 /obj/item/analyzer/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins to analyze [user.p_them()]self with [src]! The display shows that [user.p_theyre()] dead!"))
@@ -153,7 +153,7 @@
 	for(var/datum/gas_mixture/air as anything in airs)
 		var/mix_name = capitalize(lowertext(target.name))
 		if(airs.len != 1) //not a unary gas mixture
-			mix_name += " - Node [airs.Find(air)]"
+			mix_name += " - Часть [airs.Find(air)]"
 		new_gasmix_data += list(gas_mixture_parser(air, mix_name))
 	last_gasmix_data = new_gasmix_data
 
@@ -171,16 +171,16 @@
 	var/icon = target
 	var/message = list()
 	if(!silent && isliving(user))
-		user.visible_message(span_notice("[user] uses the analyzer on [icon2html(icon, viewers(user))] [target]."), span_notice("You use the analyzer on [icon2html(icon, user)] [target]."))
-	message += span_boldnotice("Results of analysis of [icon2html(icon, user)] [target].")
+		user.visible_message(span_notice("[user] использует анализатор [icon2html(icon, viewers(user))] на [target]."), span_notice("Использую анализатор [icon2html(icon, user)] на [target]."))
+	message += span_boldnotice("Результат анализа [icon2html(icon, user)] [target].")
 
 	var/list/airs = islist(mixture) ? mixture : list(mixture)
 	for(var/datum/gas_mixture/air as anything in airs)
 		var/mix_name = capitalize(lowertext(target.name))
 		if(airs.len > 1) //not a unary gas mixture
 			var/mix_number = airs.Find(air)
-			message += span_boldnotice("Node [mix_number]")
-			mix_name += " - Node [mix_number]"
+			message += span_boldnotice("Часть [mix_number]")
+			mix_name += " - Часть [mix_number]"
 
 		var/total_moles = air.total_moles()
 		var/pressure = air.return_pressure()
@@ -190,20 +190,20 @@
 		var/thermal_energy = air.thermal_energy()
 
 		if(total_moles > 0)
-			message += span_notice("Moles: [round(total_moles, 0.01)] mol")
+			message += span_notice("Молей: [round(total_moles, 0.01)] моль")
 
 			var/list/cached_gases = air.gases
 			for(var/id in cached_gases)
 				var/gas_concentration = cached_gases[id][MOLES]/total_moles
-				message += span_notice("[cached_gases[id][GAS_META][META_GAS_NAME]]: [round(cached_gases[id][MOLES], 0.01)] mol ([round(gas_concentration*100, 0.01)] %)")
-			message += span_notice("Temperature: [round(temperature - T0C,0.01)] &deg;C ([round(temperature, 0.01)] K)")
-			message += span_notice("Volume: [volume] L")
-			message += span_notice("Pressure: [round(pressure, 0.01)] kPa")
-			message += span_notice("Heat Capacity: [display_joules(heat_capacity)] / K")
-			message += span_notice("Thermal Energy: [display_joules(thermal_energy)]")
+				message += span_notice("[cached_gases[id][GAS_META][META_GAS_NAME]]: [round(cached_gases[id][MOLES], 0.01)] моль ([round(gas_concentration*100, 0.01)] %)")
+			message += span_notice("Температура: [round(temperature - T0C,0.01)] &deg;C ([round(temperature, 0.01)] K)")
+			message += span_notice("Объём: [volume] L")
+			message += span_notice("Давление: [round(pressure, 0.01)] kPa")
+			message += span_notice("Теплоёмкость: [display_joules(heat_capacity)] / K")
+			message += span_notice("Термальная энергия: [display_joules(thermal_energy)]")
 		else
-			message += airs.len > 1 ? span_notice("This node is empty!") : span_notice("[target] is empty!")
-			message += span_notice("Volume: [volume] L") // don't want to change the order volume appears in, suck it
+			message += airs.len > 1 ? span_notice("Здесь вакуум!") : span_notice("[target] вакуумная!")
+			message += span_notice("Объём: [volume] Л") // don't want to change the order volume appears in, suck it
 
 	// we let the join apply newlines so we do need handholding
 	to_chat(user, examine_block(jointext(message, "\n")), type = MESSAGE_TYPE_INFO)

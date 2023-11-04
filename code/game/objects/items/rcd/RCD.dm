@@ -310,7 +310,7 @@
 
 			var/design_name = initial(design_path.name)
 
-			designs += list(list("title" = design_name, "icon" = sanitize_css_class_name(design_name)))
+			designs += list(list("title" = design_name, "icon" = design_name))
 		data["categories"] += list(list("cat_name" = sub_category, "designs" = designs))
 
 	return data
@@ -368,7 +368,7 @@
 			mode = design["[RCD_DESIGN_MODE]"]
 			construction_mode = mode
 			rcd_design_path = design["[RCD_DESIGN_PATH]"]
-			design_title = initial(rcd_design_path.name)
+			design_title = capitalize(initial(rcd_design_path.name))
 
 		else
 			airlock_electronics.do_action(action, params)
