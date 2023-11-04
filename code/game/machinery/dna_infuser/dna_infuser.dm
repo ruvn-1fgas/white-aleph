@@ -4,8 +4,8 @@
 #define SCREAM_TIME 3 SECONDS
 
 /obj/machinery/dna_infuser
-	name = "\improper DNA infuser"
-	desc = "A defunct genetics machine for merging foreign DNA with a subject's own."
+	name = "Рекомбинатор"
+	desc = "Машина для слияния чужой ДНК с собственной."
 	icon = 'icons/obj/machines/cloning.dmi'
 	icon_state = "infuser"
 	base_icon_state = "infuser"

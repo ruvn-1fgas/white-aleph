@@ -15,6 +15,6 @@
 			pax_injected -= 2
 		if(pax_injected)
 			human_defender.reagents.add_reagent(/datum/reagent/pax, pax_injected)
-			to_chat(defender, span_warning("You feel a tiny prick!"))
+			to_chat(defender, span_warning("Чувствую лёгкий укол!"))
 	//this is so it hugs/shakes up as usual
 	return MARTIAL_ATTACK_INVALID

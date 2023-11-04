@@ -6,8 +6,8 @@
 #define MAX_CRIME_NAME_LEN 24
 
 /obj/machinery/computer/records/security
-	name = "security records console"
-	desc = "Used to view and edit personnel's security records."
+	name = "консоль записей СБ"
+	desc = "Используется для просмотра и редактирования записей о правонарушениях и личных дел персонала."
 	icon_screen = "security"
 	icon_keyboard = "security_key"
 	req_one_access = list(ACCESS_SECURITY, ACCESS_HOP)
@@ -21,15 +21,15 @@
 	req_one_access = list(ACCESS_SYNDICATE)
 
 /obj/machinery/computer/records/security/laptop
-	name = "security laptop"
-	desc = "A cheap Nanotrasen security laptop, it functions as a security records console. It's bolted to the table."
+	name = "ноутбук СБ"
+	desc = "Дешёвый ноутбук службы безопасности NanoTrasen, который используется как консоль записей. Прикручен к столу."
 	icon_state = "laptop"
 	icon_screen = "seclaptop"
 	icon_keyboard = "laptop_key"
 	pass_flags = PASSTABLE
 
 /obj/machinery/computer/records/security/laptop/syndie
-	desc = "A cheap, jailbroken security laptop. It functions as a security records console. It's bolted to the table."
+	desc = "Дешёвый, взломанный ноутбук службы безопасности NanoTrasen, который используется как консоль записей. Прикручен к столу."
 	req_one_access = list(ACCESS_SYNDICATE)
 
 /obj/machinery/computer/records/security/Initialize(mapload, obj/item/circuitboard/C)
@@ -54,7 +54,7 @@
 					else
 						target.name = "[pick(pick(GLOB.first_names_male), pick(GLOB.first_names_female))] [pick(GLOB.last_names)]"
 				if(2)
-					target.gender = pick("Male", "Female", "Other")
+					target.gender = pick("Женский", "Мужской")
 				if(3)
 					target.age = rand(5, 85)
 				if(4)

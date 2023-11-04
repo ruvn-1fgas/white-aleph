@@ -1,6 +1,6 @@
 /obj/machinery/computer/robotics
-	name = "robotics control console"
-	desc = "Used to remotely lockdown linked Cyborgs and Drones."
+	name = "Консоль контроля киборгов"
+	desc = "Используется для дистанционного блокирования или подрыва киборгов и ботов."
 	icon_screen = "robot"
 	icon_keyboard = "rd_key"
 	req_access = list(ACCESS_ROBOTICS)
@@ -117,7 +117,7 @@
 						else
 							to_chat(usr, span_danger("You can lock down only one cyborg at a time."))
 			else
-				to_chat(usr, span_danger("Access Denied."))
+				to_chat(usr, span_danger("Доступ запрещён."))
 			if(!isnull(locked_down_borg))
 				use_power = ACTIVE_POWER_USE
 			else

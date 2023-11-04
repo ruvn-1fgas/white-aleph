@@ -1,6 +1,6 @@
 /obj/machinery/computer/records/medical
-	name = "medical records console"
-	desc = "This can be used to check medical records."
+	name = "Консоль Медицинских записей"
+	desc = "Используется для просмотра больничных карт и биометрических данных членов экипажа."
 	icon_screen = "medcomp"
 	icon_keyboard = "med_key"
 	req_one_access = list(ACCESS_MEDICAL, ACCESS_DETECTIVE, ACCESS_GENETICS)
@@ -12,8 +12,8 @@
 	req_one_access = list(ACCESS_SYNDICATE)
 
 /obj/machinery/computer/records/medical/laptop
-	name = "medical laptop"
-	desc = "A cheap Nanotrasen medical laptop, it functions as a medical records computer. It's bolted to the table."
+	name = "медицинский ноутбук"
+	desc = "Дешёвый медицинский ноутбук NanoTrasen, он работает как консоль медицинских записей. Прикручен к столу."
 	icon_state = "laptop"
 	icon_screen = "medlaptop"
 	icon_keyboard = "laptop_key"
@@ -141,8 +141,8 @@
 
 	target.age = 18
 	target.blood_type = pick(list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"))
-	target.dna_string = "Unknown"
-	target.gender = "Unknown"
+	target.dna_string = "\[ДАННЫЕ УДАЛЕНЫ]"
+	target.gender = "\[ДАННЫЕ УДАЛЕНЫ]"
 	target.major_disabilities = ""
 	target.major_disabilities_desc = ""
 	target.medical_notes.Cut()
@@ -150,10 +150,10 @@
 	target.minor_disabilities_desc = ""
 	target.physical_status = ""
 	target.mental_status = ""
-	target.name = "Unknown"
+	target.name = "\[ДАННЫЕ УДАЛЕНЫ]"
 	target.quirk_notes = ""
-	target.rank = "Unknown"
-	target.species = "Unknown"
-	target.trim = "Unknown"
+	target.rank = "\[ДАННЫЕ УДАЛЕНЫ]"
+	target.species = "\[ДАННЫЕ УДАЛЕНЫ]"
+	target.trim = "\[ДАННЫЕ УДАЛЕНЫ]"
 
 	return TRUE
