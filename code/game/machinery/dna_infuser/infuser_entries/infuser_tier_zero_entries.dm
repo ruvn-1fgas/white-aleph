@@ -7,9 +7,9 @@
 */
 /datum/infuser_entry/fly
 	name = "Отклонено"
-	infuse_mob_name = "отклонённое существо"
+	infuse_mob_name = "мухи"
 	desc = "По какой-то причине, когда тело отвергает ДНК, ДНК становится кислой, превращаясь в своеобразную ДНК мухи."
-	threshold_desc = "Моя ДНК слишком сильно мутировала. Теперь я чудовище!"
+	threshold_desc = "то он станет чудовищем!"
 	qualities = list(
 		"пьёт рвоту",
 		"говорит как муха",
@@ -29,7 +29,7 @@
 
 /datum/infuser_entry/vulpini
 	name = "Лиса"
-	infuse_mob_name = "вульпа"
+	infuse_mob_name = "вульпы"
 	desc = "Лисы теперь довольно редки из-за безумной моды на \"лисьи уши\" в 2555 году. Я имею в виду, также потому, что мы космические путешественники, которые уничтожили естественные места обитания лис, но это относится к большинству животных."
 	threshold_desc = DNA_INFUSION_NO_THRESHOLD
 	qualities = list(
@@ -71,7 +71,7 @@
 
 /datum/infuser_entry/felinid
 	name = "Кот"
-	infuse_mob_name = "фелин"
+	infuse_mob_name = "кота"
 	desc = "УСПОКОЙТЕСЬ! Я на на что не намекаю этой записью. Мы действительно так удивлены, что фелиниды - это люди с смешанной фелинской ДНК?"
 	threshold_desc = DNA_INFUSION_NO_THRESHOLD
 	qualities = list(
