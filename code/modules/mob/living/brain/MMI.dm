@@ -266,7 +266,7 @@
 	var/mob/living/brain/B = brainmob
 	if(!B)
 		if(user)
-			to_chat(user, span_warning("\The [src] indicates that there is no mind present!"))
+			to_chat(user, span_warning(" [src] indicates that there is no mind present!"))
 		return FALSE
 	if(brain?.decoy_override)
 		if(user)
@@ -274,23 +274,23 @@
 		return FALSE
 	if(!B.key || !B.mind)
 		if(user)
-			to_chat(user, span_warning("\The [src] indicates that their mind is completely unresponsive!"))
+			to_chat(user, span_warning(" [src] indicates that their mind is completely unresponsive!"))
 		return FALSE
 	if(!B.client)
 		if(user)
-			to_chat(user, span_warning("\The [src] indicates that their mind is currently inactive."))
+			to_chat(user, span_warning(" [src] indicates that their mind is currently inactive."))
 		return FALSE
 	if(HAS_TRAIT(B, TRAIT_SUICIDED) || brain?.suicided)
 		if(user)
-			to_chat(user, span_warning("\The [src] indicates that their mind has no will to live!"))
+			to_chat(user, span_warning(" [src] indicates that their mind has no will to live!"))
 		return FALSE
 	if(B.stat == DEAD)
 		if(user)
-			to_chat(user, span_warning("\The [src] indicates that the brain is dead!"))
+			to_chat(user, span_warning(" [src] indicates that the brain is dead!"))
 		return FALSE
 	if(brain?.organ_flags & ORGAN_FAILING)
 		if(user)
-			to_chat(user, span_warning("\The [src] indicates that the brain is damaged!"))
+			to_chat(user, span_warning(" [src] indicates that the brain is damaged!"))
 		return FALSE
 	return TRUE
 

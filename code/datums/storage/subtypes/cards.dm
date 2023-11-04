@@ -5,7 +5,7 @@
 	max_specific_storage = WEIGHT_CLASS_TINY
 	max_slots = 30
 	max_total_storage = WEIGHT_CLASS_TINY * 30
-	
+
 /datum/storage/tcg/New()
 	. = ..()
 	set_holdable(list(/obj/item/tcgcard))
@@ -21,8 +21,8 @@
 	if(!resolve_parent)
 		return
 
-	to_show.visible_message(span_notice("[to_show] starts to look through the contents of \the [resolve_parent]!"), \
-					span_notice("You begin looking into the contents of \the [resolve_parent]!"))
+	to_show.visible_message(span_notice("[to_show] starts to look through the contents of  [resolve_parent]!"), \
+					span_notice("You begin looking into the contents of  [resolve_parent]!"))
 
 /datum/storage/tcg/hide_contents()
 	. = ..()
@@ -34,7 +34,7 @@
 	if(!resolve_location)
 		return
 
-	resolve_location.visible_message(span_notice("\the [resolve_parent] is shuffled after looking through it."))
+	resolve_location.visible_message(span_notice(" [resolve_parent] is shuffled after looking through it."))
 	resolve_location.contents = shuffle(resolve_location.contents)
 
 /datum/storage/tcg/dump_content_at(atom/dest_object, mob/user)

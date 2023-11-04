@@ -404,17 +404,17 @@
 		empty_pipe = TRUE
 
 	if(!empty_pipe)
-		to_chat(user, span_notice("You begin to unfasten \the [src]..."))
+		to_chat(user, span_notice("You begin to unfasten  [src]..."))
 
 	if (internal_pressure > 2 * ONE_ATMOSPHERE)
-		to_chat(user, span_warning("As you begin unwrenching \the [src] a gush of air blows in your face... maybe you should reconsider?"))
+		to_chat(user, span_warning("As you begin unwrenching  [src] a gush of air blows in your face... maybe you should reconsider?"))
 		unsafe_wrenching = TRUE //Oh dear oh dear
 
 	var/time_taken = empty_pipe ? 0 : 20
 	if(I.use_tool(src, user, time_taken, volume = 50))
 		user.visible_message( \
-			"[user] unfastens \the [src].", \
-			span_notice("You unfasten \the [src]."), \
+			"[user] unfastens  [src].", \
+			span_notice("You unfasten  [src]."), \
 			span_hear("You hear ratchet."))
 		investigate_log("was [span_warning("REMOVED")] by [key_name(usr)]", INVESTIGATE_ATMOS)
 

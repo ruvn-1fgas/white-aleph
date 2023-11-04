@@ -222,7 +222,7 @@
 			if(bluespace_toggle)
 				user.Beam(target, icon_state = "rped_upgrade", time = 0.5 SECONDS)
 				playsound(src, 'sound/items/pshoom.ogg', 40, 1)
-			to_chat(user, span_notice("You finish \the [frame] with a light tube."))
+			to_chat(user, span_notice("You finish  [frame] with a light tube."))
 			qdel(frame)
 		return TRUE
 
@@ -278,7 +278,7 @@
 	if(bulb_shards >= BULB_SHARDS_REQUIRED)
 		bulb_shards = 0
 		add_uses(1)
-		to_chat(user, span_notice("\The [src] fabricates a new bulb from the broken glass it has stored. [status_string()]"))
+		to_chat(user, span_notice(" [src] fabricates a new bulb from the broken glass it has stored. [status_string()]"))
 		playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
 		return TRUE
 	return FALSE

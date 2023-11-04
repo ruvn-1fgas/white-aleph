@@ -53,7 +53,7 @@
 /obj/machinery/processor/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Outputting <b>[rating_amount]</b> item(s) at <b>[rating_speed*100]%</b> speed.")
+		. += span_notice("Дисплей: Outputting <b>[rating_amount]</b> item(s) at <b>[rating_speed*100]%</b> speed.")
 
 /obj/machinery/processor/Exited(atom/movable/gone, direction)
 	..()
@@ -165,7 +165,7 @@
 			continue
 		process_food(recipe, content_item)
 	processing = FALSE
-	visible_message(span_notice("\The [src] finishes processing."))
+	visible_message(span_notice(" [src] finishes processing."))
 
 /obj/machinery/processor/verb/eject()
 	set category = "Object"

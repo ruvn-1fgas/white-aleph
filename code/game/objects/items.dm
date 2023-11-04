@@ -1317,16 +1317,16 @@
 		if(victim_cavity.cavity_item)
 			victim.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_HARM), lost_nutrition = 5, distance = 0)
 			forceMove(drop_location())
-			to_chat(victim, span_warning("You vomit up a [name]! [source_item? "Was that in \the [source_item]?" : ""]"))
+			to_chat(victim, span_warning("You vomit up a [name]! [source_item? "Was that in  [source_item]?" : ""]"))
 		else
 			victim.transferItemToLoc(src, victim, TRUE)
 			victim.losebreath += 2
 			victim_cavity.cavity_item = src
-			to_chat(victim, span_warning("You swallow hard. [source_item? "Something small was in \the [source_item]..." : ""]"))
+			to_chat(victim, span_warning("You swallow hard. [source_item? "Something small was in  [source_item]..." : ""]"))
 		discover_after = FALSE
 
 	else
-		to_chat(victim, span_warning("[source_item? "Something strange was in the \the [source_item]..." : "I just bit something strange..."] "))
+		to_chat(victim, span_warning("[source_item? "Something strange was in the  [source_item]..." : "I just bit something strange..."] "))
 
 	return discover_after
 

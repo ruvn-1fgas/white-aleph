@@ -8,9 +8,9 @@
 #define MAX_NETWORK_ID_LENGTH 15
 
 /obj/machinery/computer/telecomms/monitor
-	name = "telecommunications monitoring console"
+	name = "консоль мониторинга телекоммуникаций"
+	desc = "Отслеживает параметры телекоммуникационной сети, с которой она синхронизирована."
 	icon_screen = "comm_monitor"
-	desc = "Monitors the details of the telecommunications network it's synced with."
 
 	/// Current screen the user is viewing
 	var/screen = MAIN_VIEW

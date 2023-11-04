@@ -28,12 +28,12 @@
 
 /obj/item/assembly/flash/suicide_act(mob/living/user)
 	if(burnt_out)
-		user.visible_message(span_suicide("[user] raises \the [src] up to [user.p_their()] eyes and activates it ... but it's burnt out!"))
+		user.visible_message(span_suicide("[user] raises  [src] up to [user.p_their()] eyes and activates it ... but it's burnt out!"))
 		return SHAME
 	else if(user.is_blind())
-		user.visible_message(span_suicide("[user] raises \the [src] up to [user.p_their()] eyes and activates it ... but [user.p_theyre()] blind!"))
+		user.visible_message(span_suicide("[user] raises  [src] up to [user.p_their()] eyes and activates it ... but [user.p_theyre()] blind!"))
 		return SHAME
-	user.visible_message(span_suicide("[user] raises \the [src] up to [user.p_their()] eyes and activates it! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] raises  [src] up to [user.p_their()] eyes and activates it! It looks like [user.p_theyre()] trying to commit suicide!"))
 	attack(user,user)
 	return FIRELOSS
 
@@ -337,7 +337,7 @@
 	overheat = FALSE
 
 /obj/item/assembly/flash/armimplant/screwdriver_act(mob/living/user, obj/item/I)
-	to_chat(user, span_notice("\The [src] is an implant! It cannot be unsecured!"))
+	to_chat(user, span_notice(" [src] is an implant! It cannot be unsecured!"))
 	add_fingerprint(user)
 
 /obj/item/assembly/flash/hypnotic

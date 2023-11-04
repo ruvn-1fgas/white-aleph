@@ -3,9 +3,9 @@
 #define MAX_NETWORK_ID_LENGTH 15
 
 /obj/machinery/computer/telecomms/server
-	name = "telecommunications server monitoring console"
+	name = "консоль контроля телекоммуникационных серверов"
+	desc = "Содержит полный доступ ко всем данным и записям телекоммуникационной сети, которую контролирует эта консоль."
 	icon_screen = "comm_logs"
-	desc = "Has full access to all details and record of the telecommunications network it's monitoring."
 
 	/// Current screen the user is viewing
 	var/screen = MAIN_VIEW
@@ -109,11 +109,11 @@
 			var/new_network = params["network_id"]
 
 			if(length(new_network) > MAX_NETWORK_ID_LENGTH)
-				error_message = "OPERATION FAILED: NETWORK ID TOO LONG."
+				error_message = "ОШИБКА: ТЭГ СЕТИ СЛИШКОМ ДЛИННЫЙ."
 				return
 
 			if(servers.len > 0)
-				error_message = "OPERATION FAILED: BUFFER ALREADY POPULATED. PLEASE CLEAR THE BUFFER."
+				error_message = "ОШИБКА: НЕЛЬЗЯ СКАНИРОВАТЬ СЕТЬ, ПОКА БУФЕР ЗАПОЛНЕН."
 				return
 
 			network = new_network
@@ -122,7 +122,7 @@
 				if(server.network == network)
 					servers.Add(server)
 			if(servers.len == 0)
-				error_message = "OPERATION FAILED: UNABLE TO LOCATE ANY SERVERS IN NETWORK [network]."
+				error_message = "ОШИБКА: НЕ УДАЛОСЬ НАЙТИ СЕРВЕРА В \[[network]\]."
 				return
 			return
 		if("clear_buffer")
@@ -132,7 +132,7 @@
 		if("view_server")
 			SelectedServer = locate(params["server"])
 			if(!SelectedServer)
-				error_message = "OPERATION FAILED: UNABLE TO LOCATE SERVER."
+				error_message = "ОШИБКА: НЕ УДАЛОСЬ НАЙТИ СЕРВЕР."
 				return
 			screen = SERVER_VIEW
 			return
@@ -146,13 +146,13 @@
 			// Delete a packet from server logs
 			var/datum/comm_log_entry/packet = locate(params["ref"])
 			if(!(packet in SelectedServer.log_entries))
-				error_message = "OPERATION FAILED: PACKET NOT FOUND."
+				error_message = "ОШИБКА: ПАКЕТ ДАННЫХ НЕ НАЙДЕН."
 				return
 			if(!src.allowed(usr) && !(obj_flags & EMAGGED))
-				error_message = "OPERATION FAILED: ACCESS DENIED."
+				error_message = "ОШИБКА: НЕДОСТАТОЧНО ПРАВ."
 				return
 			SelectedServer.log_entries.Remove(packet)
-			error_message = "SUCCESSFULLY DELETED [packet.name]."
+			error_message = "УДАЛЁН ЭЛЕМЕНТ: [packet.name]."
 			qdel(packet)
 			return
 	return FALSE

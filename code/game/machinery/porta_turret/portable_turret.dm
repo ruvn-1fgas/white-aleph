@@ -959,7 +959,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		var/obj/item/multitool/M = I
 		if(M.buffer && istype(M.buffer, /obj/machinery/porta_turret))
 			turrets |= WEAKREF(M.buffer)
-			to_chat(user, span_notice("You link \the [M.buffer] with \the [src]."))
+			to_chat(user, span_notice("You link  [M.buffer] with  [src]."))
 			return
 
 	if (issilicon(user))

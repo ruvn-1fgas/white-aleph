@@ -34,7 +34,7 @@
 
 		var/area_name = get_area_name(qpad)
 		if(area_name)
-			. += span_notice("The pad is located in \the [area_name]")
+			. += span_notice("The pad is located in  [area_name]")
 
 		. += span_notice("Alt-click to unlink the keycard.")
 	else

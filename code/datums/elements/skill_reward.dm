@@ -22,7 +22,7 @@
 /datum/element/skill_reward/proc/on_attack_hand(datum/source, mob/living/user, list/modifiers)
 	SIGNAL_HANDLER
 	if(!LAZYACCESS(modifiers, CTRL_CLICK) && !check_equippable(user)) //Allows other players to drag it around at least.
-		to_chat(user, span_warning("You feel completely and utterly unworthy to even touch \the [source]."))
+		to_chat(user, span_warning("You feel completely and utterly unworthy to even touch  [source]."))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 ///We check if the item can be equipped, otherwise we drop it.
@@ -30,7 +30,7 @@
 	SIGNAL_HANDLER
 	if(check_equippable(user) | !(source in user.get_equipped_items(include_pockets = TRUE, include_accessories = TRUE)))
 		return
-	to_chat(user, span_warning("You feel completely and utterly unworthy to even touch \the [source]."))
+	to_chat(user, span_warning("You feel completely and utterly unworthy to even touch  [source]."))
 	user.dropItemToGround(src, TRUE)
 	return COMPONENT_EQUIPPED_FAILED
 

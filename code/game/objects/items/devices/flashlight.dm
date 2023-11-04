@@ -123,7 +123,7 @@
 			return
 
 		if(light_power < 1)
-			to_chat(user, "[span_warning("\The [src] isn't bright enough to see anything!")] ")
+			to_chat(user, "[span_warning(" [src] isn't bright enough to see anything!")] ")
 			return
 
 		var/render_list = list()//information will be packaged in a list for clean display to the user
@@ -506,7 +506,7 @@
 
 /obj/item/flashlight/flare/attack_self(mob/user)
 	if(ignition(user) == SUCCESS)
-		user.visible_message(span_notice("[user] lights \the [src]."), span_notice("You light \the [initial(src.name)]!"))
+		user.visible_message(span_notice("[user] lights  [src]."), span_notice("You light  [initial(src.name)]!"))
 
 /obj/item/flashlight/flare/get_temperature()
 	return light_on * heat
@@ -726,14 +726,14 @@
 		if(ismob(A))
 			var/mob/M = A
 			log_combat(user, M, "attacked", "EMP-light")
-			M.visible_message(span_danger("[user] blinks \the [src] at \the [A]."), \
-								span_userdanger("[user] blinks \the [src] at you."))
+			M.visible_message(span_danger("[user] blinks  [src] at  [A]."), \
+								span_userdanger("[user] blinks  [src] at you."))
 		else
-			A.visible_message(span_danger("[user] blinks \the [src] at \the [A]."))
-		to_chat(user, span_notice("\The [src] now has [emp_cur_charges] charge\s."))
+			A.visible_message(span_danger("[user] blinks  [src] at  [A]."))
+		to_chat(user, span_notice(" [src] now has [emp_cur_charges] charge\s."))
 		A.emp_act(EMP_HEAVY)
 	else
-		to_chat(user, span_warning("\The [src] needs time to recharge!"))
+		to_chat(user, span_warning(" [src] needs time to recharge!"))
 	return
 
 /obj/item/flashlight/emp/debug //for testing emp_act()

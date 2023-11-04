@@ -109,7 +109,7 @@
 	if(obj_flags & EMAGGED)
 		to_chat(user, span_notice("The LED display flashes an error!"))
 	else
-		to_chat(user, span_notice("You adjust the ejection force on \the [src]."))
+		to_chat(user, span_notice("You adjust the ejection force on  [src]."))
 		switch(eject_speed)
 			if(EJECT_SPEED_SLOW)
 				eject_speed = EJECT_SPEED_MED

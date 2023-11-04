@@ -14,14 +14,14 @@
 		user.transferItemToLoc(W, src)
 	else if(W.atom_storage)
 		W.atom_storage.remove_type(/obj/item/stack/ore, src, INFINITY, TRUE, FALSE, user, null)
-		to_chat(user, span_notice("You empty the ore in [W] into \the [src]."))
+		to_chat(user, span_notice("You empty the ore in [W] into  [src]."))
 	else
 		return ..()
 
 /obj/structure/ore_box/crowbar_act(mob/living/user, obj/item/I)
 	if(I.use_tool(src, user, 50, volume=50))
-		user.visible_message(span_notice("[user] pries \the [src] apart."),
-			span_notice("You pry apart \the [src]."),
+		user.visible_message(span_notice("[user] pries  [src] apart."),
+			span_notice("You pry apart  [src]."),
 			span_hear("You hear splitting wood."))
 		deconstruct(TRUE, user)
 	return TRUE

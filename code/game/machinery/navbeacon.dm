@@ -5,8 +5,8 @@
 
 	icon = 'icons/obj/machines/floor.dmi'
 	icon_state = "navbeacon0"
-	name = "navigation beacon"
-	desc = "A radio beacon used for bot navigation."
+	name = "навигатор"
+	desc = "Радиомаяк, используемый для навигации роботов."
 	layer = LOW_OBJ_LAYER
 	max_integrity = 500
 	armor_type = /datum/armor/machinery_navbeacon

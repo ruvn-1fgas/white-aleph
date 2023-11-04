@@ -21,7 +21,7 @@
 		painting = canvas
 		canvas.forceMove(get_turf(src))
 		canvas.layer = layer+0.1
-		user.visible_message(span_notice("[user] puts \the [canvas] on \the [src]."),span_notice("You place \the [canvas] on \the [src]."))
+		user.visible_message(span_notice("[user] puts  [canvas] on  [src]."),span_notice("You place  [canvas] on  [src]."))
 	else
 		return ..()
 

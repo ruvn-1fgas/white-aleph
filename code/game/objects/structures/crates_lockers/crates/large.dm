@@ -35,8 +35,8 @@
 			tear_manifest(user)
 		if(!open(user))
 			return FALSE
-		user.visible_message(span_notice("[user] pries \the [src] open."), \
-			span_notice("You pry open \the [src]."), \
+		user.visible_message(span_notice("[user] pries  [src] open."), \
+			span_notice("You pry open  [src]."), \
 			span_hear("You hear splitting wood."))
 		playsound(src.loc, 'sound/weapons/slashmiss.ogg', 75, TRUE)
 

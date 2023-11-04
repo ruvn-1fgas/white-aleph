@@ -28,7 +28,7 @@
 	var/last_receive_signal_log
 
 /obj/item/assembly/signaler/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] eats \the [src]! If it is signaled, [user.p_they()] will die!"))
+	user.visible_message(span_suicide("[user] eats  [src]! If it is signaled, [user.p_they()] will die!"))
 	playsound(src, 'sound/items/eatfood.ogg', 50, TRUE)
 	moveToNullspace()
 	suicider = user.mind
@@ -126,7 +126,7 @@
 		if(secured && signaler2.secured)
 			code = signaler2.code
 			set_frequency(signaler2.frequency)
-			to_chat(user, "You transfer the frequency and code of \the [signaler2.name] to \the [name]")
+			to_chat(user, "You transfer the frequency and code of  [signaler2.name] to  [name]")
 	..()
 
 /obj/item/assembly/signaler/attack_self_secondary(mob/user, modifiers)

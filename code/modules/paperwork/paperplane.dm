@@ -106,7 +106,7 @@
 	if(prob(hit_probability))
 		if(H.is_eyes_covered())
 			return
-		visible_message(span_danger("\The [src] hits [H] in the eye[eyes ? "" : " socket"]!"))
+		visible_message(span_danger(" [src] hits [H] in the eye[eyes ? "" : " socket"]!"))
 		H.adjust_eye_blur(12 SECONDS)
 		eyes?.apply_organ_damage(rand(6,8))
 		H.Paralyze(40)

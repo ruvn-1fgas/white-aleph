@@ -101,7 +101,7 @@
 				return OXYLOSS
 
 	else
-		user.visible_message(span_suicide("[user] begins beating [user.p_them()]self to death with \the [src]'s handle! It probably would've been cooler if [user.p_they()] turned it on first!"))
+		user.visible_message(span_suicide("[user] begins beating [user.p_them()]self to death with  [src]'s handle! It probably would've been cooler if [user.p_they()] turned it on first!"))
 	return BRUTELOSS
 
 /obj/item/dualsaber/Initialize(mapload)

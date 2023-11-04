@@ -62,8 +62,8 @@
 	// Otherwise, we're gonna dump into the dest object
 	var/turf/dump_onto = get_turf(dest_object)
 	user.visible_message(
-		span_notice("[user] dumps the contents of [src] all out on \the [dump_onto]"),
-		span_notice("The remaining trash in \the [src] falls out onto \the [dump_onto]"),
+		span_notice("[user] dumps the contents of [src] all out on  [dump_onto]"),
+		span_notice("The remaining trash in  [src] falls out onto  [dump_onto]"),
 	)
 	source.remove_all(dump_onto)
 

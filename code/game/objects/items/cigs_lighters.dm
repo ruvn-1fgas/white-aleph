@@ -242,7 +242,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return
 
 	if(glass.reagents.trans_to(src, chem_volume, transferred_by = user)) //if reagents were transferred, show the message
-		to_chat(user, span_notice("You dip \the [src] into \the [glass]."))
+		to_chat(user, span_notice("You dip  [src] into  [glass]."))
 	//if not, either the beaker was empty, or the cigarette was full
 	else if(!glass.reagents.total_volume)
 		to_chat(user, span_warning("[glass] is empty!"))
@@ -385,7 +385,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/cigarette/proc/put_out(mob/user, done_early = FALSE)
 	var/atom/location = drop_location()
 	if(done_early)
-		user.visible_message(span_notice("[user] calmly drops and treads on \the [src], putting it out instantly."))
+		user.visible_message(span_notice("[user] calmly drops and treads on  [src], putting it out instantly."))
 		new /obj/effect/decal/cleanable/ash(location)
 	else if(user)
 		to_chat(user, span_notice("Your [name] goes out."))
@@ -758,7 +758,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /// Destroy the lighter when it's shot by a bullet
 /obj/item/lighter/proc/on_intercepted_bullet(mob/living/victim, obj/projectile/bullet)
-	victim.visible_message(span_warning("\The [bullet] shatters on [victim]'s lighter!"))
+	victim.visible_message(span_warning(" [bullet] shatters on [victim]'s lighter!"))
 	playsound(victim, get_sfx(SFX_RICOCHET), 100, TRUE)
 	new /obj/effect/decal/cleanable/oil(get_turf(src))
 	do_sparks(1, TRUE, src)
@@ -772,11 +772,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/lighter/suicide_act(mob/living/carbon/user)
 	if (lit)
-		user.visible_message(span_suicide("[user] begins holding \the [src]'s flame up to [user.p_their()] face! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user] begins holding  [src]'s flame up to [user.p_their()] face! It looks like [user.p_theyre()] trying to commit suicide!"))
 		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
 		return FIRELOSS
 	else
-		user.visible_message(span_suicide("[user] begins whacking [user.p_them()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user] begins whacking [user.p_them()]self with  [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 		return BRUTELOSS
 
 /obj/item/lighter/update_icon_state()
@@ -888,7 +888,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return
 
 	if(fancy)
-		cig.light(span_rose("[user] whips the [name] out and holds it for [M]. [user.p_Their()] arm is as steady as the unflickering flame [user.p_they()] light[user.p_s()] \the [cig] with."))
+		cig.light(span_rose("[user] whips the [name] out and holds it for [M]. [user.p_Their()] arm is as steady as the unflickering flame [user.p_they()] light[user.p_s()]  [cig] with."))
 	else
 		cig.light(span_notice("[user] holds the [name] out for [M], and lights [M.p_their()] [cig.name]."))
 

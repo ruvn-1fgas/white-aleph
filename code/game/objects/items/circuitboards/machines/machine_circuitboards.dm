@@ -1080,7 +1080,7 @@
 	)
 
 /obj/item/circuitboard/machine/mechpad
-	name = "Mecha Orbital Pad"
+	name = "Орбитальная механическая площадка"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/mechpad
 	req_components = list()

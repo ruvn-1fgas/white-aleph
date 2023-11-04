@@ -136,7 +136,7 @@
 			if (ISNOTSTUB(target_dir))
 				p_init_dir = target_dir
 			else
-				to_chat(usr, span_warning("\The [src]'s screen flashes a warning: Can't configure a pipe to only connect in one direction."))
+				to_chat(usr, span_warning(" [src]'s screen flashes a warning: Can't configure a pipe to only connect in one direction."))
 
 		if("init_reset")
 			p_init_dir = ALL_CARDINALS

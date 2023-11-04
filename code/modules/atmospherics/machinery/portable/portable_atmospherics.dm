@@ -170,7 +170,7 @@
 	. = ..()
 	if(!holding)
 		return
-	. += span_notice("\The [src] contains [holding]. Alt-click [src] to remove it.")+\
+	. += span_notice(" [src] contains [holding]. Alt-click [src] to remove it.")+\
 		span_notice("Click [src] with another gas tank to hot swap [holding].")
 
 /**

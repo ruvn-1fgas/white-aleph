@@ -174,12 +174,12 @@
 		var/obj/structure/reagent_dispensers/W = target //will it work?
 		var/transferred = W.reagents.trans_to(src, max_water, transferred_by = user)
 		if(transferred > 0)
-			to_chat(user, span_notice("\The [src] has been refilled by [transferred] units."))
+			to_chat(user, span_notice(" [src] has been refilled by [transferred] units."))
 			playsound(src.loc, 'sound/effects/refill.ogg', 50, TRUE, -6)
 			for(var/datum/reagent/water/R in reagents.reagent_list)
 				R.cooling_temperature = cooling_power
 		else
-			to_chat(user, span_warning("\The [W] is empty!"))
+			to_chat(user, span_warning(" [W] is empty!"))
 
 		return TRUE
 	else
@@ -286,7 +286,7 @@
 			var/turf/open/theturf = T
 			theturf.MakeSlippery(TURF_WET_WATER, min_wet_time = 10 SECONDS, wet_time_to_add = 5 SECONDS)
 
-		user.visible_message(span_notice("[user] empties out \the [src] onto the floor using the release valve."), span_info("You quietly empty out \the [src] using its release valve."))
+		user.visible_message(span_notice("[user] empties out  [src] onto the floor using the release valve."), span_info("You quietly empty out  [src] using its release valve."))
 
 //firebot assembly
 /obj/item/extinguisher/attackby(obj/O, mob/user, params)

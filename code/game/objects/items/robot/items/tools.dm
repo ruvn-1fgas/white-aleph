@@ -103,7 +103,7 @@
 
 /obj/item/borg/projectile_dampen/proc/deactivate_field()
 	QDEL_NULL(dampening_field)
-	visible_message(span_warning("\The [src] shuts off!"))
+	visible_message(span_warning(" [src] shuts off!"))
 	for(var/projectile in tracked)
 		restore_projectile(projectile = projectile)
 	active = FALSE

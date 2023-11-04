@@ -37,7 +37,7 @@
 	var/icon/cached_flat_icon
 
 /obj/item/card/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins to swipe [user.p_their()] neck with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] begins to swipe [user.p_their()] neck with  [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 
 /obj/item/card/update_overlays()
@@ -420,7 +420,7 @@
 		var/minor
 		if(registered_name && registered_age && registered_age < AGE_MINOR)
 			minor = " <b>(MINOR)</b>"
-		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name][minor]."), span_notice("You show \the [src.name][minor]."))
+		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name][minor]."), span_notice("You show  [src.name][minor]."))
 	add_fingerprint(user)
 
 /obj/item/card/id/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
@@ -1553,7 +1553,7 @@
 		assignment = initial(assignment)
 		SSid_access.remove_trim_from_chameleon_card(src)
 		REMOVE_TRAIT(src, TRAIT_MAGNETIC_ID_CARD, CHAMELEON_ITEM_TRAIT)
-		user.log_message("reset \the [initial(name)] named \"[src]\" to default.", LOG_GAME)
+		user.log_message("reset  [initial(name)] named \"[src]\" to default.", LOG_GAME)
 		update_label()
 		update_icon()
 		forged = FALSE
@@ -1617,7 +1617,7 @@
 	update_icon()
 	forged = TRUE
 	to_chat(user, span_notice("You successfully forge the ID card."))
-	user.log_message("forged \the [initial(name)] with name \"[registered_name]\", occupation \"[assignment]\" and trim \"[trim?.assignment]\".", LOG_GAME)
+	user.log_message("forged  [initial(name)] with name \"[registered_name]\", occupation \"[assignment]\" and trim \"[trim?.assignment]\".", LOG_GAME)
 
 	if(!registered_account && ishuman(user))
 		var/mob/living/carbon/human/accountowner = user
@@ -1800,7 +1800,7 @@
 /obj/item/card/cardboard/attack_self(mob/user)
 	if(!Adjacent(user))
 		return
-	user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [name]."), span_notice("You show \the [name]."))
+	user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [name]."), span_notice("You show  [name]."))
 	add_fingerprint(user)
 
 /obj/item/card/cardboard/update_name()

@@ -127,7 +127,7 @@
 /obj/machinery/mecha_part_fabricator/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Storing up to <b>[rmat.local_size]</b> material units.<br>Material consumption at <b>[component_coeff*100]%</b>.<br>Build time reduced by <b>[100-time_coeff*100]%</b>.")
+		. += span_notice("Дисплей: Storing up to <b>[rmat.local_size]</b> material units.<br>Material consumption at <b>[component_coeff*100]%</b>.<br>Build time reduced by <b>[100-time_coeff*100]%</b>.")
 	if(panel_open)
 		. += span_notice("Alt-click to rotate the output direction.")
 
@@ -487,7 +487,7 @@
 	if(..())
 		return TRUE
 	if(being_built)
-		to_chat(user, span_warning("\The [src] is currently processing! Please wait until completion."))
+		to_chat(user, span_warning(" [src] is currently processing! Please wait until completion."))
 		return FALSE
 	return default_deconstruction_screwdriver(user, "fab-o", "fab-idle", I)
 
@@ -495,7 +495,7 @@
 	if(..())
 		return TRUE
 	if(being_built)
-		to_chat(user, span_warning("\The [src] is currently processing! Please wait until completion."))
+		to_chat(user, span_warning(" [src] is currently processing! Please wait until completion."))
 		return FALSE
 	return default_deconstruction_crowbar(I)
 
@@ -504,7 +504,7 @@
 		to_chat(user, span_warning("You can't load [src] while it's opened!"))
 		return FALSE
 	if(being_built)
-		to_chat(user, span_warning("\The [src] is currently processing! Please wait until completion."))
+		to_chat(user, span_warning(" [src] is currently processing! Please wait until completion."))
 		return FALSE
 
 	return TRUE

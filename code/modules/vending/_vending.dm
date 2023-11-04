@@ -1641,7 +1641,7 @@
 		var/obj/item/card/id/card_used = living_user.get_idcard(TRUE)
 		if(card_used?.registered_account)
 			linked_account = card_used.registered_account
-			speak("\The [src] has been linked to [card_used].")
+			speak(" [src] has been linked to [card_used].")
 
 	if(compartmentLoadAccessCheck(user))
 		if(istype(attack_item, /obj/item/pen))

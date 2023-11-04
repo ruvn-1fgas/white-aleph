@@ -88,8 +88,8 @@
 	name = "machinery"
 	icon = 'icons/obj/machines/fax.dmi'
 	desc = "Some kind of machine."
-	verb_say = "beeps"
-	verb_yell = "blares"
+	verb_say = "бипает"
+	verb_yell = "вспыхивает"
 	pressure_resistance = 15
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 	max_integrity = 200
@@ -797,7 +797,7 @@
 	if(!.)
 		return
 	crowbar.play_tool_sound(src, 50)
-	visible_message(span_notice("[usr] pries open \the [src]."), span_notice("You pry open \the [src]."))
+	visible_message(span_notice("[usr] pries open  [src]."), span_notice("You pry open  [src]."))
 	open_machine(density_to_set = open_density)
 	if (close_after_pry) //Should it immediately close after prying? (If not, it must be closed elsewhere)
 		close_machine(density_to_set = closed_density)
@@ -922,10 +922,10 @@
 	toggle_panel_open()
 	if(panel_open)
 		icon_state = icon_state_open
-		to_chat(user, span_notice("You open the maintenance hatch of [src]."))
+		to_chat(user, span_notice("Открываю техническую панель <b>[src]</b>."))
 	else
 		icon_state = icon_state_closed
-		to_chat(user, span_notice("You close the maintenance hatch of [src]."))
+		to_chat(user, span_notice("Закрываю техническую панель <b>[src]</b>."))
 	return TRUE
 
 /obj/machinery/proc/default_change_direction_wrench(mob/user, obj/item/wrench)
@@ -934,7 +934,7 @@
 
 	wrench.play_tool_sound(src, 50)
 	setDir(turn(dir,-90))
-	to_chat(user, span_notice("You rotate [src]."))
+	to_chat(user, span_notice("Поворачиваю <b>[src]</b>."))
 	SEND_SIGNAL(src, COMSIG_MACHINERY_DEFAULT_ROTATE_WRENCH, user, wrench)
 	return TRUE
 
@@ -1100,16 +1100,16 @@
 /obj/machinery/examine(mob/user)
 	. = ..()
 	if(machine_stat & BROKEN)
-		. += span_notice("It looks broken and non-functional.")
+		. += span_notice("Совсем сломано и не хочет работать. Возможно стоит проверить проводку...")
 	if(!(resistance_flags & INDESTRUCTIBLE))
 		var/healthpercent = (atom_integrity/max_integrity) * 100
 		switch(healthpercent)
 			if(50 to 99)
-				. += "It looks slightly damaged."
+				. += "<hr>Виднеются небольшие царапины."
 			if(25 to 50)
-				. += "It appears heavily damaged."
+				. += "<hr>Выглядит серьёзно повреждённым."
 			if(0 to 25)
-				. += span_warning("It's falling apart!")
+				. += span_warning("Вот-вот развалится!")
 
 /obj/machinery/examine_more(mob/user)
 	. = ..()

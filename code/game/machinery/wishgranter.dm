@@ -1,5 +1,5 @@
 /obj/machinery/wish_granter
-	name = "wish granter"
+	name = "исполнитель желаний"
 	desc = "You're not so sure about this, anymore..."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "syndbeacon"

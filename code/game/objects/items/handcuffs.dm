@@ -421,7 +421,7 @@
 		var/obj/vehicle/ridden_vehicle = victim.buckled
 		if(!ridden_vehicle.are_legs_exposed) //close the trap without injuring/trapping the rider if their legs are inside the vehicle at all times.
 			close_trap()
-			ridden_vehicle.visible_message(span_danger("[ridden_vehicle] triggers \the [src]."))
+			ridden_vehicle.visible_message(span_danger("[ridden_vehicle] triggers  [src]."))
 			return
 
 	//don't close the trap if they're as small as a mouse, or not touching the ground
@@ -430,11 +430,11 @@
 
 	close_trap()
 	if(thrown_at)
-		victim.visible_message(span_danger("\The [src] ensnares [victim]!"), \
-				span_userdanger("\The [src] ensnares you!"))
+		victim.visible_message(span_danger(" [src] ensnares [victim]!"), \
+				span_userdanger(" [src] ensnares you!"))
 	else
-		victim.visible_message(span_danger("[victim] triggers \the [src]."), \
-				span_userdanger("You trigger \the [src]!"))
+		victim.visible_message(span_danger("[victim] triggers  [src]."), \
+				span_userdanger("You trigger  [src]!"))
 	var/def_zone = BODY_ZONE_CHEST
 	if(iscarbon(victim) && victim.body_position == STANDING_UP)
 		var/mob/living/carbon/carbon_victim = victim
@@ -514,7 +514,7 @@
  */
 /obj/item/restraints/legcuffs/bola/proc/ensnare(mob/living/carbon/C)
 	if(!C.legcuffed && C.num_legs >= 2)
-		visible_message(span_danger("\The [src] ensnares [C]!"), span_userdanger("\The [src] ensnares you!"))
+		visible_message(span_danger(" [src] ensnares [C]!"), span_userdanger(" [src] ensnares you!"))
 		C.equip_to_slot(src, ITEM_SLOT_LEGCUFFED)
 		SSblackbox.record_feedback("tally", "handcuffs", 1, type)
 		C.Knockdown(knockdown)

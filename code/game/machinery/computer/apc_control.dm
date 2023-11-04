@@ -53,7 +53,7 @@
 	if(isnull(apc))
 		return
 	if(apc.remote_control_user)
-		to_chat(user, span_warning("\The [apc] is being controlled by someone else!"))
+		to_chat(user, span_warning(" [apc] is being controlled by someone else!"))
 		return
 	if(active_apc)
 		disconnect_apc()

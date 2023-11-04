@@ -102,7 +102,7 @@
 
 		if(armless)
 			if(!user.pulling || !iscash(user.pulling) && !istype(user.pulling, /obj/item/card/id))
-				to_chat(user, span_notice("Try pulling a valid ID, space cash, holochip or coin while using \the [parent]!"))
+				to_chat(user, span_notice("Try pulling a valid ID, space cash, holochip or coin while using  [parent]!"))
 				return FALSE
 		return FALSE
 

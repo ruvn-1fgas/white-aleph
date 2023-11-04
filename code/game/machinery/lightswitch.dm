@@ -1,10 +1,10 @@
 /// The light switch. Can have multiple per area.
 /obj/machinery/light_switch
-	name = "light switch"
+	name = "переключатель света"
 	icon = 'icons/obj/machines/wallmounts.dmi'
 	icon_state = "light-nopower"
 	base_icon_state = "light"
-	desc = "Make dark."
+	desc = "Делает тьму или свет."
 	power_channel = AREA_USAGE_LIGHT
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.02
 	/// Set this to a string, path, or area instance to control that area
@@ -56,7 +56,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light_switch, 26)
 
 /obj/machinery/light_switch/examine(mob/user)
 	. = ..()
-	. += "It is [(machine_stat & NOPOWER) ? "unpowered" : (area.lightswitch ? "on" : "off")]."
+	. += "<hr>Он [area.lightswitch ? "включен" : "выключен"]."
 
 /obj/machinery/light_switch/interact(mob/user)
 	. = ..()
@@ -92,7 +92,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light_switch, 26)
 	qdel(src)
 
 /obj/item/wallframe/light_switch
-	name = "light switch"
+	name = "переключатель света"
 	desc = "An unmounted light switch. Attach it to a wall to use."
 	icon = 'icons/obj/machines/wallmounts.dmi'
 	icon_state = "light-nopower"
@@ -100,7 +100,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light_switch, 26)
 	pixel_shift = 26
 
 /obj/item/circuit_component/light_switch
-	display_name = "Light Switch"
+	display_name = "переключатель света"
 	desc = "Allows to control the lights of an area."
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL
 

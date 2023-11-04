@@ -19,7 +19,7 @@
 
 ///Machine that lets you play roulette. Odds are pre-defined to be the same as European Roulette without the "En Prison" rule
 /obj/machinery/roulette
-	name = "Roulette Table"
+	name = "Рулетка"
 	desc = "A computerized roulette table. Swipe your ID to play or register yourself as owner!"
 	icon = 'icons/obj/machines/roulette.dmi'
 	icon_state = "idle"
@@ -446,7 +446,7 @@
 /obj/item/roulette_wheel_beacon/attack_self()
 	if(used)
 		return
-	loc.visible_message(span_warning("\The [src] begins to beep loudly!"))
+	loc.visible_message(span_warning(" [src] begins to beep loudly!"))
 	used = TRUE
 	addtimer(CALLBACK(src, PROC_REF(launch_payload)), 40)
 

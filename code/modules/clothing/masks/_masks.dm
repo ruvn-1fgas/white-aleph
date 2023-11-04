@@ -77,11 +77,11 @@
 		clothing_flags |= visor_flags
 		flags_inv |= visor_flags_inv
 		flags_cover |= visor_flags_cover
-		to_chat(user, span_notice("You push \the [src] back into place."))
+		to_chat(user, span_notice("You push  [src] back into place."))
 		slot_flags = initial(slot_flags)
 	else
 		icon_state += "_up"
-		to_chat(user, span_notice("You push \the [src] out of the way."))
+		to_chat(user, span_notice("You push  [src] out of the way."))
 		clothing_flags &= ~visor_flags
 		flags_inv &= ~visor_flags_inv
 		flags_cover &= ~visor_flags_cover

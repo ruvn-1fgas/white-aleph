@@ -1,8 +1,8 @@
 #define BEAM_FADE_TIME (1 SECONDS)
 
 /obj/machinery/launchpad
-	name = "bluespace launchpad"
-	desc = "A bluespace pad able to thrust matter through bluespace, teleporting it to or from nearby locations."
+	name = "Локальный блюспейс телепад"
+	desc = "Блюспейс телепад, способный перемещать материю сквозь блюспейс. Не требует фактических координат, работает на смещении координат относительно консоли. Дальность работы зависит от деталей."
 	icon = 'icons/obj/machines/telepad.dmi'
 	icon_state = "lpad-idle"
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 2.5
@@ -62,7 +62,7 @@
 /obj/machinery/launchpad/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Maximum range: <b>[range]</b> units.")
+		. += span_notice("Дисплей: Maximum range: <b>[range]</b> units.")
 
 /obj/machinery/launchpad/attackby(obj/item/weapon, mob/user, params)
 	if(!stationary)

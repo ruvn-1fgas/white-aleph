@@ -66,20 +66,20 @@
 		return FALSE
 
 	if(stored_card)
-		to_chat(user, span_warning("You try to insert \the [attacking_item] into \the [computer.name], but the slot is occupied."))
+		to_chat(user, span_warning("You try to insert  [attacking_item] into  [computer.name], but the slot is occupied."))
 		return FALSE
 	if(user && !user.transferItemToLoc(attacking_item, computer))
 		return FALSE
 
 	stored_card = attacking_item
-	to_chat(user, span_notice("You insert \the [attacking_item] into \the [computer.name]."))
+	to_chat(user, span_notice("You insert  [attacking_item] into  [computer.name]."))
 
 	return TRUE
 
 /datum/computer_file/program/ai_restorer/try_eject(mob/living/user, forced = FALSE)
 	if(!stored_card)
 		if(user)
-			to_chat(user, span_warning("There is no card in \the [computer.name]."))
+			to_chat(user, span_warning("There is no card in  [computer.name]."))
 		return FALSE
 
 	if(restoring && !forced)

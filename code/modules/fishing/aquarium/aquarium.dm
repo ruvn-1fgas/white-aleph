@@ -166,7 +166,7 @@
 		return
 	to_chat(user, span_notice("Начинаю опорожнять [name]."))
 	if(do_after(user, 3 SECONDS, target = src))
-		to_chat(user, span_notice("Закончил опоржнять [name]."))
+		to_chat(user, span_notice("Закончиваю опоржнять [name]."))
 		reagents.expose(get_turf(src), TOUCH) //splash on the floor
 		reagents.clear_reagents()
 

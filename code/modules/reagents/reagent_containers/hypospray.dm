@@ -127,7 +127,7 @@
 	var/label_text
 
 /obj/item/reagent_containers/hypospray/medipen/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins to choke on \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] begins to choke on  [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return OXYLOSS//ironic. he could save others from oxyloss, but not himself.
 
 /obj/item/reagent_containers/hypospray/medipen/inject(mob/living/affected_mob, mob/user)
@@ -262,7 +262,7 @@
 		return ..()
 
 	if(DOING_INTERACTION(user, DOAFTER_SOURCE_SURVIVALPEN))
-		to_chat(user,span_notice("You are too busy to use \the [src]!"))
+		to_chat(user,span_notice("You are too busy to use  [src]!"))
 		return
 
 	to_chat(user,span_notice("You start manually releasing the low-pressure gauge..."))

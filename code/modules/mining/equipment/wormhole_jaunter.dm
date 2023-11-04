@@ -47,9 +47,9 @@
 
 	if(!can_jaunter_teleport())
 		if(user)
-			to_chat(user, span_notice("\The [src] found no beacons in the world to anchor a wormhole to."))
+			to_chat(user, span_notice(" [src] found no beacons in the world to anchor a wormhole to."))
 		else
-			visible_message(span_notice("\The [src] found no beacons in the world to anchor a wormhole to!"))
+			visible_message(span_notice(" [src] found no beacons in the world to anchor a wormhole to!"))
 		return TRUE // used for chasm code
 
 	var/list/destinations = get_destinations()
@@ -82,7 +82,7 @@
 		SSblackbox.record_feedback("tally", "jaunter", 1, "EMP") // EMP accidental activation
 		activate(M, FALSE, TRUE)
 	else if(triggered)
-		visible_message(span_warning("\The [src] overloads and activates!"))
+		visible_message(span_warning(" [src] overloads and activates!"))
 		activate()
 
 /obj/item/wormhole_jaunter/proc/chasm_react(mob/user)

@@ -182,8 +182,8 @@
 	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
 	playsound(pushed_mob, 'sound/effects/tableslam.ogg', 90, TRUE)
-	pushed_mob.visible_message(span_danger("[user] slams [pushed_mob] onto \the [src]!"), \
-								span_userdanger("[user] slams you onto \the [src]!"))
+	pushed_mob.visible_message(span_danger("[user] slams [pushed_mob] onto  [src]!"), \
+								span_userdanger("[user] slams you onto  [src]!"))
 	log_combat(user, pushed_mob, "tabled", null, "onto [src]")
 	pushed_mob.add_mood_event("table", /datum/mood_event/table)
 
@@ -199,8 +199,8 @@
 	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
 	playsound(pushed_mob, 'sound/effects/bang.ogg', 90, TRUE)
-	pushed_mob.visible_message(span_danger("[user] smashes [pushed_mob]'s [banged_limb.plaintext_zone] against \the [src]!"),
-								span_userdanger("[user] smashes your [banged_limb.plaintext_zone] against \the [src]"))
+	pushed_mob.visible_message(span_danger("[user] smashes [pushed_mob]'s [banged_limb.plaintext_zone] against  [src]!"),
+								span_userdanger("[user] smashes your [banged_limb.plaintext_zone] against  [src]"))
 	log_combat(user, pushed_mob, "head slammed", null, "against [src]")
 	pushed_mob.add_mood_event("table", /datum/mood_event/table_limbsmash, banged_limb)
 
@@ -326,9 +326,9 @@
 	if(!shove_blocked)
 		return
 	target.Knockdown(SHOVE_KNOCKDOWN_TABLE)
-	target.visible_message(span_danger("[shover.name] shoves [target.name] onto \the [src]!"),
-		span_userdanger("You're shoved onto \the [src] by [shover.name]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
-	to_chat(shover, span_danger("You shove [target.name] onto \the [src]!"))
+	target.visible_message(span_danger("[shover.name] shoves [target.name] onto  [src]!"),
+		span_userdanger("You're shoved onto  [src] by [shover.name]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
+	to_chat(shover, span_danger("You shove [target.name] onto  [src]!"))
 	target.throw_at(src, 1, 1, null, FALSE) //1 speed throws with no spin are basically just forcemoves with a hard collision check
 	log_combat(shover, target, "shoved", "onto [src] (table)")
 	return COMSIG_CARBON_SHOVE_HANDLED

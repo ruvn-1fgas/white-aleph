@@ -147,7 +147,7 @@
 	. = ..()
 
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: This unit can hold a maximum of <b>[max_n_of_items]</b> items.")
+		. += span_notice("Дисплей: This unit can hold a maximum of <b>[max_n_of_items]</b> items.")
 
 	if(welded_down)
 		. += span_info("It's moored firmly to the floor. You can unsecure its moorings with a <b>welder</b>.")
@@ -248,12 +248,12 @@
 	if(!machine_stat)
 		var/list/shown_contents = contents - component_parts
 		if(shown_contents.len >= max_n_of_items)
-			to_chat(user, span_warning("\The [src] is full!"))
+			to_chat(user, span_warning(" [src] is full!"))
 			return FALSE
 
 		if(accept_check(O))
 			load(O)
-			user.visible_message(span_notice("[user] adds \the [O] to \the [src]."), span_notice("You add \the [O] to \the [src]."))
+			user.visible_message(span_notice("[user] adds  [O] to  [src]."), span_notice("You add  [O] to  [src]."))
 			SStgui.update_uis(src)
 			if(visible_contents)
 				update_appearance()
@@ -272,11 +272,11 @@
 
 			if(loaded)
 				if(shown_contents.len >= max_n_of_items)
-					user.visible_message(span_notice("[user] loads \the [src] with \the [O]."), \
-						span_notice("You fill \the [src] with \the [O]."))
+					user.visible_message(span_notice("[user] loads  [src] with  [O]."), \
+						span_notice("You fill  [src] with  [O]."))
 				else
-					user.visible_message(span_notice("[user] loads \the [src] with \the [O]."), \
-						span_notice("You load \the [src] with \the [O]."))
+					user.visible_message(span_notice("[user] loads  [src] with  [O]."), \
+						span_notice("You load  [src] with  [O]."))
 				if(O.contents.len > 0)
 					to_chat(user, span_warning("Some items are refused."))
 				if (visible_contents)
@@ -287,7 +287,7 @@
 				return FALSE
 
 	if(!user.combat_mode)
-		to_chat(user, span_warning("\The [src] smartly refuses [O]."))
+		to_chat(user, span_warning(" [src] smartly refuses [O]."))
 		SStgui.update_uis(src)
 		return FALSE
 	else
@@ -302,7 +302,7 @@
 	if(ismob(O.loc))
 		var/mob/M = O.loc
 		if(!M.transferItemToLoc(O, src))
-			to_chat(usr, span_warning("\the [O] is stuck to your hand, you cannot put it in \the [src]!"))
+			to_chat(usr, span_warning(" [O] is stuck to your hand, you cannot put it in  [src]!"))
 			return FALSE
 		else
 			return TRUE

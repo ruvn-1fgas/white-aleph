@@ -514,7 +514,7 @@
 		for(var/direction in GLOB.cardinals)
 			nearby_turf = get_step(dest_turf, direction)
 			if(locate(recipe.result_type) in nearby_turf)
-				to_chat(builder, span_warning("\The [recipe.title] must not be built directly adjacent to another!"))
+				to_chat(builder, span_warning(" [recipe.title] must not be built directly adjacent to another!"))
 				builder.balloon_alert(builder, "can't be adjacent to another!")
 				return FALSE
 

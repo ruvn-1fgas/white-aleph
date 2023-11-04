@@ -156,7 +156,7 @@
 			if(!cell)
 				. += "The slot for a cell is empty."
 			else
-				. += "\The [cell] is firmly in place."
+				. += " [cell] is firmly in place."
 
 /obj/item/clothing/suit/space/crowbar_act(mob/living/user, obj/item/tool)
 	toggle_spacesuit_cell(user)
@@ -185,7 +185,7 @@
 		return
 	if(user.transferItemToLoc(I, src))
 		cell = I
-		to_chat(user, span_notice("You successfully install \the [cell] into [src]."))
+		to_chat(user, span_notice("You successfully install  [cell] into [src]."))
 		return
 
 /// Open the cell cover when ALT+Click on the suit
@@ -209,7 +209,7 @@
 /// Remove the cell from the suit if the cell cover is open
 /obj/item/clothing/suit/space/proc/remove_cell(mob/user)
 	if(cell_cover_open && cell)
-		user.visible_message(span_notice("[user] removes \the [cell] from [src]!"), \
+		user.visible_message(span_notice("[user] removes  [cell] from [src]!"), \
 			span_notice("You remove [cell]."))
 		cell.add_fingerprint(user)
 		user.put_in_hands(cell)
@@ -218,7 +218,7 @@
 /// Toggle the space suit's cell cover
 /obj/item/clothing/suit/space/proc/toggle_spacesuit_cell(mob/user)
 	cell_cover_open = !cell_cover_open
-	to_chat(user, span_notice("You [cell_cover_open ? "open" : "close"] the cell cover on \the [src]."))
+	to_chat(user, span_notice("You [cell_cover_open ? "open" : "close"] the cell cover on  [src]."))
 
 /**
  * Toggle the space suit's thermal regulator status
@@ -304,7 +304,7 @@
 /obj/item/clothing/head/helmet/space/suicide_act(mob/living/carbon/user)
 	var/datum/gas_mixture/environment = user.loc.return_air()
 	if(HAS_TRAIT(user, TRAIT_RESISTCOLD) || !environment || environment.return_temperature() >= user.get_body_temp_cold_damage_limit())
-		user.visible_message(span_suicide("[user] is beating [user.p_them()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user] is beating [user.p_them()]self with  [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 		return BRUTELOSS
 	user.say("You want proof? I'll give you proof! Here's proof of what'll happen to you if you stay here with your stuff!", forced = "space helmet suicide")
 	user.visible_message(span_suicide("[user] is removing [user.p_their()] helmet to make a point! Yo, holy shit, [user.p_they()] dead!")) //the use of p_they() instead of p_their() here is intentional

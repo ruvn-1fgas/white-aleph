@@ -272,7 +272,7 @@
 	if(!isturf(user.loc))
 		return
 	if(is_empty(user, 0))
-		to_chat(user, span_warning("\The [src] is empty!"))
+		to_chat(user, span_warning(" [src] is empty!"))
 		return
 
 	var/turf/T = get_turf(user)

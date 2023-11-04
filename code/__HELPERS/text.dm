@@ -803,7 +803,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	switch(macro)
 		//prefixes/agnostic
 		if("the")
-			rest = "\the [rest]"
+			rest = " [rest]"
 		if("a")
 			rest = "\a [rest]"
 		if("an")

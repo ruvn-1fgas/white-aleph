@@ -49,7 +49,7 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 /datum/team/proc/roundend_report()
 	var/list/report = list()
 
-	report += "<span class='header'>\The [name]:</span>"
+	report += "<span class='header'> [name]:</span>"
 	report += "The [member_name]s were:"
 	report += printplayerlist(members)
 

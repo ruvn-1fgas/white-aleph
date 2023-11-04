@@ -20,8 +20,8 @@
 				return BULLET_ACT_HIT
 			else
 				blocked = 100
-				target.visible_message(span_danger("\The [src] is deflected!"), \
-									   span_userdanger("You are protected against \the [src]!"))
+				target.visible_message(span_danger(" [src] is deflected!"), \
+									   span_userdanger("You are protected against  [src]!"))
 
 	..(target, blocked)
 	reagents.flags &= ~(NO_REACT)

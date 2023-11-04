@@ -34,8 +34,8 @@ Possible to do for anyone motivated enough:
 #define HOLOGRAM_POWER_USAGE 2
 
 /obj/machinery/holopad
-	name = "holopad"
-	desc = "It's a floor-mounted device for projecting holographic images."
+	name = "голопад ИИ"
+	desc = "Напольное устройство для проецирования голографических изображений."
 	icon = 'icons/obj/machines/floor.dmi'
 	icon_state = "holopad0"
 	base_icon_state = "holopad"
@@ -111,8 +111,8 @@ Possible to do for anyone motivated enough:
 	AddElement(/datum/element/contextual_screentip_mob_typechecks, hovering_mob_typechecks)
 
 /obj/machinery/holopad/secure
-	name = "secure holopad"
-	desc = "It's a floor-mounted device for projecting holographic images. This one will refuse to auto-connect incoming calls."
+	name = "голопад безопасного соединения"
+	desc = "Напольное устройство для проецирования голографических изображений. Этот откажется автоматически принимать входящие звонки."
 	secure = TRUE
 
 /obj/machinery/holopad/secure/Initialize(mapload)
@@ -224,9 +224,9 @@ Possible to do for anyone motivated enough:
 /obj/machinery/holopad/examine(mob/user)
 	. = ..()
 	if(isAI(user))
-		. += span_notice("The status display reads: Current projection range: <b>[holo_range]</b> units. Use :h to speak through the projection. Right-click to project or cancel a projection. Alt-click to hangup all active and incomming calls. Ctrl-click to end projection without jumping to your last location.")
+		. += span_notice("Дисплей: Текущий радиус проектора: <b>[holo_range]</b> единиц. Используй :h, чтобы говорить через свою проекцию. ПКМ, чтобы установить или удалить свою проекцию. Alt-клик, чтобы сбросить все входящие и исходящие звонки. Ctrl-клик, чтобы прекратить звонок без перехода к последней локации камеры.")
 	else if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Current projection range: <b>[holo_range]</b> units.")
+		. += span_notice("Дисплей: Текущий радиус проектора: <b>[holo_range]</b> единиц.")
 
 /obj/machinery/holopad/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -261,11 +261,11 @@ Possible to do for anyone motivated enough:
 
 	if(istype(P,/obj/item/disk/holodisk))
 		if(disk)
-			to_chat(user,span_warning("There's already a disk inside [src]!"))
+			to_chat(user,span_warning("Внутри уже есть диск!"))
 			return
 		if (!user.transferItemToLoc(P,src))
 			return
-		to_chat(user,span_notice("You insert [P] into [src]."))
+		to_chat(user,span_notice("Вставляю [P] в [src.name]."))
 		disk = P
 		return
 
@@ -316,19 +316,19 @@ Possible to do for anyone motivated enough:
 			if(isAI(usr))
 				var/mob/living/silicon/ai/ai_user = usr
 				ai_user.eyeobj.setLoc(get_turf(src))
-				to_chat(usr, span_info("AIs can not request AI presence. Jumping instead."))
+				to_chat(usr, span_info("ИИ не могут запрашивать присутствие ИИ. Перемещаюсь."))
 				return
 			if(last_request + 200 < world.time)
 				last_request = world.time
-				to_chat(usr, span_info("You requested an AI's presence."))
+				to_chat(usr, span_info("Запрашиваю присутствие ИИ."))
 				var/area/area = get_area(src)
 				for(var/mob/living/silicon/ai/AI in GLOB.silicon_mobs)
 					if(!AI.client)
 						continue
-					to_chat(AI, span_info("Your presence is requested at <a href='?src=[REF(AI)];jump_to_holopad=[REF(src)]'>\the [area]</a>. <a href='?src=[REF(AI)];project_to_holopad=[REF(src)]'>Project Hologram?</a>"))
+					to_chat(AI, span_info("Меня хотят видеть <a href='?src=[REF(AI)];jumptoholopad=[REF(src)]'>в [area]</a>."))
 				return TRUE
 			else
-				to_chat(usr, span_info("A request for AI presence was already sent recently."))
+				to_chat(usr, span_info("Недавно уже был запрос ИИ. Платформа перезаряжается."))
 				return
 		if("holocall")
 			if(outgoing_call)
@@ -340,7 +340,7 @@ Possible to do for anyone motivated enough:
 					if(A)
 						LAZYADD(callnames[A], I)
 				callnames -= get_area(src)
-				var/result = tgui_input_list(usr, "Choose an area to call", "Holocall", sort_names(callnames))
+				var/result = tgui_input_list(usr, "Куда звоним?", "Голозвонок", sort_names(callnames))
 				if(isnull(result))
 					return
 				if(QDELETED(usr) || outgoing_call)
@@ -354,7 +354,7 @@ Possible to do for anyone motivated enough:
 					calling = TRUE
 					return TRUE
 			else
-				to_chat(usr, span_warning("You must stand on the holopad to make a call!"))
+				to_chat(usr, span_warning("Нужно стоять на платформе, что сделать вызов!"))
 		if("connectcall")
 			var/datum/holocall/call_to_connect = locate(params["holopad"]) in holo_calls
 			if(!QDELETED(call_to_connect))
@@ -534,7 +534,7 @@ Possible to do for anyone motivated enough:
 
 	if(is_operational)//If the projector has power
 		if(AI && istype(AI.current, /obj/machinery/holopad))
-			to_chat(user, "[span_danger("ERROR:")] \black Image feed in progress.")
+			to_chat(user, "[span_danger("ОШИБКА:")] \black Уже работает.")
 			return
 
 		// What to pull our appearance out of
@@ -554,15 +554,15 @@ Possible to do for anyone motivated enough:
 		hologram.layer = FLY_LAYER //Above all the other objects/mobs. Or the vast majority of them.
 		SET_PLANE_EXPLICIT(hologram, ABOVE_GAME_PLANE, src)
 		hologram.set_anchored(TRUE)//So space wind cannot drag it.
-		hologram.name = "[user.name] (Hologram)"//If someone decides to right click.
+		hologram.name = "Голограмма [user.name]"//If someone decides to right click.
 		set_holo(user, hologram)
 
 		set_holo(user, hologram)
-		visible_message(span_notice("A holographic image of [user] flickers to life before your eyes!"))
+		visible_message(span_notice("Голографическое изображение [user] появляется перед моими глазами!"))
 
 		return hologram
 	else
-		to_chat(user, "[span_danger("ERROR:")] Unable to project hologram.")
+		to_chat(user, "[span_danger("ОШИБКА:")] Невозможно создать голограмму.")
 
 /*This is the proc for special two-way communication between AI and holopad/people talking near holopad.
 For the other part of the code, check silicon say.dm. Particularly robot talk.*/
@@ -742,10 +742,10 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	hologram.layer = FLY_LAYER//Above all the other objects/mobs. Or the vast majority of them.
 	SET_PLANE_EXPLICIT(hologram, ABOVE_GAME_PLANE, src)
 	hologram.set_anchored(TRUE)//So space wind cannot drag it.
-	hologram.name = "[record.caller_name] (Hologram)"//If someone decides to right click.
+	hologram.name = "Голограмма [record.caller_name]"//If someone decides to right click.
 	set_holo(record, hologram)
 
-	visible_message(span_notice("A holographic image of [record.caller_name] flickers to life before your eyes!"))
+	visible_message(span_notice("Голографическое изображение [record.caller_name] появляется перед моими глазами!"))
 	return hologram
 
 /obj/machinery/holopad/proc/replay_start()
@@ -833,7 +833,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			replay_holo.icon_state = work_off.icon_state
 			replay_holo.copy_overlays(work_off, TRUE)
 		if(HOLORECORD_RENAME)
-			replay_holo.name = entry[2] + " (Hologram)"
+			replay_holo.name = "Голограмма " + entry[2]
 	.(entry_number+1)
 
 /obj/machinery/holopad/proc/record_stop()
@@ -869,7 +869,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	return ..()
 
 /obj/effect/overlay/holoray
-	name = "holoray"
+	name = "гололуч"
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "holoray"
 	layer = FLY_LAYER

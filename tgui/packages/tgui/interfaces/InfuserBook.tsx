@@ -132,7 +132,7 @@ export const InfuserBook = (props, context) => {
   const restrictedNext = chapter === 3 && pageInChapter === 0;
 
   return (
-    <Window title="Инструкция к рекомбинатору" width={620} height={500}>
+    <Window title="Инструкция к рекомбинатору" width={620} height={520}>
       <Window.Content>
         <Stack vertical>
           <Stack.Item mb={-1}>
@@ -213,13 +213,11 @@ export const InfuserInstructions = (props, context) => {
         </Stack.Item>
         <Stack.Item fontSize="16px">Я готов! Как это всё таки работает?</Stack.Item>
         <Stack.Item color="label">
-          1. Поместите мёртвое существо в рекомбинатор. Из него вы будете брать ДНК.
-          <br >
-          2. Войдите в машину, как сканнер ДНК.
-          </br>
-          <br>
-          3. Попросите кого-нибудь активировать машину снаружи.
-          <br />
+          <li>
+            <ul>1. Поместите мёртвое существо в рекомбинатор. Из него вы будете брать ДНК.</ul>
+            <ul>2. Войдите в машину, как в манипулятор ДНК.</ul>
+            <ul>3. Попросите кого-нибудь активировать машину снаружи.</ul>
+          </li>
           <Box mt="10px" inline color="white">
             Готово! Обратите внимание, что существо будет уничтожено в процессе инфузии ДНК.
           </Box>

@@ -537,9 +537,9 @@
 			created_art.AddElement(/datum/element/art, BAD_ART)
 
 	if(!instant)
-		to_chat(user, span_notice("You finish drawing \the [temp]."))
+		to_chat(user, span_notice("You finish drawing  [temp]."))
 	else
-		to_chat(user, span_notice("You spray a [temp] on \the [target.name]"))
+		to_chat(user, span_notice("You spray a [temp] on  [target.name]"))
 
 	if(length(text_buffer) > 1)
 		text_buffer = copytext(text_buffer, length(text_buffer[1]) + 1)

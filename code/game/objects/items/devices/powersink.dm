@@ -37,7 +37,7 @@
 /obj/item/powersink/examine(mob/user)
 	. = ..()
 	if(mode)
-		. += "\The [src] is bolted to the floor."
+		. += " [src] is bolted to the floor."
 	if((in_range(user, src) || isobserver(user)) && internal_heat > max_heat * 0.5)
 		. += span_danger("[src] is warping the air above it. It must be very hot.")
 
@@ -81,26 +81,26 @@
 		if(isturf(T) && T.underfloor_accessibility >= UNDERFLOOR_INTERACTABLE)
 			attached = locate() in T
 			if(!attached)
-				to_chat(user, span_warning("\The [src] must be placed over an exposed, powered cable node!"))
+				to_chat(user, span_warning(" [src] must be placed over an exposed, powered cable node!"))
 			else
 				set_mode(CLAMPED_OFF)
 				user.visible_message( \
-					"[user] attaches \the [src] to the cable.", \
-					span_notice("You bolt \the [src] into the floor and connect it to the cable."),
+					"[user] attaches  [src] to the cable.", \
+					span_notice("You bolt  [src] into the floor and connect it to the cable."),
 					span_hear("You hear some wires being connected to something."))
 		else
-			to_chat(user, span_warning("\The [src] must be placed over an exposed, powered cable node!"))
+			to_chat(user, span_warning(" [src] must be placed over an exposed, powered cable node!"))
 	else
 		set_mode(DISCONNECTED)
 		user.visible_message( \
-			"[user] detaches \the [src] from the cable.", \
-			span_notice("You unbolt \the [src] from the floor and detach it from the cable."),
+			"[user] detaches  [src] from the cable.", \
+			span_notice("You unbolt  [src] from the floor and detach it from the cable."),
 			span_hear("You hear some wires being disconnected from something."))
 
 /obj/item/powersink/screwdriver_act(mob/living/user, obj/item/tool)
 	user.visible_message( \
-		"[user] messes with \the [src] for a bit.", \
-		span_notice("You can't fit the screwdriver into \the [src]'s bolts! Try using a wrench."))
+		"[user] messes with  [src] for a bit.", \
+		span_notice("You can't fit the screwdriver into  [src]'s bolts! Try using a wrench."))
 	return TRUE
 
 /obj/item/powersink/attack_paw(mob/user, list/modifiers)
@@ -119,8 +119,8 @@
 
 		if(CLAMPED_OFF)
 			user.visible_message( \
-				"[user] activates \the [src]!", \
-				span_notice("You activate \the [src]."),
+				"[user] activates  [src]!", \
+				span_notice("You activate  [src]."),
 				span_hear("You hear a click."))
 			message_admins("Power sink activated by [ADMIN_LOOKUPFLW(user)] at [ADMIN_VERBOSEJMP(src)]")
 			user.log_message("activated a powersink", LOG_GAME)
@@ -129,8 +129,8 @@
 
 		if(OPERATING)
 			user.visible_message( \
-				"[user] deactivates \the [src]!", \
-				span_notice("You deactivate \the [src]."),
+				"[user] deactivates  [src]!", \
+				span_notice("You deactivate  [src]."),
 				span_hear("You hear a click."))
 			user.log_message("deactivated the powersink", LOG_GAME)
 			set_mode(CLAMPED_OFF)

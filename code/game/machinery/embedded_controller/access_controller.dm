@@ -131,7 +131,7 @@
 	if(busy)
 		return
 	if(!allowed(usr))
-		to_chat(usr, span_warning("Access denied."))
+		to_chat(usr, span_warning("Доступ запрещён."))
 		return
 	switch(href_list["command"])
 		if("close_exterior")

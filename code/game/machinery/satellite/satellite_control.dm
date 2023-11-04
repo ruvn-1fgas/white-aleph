@@ -1,6 +1,6 @@
 /obj/machinery/computer/sat_control
-	name = "satellite control"
-	desc = "Used to control the satellite network."
+	name = "Управление щитами"
+	desc = "Используется для управления массивом защитных спутников."
 	circuit = /obj/item/circuitboard/computer/sat_control
 	var/notice
 

@@ -338,14 +338,14 @@
 
 /obj/item/stock_block/examine(mob/user)
 	. = ..()
-	. += span_notice("\The [src] is worth [export_value] cr, from selling [quantity] sheets of [initial(export_mat?.name)].")
+	. += span_notice(" [src] is worth [export_value] cr, from selling [quantity] sheets of [initial(export_mat?.name)].")
 	if(fluid)
-		. += span_warning("\The [src] is currently liquid! It's value is based on the market price.")
+		. += span_warning(" [src] is currently liquid! It's value is based on the market price.")
 	else
-		. += span_notice("\The [src]'s value is still [span_boldnotice("locked in")]. [span_boldnotice("Sell it")] before it's value becomes liquid!")
+		. += span_notice(" [src]'s value is still [span_boldnotice("locked in")]. [span_boldnotice("Sell it")] before it's value becomes liquid!")
 
 /obj/item/stock_block/proc/value_warning()
-	visible_message(span_warning("\The [src] is starting to become liquid!"))
+	visible_message(span_warning(" [src] is starting to become liquid!"))
 	icon_state = "stock_block_fluid"
 	update_appearance(UPDATE_ICON_STATE)
 
@@ -357,7 +357,7 @@
 	export_value = quantity * SSstock_market.materials_prices[export_mat] * MARKET_PROFIT_MODIFIER
 	icon_state = "stock_block_liquid"
 	update_appearance(UPDATE_ICON_STATE)
-	visible_message(span_warning("\The [src] becomes liquid!"))
+	visible_message(span_warning(" [src] becomes liquid!"))
 
 #undef MAX_STACK_LIMIT
 #undef GALATIC_MATERIAL_ORDER

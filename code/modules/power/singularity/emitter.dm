@@ -150,7 +150,7 @@
 		to_chat(user, span_warning("[src] needs to be firmly secured to the floor first!"))
 		return FALSE
 	if(!powernet)
-		to_chat(user, span_warning("\The [src] isn't connected to a wire!"))
+		to_chat(user, span_warning(" [src] isn't connected to a wire!"))
 		return FALSE
 	if(locked || !allow_switch_interact)
 		to_chat(user, span_warning("The controls are locked!"))
@@ -250,7 +250,7 @@
 /obj/machinery/power/emitter/can_be_unfasten_wrench(mob/user, silent)
 	if(active)
 		if(!silent)
-			to_chat(user, span_warning("Turn \the [src] off first!"))
+			to_chat(user, span_warning("Turn  [src] off first!"))
 		return FAILED_UNFASTEN
 
 	else if(welded)
@@ -322,7 +322,7 @@
 		to_chat(user, span_danger("Access denied."))
 		return
 	if(!active)
-		to_chat(user, span_warning("The controls can only be locked when \the [src] is online!"))
+		to_chat(user, span_warning("The controls can only be locked when  [src] is online!"))
 		return
 	locked = !locked
 	to_chat(user, span_notice("You [src.locked ? "lock" : "unlock"] the controls."))

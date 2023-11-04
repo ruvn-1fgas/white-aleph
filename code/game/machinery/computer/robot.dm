@@ -158,7 +158,7 @@
 					var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 					s.set_up(3, TRUE, drone)
 					s.start()
-					drone.visible_message(span_danger("\the [drone] self-destructs!"))
+					drone.visible_message(span_danger(" [drone] self-destructs!"))
 					drone.investigate_log("has been gibbed by a robotics console.", INVESTIGATE_DEATHS)
 					drone.gib()
 

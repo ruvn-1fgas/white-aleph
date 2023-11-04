@@ -128,7 +128,7 @@
 				for(var/obj/item/T in I.contents)
 					if(istype(T, /obj/item/book) || istype(T, /obj/item/spellbook))
 						atom_storage.attempt_remove(T, src)
-				to_chat(user, span_notice("You empty \the [I] into \the [src]."))
+				to_chat(user, span_notice("You empty  [I] into  [src]."))
 				update_appearance()
 			else if(istype(I, /obj/item/pen))
 				if(!user.can_perform_action(src) || !user.can_write(I))

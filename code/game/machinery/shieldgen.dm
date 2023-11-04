@@ -1,6 +1,6 @@
 /obj/structure/emergency_shield
-	name = "emergency energy shield"
-	desc = "An energy shield used to contain hull breaches."
+	name = "силовое защитное поле"
+	desc = "Воздхонепроницаемое силовое поле защищающее от разгерметизации и метеоритов."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "shield-old"
 	density = TRUE
@@ -200,14 +200,14 @@
 		return
 
 	if (active)
-		user.visible_message(span_notice("[user] deactivated \the [src]."), \
-			span_notice("You deactivate \the [src]."), \
+		user.visible_message(span_notice("[user] deactivated  [src]."), \
+			span_notice("You deactivate  [src]."), \
 			span_hear("You hear heavy droning fade out."))
 		shields_down()
 	else
 		if(anchored)
-			user.visible_message(span_notice("[user] activated \the [src]."), \
-				span_notice("You activate \the [src]."), \
+			user.visible_message(span_notice("[user] activated  [src]."), \
+				span_notice("You activate  [src]."), \
 				span_hear("You hear heavy droning."))
 			shields_up()
 		else
@@ -236,7 +236,7 @@
 		tool.play_tool_sound(src, 100)
 		balloon_alert(user, "unsecured")
 		if(active)
-			to_chat(user, span_notice("\The [src] shuts off!"))
+			to_chat(user, span_notice(" [src] shuts off!"))
 			shields_down()
 		set_anchored(FALSE)
 
@@ -254,7 +254,7 @@
 			coil.use(1)
 			atom_integrity = max_integrity
 			set_machine_stat(machine_stat & ~BROKEN)
-			to_chat(user, span_notice("You repair \the [src]."))
+			to_chat(user, span_notice("You repair  [src]."))
 			update_appearance()
 
 	else if(W.GetID())
@@ -449,24 +449,24 @@
 	if(.)
 		return
 	if(!anchored)
-		to_chat(user, span_warning("\The [src] needs to be firmly secured to the floor first!"))
+		to_chat(user, span_warning(" [src] needs to be firmly secured to the floor first!"))
 		return
 	if(locked && !issilicon(user))
 		to_chat(user, span_warning("The controls are locked!"))
 		return
 	if(!powernet)
-		to_chat(user, span_warning("\The [src] needs to be powered by a wire!"))
+		to_chat(user, span_warning(" [src] needs to be powered by a wire!"))
 		return
 
 	if(active)
-		user.visible_message(span_notice("[user] turned \the [src] off."), \
-			span_notice("You turn off \the [src]."), \
+		user.visible_message(span_notice("[user] turned  [src] off."), \
+			span_notice("You turn off  [src]."), \
 			span_hear("You hear heavy droning fade out."))
 		active = FALSE
 		user.log_message("deactivated [src].", LOG_GAME)
 	else
-		user.visible_message(span_notice("[user] turned \the [src] on."), \
-			span_notice("You turn on \the [src]."), \
+		user.visible_message(span_notice("[user] turned  [src] on."), \
+			span_notice("You turn on  [src]."), \
 			span_hear("You hear heavy droning."))
 		active = ACTIVE_SETUPFIELDS
 		user.log_message("activated [src].", LOG_GAME)
@@ -503,7 +503,7 @@
 		needs_power = TRUE
 		setDir(get_dir(gen_primary, gen_secondary))
 	for(var/mob/living/L in get_turf(src))
-		visible_message(span_danger("\The [src] is suddenly occupying the same space as \the [L]!"))
+		visible_message(span_danger(" [src] is suddenly occupying the same space as  [L]!"))
 		L.investigate_log("has been gibbed by [src].", INVESTIGATE_DEATHS)
 		L.gib(DROP_ALL_REMAINS)
 	RegisterSignal(src, COMSIG_ATOM_SINGULARITY_TRY_MOVE, PROC_REF(block_singularity))

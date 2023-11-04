@@ -174,7 +174,7 @@ GLOBAL_LIST_EMPTY(request_list)
 	/// What time was the last action taken on the feed_network?
 	var/last_action
 	/// What does this feed network say when a message/author is redacted?
-	var/redacted_text = "\[REDACTED\]"
+	var/redacted_text = "\[ДАННЫЕ УДАЛЕНЫ\]"
 	/// List of all the network_channels Channel Id numbers, kept in a global easy to find place.
 	var/list/channel_IDs = list()
 	/// How many messages currently exist on this feed_network? Increments as new messages are written.

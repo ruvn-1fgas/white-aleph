@@ -207,8 +207,8 @@
 	else
 		playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
 		add_dent(WALL_DENT_HIT)
-		user.visible_message(span_danger("[user] smashes \the [src]!"), \
-					span_danger("You smash \the [src]!"), \
+		user.visible_message(span_danger("[user] smashes  [src]!"), \
+					span_danger("You smash  [src]!"), \
 					span_hear("You hear a booming smash!"))
 	return TRUE
 

@@ -102,12 +102,12 @@
 
 /obj/item/modular_computer/laptop/proc/toggle_open(mob/living/user=null)
 	if(screen_on)
-		to_chat(user, span_notice("You close \the [src]."))
+		to_chat(user, span_notice("You close  [src]."))
 		slowdown = initial(slowdown)
 		w_class = initial(w_class)
 		drag_slowdown = initial(drag_slowdown)
 	else
-		to_chat(user, span_notice("You open \the [src]."))
+		to_chat(user, span_notice("You open  [src]."))
 		slowdown = slowdown_open
 		w_class = w_class_open
 		drag_slowdown = slowdown_open

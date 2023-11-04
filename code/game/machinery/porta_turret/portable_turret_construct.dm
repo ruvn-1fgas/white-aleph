@@ -9,7 +9,7 @@
 #define PTURRET_EXTERNAL_ARMOUR_ON  8
 
 /obj/machinery/porta_turret_construct
-	name = "turret frame"
+	name = "турель"
 	icon = 'icons/obj/weapons/turrets.dmi'
 	icon_state = "turret_frame"
 	desc = "An unfinished covered turret frame."
