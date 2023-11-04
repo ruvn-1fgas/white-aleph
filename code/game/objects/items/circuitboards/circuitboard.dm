@@ -141,4 +141,4 @@ micro-manipulator, console screen, beaker, Microlaser, matter bin, power cells.
 
 		nice_list += list("[component_amount] [component_name]\s")
 
-	. += span_info("It requires [english_list(nice_list)].")
+	. += span_info("Требуемые компоненты: [english_list(nice_list)].")
