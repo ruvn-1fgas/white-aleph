@@ -1,10 +1,10 @@
 /obj/item/ai_module/syndicate // This one doesn't inherit from ion boards because it doesn't call ..() in transmitInstructions. ~Miauw
-	name = "Hacked AI Module"
-	desc = "An AI Module for hacking additional laws to an AI."
+	name = "модуль взлома ИИ Синдиката"
+	desc = "Модуль ИИ для взлома и установки дополнительных законов ИИ. На плате вытравлена стилизованная буква \"S\""
 	laws = list("")
 
 /obj/item/ai_module/syndicate/attack_self(mob/user)
-	var/targName = tgui_input_text(user, "Enter a new law for the AI", "Freeform Law Entry", laws[1], CONFIG_GET(number/max_law_len), TRUE)
+	var/targName = stripped_input(user, "Введите закон.", "Ввод", laws[1], CONFIG_GET(number/max_law_len))
 	if(!targName)
 		return
 	if(is_ic_filtered(targName)) // not even the syndicate can uwu

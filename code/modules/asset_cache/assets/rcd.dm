@@ -42,4 +42,4 @@
 				else
 					sprite_icon = icon(icon = initial(path.icon), icon_state = initial(path.icon_state))
 
-				Insert(sanitize_css_class_name(sprite_name), sprite_icon)
+				Insert(sprite_name, sprite_icon)

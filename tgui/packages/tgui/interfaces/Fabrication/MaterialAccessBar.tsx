@@ -22,6 +22,20 @@ const MATERIAL_RARITY: Record<string, number> = {
   'бананиум': 10,
 };
 
+const MATERIAL_RU_TO_EN: Record<string, string> = {
+  'стекло': 'glass',
+  'железо': 'iron',
+  'пластик': 'plastic',
+  'титан': 'titanium',
+  'плазма': 'plasma',
+  'серебро': 'silver',
+  'золото': 'gold',
+  'уран': 'uranium',
+  'аламаз': 'diamond',
+  'блюспейс кристалл': 'bluespace crystal',
+  'бананиум': 'bananium',
+};
+
 export type MaterialAccessBarProps = {
   /**
    * All materials currently available to the user.
@@ -104,7 +118,7 @@ const MaterialCounter = (props: MaterialCounterProps, context) => {
           onClick={() => onEjectRequested(1)}
           className="MaterialDock__Label">
           <Flex.Item>
-            <MaterialIcon materialName={material.name} sheets={sheets} />
+            <MaterialIcon materialName={MATERIAL_RU_TO_EN[material.name]} sheets={sheets} />
           </Flex.Item>
           <Flex.Item>
             <AnimatedNumber value={sheets} format={LABEL_FORMAT} />
