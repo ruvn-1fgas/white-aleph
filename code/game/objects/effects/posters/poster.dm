@@ -87,9 +87,9 @@
  * For the item form that can be spawned for players, see [/obj/item/poster]
  */
 /obj/structure/sign/poster
-	name = "poster"
+	name = "плакат"
 	var/original_name
-	desc = "A large piece of space-resistant printed paper."
+	desc = "Большой кусок плотной печатной бумаги."
 	icon = 'icons/obj/poster.dmi'
 	anchored = TRUE
 	buildable_sign = FALSE //Cannot be unwrenched from a wall.
@@ -114,8 +114,8 @@
 		randomise(random_basetype)
 	if(!ruined)
 		original_name = name // can't use initial because of random posters
-		name = "poster - [name]"
-		desc = "A large piece of space-resistant printed paper. [desc]"
+		name = "плакат - [name]"
+		desc = "Большой кусок плотной печатной бумаги. [desc]"
 
 	AddElement(/datum/element/beauty, 300)
 
@@ -176,10 +176,10 @@
 	if(tool.tool_behaviour == TOOL_WIRECUTTER)
 		tool.play_tool_sound(src, 100)
 		if(ruined)
-			to_chat(user, span_notice("You remove the remnants of the poster."))
+			to_chat(user, span_notice("Снимаю остатки плаката со стены."))
 			qdel(src)
 		else
-			to_chat(user, span_notice("You carefully remove the poster from the wall."))
+			to_chat(user, span_notice("Аккуратно снимаю плакат со стены."))
 			roll_and_drop(Adjacent(user) ? get_turf(user) : loc)
 
 /obj/structure/sign/poster/attack_hand(mob/user, list/modifiers)
@@ -188,6 +188,7 @@
 		return
 	if(ruined)
 		return
+
 	tear_poster(user)
 
 /obj/structure/sign/poster/proc/spring_trap(mob/user)
@@ -217,7 +218,7 @@
 //separated to reduce code duplication. Moved here for ease of reference and to unclutter r_wall/attackby()
 /turf/closed/proc/place_poster(obj/item/poster/rolled_poster, mob/user)
 	if(!rolled_poster.poster_structure)
-		to_chat(user, span_warning("[rolled_poster] has no poster... inside it? Inform a coder!"))
+		to_chat(user, span_warning("[rolled_poster] не имеет плаката... внутри? Че бля!"))
 		return
 
 	// Deny placing posters on currently-diagonal walls, although the wall may change in the future.
@@ -230,14 +231,14 @@
 	var/stuff_on_wall = 0
 	for(var/obj/contained_object in contents) //Let's see if it already has a poster on it or too much stuff
 		if(istype(contained_object, /obj/structure/sign/poster))
-			balloon_alert(user, "no room!")
+			to_chat(user, span_warning("Стена слишком загромождена, чтобы разместить плакат!"))
 			return
 		stuff_on_wall++
 		if(stuff_on_wall == 3)
-			balloon_alert(user, "no room!")
+			to_chat(user, span_warning("Стена слишком загромождена, чтобы разместить плакат!"))
 			return
 
-	balloon_alert(user, "hanging poster...")
+	to_chat(user, span_notice("Начинаю вешать плакат на стену...") 	)
 	var/obj/structure/sign/poster/placed_poster = rolled_poster.poster_structure
 
 	flick("poster_being_set", placed_poster)
@@ -259,7 +260,7 @@
 	to_chat(user, span_notice("You place the poster!"))
 
 /obj/structure/sign/poster/proc/tear_poster(mob/user)
-	visible_message(span_notice("[user] rips [src] in a single, decisive motion!") )
+	visible_message(span_notice("[user] срывает [src] одним решительным движением!")  )
 	playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, TRUE)
 	spring_trap(user)
 
@@ -274,8 +275,8 @@
 /obj/structure/sign/poster/ripped
 	ruined = TRUE
 	icon_state = "poster_ripped"
-	name = "ripped poster"
-	desc = "You can't make out anything from the poster's original print. It's ruined."
+	name = "cорванный плакат"
+	desc = "По оригинальному принту плаката ничего не разобрать. Он испорчен."
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/ripped, 32)
 

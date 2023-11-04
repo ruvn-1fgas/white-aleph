@@ -294,8 +294,8 @@
 	color = "#c6f4ff"
 
 /obj/effect/decal/cleanable/wrapping
-	name = "wrapping shreds"
-	desc = "Torn pieces of cardboard and paper, left over from a package."
+	name = "куча бумаги"
+	desc = "Куча бесполезных клочков бумаги. Кто-то намусорил!"
 	icon = 'icons/obj/debris.dmi'
 	icon_state = "paper_shreds"
 
@@ -308,8 +308,8 @@
 	icon_state = "syndie_pinata_shreds"
 
 /obj/effect/decal/cleanable/garbage
-	name = "decomposing garbage"
-	desc = "A split open garbage bag, its stinking content seems to be partially liquified. Yuck!"
+	name = "разлагающийся мусор"
+	desc = "Что-то гниющее лежит на полу. Из этой кучи что-то вытекает..."
 	icon = 'icons/obj/debris.dmi'
 	icon_state = "garbage"
 	plane = GAME_PLANE
@@ -322,8 +322,8 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLUDGE, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 15)
 
 /obj/effect/decal/cleanable/ants
-	name = "space ants"
-	desc = "A small colony of space ants. They're normally used to the vacuum of space, so they can't climb too well."
+	name = "космические муравьи"
+	desc = "Небольшая колония космических муравьёв. Обычно они находятся в космосе без гравитации, поэтому не могут передвигаться далеко."
 	icon = 'icons/obj/debris.dmi'
 	icon_state = "ants"
 	beauty = -150
@@ -402,8 +402,8 @@
 	qdel(src)
 
 /obj/effect/decal/cleanable/ants/fire
-	name = "space fire ants"
-	desc = "A small colony no longer. We are the fire nation."
+	name = "огненные муравьи"
+	desc = "Мы больше не маленькая колония. Мы - нация огня."
 	icon_state = "fire_ants"
 	mergeable_decal = FALSE
 
@@ -414,8 +414,8 @@
 	return
 
 /obj/effect/decal/cleanable/fuel_pool
-	name = "pool of fuel"
-	desc = "A pool of flammable fuel. Its probably wise to clean this off before something ignites it..."
+	name = "топливная лужа"
+	desc = "Горючая. Надо бы убрать это всё вот это..."
 	icon_state = "fuel_pool"
 	layer = LOW_OBJ_LAYER
 	beauty = -50
