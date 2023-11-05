@@ -593,7 +593,7 @@
 	build_path = /obj/machinery/computer/order_console/mining/golem
 
 /obj/item/circuitboard/computer/order_console/bitrunning
-	name = "Bitrunning Vendor Console"
+	name = "Консоль Заказа Битраннеров"
 	build_path = /obj/machinery/computer/order_console/bitrunning
 
 /obj/item/circuitboard/computer/ferry

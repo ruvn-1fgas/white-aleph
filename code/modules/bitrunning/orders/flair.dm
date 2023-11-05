@@ -19,12 +19,12 @@
 
 /datum/orderable_item/bitrunning_flair/medkit
 	item_path = /obj/item/storage/medkit/brute
-	desc = "Don't beat yourself up, it's just a game!"
+	desc = "Не избивай себя, это же просто игра!"
 	cost_per_order = 500
 
 /datum/orderable_item/bitrunning_flair/medkit_fire
 	item_path = /obj/item/storage/medkit/fire
-	desc = "Great after heated gaming sessions."
+	desc = "Идеалльный после того как у тебя подгорело."
 	cost_per_order = 500
 
 /datum/orderable_item/bitrunning_flair/oval_sunglasses

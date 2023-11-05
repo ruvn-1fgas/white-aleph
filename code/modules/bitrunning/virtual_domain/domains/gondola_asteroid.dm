@@ -1,10 +1,10 @@
 /datum/lazy_template/virtual_domain/gondola_asteroid
-	name = "Gondola Asteroid"
-	desc = "An asteroid home to a bountiful forest of gondolas. Peaceful."
+	name = "Астероид Гондолы"
+	desc = "Астероид, на котором растет обильный лес гондол. Мирно."
 	map_name = "gondola_asteroid"
-	help_text = "What a lovely forest. There's a loot crate here in the middle of the map. \
-	Hmm... It doesn't budge. The gondolas don't seem to have any trouble moving it, though. \
-	I bet there's a way to move it myself."
+	help_text = "Какой чудесный лес. Здесь, в центре карты, лежит ящик с лутом. \
+	Хм... Он не двигается. А вот гондолы, похоже, без проблем перемещают его. \
+	Наверняка есть способ сдвинуть его самому..."
 	key = "gondola_asteroid"
 	map_name = "gondola_asteroid"
 	safehouse_path = /datum/map_template/safehouse/shuttle_space

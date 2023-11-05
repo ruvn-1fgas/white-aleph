@@ -32,17 +32,17 @@
 /obj/machinery/quantum_server/proc/on_examine(datum/source, mob/examiner, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_infoplain("Can be resource intensive to run. Ensure adequate power supply.")
+	examine_text += span_infoplain("Работа может быть ресурсоемкой. Обеспечить адекватное электропитание.")
 
 	if(capacitor_coefficient < 1)
-		examine_text += span_infoplain("Its coolant capacity reduces cooldown time by [(1 - capacitor_coefficient) * 100]%.")
+		examine_text += span_infoplain("Емкость охлаждающей жидкости уменьшает время охлаждения на [(1 - capacitor_coefficient) * 100]%.")
 
 	if(servo_bonus > 0.2)
-		examine_text += span_infoplain("Its manipulation potential is increasing rewards by [servo_bonus]x.")
-		examine_text += span_infoplain("Injury from unsafe ejection reduced [servo_bonus * 100]%.")
+		examine_text += span_infoplain("Его манипуляционный потенциал увеличивает вознаграждение на [servo_bonus]x.")
+		examine_text += span_infoplain("Снижение травмы при небезопасном выходе на [servo_bonus * 100]%.")
 
 	if(!is_ready)
-		examine_text += span_notice("It is currently cooling down. Give it a few moments.")
+		examine_text += span_notice("В настоящее время он охлаждается. Дайте ему несколько минут.")
 		return
 
 /// Whenever something enters the send tiles, check if it's a loot crate. If so, alert players.
@@ -72,8 +72,8 @@
 /obj/machinery/quantum_server/proc/on_goal_turf_examined(datum/source, mob/examiner, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_info("Beneath your gaze, the floor pulses subtly with streams of encoded data.")
-	examine_text += span_info("It seems to be part of the location designated for retrieving encrypted payloads.")
+	examine_text += span_info("Под вашим взглядом пол тонко пульсирует потоками закодированных данных.")
+	examine_text += span_info("По-видимому, это часть места, предназначенного для извлечения зашифрованных полезных нагрузок.")
 
 /// Scans over the inbound created_atoms from lazy templates
 /obj/machinery/quantum_server/proc/on_template_loaded(datum/lazy_template/source, list/created_atoms)

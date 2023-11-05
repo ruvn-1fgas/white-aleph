@@ -5,8 +5,8 @@
  * Just make it fun and engaging, it's PvE content.
  */
 /obj/item/bitrunning_disk
-	name = "generic bitrunning program"
-	desc = "A disk containing source code."
+	name = "обычная битраннерская программа"
+	desc = "Диск содержащий исходный код."
 	icon = 'icons/obj/assemblies/module.dmi'
 	base_icon_state = "datadisk"
 	icon_state = "datadisk0"
@@ -23,17 +23,17 @@
 /obj/item/bitrunning_disk/proc/on_examined(datum/source, mob/examiner, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_infoplain("This disk must be carried on your person into a netpod to be used.")
+	examine_text += span_infoplain("Диск должен быть у человека перед заходом в сетевой под для получения снаряжения.")
 
 	if(isnull(choice_made))
-		examine_text += span_notice("To make a selection, toggle the disk in hand.")
+		examine_text += span_notice("Для выбора, используй диск в руке.")
 		return
 
-	examine_text += span_info("It has been used to select: <b>[choice_made]</b>.")
-	examine_text += span_notice("It cannot make another selection.")
+	examine_text += span_info("Он был использован что-бы получить: <b>[choice_made]</b>.")
+	examine_text += span_notice("Он не может сделать другой выбор.")
 
 /obj/item/bitrunning_disk/ability
-	desc = "A disk containing source code. It can be used to preload abilities into the virtual domain."
+	desc = "Диск содержащий исходный код. Он может быть использован что-бы загрузить способности в виртуальный домен."
 	/// The selected ability that this grants
 	var/datum/action/granted_action
 	/// The list of actions that this can grant
@@ -49,7 +49,7 @@
 	for(var/datum/action/thing as anything in selectable_actions)
 		names += initial(thing.name)
 
-	var/choice = tgui_input_list(user, message = "Select an ability",  title = "Bitrunning Program", items = names)
+	var/choice = tgui_input_list(user, message = "Выбери способность",  title = "Битраннерская программа", items = names)
 	if(isnull(choice))
 		return
 
@@ -60,13 +60,13 @@
 	if(isnull(granted_action))
 		return
 
-	balloon_alert(user, "selected")
+	balloon_alert(user, "выбрано")
 	playsound(user, 'sound/items/click.ogg', 50, TRUE)
 	choice_made = choice
 
 /// Tier 1 programs. Simple, funny, or helpful.
 /obj/item/bitrunning_disk/ability/tier1
-	name = "bitrunning program: basic"
+	name = "битраннерская программа: обычная"
 	selectable_actions = list(
 		/datum/action/cooldown/spell/conjure/cheese,
 		/datum/action/cooldown/spell/basic_heal,
@@ -74,7 +74,7 @@
 
 /// Tier 2 programs. More complex, powerful, or useful.
 /obj/item/bitrunning_disk/ability/tier2
-	name = "bitrunning program: complex"
+	name = "битраннерская программа: сложная"
 	selectable_actions = list(
 		/datum/action/cooldown/spell/pointed/projectile/fireball,
 		/datum/action/cooldown/spell/pointed/projectile/lightningbolt,
@@ -83,14 +83,14 @@
 
 /// Tier 3 abilities. Very powerful, game breaking.
 /obj/item/bitrunning_disk/ability/tier3
-	name = "bitrunning program: elite"
+	name = "битраннерская программа: элитная"
 	selectable_actions = list(
 		/datum/action/cooldown/spell/shapeshift/dragon,
 		/datum/action/cooldown/spell/shapeshift/polar_bear,
 	)
 
 /obj/item/bitrunning_disk/item
-	desc = "A disk containing source code. It can be used to preload items into the virtual domain."
+	desc = "Диск содержащий исходный код. Он может быть использован что-бы загрузить предметы в виртуальный домен."
 	/// The selected item that this grants
 	var/obj/granted_item
 	/// The list of actions that this can grant
@@ -106,7 +106,7 @@
 	for(var/obj/thing as anything in selectable_items)
 		names += initial(thing.name)
 
-	var/choice = tgui_input_list(user, message = "Select an ability",  title = "Bitrunning Program", items = names)
+	var/choice = tgui_input_list(user, message = "Выбери способность",  title = "Битраннерская программа", items = names)
 	if(isnull(choice))
 		return
 
@@ -114,13 +114,13 @@
 		if(initial(thing.name) == choice)
 			granted_item = thing
 
-	balloon_alert(user, "selected")
+	balloon_alert(user, "выбрана")
 	playsound(user, 'sound/items/click.ogg', 50, TRUE)
 	choice_made = choice
 
 /// Tier 1 items. Simple, funny, or helpful.
 /obj/item/bitrunning_disk/item/tier1
-	name = "bitrunning gear: simple"
+	name = "битраннерское снаряжение: простое"
 	selectable_items = list(
 		/obj/item/pizzabox/infinite,
 		/obj/item/gun/medbeam,
@@ -129,7 +129,7 @@
 
 /// Tier 2 items. More complex, powerful, or useful.
 /obj/item/bitrunning_disk/item/tier2
-	name = "bitrunning gear: complex"
+	name = "битраннерское снаряжение: сложное"
 	selectable_items = list(
 		/obj/item/chainsaw,
 		/obj/item/gun/ballistic/automatic/pistol,
@@ -138,7 +138,7 @@
 
 /// Tier 3 items. Very powerful, game breaking.
 /obj/item/bitrunning_disk/item/tier3
-	name = "bitrunning gear: advanced"
+	name = "битраннерское снаряжение: расширенный"
 	selectable_items = list(
 		/obj/item/gun/energy/tesla_cannon,
 		/obj/item/dualsaber/green,

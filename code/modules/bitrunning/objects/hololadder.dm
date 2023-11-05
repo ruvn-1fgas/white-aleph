@@ -1,8 +1,8 @@
 /obj/structure/hololadder
-	name = "hololadder"
+	name = "гололестница"
 
 	anchored = TRUE
-	desc = "An abstract representation of the means to disconnect from the virtual domain."
+	desc = "Абстрактная репрезентация значения отключения от виртуального домена."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "ladder11"
 	obj_flags = BLOCK_Z_OUT_DOWN
@@ -30,10 +30,10 @@
 		return
 
 	if(!HAS_TRAIT(user, TRAIT_TEMPORARY_BODY))
-		balloon_alert(user, "no connection detected.")
+		balloon_alert(user, "подключения не найдено.")
 		return
 
-	balloon_alert(user, "disconnecting...")
+	balloon_alert(user, "отключение...")
 	if(do_after(user, travel_time, src))
 		SEND_SIGNAL(user, COMSIG_BITRUNNER_SAFE_DISCONNECT)
 
