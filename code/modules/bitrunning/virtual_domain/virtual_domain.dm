@@ -11,7 +11,7 @@
 	/// Cost of this map to load
 	var/cost = BITRUNNER_COST_NONE
 	/// The description of the map
-	var/desc = "A map."
+	var/desc = "Карта."
 	/// The 'difficulty' of the map, which affects the ui and ability to scan info.
 	var/difficulty = BITRUNNER_DIFFICULTY_NONE
 	/// An assoc list of typepath/amount to spawn on completion. Not weighted - the value is the amount
@@ -27,7 +27,7 @@
 	/// Information given to connected clients via ability
 	var/help_text
 	// Name to show in the UI
-	var/name = "Virtual Domain"
+	var/name = "Виртуальный домен"
 	/// Points to reward for completion. Used to purchase new domains and calculate ore rewards.
 	var/reward_points = BITRUNNER_REWARD_MIN
 	/// The start time of the map. Used to calculate time taken

@@ -64,7 +64,7 @@
 	inhand_icon_state = null
 
 /obj/item/clothing/under/rank/cargo/bitrunner
-	name = "bitrunner's jumpsuit"
-	desc = "It's a leathery jumpsuit worn by a bitrunner. Tacky, but comfortable to wear if sitting for prolonged periods of time."
+	name = "комбинезон битраннера"
+	desc = "Это кожаный комбинезон, который носит битраннер. Липкий, но удобный при длительном сидении."
 	icon_state = "bitrunner"
 	inhand_icon_state = "w_suit"

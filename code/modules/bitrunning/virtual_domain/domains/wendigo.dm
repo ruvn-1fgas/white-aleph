@@ -1,7 +1,7 @@
 /datum/lazy_template/virtual_domain/wendigo
-	name = "Glacial Devourer"
+	name = "Ледниковый опустошитель"
 	cost = BITRUNNER_COST_HIGH
-	desc = "Legends speak of the ravenous Wendigo hidden deep within the caves of Icemoon."
+	desc = "Легенды рассказывают о хищных вендиго, скрывающихся в глубине пещер Ледяной Луны."
 	difficulty = BITRUNNER_DIFFICULTY_HIGH
 	forced_outfit = /datum/outfit/job/miner
 	key = "wendigo"
