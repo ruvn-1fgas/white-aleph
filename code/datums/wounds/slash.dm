@@ -86,18 +86,18 @@
 	if(!limb.current_gauze)
 		return ..()
 
-	var/list/msg = list("The cuts on [victim.p_their()] [limb.plaintext_zone] are wrapped with ")
+	var/list/msg = list("Порезы на [ru_gde_zone(limb.name)] перемотаны")
 	// how much life we have left in these bandages
 	switch(limb.current_gauze.absorption_capacity)
 		if(0 to 1.25)
-			msg += "nearly ruined"
+			msg += " почти разрушенным "
 		if(1.25 to 2.75)
-			msg += "badly worn"
+			msg += " сильно изношенным "
 		if(2.75 to 4)
-			msg += "slightly bloodied"
+			msg += " слегка окровавленным "
 		if(4 to INFINITY)
-			msg += "clean"
-	msg += " [limb.current_gauze.name]!"
+			msg += " чистым "
+	msg += "[limb.current_gauze.name]!"
 
 	return "<B>[msg.Join()]</B>"
 
@@ -161,7 +161,7 @@
 		if(demotes_to)
 			replace_wound(new demotes_to)
 		else
-			to_chat(victim, span_green("The cut on your [limb.plaintext_zone] has [!limb.can_bleed() ? "healed up" : "stopped bleeding"]!"))
+			to_chat(victim, span_green("Порез на моей [ru_gde_zone(limb.name)] перестаёт кровоточить!"))
 			qdel(src)
 
 /datum/wound/slash/flesh/on_stasis(seconds_per_tick, times_fired)
@@ -192,13 +192,13 @@
 	if(user.pulling != victim || user.zone_selected != limb.body_zone || !isfelinid(user) || !victim.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
 		return FALSE
 	if(DOING_INTERACTION_WITH_TARGET(user, victim))
-		to_chat(user, span_warning("You're already interacting with [victim]!"))
+		to_chat(user, span_warning("Уже взаимодействую с [victim]!"))
 		return
 	if(user.is_mouth_covered())
-		to_chat(user, span_warning("Your mouth is covered, you can't lick [victim]'s wounds!"))
+		to_chat(user, "<span class='warning'Мой рот закрыт и не может достать до ран [victim]!</span>")
 		return
 	if(!user.get_organ_slot(ORGAN_SLOT_TONGUE))
-		to_chat(user, span_warning("You can't lick wounds without a tongue!")) // f in chat
+		to_chat(user, span_warning("А чем лизать-то?!")) // f in chat
 		return
 
 	lick_wounds(user)
@@ -213,19 +213,19 @@
 			continue
 		user.ForceContractDisease(iter_disease)
 
-	user.visible_message(span_notice("[user] begins licking the wounds on [victim]'s [limb.plaintext_zone]."), span_notice("You begin licking the wounds on [victim]'s [limb.plaintext_zone]..."), ignored_mobs=victim)
-	to_chat(victim, span_notice("[user] begins to lick the wounds on your [limb.plaintext_zone]."))
+	user.visible_message(span_notice("<b>[user]</b> начинает зализывать рану на [ru_gde_zone(limb.name)] <b>[victim]</b>.") , span_notice("Начинаю зализывать рану на [ru_gde_zone(limb.name)] <b>[victim]</b>...") , ignored_mobs=victim)
+	to_chat(victim, "<span class='notice'><b>[user]</b> начинает зализывать рану на моей [ru_gde_zone(limb.name)].</span")
 	if(!do_after(user, base_treat_time, target=victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return
 
-	user.visible_message(span_notice("[user] licks the wounds on [victim]'s [limb.plaintext_zone]."), span_notice("You lick some of the wounds on [victim]'s [limb.plaintext_zone]"), ignored_mobs=victim)
-	to_chat(victim, span_green("[user] licks the wounds on your [limb.plaintext_zone]!"))
+	user.visible_message(span_notice("<b>[user]</b> зализывает рану на [ru_gde_zone(limb.name)] <b>[victim]</b>.") , span_notice("Зализываю рану на [ru_gde_zone(limb.name)] <b>[victim]</b>.") , ignored_mobs=victim)
+	to_chat(victim, "<span class='green'><b>[user]</b> зализывает рану на моей [ru_gde_zone(limb.name)]!</span")
 	adjust_blood_flow(-0.5)
 
 	if(blood_flow > minimum_flow)
 		try_handling(user)
 	else if(demotes_to)
-		to_chat(user, span_green("You successfully lower the severity of [victim]'s cuts."))
+		to_chat(user, span_green("Успешно ослабляю кровотечение у [victim]."))
 
 /datum/wound/slash/flesh/on_xadone(power)
 	. = ..()
@@ -240,7 +240,7 @@
 /// If someone's putting a laser gun up to our cut to cauterize it
 /datum/wound/slash/flesh/proc/las_cauterize(obj/item/gun/energy/laser/lasgun, mob/user)
 	var/self_penalty_mult = (user == victim ? 1.25 : 1)
-	user.visible_message(span_warning("[user] begins aiming [lasgun] directly at [victim]'s [limb.plaintext_zone]..."), span_userdanger("You begin aiming [lasgun] directly at [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone]..."))
+	user.visible_message(span_smalldanger("<b>[user]</b> начинает наводить [lasgun] прямо на [ru_gde_zone(limb.name)] <b>[victim]</b>...") , span_userdanger("Начинаю наводить [lasgun] прямо на [user == victim ? "свою " : " "][ru_parse_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"]..."))
 	if(!do_after(user, base_treat_time  * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return
 	var/damage = lasgun.chambered.loaded_projectile.damage
@@ -250,7 +250,7 @@
 		return
 	victim.emote("scream")
 	adjust_blood_flow(-1 * (damage / (5 * self_penalty_mult))) // 20 / 5 = 4 bloodflow removed, p good
-	victim.visible_message(span_warning("The cuts on [victim]'s [limb.plaintext_zone] scar over!"))
+	victim.visible_message(span_smalldanger("Порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> превращаются в ужасные шрамы!"))
 	return TRUE
 
 /// If someone is using either a cautery tool or something with heat to cauterize this cut
@@ -262,14 +262,12 @@
 
 	if(HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
 		treatment_delay *= 0.5
-		user.visible_message(span_danger("[user] begins expertly cauterizing [victim]'s [limb.plaintext_zone] with [I]..."), span_warning("You begin cauterizing [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I], keeping the holo-image indications in mind..."))
-	else
-		user.visible_message(span_danger("[user] begins cauterizing [victim]'s [limb.plaintext_zone] with [I]..."), span_warning("You begin cauterizing [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I]..."))
+
+	user.visible_message(span_smalldanger("<b>[user]</b> начинает прижигать порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> используя [I]...") , span_danger("Начинаю прижигать порезы на [user == victim ? "своей" : " "][ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]..."))
 
 	if(!do_after(user, treatment_delay, target = victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return
-	var/bleeding_wording = (!limb.can_bleed() ? "cuts" : "bleeding")
-	user.visible_message(span_green("[user] cauterizes some of the [bleeding_wording] on [victim]."), span_green("You cauterize some of the [bleeding_wording] on [victim]."))
+	user.visible_message(span_green("<b>[user]</b> прижигает некоторые порезы <b>[victim]</b>.") , span_green("Прижигаю некоторые порезы <b>[victim]</b>."))
 	limb.receive_damage(burn = 2 + severity, wound_bonus = CANT_WOUND)
 	if(prob(30))
 		victim.emote("scream")
@@ -279,7 +277,7 @@
 	if(blood_flow > minimum_flow)
 		return try_treating(I, user)
 	else if(demotes_to)
-		to_chat(user, span_green("You successfully lower the severity of [user == victim ? "your" : "[victim]'s"] cuts."))
+		to_chat(user, span_green("Успешно ослабляю кровотечение из [user == victim ? "моих порезов" : "порезов [victim]"]."))
 		return TRUE
 	return FALSE
 
@@ -290,14 +288,12 @@
 
 	if(HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
 		treatment_delay *= 0.5
-		user.visible_message(span_notice("[user] begins expertly stitching [victim]'s [limb.plaintext_zone] with [I]..."), span_notice("You begin stitching [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I], keeping the holo-image information in mind..."))
-	else
-		user.visible_message(span_notice("[user] begins stitching [victim]'s [limb.plaintext_zone] with [I]..."), span_notice("You begin stitching [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I]..."))
+
+	user.visible_message(span_notice("<b>[user]</b> начинает зашивать порезы на [ru_gde_zone(limb.name)] <b>[victim]</b> используя [I]...") , span_notice("Начинаю зашивать порезы на [user == victim ? "моей" : " "][ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"] используя [I]..."))
 
 	if(!do_after(user, treatment_delay, target = victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return TRUE
-	var/bleeding_wording = (!limb.can_bleed() ? "cuts" : "bleeding")
-	user.visible_message(span_green("[user] stitches up some of the [bleeding_wording] on [victim]."), span_green("You stitch up some of the [bleeding_wording] on [user == victim ? "yourself" : "[victim]"]."))
+	user.visible_message(span_green("<b>[user]</b> зашивает некоторые порезы <b>[victim]</b>.") , span_green("Зашиваю некоторые порезы [user == victim ? "успешно" : "<b>[victim]</b>"]."))
 	var/blood_sutured = I.stop_bleeding / self_penalty_mult
 	adjust_blood_flow(-blood_sutured)
 	limb.heal_damage(I.heal_brute, I.heal_burn)
@@ -306,19 +302,20 @@
 	if(blood_flow > minimum_flow)
 		return try_treating(I, user)
 	else if(demotes_to)
-		to_chat(user, span_green("You successfully lower the severity of [user == victim ? "your" : "[victim]'s"] cuts."))
+		to_chat(user, span_green("Успешно ослабляю кровотечение из [user == victim ? "моих порезов" : "порезов [victim]"]."))
 		return TRUE
 	return TRUE
 
 /datum/wound/slash/get_limb_examine_description()
-	return span_warning("The flesh on this limb appears badly lacerated.")
+	return span_warning("Кожа на этой конечности выглядит плохо зашитой.")
 
 /datum/wound/slash/flesh/moderate
-	name = "Rough Abrasion"
-	desc = "Patient's skin has been badly scraped, generating moderate blood loss."
-	treat_text = "Application of clean bandages or first-aid grade sutures, followed by food and rest."
-	examine_desc = "has an open cut"
-	occur_text = "is cut open, slowly leaking blood"
+	name = "Глубокие порезы"
+	skloname = "глубоких порезов"
+	desc = "Кожный покров пациента была сильно повреждён, приводя к умеренной кровопотере."
+	treat_text = "Наложение чистых повязок или швов для прекращения кровотечения, еда и отдых для восстановления."
+	examine_desc = "имеет открытый порез"
+	occur_text = "вскрыта, медленно источая кровь"
 	sound_effect = 'sound/effects/wounds/blood1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
 	initial_flow = 2
@@ -333,7 +330,7 @@
 
 /datum/wound/slash/flesh/moderate/update_descriptions()
 	if(!limb.can_bleed())
-		occur_text = "is cut open"
+		occur_text = "вскрыта, медленно источая кровь"
 
 /datum/wound_pregen_data/flesh_slash/abrasion
 	abstract = FALSE
@@ -343,11 +340,12 @@
 	threshold_minimum = 20
 
 /datum/wound/slash/flesh/severe
-	name = "Open Laceration"
-	desc = "Patient's skin is ripped clean open, allowing significant blood loss."
-	treat_text = "Speedy application of first-aid grade sutures and clean bandages, followed by vitals monitoring to ensure recovery."
-	examine_desc = "has a severe cut"
-	occur_text = "is ripped open, veins spurting blood"
+	name = "Открытая рана"
+	skloname = "открытой раны"
+	desc = "Кожный покров пациента серьёзно повреждён, приводя к значительной кровопотере."
+	treat_text = "Быстрое наложение швов и чистых повязок с последующим мониторингом жизненно важных функций для обеспечения полного восстановления."
+	examine_desc = "имеет серьёзный порез"
+	occur_text = "вскрыта, вены брызгают кровью"
 	sound_effect = 'sound/effects/wounds/blood2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	initial_flow = 3.25
@@ -370,14 +368,15 @@
 
 /datum/wound/slash/flesh/severe/update_descriptions()
 	if(!limb.can_bleed())
-		occur_text = "is ripped open"
+		occur_text = "вскрыта"
 
 /datum/wound/slash/flesh/critical
-	name = "Weeping Avulsion"
-	desc = "Patient's skin is completely torn open, along with significant loss of tissue. Extreme blood loss will lead to quick death without intervention."
-	treat_text = "Immediate bandaging and either suturing or cauterization, followed by supervised resanguination."
-	examine_desc = "is carved down to the bone, spraying blood wildly"
-	occur_text = "is torn open, spraying blood wildly"
+	name = "Открытая артерия"
+	skloname = "открытой артерии"
+	desc = "Нарушена целостность артерии. Серьёзный риск смерти пациента без медицинского вмешательства."
+	treat_text = "Немедленное закрытие раны хирургическими нитками, прижигание и восстановление повреждённых тканей." //на уроках ОБЖ в школе нас учили
+	examine_desc = "брызжет кровью с угрожающей скоростью"
+	occur_text = "разрывается, дико брызгая кровью"
 	sound_effect = 'sound/effects/wounds/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	initial_flow = 4
@@ -393,7 +392,7 @@
 
 /datum/wound/slash/flesh/critical/update_descriptions()
 	if (!limb.can_bleed())
-		occur_text = "is torn open"
+		occur_text = "вскрыта"
 
 /datum/wound_pregen_data/flesh_slash/avulsion
 	abstract = FALSE

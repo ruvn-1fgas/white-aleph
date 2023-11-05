@@ -62,7 +62,7 @@
 		remove_noz()
 
 /obj/item/watertank/verb/toggle_mister_verb()
-	set name = "Toggle Mister"
+	set name = "Достать распылитель"
 	set category = "Object"
 	toggle_mister(usr)
 

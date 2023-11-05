@@ -766,8 +766,8 @@
 
 ////////////////////////// MOLOTOV ///////////////////////
 /obj/item/reagent_containers/cup/glass/bottle/molotov
-	name = "molotov cocktail"
-	desc = "A throwing weapon used to ignite things, typically filled with an accelerant. Recommended highly by rioters and revolutionaries. Light and toss."
+	name = "Коктейль Молотова"
+	desc = "Метательное оружие, используемое для поджогов, обычно наполнено легковоспломеняемой жидкостью. Рекомендуется бунтовщикам и революционерам. Подожгите и бросайте!"
 	icon_state = "vodkabottle"
 	list_reagents = list()
 	var/active = FALSE
@@ -789,7 +789,7 @@
 		icon_state = B.icon_state
 		B.reagents.copy_to(src, 100)
 		if(istype(B, /obj/item/reagent_containers/cup/glass/bottle/juice))
-			desc += " You're not sure if making this out of a carton was the brightest idea."
+			desc += " Не уверен, что делать его из картона было лучшей идеей..."
 			isGlass = FALSE
 	return
 

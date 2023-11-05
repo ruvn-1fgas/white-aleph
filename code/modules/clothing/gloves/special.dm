@@ -61,8 +61,8 @@
 	AddComponent(/datum/component/wearertargeting/punchcooldown)
 
 /obj/item/clothing/gloves/radio
-	name = "translation gloves"
-	desc = "A pair of electronic gloves which connect to nearby radios wirelessly. Allows for sign language users to 'speak' over comms."
+	name = "перчатки передатчик"
+	desc = "Пара электронных перчаток которая удаленно подключается к ближайшим радиостанциям. Позволяет знающим язык жестов 'говорить' через интеркомы"
 	icon_state = "radio_g"
 	inhand_icon_state = null
 	clothing_traits = list(TRAIT_CAN_SIGN_ON_COMMS)

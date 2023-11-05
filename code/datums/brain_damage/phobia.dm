@@ -5,6 +5,7 @@
 	gain_text = span_warning("You start finding default values very unnerving...")
 	lose_text = span_notice("You no longer feel afraid of default values.")
 	var/phobia_type
+	var/phobia_ru
 	/// Cooldown for proximity checks so we don't spam a range 7 view every two seconds.
 	COOLDOWN_DECLARE(check_cooldown)
 	/// Cooldown for freakouts to prevent permastunning.
@@ -24,9 +25,9 @@
 	if(!phobia_type)
 		phobia_type = pick(GLOB.phobia_types)
 
-	gain_text = span_warning("You start finding [phobia_type] very unnerving...")
-	lose_text = span_notice("You no longer feel afraid of [phobia_type].")
-	scan_desc += " of [phobia_type]"
+	gain_text = span_warning("[capitalize(phobia_ru)] меня пугают...")
+	lose_text = span_notice("Да кого вообще волнуют [phobia_ru]?!")
+	scan_desc += " \"[phobia_ru]\""
 	trigger_regex = GLOB.phobia_regexes[phobia_type]
 	trigger_mobs = GLOB.phobia_mobs[phobia_type]
 	trigger_objs = GLOB.phobia_objs[phobia_type]
@@ -100,34 +101,34 @@
 	if(HAS_TRAIT(owner, TRAIT_FEARLESS))
 		return
 	if(trigger_regex.Find(speech_args[SPEECH_MESSAGE]) != 0)
-		to_chat(owner, span_warning("You can't bring yourself to say the word \"[span_phobia("[trigger_regex.group[2]]")]\"!"))
+		to_chat(owner, span_warning("ОЧЕНЬ СТРАШНО СКАЗАТЬ СЛОВО \"[span_phobia("[trigger_regex.group[2]]")]\"!"))
 		speech_args[SPEECH_MESSAGE] = ""
 
 /datum/brain_trauma/mild/phobia/proc/freak_out(atom/reason, trigger_word)
 	COOLDOWN_START(src, scare_cooldown, 12 SECONDS)
 	if(owner.stat == DEAD)
 		return
-	var/message = pick("spooks you to the bone", "shakes you up", "terrifies you", "sends you into a panic", "sends chills down your spine")
+	var/message = pick("пугает меня до костей", "заставляет меня дрожать", "пугает меня", "заставляет меня паниковать", "бросает меня в холодный пот")
 	if(reason)
-		to_chat(owner, span_userdanger("Seeing [span_phobia(reason.name)] [message]!"))
+		to_chat(owner, span_userdanger("[capitalize(reason.name)] [message]!"))
 	else if(trigger_word)
-		to_chat(owner, span_userdanger("Hearing [span_phobia(trigger_word)] [message]!"))
+		to_chat(owner, span_userdanger("\"[capitalize(trigger_word)]\" [message]!"))
 	else
-		to_chat(owner, span_userdanger("Something [message]!"))
+		to_chat(owner, span_userdanger("Что-то [message]!"))
 	var/reaction = rand(1,4)
 	switch(reaction)
 		if(1)
-			to_chat(owner, span_warning("You are paralyzed with fear!"))
+			to_chat(owner, span_warning("Ох!"))
 			owner.Stun(70)
 			owner.set_jitter_if_lower(16 SECONDS)
 		if(2)
 			owner.emote("scream")
 			owner.set_jitter_if_lower(10 SECONDS)
-			owner.say("AAAAH!!", forced = "phobia")
+			owner.say("ААААААА!!", forced = "phobia")
 			if(reason)
 				owner._pointed(reason)
 		if(3)
-			to_chat(owner, span_warning("You shut your eyes in terror!"))
+			to_chat(owner, span_warning("Какой ужас!"))
 			owner.set_jitter_if_lower(10 SECONDS)
 			owner.adjust_temp_blindness(20 SECONDS)
 		if(4)
@@ -140,22 +141,27 @@
 
 /datum/brain_trauma/mild/phobia/aliens
 	phobia_type = "aliens"
+	phobia_ru = "пришельцев"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/anime
 	phobia_type = "anime"
+	phobia_ru = "анимешников"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/authority
 	phobia_type = "authority"
+	phobia_ru = "глав"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/birds
 	phobia_type = "birds"
+	phobia_ru = "птиц"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/blood
 	phobia_type = "blood"
+	phobia_ru = "крови"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/blood/is_scary_item(obj/checked)
@@ -165,72 +171,90 @@
 
 /datum/brain_trauma/mild/phobia/clowns
 	phobia_type = "clowns"
+	phobia_ru = "клоунов"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/conspiracies
 	phobia_type = "conspiracies"
+	phobia_ru = "теорий заговора"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/doctors
 	phobia_type = "doctors"
+	phobia_ru = "врачей"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/falling
 	phobia_type = "falling"
+	phobia_ru = "упасть"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/greytide
 	phobia_type = "greytide"
+	phobia_ru = "ассистентов"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/guns
 	phobia_type = "guns"
+	phobia_ru = "оружия"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/heresy
 	phobia_type = "heresy"
+	phobia_ru = "ереси"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/insects
 	phobia_type = "insects"
+	phobia_ru = "насекомых"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/lizards
 	phobia_type = "lizards"
+	phobia_ru = "ящеров"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/ocky_icky
 	phobia_type = "ocky icky"
+	phobia_ru = "грязи"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/robots
 	phobia_type = "robots"
+	phobia_ru = "роботов"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/security
 	phobia_type = "security"
+	phobia_ru = "охранников"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/skeletons
 	phobia_type = "skeletons"
+	phobia_ru = "скелетов"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/snakes
 	phobia_type = "snakes"
+	phobia_ru = "змей"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/space
 	phobia_type = "space"
+	phobia_ru = "космоса"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/spiders
 	phobia_type = "spiders"
+	phobia_ru = "пауков"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/strangers
 	phobia_type = "strangers"
+	phobia_ru = "незнакомцев"
 	random_gain = FALSE
 
 /datum/brain_trauma/mild/phobia/supernatural
 	phobia_type = "the supernatural"
+	phobia_ru = "сверхъестественных вещей"
 	random_gain = FALSE

@@ -7,8 +7,8 @@
  * Bonus: Displays an annoying message! Should be used for buffing your disease.
 */
 /datum/symptom/itching
-	name = "Itching"
-	desc = "The virus irritates the skin, causing itching."
+	name = "Чесотка"
+	desc = "Вирус раздражает кожу, вызывая чесотку."
 	illness = "Discrete Itching"
 	stealth = 0
 	resistance = 3
@@ -20,8 +20,8 @@
 	symptom_delay_max = 25
 	var/scratch = FALSE
 	threshold_descs = list(
-		"Transmission 6" = "Increases frequency of itching.",
-		"Stage Speed 7" = "The host will scratch itself when itching, causing superficial damage.",
+		"Передача 6" = "Увеличивает частоту чесотки.",
+		"Скорость 7" = "Носитель будет царапать себя при чесотке, вызывая огромный урон.",
 	)
 	///emote cooldowns
 	COOLDOWN_DECLARE(itching_cooldown)
@@ -49,7 +49,7 @@
 			bodypart.receive_damage(0.5)
 		//below handles emotes, limiting the emote of emotes passed to chat
 		if(COOLDOWN_FINISHED(src, itching_cooldown) || !COOLDOWN_FINISHED(src, itching_cooldown) && prob(60) && !off_cooldown_scratched)
-			affected_mob.visible_message("[can_scratch ? span_warning("[affected_mob] scratches [affected_mob.p_their()] [bodypart.plaintext_zone].") : ""]", span_warning("Your [bodypart.plaintext_zone] itches. [can_scratch ? " You scratch it." : ""]"))
+			affected_mob.visible_message("[can_scratch ? span_warning("[affected_mob] чешет свою [ru_parse_zone(bodypart.name)].")  : ""]", span_warning("[capitalize(bodypart.name)] чешется. [can_scratch ? " Чешу её." : ""]"))
 			COOLDOWN_START(src, itching_cooldown, 5 SECONDS)
 			if(!off_cooldown_scratched && !COOLDOWN_FINISHED(src, itching_cooldown))
 				off_cooldown_scratched = TRUE

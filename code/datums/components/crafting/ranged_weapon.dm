@@ -44,7 +44,7 @@
 	category = CAT_WEAPON_RANGED
 
 /datum/crafting_recipe/advancedegun
-	name = "Advanced Energy Gun"
+	name = "Продвинутый Е-Ган"
 	result = /obj/item/gun/energy/e_gun/nuclear
 	reqs = list(
 		/obj/item/gun/energy/e_gun = 1,
@@ -58,7 +58,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/e_gun)
 
 /datum/crafting_recipe/tempgun
-	name = "Temperature Gun"
+	name = "Температурная винтовка"
 	result = /obj/item/gun/energy/temperature
 	reqs = list(
 		/obj/item/gun/energy/disabler = 1,
@@ -72,7 +72,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/e_gun)
 
 /datum/crafting_recipe/beam_rifle
-	name = "Particle Acceleration Rifle"
+	name = "Винтовка ускорения частиц"
 	result = /obj/item/gun/energy/beam_rifle
 	reqs = list(
 		/obj/item/gun/energy/e_gun = 1,
@@ -88,7 +88,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/e_gun)
 
 /datum/crafting_recipe/ebow
-	name = "Energy Crossbow"
+	name = "Энергетический арбалет"
 	result = /obj/item/gun/energy/recharge/ebow/large
 	reqs = list(
 		/obj/item/gun/energy/recharge/kinetic_accelerator = 1,
@@ -99,7 +99,7 @@
 	category = CAT_WEAPON_RANGED
 
 /datum/crafting_recipe/xraylaser
-	name = "X-ray Laser Gun"
+	name = "Рентгеновская лазерная винтовка"
 	result = /obj/item/gun/energy/xray
 	reqs = list(
 		/obj/item/gun/energy/laser = 1,
@@ -113,7 +113,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/laser)
 
 /datum/crafting_recipe/hellgun
-	name = "Hellfire Laser Gun"
+	name = "Лазерная винтовка \"Адское пламя\""
 	result = /obj/item/gun/energy/laser/hellgun
 	reqs = list(
 		/obj/item/gun/energy/laser = 1,
@@ -127,7 +127,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/laser)
 
 /datum/crafting_recipe/ioncarbine
-	name = "Ion Carbine"
+	name = "Ионный карабин"
 	result = /obj/item/gun/energy/ionrifle/carbine
 	reqs = list(
 		/obj/item/gun/energy/laser = 1,
@@ -141,7 +141,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/laser)
 
 /datum/crafting_recipe/decloner
-	name = "Biological Demolecularisor"
+	name = "Клеточный Демолекуляризатор"
 	result = /obj/item/gun/energy/decloner
 	reqs = list(
 		/obj/item/gun/energy/laser = 1,
@@ -157,7 +157,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/laser)
 
 /datum/crafting_recipe/teslacannon
-	name = "Tesla Cannon"
+	name = "Пушка Теслы"
 	result = /obj/item/gun/energy/tesla_cannon
 	reqs = list(
 		/obj/item/assembly/signaler/anomaly/flux = 1,

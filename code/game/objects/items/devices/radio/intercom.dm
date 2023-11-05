@@ -1,6 +1,6 @@
 /obj/item/radio/intercom
-	name = "station intercom"
-	desc = "A trusty station intercom, ready to spring into action even when the headsets go silent."
+	name = "интерком"
+	desc = "Говори в эту штуку."
 	icon = 'icons/obj/machines/wallmounts.dmi'
 	icon_state = "intercom"
 	anchored = TRUE
@@ -23,8 +23,8 @@
 	unscrewed = TRUE
 
 /obj/item/radio/intercom/prison
-	name = "receive-only intercom"
-	desc = "A station intercom. It looks like it has been modified to not broadcast."
+	name = "интерком приемник"
+	desc = "Я могу лишь слушать."
 	icon_state = "intercom_prison"
 	icon_off = "intercom_prison-p"
 

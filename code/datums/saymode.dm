@@ -24,7 +24,7 @@
 	if(!ling_sender)
 		return FALSE
 	if(HAS_TRAIT(user, CHANGELING_HIVEMIND_MUTE))
-		to_chat(user, span_warning("The poison in the air hinders our ability to interact with the hivemind."))
+		to_chat(user, "<span class='warning'>Яд в воздухе не дает мне контактировать с ульем.</span>")
 		return FALSE
 
 	user.log_talk(message, LOG_SAY, tag="changeling [ling_sender.changelingID]")

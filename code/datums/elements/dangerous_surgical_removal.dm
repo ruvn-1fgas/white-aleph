@@ -21,9 +21,9 @@
 	if(source.organ_flags & (ORGAN_FAILING|ORGAN_EMP))
 		return
 	if(user?.Adjacent(source))
-		source.audible_message("[source] explodes on [user]'s face!")
+		source.audible_message("[source] взрывается в лицо [skloname(user, RODITELNI, user.gender)]!")
 		user.take_bodypart_damage(15)
 	else
-		source.audible_message("[source] explodes into tiny pieces!")
+		source.audible_message("[source] разрывается на маленькие кусочки!")
 	explosion(source, light_impact_range = 1, explosion_cause = source)
 	qdel(source)

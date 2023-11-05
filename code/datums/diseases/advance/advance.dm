@@ -17,10 +17,10 @@
  */
 
 /datum/disease/advance
-	name = "Unknown" // We will always let our Virologist name our disease.
-	desc = "An engineered disease which can contain a multitude of symptoms."
-	form = "Advanced Disease" // Will let med-scanners know that this disease was engineered.
-	agent = "advance microbes"
+	name = "Неизвестно" // We will always let our Virologist name our disease.
+	desc = "Может иметь множество симптомов."
+	form = "Спроектированное заболевание" // Will let med-scanners know that this disease was engineered.
+	agent = "спроектированные микробы"
 	max_stages = 5
 	spread_text = "Unknown"
 	viable_mobtypes = list(/mob/living/carbon/human)
@@ -472,7 +472,7 @@
 	symptoms += SSdisease.list_symptoms.Copy()
 	do
 		if(user)
-			var/symptom = tgui_input_list(user, "Choose a symptom to add ([i] remaining)", "Choose a Symptom", sort_list(symptoms, GLOBAL_PROC_REF(cmp_typepaths_asc)))
+			var/symptom = tgui_input_list(user, "Какой симптом добавим ([i] осталось)", "Выбор симптома", sort_list(symptoms, GLOBAL_PROC_REF(cmp_typepaths_asc)))
 			if(isnull(symptom))
 				return
 			else if(istext(symptom))
@@ -486,20 +486,20 @@
 
 	if(D.symptoms.len > 0)
 
-		var/new_name = tgui_input_text(user, "Name your new disease", "New Name", max_length = MAX_NAME_LEN)
+		var/new_name = tgui_input_text(user, "Имя новой болячки", "Новое имя", max_length = MAX_NAME_LEN)
 		if(!new_name)
 			return
 		D.Refresh()
 		D.AssignName(new_name) //Updates the master copy
 		D.name = new_name //Updates our copy
 
-		var/list/targets = list("Random")
+		var/list/targets = list("Случайный")
 		targets += sort_names(GLOB.human_list)
-		var/target = tgui_input_list(user, "Viable human target", "Disease Target", targets)
+		var/target = tgui_input_list(user, "Выбираем человеков в качестве цели", "Заразить цель", targets)
 		if(isnull(target))
 			return
 		var/mob/living/carbon/human/H
-		if(target == "Random")
+		if(target == "Случайный")
 			for(var/human in shuffle(GLOB.human_list))
 				H = human
 				var/found = FALSE
@@ -509,13 +509,13 @@
 					found = H.ForceContractDisease(D)
 					break
 				if(!found)
-					to_chat(user, "Could not find a valid target for the disease.")
+					to_chat(user, "Нет подходящих целей.")
 		else
 			H = target
 			if(istype(H) && D.infectable_biotypes & H.mob_biotypes)
 				H.ForceContractDisease(D)
 			else
-				to_chat(user, "Target could not be infected. Check mob biotype compatibility or resistances.")
+				to_chat(user, "Цель не может быть заражена.")
 				return
 
 		message_admins("[key_name_admin(user)] has triggered a custom virus outbreak of [D.admin_details()] in [ADMIN_LOOKUPFLW(H)]")

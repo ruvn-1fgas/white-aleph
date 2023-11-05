@@ -1,7 +1,8 @@
 /datum/quirk/prosthetic_limb
-	name = "Prosthetic Limb"
-	desc = "An accident caused you to lose one of your limbs. Because of this, you now have a surplus prosthetic!"
+	name = "Протез конечности"
+	desc = "Ввиду инцидента, который случился в прошлом, мне удалось потерять одну из конечностей. Случайная конечность будет заменена на дешевый протез."
 	icon = "tg-prosthetic-leg"
+	medical_record_text = "Во время физического обследования у пациента был обнаружен протез."
 	value = -3
 	hardcore_value = 3
 	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_CHANGES_APPEARANCE
@@ -20,12 +21,11 @@
 	var/obj/item/bodypart/surplus = new limb_type()
 	slot_string = "[surplus.plaintext_zone]"
 
-	medical_record_text = "Patient uses a low-budget prosthetic on the [slot_string]."
 	old_limb = human_holder.return_and_replace_bodypart(surplus, special = TRUE)
 
 /datum/quirk/prosthetic_limb/post_add()
-	to_chat(quirk_holder, span_boldannounce("Your [slot_string] has been replaced with a surplus prosthetic. It is fragile and will easily come apart under duress. Additionally, \
-	you need to use a welding tool and cables to repair it, instead of sutures and regenerative meshes."))
+	to_chat(quirk_holder, "<span class='boldannounce'>Моя [slot_string] была заменена протезом. Он довольно хрупкий и его легче сломать. Для лечения протеза, \
+	необходимо будет использовать сварочный инструмент или кабели, вместо обычных пластырей или бинтов.</span>")
 
 /datum/quirk/prosthetic_limb/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder

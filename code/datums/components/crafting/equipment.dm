@@ -1,5 +1,5 @@
 /datum/crafting_recipe/strobeshield
-	name = "Strobe Shield"
+	name = "Ослепляющий щит"
 	result = /obj/item/shield/riot/flash
 	reqs = list(
 		/obj/item/wallframe/flasher = 1,
@@ -14,7 +14,7 @@
 	blacklist |= subtypesof(/obj/item/shield/riot)
 
 /datum/crafting_recipe/radiogloves
-	name = "Radio Gloves"
+	name = "Перчатки передатчик"
 	result = /obj/item/clothing/gloves/radio
 	time = 1.5 SECONDS
 	reqs = list(
@@ -31,7 +31,7 @@
 	blacklist |= typesof(/obj/item/radio/intercom)
 
 /datum/crafting_recipe/wheelchair
-	name = "Wheelchair"
+	name = "Инвалидное кресло"
 	result = /obj/vehicle/ridden/wheelchair
 	reqs = list(
 		/obj/item/stack/sheet/iron = 4,
@@ -41,7 +41,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/motorized_wheelchair
-	name = "Motorized Wheelchair"
+	name = "Моторизованное инвалидное кресло"
 	result = /obj/vehicle/ridden/wheelchair/motorized
 	reqs = list(
 		/obj/item/stack/sheet/iron = 10,
@@ -58,7 +58,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/secured_freezer_cabinet
-	name = "Secure Freezer Cabinet"
+	name = "Холодильник с замком"
 	result = /obj/structure/closet/secure_closet/freezer/empty
 	reqs = list(
 		/obj/item/stack/sheet/iron = 5,
@@ -72,7 +72,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/secure_closet
-	name = "Secure Closet"
+	name = "Шкаф с замком"
 	result = /obj/structure/closet/secure_closet
 	reqs = list(
 		/obj/item/stack/sheet/iron = 5,
@@ -85,7 +85,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/trapdoor_kit
-	name = "Trapdoor Construction Kit"
+	name = "Комплект для сборки люка"
 	result = /obj/item/trapdoor_kit
 	reqs = list(
 		/obj/item/stack/sheet/iron = 4,
@@ -99,7 +99,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/trapdoor_remote
-	name = "Trapdoor Remote"
+	name = "Пульт дистанционного управления люком"
 	result = /obj/item/trapdoor_remote/preloaded // since its useless without its assembly just require an assembly to craft it
 	reqs = list(
 		/obj/item/compact_remote = 1,
@@ -111,7 +111,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/mousetrap
-	name = "Mouse Trap"
+	name = "Мышеловка"
 	result = /obj/item/assembly/mousetrap
 	time = 1 SECONDS
 	reqs = list(
@@ -121,7 +121,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/flashlight_eyes
-	name = "Flashlight Eyes"
+	name = "Глаза фонарики"
 	result = /obj/item/organ/internal/eyes/robotic/flashlight
 	time = 10
 	reqs = list(
@@ -131,7 +131,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/extendohand_r
-	name = "Extendo-Hand (Right Arm)"
+	name = "Длинн-о-рука (Правая)"
 	reqs = list(
 		/obj/item/bodypart/arm/right/robot = 1,
 		/obj/item/clothing/gloves/boxing = 1,
@@ -140,7 +140,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/extendohand_l
-	name = "Extendo-Hand (Left Arm)"
+	name = "Длинн-о-рука (Левая)"
 	reqs = list(
 		/obj/item/bodypart/arm/left/robot = 1,
 		/obj/item/clothing/gloves/boxing = 1,
@@ -149,7 +149,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/ore_sensor
-	name = "Ore Sensor"
+	name = "Датчик руды"
 	time = 3 SECONDS
 	reqs = list(
 		/datum/reagent/brimdust = 15,
@@ -160,7 +160,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/material_sniffer
-	name = "Material Sniffer"
+	name = "Ресурсный нюхач"
 	time = 3 SECONDS
 	reqs = list(
 		/obj/item/analyzer = 1,
@@ -171,7 +171,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/pressureplate
-	name = "Pressure Plate"
+	name = "Нажимная плита"
 	result = /obj/item/pressure_plate
 	time = 0.5 SECONDS
 	reqs = list(
@@ -183,7 +183,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/rcl
-	name = "Makeshift Rapid Pipe Cleaner Layer"
+	name = "Самодельная катушка проводов"
 	result = /obj/item/rcl/ghetto
 	time = 4 SECONDS
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH)
@@ -191,7 +191,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/ghettojetpack
-	name = "Improvised Jetpack"
+	name = "Самодельный реактивный ранец"
 	result = /obj/item/tank/jetpack/improvised
 	time = 30
 	reqs = list(
@@ -204,7 +204,7 @@
 	tool_behaviors = list(TOOL_WRENCH, TOOL_WELDER, TOOL_WIRECUTTER)
 
 /datum/crafting_recipe/gripperoffbrand
-	name = "Improvised Gripper Gloves"
+	name = "Импровизированные перчатки перехвата"
 	reqs = list(
 		/obj/item/clothing/gloves/fingerless = 1,
 		/obj/item/stack/sticky_tape = 1,
@@ -216,7 +216,7 @@
  * Recipe used for upgrading fake N-spect scanners to bananium HONK-spect scanners
  */
 /datum/crafting_recipe/clown_scanner_upgrade
-	name = "Bananium HONK-spect scanner"
+	name = "Бананиевый ХОНК-спектральный сканер"
 	result = /obj/item/inspector/clown/bananium
 	reqs = list(
 		/obj/item/inspector/clown = 1,

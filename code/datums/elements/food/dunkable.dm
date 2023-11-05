@@ -25,14 +25,14 @@
 	if(istype(container) && container.reagent_flags & DUNKABLE) // container should be a valid target for dunking
 		. = COMPONENT_AFTERATTACK_PROCESSED_ITEM
 		if(!container.is_drainable())
-			to_chat(user, span_warning("[container] is unable to be dunked in!"))
+			to_chat(user, span_warning("[container] имеет закрытое горлышко!"))
 			return COMPONENT_AFTERATTACK_PROCESSED_ITEM
 		var/obj/item/I = source // the item that has the dunkable element
 		if(container.reagents.trans_to(I, dunk_amount, transferred_by = user)) //if reagents were transferred, show the message
-			to_chat(user, span_notice("You dunk \the [I] into \the [container]."))
+			to_chat(user, span_notice("Обмакиваю [I] в [container]."))
 			return COMPONENT_AFTERATTACK_PROCESSED_ITEM
 		if(!container.reagents.total_volume)
-			to_chat(user, span_warning("[container] is empty!"))
+			to_chat(user, span_warning("[container] пуст!"))
 		else
-			to_chat(user, span_warning("[I] is full!"))
+			to_chat(user, span_warning("[I] полон!"))
 		return COMPONENT_AFTERATTACK_PROCESSED_ITEM

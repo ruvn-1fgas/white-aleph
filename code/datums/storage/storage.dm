@@ -250,7 +250,7 @@
 		examine_list += handle_show_valid_items(source, user)
 
 /datum/storage/proc/handle_show_valid_items(datum/source, user)
-	to_chat(user, span_notice("[source] can hold: [can_hold_description]"))
+	to_chat(user, span_notice("[source] может хранить: [can_hold_description]"))
 
 /// Almost 100% of the time the lists passed into set_holdable are reused for each instance
 /// Just fucking cache it 4head
@@ -344,7 +344,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	if(locked > force)
 		if(user && messages)
-			user.balloon_alert(user, "closed!")
+			user.balloon_alert(user, "закрыт!")
 		return FALSE
 
 	if((to_insert == resolve_parent) || (to_insert == real_location))
@@ -353,16 +353,16 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(to_insert.w_class > max_specific_storage)
 		if(!is_type_in_typecache(to_insert, exception_hold))
 			if(messages && user)
-				user.balloon_alert(user, "too big!")
+				user.balloon_alert(user, "слишком большой!")
 			return FALSE
 		if(exception_max != INFINITE && exception_max <= exception_count())
 			if(messages && user)
-				user.balloon_alert(user, "no room!")
+				user.balloon_alert(user, "не хватает месте!")
 			return FALSE
 
 	if(resolve_location.contents.len >= max_slots)
 		if(messages && user && !silent_for_user)
-			user.balloon_alert(user, "no room!")
+			user.balloon_alert(user, "не хватает места!")
 		return FALSE
 
 	var/total_weight = to_insert.w_class
@@ -372,37 +372,37 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	if(total_weight > max_total_storage)
 		if(messages && user && !silent_for_user)
-			user.balloon_alert(user, "no room!")
+			user.balloon_alert(user, "не хватает места!")
 		return FALSE
 
 	if(length(can_hold))
 		if(!is_type_in_typecache(to_insert, can_hold))
 			if(messages && user)
-				user.balloon_alert(user, "can't hold!")
+				user.balloon_alert(user, "не может хранить это!")
 			return FALSE
 
 	if(is_type_in_typecache(to_insert, cant_hold) || HAS_TRAIT(to_insert, TRAIT_NO_STORAGE_INSERT) || (can_hold_trait && !HAS_TRAIT(to_insert, can_hold_trait)))
 		if(messages && user)
-			user.balloon_alert(user, "can't hold!")
+			user.balloon_alert(user, "не может хранить это!")
 		return FALSE
 
 	if(HAS_TRAIT(to_insert, TRAIT_NODROP))
 		if(messages)
-			user.balloon_alert(user, "stuck on your hand!")
+			user.balloon_alert(user, "прилип к руке!")
 		return FALSE
 
 	var/datum/storage/biggerfish = resolve_parent.loc.atom_storage // this is valid if the container our resolve_parent is being held in is a storage item
 
 	if(biggerfish && biggerfish.max_specific_storage < max_specific_storage)
 		if(messages && user)
-			user.balloon_alert(user, "[lowertext(resolve_parent.loc.name)] is in the way!")
+			user.balloon_alert(user, "[lowertext(resolve_parent.loc.name)] мешает!")
 		return FALSE
 
 	if(istype(resolve_parent))
 		var/datum/storage/item_storage = to_insert.atom_storage
 		if((to_insert.w_class >= resolve_parent.w_class) && item_storage && !allow_big_nesting)
 			if(messages && user)
-				user.balloon_alert(user, "too big!")
+				user.balloon_alert(user, "слишком большой!")
 			return FALSE
 
 	return TRUE
@@ -500,15 +500,14 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(rustle_sound)
 		playsound(resolve_parent, SFX_RUSTLE, 50, TRUE, -5)
 
-	if(!silent_for_user)
-		to_chat(user, span_notice("You put [thing] [insert_preposition]to [resolve_parent]."))
+	to_chat(user, span_notice("Кладу <b>[thing]</b> [insert_preposition] <b>[resolve_parent]</b>."))
 
 	for(var/mob/viewing in oviewers(user, null))
 		if(in_range(user, viewing))
-			viewing.show_message(span_notice("[user] puts [thing] [insert_preposition]to [resolve_parent]."), MSG_VISUAL)
+			viewing.show_message(span_notice("<b>[user]</b> кладёт <b>[thing]</b> [insert_preposition] <b>[resolve_parent]</b>."), MSG_VISUAL)
 			return
 		if(thing && thing.w_class >= 3)
-			viewing.show_message(span_notice("[user] puts [thing] [insert_preposition]to [resolve_parent]."), MSG_VISUAL)
+			viewing.show_message(span_notice("<b>[user]</b> кладёт <b>[thing]</b> [insert_preposition] <b>[resolve_parent]</b>."), MSG_VISUAL)
 			return
 
 /**
@@ -718,7 +717,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	var/amount = length(pick_up)
 	if(!amount)
-		resolve_parent.balloon_alert(user, "nothing to pick up!")
+		resolve_parent.balloon_alert(user, "нечего собирать!")
 		return
 
 	var/datum/progressbar/progress = new(user, amount, thing.loc)
@@ -732,7 +731,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	var/list/current_contents = holder.contents.Copy()
 	if(length(pick_up | current_contents) == length(current_contents))
 		return
-	resolve_parent.balloon_alert(user, "picked up")
+	resolve_parent.balloon_alert(user, "собираю")
 
 /// Signal handler for whenever we drag the storage somewhere.
 /datum/storage/proc/on_mousedrop_onto(datum/source, atom/over_object, mob/user)
@@ -776,7 +775,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	var/obj/item/resolve_location = real_location.resolve()
 
 	if(locked)
-		user.balloon_alert(user, "closed!")
+		user.balloon_alert(user, "закрыт!")
 		return
 	if(!user.CanReach(resolve_parent) || !user.CanReach(dest_object))
 		return
@@ -786,7 +785,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	// Storage to storage transfer is instant
 	if(dest_object.atom_storage)
-		to_chat(user, span_notice("You dump the contents of [resolve_parent] into [dest_object]."))
+		to_chat(user, span_notice("Вытряхиваю содержимое <b>[resolve_parent]</b> на <b>[dest_object]</b>."))
 
 		if(rustle_sound)
 			playsound(resolve_parent, SFX_RUSTLE, 50, TRUE, -5)
@@ -804,7 +803,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return
 
 	// Storage to loc transfer requires a do_after
-	to_chat(user, span_notice("You start dumping out the contents of [resolve_parent] onto [dest_object]..."))
+	to_chat(user, span_notice("Начинаю вытряхивать содержимое <b>[resolve_parent]</b> на <b>[dest_object]</b>..."))
 	if(!do_after(user, 2 SECONDS, target = dest_object))
 		return
 
@@ -1004,7 +1003,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return FALSE
 
 	if(!to_show.CanReach(resolve_parent))
-		resolve_parent.balloon_alert(to_show, "can't reach!")
+		resolve_parent.balloon_alert(to_show, "не достаю!")
 		return FALSE
 
 	if(!isliving(to_show) || to_show.incapacitated())
@@ -1012,7 +1011,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	if(locked)
 		if(!silent)
-			resolve_parent.balloon_alert(to_show, "closed!")
+			to_chat(to_show, span_warning("[pick("Ка-чунк!", "Ка-чинк!", "Плюньк!", "Глорф!")] <b>[capitalize(resolve_parent)]</b> заблокирован!"))
 		return FALSE
 
 	// If we're quickdrawing boys
@@ -1025,8 +1024,8 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		INVOKE_ASYNC(src, PROC_REF(put_in_hands_async), to_show, to_remove)
 		if(!silent)
 			to_show.visible_message(
-				span_warning("[to_show] draws [to_remove] from [resolve_parent]!"),
-				span_notice("You draw [to_remove] from [resolve_parent]."),
+				span_warning("<b>[to_show]</b> вытягивает <b>[to_remove]</b> из <b>[resolve_parent]</b>!"),
+				span_notice("Тяну <b>[to_remove]</b> из <b>[resolve_parent]</b>.")
 			)
 		return TRUE
 
@@ -1044,10 +1043,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 
 /// Async version of putting something into a mobs hand.
-/datum/storage/proc/put_in_hands_async(mob/toshow, obj/item/toremove)
-	if(!toshow.put_in_hands(toremove))
+/datum/storage/proc/put_in_hands_async(mob/to_show, obj/item/toremove)
+	if(!to_show.put_in_hands(toremove))
 		if(!silent)
-			toremove.balloon_alert(toshow, "fumbled!")
+			to_chat(to_show, span_notice("Пытаюсь достать [toremove], но случайно роняю его на пол."))
 		return TRUE
 
 /// Signal handler for whenever a mob walks away with us, close if they can't reach us.
@@ -1085,31 +1084,31 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /**
  * Show our storage to a mob.
  *
- * @param mob/toshow the mob to show the storage to
+ * @param mob/to_show the mob to show the storage to
  *
  * @returns FALSE if the show failed, TRUE otherwise
  */
-/datum/storage/proc/show_contents(mob/toshow)
+/datum/storage/proc/show_contents(mob/to_show)
 	var/obj/item/resolve_location = real_location?.resolve()
 	if(!resolve_location)
 		return FALSE
 
-	if(!toshow.client)
+	if(!to_show.client)
 		return FALSE
 
 	// You can only inspect hidden contents if you're an observer
-	if(!isobserver(toshow) && !display_contents)
+	if(!isobserver(to_show) && !display_contents)
 		return FALSE
 
-	if(toshow.active_storage != src && (toshow.stat == CONSCIOUS))
+	if(to_show.active_storage != src && (to_show.stat == CONSCIOUS))
 		for(var/obj/item/thing in resolve_location)
-			if(thing.on_found(toshow))
-				toshow.active_storage.hide_contents(toshow)
+			if(thing.on_found(to_show))
+				to_show.active_storage.hide_contents(to_show)
 
-	if(toshow.active_storage)
-		toshow.active_storage.hide_contents(toshow)
+	if(to_show.active_storage)
+		to_show.active_storage.hide_contents(to_show)
 
-	toshow.active_storage = src
+	to_show.active_storage = src
 
 	if(ismovable(resolve_location))
 		var/atom/movable/movable_loc = resolve_location
@@ -1117,37 +1116,37 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	orient_to_hud()
 
-	is_using |= toshow
+	is_using |= to_show
 
-	toshow.client.screen |= boxes
-	toshow.client.screen |= closer
-	toshow.client.screen |= resolve_location.contents
+	to_show.client.screen |= boxes
+	to_show.client.screen |= closer
+	to_show.client.screen |= resolve_location.contents
 	return TRUE
 
 /**
  * Hide our storage from a mob.
  *
- * @param mob/toshow the mob to hide the storage from
+ * @param mob/to_show the mob to hide the storage from
  */
-/datum/storage/proc/hide_contents(mob/toshow)
+/datum/storage/proc/hide_contents(mob/to_show)
 	var/obj/item/resolve_location = real_location?.resolve()
 	if(!resolve_location)
 		return
 
-	if(!toshow.client)
+	if(!to_show.client)
 		return TRUE
-	if(toshow.active_storage == src)
-		toshow.active_storage = null
+	if(to_show.active_storage == src)
+		to_show.active_storage = null
 
 	if(!length(is_using) && ismovable(resolve_location))
 		var/atom/movable/movable_loc = resolve_location
 		movable_loc.lose_active_storage(src)
 
-	is_using -= toshow
+	is_using -= to_show
 
-	toshow.client.screen -= boxes
-	toshow.client.screen -= closer
-	toshow.client.screen -= resolve_location.contents
+	to_show.client.screen -= boxes
+	to_show.client.screen -= closer
+	to_show.client.screen -= resolve_location.contents
 
 /datum/storage/proc/action_trigger(datum/signal_source, datum/action/source)
 	SIGNAL_HANDLER
@@ -1158,7 +1157,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /**
  * Toggles the collectmode of our storage.
  *
- * @param mob/toshow the mob toggling us
+ * @param mob/to_show the mob toggling us
  */
 /datum/storage/proc/toggle_collection_mode(mob/user)
 	var/obj/item/resolve_parent = parent?.resolve()
@@ -1168,11 +1167,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	collection_mode = (collection_mode+1)%3
 	switch(collection_mode)
 		if(COLLECT_SAME)
-			resolve_parent.balloon_alert(user, "will now only pick up a single type")
+			resolve_parent.balloon_alert(user, "<b>[capitalize(resolve_parent)]</b> теперь собирает все предметы одного типа разом.")
 		if(COLLECT_EVERYTHING)
-			resolve_parent.balloon_alert(user, "will now pick up everything")
+			resolve_parent.balloon_alert(user, "<b>[capitalize(resolve_parent)]</b> теперь собирает все предметы разом.")
 		if(COLLECT_ONE)
-			resolve_parent.balloon_alert(user, "will now pick up one at a time")
+			resolve_parent.balloon_alert(user, "<b>[capitalize(resolve_parent)]</b> теперь собирает только один предмет.")
 
 /// Gives a spiffy animation to our parent to represent opening and closing.
 /datum/storage/proc/animate_parent()

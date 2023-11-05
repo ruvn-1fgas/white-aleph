@@ -1,7 +1,7 @@
 /turf/open/floor/glass
 	name = "glass floor"
 	desc = "Don't jump on it, or do, I'm not your mom."
-	icon = 'icons/turf/floors/glass.dmi'
+	icon = 'white/icons/turf/floors/glass.dmi' // WD EDIT
 	icon_state = "glass-0"
 	base_icon_state = "glass"
 	baseturfs = /turf/baseturf_bottom
@@ -74,7 +74,7 @@
 /turf/open/floor/glass/reinforced
 	name = "reinforced glass floor"
 	desc = "Do jump on it, it can take it."
-	icon = 'icons/turf/floors/reinf_glass.dmi'
+	icon = 'white/icons/turf/floors/reinf_glass.dmi' // WD EDIT
 	icon_state = "reinf_glass-0"
 	base_icon_state = "reinf_glass"
 	floor_tile = /obj/item/stack/tile/rglass

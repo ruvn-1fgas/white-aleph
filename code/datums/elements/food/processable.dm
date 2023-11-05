@@ -56,24 +56,7 @@
 ///So people know what the frick they're doing without reading from a wiki page (I mean they will inevitably but i'm trying to help, ok?)
 /datum/element/processable/proc/OnExamine(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-
-	var/result_name = initial(result_atom_type.name)
-	var/result_gender = initial(result_atom_type.gender)
-	var/tool_desc = tool_behaviour_name(tool_behaviour)
-
-	// I admit, this is a lot of lines for very minor changes in the strings
-	// but at least it's readable?
-	if(amount_created > 1)
-		if(result_gender == PLURAL)
-			examine_list += span_notice("It can be turned into [amount_created] [result_name] with [span_bold(tool_desc)]!")
-		else
-			examine_list += span_notice("It can be turned into [amount_created] [result_name][plural_s(result_name)] with [span_bold(tool_desc)]!")
-
-	else
-		if(result_gender == PLURAL)
-			examine_list += span_notice("It can be turned into some [result_name] with [span_bold(tool_desc)]</b>!")
-		else
-			examine_list += span_notice("It can be turned into \a [result_name] with <b>[span_bold(tool_desc)]</b>!")
+	examine_list += span_notice("\nC помощью <b>[tool_behaviour_name(tool_behaviour)]</b> можно сделать из [source][amount_created ? " [amount_created]" : ""] [initial(result_atom_type.name)]!")
 
 /**
  * Adds context sensitivy directly to the processable file for screentips
@@ -92,6 +75,6 @@
 	if (held_item.tool_behaviour != tool_behaviour)
 		return NONE
 
-	context[SCREENTIP_CONTEXT_LMB] = "[screentip_verb] into [initial(result_atom_type.name)]"
+	context[SCREENTIP_CONTEXT_LMB] = "[screentip_verb] в [initial(result_atom_type.name)]"
 
 	return CONTEXTUAL_SCREENTIP_SET

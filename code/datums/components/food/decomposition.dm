@@ -130,11 +130,11 @@
 	var/time_d = get_time()
 	switch(time_d / original_time)
 		if(0.5 to 0.75) // 25% rotten
-			examine_list += span_notice("[parent] looks kinda stale.")
+			examine_list += span_notice("[parent] гниёт.")
 		if(0.25 to 0.5) // 50% rotten
-			examine_list += span_notice("[parent] is starting to look pretty gross.")
+			examine_list += span_notice("[parent] начинает немного подгнивать.")
 		if(0 to 0.25) // 75% rotten
-			examine_list += span_danger("[parent] barely looks edible.")
+			examine_list += span_danger("[parent] выглядит вполне съедобно.")
 
 #undef DECOMPOSITION_TIME
 #undef DECOMPOSITION_TIME_GROSS

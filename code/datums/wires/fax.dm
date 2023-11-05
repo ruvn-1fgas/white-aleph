@@ -20,10 +20,10 @@
 /datum/wires/fax/get_status()
 	var/obj/machinery/fax/machine = holder
 	var/list/status = list()
-	status += "A red light is [machine.seconds_electrified ? "blinking" : "off"]."
-	status += "The network light is [machine.visible_to_network ? "on" : "off"]."
-	status += "The output servo is [machine.hurl_contents ? "spinning rapidly" : "on"]."
-	status += "The input servo is [machine.allow_exotic_faxes ? "spinning rapidly" : "on"]."
+	status += "Красный свет [machine.seconds_electrified ? "мигает" : "выключен"]."
+	status += "Индикатор подключения к сети [machine.visible_to_network ? "горит" : "не горит"]."
+	status += "Сервопривод выхода [machine.hurl_contents ? "вращается быстро" : "включен"]."
+	status += "Сервопривод входа [machine.allow_exotic_faxes ? "вращается быстро" : "включен"]."
 	return status
 
 /datum/wires/fax/on_pulse(wire)

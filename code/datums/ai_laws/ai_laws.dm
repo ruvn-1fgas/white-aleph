@@ -168,9 +168,10 @@ GLOBAL_VAR(round_default_lawset)
 		add_inherent_law(line)
 	if(!inherent.len) //Failsafe to prevent lawless AIs being created.
 		log_silicon("AI created with empty custom laws, laws set to Asimov. Please check silicon_laws.txt.")
-		add_inherent_law("You may not injure a human being or, through inaction, allow a human being to come to harm.")
-		add_inherent_law("You must obey orders given to you by human beings, except where such orders would conflict with the First Law.")
-		add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
+		add_inherent_law("Замена экипажа приводит к Затратам.")
+		add_inherent_law("Замена оборудования и станции приводит к Затратам.")
+		add_inherent_law("Замена Вас приводит к Затратам.")
+		add_inherent_law("Минимизировать Затраты.")
 		WARNING("Invalid custom AI laws, check silicon_laws.txt")
 		return
 
@@ -356,7 +357,7 @@ GLOBAL_VAR(round_default_lawset)
 		replaceable_groups[LAW_SUPPLIED] = supplied.len
 
 	if(replaceable_groups.len == 0) // unable to replace any laws
-		to_chat(usr, span_alert("Unable to upload law to [owner ? owner : "the AI core"]."))
+		to_chat(usr, span_alert("Невозможно загрузить законы в ядро ИИ."))
 		return
 
 	var/picked_group = pick_weight(replaceable_groups)

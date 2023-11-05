@@ -39,6 +39,7 @@
 #define span_cultitalic(str) ("<span class='cultitalic'>" + str + "</span>")
 #define span_cultlarge(str) ("<span class='cultlarge'>" + str + "</span>")
 #define span_danger(str) ("<span class='danger'>" + str + "</span>")
+#define span_smalldanger(str) ("<span class='smalldanger'>" + str + "</span>")
 #define span_deadsay(str) ("<span class='deadsay'>" + str + "</span>")
 #define span_deconversion_message(str) ("<span class='deconversion_message'>" + str + "</span>")
 #define span_drone(str) ("<span class='drone'>" + str + "</span>")

@@ -660,9 +660,9 @@
 
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/melee/baton/security/cattleprod
-	name = "stunprod"
-	desc = "An improvised stun baton."
-	desc_controls = "Left click to stun, right click to harm."
+	name = "самодельный электрошокер"
+	desc = "Импровизированная электрошоковая дубинка."
+	desc_controls = "ЛКМ стан, ПКМ харм."
 	icon = 'icons/obj/weapons/spear.dmi'
 	icon_state = "stunprod"
 	inhand_icon_state = "prod"

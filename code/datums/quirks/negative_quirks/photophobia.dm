@@ -1,13 +1,13 @@
 #define MOOD_CATEGORY_PHOTOPHOBIA "photophobia"
 
 /datum/quirk/photophobia
-	name = "Photophobia"
-	desc = "Bright lights seem to bother you more than others. Maybe it's a medical condition."
+	name = "Боязнь света"
+	desc = "Яркий свет кажется вам более раздражающим, чем другим. Может быть, это медицинское состояние."
 	icon = FA_ICON_ARROWS_TO_EYE
 	value = -4
-	gain_text = span_danger("The safety of light feels off...")
-	lose_text = span_notice("Enlightening.")
-	medical_record_text = "Patient has acute phobia of light, and insists it is physically harmful."
+	gain_text = "Темнота кажется более безопасной, чем свет..."
+	lose_text = "Просветление."
+	medical_record_text = "Пациент страдает острой фотофобией и настаивает на том, что свет ему вредит."
 	hardcore_value = 4
 	mail_goodies = list(
 		/obj/item/flashlight/flashdark,

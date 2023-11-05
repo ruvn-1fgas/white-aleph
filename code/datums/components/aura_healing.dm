@@ -110,7 +110,7 @@
 
 		if (!(candidate in current_alerts))
 			var/atom/movable/screen/alert/aura_healing/alert = candidate.throw_alert(alert_category, /atom/movable/screen/alert/aura_healing, new_master = parent)
-			alert.desc = "You are being healed by [parent]."
+			alert.desc = "Меня лечит [parent]."
 			current_alerts += candidate
 
 		if (should_show_effect && candidate.health < candidate.maxHealth)

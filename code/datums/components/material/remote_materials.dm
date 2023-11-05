@@ -140,10 +140,10 @@ handles linking back and forth.
 	var/obj/item/multitool/M = I
 	if (!QDELETED(M.buffer) && istype(M.buffer, /obj/machinery/ore_silo))
 		if (silo == M.buffer)
-			to_chat(user, span_warning("[parent] is already connected to [silo]!"))
+			to_chat(user, span_warning("[capitalize(parent)] уже подключен к [silo]!"))
 			return COMPONENT_BLOCK_TOOL_ATTACK
 		if(!check_z_level(M.buffer))
-			to_chat(user, span_warning("[parent] is too far away to get a connection signal!"))
+			to_chat(user, span_warning("[capitalize(parent)] слишком далеко, чтобы подключить к [silo]!"))
 			return COMPONENT_BLOCK_TOOL_ATTACK
 
 		var/obj/machinery/ore_silo/new_silo = M.buffer
@@ -167,7 +167,7 @@ handles linking back and forth.
 		silo.updateUsrDialog()
 		mat_container = new_container
 		RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, TYPE_PROC_REF(/datum/component/remote_materials, SiloAttackBy))
-		to_chat(user, span_notice("You connect [parent] to [silo] from the multitool's buffer."))
+		to_chat(user, span_notice("Подключаю [parent] к [silo] используя буффер мультитула."))
 		return COMPONENT_BLOCK_TOOL_ATTACK
 
 /**
