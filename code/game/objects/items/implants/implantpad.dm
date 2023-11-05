@@ -1,6 +1,6 @@
 /obj/item/implantpad
-	name = "implant pad"
-	desc = "Used to modify implants."
+	name = "имплантер"
+	desc = "Используется для модификации имплантов."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "implantpad-0"
 	inhand_icon_state = "electronic"
@@ -18,12 +18,12 @@
 /obj/item/implantpad/examine(mob/user)
 	. = ..()
 	if(Adjacent(user))
-		. += "It [case ? "contains \a [case]" : "is currently empty"]."
+		. += "<hr>Внутри [case ? "[case.name]" : "пусто"]."
 		if(case)
-			. += span_info("Alt-клик to remove [case].")
+			. += span_info("Alt-клик для изъятия [case].")
 	else
 		if(case)
-			. += span_warning("There seems to be something inside it, but you can't quite tell what from here...")
+			. += span_warning("Он что-то имеет внутри, нужно подойти поближе, чтобы рассмотреть...")
 
 /obj/item/implantpad/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -37,7 +37,7 @@
 	if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		return
 	if(!case)
-		to_chat(user, span_warning("There's no implant to remove from [src]."))
+		to_chat(user, span_warning("Внутри нет имплантов."))
 		return
 
 	user.put_in_hands(case)
@@ -65,14 +65,14 @@
 		return
 
 	user.set_machine(src)
-	var/dat = "<B>Implant Mini-Computer:</B><HR>"
+	var/dat = "<B>Мини-Компьютер Имплантера:</B><HR>"
 	if(case)
 		if(case.imp)
 			if(istype(case.imp, /obj/item/implant))
 				dat += case.imp.get_data()
 		else
-			dat += "The implant casing is empty."
+			dat += "Чехол пуст."
 	else
-		dat += "Please insert an implant casing!"
+		dat += "Не обнаружено чехла!"
 	user << browse(dat, "window=implantpad")
 	onclose(user, "implantpad")

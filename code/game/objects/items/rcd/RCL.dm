@@ -1,8 +1,8 @@
 //RAPID PIPE CLEANER
 
 /obj/item/rcl
-	name = "rapid pipe cleaner layer"
-	desc = "A device used to rapidly deploy pipe cleaners. It has screws on the side which can be removed to slide off the pipe cleaners. Do not use without insulation!"
+	name = "бухта проволоки для плетения"
+	desc = "Устройство для художественной трансформации скучных проводов в произведение искусства!"
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcl-0"
 	inhand_icon_state = "rcl-0"
@@ -78,7 +78,7 @@
 
 		if(!loaded)
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, span_warning("[src] is stuck to your hand!"))
+				to_chat(user, span_warning("[src] прилип!"))
 				return
 			else
 				loaded = W //W.loc is src at this point.
@@ -93,7 +93,7 @@
 		else
 			return
 		update_appearance()
-		to_chat(user, span_notice("You add the pipe cleaners to [src]. It now contains [loaded.amount]."))
+		to_chat(user, span_notice("Добавляю проволоку в [src]. Сейчас она содержит в себе [loaded.amount] метров."))
 	else
 		..()
 

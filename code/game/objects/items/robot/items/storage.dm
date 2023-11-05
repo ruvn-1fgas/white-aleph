@@ -1,6 +1,6 @@
 /obj/item/borg/apparatus
-	name = "unknown storage apparatus"
-	desc = "This device seems nonfunctional."
+	name = "неизвестное устройство хранения"
+	desc = "Этот модуль не выглядит рабочим."
 	icon = 'icons/mob/silicon/robot_items.dmi'
 	icon_state = "hugmodule"
 	/// The item stored inside of this apparatus
@@ -94,8 +94,8 @@
 	return ..()
 
 /obj/item/borg/apparatus/beaker
-	name = "beaker storage apparatus"
-	desc = "A special apparatus for carrying beakers, bottles, and test tubes without spilling their contents."
+	name = "манипулятор хим посуды"
+	desc = "Специальное устройство для переноса хим посуды и пакетов с кровью без проливания. Нажмите Alt-z или щелкните правой кнопкой мыши, чтобы поставить посуду."
 	icon_state = "borg_beaker_apparatus"
 	storable = list(
 		/obj/item/reagent_containers/cup/beaker,
@@ -159,12 +159,12 @@
 	return ..()
 
 /obj/item/borg/apparatus/beaker/extra
-	name = "secondary beaker storage apparatus"
-	desc = "A supplementary beaker storage apparatus."
+	name = "дополнительный манипулятор хим посуды"
+	desc = "Дополнительное устройство хранения для хим посуды."
 
 /obj/item/borg/apparatus/beaker/service
-	name = "beverage storage apparatus"
-	desc = "A special apparatus for carrying drinks and condiment packets without spilling their contents. Will resynthesize any drinks (or other nutritional liquids) you pour out of glasses!"
+	name = "устройство для хранения напитков"
+	desc = "Специальное устройство для переноса стаканов с напитками без проливания. Нажмите Alt-z или щелкните правой кнопкой мыши, чтобы поставить стакан."
 	icon_state = "borg_beaker_apparatus"
 	storable = list(
 		/obj/item/reagent_containers/cup/glass,
@@ -290,8 +290,8 @@
 
 ///Apparatus allowing Engineer/Sabo borgs to manipulate Machine and Computer circuit boards
 /obj/item/borg/apparatus/circuit
-	name = "circuit manipulation apparatus"
-	desc = "A special apparatus for carrying and manipulating circuit boards."
+	name = "манипулятор плат"
+	desc = "Специальное устройство, позволяющее работать с различными платами. Нажмите Alt-z или щелкните правой кнопкой мыши, чтобы положить плату."
 	icon_state = "borg_hardware_apparatus"
 	storable = list(/obj/item/circuitboard,
 				/obj/item/electronics)

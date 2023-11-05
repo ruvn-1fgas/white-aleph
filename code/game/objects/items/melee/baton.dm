@@ -1,6 +1,6 @@
 /obj/item/melee/baton
-	name = "police baton"
-	desc = "A wooden truncheon for beating criminal scum."
+	name = "полицейская дубинка"
+	desc = "Деревянная дубинка для ломания позвоничника. Левый клик - оглушение, правый - ломание."
 	desc_controls = "Left click to stun, right click to harm."
 	icon = 'icons/obj/weapons/baton.dmi'
 	icon_state = "classic_baton"
@@ -297,21 +297,21 @@
 	return
 
 /obj/item/conversion_kit
-	name = "conversion kit"
-	desc = "A strange box containing wood working tools and an instruction paper to turn stun batons into something else."
+	name = "комплект для переоборудования"
+	desc = "Странная коробка с инструментами для работы по дереву и инструкцией по превращению электрошоковых дубинок во что-то другое."
 	icon = 'icons/obj/storage/box.dmi'
 	icon_state = "uk"
 	custom_price = PAYCHECK_COMMAND * 4.5
 
 /obj/item/melee/baton/telescopic
-	name = "telescopic baton"
-	desc = "A compact yet robust personal defense weapon. Can be concealed when folded."
+	name = "телескопическая дубинка"
+	desc = "Компактное, но надежное оружие самообороны. В сложенном состоянии может поместиться в карман."
 	icon = 'icons/obj/weapons/baton.dmi'
 	icon_state = "telebaton"
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
 	inhand_icon_state = null
-	attack_verb_continuous = list("hits", "pokes")
+	attack_verb_continuous = list("ударяет")
 	attack_verb_simple = list("hit", "poke")
 	worn_icon_state = "tele_baton"
 	slot_flags = ITEM_SLOT_BELT
@@ -337,8 +337,8 @@
 		hitsound_on = hitsound, \
 		w_class_on = WEIGHT_CLASS_NORMAL, \
 		clumsy_check = FALSE, \
-		attack_verb_continuous_on = list("smacks", "strikes", "cracks", "beats"), \
-		attack_verb_simple_on = list("smack", "strike", "crack", "beat"), \
+		attack_verb_continuous_on = list("шлепает", "ударяет", "бьет"), \
+		attack_verb_simple_on = list("шлепает", "ударяет", "бьет")\
 	)
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
@@ -373,13 +373,13 @@
 	src.active = active
 	inhand_icon_state = active ? on_inhand_icon_state : null // When inactive, there is no inhand icon_state.
 	if(user)
-		balloon_alert(user, active ? "extended" : "collapsed")
+		balloon_alert(user, "[active ? "разложена" : "сложена"] [src]")
 	playsound(src, on_sound, 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/melee/baton/telescopic/contractor_baton
-	name = "contractor baton"
-	desc = "A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets."
+	name = "дубинка контрактора"
+	desc = "Компактная дубинка, предназначаемая для контракторов Синдиката. Поражает цели электричеством, ненадолго оглушая их."
 	icon = 'icons/obj/weapons/baton.dmi'
 	icon_state = "contractor_baton"
 	worn_icon_state = "contractor_baton"
@@ -408,8 +408,8 @@
 	target.set_stutter_if_lower(40 SECONDS)
 
 /obj/item/melee/baton/security
-	name = "stun baton"
-	desc = "A stun baton for incapacitating people with."
+	name = "электрошоковая дубинка"
+	desc = "Электрошокер для выведения людей из строя. <i>Не рекомендуется для плотских утех!</i>"
 	desc_controls = "Left click to stun, right click to harm."
 	icon = 'icons/obj/weapons/baton.dmi'
 	icon_state = "stunbaton"
@@ -430,6 +430,7 @@
 	on_stun_volume = 50
 	active = FALSE
 	context_living_rmb_active = "Harmful Stun"
+	w_class = WEIGHT_CLASS_NORMAL
 
 	var/throw_stun_chance = 35
 	var/obj/item/stock_parts/cell/cell
@@ -506,9 +507,9 @@
 /obj/item/melee/baton/security/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += span_notice(" [src] is [round(cell.percent())]% charged.")
+		. += span_notice("Дубинка заряжена на [round(cell.percent())]%.")
 	else
-		. += span_warning(" [src] does not have a power source installed.")
+		. += span_warning("Дубинка не имеет батарейки.")
 
 /obj/item/melee/baton/security/screwdriver_act(mob/living/user, obj/item/tool)
 	if(tryremovecell(user))
@@ -519,15 +520,15 @@
 	if(istype(item, /obj/item/stock_parts/cell))
 		var/obj/item/stock_parts/cell/active_cell = item
 		if(cell)
-			to_chat(user, span_warning("[src] already has a cell!"))
+			to_chat(user, span_warning("Дубинка уже имеет батарейку!"))
 		else
 			if(active_cell.maxcharge < cell_hit_cost)
-				to_chat(user, span_notice("[src] requires a higher capacity cell."))
+				to_chat(user, span_notice("Требует батарейку получше."))
 				return
 			if(!user.transferItemToLoc(item, src))
 				return
 			cell = item
-			to_chat(user, span_notice("You install a cell in [src]."))
+			to_chat(user, span_notice("Вставляю батарейку в дубинку."))
 			update_appearance()
 	else
 		return ..()
@@ -535,21 +536,21 @@
 /obj/item/melee/baton/security/proc/tryremovecell(mob/user)
 	if(cell && can_remove_cell)
 		cell.forceMove(drop_location())
-		to_chat(user, span_notice("You remove the cell from [src]."))
+		to_chat(user, span_notice("Вытаскиваю батарейку из дубинки."))
 		return TRUE
 	return FALSE
 
 /obj/item/melee/baton/security/attack_self(mob/user)
 	if(cell?.charge >= cell_hit_cost)
 		active = !active
-		balloon_alert(user, "turned [active ? "on" : "off"]")
+		to_chat(user, span_notice("Дубинка теперь [active ? "включена" : "выключена"]."))
 		playsound(src, SFX_SPARKS, 75, TRUE, -1)
 	else
 		active = FALSE
 		if(!cell)
-			balloon_alert(user, "no power source!")
+			to_chat(user, span_warning("Дубинка не имеет батарейки!"))
 		else
-			balloon_alert(user, "out of charge!")
+			to_chat(user, span_warning("Дубинка разрядилась"))
 	update_appearance()
 	add_fingerprint(user)
 
@@ -610,13 +611,13 @@
 /obj/item/melee/baton/security/proc/apply_stun_effect_end(mob/living/target)
 	var/trait_check = HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) //var since we check it in out to_chat as well as determine stun duration
 	if(!target.IsKnockdown())
-		to_chat(target, span_warning("Your muscles seize, making you collapse[trait_check ? ", but your body quickly recovers..." : "!"]"))
+		to_chat(target, span_warning("Мышцы сжимаются, принуждая меня упасть[trait_check ? ", но моё тело быстро восстанавливается..." : "!"]"))
 
 	if(!trait_check)
 		target.Knockdown(knockdown_time)
 
 /obj/item/melee/baton/security/get_wait_description()
-	return span_danger("The baton is still charging!")
+	return span_danger("Дубинка всё ещё заряжается!")
 
 /obj/item/melee/baton/security/get_stun_description(mob/living/target, mob/living/user)
 	. = list()
@@ -727,8 +728,8 @@
 	return ..()
 
 /obj/item/melee/baton/security/boomerang
-	name = "\improper OZtek Boomerang"
-	desc = "A device invented in 2486 for the great Space Emu War by the confederacy of Australicus, these high-tech boomerangs also work exceptionally well at stunning crewmembers. Just be careful to catch it when thrown!"
+	name = "ОЗТек Бумеранг"
+	desc = "Устройство, изобретенное в 2486 году для великой войны в Космическом Эму конфедерацией Австраликуса, эти высокотехнологичные бумеранги также отлично работают на потрясающих членов экипажа. Просто будьте осторожны, чтобы поймать его, когда брошено!"
 	throw_speed = 1
 	icon = 'icons/obj/weapons/thrown.dmi'
 	icon_state = "boomerang"

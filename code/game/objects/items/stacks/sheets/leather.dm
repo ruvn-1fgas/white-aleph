@@ -1,21 +1,21 @@
 /obj/item/stack/sheet/animalhide
-	name = "hide"
-	desc = "Something went wrong."
+	name = "кожа"
+	desc = "Что-то пошло не так."
 	icon_state = "sheet-hide"
 	inhand_icon_state = null
 	novariants = TRUE
 	merge_type = /obj/item/stack/sheet/animalhide
 
 /obj/item/stack/sheet/animalhide/human
-	name = "human skin"
-	desc = "The by-product of human farming."
-	singular_name = "human skin piece"
+	name = "человеческая кожа"
+	desc = "Побочный продукт человеческого происхождения... у тебя все нормально с головой?"
+	singular_name = "кусок человеческой кожи"
 	novariants = FALSE
 	merge_type = /obj/item/stack/sheet/animalhide/human
 
 GLOBAL_LIST_INIT(human_recipes, list( \
-	new/datum/stack_recipe("bloated human costume", /obj/item/clothing/suit/hooded/bloated_human, 5, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("human skin hat", /obj/item/clothing/head/fedora/human_leather, 1, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("раздутый человеческий костюм", /obj/item/clothing/suit/hooded/bloated_human, 5, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("шляпа из человеческой кожи", /obj/item/clothing/head/fedora/human_leather, 1, check_density = FALSE, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/human/get_main_recipes()
@@ -26,9 +26,9 @@ GLOBAL_LIST_INIT(human_recipes, list( \
 	amount = 5
 
 /obj/item/stack/sheet/animalhide/generic
-	name = "skin"
-	desc = "A piece of skin."
-	singular_name = "skin piece"
+	name = "кожа"
+	desc = "Кусочек кожи."
+	singular_name = "кусочек кожи"
 	novariants = FALSE
 	merge_type = /obj/item/stack/sheet/animalhide/generic
 

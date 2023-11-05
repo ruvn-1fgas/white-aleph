@@ -1,8 +1,8 @@
 #define PKBORG_DAMPEN_CYCLE_DELAY (2 SECONDS)
 
 /obj/item/cautery/prt //it's a subtype of cauteries so that it inherits the cautery sprites and behavior and stuff, because I'm too lazy to make sprites for this thing
-	name = "plating repair tool"
-	desc = "A tiny heating device that's powered by a cyborg's excess heat. Its intended purpose is to repair burnt or damaged hull platings, but it can also be used as a crude lighter or cautery."
+	name = "инструмент для ремонта плитки"
+	desc = "Маленький инструмент, работающий от избыточного тепла киборга. Может быть использован как для ремонта напольной плитки, так и как зажигалка."
 	toolspeed = 1.5 //it's not designed to be used as a cautery (although it's close enough to one to be considered to be a proper cautery instead of just a hot object for the purposes of surgery)
 	heat = 3800 //this thing is intended for metal-shaping, so it's the same temperature as a lit welder
 	resistance_flags = FIRE_PROOF //if it's channeling a cyborg's excess heat, it's probably fireproof
@@ -13,8 +13,8 @@
 
 //Peacekeeper Cyborg Projectile Dampenening Field
 /obj/item/borg/projectile_dampen
-	name = "\improper Hyperkinetic Dampening projector"
-	desc = "A device that projects a dampening field that weakens kinetic energy above a certain threshold. <span class='boldnotice'>Projects a field that drains power per second while active, that will weaken and slow damaging projectiles inside its field.</span> Still being a prototype, it tends to induce a charge on ungrounded metallic surfaces."
+	name = "гиперкинетический демпфер"
+	desc = "Устройство, излучающее поле для замедления мелких быстродвижущихся предметов и ослабления их кинетической энергии. <span class='boldnotice'> Расходует энергию, будучи включенным. </span> Является прототипом, поэтому имеет тенденцию наэлектризовывать незаземленные металлические поверхности."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield0"
 	base_icon_state = "shield"
