@@ -51,7 +51,7 @@
 	log_combat(user, target, "attempted to inject", src, addition="which had [contained]")
 
 	if(!reagents.total_volume)
-		to_chat(user, span_warning("[src] is empty! Right-click to draw."))
+		to_chat(user, span_warning("[src] is empty! ПКМ to draw."))
 		return
 
 	if(!isliving(target) && !target.is_injectable(user))

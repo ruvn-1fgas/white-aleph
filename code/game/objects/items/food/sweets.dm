@@ -1,8 +1,8 @@
 // Sweets that didn't make it into any other category
 
 /obj/item/food/candy_corn
-	name = "candy corn"
-	desc = "It's a handful of candy corn. Can be stored in a detective's hat."
+	name = "леденцовая кукуруза"
+	desc = "Это горсть леденцовой кукурузы. Может храниться в шляпе детектива."
 	icon_state = "candy_corn"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -15,16 +15,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/candy_corn/prison
-	name = "desiccated candy corn"
-	desc = "If this candy corn were any harder Security would confiscate it for being a potential shiv."
+	name = "сушеная леденцовая кукуруза"
+	desc = "Если бы эта леденцовая кукуруза была более твердой, служба безопасности конфисковала бы ее как потенциальную заточку."
 	force = 1 // the description isn't lying
 	throwforce = 1 // if someone manages to bust out of jail with candy corn god bless them
 	tastes = list("bitter wax" = 1)
 	foodtypes = GROSS
 
 /obj/item/food/candiedapple
-	name = "candied apple"
-	desc = "An apple coated in sugary sweetness."
+	name = "карамелизированное яблоко"
+	desc = "Яблоко, покрытое сахарным сиропом."
 	icon_state = "candiedapple"
 	bite_consumption = 3
 	food_reagents = list(
@@ -38,8 +38,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/mint
-	name = "mint"
-	desc = "It is only wafer thin."
+	name = "мята"
+	desc = "Это всего лишь тонкая пластинка."
 	icon_state = "mint"
 	bite_consumption = 1
 	food_reagents = list(/datum/reagent/consumable/mintextract = 2)
@@ -48,8 +48,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/ant_candy
-	name = "ant candy"
-	desc = "A colony of ants suspended in hardened sugar. Those things are dead, right?"
+	name = "муравьиная конфета"
+	desc = "Колония муравьев, в затвердевшем сахаре. Эти твари мертвы, верно?"
 	icon_state = "ant_pop"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
@@ -65,8 +65,8 @@
 
 // Chocolates
 /obj/item/food/chocolatebar
-	name = "chocolate bar"
-	desc = "Such, sweet, fattening food."
+	name = "шоколадка"
+	desc = "Такая сладкая.. такая.. жирная.."
 	icon_state = "chocolatebar"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
@@ -80,8 +80,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/chococoin
-	name = "chocolate coin"
-	desc = "A completely edible but non-flippable festive coin."
+	name = "шоколадная монетка"
+	desc = "Полностью съедобная монетка."
 	icon_state = "chococoin"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -95,8 +95,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/fudgedice
-	name = "fudge dice"
-	desc = "A little cube of chocolate that tends to have a less intense taste if you eat too many at once."
+	name = "помадный кубик"
+	desc = "У вас появится шоколадная помадка на губах после его поедания."
 	icon_state = "chocodice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -111,8 +111,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/chocoorange
-	name = "chocolate orange"
-	desc = "A festive chocolate orange."
+	name = "шоколадный апельсин"
+	desc = "Фестивальное угощение."
 	icon_state = "chocoorange"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -184,8 +184,8 @@
 
 // Gum
 /obj/item/food/bubblegum
-	name = "bubblegum"
-	desc = "A rubbery strip of gum. Not exactly filling, but it keeps you busy."
+	name = "жвачка"
+	desc = "Резиновая полоска жвачки. Не совсем насыщает, но держит вас в тонусе."
 	icon_state = "bubblegum"
 	inhand_icon_state = null
 	color = "#E48AB5" // craftable custom gums someday?
@@ -208,7 +208,7 @@
 	AddElement(/datum/element/chewable, metabolization_amount = metabolization_amount)
 
 /obj/item/food/bubblegum/nicotine
-	name = "nicotine gum"
+	name = "никотиновая жвачка"
 	food_reagents = list(
 		/datum/reagent/drug/nicotine = 10,
 		/datum/reagent/consumable/menthol = 5,
@@ -217,15 +217,15 @@
 	color = "#60A584"
 
 /obj/item/food/bubblegum/happiness
-	name = "HP+ gum"
-	desc = "A rubbery strip of gum. It smells funny."
+	name = "HP+ жвачка"
+	desc = "Резиновая полоска жвачки. Пахнет забавно."
 	food_reagents = list(/datum/reagent/drug/happiness = 15)
 	tastes = list("paint thinner" = 1)
 	color = "#EE35FF"
 
 /obj/item/food/bubblegum/bubblegum
-	name = "bubblegum gum"
-	desc = "A rubbery strip of gum. You don't feel like eating it is a good idea."
+	name = "резиновая жвачка"
+	desc = "Резиновая полоска жвачки. Кажется, что есть ее - не лучшая идея."
 	color = "#913D3D"
 	food_reagents = list(/datum/reagent/blood = 15)
 	tastes = list("hell" = 1, "people" = 1)
@@ -251,15 +251,15 @@
 	if(prob(15))
 		victim.cause_hallucination(/datum/hallucination/oh_yeah, "bubblegum bubblegum", haunt_them = TRUE)
 	else
-		to_chat(victim, span_warning("[pick("You hear faint whispers.", "You smell ash.", "You feel hot.", "You hear a roar in the distance.")]"))
+		to_chat(victim, span_warning("[pick("Я слышу тихий шепот.","Я чувствую запах пепла.","Мне жарко.","Я слышу рев вдали.")]"))
 
 /obj/item/food/bubblegum/bubblegum/suicide_act(mob/living/user)
 	user.say(";[pick(BUBBLEGUM_HALLUCINATION_LINES)]")
 	return ..()
 
 /obj/item/food/gumball
-	name = "gumball"
-	desc = "A colorful, sugary gumball."
+	name = "жвачка"
+	desc = "Яркий, сладкий шарик жвачки."
 	icon = 'icons/obj/food/lollipop.dmi'
 	icon_state = "gumball"
 	worn_icon_state = "bubblegum"
@@ -279,8 +279,8 @@
 
 // Lollipop
 /obj/item/food/lollipop
-	name = "lollipop"
-	desc = "A delicious lollipop. Makes for a great Valentine's present."
+	name = "леденец"
+	desc = "Вкусный леденец. Подойдет для отличного подарка на День Святого Валентина."
 	icon = 'icons/obj/food/lollipop.dmi'
 	icon_state = "lollipop_stick"
 	inhand_icon_state = null
@@ -326,8 +326,8 @@
 	)
 
 /obj/item/food/spiderlollipop
-	name = "spider lollipop"
-	desc = "Still gross, but at least it has a mountain of sugar on it."
+	name = "паучий леденец"
+	desc = "Все равно противно, но, по крайней мере, на нем есть гора сахара."
 	icon_state = "spiderlollipop"
 	worn_icon_state = "lollipop_stick"
 	food_reagents = list(

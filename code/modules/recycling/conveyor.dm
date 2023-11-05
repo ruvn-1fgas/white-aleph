@@ -50,7 +50,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 		. += span_notice("It is currently set to go in reverse.")
 	. += "\nLeft-click with a <b>wrench</b> to rotate."
 	. += "Left-click with a <b>screwdriver</b> to invert its direction."
-	. += "Right-click with a <b>screwdriver</b> to flip its belt around."
+	. += "ПКМ with a <b>screwdriver</b> to flip its belt around."
 	. += "Using another <b>conveyor belt assembly</b> on this will place a <b>new conveyor belt<b> in the direction this one is pointing."
 
 /obj/machinery/conveyor/add_context(atom/source, list/context, obj/item/held_item, mob/user)

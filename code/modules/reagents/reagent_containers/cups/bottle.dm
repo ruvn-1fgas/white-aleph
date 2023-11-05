@@ -479,7 +479,7 @@
 
 /obj/item/reagent_containers/cup/bottle/syrup_bottle/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click to toggle the pump cap.")
+	. += span_notice("Alt-клик to toggle the pump cap.")
 	. += span_notice("Use a pen on it to rename it.")
 	return
 

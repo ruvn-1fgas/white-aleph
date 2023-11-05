@@ -56,7 +56,7 @@
 
 /obj/item/camera/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click to change its focusing, allowing you to set how big of an area it will capture.")
+	. += span_notice("Alt-клик to change its focusing, allowing you to set how big of an area it will capture.")
 
 /obj/item/camera/proc/adjust_zoom(mob/user)
 	if(loc != user)

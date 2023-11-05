@@ -50,7 +50,7 @@
 	// At some point these need to be converted to contextual screentips
 	. += span_notice("Activate it in your hand to [open ? "close" : "open"] its door. Click-drag onto floor to release its occupants.")
 	if(!open)
-		. += span_notice("Alt-click to [locked ? "unlock" : "lock"] its door.")
+		. += span_notice("Alt-клик to [locked ? "unlock" : "lock"] its door.")
 
 /obj/item/pet_carrier/attack_self(mob/living/user)
 	if(open)

@@ -164,7 +164,7 @@
 	. += "The safety is [safety ? "on" : "off"]."
 
 	if(reagents.total_volume)
-		. += span_notice("Alt-click to empty it.")
+		. += span_notice("Alt-клик to empty it.")
 
 /obj/item/extinguisher/proc/AttemptRefill(atom/target, mob/user)
 	if(istype(target, tanktype) && target.Adjacent(user))

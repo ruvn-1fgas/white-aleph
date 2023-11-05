@@ -27,7 +27,7 @@
 		examine_text += "It has a slot installed for an intelliCard which contains: [stored_card.name]"
 	else
 		examine_text += "It has a slot installed for an intelliCard, which appears to be occupied."
-	examine_text += span_info("Alt-click to eject the intelliCard.")
+	examine_text += span_info("Alt-клик to eject the intelliCard.")
 	return examine_text
 
 /datum/computer_file/program/ai_restorer/kill_program(mob/user)

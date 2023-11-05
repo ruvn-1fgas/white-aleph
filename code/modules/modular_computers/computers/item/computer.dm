@@ -351,7 +351,7 @@
 			. += "It has  [computer_id_slot] card installed in its card slot."
 		else
 			. += "Its identification card slot is currently occupied."
-		. += span_info("Alt-click [src] to eject the identification card.")
+		. += span_info("Alt-клик [src] to eject the identification card.")
 
 /obj/item/modular_computer/examine_more(mob/user)
 	. = ..()

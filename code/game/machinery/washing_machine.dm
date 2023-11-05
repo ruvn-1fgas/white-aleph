@@ -187,7 +187,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 /obj/machinery/washing_machine/examine(mob/user)
 	. = ..()
 	if(!busy)
-		. += span_notice("<b>Right-click</b> with an empty hand to start a wash cycle.")
+		. += span_notice("<b>ПКМ</b> with an empty hand to start a wash cycle.")
 
 /obj/machinery/washing_machine/process(seconds_per_tick)
 	if(!busy)

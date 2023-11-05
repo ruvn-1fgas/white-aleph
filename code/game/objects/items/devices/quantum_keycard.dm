@@ -36,7 +36,7 @@
 		if(area_name)
 			. += span_notice("The pad is located in  [area_name]")
 
-		. += span_notice("Alt-click to unlink the keycard.")
+		. += span_notice("Alt-клик to unlink the keycard.")
 	else
 		. += span_notice("Insert [src] into an active quantum pad to link it.")
 

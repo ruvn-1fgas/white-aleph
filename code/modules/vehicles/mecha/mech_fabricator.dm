@@ -129,7 +129,7 @@
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("Дисплей: Storing up to <b>[rmat.local_size]</b> material units.<br>Material consumption at <b>[component_coeff*100]%</b>.<br>Build time reduced by <b>[100-time_coeff*100]%</b>.")
 	if(panel_open)
-		. += span_notice("Alt-click to rotate the output direction.")
+		. += span_notice("Alt-клик to rotate the output direction.")
 
 /obj/machinery/mecha_part_fabricator/AltClick(mob/user)
 	. = ..()

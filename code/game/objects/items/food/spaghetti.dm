@@ -19,8 +19,8 @@
 	return ..()
 
 /obj/item/food/spaghetti/raw
-	name = "spaghetti"
-	desc = "Now that's a nic'e pasta!"
+	name = "спагетти"
+	desc = "Вот это паста!"
 	icon_state = "spaghetti"
 	tastes = list("pasta" = 1)
 	crafting_complexity = FOOD_COMPLEXITY_1
@@ -32,8 +32,8 @@
 	AddElement(/datum/element/microwavable, /obj/item/food/spaghetti/boiledspaghetti)
 
 /obj/item/food/spaghetti/boiledspaghetti
-	name = "boiled spaghetti"
-	desc = "A plain dish of noodles, this needs more ingredients."
+	name = "вареное спагетти"
+	desc = "Обычное блюдо из макарон, стоит добавить больше ингредиентов."
 	icon_state = "spaghettiboiled"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
@@ -46,8 +46,8 @@
 	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_SCATTER, max_ingredients = 6)
 
 /obj/item/food/spaghetti/pastatomato
-	name = "spaghetti"
-	desc = "Spaghetti and crushed tomatoes. Just like your abusive father used to make!"
+	name = "паста с томатным соусом"
+	desc = "Спагетти и измельченные томаты. По рецепту твоего отчима!"
 	icon_state = "pastatomato"
 	bite_consumption = 4
 	food_reagents = list(
@@ -75,8 +75,8 @@
 	tastes = list("nostalgia" = 1, "happiness" = 1)
 
 /obj/item/food/spaghetti/copypasta
-	name = "copypasta"
-	desc = "You probably shouldn't try this, you always hear people talking about how bad it is..."
+	name = "копипаста"
+	desc = "Возможно, вам не стоит пробовать это..."
 	icon_state = "copypasta"
 	bite_consumption = 4
 	food_reagents = list(
@@ -89,8 +89,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/meatballspaghetti
-	name = "spaghetti and meatballs"
-	desc = "Now that's a nic'e meatball!"
+	name = "спагетти с фрикадельками"
+	desc = "Вот это фрикадельки!"
 	icon_state = "meatballspaghetti"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -102,8 +102,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/spesslaw
-	name = "spesslaw"
-	desc = "A lawyers favourite."
+	name = "фрикадельки со спагетти"
+	desc = "любимец адвокатов."
 	icon_state = "spesslaw"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -115,8 +115,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/chowmein
-	name = "chow mein"
-	desc = "A nice mix of noodles and fried vegetables."
+	name = "чау-мейн"
+	desc = "Хорошая смесь лапши и жареных овощей."
 	icon_state = "chowmein"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -128,8 +128,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/spaghetti/beefnoodle
-	name = "beef noodle"
-	desc = "Nutritious, beefy and noodly."
+	name = "лапша с говядиной"
+	desc = "Питательно, говяже, и лапшично."
 	icon_state = "beefnoodle"
 	trash_type = /obj/item/reagent_containers/cup/bowl
 	food_reagents = list(
@@ -138,25 +138,25 @@
 		/datum/reagent/consumable/nutriment/vitamin = 6,
 		/datum/reagent/consumable/liquidgibs = 3,
 	)
-	tastes = list("noodles" = 1, "meat" = 1)
+	tastes = list("лапша" = 1, "meat" = 1)
 	foodtypes = GRAIN | MEAT | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/spaghetti/butternoodles
-	name = "butter noodles"
-	desc = "Noodles covered in savory butter. Simple and slippery, but delicious."
+	name = "лапша с маслом"
+	desc = "Лапша, покрытая пикантным маслом."
 	icon_state = "butternoodles"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 9,
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 	)
-	tastes = list("noodles" = 1, "butter" = 1)
+	tastes = list("лапша" = 1, "butter" = 1)
 	foodtypes = GRAIN | DAIRY
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/mac_n_cheese
-	name = "mac n' cheese"
-	desc = "Made the proper way with only the finest cheese and breadcrumbs. And yet, it can't scratch the same itch as Ready-Donk."
+	name = "макароны с сыром"
+	desc = "Приготовлен как положено, с использованием только лучшего сыра и панировочных сухарей."
 	icon_state = "mac_n_cheese"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 9,
@@ -176,7 +176,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 6,
 		/datum/reagent/consumable/nutriment/protein = 6,
 	)
-	tastes = list("noodles" = 5, "meat" = 3, "egg" = 4, "dried seaweed" = 2)
+	tastes = list("лапша" = 5, "meat" = 3, "egg" = 4, "dried seaweed" = 2)
 	foodtypes = GRAIN | MEAT | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_4
 
@@ -190,7 +190,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 6,
 		/datum/reagent/consumable/nutriment/protein = 8,
 	)
-	tastes = list("noodles" = 5, "meat" = 4, "mushrooms" = 3, "onion" = 2)
+	tastes = list("лапша" = 5, "meat" = 4, "mushrooms" = 3, "onion" = 2)
 	foodtypes = GRAIN | MEAT | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_4
 
@@ -204,7 +204,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 10,
 		/datum/reagent/consumable/nutriment/protein = 4,
 	)
-	tastes = list("noodles" = 5, "tofu" = 4, "sugar" = 3, "soy sauce" = 2)
+	tastes = list("лапша" = 5, "tofu" = 4, "sugar" = 3, "soy sauce" = 2)
 	foodtypes = GRAIN | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_4
 
@@ -218,7 +218,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 12,
 		/datum/reagent/consumable/nutriment/protein = 8,
 	)
-	tastes = list("noodles" = 5, "meat" = 4, "potato" = 3, "onion" = 2, "mixed veggies" = 2)
+	tastes = list("лапша" = 5, "meat" = 4, "potato" = 3, "onion" = 2, "mixed veggies" = 2)
 	foodtypes = GRAIN | VEGETABLES | MEAT
 	crafting_complexity = FOOD_COMPLEXITY_4
 
@@ -232,7 +232,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 8,
 		/datum/reagent/consumable/nutriment/protein = 8,
 	)
-	tastes = list("noodles" = 5, "meat" = 4, "cabbage" = 3, "onion" = 2, "herbs" = 2)
+	tastes = list("лапша" = 5, "meat" = 4, "cabbage" = 3, "onion" = 2, "herbs" = 2)
 	foodtypes = GRAIN | VEGETABLES | MEAT
 	crafting_complexity = FOOD_COMPLEXITY_4
 
@@ -246,6 +246,6 @@
 		/datum/reagent/consumable/nutriment/vitamin = 10,
 		/datum/reagent/consumable/nutriment/protein = 4,
 	)
-	tastes = list("noodles" = 5, "fried tofu" = 4, "lime" = 2, "peanut" = 3, "onion" = 2)
+	tastes = list("лапша" = 5, "fried tofu" = 4, "lime" = 2, "peanut" = 3, "onion" = 2)
 	foodtypes = GRAIN | VEGETABLES | NUTS | FRUIT
 	crafting_complexity = FOOD_COMPLEXITY_4

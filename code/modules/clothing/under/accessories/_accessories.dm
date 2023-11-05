@@ -59,7 +59,7 @@
 	. = ..()
 
 	var/obj/item/clothing/under/attached_to = loc
-	
+
 	if(!istype(attached_to))
 		return
 
@@ -199,7 +199,7 @@
 /obj/item/clothing/accessory/examine(mob/user)
 	. = ..()
 	. += "It can be attached to a uniform."
-	. += "It can be worn above or below your suit. Right-click to toggle."
+	. += "It can be worn above or below your suit. ПКМ to toggle."
 
 /obj/item/clothing/accessory/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	if(!isnull(held_item))

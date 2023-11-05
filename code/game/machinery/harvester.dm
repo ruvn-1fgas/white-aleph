@@ -211,6 +211,6 @@
 	if(state_open)
 		. += span_notice("[src] must be closed before harvesting.")
 	else if(!harvesting)
-		. += span_notice("Alt-click [src] to start harvesting.")
+		. += span_notice("Alt-клик [src] to start harvesting.")
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("Дисплей: Harvest speed at <b>[interval*0.1]</b> seconds per organ. Outputting to the <b>[dir2text(output_dir)]</b>.")

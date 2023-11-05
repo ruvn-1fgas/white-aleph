@@ -1,6 +1,6 @@
 /obj/structure/sacrificealtar
 	name = "sacrificial altar"
-	desc = "An altar designed to perform blood sacrifice for a deity. Alt-click it to sacrifice a buckled creature."
+	desc = "An altar designed to perform blood sacrifice for a deity. Alt-клик it to sacrifice a buckled creature."
 	icon = 'icons/obj/service/hand_of_god_structures.dmi'
 	icon_state = "sacrificealtar"
 	anchored = TRUE

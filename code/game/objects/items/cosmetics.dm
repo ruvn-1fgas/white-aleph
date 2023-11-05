@@ -30,7 +30,7 @@
 
 /obj/item/lipstick/examine(mob/user)
 	. = ..()
-	. += "Alt-click to change the style."
+	. += "Alt-клик to change the style."
 
 /obj/item/lipstick/update_icon_state()
 	icon_state = "lipstick[open ? "_uncap" : null]"

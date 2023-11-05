@@ -99,7 +99,7 @@
 	if(bricked)
 		. += span_info("[p_They()] feel[p_s()] unnaturally heavy.")
 	if(pillow_trophy)
-		. += span_notice("Alt-click to remove the tag!")
+		. += span_notice("Alt-клик to remove the tag!")
 
 /obj/item/pillow/AltClick(mob/user)
 	. = ..()

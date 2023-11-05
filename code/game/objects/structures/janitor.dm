@@ -134,11 +134,11 @@
 				. += "\t[icon2html(sign_obj, user)] \a [sign_obj]"
 		. += span_notice("\n<b>Left-click</b> to [contents.len > 1 ? "search [src]" : "remove [contents[1]]"].")
 		if(mybag)
-			. += span_notice("<b>Right-click</b> with a <b>[weight_class_to_text(mybag.atom_storage.max_specific_storage)] item</b> to put it in [mybag].")
+			. += span_notice("<b>ПКМ</b> with a <b>[weight_class_to_text(mybag.atom_storage.max_specific_storage)] item</b> to put it in [mybag].")
 		if(mymop)
-			. += span_notice("<b>Right-click</b> to quickly remove [mymop].")
+			. += span_notice("<b>ПКМ</b> to quickly remove [mymop].")
 	if(CART_HAS_MINIMUM_REAGENT_VOLUME)
-		. += span_notice("<b>Right-click</b> with a <b>mop</b> to wet it.")
+		. += span_notice("<b>ПКМ</b> with a <b>mop</b> to wet it.")
 		. += span_info("<b>Crowbar</b> it to dump its mop bucket onto [get_turf(src)].")
 
 /obj/structure/mop_bucket/janitorialcart/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)

@@ -12,7 +12,7 @@
 		if(!inserted_key)
 			. += span_notice("Put a key inside it by clicking it with the key.")
 		else
-			. += span_notice("Alt-click [src] to remove the key.")
+			. += span_notice("Alt-клик [src] to remove the key.")
 
 /obj/vehicle/ridden/generate_action_type(actiontype)
 	var/datum/action/vehicle/ridden/A = ..()

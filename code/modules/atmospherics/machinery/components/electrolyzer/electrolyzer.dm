@@ -72,7 +72,7 @@
 	else
 		. += "There is no power cell installed."
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("<b>Alt-click</b> to toggle [on ? "off" : "on"].")
+		. += span_notice("<b>Alt-клик</b> to toggle [on ? "off" : "on"].")
 		. += span_notice("<b>Anchor</b> to drain power from APC instead of cell")
 	. += span_notice("It will drain power from the [anchored ? "area's APC" : "internal power cell"].")
 

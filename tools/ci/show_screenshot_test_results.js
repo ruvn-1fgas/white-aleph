@@ -48,7 +48,7 @@ const createComment = (screenshotFailures, zipFileUrl) => {
 
 			You can either:
 
-			1. Right-click the "produced image", and save it in \`code/modules/unit_tests/screenshots/NAME.png\`.
+			1. ПКМ the "produced image", and save it in \`code/modules/unit_tests/screenshots/NAME.png\`.
 			2. Download and extract [this zip file](${zipFileUrl}) in the root of your repository, and commit.
 
 			If you need help, you can ask maintainers either on Discord or on this pull request.

@@ -181,29 +181,6 @@
 	)
 	result = /obj/item/food/mac_balls
 	category = CAT_MOTH
-
-/datum/crafting_recipe/food/hua_mulan_congee
-	name = "Hua Mulan congee"
-	reqs = list(
-		/datum/reagent/consumable/nutriment/soup/rice_porridge = 10,
-		/obj/item/food/meat/bacon = 1,
-		/obj/item/food/friedegg = 2
-	)
-	result = /obj/item/food/bowled/hua_mulan_congee
-	category = CAT_MOTH
-
-/datum/crafting_recipe/food/fried_eggplant_polenta
-	name = "Fried eggplant and polenta"
-	reqs = list(
-		/datum/reagent/consumable/nutriment/soup/cornmeal_porridge = 10,
-		/obj/item/food/grown/eggplant = 1,
-		/obj/item/food/breadslice/plain = 2,
-		/obj/item/food/tomato_sauce = 1,
-		/obj/item/food/cheese/mozzarella = 1
-	)
-	result = /obj/item/food/bowled/fried_eggplant_polenta
-	category = CAT_MOTH
-
 /datum/crafting_recipe/food/caprese_salad
 	name = "Caprese salad"
 	reqs = list(

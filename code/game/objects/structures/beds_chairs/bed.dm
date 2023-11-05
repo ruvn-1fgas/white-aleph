@@ -104,12 +104,12 @@
 /obj/structure/bed/medical/examine(mob/user)
 	. = ..()
 	if(anchored)
-		. += span_notice("The brakes are applied. They can be released with an Alt-click.")
+		. += span_notice("The brakes are applied. They can be released with an Alt-клик.")
 	else
-		. += span_notice("The brakes can be applied with an Alt-click.")
+		. += span_notice("The brakes can be applied with an Alt-клик.")
 
 	if(!isnull(foldable_type))
-		. += span_notice("You can fold it up with a Right-click.")
+		. += span_notice("You can fold it up with a ПКМ.")
 
 /obj/structure/bed/medical/AltClick(mob/user)
 	. = ..()

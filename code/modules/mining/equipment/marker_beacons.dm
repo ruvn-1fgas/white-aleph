@@ -40,7 +40,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 /obj/item/stack/marker_beacon/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Use in-hand to place a [singular_name].\n"+\
-	"Alt-click to select a color. Current color is [picked_color].</span>"
+	"Alt-клик to select a color. Current color is [picked_color].</span>"
 
 /obj/item/stack/marker_beacon/update_icon_state()
 	icon_state = "[initial(icon_state)][lowertext(picked_color)]"
@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 
 /obj/structure/marker_beacon/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click to select a color. Current color is [picked_color].")
+	. += span_notice("Alt-клик to select a color. Current color is [picked_color].")
 
 /obj/structure/marker_beacon/update_appearance(updates)
 	while(!picked_color || !GLOB.marker_beacon_colors[picked_color])

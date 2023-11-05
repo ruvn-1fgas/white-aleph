@@ -1,8 +1,8 @@
 
 ////////////////////////////////////////////OTHER////////////////////////////////////////////
 /obj/item/food/watermelonslice
-	name = "watermelon slice"
-	desc = "A slice of watery goodness."
+	name = "долька арбуза"
+	desc = "Кусочек водянистого совершенства."
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "watermelonslice"
 	food_reagents = list(
@@ -10,15 +10,15 @@
 		/datum/reagent/consumable/nutriment/vitamin = 0.2,
 		/datum/reagent/consumable/nutriment = 1,
 	)
-	tastes = list("watermelon" = 1)
+	tastes = list("арбуз" = 1)
 	foodtypes = FRUIT
 	food_flags = FOOD_FINGER_FOOD
 	juice_typepath = /datum/reagent/consumable/watermelonjuice
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/appleslice
-	name = "apple slice"
-	desc = "The perfect after-school snack."
+	name = "долька яблока"
+	desc = "Лучший перекус после школы."
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "appleslice"
 	food_reagents = list(
@@ -26,22 +26,22 @@
 		/datum/reagent/consumable/nutriment/vitamin = 0.2,
 		/datum/reagent/consumable/nutriment = 1,
 	)
-	tastes = list("apple" = 1)
+	tastes = list("яблоко" = 1)
 	foodtypes = FRUIT
 	food_flags = FOOD_FINGER_FOOD
 	juice_typepath = /datum/reagent/consumable/applejuice
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/hugemushroomslice
-	name = "huge mushroom slice"
-	desc = "A slice from a huge mushroom."
+	name = "большая долька гриба"
+	desc = "Долька с большого гриба."
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "hugemushroomslice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("mushroom" = 1)
+	tastes = list("грибы" = 1)
 	foodtypes = VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -50,26 +50,26 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_WALKING_MUSHROOM, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
 /obj/item/food/popcorn
-	name = "popcorn"
-	desc = "Now let's find some cinema."
+	name = "попкорн"
+	desc = "Теперь давайте найдем какое-нибудь кино."
 	icon_state = "popcorn"
 	trash_type = /obj/item/trash/popcorn
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	bite_consumption = 0.1 //this snack is supposed to be eating during looooong time. And this it not dinner food! --rastaf0
-	tastes = list("popcorn" = 3, "butter" = 1)
+	tastes = list("попкорн" = 3, "масло" = 1)
 	foodtypes = JUNKFOOD
-	eatverbs = list("bite", "nibble", "gnaw", "gobble", "chomp")
+	eatverbs = list("кусает","надкусывает","чапает","пожирает","ест")
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/popcorn/salty
-	name = "salty popcorn"
+	name = "солёный попкорн"
 	icon_state = "salty_popcorn"
-	desc = "Salty popcorn, a classic for all time."
+	desc = "Солёный попкорн, классика на все времена!"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
 		/datum/reagent/consumable/salt = 2,
 	)
-	tastes = list("salt" = 2, "popcorn" = 1)
+	tastes = list("соль" = 2, "попкорн" = 1)
 	trash_type = /obj/item/trash/popcorn/salty
 	crafting_complexity = FOOD_COMPLEXITY_1
 
@@ -81,27 +81,27 @@
 		/datum/reagent/consumable/nutriment = 2,
 		/datum/reagent/consumable/caramel = 4,
 	)
-	tastes = list("caramel" = 2, "popcorn" = 1)
+	tastes = list("карамель" = 2, "попкорн" = 1)
 	foodtypes = JUNKFOOD | SUGAR
 	trash_type = /obj/item/trash/popcorn
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/soydope
-	name = "soy dope"
-	desc = "Dope from a soy."
+	name = "соевая добавка"
+	desc = "Добавка из сои."
 	icon_state = "soydope"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
 		/datum/reagent/consumable/nutriment/protein = 1,
 	)
-	tastes = list("soy" = 1)
+	tastes = list("соя" = 1)
 	foodtypes = VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/badrecipe
-	name = "burned mess"
-	desc = "Someone should be demoted from cook for this."
+	name = "гречка"
+	desc = "Стоит уволить повара, который это приготовил."
 	icon_state = "badrecipe"
 	food_reagents = list(/datum/reagent/toxin/bad_food = 30)
 	foodtypes = GROSS
@@ -123,8 +123,8 @@
 	return
 
 /obj/item/food/badrecipe/moldy
-	name = "moldy mess"
-	desc = "A rancid, disgusting culture of mold and ants. Somewhere under there, at <i>some point,</i> there was food."
+	name = "гниль"
+	desc = "Фу."
 	food_reagents = list(/datum/reagent/consumable/mold = 30)
 	preserved_food = FALSE
 	ant_attracting = TRUE
@@ -133,9 +133,8 @@
 	stink_particles = /particles/stink
 
 /obj/item/food/badrecipe/moldy/bacteria
-	name = "bacteria rich moldy mess"
-	desc = "Not only is this rancid lump of disgusting bile crawling with insect life, \
-		but it is also teeming with various microscopic cultures. <i>It moves when you're not looking.</i>"
+	name = "гниль с бактериями"
+	desc = "Эта гниль полна бактерий."
 
 /obj/item/food/badrecipe/moldy/bacteria/Initialize(mapload)
 	. = ..()
@@ -147,15 +146,15 @@
 	return COMPONENT_HANDLED_GRILLING
 
 /obj/item/food/spidereggs
-	name = "spider eggs"
-	desc = "A cluster of juicy spider eggs. A great side dish for when you care not for your health."
+	name = "паучьи яйца"
+	desc = "Скопление сочных паучьих яиц. Отличный гарнир для тех случаев, когда вы не заботитесь о своем здоровье."
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "spidereggs"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 4,
 		/datum/reagent/toxin = 2,
 	)
-	tastes = list("cobwebs" = 1)
+	tastes = list("паутина" = 1)
 	foodtypes = MEAT | TOXIC | BUGS
 	w_class = WEIGHT_CLASS_TINY
 
@@ -170,35 +169,35 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/spiderling
-	name = "spiderling"
-	desc = "It's slightly twitching in your hand. Ew..."
+	name = "спайдерлинг"
+	desc = "Он слегка подрагивает лапками в вашей руке. Фу...."
 	icon = 'icons/mob/simple/arachnoid.dmi'
 	icon_state = "spiderling_dead"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 2,
 		/datum/reagent/toxin = 4,
 	)
-	tastes = list("cobwebs" = 1, "guts" = 2)
+	tastes = list("паутина" = 1, "кишочки" = 2)
 	foodtypes = MEAT | TOXIC | BUGS
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/melonfruitbowl
-	name = "melon fruit bowl"
-	desc = "For people who wants edible fruit bowls."
+	name = "фруктовая арбузная миска"
+	desc = "Для тех, кто любит съедобные миски."
 	icon_state = "melonfruitbowl"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 4,
 	)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("melon" = 1)
+	tastes = list("арбуз" = 1)
 	foodtypes = FRUIT
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/melonkeg
-	name = "melon keg"
-	desc = "Who knew vodka was a fruit?"
+	name = "бочонок из дыни"
+	desc = "Кто ж знал, что водка - это фрукт?"
 	icon_state = "melonkeg"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 9,
@@ -207,27 +206,27 @@
 	)
 	max_volume = 80
 	bite_consumption = 5
-	tastes = list("grain alcohol" = 1, "fruit" = 1)
+	tastes = list("зерновой спирт" = 1, "фрукты" = 1)
 	foodtypes = FRUIT | ALCOHOL
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/honeybar
-	name = "honey nut bar"
-	desc = "Oats and nuts compressed together into a bar, held together with a honey glaze."
+	name = "медово-ореховый батончик"
+	desc = "Овсянка и орехи спрессованые в батончик, скрепленный медовой глазурью."
 	icon_state = "honeybar"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 5,
 		/datum/reagent/consumable/honey = 5,
 	)
-	tastes = list("oats" = 3, "nuts" = 2, "honey" = 1)
+	tastes = list("овес" = 3, "орешки" = 2, "мед" = 1)
 	foodtypes = GRAIN | SUGAR
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/powercrepe
-	name = "Powercrepe"
-	desc = "With great power, comes great crepes.  It looks like a pancake filled with jelly but packs quite a punch."
+	name = "боевой блин"
+	desc = "С большой силой приходит большой блин."
 	icon_state = "powercrepe"
 	inhand_icon_state = "powercrepe"
 	food_reagents = list(
@@ -241,30 +240,30 @@
 	armour_penetration = 80
 	block_sound = 'sound/weapons/parry.ogg'
 	wound_bonus = -50
-	attack_verb_continuous = list("slaps", "slathers")
-	attack_verb_simple = list("slap", "slather")
+	attack_verb_continuous = list("шлёпает", "рубит")
+	attack_verb_simple = list("шлёпает", "рубит")
 	w_class = WEIGHT_CLASS_BULKY
-	tastes = list("cherry" = 1, "crepe" = 1)
+	tastes = list("вишня" = 1, "креп" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/branrequests
-	name = "Bran Requests Cereal"
-	desc = "A dry cereal that satiates your requests for bran. Tastes uniquely like raisins and salt."
+	name = "сухой завтрак с отрубями"
+	desc = "Сухия хлопья, идеальны для завтрака. Вкус уникален: изюм и соль."
 	icon_state = "bran_requests"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 		/datum/reagent/consumable/salt = 8,
 	)
-	tastes = list("bran" = 4, "raisins" = 3, "salt" = 1)
+	tastes = list("отруби" = 4, "изюм" = 3, "соль" = 1)
 	foodtypes = GRAIN | FRUIT | BREAKFAST
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/butter
-	name = "stick of butter"
-	desc = "A stick of delicious, golden, fatty goodness."
+	name = "кусочек сливочного масла"
+	desc = "Палочка вкусной, золотистой, жирной пользы."
 	icon_state = "butter"
 	food_reagents = list(/datum/reagent/consumable/nutriment/fat = 6)
 	tastes = list("butter" = 1)
@@ -274,15 +273,15 @@
 
 /obj/item/food/butter/examine(mob/user)
 	. = ..()
-	. += span_notice("If you had a rod you could make <b>butter on a stick</b>.")
+	. += span_notice("Если у вас есть стержень, вы можете сделать <b>масло на палочке</b>.")
 
 /obj/item/food/butter/attackby(obj/item/item, mob/user, params)
 	if(istype(item, /obj/item/stack/rods))
 		var/obj/item/stack/rods/rods = item
 		if(!rods.use(1))//borgs can still fail this if they have no metal
-			to_chat(user, span_warning("You do not have enough iron to put [src] on a stick!"))
+			to_chat(user, span_warning("Мне не хватает железа, чтобы насадить масло на палку!"))
 			return ..()
-		to_chat(user, span_notice("You stick the rod into the stick of butter."))
+		to_chat(user, span_notice("Я втыкаю стержень в кусочек масла."))
 		var/obj/item/food/butter/on_a_stick/new_item = new(usr.loc)
 		var/replace = (user.get_inactive_held_item() == rods)
 		if(!rods && replace)
@@ -292,8 +291,8 @@
 	..()
 
 /obj/item/food/butter/on_a_stick //there's something so special about putting it on a stick.
-	name = "butter on a stick"
-	desc = "delicious, golden, fatty goodness on a stick."
+	name = "масло на палочке"
+	desc = "Вкусное, золотистое, жирное лакомство на палочке."
 	icon_state = "butteronastick"
 	trash_type = /obj/item/stack/rods
 	food_flags = FOOD_FINGER_FOOD
@@ -303,37 +302,36 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/butterslice, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Slice")
 
 /obj/item/food/butterslice
-	name = "butter slice"
-	desc = "A slice of butter, for your buttering needs."
+	name = "кусок масла"
 	icon_state = "butterslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
-	tastes = list("butter" = 1)
+	tastes = list("масло" = 1)
 	foodtypes = DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/onionrings
-	name = "onion rings"
-	desc = "Onion slices coated in batter."
+	name = "луковые кольца"
+	desc = "Луковые кольца в кляре."
 	icon_state = "onionrings"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	gender = PLURAL
-	tastes = list("batter" = 3, "onion" = 1)
+	tastes = list("кляр" = 3, "лук" = 1)
 	foodtypes = VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/pineappleslice
-	name = "pineapple slice"
-	desc = "A sliced piece of juicy pineapple."
+	name = "долька ананаса"
+	desc = "Отрезанный кусочек сочного ананаса."
 	icon_state = "pineapple_slice"
 	juice_typepath = /datum/reagent/consumable/pineapplejuice
-	tastes = list("pineapple" = 1)
+	tastes = list("ананас" = 1)
 	foodtypes = FRUIT | PINEAPPLE
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/crab_rangoon
-	name = "Crab Rangoon"
-	desc = "Has many names, like crab puffs, cheese won'tons, crab dumplings? Whatever you call them, they're a fabulous blast of cream cheesy crab."
+	name = "крабовый рангун"
+	desc = "У него много названий: крабовые слойки, сырные вонтоны, крабовые пельмени? Как бы вы его ни называли, это потрясающая комбинация сливочного сыра с крабовым мясом."
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "crabrangoon"
 	food_reagents = list(
@@ -342,63 +340,63 @@
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 	)
 	w_class = WEIGHT_CLASS_SMALL
-	tastes = list("cream cheese" = 4, "crab" = 3, "crispiness" = 2)
+	tastes = list("сливочный сыр" = 4, "краб" = 3, "хрупкость" = 2)
 	foodtypes = MEAT | DAIRY | GRAIN
 	venue_value = FOOD_PRICE_CHEAP
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pesto
-	name = "pesto"
-	desc = "A combination of firm cheese, salt, herbs, garlic, oil, and pine nuts. Frequently used as a sauce for pasta or pizza, or eaten on bread."
+	name = "песто"
+	desc = "Сочетание твердого сыра, соли, трав, чеснока, масла и кедровых орехов. Часто используется в качестве соуса для пасты или пиццы, а также намазывается на хлеб."
 	icon_state = "pesto"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
-	tastes = list("pesto" = 1)
+	tastes = list("песто" = 1)
 	foodtypes = VEGETABLES | DAIRY | NUTS
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/tomato_sauce
-	name = "tomato sauce"
-	desc = "Tomato sauce, perfect for pizza or pasta. Mamma mia!"
+	name = "томатный соус"
+	desc = "Томатный соус, идеально подходящий для пиццы или пасты. Mamma mia!"
 	icon_state = "tomato_sauce"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
-	tastes = list("tomato" = 1, "herbs" = 1)
+	tastes = list("томаты" = 1, "трава" = 1)
 	foodtypes = VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/bechamel_sauce
-	name = "béchamel sauce"
-	desc = "A classic white sauce common to several European cultures."
+	name = "соус Бешамель"
+	desc = "Классический белый соус, характерный для нескольких Европейских культур."
 	icon_state = "bechamel_sauce"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
-	tastes = list("cream" = 1)
+	tastes = list("сливки" = 1)
 	foodtypes = DAIRY | GRAIN
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/roasted_bell_pepper
-	name = "roasted bell pepper"
-	desc = "A blackened, blistered bell pepper. Great for making sauces."
+	name = "жареный болгарский перец"
+	desc = "Почерневший, запекшийся болгарский перец. Отлично подходит для приготовления соусов."
 	icon_state = "roasted_bell_pepper"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 		/datum/reagent/consumable/char = 1,
 	)
-	tastes = list("bell pepper" = 1, "char" = 1)
+	tastes = list("болгарский перец" = 1)
 	foodtypes = VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/pierogi
-	name = "pierogi"
-	desc = "A dumpling made by wrapping unleavened dough around a savoury or sweet filling and cooking in boiling water. This one is filled with a potato and onion mixture."
+	name = "пироги"
+	desc = "Как у бабушки!"
 	icon_state = "pierogi"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 	)
-	tastes = list("potato" = 1, "onions" = 1)
+	tastes = list("картошка" = 1, "лук" = 1)
 	foodtypes = GRAIN | VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2

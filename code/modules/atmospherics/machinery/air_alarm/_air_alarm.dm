@@ -176,7 +176,7 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 		if(AIR_ALARM_BUILD_NO_WIRES)
 			. += span_notice("It is missing wiring.")
 		if(AIR_ALARM_BUILD_COMPLETE)
-			. += span_notice("Right-click to [locked ? "unlock" : "lock"] the interface.")
+			. += span_notice("ПКМ to [locked ? "unlock" : "lock"] the interface.")
 
 /obj/machinery/airalarm/ui_status(mob/user)
 	if(user.has_unlimited_silicon_privilege && aidisabled)

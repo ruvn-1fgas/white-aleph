@@ -140,8 +140,6 @@
 		mob_status = span_alert("<b>Мёртв</b>")
 		oxy_loss = max(rand(1, 40), oxy_loss, (300 - (tox_loss + fire_loss + brute_loss))) // Random oxygen loss
 
-	render_list += "[span_info("Analyzing results for [M]:")]\n<span class='info ml-1'>Overall status: [mob_status]</span>\n"
-
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.undergoing_cardiac_arrest() && H.stat != DEAD)
@@ -184,7 +182,7 @@
 		if(advanced)
 			render_list += "<span class='info ml-1'>Уровень клеточного урона: [M.getCloneLoss()].</span>\n"
 		if (!M.get_organ_slot(ORGAN_SLOT_BRAIN)) // brain not added to carbon/human check because it's funny to get to bully simple mobs
-		render_list += "<span class='alert ml-1'>У пациента отсутствует мозг.</span>\n"
+			render_list += "<span class='alert ml-1'>У пациента отсутствует мозг.</span>\n"
 
 	if(iscarbon(M))
 		var/mob/living/carbon/carbontarget = M
@@ -387,11 +385,11 @@
 				var/datum/reagent/R = GLOB.chemical_reagents_list[blood_id]
 				blood_type = R ? R.name : blood_id
 			if(carbontarget.blood_volume <= BLOOD_VOLUME_SAFE && carbontarget.blood_volume > BLOOD_VOLUME_OKAY)
-				render_list += "<span class='alert ml-1'>Уровень крови: НИЗКИЙ [blood_percent] %, [carbontarget.blood_volume] cl,</span> [span_info("type: [blood_type]")]\n"
+				render_list += "<span class='alert ml-1'>Уровень крови: НИЗКИЙ [blood_percent] %, [carbontarget.blood_volume] cl,</span> [span_info("Тип: [blood_type]")]\n"
 			else if(carbontarget.blood_volume <= BLOOD_VOLUME_OKAY)
-				render_list += "<span class='alert ml-1'>Уровень крови: <b>КРИТИЧЕСКИЙ [blood_percent] %</b>, [carbontarget.blood_volume] cl,</span> [span_info("type: [blood_type]")]\n"
+				render_list += "<span class='alert ml-1'>Уровень крови: <b>КРИТИЧЕСКИЙ [blood_percent] %</b>, [carbontarget.blood_volume] cl,</span> [span_info("Тип: [blood_type]")]\n"
 			else
-				render_list += "<span class='info ml-1'>Уровень крови: [blood_percent] %, [carbontarget.blood_volume] cl, type: [blood_type]</span>\n"
+				render_list += "<span class='info ml-1'>Уровень крови: [blood_percent] %, [carbontarget.blood_volume] cl, Тип: [blood_type]</span>\n"
 
 	// Cybernetics
 	if(iscarbon(M))

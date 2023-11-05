@@ -1,6 +1,6 @@
 /obj/item/megaphone
-	name = "megaphone"
-	desc = "A device used to project your voice. Loudly."
+	name = "мегафон"
+	desc = "Устройство, используемое для передачи вашего голоса. Громко."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "megaphone"
 	inhand_icon_state = "megaphone"
@@ -32,7 +32,7 @@
 	SIGNAL_HANDLER
 	if (user.get_active_held_item() == src)
 		if(spamcheck > world.time)
-			to_chat(user, span_warning(" [src] needs to recharge!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> нуждается в зарядке!"))
 		else
 			playsound(loc, 'sound/items/megaphone.ogg', 100, FALSE, TRUE)
 			spamcheck = world.time + 50
@@ -41,29 +41,29 @@
 /obj/item/megaphone/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
 		return FALSE
-	balloon_alert(user, "voice synthesizer overloaded")
+	to_chat(user, span_warning("Перегружаю конденсатор <b>[src.name]</b>а."))
 	obj_flags |= EMAGGED
 	voicespan = list(SPAN_REALLYBIG, "userdanger")
 	return TRUE
 
 /obj/item/megaphone/sec
-	name = "security megaphone"
+	name = "мегафон СБ"
 	icon_state = "megaphone-sec"
 	inhand_icon_state = "megaphone-sec"
 
 /obj/item/megaphone/command
-	name = "command megaphone"
+	name = "мегафон командования"
 	icon_state = "megaphone-command"
 	inhand_icon_state = "megaphone-command"
 
 /obj/item/megaphone/cargo
-	name = "supply megaphone"
+	name = "мегафон карго"
 	icon_state = "megaphone-cargo"
 	inhand_icon_state = "megaphone-cargo"
 
 /obj/item/megaphone/clown
-	name = "clown's megaphone"
-	desc = "Something that should not exist."
+	name = "мегафон клоуна"
+	desc = "Это то, чего не должно было существовать..."
 	icon_state = "megaphone-clown"
 	inhand_icon_state = "megaphone-clown"
 	voicespan = list(SPAN_CLOWN)

@@ -37,7 +37,7 @@
 
 /obj/structure/ladder/examine(mob/user)
 	. = ..()
-	. += span_info("<b>Left-click</b> it to start moving up; <b>Right-click</b> to start moving down.")
+	. += span_info("<b>Left-click</b> it to start moving up; <b>ПКМ</b> to start moving down.")
 
 /obj/structure/ladder/Destroy(force)
 	GLOB.ladders -= src

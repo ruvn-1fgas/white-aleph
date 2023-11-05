@@ -131,7 +131,7 @@
 			. += "Nothing."
 
 		. += span_notice(" <i>Right-clicking</i> will splash the beaker on the ground.")
-	. += span_notice(" <i>Alt-click</i> will drop the currently stored beaker. ")
+	. += span_notice(" <i>Alt-клик</i> will drop the currently stored beaker. ")
 
 /obj/item/borg/apparatus/beaker/update_overlays()
 	. = ..()
@@ -225,7 +225,7 @@
 		. += organ.name
 	else
 		. += "Nothing."
-	. += span_notice(" <i>Alt-click</i> will drop the currently stored organ. ")
+	. += span_notice(" <i>Alt-клик</i> will drop the currently stored organ. ")
 
 /obj/item/borg/apparatus/organ_storage/update_overlays()
 	. = ..()
@@ -286,7 +286,7 @@
 	. = ..()
 	if(stored)
 		. += "The apparatus currently has [stored] secured."
-	. += span_notice(" <i>Alt-click</i> will drop the currently stored sheets. ")
+	. += span_notice(" <i>Alt-клик</i> will drop the currently stored sheets. ")
 
 ///Apparatus allowing Engineer/Sabo borgs to manipulate Machine and Computer circuit boards
 /obj/item/borg/apparatus/circuit
@@ -318,7 +318,7 @@
 	. = ..()
 	if(stored)
 		. += "The apparatus currently has [stored] secured."
-	. += span_notice(" <i>Alt-click</i> will drop the currently stored circuit. ")
+	. += span_notice(" <i>Alt-клик</i> will drop the currently stored circuit. ")
 
 /obj/item/borg/apparatus/circuit/pre_attack(atom/atom, mob/living/user, params)
 	if(istype(atom, /obj/item/ai_module) && !stored) //If an admin wants a borg to upload laws, who am I to stop them? Otherwise, we can hint that it fails
@@ -360,4 +360,4 @@
 	. = ..()
 	if(stored)
 		. += "The apparatus currently has [stored] secured."
-	. += span_notice("<i>Alt-click</i> will drop the currently secured item.")
+	. += span_notice("<i>Alt-клик</i> will drop the currently secured item.")

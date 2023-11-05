@@ -80,7 +80,7 @@
 /obj/item/clothing/head/helmet/space/plasmaman/examine()
 	. = ..()
 	if(attached_hat)
-		. += span_notice("There's [attached_hat.name] placed on the helmet. Right-click to remove it.")
+		. += span_notice("There's [attached_hat.name] placed on the helmet. ПКМ to remove it.")
 	else
 		. += span_notice("There's nothing placed on the helmet.")
 

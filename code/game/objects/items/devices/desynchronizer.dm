@@ -1,6 +1,6 @@
 /obj/item/desynchronizer
-	name = "desynchronizer"
-	desc = "An experimental device that can temporarily desynchronize the user from spacetime, effectively making them disappear while it's active."
+	name = "десинхронизатор"
+	desc = "Технология позволяющая грубо вмешаться в структуру блюспейс пространства и способная повлиять на пространственно-временной континиум. Строго запрещена космической академией наук."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "desynchronizer"
 	inhand_icon_state = "electronic"
@@ -28,25 +28,25 @@
 /obj/item/desynchronizer/examine(mob/user)
 	. = ..()
 	if(world.time < next_use)
-		. += span_warning("Time left to recharge: [DisplayTimeText(next_use - world.time)]")
-	. += span_notice("Alt-click to customize the duration. Current duration: [DisplayTimeText(duration)].")
-	. += span_notice("Can be used again to interrupt the effect early. The recharge time is the same as the time spent in desync.")
+		. += "<hr><span class='warning'>До перезарядки осталось: [DisplayTimeText(next_use - world.time)]</span>"
+	. += "<hr><span class='notice'>ПКМ для изменения длительности, текущая длительность: [DisplayTimeText(duration)].</span>"
+	. += span_notice("\nЭффект десинхронизации можно прервать досрочно, при этом перезарядка будет равняться продолжительности воздействия.")
 
 /obj/item/desynchronizer/AltClick(mob/living/user)
 	if(!user.can_perform_action(src, NEED_DEXTERITY))
 		return
-	var/new_duration = tgui_input_number(user, "Set the duration", "Desynchronizer", duration / 10, max_duration, 5)
+	var/new_duration = tgui_input_number(user, "Установите время работы (5-300) секунд:", "Desynchronizer", duration / 10, max_duration, 5)
 	if(!new_duration || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, NEED_DEXTERITY))
 		return
 	duration = new_duration
-	to_chat(user, span_notice("You set the duration to [DisplayTimeText(duration)]."))
+	to_chat(user, span_notice("Устанавливаю время на [DisplayTimeText(duration)]."))
 
 /obj/item/desynchronizer/proc/desync(mob/living/user)
 	if(sync_holder)
 		return
 	sync_holder = new(drop_location())
 	new /obj/effect/temp_visual/desynchronizer(drop_location())
-	to_chat(user, span_notice("You activate [src], desynchronizing yourself from the present. You can still see your surroundings, but you feel eerily dissociated from reality."))
+	to_chat(user, span_notice("Активирую [src], десинхронизируя себя с пространством и временем. С одной стороны ничего не изменилось, а с другой стороны изменилось абсолютно все. Мир отдалился и стал чуждым, я здесь лишь сторонний наблюдатель."))
 	user.forceMove(sync_holder)
 	last_use = world.time
 	icon_state = "desynchronizer-on"
@@ -67,8 +67,8 @@
 	return ..()
 
 /obj/effect/abstract/sync_holder
-	name = "desyncronized pocket"
-	desc = "A pocket in spacetime, keeping the user a fraction of a second in the future."
+	name = "пространственно-временная аномалия"
+	desc = "Аномалия квантовой неопределенности."
 	icon = null
 	icon_state = null
 	alpha = 0

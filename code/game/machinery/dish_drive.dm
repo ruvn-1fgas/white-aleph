@@ -47,7 +47,7 @@
 /obj/machinery/dish_drive/examine(mob/user)
 	. = ..()
 	if(user.Adjacent(src))
-		. += span_notice("Alt-click it to beam its contents to any nearby disposal bins.")
+		. += span_notice("Alt-клик it to beam its contents to any nearby disposal bins.")
 	if(!LAZYLEN(dish_drive_contents))
 		. += "[src] is empty!"
 		return

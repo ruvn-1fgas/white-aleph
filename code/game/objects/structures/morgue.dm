@@ -209,7 +209,7 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 
 /obj/structure/bodycontainer/morgue/examine(mob/user)
 	. = ..()
-	. += span_notice("The speaker is [beeper ? "enabled" : "disabled"]. Alt-click to toggle it.")
+	. += span_notice("The speaker is [beeper ? "enabled" : "disabled"]. Alt-клик to toggle it.")
 
 /obj/structure/bodycontainer/morgue/AltClick(mob/user)
 	..()

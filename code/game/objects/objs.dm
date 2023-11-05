@@ -279,7 +279,7 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	if(obj_flags & UNIQUE_RENAME)
 		. += span_notice("Use a pen on it to rename it or change its description.")
 	if(unique_reskin && (!current_skin || infinite_reskin))
-		. += span_notice("Alt-click it to reskin it.")
+		. += span_notice("Alt-клик it to reskin it.")
 
 /obj/AltClick(mob/user)
 	. = ..()

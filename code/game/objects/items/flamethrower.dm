@@ -165,7 +165,7 @@
 /obj/item/flamethrower/examine(mob/user)
 	. = ..()
 	if(ptank)
-		. += span_notice(" [src] has \a [ptank] attached. Alt-click to remove it.")
+		. += span_notice(" [src] has \a [ptank] attached. Alt-клик to remove it.")
 
 /obj/item/flamethrower/proc/toggle_igniter(mob/user)
 	if(!ptank)

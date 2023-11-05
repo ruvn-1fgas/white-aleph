@@ -1,13 +1,13 @@
 #define DONUT_SPRINKLE_CHANCE 30
 
 /obj/item/food/donut
-	name = "donut"
-	desc = "Goes great with robust coffee."
+	name = "пончик"
+	desc = "Идеально подходит к кофе."
 	icon = 'icons/obj/food/donuts.dmi'
 	inhand_icon_state = "donut1"
 	bite_consumption = 5
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3)
-	tastes = list("donut" = 1)
+	tastes = list("пончик" = 1)
 	foodtypes = JUNKFOOD | GRAIN | SUGAR | BREAKFAST
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
@@ -54,11 +54,11 @@
 	icon_state = "donut"
 
 /obj/item/food/donut/chaos
-	name = "chaos donut"
-	desc = "Like life, it never quite tastes the same."
+	name = "пончик хаоса"
+	desc = "Как и в реальной жизни, ты никогда не сможешь угадать каким будет вкус и последствия."
 	icon_state = "donut_chaos"
 	bite_consumption = 10
-	tastes = list("donut" = 3, "chaos" = 1)
+	tastes = list("пончик" = 3, "хаос" = 1)
 	is_decorated = TRUE
 	crafting_complexity = FOOD_COMPLEXITY_3
 
@@ -79,22 +79,22 @@
 	reagents.add_reagent(extra_reagent, 3)
 
 /obj/item/food/donut/meat
-	name = "Meat Donut"
-	desc = "Tastes as gross as it looks."
+	name = "мясной пончик"
+	desc = "На вкус такая же гадость, как и на вид."
 	icon_state = "donut_meat"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
 		/datum/reagent/consumable/nutriment/protein = 3,
 		/datum/reagent/consumable/ketchup = 3,
 	)
-	tastes = list("meat" = 1)
+	tastes = list( "мясо"= 1)
 	foodtypes = JUNKFOOD | MEAT | GORE | FRIED | BREAKFAST
 	is_decorated = TRUE
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/berry
-	name = "pink donut"
-	desc = "Goes great with a soy latte."
+	name = "ягодный пончик"
+	desc = "Отлично сочетается с соевым латте."
 	icon_state = "donut_pink"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -105,21 +105,21 @@
 	decorated_icon = "donut_homer"
 
 /obj/item/food/donut/trumpet
-	name = "spaceman's donut"
-	desc = "Goes great with a cold beaker of malk."
+	name = "пончик космонавтов"
+	desc = "Отлично сочетается с холодным стаканом малака."
 	icon_state = "donut_purple"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/sugar = 3,
 		/datum/reagent/consumable/sprinkles = 1,
 	)
-	tastes = list("donut" = 3, "violets" = 1)
+	tastes = list("пончик" = 3, "фиалки" = 1)
 	is_decorated = TRUE
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/apple
-	name = "apple donut"
-	desc = "Goes great with a shot of cinnamon schnapps."
+	name = "яблочный пончик"
+	desc = "Отлично сочетается со шнапсом с корицей."
 	icon_state = "donut_green"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -127,12 +127,12 @@
 		/datum/reagent/consumable/applejuice = 3,
 		/datum/reagent/consumable/sprinkles = 1,
 	)
-	tastes = list("donut" = 3, "green apples" = 1)
+	tastes = list("пончик" = 3, "зелёные яблоки" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/caramel
-	name = "caramel donut"
-	desc = "Goes great with a mug of hot coco."
+	name = "карамельный пончик"
+	desc = "Отлично сочетается с чашкой горячего кофе."
 	icon_state = "donut_beige"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -140,12 +140,12 @@
 		/datum/reagent/consumable/caramel = 3,
 		/datum/reagent/consumable/sprinkles = 1,
 	)
-	tastes = list("donut" = 3, "buttery sweetness" = 1)
+	tastes = list("пончик" = 3, "маслянистая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/choco
-	name = "chocolate donut"
-	desc = "Goes great with a glass of warm milk."
+	name = "шоколадный пончик"
+	desc = "Отлично сочетается со стаканом теплого молока."
 	icon_state = "donut_choc"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -153,13 +153,13 @@
 		/datum/reagent/consumable/hot_coco = 3,
 		/datum/reagent/consumable/sprinkles = 1,
 	) //the coco reagent is just bitter.
-	tastes = list("donut" = 4, "bitterness" = 1)
+	tastes = list("пончик" = 4, "горечь" = 1)
 	decorated_icon = "donut_choc_sprinkles"
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/blumpkin
-	name = "blumpkin donut"
-	desc = "Goes great with a mug of soothing drunken blumpkin."
+	name = "синетыквенный пончик"
+	desc = "Отлично сочетается с кружкой успокаивающего пьяного синетыквенника."
 	icon_state = "donut_blue"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -167,13 +167,13 @@
 		/datum/reagent/consumable/blumpkinjuice = 3,
 		/datum/reagent/consumable/sprinkles = 1,
 	)
-	tastes = list("donut" = 2, "blumpkin" = 1)
+	tastes = list("пончик" = 2, "синетыква" = 1)
 	is_decorated = TRUE
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/bungo
-	name = "bungo donut"
-	desc = "Goes great with a mason jar of hippie's delight."
+	name = "бунго пончик"
+	desc = "Отлично сочетается с баночкой \"Восторг хиппи\"."
 	icon_state = "donut_yellow"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -181,12 +181,12 @@
 		/datum/reagent/consumable/bungojuice = 3,
 		/datum/reagent/consumable/sprinkles = 1,
 	)
-	tastes = list("donut" = 3, "tropical sweetness" = 1)
+	tastes = list("пончик" = 3, "тропическая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/matcha
-	name = "matcha donut"
-	desc = "Goes great with a cup of tea."
+	name = "матчавый пончик"
+	desc = "Отлично сочетается с чашкой чая."
 	icon_state = "donut_olive"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -194,27 +194,27 @@
 		/datum/reagent/toxin/teapowder = 3,
 		/datum/reagent/consumable/sprinkles = 1,
 	)
-	tastes = list("donut" = 3, "matcha" = 1)
+	tastes = list("пончик" = 3, "матча" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/laugh
-	name = "sweet pea donut"
-	desc = "Goes great with a bottle of Bastion Burbon!"
+	name = "пончик из душистого горошка"
+	desc = "Отлично сочетается с бутылкой \"Bastion Burbon\"!"
 	icon_state = "donut_laugh"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/sugar = 3,
 		/datum/reagent/consumable/laughter = 3,
 	)
-	tastes = list("donut" = 3, "fizzy tutti frutti" = 1,)
+	tastes = list("пончик" = 3)
 	is_decorated = TRUE
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 //////////////////////JELLY DONUTS/////////////////////////
 
 /obj/item/food/donut/jelly
-	name = "jelly donut"
-	desc = "You jelly?"
+	name = "желеный пончик"
+	desc = "НеуЖЕЛЛИ?"
 	icon_state = "jelly"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -223,7 +223,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
 	extra_reagent = /datum/reagent/consumable/berryjuice
-	tastes = list("jelly" = 1, "donut" = 3)
+	tastes = list("желе" = 1, "пончик" = 3)
 	foodtypes = JUNKFOOD | GRAIN | FRIED | FRUIT | SUGAR | BREAKFAST
 
 // Jelly donuts don't have holes, but look the same on the outside
@@ -239,15 +239,15 @@
 	decorated_icon = "jelly_homer"
 
 /obj/item/food/donut/jelly/berry
-	name = "pink jelly donut"
-	desc = "Goes great with a soy latte."
+	name = "пончик с ягодным желе"
+	desc = "Отлично сочетается с соевым латте."
 	icon_state = "jelly_pink"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/berryjuice = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1) //Extra sprinkles to reward frosting.
 	decorated_icon = "jelly_homer"
 
 /obj/item/food/donut/jelly/trumpet
-	name = "spaceman's jelly donut"
-	desc = "Goes great with a cold beaker of malk."
+	name = "желейный пончик космонавта"
+	desc = "Отлично сочетается с холодным стаканом малака."
 	icon_state = "jelly_purple"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -255,13 +255,13 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 3, "violets" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "фиалки" = 1)
 	is_decorated = TRUE
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/jelly/apple
-	name = "apple jelly donut"
-	desc = "Goes great with a shot of cinnamon schnapps."
+	name = "пончик с яблочным желе"
+	desc = "Отлично сочетается со шнапсом с корицей."
 	icon_state = "jelly_green"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -270,12 +270,12 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 3, "green apples" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "зелёные яблоки" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/caramel
-	name = "caramel jelly donut"
-	desc = "Goes great with a mug of hot coco."
+	name = "карамальный желейный пончик"
+	desc = "Отлично сочетается с чашкой горячего какао."
 	icon_state = "jelly_beige"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -284,12 +284,12 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 3, "buttery sweetness" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "маслянистая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/choco
-	name = "chocolate jelly donut"
-	desc = "Goes great with a glass of warm milk."
+	name = "шоколадный желейный пончик"
+	desc = "Отлично сочетается со стаканом тёплого молока."
 	icon_state = "jelly_choc"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -298,13 +298,13 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 4, "bitterness" = 1)
+	tastes = list("желе" = 1, "пончик" = 4, "горечь" = 1)
 	decorated_icon = "jelly_choc_sprinkles"
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/jelly/blumpkin
-	name = "blumpkin jelly donut"
-	desc = "Goes great with a mug of soothing drunken blumpkin."
+	name = "пончик с синетыквенным желе"
+	desc = "Отлично сочетается с кружкой успокаивающего пьяного синетыквенника."
 	icon_state = "jelly_blue"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -313,13 +313,13 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 2, "blumpkin" = 1)
+	tastes = list("желе" = 1, "пончик" = 2, "синетыква" = 1)
 	is_decorated = TRUE
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/jelly/bungo
-	name = "bungo jelly donut"
-	desc = "Goes great with a mason jar of hippie's delight."
+	name = "пончик с желе Бунго"
+	desc = "Отлично сочетается с баночкой \"Восторг хиппи\"."
 	icon_state = "jelly_yellow"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -328,12 +328,12 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 3, "tropical sweetness" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "тропическая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/matcha
-	name = "matcha jelly donut"
-	desc = "Goes great with a cup of tea."
+	name = "матчавый желейный пончик"
+	desc = "Отлично сочетается с чашкой чая."
 	icon_state = "jelly_olive"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -342,27 +342,27 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 3, "matcha" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "матча" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/laugh
-	name = "sweet pea jelly donut"
-	desc = "Goes great with a bottle of Bastion Burbon!"
+	name = "пончик с желе из душистого горошка"
+	desc = "Отлично сочетается с бутылкой \"Bastion Burbon\"!"
 	icon_state = "jelly_laugh"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/sugar = 3,
 		/datum/reagent/consumable/laughter = 3,
 	)
-	tastes = list("jelly" = 3, "donut" = 1, "fizzy tutti frutti" = 1)
+	tastes = list("желе" = 3, "пончик" = 1)
 	is_decorated = TRUE
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 //////////////////////////SLIME DONUTS/////////////////////////
 
 /obj/item/food/donut/jelly/slimejelly
-	name = "jelly donut"
-	desc = "You jelly?"
+	name = "слаймовый пончик"
+	desc = "НеуЖЕЛЛИ?"
 	extra_reagent = /datum/reagent/toxin/slimejelly
 	foodtypes = JUNKFOOD | GRAIN | FRIED | TOXIC | SUGAR | BREAKFAST
 
@@ -370,8 +370,8 @@
 	icon_state = "jelly"
 
 /obj/item/food/donut/jelly/slimejelly/berry
-	name = "pink jelly donut"
-	desc = "Goes great with a soy latte."
+	name = "ягодный слаймовый пончик"
+	desc = "Отлично сочетается с соевым латте."
 	icon_state = "jelly_pink"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -382,8 +382,8 @@
 	) //Extra sprinkles to reward frosting
 
 /obj/item/food/donut/jelly/slimejelly/trumpet
-	name = "spaceman's jelly donut"
-	desc = "Goes great with a cold beaker of malk."
+	name = "слаймовый пончик космонавта"
+	desc = "Отлично сочетается с холодным стаканом малака."
 	icon_state = "jelly_purple"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -391,13 +391,13 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 3, "violets" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "фиалки" =  1)
 	is_decorated = TRUE
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/jelly/slimejelly/apple
-	name = "apple jelly donut"
-	desc = "Goes great with a shot of cinnamon schnapps."
+	name = "яблочный слаймовый пончик"
+	desc = "Отлично сочетается со шнапсом с корицей."
 	icon_state = "jelly_green"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -406,12 +406,12 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 3, "green apples" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "зелёные яблоки" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/caramel
-	name = "caramel jelly donut"
-	desc = "Goes great with a mug of hot coco."
+	name = "карамельный слаймовый пончик"
+	desc = "Отлично сочетается с чашкой горячего какао."
 	icon_state = "jelly_beige"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -420,12 +420,12 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 3, "buttery sweetness" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "маслянистая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/choco
-	name = "chocolate jelly donut"
-	desc = "Goes great with a glass of warm milk."
+	name = "шоколадный слаймовый пончик"
+	desc = "Отлично сочетается со стаканом теплого молока."
 	icon_state = "jelly_choc"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -434,13 +434,13 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 4, "bitterness" = 1)
+	tastes = list("желе" = 1, "пончик" = 4, "горечь" = 1)
 	decorated_icon = "jelly_choc_sprinkles"
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/jelly/slimejelly/blumpkin
-	name = "blumpkin jelly donut"
-	desc = "Goes great with a mug of soothing drunken blumpkin."
+	name = "синетыквенный слаймовый пончик"
+	desc = "Отлично сочетается с кружкой успокаивающего пьяного синетыквенника."
 	icon_state = "jelly_blue"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -449,13 +449,13 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 2, "blumpkin" = 1)
+	tastes = list("желе" = 1, "пончик" = 2, "синетыква" = 1)
 	is_decorated = TRUE
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/jelly/slimejelly/bungo
-	name = "bungo jelly donut"
-	desc = "Goes great with a mason jar of hippie's delight."
+	name = "бунго слаймовый пончик"
+	desc = "Отлично сочетается с баночкой \"Восторг хиппи\"."
 	icon_state = "jelly_yellow"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -464,12 +464,12 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 3, "tropical sweetness" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "тропическая сладость" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/matcha
-	name = "matcha jelly donut"
-	desc = "Goes great with a cup of tea."
+	name = "матчавый слаймовый пончик"
+	desc = "Отлично сочетается с чашкой чая."
 	icon_state = "jelly_olive"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -478,19 +478,19 @@
 		/datum/reagent/consumable/sprinkles = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("jelly" = 1, "donut" = 3, "matcha" = 1)
+	tastes = list("желе" = 1, "пончик" = 3, "матча" = 1)
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/laugh
-	name = "sweet pea jelly donut"
-	desc = "Goes great with a bottle of Bastion Burbon!"
+	name = "слаймовый пончик с желе из душистого горошка"
+	desc = "Отлично сочетается с бутылкой \"Bastion Burbon\"!"
 	icon_state = "jelly_laugh"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/sugar = 3,
 		/datum/reagent/consumable/laughter = 3,
 	)
-	tastes = list("jelly" = 3, "donut" = 1, "fizzy tutti frutti" = 1)
+	tastes = list("желе" = 3, "пончик" = 1, "fizzy tutti frutti" = 1)
 	is_decorated = TRUE
 	crafting_complexity = FOOD_COMPLEXITY_3
 

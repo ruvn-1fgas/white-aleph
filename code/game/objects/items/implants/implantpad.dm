@@ -20,7 +20,7 @@
 	if(Adjacent(user))
 		. += "It [case ? "contains \a [case]" : "is currently empty"]."
 		if(case)
-			. += span_info("Alt-click to remove [case].")
+			. += span_info("Alt-клик to remove [case].")
 	else
 		if(case)
 			. += span_warning("There seems to be something inside it, but you can't quite tell what from here...")
