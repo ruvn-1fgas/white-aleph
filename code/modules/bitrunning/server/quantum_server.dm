@@ -2,11 +2,11 @@
  * The base object for the quantum server
  */
 /obj/machinery/quantum_server
-	name = "quantum server"
+	name = "квантовый сервер"
 
 	circuit = /obj/item/circuitboard/machine/quantum_server
 	density = TRUE
-	desc = "A hulking computational machine designed to fabricate virtual domains."
+	desc = "Огромная вычислительная машина, предназначенная для создания виртуальных доменов."
 	icon = 'icons/obj/machines/bitrunning.dmi'
 	base_icon_state = "qserver"
 	icon_state = "qserver"
@@ -108,10 +108,10 @@
 	. = ..()
 
 	if(!is_ready)
-		balloon_alert(user, "it's scalding hot!")
+		balloon_alert(user, "он ужасно горячий!")
 		return TRUE
 	if(length(avatar_connection_refs))
-		balloon_alert(user, "all clients must disconnect!")
+		balloon_alert(user, "все клиенты должны отключится!")
 		return TRUE
 	if(default_deconstruction_crowbar(crowbar))
 		return TRUE
@@ -121,7 +121,7 @@
 	. = ..()
 
 	if(!is_ready)
-		balloon_alert(user, "it's scalding hot!")
+		balloon_alert(user, "он ужасно горячий!")
 		return TRUE
 	if(default_deconstruction_screwdriver(user, "[base_icon_state]_panel", icon_state, screwdriver))
 		return TRUE

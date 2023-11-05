@@ -5,7 +5,7 @@
 /obj/machinery/quantum_server/proc/cool_off()
 	is_ready = TRUE
 	update_appearance()
-	radio.talk_into(src, "Thermal systems within operational parameters. Proceeding to domain configuration.", RADIO_CHANNEL_SUPPLY)
+	radio.talk_into(src, "Термальные системы в норме. Переход к настройке домена.", RADIO_CHANNEL_SUPPLY)
 
 /// Attempts to connect to a quantum console
 /obj/machinery/quantum_server/proc/find_console()
@@ -32,7 +32,7 @@
 
 		levels += list(list(
 			"cost" = initial(domain.cost),
-			"desc" = can_view ? initial(domain.desc) : "Limited scanning capabilities. Cannot infer domain details.",
+			"desc" = can_view ? initial(domain.desc) : "Ограниченные возможности сканирования. Невозможно вывести информацию о домене.",
 			"difficulty" = initial(domain.difficulty),
 			"id" = initial(domain.key),
 			"name" = can_view ? initial(domain.name) : REDACTED,
@@ -129,7 +129,7 @@
 			new_master = src,
 		)
 
-		to_chat(baddie, span_userdanger("You have been flagged for deletion! Thank you for your service."))
+		to_chat(baddie, span_userdanger("Вы были помечены для удаления! Благодарим Вас за оказанную услугу."))
 
 /// Do some magic teleport sparks
 /obj/machinery/quantum_server/proc/spark_at_location(obj/cache)

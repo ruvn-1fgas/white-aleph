@@ -1,11 +1,11 @@
 #define BASE_DISCONNECT_DAMAGE 40
 
 /obj/machinery/netpod
-	name = "netpod"
+	name = "сетевой под"
 
 	base_icon_state = "netpod"
 	circuit = /obj/item/circuitboard/machine/netpod
-	desc = "A link to the netverse. It has an assortment of cables to connect yourself to a virtual domain."
+	desc = "Связь в сеть. Он имеет ассортимент кабелей для подключения к виртуальному домену."
 	icon = 'icons/obj/machines/bitrunning.dmi'
 	icon_state = "netpod"
 	max_integrity = 300
@@ -51,11 +51,11 @@
 	. = ..()
 
 	if(isnull(held_item))
-		context[SCREENTIP_CONTEXT_LMB] = "Select Outfit"
+		context[SCREENTIP_CONTEXT_LMB] = "Выбери костюм"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(istype(held_item, /obj/item/crowbar) && occupant)
-		context[SCREENTIP_CONTEXT_LMB] = "Pry Open"
+		context[SCREENTIP_CONTEXT_LMB] = "Вскрыть"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	return CONTEXTUAL_SCREENTIP_SET
@@ -99,11 +99,11 @@
 
 /obj/machinery/netpod/screwdriver_act(mob/living/user, obj/item/tool)
 	if(occupant)
-		balloon_alert(user, "in use!")
+		balloon_alert(user, "используется!")
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 
 	if(state_open)
-		balloon_alert(user, "close first.")
+		balloon_alert(user, "сначала закрой.")
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 
 	if(default_deconstruction_screwdriver(user, "[base_icon_state]_panel", "[base_icon_state]_closed", tool))
@@ -131,9 +131,9 @@
 		container_resist_act(user)
 
 /obj/machinery/netpod/container_resist_act(mob/living/user)
-	user.visible_message(span_notice("[occupant] emerges from [src]!"),
-		span_notice("You climb out of [src]!"),
-		span_notice("With a hiss, you hear a machine opening."))
+	user.visible_message(span_notice("[occupant] вылезает из [src]!"),
+		span_notice("Ты вылезаешь из [src]!"),
+		span_notice("Ты слышишь как машина с шипением открывается."))
 	open_machine()
 
 /obj/machinery/netpod/open_machine(drop = TRUE, density_to_set = FALSE)
@@ -166,9 +166,9 @@
 		return TRUE
 
 	pryer.visible_message(
-		span_danger("[pryer] starts prying open [src]!"),
-		span_notice("You start to pry open [src]."),
-		span_notice("You hear loud prying on metal.")
+		span_danger("[pryer] начинает вскрывать [src]!"),
+		span_notice("Ты начинаешь скрывать [src]."),
+		span_notice("Ты слышишь звук вскрытия метала.")
 	)
 	playsound(src, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
 
@@ -242,7 +242,7 @@
 
 	var/mob/player = occupant
 	player.playsound_local(src, 'sound/effects/splash.ogg', 60, TRUE)
-	to_chat(player, span_notice("The machine disconnects itself and begins to drain."))
+	to_chat(player, span_notice("Машина отключает себя."))
 	open_machine()
 
 /// Handles occupant post-disconnection effects like damage, sounds, etc
@@ -274,7 +274,7 @@
 	mob_occupant.flash_act(override_blindness_check = TRUE, visual = TRUE)
 	mob_occupant.adjustOrganLoss(ORGAN_SLOT_BRAIN, disconnect_damage)
 	INVOKE_ASYNC(mob_occupant, TYPE_PROC_REF(/mob/living, emote), "scream")
-	to_chat(mob_occupant, span_danger("You've been forcefully disconnected from your avatar! Your thoughts feel scrambled!"))
+	to_chat(mob_occupant, span_danger("Вы были насильно отключены от своего аватара! Ваши мысли перемешались!"))
 
 /**
  * ### Enter Matrix
@@ -287,24 +287,24 @@
 /obj/machinery/netpod/proc/enter_matrix()
 	var/mob/living/carbon/human/neo = occupant
 	if(!ishuman(neo) || neo.stat == DEAD || isnull(neo.mind))
-		balloon_alert(neo, "invalid occupant.")
+		balloon_alert(neo, "недействительный пользователь.")
 		return
 
 	var/obj/machinery/quantum_server/server = find_server()
 	if(isnull(server))
-		balloon_alert(neo, "no server connected!")
+		balloon_alert(neo, "сервер не подключён!")
 		return
 
 	var/datum/lazy_template/virtual_domain/generated_domain = server.generated_domain
 	if(isnull(generated_domain) || !server.is_ready)
-		balloon_alert(neo, "nothing loaded!")
+		balloon_alert(neo, "ничего не загружено!")
 		return
 
 	var/mob/living/carbon/current_avatar = avatar_ref?.resolve()
 	if(isnull(current_avatar) || current_avatar.stat != CONSCIOUS) // We need a viable avatar
 		var/obj/structure/hololadder/wayout = server.generate_hololadder()
 		if(isnull(wayout))
-			balloon_alert(neo, "out of bandwidth!")
+			balloon_alert(neo, "связи закончились!")
 			return
 		current_avatar = server.generate_avatar(wayout, netsuit)
 		avatar_ref = WEAKREF(current_avatar)
@@ -415,16 +415,16 @@
 /obj/machinery/netpod/proc/on_examine(datum/source, mob/examiner, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_infoplain("Drag yourself into the pod to engage the link.")
-	examine_text += span_infoplain("It has limited resuscitation capabilities. Remaining in the pod can heal some injuries.")
-	examine_text += span_infoplain("It has a security system that will alert the occupant if it is tampered with.")
+	examine_text += span_infoplain("Затащите себя в капсулу, чтобы задействовать связь.")
+	examine_text += span_infoplain("Он обладает ограниченными возможностями реанимации. Оставшись в капсуле, можно залечить некоторые повреждения.")
+	examine_text += span_infoplain("Он оснащен системой безопасности, которая предупредит пользователя о несанкционированном вмешательстве.")
 
 	if(isnull(occupant))
-		examine_text += span_notice("It is currently unoccupied.")
+		examine_text += span_notice("Он не занят.")
 		return
 
-	examine_text += span_notice("It is currently occupied by [occupant].")
-	examine_text += span_notice("It can be pried open with a crowbar, but its safety mechanisms will alert the occupant.")
+	examine_text += span_notice("Сейчас занят [occupant].")
+	examine_text += span_notice("Его можно вскрыть ломом, но защитные механизмы предупредят об этом пользователя.")
 
 /// Boots out anyone in the machine && opens it
 /obj/machinery/netpod/proc/on_power_loss(datum/source)
