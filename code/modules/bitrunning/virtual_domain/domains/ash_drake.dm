@@ -1,7 +1,7 @@
 /datum/lazy_template/virtual_domain/ash_drake
-	name = "Ashen Inferno"
+	name = "Пепельный ад"
 	cost = BITRUNNER_COST_MEDIUM
-	desc = "Home of the ash drake, a powerful dragon that scours the surface of Lavaland."
+	desc = "Дом пепельного дракона, могущественного существа, бороздящего поверхность Лаваланда."
 	difficulty = BITRUNNER_DIFFICULTY_MEDIUM
 	forced_outfit = /datum/outfit/job/miner
 	key = "ash_drake"

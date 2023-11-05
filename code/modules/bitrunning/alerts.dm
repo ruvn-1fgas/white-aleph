@@ -4,28 +4,28 @@
 	timeout = 10 SECONDS
 
 /atom/movable/screen/alert/bitrunning/netpod_crowbar
-	name = "Forced Entry"
-	desc = "Someone is prying open the netpod door. Find an exit."
+	name = "Вскрытие"
+	desc = "Кто-то вскрывает дверь сетевого пода. Ищи выход."
 
 /atom/movable/screen/alert/bitrunning/netpod_damaged
-	name = "Integrity Compromised"
-	desc = "The netpod is damaged. Find an exit."
+	name = "Нарушение целостности"
+	desc = "Сетевой под повреждён. Ищи выход."
 
 /atom/movable/screen/alert/bitrunning/qserver_shutting_down
-	name = "Domain Rebooting"
-	desc = "The domain is rebooting. Find an exit."
+	name = "Перезапуск домена"
+	desc = "Домен перезапускается. Ищи выход."
 
 /atom/movable/screen/alert/bitrunning/qserver_threat_deletion
-	name = "Queue Deletion"
-	desc = "The server is resetting. Oblivion awaits."
+	name = "Удаление из очереди"
+	desc = "Сервер перезапускается. Забвение ждёт."
 
 /atom/movable/screen/alert/bitrunning/qserver_threat_spawned
-	name = "Threat Detected"
-	desc = "Data stream abnormalities present."
+	name = "Угроза обнаружена"
+	desc = "Наличие отклонений в потоке данных."
 
 /atom/movable/screen/alert/bitrunning/qserver_domain_complete
-	name = "Domain Completed"
-	desc = "The domain is completed. Activate to exit."
+	name = "Домен завершён"
+	desc = "Домен завершён. Активируйте для выхода."
 	timeout = 20 SECONDS
 
 /atom/movable/screen/alert/bitrunning/qserver_domain_complete/Click(location, control, params)
@@ -36,5 +36,5 @@
 	if(!isliving(living_owner))
 		return
 
-	if(tgui_alert(living_owner, "Disconnect safely?", "Server Message", list("Exit", "Remain"), 10 SECONDS) == "Exit")
+	if(tgui_alert(living_owner, "Безопастно отключится?", "Сообщение сервера", list("Выйти", "Остатся"), 10 SECONDS) == "Выйти")
 		SEND_SIGNAL(living_owner, COMSIG_BITRUNNER_SAFE_DISCONNECT)
