@@ -11,8 +11,8 @@
  * Locator
  */
 /obj/item/locator
-	name = "bluespace locator"
-	desc = "Used to track portable teleportation beacons and targets with embedded tracking implants."
+	name = "блюспейс локатор"
+	desc = "Используется для отслеживания портативных телепортационных маяков и людей с имплантированными отслеживающими маячками."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
 	var/temp = null
@@ -98,8 +98,8 @@
  * Hand-tele
  */
 /obj/item/hand_tele
-	name = "hand tele"
-	desc = "A portable item using blue-space technology. One of the buttons opens a portal, the other re-opens your last destination."
+	name = "ручной телепортер"
+	desc = "Портативное устройство, использующее технологию блюспейса. Одна из кнопок открывает портал, другая повторно открывает ваше последнее место назначения."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "hand_tele"
 	inhand_icon_state = "electronic"
@@ -315,8 +315,8 @@
 		return BRUTELOSS
 
 /obj/item/syndicate_teleporter
-	name = "experimental teleporter"
-	desc = "A reverse-engineered version of the Nanotrasen handheld teleporter. Lacks the advanced safety features of its counterpart. A three-headed serpent can be seen on the back."
+	name = "экспериментальный телепортер"
+	desc = "Версия телепортера Nanotrasen, полученная путём обратного инжиниринга. Страдает от недостатка системы безопасности."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "syndi-tele"
 	throwforce = 5

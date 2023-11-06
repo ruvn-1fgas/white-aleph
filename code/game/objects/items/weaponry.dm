@@ -9,8 +9,8 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 3
 	throw_range = 7
-	attack_verb_continuous = list("bans")
-	attack_verb_simple = list("ban")
+	attack_verb_continuous = list("пермабанит")
+	attack_verb_simple = list("пермабанит")
 	max_integrity = 200
 	armor_type = /datum/armor/item_banhammer
 	resistance_flags = FIRE_PROOF

@@ -1,7 +1,7 @@
 //Pillow and pillow related items
 /obj/item/pillow
-	name = "pillow"
-	desc = "A soft and fluffy pillow. You can smack someone with this!"
+	name = "подушка"
+	desc = "Мягкая подушка. Можно ударить кого-нибудь!"
 	icon = 'icons/obj/bed.dmi'
 	icon_state = "pillow_1_t"
 	inhand_icon_state = "pillow_t"

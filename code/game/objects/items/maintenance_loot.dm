@@ -4,7 +4,7 @@
 //Saw-tier bulky & blunt weapon. A decent bone breaker. Source of lead reagent.
 //Add lead material to this once implemented.
 /obj/item/lead_pipe
-	name = "lead pipe"
+	name = "свинцовая труба"
 	icon = 'icons/obj/maintenance_loot.dmi'
 	icon_state = "lead_pipe"
 	inhand_icon_state = "lead_pipe"

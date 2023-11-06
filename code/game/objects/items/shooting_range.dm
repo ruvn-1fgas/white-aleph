@@ -1,6 +1,6 @@
 /obj/item/target
-	name = "shooting target"
-	desc = "A shooting target."
+	name = "Мишень для стрельбы"
+	desc = "Это мишень. Для стрельбы."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "target_h"
 	density = FALSE
@@ -66,12 +66,12 @@
 
 /obj/item/target/syndicate
 	icon_state = "target_s"
-	desc = "A shooting target that looks like syndicate scum."
+	desc = "Мишень выглядит как ублюдок из синдиката."
 	max_integrity = 2600
 
 /obj/item/target/alien
 	icon_state = "target_q"
-	desc = "A shooting target that looks like a xenomorphic alien."
+	desc = "Мишень выглядит как инопланетный ксеноморф"
 	max_integrity = 2350
 
 /obj/item/target/alien/anchored
@@ -79,7 +79,7 @@
 
 /obj/item/target/clown
 	icon_state = "target_c"
-	desc = "A shooting target that looks like a useless clown."
+	desc = "Мишень выглядит как бесполезный клоун."
 	max_integrity = 2000
 
 /obj/item/target/clown/bullet_act(obj/projectile/P)

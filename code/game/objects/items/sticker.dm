@@ -1,7 +1,7 @@
 /// parent type for all other stickers. do not spawn directly
 /obj/item/sticker
-	name = "sticker"
-	desc = "A sticker with some strong adhesive on the back, sticks to stuff!"
+	name = "стикер"
+	desc = "Стикер с чем-то клейким на обратной стороне. Приклей его!"
 	item_flags = NOBLUDGEON | XENOMORPH_HOLDABLE //funny
 	resistance_flags = FLAMMABLE
 	icon = 'icons/obj/toys/stickers.dmi'
@@ -22,110 +22,110 @@
 	AddElement(/datum/element/sticker)
 
 /obj/item/sticker/smile
-	name = "smiley sticker"
+	name = "улыбающийся стикер"
 	icon_state = "smile"
 
 /obj/item/sticker/frown
-	name = "frowny sticker"
+	name = "грустный стикер"
 	icon_state = "frown"
 
 /obj/item/sticker/left_arrow
-	name = "left arrow sticker"
+	name = "стикер стрелки влево"
 	icon_state = "larrow"
 
 /obj/item/sticker/right_arrow
-	name = "right arrow sticker"
+	name = "стикер стрелки вправо"
 	icon_state = "rarrow"
 
 /obj/item/sticker/star
-	name = "star sticker"
+	name = "стикер звезды"
 	icon_state = "star1"
 	icon_states = list("star1","star2")
 
 /obj/item/sticker/heart
-	name = "heart sticker"
+	name = "стикер сердечка"
 	icon_state = "heart"
 
 /obj/item/sticker/googly
-	name = "googly eye sticker"
+	name = "стикер глазика"
 	icon_state = "googly1"
 	icon_states = list("googly1","googly2")
 
 /obj/item/sticker/rev
-	name = "blue R sticker"
-	desc = "A sticker of FUCK THE SYSTEM, the galaxy's premiere hardcore punk band."
+	name = "стикер синей R"
+	desc = "\"FUCK THE SYSTEM\" - галактическая хардкорная панк группа."
 	icon_state = "revhead"
 
 /obj/item/sticker/pslime
-	name = "slime plushie sticker"
+	name = "стикер слайма"
 	icon_state = "pslime"
 
 /obj/item/sticker/pliz
-	name = "lizard plushie sticker"
+	name = "стикер ящера"
 	icon_state = "plizard"
 
 /obj/item/sticker/pbee
-	name = "bee plushie sticker"
+	name = "стикер пчелы"
 	icon_state = "pbee"
 
 /obj/item/sticker/psnake
-	name = "snake plushie sticker"
+	name = "стикер змейки"
 	icon_state = "psnake"
 
 /obj/item/sticker/robot
-	name = "bot sticker"
+	name = "стикер бота"
 	icon_state = "tile"
 	icon_states = list("tile","medbot","clean")
 
 /obj/item/sticker/toolbox
-	name = "toolbox sticker"
+	name = "стикер ящика с инструментами"
 	icon_state = "toolbox"
 
 /obj/item/sticker/clown
-	name = "clown sticker"
+	name = "стикер клоуна"
 	icon_state = "honkman"
 
 /obj/item/sticker/mime
-	name = "mime sticker"
+	name = "стикер мима"
 	icon_state = "silentman"
 
 /obj/item/sticker/assistant
-	name = "assistant sticker"
+	name = "стикер ассистента"
 	icon_state = "tider"
 
 /obj/item/sticker/syndicate
-	name = "syndicate sticker"
+	name = "стикер синдиката"
 	icon_state = "synd"
 	contraband = TRUE
 
 /obj/item/sticker/syndicate/c4
-	name = "C-4 sticker"
+	name = "стикер C-4"
 	icon_state = "c4"
 
 /obj/item/sticker/syndicate/bomb
-	name = "syndicate bomb sticker"
+	name = "стикер бомбы синдиката"
 	icon_state = "sbomb"
 
 /obj/item/sticker/syndicate/apc
-	name = "broken APC sticker"
+	name = "стикер АПЦ"
 	icon_state = "milf"
 
 /obj/item/sticker/syndicate/larva
-	name = "larva sticker"
+	name = "стикер личинки"
 	icon_state = "larva"
 
 /obj/item/sticker/syndicate/cult
-	name = "bloody paper sticker"
+	name = "стикер кровавой бумажки"
 	icon_state = "cult"
 
 /obj/item/sticker/syndicate/flash
-	name = "flash sticker"
+	name = "стикер вспышки"
 	icon_state = "flash"
 
 /obj/item/sticker/syndicate/op
-	name = "operative sticker"
+	name = "стикер оперативника"
 	icon_state = "newcop"
 
 /obj/item/sticker/syndicate/trap
-	name = "bear trap sticker"
+	name = "стикер капкана"
 	icon_state = "trap"

@@ -7,16 +7,16 @@
 #define TANK_REMOVING 1
 
 /obj/item/melee/powerfist
-	name = "power-fist"
-	desc = "A metal gauntlet with a piston-powered ram ontop for that extra 'ompfh' in your punch."
+	name = "силовой кулак"
+	desc = "Металлическая перчатка с поршневым тараном на вершине для дополнительной силы в вашем ударе."
 	icon = 'icons/obj/antags/syndicate_tools.dmi'
 	icon_state = "powerfist"
 	inhand_icon_state = "powerfist"
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
 	flags_1 = CONDUCT_1
-	attack_verb_continuous = list("whacks", "fists", "power-punches")
-	attack_verb_simple = list("whack", "fist", "power-punch")
+	attack_verb_continuous = list("вмазывает", "фистит", "очень сильно бьёт")
+	attack_verb_simple = list("вмазывает", "фистит", "очень сильно бьёт")
 	force = 20
 	throwforce = 10
 	throw_range = 7

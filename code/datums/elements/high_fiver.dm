@@ -22,8 +22,8 @@
 	SIGNAL_HANDLER
 
 	offerer.visible_message(
-		span_notice("[offerer] raises [offerer.p_their()] arm, looking for a high-five!"),
-		span_notice("You post up, looking for a high-five!"),
+		span_danger("[offerer] пытается дать кому-нибудь пять, но проваливает свою попытку!"),
+			span_warning("Пытаюсь дать кому-нибудь пять, но рядом никого нет!"),
 		vision_distance = 2,
 	)
 	offerer.apply_status_effect(/datum/status_effect/offering/no_item_received/high_five, source, /atom/movable/screen/alert/give/highfive)
@@ -50,7 +50,7 @@
 	var/descriptor = "high-[high_ten ? "ten" : "five"]"
 
 	if(open_hands_taker <= 0)
-		to_chat(taker, span_warning("You can't [descriptor] [offerer] with no open hands!"))
+		to_chat(taker, span_warning("Не могу дать пять [offerer] с занятыми руками!"))
 		taker.add_mood_event(descriptor, /datum/mood_event/high_five_full_hand) // not so successful now!
 		return COMPONENT_OFFER_INTERRUPT
 
@@ -59,24 +59,16 @@
 	taker.add_mob_memory(/datum/memory/high_five, deuteragonist = offerer, high_five_type = descriptor, high_ten = high_ten)
 
 	if(high_ten)
-		to_chat(taker, span_nicegreen("You give high-tenning [offerer] your all!"))
-		offerer.visible_message(
-			span_notice("[taker] enthusiastically high-tens [offerer]!"),
-			span_nicegreen("Wow! You're high-tenned [taker]!"),
-			span_hear("You hear a sickening sound of flesh hitting flesh!"),
-			ignored_mobs = taker,
-		)
+		offerer.visible_message(span_notice("[taker] с энтузиазмом даёт десять [offerer]!"), span_nicegreen("Вау! Даю десять [taker]!"), span_hear("Слышу звук разрывающейся плоти!"), ignored_mobs=taker)
+		to_chat(taker, span_nicegreen("Даю все десять [offerer]!"))
+
 
 		offerer.add_mood_event(descriptor, /datum/mood_event/high_ten)
 		taker.add_mood_event(descriptor, /datum/mood_event/high_ten)
 	else
-		to_chat(taker, span_nicegreen("You high-five [offerer]!"))
-		offerer.visible_message(
-			span_notice("[taker] high-fives [offerer]!"),
-			span_nicegreen("All right! You're high-fived by [taker]!"),
-			span_hear("You hear a sickening sound of flesh hitting flesh!"),
-			ignored_mobs = taker,
-		)
+		offerer.visible_message(span_notice("[taker] даёт пять [offerer]!"), span_nicegreen("Класс! Даю пять [taker]!"), span_hear("Слышу звук разрывающейся плоти!"), ignored_mobs=taker)
+		to_chat(taker, span_nicegreen("Даю пять [offerer]!"))
+
 
 		offerer.add_mood_event(descriptor, /datum/mood_event/high_five)
 		taker.add_mood_event(descriptor, /datum/mood_event/high_five)

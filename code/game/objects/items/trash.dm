@@ -3,7 +3,7 @@
 	icon = 'icons/obj/service/janitor.dmi'
 	lefthand_file = 'icons/mob/inhands/items/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/food_righthand.dmi'
-	desc = "This is rubbish."
+	desc = "Просто мусор."
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FLAMMABLE
 	item_flags = NOBLUDGEON|SKIP_FANTASY_ON_SPAWN

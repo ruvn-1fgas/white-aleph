@@ -1,6 +1,6 @@
 /obj/item/singularityhammer
-	name = "singularity hammer"
-	desc = "The pinnacle of close combat technology, the hammer harnesses the power of a miniaturized singularity to deal crushing blows."
+	name = "молот сингулярности"
+	desc = "Вершина вооружения ближнего боя, этот молот использует силу миниатюрной сингулярности для нанесения сокрушительных ударов."
 	icon = 'icons/obj/weapons/hammer.dmi'
 	icon_state = "singularity_hammer0"
 	base_icon_state = "singularity_hammer"
@@ -77,8 +77,8 @@
 	return .
 
 /obj/item/mjollnir
-	name = "Mjolnir"
-	desc = "A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy."
+	name = "Мьёльнир"
+	desc = "Оружие, достойное бога, способное поражать силой молнии. Молот потрескивает от едва сдерживаемой в нём энергии."
 	icon = 'icons/obj/weapons/hammer.dmi'
 	icon_state = "mjollnir0"
 	base_icon_state = "mjollnir"
