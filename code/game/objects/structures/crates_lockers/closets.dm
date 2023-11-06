@@ -5,8 +5,8 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 
 
 /obj/structure/closet
-	name = "closet"
-	desc = "It's a basic storage unit."
+	name = "шкаф"
+	desc = "Наиболее распространенный вид хранилища."
 	icon = 'icons/obj/storage/closet.dmi'
 	icon_state = "generic"
 	density = TRUE
