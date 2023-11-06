@@ -1,8 +1,8 @@
 /obj/structure/displaycase
-	name = "display case"
+	name = "витрина"
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "glassbox"
-	desc = "A display case for prized possessions."
+	desc = "Витрина для ценных вещей."
 	density = TRUE
 	anchored = TRUE
 	resistance_flags = ACID_PROOF

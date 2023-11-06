@@ -3,7 +3,7 @@
 /obj/structure/ai_core
 	density = TRUE
 	anchored = FALSE
-	name = "\improper AI core"
+	name = "ядро ИИ"
 	icon = 'icons/mob/silicon/ai.dmi'
 	icon_state = "0"
 	desc = "The framework for an artificial intelligence core."
@@ -64,6 +64,7 @@
 	return ..()
 
 /obj/structure/ai_core/deactivated
+	name = "неактивный ИИ"
 	icon_state = "ai-empty"
 	anchored = TRUE
 	state = AI_READY_CORE
@@ -81,8 +82,8 @@
 		core_mmi.update_appearance()
 
 /obj/structure/ai_core/latejoin_inactive
-	name = "networked AI core"
-	desc = "This AI core is connected by bluespace transmitters to NTNet, allowing for an AI personality to be downloaded to it on the fly mid-shift."
+	name = "ядро ИИ в режиме ожидания"
+	desc = "Этот ИИ находится в режиме обновления и самодиагностики, полоска загрузки стоит на месте. Этот процесс может длится как минуту, так и несколько лет."
 	icon_state = "ai-empty"
 	anchored = TRUE
 	state = AI_READY_CORE
@@ -104,8 +105,8 @@
 
 /obj/structure/ai_core/latejoin_inactive/examine(mob/user)
 	. = ..()
-	. += "Its transmitter seems to be <b>[active? "on" : "off"]</b>."
-	. += span_notice("You could [active? "deactivate" : "activate"] it with a multitool.")
+	. += "<hr>Питание <b>[active? "включено" : "выключено"]</b>."
+	. += "<hr><span class='notice'>Думаю я смогу [active? "выключить" : "включить"] его при помощи мультитула.</span>"
 
 /obj/structure/ai_core/latejoin_inactive/proc/is_available() //If people still manage to use this feature to spawn-kill AI latejoins ahelp them.
 	if(!available)
@@ -129,7 +130,7 @@
 /obj/structure/ai_core/latejoin_inactive/attackby(obj/item/P, mob/user, params)
 	if(P.tool_behaviour == TOOL_MULTITOOL)
 		active = !active
-		to_chat(user, span_notice("You [active? "activate" : "deactivate"]  [src]'s transmitters."))
+		to_chat(user, span_notice("[active? "Активирую" : "Деактивирую"] питание <b>[src.name]</b>."))
 		return
 	return ..()
 
@@ -440,7 +441,8 @@ That prevents a few funky behaviors.
 		to_chat(user, span_alert("There is no AI loaded on this terminal."))
 
 /obj/item/circuitboard/aicore
-	name = "AI core (AI Core Board)" //Well, duh, but best to be consistent
+	name = "плата ядра ИИ"
+	desc = "Плата помещаемая в корпус будущего ИИ в процессе строительства."
 	var/battery = 200 //backup battery for when the AI loses power. Copied to/from AI mobs when carding, and placed here to avoid recharge via deconning the core
 
 #undef AI_CORE_BRAIN

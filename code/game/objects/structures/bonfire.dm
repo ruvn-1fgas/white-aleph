@@ -8,8 +8,8 @@
  * salem style. Keeping the fire on requires oxygen. You can dismantle the bonfire back into logs when it is unignited.
  */
 /obj/structure/bonfire
-	name = "bonfire"
-	desc = "For grilling, broiling, charring, smoking, heating, roasting, toasting, simmering, searing, melting, and occasionally burning things."
+	name = "костёр"
+	desc = "Для гриля, жарки, обугливания, копчения, нагрева, поджаривания, кипения, обжигания, плавления и иногда сжигания вещей."
 	icon = 'icons/obj/service/hydroponics/equipment.dmi'
 	icon_state = "bonfire"
 	light_color = LIGHT_COLOR_FIRE
@@ -50,13 +50,13 @@
 			if("Stake")
 				can_buckle = TRUE
 				buckle_requires_restraints = TRUE
-				to_chat(user, span_notice("You add a rod to  [src]."))
+				to_chat(user, span_notice("Добавляю прутик в <b>[src.name]</b>."))
 				var/mutable_appearance/rod_underlay = mutable_appearance('icons/obj/service/hydroponics/equipment.dmi', "bonfire_rod")
 				rod_underlay.pixel_y = 16
 				underlays += rod_underlay
 			if("Grill")
 				grill = TRUE
-				to_chat(user, span_notice("You add a grill to  [src]."))
+				to_chat(user, span_notice("Добавляю гриль в <b>[src.name]</b>."))
 				add_overlay("bonfire_grill")
 			else
 				return ..()
@@ -83,7 +83,7 @@
 	if(.)
 		return
 	if(burning)
-		to_chat(user, span_warning("You need to extinguish [src] before removing the logs!"))
+		to_chat(user, span_warning("Нужно потушить [src], чтобы достать брёвна!"))
 		return
 	if(!has_buckled_mobs() && do_after(user, 50, target = src))
 		for(var/obj/item/grown/log/bonfire_log in contents)
