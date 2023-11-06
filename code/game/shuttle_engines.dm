@@ -5,7 +5,7 @@
 #define ENGINE_WELDTIME (20 SECONDS)
 
 /obj/machinery/power/shuttle_engine
-	name = "engine"
+	name = "двигатель"
 	desc = "A bluespace engine used to make shuttles move."
 	icon = 'icons/turf/shuttle.dmi'
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
@@ -186,7 +186,7 @@
 	icon_state = "burst_r"
 
 /obj/machinery/power/shuttle_engine/large
-	name = "engine"
+	name = "двигатель"
 	icon = 'icons/obj/fluff/2x2.dmi'
 	icon_state = "large_engine"
 	desc = "A very large bluespace engine used to propel very large ships."
@@ -197,7 +197,7 @@
 	appearance_flags = LONG_GLIDE
 
 /obj/machinery/power/shuttle_engine/huge
-	name = "engine"
+	name = "двигатель"
 	icon = 'icons/obj/fluff/3x3.dmi'
 	icon_state = "huge_engine"
 	desc = "An extremely large bluespace engine used to propel extremely large ships."

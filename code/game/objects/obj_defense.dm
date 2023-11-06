@@ -41,7 +41,7 @@
 		)
 	if(hitting_projectile.suppressed != SUPPRESSED_VERY)
 		visible_message(
-		visible_message(span_danger("В <b>[src]</b> попадает <b>[hitting_projectile.name]</b>!") , null, null, COMBAT_MESSAGE_RANGE, visible_message_flags = SPAM_MESSAGE)
+		span_danger("В <b>[src]</b> попадает <b>[hitting_projectile.name]</b>!") , null, null,
 			vision_distance = COMBAT_MESSAGE_RANGE,
 		)
 
