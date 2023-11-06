@@ -1,6 +1,6 @@
 /obj/structure/closet/crate/secure
-	desc = "A secure crate."
-	name = "secure crate"
+	desc = "Защищенный ящик."
+	name = "надежный защищенный ящик"
 	icon_state = "securecrate"
 	base_icon_state = "securecrate"
 	secure = TRUE
@@ -32,46 +32,46 @@
 
 /obj/structure/closet/crate/secure/proc/boom(mob/user)
 	if(user)
-		to_chat(user, span_danger("The crate's anti-tamper system activates!"))
+		to_chat(user, span_danger("Cистема защиты от несанкционированного доступа к ящику активированна!"))
 		log_bomber(user, "has detonated a", src)
 	dump_contents()
 	explosion(src, heavy_impact_range = 1, light_impact_range = 5, flash_range = 5)
 	qdel(src)
 
 /obj/structure/closet/crate/secure/weapon
-	desc = "A secure weapons crate."
-	name = "weapons crate"
+	desc = "Защищенный ящик для оружия."
+	name = "ящик для оружия"
 	icon_state = "weaponcrate"
 	base_icon_state = "weaponcrate"
 
 /obj/structure/closet/crate/secure/plasma
-	desc = "A secure plasma crate."
-	name = "plasma crate"
+	desc = "Защищенный ящик с плазмой."
+	name = "ящик с плазмой"
 	icon_state = "plasmacrate"
 	base_icon_state = "plasmacrate"
 
 /obj/structure/closet/crate/secure/gear
-	desc = "A secure gear crate."
-	name = "gear crate"
+	desc = "Защищенный ящик для снаряжения."
+	name = "ящик с снаряжением"
 	icon_state = "secgearcrate"
 	base_icon_state = "secgearcrate"
 
 /obj/structure/closet/crate/secure/hydroponics
-	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
-	name = "secure hydroponics crate"
+	desc = "Ящик с замком, на нём нарисована эмблема ботаников станции"
+	name = "защищенный ящик гидропоники"
 	icon_state = "hydrosecurecrate"
 	base_icon_state = "hydrosecurecrate"
 
 /obj/structure/closet/crate/secure/freezer //for consistency with other "freezer" closets/crates
-	desc = "An insulated crate with a lock on it, used to secure perishables."
-	name = "secure kitchen crate"
+	desc = "Холодильник с замком, используемый для хранения еды."
+	name = "защищенный кухонный ящик"
 	icon_state = "kitchen_secure_crate"
 	base_icon_state = "kitchen_secure_crate"
 	paint_jobs = null
 
 /obj/structure/closet/crate/secure/freezer/pizza
-	name = "secure pizza crate"
-	desc = "An insulated crate with a lock on it, used to secure pizza."
+	name = "защищенный ящик с пиццей"
+	desc = "Холодильник с замком, используемый для, очевидно, хранения пиццы."
 	tamperproof = 10
 	req_access = list(ACCESS_KITCHEN)
 
@@ -80,20 +80,20 @@
 	new /obj/effect/spawner/random/food_or_drink/pizzaparty(src)
 
 /obj/structure/closet/crate/secure/engineering
-	desc = "A crate with a lock on it, painted in the scheme of the station's engineers."
-	name = "secure engineering crate"
+	desc = "Ящик с замком, на нём нарисована эмблема инженеров станции."
+	name = "защищенный ящик инженеров"
 	icon_state = "engi_secure_crate"
 	base_icon_state = "engi_secure_crate"
 
 /obj/structure/closet/crate/secure/science
-	name = "secure science crate"
-	desc = "A crate with a lock on it, painted in the scheme of the station's scientists."
+	name = "защищенный ящик учёных"
+	desc = "Ящик с замком, на нём нарисована эмблема учёных станции."
 	icon_state = "scisecurecrate"
 	base_icon_state = "scisecurecrate"
 
 /obj/structure/closet/crate/secure/owned
-	name = "private crate"
-	desc = "A crate cover designed to only open for who purchased its contents."
+	name = "личный ящик"
+	desc = "Крышка ящика, которую может открывать только тот, кто купил содержимое ящика."
 	icon_state = "privatecrate"
 	base_icon_state = "privatecrate"
 	///Account of the person buying the crate if private purchasing.
@@ -107,7 +107,7 @@
 
 /obj/structure/closet/crate/secure/owned/examine(mob/user)
 	. = ..()
-	. += span_notice("It's locked with a privacy lock, and can only be unlocked by the buyer's ID.")
+	. += span_notice("Он закрыт на замок и может быть открыт только по ID покупателя.")
 
 /obj/structure/closet/crate/secure/owned/Initialize(mapload, datum/bank_account/_buyer_account)
 	. = ..()
@@ -117,25 +117,32 @@
 		department_account = buyer_account
 
 /obj/structure/closet/crate/secure/owned/togglelock(mob/living/user, silent)
-	if(privacy_lock)
-		if(!broken)
-			var/obj/item/card/id/id_card = user.get_idcard(TRUE)
-			if(id_card)
-				if(id_card.registered_account)
-					if(id_card.registered_account == buyer_account || (department_purchase && (id_card.registered_account?.account_job?.paycheck_department) == (department_account.department_id)))
-						if(iscarbon(user))
-							add_fingerprint(user)
-						locked = !locked
-						user.visible_message(span_notice("[user] unlocks [src]'s privacy lock."),
-										span_notice("You unlock [src]'s privacy lock."))
-						privacy_lock = FALSE
-						update_appearance()
-					else if(!silent)
-						to_chat(user, span_warning("Bank account does not match with buyer!"))
-				else if(!silent)
-					to_chat(user, span_warning("No linked bank account detected!"))
-			else if(!silent)
-				to_chat(user, span_warning("No ID detected!"))
-		else if(!silent)
-			to_chat(user, span_warning("[src] is broken!"))
-	else ..()
+	if(!privacy_lock)
+		return ..()
+
+	if (broken && !silent)
+		to_chat(user, span_warning("[capitalize(src.name)] сломан!"))
+		return ..()
+
+	var/obj/item/card/id/id_card = user.get_idcard(TRUE)
+	if(!id_card)
+		if(!silent)
+			to_chat(user, span_notice("ID не обнаружен"))
+		return ..()
+
+	if(!id_card.registered_account)
+		if(!silent)
+			to_chat(user, span_notice("Связанных банковских счетов не обнаружено!"))
+		return ..()
+
+	if(id_card.registered_account == buyer_account || (department_purchase && (id_card.registered_account?.account_job?.paycheck_department) == (department_account.department_id)))
+		if(iscarbon(user))
+			add_fingerprint(user)
+		locked = !locked
+		user.visible_message(span_notice("[user] открывает замок [src].") ,
+						span_notice("Открываю замок [src]."))
+		privacy_lock = FALSE
+		update_appearance()
+	else if(!silent)
+		to_chat(user, span_notice("Банковский счет не принадлежит покупателю! "))
+

@@ -106,7 +106,8 @@
 	return
 
 /datum/action/innate/construction/place_structure/fan
-Разместить	button_icon_state = "build_fan"
+	name = "Разместить Маленький Вентилятор"
+	button_icon_state = "build_fan"
 	structure_name = "fans"
 	structure_path = /obj/structure/fans/tiny
 	place_sound = 'sound/machines/click.ogg'
