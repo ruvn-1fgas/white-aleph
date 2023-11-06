@@ -13,8 +13,8 @@
  * Emergency Closet
  */
 /obj/structure/closet/emcloset
-	name = "emergency closet"
-	desc = "It's a storage unit for emergency breath masks and O2 tanks."
+	name = "аварийный шкаф"
+	desc = "Место для хранения масок для дыхания и баллонов с кислородом."
 	icon_state = "emergency"
 
 /obj/structure/closet/emcloset/anchored
@@ -64,8 +64,8 @@
  * Fire Closet
  */
 /obj/structure/closet/firecloset
-	name = "fire-safety closet"
-	desc = "It's a storage unit for fire-fighting supplies."
+	name = "пожарные инструменты"
+	desc = "Место для хранения средств пожаротушения."
 	icon_state = "fire"
 
 /obj/structure/closet/firecloset/PopulateContents()
@@ -91,8 +91,8 @@
  * Tool Closet
  */
 /obj/structure/closet/toolcloset
-	name = "tool closet"
-	desc = "It's a storage unit for tools."
+	name = "инструменты"
+	desc = "Место для хранения инструментов."
 	icon_state = "eng"
 	icon_door = "eng_tool"
 
@@ -140,8 +140,8 @@
  * Radiation Closet
  */
 /obj/structure/closet/radiation
-	name = "radiation suit closet"
-	desc = "It's a storage unit for rad-protective suits."
+	name = "анти-радиационная защита"
+	desc = "Место для хранения костюмов радиозащиты."
 	icon_state = "eng"
 	icon_door = "eng_rad"
 
@@ -155,8 +155,8 @@
  * Bombsuit closet
  */
 /obj/structure/closet/bombcloset
-	name = "\improper EOD closet"
-	desc = "It's a storage unit for explosion-protective suits."
+	name = "защита от взрывов"
+	desc = "Место для хранения костюмов взрывозащиты."
 	icon_state = "bomb"
 
 /obj/structure/closet/bombcloset/PopulateContents()
@@ -182,7 +182,7 @@
  * Ammunition
  */
 /obj/structure/closet/ammunitionlocker
-	name = "ammunition locker"
+	name = "аммуниция"
 
 /obj/structure/closet/ammunitionlocker/PopulateContents()
 	..()

@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet
-	name = "защищённый шкаф"
+	name = "шкаф с замком"
 	desc = "Хранилище, открываемое картой."
 	locked = TRUE
 	icon_state = "secure"
