@@ -1,6 +1,6 @@
 /obj/item/binoculars
-	name = "binoculars"
-	desc = "Used for long-distance surveillance."
+	name = "бинокль"
+	desc = "Используется для дальней разведки."
 	inhand_icon_state = "binoculars"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "binoculars"
@@ -25,7 +25,7 @@
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(on_walk))
 	RegisterSignal(user, COMSIG_ATOM_DIR_CHANGE, PROC_REF(rotate))
 	listeningTo = user
-	user.visible_message(span_notice("[user] holds [src] up to [user.p_their()] eyes."), span_notice("You hold [src] up to your eyes."))
+	user.visible_message(span_notice("[user] приставляет [src] к [user.p_their()] глазам."), span_notice("смотрю через [src]."))
 	inhand_icon_state = "binoculars_wielded"
 	user.regenerate_icons()
 	user.client.view_size.zoomOut(zoom_out_amt, zoom_amt, user.dir)
@@ -48,7 +48,7 @@
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 		UnregisterSignal(user, COMSIG_ATOM_DIR_CHANGE)
 		listeningTo = null
-	user.visible_message(span_notice("[user] lowers [src]."), span_notice("You lower [src]."))
+	user.visible_message(span_notice("[user] опускает [src]."), span_notice("Опускаю [src]."))
 	inhand_icon_state = "binoculars"
 	user.regenerate_icons()
 	user.client.view_size.zoomIn()

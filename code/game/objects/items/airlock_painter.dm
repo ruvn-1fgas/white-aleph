@@ -1,6 +1,6 @@
 /obj/item/airlock_painter
-	name = "airlock painter"
-	desc = "An advanced autopainter preprogrammed with several paintjobs for airlocks. Use it on an airlock during or after construction to change the paintjob."
+	name = "маркировщик шлюзов"
+	desc = "Продвинутый автоматический маркировщик, предварительно запрограммированный на несколько режимов работ по покраске воздушных шлюзов. Используйте его на воздушном шлюзе во время или после строительства, чтобы изменить окраску."
 	desc_controls = "Alt-Click to remove the ink cartridge."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "paint_sprayer"
@@ -157,8 +157,8 @@
 		ink = null
 
 /obj/item/airlock_painter/decal
-	name = "decal painter"
-	desc = "An airlock painter, reprogramed to use a different style of paint in order to apply decals for floor tiles as well, in addition to repainting doors. Decals break when the floor tiles are removed."
+	name = "красильщик пола"
+	desc = "Создает разметку на полу. Alt-клик для изъятия картриджа."
 	desc_controls = "Alt-Click to remove the ink cartridge."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "decal_sprayer"
@@ -381,8 +381,8 @@
 	initial_ink_type = /obj/item/toner/extreme
 
 /obj/item/airlock_painter/decal/tile
-	name = "tile sprayer"
-	desc = "An airlock painter, reprogramed to use a different style of paint in order to spray colors on floor tiles as well, in addition to repainting doors. Decals break when the floor tiles are removed."
+	name = "полокрас"
+	desc = "Маркировщик шлюзов, переделанный для работы с напольной плиткой, в дополнение к перекраске дверей. При демонтаже напольной плитки краска удаляется. Щелкните ПКМ чтобы изменить дизайн."
 	desc_controls = "Alt-Click to remove the ink cartridge."
 	icon_state = "tile_sprayer"
 	stored_dir = 2
