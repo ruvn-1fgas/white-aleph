@@ -1,8 +1,8 @@
 #define TANK_DISPENSER_CAPACITY 10
 
 /obj/structure/tank_dispenser
-	name = "tank dispenser"
-	desc = "A simple yet bulky storage device for gas tanks. Holds up to 10 oxygen tanks and 10 plasma tanks."
+	name = "раздатчик баллонов"
+	desc = "Простое, но больше устройство хранения баллонов. Может хранить 10 кислородных баллон и 10 баков с плазмой."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "dispenser"
 	density = TRUE
@@ -52,17 +52,17 @@
 		else
 			full = TRUE
 	else if(!user.combat_mode)
-		to_chat(user, span_notice("[I] does not fit into [src]."))
+		to_chat(user, span_notice("[I] не может принять [src]."))
 		return
 	else
 		return ..()
 	if(full)
-		to_chat(user, span_notice("[src] can't hold any more of [I]."))
+		to_chat(user, span_notice("[capitalize(src.name)] не может принять [I]."))
 		return
 
 	if(!user.transferItemToLoc(I, src))
 		return
-	to_chat(user, span_notice("You put [I] in [src]."))
+	to_chat(user, span_notice("Вставляю <b>[I]</b> в [src]."))
 	update_appearance()
 
 /obj/structure/tank_dispenser/ui_state(mob/user)

@@ -1,7 +1,7 @@
 
 /obj/structure/chair/e_chair
-	name = "electric chair"
-	desc = "Looks absolutely SHOCKING!"
+	name = "электрический стул"
+	desc = "Выглядит абсолютно ШОКИРУЮЩИМ!"
 	icon_state = "echair0"
 	var/last_time = 1
 	item_chair = null

@@ -1,7 +1,7 @@
 // Basic ladder. By default links to the z-level above/below.
 /obj/structure/ladder
-	name = "ladder"
-	desc = "A sturdy metal ladder."
+	name = "лестница"
+	desc = "Крепкая металлическая лестница."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "ladder11"
 	anchored = TRUE
@@ -30,9 +30,9 @@
 
 /obj/structure/ladder/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	if(up)
-		context[SCREENTIP_CONTEXT_LMB] = "Climb up"
+		context[SCREENTIP_CONTEXT_LMB] = "Подняться"
 	if(down)
-		context[SCREENTIP_CONTEXT_RMB] = "Climb down"
+		context[SCREENTIP_CONTEXT_RMB] = "Опуститься"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ladder/examine(mob/user)
@@ -89,10 +89,10 @@
 		return
 
 	if(!up && !down)
-		balloon_alert(user, "doesn't lead anywhere!")
+		balloon_alert(user, "никуда не ведёт!")
 		return
 	if(going_up ? !up : !down)
-		balloon_alert(user, "can't go any further [going_up ? "up" : "down"]")
+		balloon_alert(user, "некуда больше [going_up ? "подниматься" : "опускаться"]")
 		return
 	if(user.buckled && user.buckled.anchored)
 		balloon_alert(user, "buckled to something anchored!")
@@ -110,13 +110,13 @@
 
 /// The message shown when the player starts climbing the ladder
 /obj/structure/ladder/proc/show_initial_fluff_message(mob/user, going_up)
-	var/up_down = going_up ? "up" : "down"
-	user.balloon_alert_to_viewers("climbing [up_down]...")
+	var/up_down = going_up ? "поднимается" : "опускается"
+	user.balloon_alert_to_viewers("[up_down]...")
 
 /obj/structure/ladder/proc/travel(mob/user, going_up = TRUE, is_ghost = FALSE)
 	var/obj/structure/ladder/ladder = going_up ? up : down
 	if(!ladder)
-		balloon_alert(user, "there's nothing that way!")
+		balloon_alert(user, "там нет ничего!")
 		return
 	var/response = SEND_SIGNAL(user, COMSIG_LADDER_TRAVEL, src, ladder, going_up)
 	if(response & LADDER_TRAVEL_BLOCK)
@@ -136,12 +136,12 @@
 
 /// The messages shown after the player has finished climbing. Players can see this happen from either src or the destination so we've 2 POVs here
 /obj/structure/ladder/proc/show_final_fluff_message(mob/user, obj/structure/ladder/destination, going_up)
-	var/up_down = going_up ? "up" : "down"
+	var/up_down = going_up ? "поднимается" : "опускается"
 
 	//POV of players around the source
-	visible_message(span_notice("[user] climbs [up_down] [src]."))
+	visible_message(span_notice("[user] [up_down] по лестнице."))
 	//POV of players around the destination
-	user.balloon_alert_to_viewers("climbed [up_down]")
+	user.balloon_alert_to_viewers("[up_down]")
 
 /// Shows a radial menu that players can use to climb up and down a stair.
 /obj/structure/ladder/proc/show_options(mob/user, is_ghost = FALSE)
@@ -156,11 +156,11 @@
 
 	var/going_up
 	switch(result)
-		if("Up")
+		if("Вверх")
 			going_up = TRUE
-		if("Down")
+		if("Вниз")
 			going_up = FALSE
-		else
+		if("Отмена")
 			return
 
 	if(is_ghost || !travel_time)
@@ -277,7 +277,7 @@
 ///Ghosts use the byond default popup menu function on right click, so this is going to work a little differently for them.
 /obj/structure/ladder/proc/ghost_use(mob/user)
 	if (!up && !down)
-		balloon_alert(user, "doesn't lead anywhere!")
+		balloon_alert(user, "никуда не ведёт!")
 		return
 	if(!up) //only goes down
 		travel(user, going_up = FALSE, is_ghost = TRUE)
@@ -288,8 +288,8 @@
 
 // Indestructible away mission ladders which link based on a mapped ID and height value rather than X/Y/Z.
 /obj/structure/ladder/unbreakable
-	name = "sturdy ladder"
-	desc = "An extremely sturdy metal ladder."
+	name = "прочная лестница"
+	desc = "Невероятно крепкая лестница."
 	resistance_flags = INDESTRUCTIBLE
 	var/id
 	var/height = 0  // higher numbers are considered physically higher

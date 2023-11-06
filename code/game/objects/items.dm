@@ -373,7 +373,7 @@
 		righthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_right, greyscale_colors)
 
 /obj/item/verb/move_to_top()
-	set name = "Move To Top"
+	set name = "Переместить наверх"
 	set category = "Object"
 	set src in oview(1)
 
@@ -392,32 +392,30 @@
 /obj/item/examine(mob/user) //This might be spammy. Remove?
 	. = ..()
 
-	. += "[gender == PLURAL ? "They are" : "It is"] a [weight_class_to_text(w_class)] item."
-
-	if(item_flags & CRUEL_IMPLEMENT)
-		. += "[src] seems quite practical for particularly <font color='red'>morbid</font> procedures and experiments."
+	. += "<hr>"
 
 	if(resistance_flags & INDESTRUCTIBLE)
-		. += "[src] seems extremely robust! It'll probably withstand anything that could happen to it!"
+		. += span_smallnotice("<b>Защитные свойства:</b> [icon2html(EMOJI_SET, user, "indestructible")] Неуязвимый.\n")
 	else
+		var/list/rfm = list()
 		if(resistance_flags & LAVA_PROOF)
-			. += "[src] is made of an extremely heat-resistant material, it'd probably be able to withstand lava!"
+			rfm += icon2html(EMOJI_SET, user, "lava")
 		if(resistance_flags & (ACID_PROOF | UNACIDABLE))
-			. += "[src] looks pretty robust! It'd probably be able to withstand acid!"
+			rfm += icon2html(EMOJI_SET, user, "acid")
 		if(resistance_flags & FREEZE_PROOF)
-			. += "[src] is made of cold-resistant materials."
+			rfm += icon2html(EMOJI_SET, user, "cold")
 		if(resistance_flags & FIRE_PROOF)
-			. += "[src] is made of fire-retardant materials."
+			rfm += icon2html(EMOJI_SET, user, "fire")
+		if(rfm.len)
+			. += span_smallnotice("<b>Защитные свойства:</b> [rfm.Join(" ")]\n")
+
+	. += span_smallnotice("<b>Размер:</b> [weight_class_to_icon(w_class, user, TRUE)]")
+
+	if(!HAS_TRAIT(user, TRAIT_RESEARCH_SCANNER))
 		return
 
-/obj/item/examine_more(mob/user)
-	. = ..()
-	if(HAS_TRAIT(user, TRAIT_RESEARCH_SCANNER))
-		. += research_scan(user)
-
-/obj/item/proc/research_scan(mob/user)
 	/// Research prospects, including boostable nodes and point values. Deliver to a console to know whether the boosts have already been used.
-	var/list/research_msg = list("<font color='purple'>Research prospects:</font> ")
+	var/list/research_msg = list("<hr><span class='purple'>Научный интерес:</span> ")
 	///Separator between the items on the list
 	var/sep = ""
 	///Nodes that can be boosted
@@ -436,10 +434,10 @@
 		research_msg += techweb_point_display_generic(points)
 
 	if (!sep) // nothing was shown
-		research_msg += "None"
+		research_msg += "Ничего"
 
 	// Extractable materials. Only shows the names, not the amounts.
-	research_msg += ".<br><font color='purple'>Extractable materials:</font> "
+	research_msg += ".<br><span class='purple'>Материалы:</span> "
 	if (length(custom_materials))
 		sep = ""
 		for(var/mat in custom_materials)
@@ -447,9 +445,9 @@
 			research_msg += CallMaterialName(mat)
 			sep = ", "
 	else
-		research_msg += "None"
+		research_msg += "Ничего"
 	research_msg += "."
-	return research_msg.Join()
+	. += research_msg.Join()
 
 /obj/item/interact(mob/user)
 	add_fingerprint(user)
@@ -534,7 +532,7 @@
 	var/grav = user.has_gravity()
 	if(grav > STANDARD_GRAVITY)
 		var/grav_power = min(3,grav - STANDARD_GRAVITY)
-		to_chat(user,span_notice("You start picking up [src]..."))
+		to_chat(user,span_notice("С трудом начинаю поднимать [src]..."))
 		if(!do_after(user, 30 * grav_power, src))
 			return
 
@@ -582,7 +580,7 @@
 	if(!user.can_hold_items(src))
 		if(src in ayy.contents) // To stop Aliens having items stuck in their pockets
 			ayy.dropItemToGround(src)
-		to_chat(user, span_warning("Your claws aren't capable of such fine manipulation!"))
+		to_chat(user, span_warning("У меня лапки!"))
 		return
 	attack_paw(ayy, modifiers)
 
@@ -606,7 +604,7 @@
 		return TRUE
 
 	if(prob(final_block_chance))
-		owner.visible_message(span_danger("[owner] blocks [attack_text] with [src]!"))
+		owner.visible_message(span_danger("<b>[owner]</b> блокирует [attack_text] при помощи <b>[src.name]</b>!"))
 		var/owner_turf = get_turf(owner)
 		new block_effect(owner_turf, COLOR_YELLOW)
 		playsound(src, block_sound, BLOCK_SOUND_VOLUME, vary = TRUE)
@@ -735,7 +733,7 @@
 /obj/item/verb/verb_pickup()
 	set src in oview(1)
 	set category = "Object"
-	set name = "Pick up"
+	set name = "Подобрать"
 
 	if(usr.incapacitated() || !Adjacent(usr))
 		return
@@ -911,7 +909,7 @@
 /// If an object can successfully be used as a fire starter it will return a message
 /obj/item/proc/ignition_effect(atom/A, mob/user)
 	if(get_temperature())
-		. = span_notice("[user] lights [A] with [src].")
+		. = span_notice("[user] поджигает [A] при помощи [src].")
 	else
 		. = ""
 
@@ -987,28 +985,28 @@
 /obj/item/proc/set_force_string()
 	switch(force)
 		if(0 to 4)
-			force_string = "very low"
+			force_string = "никакой"
 		if(4 to 7)
-			force_string = "low"
+			force_string = "низкий"
 		if(7 to 10)
-			force_string = "medium"
+			force_string = "средний"
 		if(10 to 11)
-			force_string = "high"
+			force_string = "высокий"
 		if(11 to 20) //12 is the force of a toolbox
-			force_string = "robust"
+			force_string = "сильный"
 		if(20 to 25)
-			force_string = "very robust"
+			force_string = "очень сильный"
 		else
-			force_string = "exceptionally robust"
+			force_string = "НЕМЫСЛИМЫЙ"
 	last_force_string_check = force
 
 /obj/item/proc/openTip(location, control, params, user)
 	if(last_force_string_check != force && !(item_flags & FORCE_STRING_OVERRIDE))
 		set_force_string()
 	if(!(item_flags & FORCE_STRING_OVERRIDE))
-		openToolTip(user,src,params,title = name,content = "[desc]<br>[force ? "<b>Force:</b> [force_string]" : ""]",theme = "")
+		openToolTip(user, src, params, title = name, content = "[desc]<br>[force ? "<b>Урон:</b> [force_string]" : ""]", theme = "")
 	else
-		openToolTip(user,src,params,title = name,content = "[desc]<br><b>Force:</b> [force_string]",theme = "")
+		openToolTip(user, src, params, title = name, content = "[desc]<br><b>Урон:</b> [force_string]", theme = "")
 
 /obj/item/MouseEntered(location, control, params)
 	. = ..()
@@ -1322,7 +1320,7 @@
 			victim.transferItemToLoc(src, victim, TRUE)
 			victim.losebreath += 2
 			victim_cavity.cavity_item = src
-			to_chat(victim, span_warning("You swallow hard. [source_item? "Something small was in  [source_item]..." : ""]"))
+			to_chat(victim, span_warning("Проглатываю что-то жёсткое. [source_item? "Это было в [source_item]..." : ""]"))
 		discover_after = FALSE
 
 	else

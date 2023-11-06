@@ -2,8 +2,8 @@
 #define CLEAR_TILE_MOVE_LIMIT 20
 
 /obj/structure/grille
-	desc = "A flimsy framework of iron rods."
-	name = "grille"
+	desc = "Хрупкий каркас из железных стержней."
+	name = "решетка"
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "grille"
 	base_icon_state = "grille"
@@ -54,11 +54,12 @@
 	. = ..()
 	if(flags_1 & NODECONSTRUCT_1)
 		return
+	. += "<hr>"
 
 	if(anchored)
-		. += span_notice("It's secured in place with <b>screws</b>. The rods look like they could be <b>cut</b> through.")
+		. += span_notice("Это прикручено на месте <b>винтами</b>. Стержни выглядят так, как будто они могут быть <b>прокушены</b>.")
 	else
-		. += span_notice("The anchoring screws are <i>unscrewed</i>. The rods look like they could be <b>cut</b> through.")
+		. += span_notice("Это выглядит <i>открученым</i>. Стержни выглядят так, как будто они могут быть <b>прокушены</b>.")
 
 /obj/structure/grille/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	switch(the_rcd.mode)

@@ -11,8 +11,8 @@
 #define MAX_HOLE_SIZE LARGE_HOLE
 
 /obj/structure/fence
-	name = "fence"
-	desc = "A chain link fence. Not as effective as a wall, but generally it keeps people out."
+	name = "заборчик"
+	desc = "Забор из сетки рабицы. Не так эффективно, как стена, но людей не пропускает."
 	density = TRUE
 	anchored = TRUE
 
@@ -106,8 +106,8 @@
 //FENCE DOORS
 
 /obj/structure/fence/door
-	name = "fence door"
-	desc = "Not very useful without a real lock."
+	name = "калитка"
+	desc = "Сомнительная польза без замка. В виду активизации деятельности международной террористической организации «ИГИЛ» убедительно просим вас закрывать калитку на крючок."
 	icon_state = "door_closed"
 	cuttable = FALSE
 

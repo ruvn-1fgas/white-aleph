@@ -59,8 +59,8 @@
 		. += water_icon
 
 /obj/structure/mop_bucket/janitorialcart
-	name = "janitorial cart"
-	desc = "This is the alpha and omega of sanitation."
+	name = "тележка уборщика"
+	desc = "Это альфа и омега санитарии."
 	icon_state = "cart"
 	water_icon = "cart_water"
 	var/obj/item/storage/bag/trash/mybag
