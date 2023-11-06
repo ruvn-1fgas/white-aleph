@@ -1,6 +1,6 @@
 /obj/item/tank/jetpack
-	name = "jetpack (empty)"
-	desc = "A tank of compressed gas for use as propulsion in zero-gravity areas. Use with caution."
+	name = "реактивный ранец"
+	desc = "Баллон со сжатым газом для использования в качестве движителя в условиях невесомости. Используйте с осторожностью."
 	icon_state = "jetpack"
 	inhand_icon_state = "jetpack"
 	lefthand_file = 'icons/mob/inhands/equipment/jetpacks_lefthand.dmi'
@@ -69,7 +69,7 @@
 	else if(istype(action, /datum/action/item_action/jetpack_stabilization))
 		if(on)
 			configure_jetpack(!stabilize)
-			to_chat(user, span_notice("You turn the jetpack stabilization [stabilize ? "on" : "off"]."))
+			to_chat(user, span_notice("Переключаю стабилизатор в положение [stabilize ? "\"вкл\"" : "\"выкл\""]."))
 	else
 		toggle_internals(user)
 

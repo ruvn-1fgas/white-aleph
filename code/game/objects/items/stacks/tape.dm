@@ -92,7 +92,6 @@
 	tape_gag = /obj/item/clothing/mask/muzzle/tape/super
 
 /obj/item/stack/sticky_tape/pointy
-	bj/item/stack/sticky_tape/pointy
 	name = "заостренная лента"
 	singular_name = "заостренная лента"
 	desc = "Используется для приклеивания к вещам, для того, чтобы приклеивать эти вещи к людям."
