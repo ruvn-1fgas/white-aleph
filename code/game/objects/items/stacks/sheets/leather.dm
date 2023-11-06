@@ -198,33 +198,26 @@ GLOBAL_LIST_INIT(carp_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/leather
 
 GLOBAL_LIST_INIT(leather_recipes, list ( \
-	new/datum/stack_recipe("wallet", /obj/item/storage/wallet, 1, check_density = FALSE, category = CAT_CONTAINERS), \
-	new/datum/stack_recipe("muzzle", /obj/item/clothing/mask/muzzle, 2, check_density = FALSE, category = CAT_ENTERTAINMENT), \
-	new/datum/stack_recipe("basketball", /obj/item/toy/basketball, 20, check_density = FALSE, category = CAT_ENTERTAINMENT), \
-	new/datum/stack_recipe("baseball", /obj/item/toy/beach_ball/baseball, 3, check_density = FALSE, category = CAT_ENTERTAINMENT), \
-	new/datum/stack_recipe("saddle", /obj/item/goliath_saddle, 5, check_density = FALSE, category = CAT_EQUIPMENT), \
-	new/datum/stack_recipe("leather shoes", /obj/item/clothing/shoes/laceup, 2, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("cowboy boots", /obj/item/clothing/shoes/cowboy, 2, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("botany gloves", /obj/item/clothing/gloves/botanic_leather, 3, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("leather satchel", /obj/item/storage/backpack/satchel/leather, 5, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("sheriff vest", /obj/item/clothing/accessory/vest_sheriff, 4, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("leather jacket", /obj/item/clothing/suit/jacket/leather, 7, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("biker jacket", /obj/item/clothing/suit/jacket/leather/biker, 7, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe_list("belts", list( \
-		new/datum/stack_recipe("tool belt", /obj/item/storage/belt/utility, 4, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("botanical belt", /obj/item/storage/belt/plant, 2, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("janitorial belt", /obj/item/storage/belt/janitor, 2, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("medical belt", /obj/item/storage/belt/medical, 2, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("security belt", /obj/item/storage/belt/security, 2, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("shoulder holster", /obj/item/storage/belt/holster, 3, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("bandolier", /obj/item/storage/belt/bandolier, 5, check_density = FALSE, category = CAT_CONTAINERS), \
-	)),
-	new/datum/stack_recipe_list("cowboy hats", list( \
-		new/datum/stack_recipe("sheriff hat", /obj/item/clothing/head/cowboy/brown, 2, check_density = FALSE, category = CAT_CLOTHING), \
-		new/datum/stack_recipe("desperado hat", /obj/item/clothing/head/cowboy/black, 2, check_density = FALSE, category = CAT_CLOTHING), \
-		new/datum/stack_recipe("ten-gallon hat", /obj/item/clothing/head/cowboy/white, 2, check_density = FALSE, category = CAT_CLOTHING), \
-		new/datum/stack_recipe("deputy hat", /obj/item/clothing/head/cowboy/red, 2, check_density = FALSE, category = CAT_CLOTHING), \
-		new/datum/stack_recipe("drifter hat", /obj/item/clothing/head/cowboy/grey, 2, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("бумажник", /obj/item/storage/wallet, 1, check_density = FALSE, category = CAT_CONTAINERS), \
+	new/datum/stack_recipe("намордник", /obj/item/clothing/mask/muzzle, 2, check_density = FALSE, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("баскетбольный мяч", /obj/item/toy/basketball, 20, check_density = FALSE, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("бейсбольный мяч", /obj/item/toy/beach_ball/baseball, 3, check_density = FALSE, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("седло", /obj/item/goliath_saddle, 5, check_density = FALSE, category = CAT_EQUIPMENT), \
+	new/datum/stack_recipe("кожаные ботинки", /obj/item/clothing/shoes/laceup, 2, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("ковбойские ботинки", /obj/item/clothing/shoes/cowboy, 2, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("ботанические перчатки", /obj/item/clothing/gloves/botanic_leather, 3, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("кожаная сумка", /obj/item/storage/backpack/satchel/leather, 5, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("жилет шерифа", /obj/item/clothing/accessory/vest_sheriff, 4, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("кожаный пиджак", /obj/item/clothing/suit/jacket/leather, 7, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("куртка байкера", /obj/item/clothing/suit/jacket/leather/biker, 7, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe_list("пояса", list( \
+		new/datum/stack_recipe("пояс с инструментами", /obj/item/storage/belt/utility, 4, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("ботанический пояс", /obj/item/storage/belt/plant, 2, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("пояс уборщика", /obj/item/storage/belt/janitor, 2, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("медицинский пояс", /obj/item/storage/belt/medical, 2, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("пояс офицера", /obj/item/storage/belt/security, 2, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("пистолетная кобура", /obj/item/storage/belt/holster, 3, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("бандольер", /obj/item/storage/belt/bandolier, 5, check_density = FALSE, category = CAT_CONTAINERS), \
 	)),
 ))
 
@@ -336,27 +329,27 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 
 /obj/item/stack/sheet/animalhide/examine(mob/user)
 	. = ..()
-	. += span_notice("You can remove the hair with any sharp object.")
+	. += span_notice("Можно срезать шерсть любым острым предметом.")
 
 //Step two - washing..... it's actually in washing machine code.
 
 /obj/item/stack/sheet/hairlesshide
-	name = "hairless hide"
-	desc = "This hide was stripped of its hair, but still needs washing and tanning."
+	name = "безволосая шкура"
+	desc = "Эта шкура была лишена волос, но все еще нуждается в мытье и загаре."
 	singular_name = "hairless hide piece"
-	icon_state = "sheet-hairlesshide"
+	singular_name = "кусок безволосой шкуры"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/hairlesshide
 
 /obj/item/stack/sheet/hairlesshide/examine(mob/user)
 	. = ..()
-	. += span_notice("You can clean it up by washing in the water.")
+	. += span_notice("Можно очистить, намочив в воде.")
 
 //Step three - drying
 /obj/item/stack/sheet/wethide
-	name = "wet hide"
-	desc = "This hide has been cleaned but still needs to be dried."
-	singular_name = "wet hide piece"
+	name = "мокрая шкура"
+	desc = "Эта шкура была очищена, но все еще нуждается в сушке."
+	singular_name = "мокрая шкура"
 	icon_state = "sheet-wetleather"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/wethide
@@ -367,7 +360,7 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 
 /obj/item/stack/sheet/wethide/examine(mob/user)
 	. = ..()
-	. += span_notice("You can dry it up to make leather.")
+	. += span_notice("Можно высушить, чтобы получить кожу.")
 
 /obj/item/stack/sheet/wethide/Initialize(mapload, new_amount, merge = TRUE, list/mat_override=null, mat_amt=1)
 	. = ..()
@@ -378,7 +371,7 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 	AddComponent(/datum/component/bakeable, /obj/item/stack/sheet/leather, rand(15 SECONDS, 20 SECONDS), TRUE, TRUE)
 
 /obj/item/stack/sheet/wethide/burn()
-	visible_message(span_notice("[src] dries up!"))
+	visible_message(span_notice("[src] высыхает!"))
 	new /obj/item/stack/sheet/leather(loc, amount) // all the sheets to incentivize not losing your whole stack by accident
 	qdel(src)
 

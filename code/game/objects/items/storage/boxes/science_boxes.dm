@@ -1,8 +1,8 @@
 // This file contains all boxes used by the Science department and its purpose on the station.
 
 /obj/item/storage/box/swab
-	name = "box of microbiological swabs"
-	desc = "Contains a number of sterile swabs for collecting microbiological samples."
+	name = "коробка микробиологических ватных дисков"
+	desc = "Содержит несколько стерильных ватных дисков для взятия микробиологических проб."
 	illustration = "swab"
 
 /obj/item/storage/box/swab/PopulateContents()
@@ -10,8 +10,8 @@
 		new /obj/item/swab(src)
 
 /obj/item/storage/box/petridish
-	name = "box of petridishes"
-	desc = "This box purports to contain a number of high rim petridishes."
+	name = "коробка чашек Петри"
+	desc = "Якобы эта коробка содержит несколько чашек Петри с высоким ободком."
 	illustration = "petridish"
 
 /obj/item/storage/box/petridish/PopulateContents()
@@ -19,13 +19,13 @@
 		new /obj/item/petri_dish(src)
 
 /obj/item/storage/box/plumbing
-	name = "box of plumbing supplies"
-	desc = "Contains a small supply of pipes, water recyclers, and iron to connect to the rest of the station."
+	name = "ящик с сантехникой"
+	desc = "Содержит небольшой запас труб, рециркуляторов воды и железа для подключения к остальной части станции."
 
 //Disk boxes
 
 /obj/item/storage/box/disks
-	name = "diskette box"
+	name = "коробка для дискет"
 	illustration = "disk_kit"
 
 /obj/item/storage/box/disks/PopulateContents()
@@ -33,8 +33,8 @@
 		new /obj/item/disk/data(src)
 
 /obj/item/storage/box/monkeycubes
-	name = "monkey cube box"
-	desc = "Drymate brand monkey cubes. Just add water!"
+	name = "коробка кубиков с обезьянами"
+	desc = "Кубики обезьяны бренда Drymate. Просто добавь воды!"
 	icon_state = "monkeycubebox"
 	illustration = null
 	/// Which type of cube are we spawning in this box?
@@ -50,12 +50,12 @@
 		new cube_type(src)
 
 /obj/item/storage/box/monkeycubes/syndicate
-	desc = "Waffle Co. brand monkey cubes. Just add water and a dash of subterfuge!"
+	desc = "Обезьяньи кубики марки Waffle Co. Просто добавьте воды и немного уловок!"
 	cube_type = /obj/item/food/monkeycube/syndicate
 
 /obj/item/storage/box/gorillacubes
-	name = "gorilla cube box"
-	desc = "Waffle Co. brand gorilla cubes. Do not taunt."
+	name = "коробка куба гориллы"
+	desc = "Кубики гориллы бренда Waffle Co. Не насмехайтесь."
 	icon_state = "monkeycubebox"
 	illustration = null
 
@@ -69,8 +69,8 @@
 		new /obj/item/food/monkeycube/gorilla(src)
 
 /obj/item/storage/box/stockparts/basic //for ruins where it's a bad idea to give access to an autolathe/protolathe, but still want to make stock parts accessible
-	name = "box of stock parts"
-	desc = "Contains a variety of basic stock parts."
+	name = "коробка запасных частей"
+	desc = "Содержит множество основных запасных частей."
 
 /obj/item/storage/box/stockparts/basic/PopulateContents()
 	var/static/items_inside = list(
@@ -83,8 +83,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/stockparts/deluxe
-	name = "box of deluxe stock parts"
-	desc = "Contains a variety of deluxe stock parts."
+	name = "коробка роскошных запасных частей"
+	desc = "Содержит множество роскошных запасных частей."
 	icon_state = "syndiebox"
 
 /obj/item/storage/box/stockparts/deluxe/PopulateContents()
@@ -98,8 +98,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/rndboards
-	name = "\proper the liberator's legacy"
-	desc = "A box containing a gift for worthy golems."
+	name = "наследие освободителя"
+	desc = "Коробка с подарком для достойных големов."
 	illustration = "scicircuit"
 
 /obj/item/storage/box/rndboards/PopulateContents()
@@ -109,7 +109,7 @@
 	new /obj/item/circuitboard/computer/rdconsole(src)
 
 /obj/item/storage/box/stabilized //every single stabilized extract from xenobiology
-	name = "box of stabilized extracts"
+	name = "коробка стабилизированных экстрактов"
 	icon_state = "syndiebox"
 
 /obj/item/storage/box/stabilized/Initialize(mapload)

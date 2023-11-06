@@ -233,9 +233,10 @@
 	return OXYLOSS
 
 /obj/item/stack/medical/gauze/improvised
-	name = "improvised gauze"
-	singular_name = "improvised gauze"
-	desc = "A roll of cloth roughly cut from something that does a decent job of stabilizing wounds, but less efficiently so than real medical gauze."
+	name = "импровизированный бинт"
+	skloname = "импровизированный бинт"
+	singular_name = "импровизированный бинт"
+	desc = "Рулон эластичной ткани, который чрезвычайно эффективен при остановке кровотечения, правит переломы, но не заживляет раны. Менее эффективен своих аналогов."
 	self_delay = 6 SECONDS
 	other_delay = 3 SECONDS
 	splint_factor = 0.85
@@ -253,10 +254,10 @@
 	 */
 
 /obj/item/stack/medical/suture
-	name = "suture"
-	desc = "Basic sterile sutures used to seal up cuts and lacerations and stop bleeding."
-	gender = PLURAL
-	singular_name = "suture"
+	name = "хирургическая нить"
+	skloname = "хирургическую нить"
+	desc = "Стерильные швы используются для герметизации порезов и разрывов."
+	gender = FEMALE
 	icon_state = "suture"
 	self_delay = 3 SECONDS
 	other_delay = 1 SECONDS
@@ -269,27 +270,29 @@
 	merge_type = /obj/item/stack/medical/suture
 
 /obj/item/stack/medical/suture/emergency
-	name = "emergency suture"
-	desc = "A value pack of cheap sutures, not very good at repairing damage, but still decent at stopping bleeding."
+	name = "экстренный шов"
+	desc = "Набор дешевых швов, не очень хорош для залатывания ран, однако эффективно останавливает кровотечения."
 	heal_brute = 5
 	amount = 5
 	max_amount = 5
 	merge_type = /obj/item/stack/medical/suture/emergency
 
 /obj/item/stack/medical/suture/medicated
-	name = "medicated suture"
+	name = "лечебная хирургическая нить"
+	skloname = "лечебную хирургическую нить"
+	desc = "Нить, наполненная лекарственными средствами, ускоряющими заживление раны на обработанной ране."
 	icon_state = "suture_purp"
-	desc = "A suture infused with drugs that speed up wound healing of the treated laceration."
 	heal_brute = 15
 	stop_bleeding = 0.75
 	grind_results = list(/datum/reagent/medicine/polypyr = 1)
 	merge_type = /obj/item/stack/medical/suture/medicated
 
 /obj/item/stack/medical/ointment
-	name = "ointment"
-	desc = "Basic burn ointment, rated effective for second degree burns with proper bandaging, though it's still an effective stabilizer for worse burns. Not terribly good at outright healing burns though."
-	gender = PLURAL
-	singular_name = "ointment"
+	name = "мазь"
+	skloname = "мазь"
+	desc = "Используется для лечения этих неприятных ожоговых ран."
+	gender = FEMALE
+	singular_name = "мазь"
 	icon_state = "ointment"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -309,10 +312,11 @@
 	return TOXLOSS
 
 /obj/item/stack/medical/mesh
-	name = "regenerative mesh"
-	desc = "A bacteriostatic mesh used to dress burns."
-	gender = PLURAL
-	singular_name = "mesh piece"
+	name = "регенеративная сетка"
+	skloname = "регенеративную сетку"
+	desc = "Бактериостатическая сетка используется для прижигания ожогов. Для использования необходимо снять стерильную пленку."
+	gender = FEMALE
+	singular_name = "регенеративная сетка"
 	icon_state = "regen_mesh"
 	self_delay = 3 SECONDS
 	other_delay = 1 SECONDS
@@ -340,36 +344,37 @@
 
 /obj/item/stack/medical/mesh/try_heal(mob/living/patient, mob/user, silent = FALSE)
 	if(!is_open)
-		balloon_alert(user, "open it first!")
+		to_chat(user, span_warning("Надо бы открыть <b>[src]</b> сначала."))
 		return
 	return ..()
 
 /obj/item/stack/medical/mesh/AltClick(mob/living/user)
 	if(!is_open)
-		balloon_alert(user, "open it first!")
+		to_chat(user, span_warning("Надо бы открыть <b>[src]</b> сначала."))
 		return
 	return ..()
 
 /obj/item/stack/medical/mesh/attack_hand(mob/user, list/modifiers)
 	if(!is_open && user.get_inactive_held_item() == src)
-		balloon_alert(user, "open it first!")
+		to_chat(user, span_warning("Надо бы открыть <b>[src]</b> сначала."))
 		return
 	return ..()
 
 /obj/item/stack/medical/mesh/attack_self(mob/user)
 	if(!is_open)
 		is_open = TRUE
-		balloon_alert(user, "opened")
+		to_chat(user, span_notice("Открываю стерильную упаковку сетки."))
 		update_appearance()
 		playsound(src, 'sound/items/poster_ripped.ogg', 20, TRUE)
 		return
 	return ..()
 
 /obj/item/stack/medical/mesh/advanced
-	name = "advanced regenerative mesh"
-	desc = "An advanced mesh made with aloe extracts and sterilizing chemicals, used to treat burns."
-
-	gender = PLURAL
+	name = "продвинутая регенеративная сетка"
+	skloname = "продвинутую регенеративную сетку"
+	desc = "Передовая сетка из экстрактов алоэ и стерилизующих химикатов, используемых для лечения ожогов."
+	gender = FEMALE
+	singular_name = "продвинутая регенеративная сетка"
 	icon_state = "aloe_mesh"
 	heal_burn = 15
 	sanitization = 1.25
@@ -383,8 +388,8 @@
 	icon_state = "aloe_mesh_closed"
 
 /obj/item/stack/medical/aloe
-	name = "aloe cream"
-	desc = "A healing paste for minor cuts and burns."
+	name = "крем алоэ"
+	skloname = "крем алоэ"
 
 	gender = PLURAL
 	singular_name = "aloe cream"
@@ -404,9 +409,9 @@
 	amount = 2
 
 /obj/item/stack/medical/bone_gel
-	name = "bone gel"
+	name = "Костный гель"
 	singular_name = "bone gel"
-	desc = "A potent medical gel that, when applied to a damaged bone in a proper surgical setting, triggers an intense melding reaction to repair the wound. Can be directly applied alongside surgical sticky tape to a broken bone in dire circumstances, though this is very harmful to the patient and not recommended."
+	desc = "Мощный медицинский гель, который при нанесении на поврежденную кость в надлежащих хирургических условиях вызывает сращивание кости. Может применяться вместе с хирургической липкой лентой к сломанной кости в чрезвычайных ситуациях, хотя это и не рекомендуется ведь это вредно для пациента."
 
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "bone-gel"
@@ -430,21 +435,21 @@
 /obj/item/stack/medical/bone_gel/suicide_act(mob/living/user)
 	if(!iscarbon(user))
 		return
-	var/mob/living/carbon/patient = user
-	patient.visible_message(span_suicide("[patient] is squirting all of [src] into [patient.p_their()] mouth! That's not proper procedure! It looks like [patient.p_theyre()] trying to commit suicide!"))
-	if(!do_after(patient, 2 SECONDS))
-		patient.visible_message(span_suicide("[patient] screws up like an idiot and still dies anyway!"))
+	var/mob/living/carbon/C = user
+	C.visible_message(span_suicide("[C] впрыскивает весь [src] в рот [C.ru_ego ()]! Это неправильная процедура! Похоже, [C.p_theyre ()] пытается покончить жизнь самоубийством!"))
+	if(!do_after(C, 2 SECONDS))
+		C.visible_message(span_suicide("[C] облажался и все равно умирает!"))
 		return BRUTELOSS
 
-	patient.emote("scream")
-	for(var/i in patient.bodyparts)
+	C.emote("scream")
+	for(var/i in C.bodyparts)
 		var/obj/item/bodypart/bone = i // fine to just, use these raw, its a meme anyway
 		var/datum/wound/blunt/bone/severe/oof_ouch = new
 		oof_ouch.apply_wound(bone, wound_source = "bone gel")
 		var/datum/wound/blunt/bone/critical/oof_OUCH = new
 		oof_OUCH.apply_wound(bone, wound_source = "bone gel")
 
-	for(var/i in patient.bodyparts)
+	for(var/i in C.bodyparts)
 		var/obj/item/bodypart/bone = i
 		bone.receive_damage(brute=60)
 	use(1)
@@ -454,9 +459,9 @@
 	amount = 1
 
 /obj/item/stack/medical/poultice
-	name = "mourning poultices"
+	name = "поминальные припарки"
 	singular_name = "mourning poultice"
-	desc = "A type of primitive herbal poultice.\nWhile traditionally used to prepare corpses for the mourning feast, it can also treat scrapes and burns on the living, however, it is liable to cause shortness of breath when employed in this manner.\nIt is imbued with ancient wisdom."
+	desc = "Тип примитивной травяной припарки. \nХотя она традиционно используется для подготовки покойника к прощанию, ей также можно лечить царапины и ожоги у живых, однако при таком применении может вызвать сбивчивое дыхание. \nМудрость предков."
 	icon_state = "poultice"
 	amount = 15
 	max_amount = 15
@@ -481,8 +486,8 @@
 	healed_mob.adjustOxyLoss(amount_healed)
 
 /obj/item/stack/medical/bandage
-	name = "first aid bandage"
-	desc = "A DeForest brand bandage designed for basic first aid on blunt-force trauma."
+	name = "бинт"
+	desc = "Бинт, предназначенный для оказания первой помощи."
 	icon_state = "bandage"
 	inhand_icon_state = "bandage"
 	novariants = TRUE

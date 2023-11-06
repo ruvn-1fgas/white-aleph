@@ -2,16 +2,16 @@
 // Because we want to avoid some sort of "miscellaneous" file, let's put all the bureaucracy (pens and stuff) and the HoP's stuff here as well.
 
 /obj/item/storage/box/drinkingglasses
-	name = "box of drinking glasses"
-	desc = "It has a picture of drinking glasses on it."
+	name = "коробка стаканов"
+	desc = "На ней изображены стаканы."
 	illustration = "drinkglass"
 
 /obj/item/storage/box/drinkingglasses/PopulateContents()
 	for(var/i in 1 to 6)
 		new /obj/item/reagent_containers/cup/glass/drinkingglass(src)
 /obj/item/storage/box/cups
-	name = "box of paper cups"
-	desc = "It has pictures of paper cups on the front."
+	name = "коробка бумажных стаканчиков"
+	desc = "На лицевой стороне изображены бумажные стаканчики."
 	illustration = "cup"
 
 /obj/item/storage/box/cups/PopulateContents()
@@ -20,8 +20,8 @@
 
 //Some spare PDAs in a box
 /obj/item/storage/box/pdas
-	name = "spare PDAs"
-	desc = "A box of spare PDA microcomputers."
+	name = "Коробка запасных картриджей ПДА"
+	desc = "Коробка запасных картриджей ПДА."
 	illustration = "pda"
 
 /obj/item/storage/box/pdas/PopulateContents()
@@ -29,16 +29,16 @@
 		new /obj/item/modular_computer/pda(src)
 
 /obj/item/storage/box/ids
-	name = "box of spare IDs"
-	desc = "Has so many empty IDs."
+	name = "коробка запасных идентификаторов"
+	desc = "В нём так много пустых идентификаторов."
 	illustration = "id"
 
 /obj/item/storage/box/ids/PopulateContents()
 	for(var/i in 1 to 7)
 		new /obj/item/card/id/advanced(src)
 /obj/item/storage/box/silver_ids
-	name = "box of spare silver IDs"
-	desc = "Shiny IDs for important people."
+	name = "коробка запасных серебряных удостоверений"
+	desc = "Блестящие идентификаторы для важных людей."
 	illustration = "id"
 
 /obj/item/storage/box/silver_ids/PopulateContents()
@@ -46,8 +46,8 @@
 		new /obj/item/card/id/advanced/silver(src)
 
 /obj/item/storage/box/mousetraps
-	name = "box of Pest-B-Gon mousetraps"
-	desc = "<span class='alert'>Keep out of reach of children.</span>"
+	name = "коробка мышеловок Pest-B-Gon"
+	desc = span_alert("Храните в недоступном для детей месте.")
 	illustration = "mousetrap"
 
 /obj/item/storage/box/mousetraps/PopulateContents()
@@ -55,8 +55,8 @@
 		new /obj/item/assembly/mousetrap(src)
 
 /obj/item/storage/box/snappops
-	name = "snap pop box"
-	desc = "Eight wrappers of fun! Ages 8 and up. Not suitable for children."
+	name = "коробка бахающих фантиков"
+	desc = "Восемь фантиков веселья! От 8 лет и старше. Не подходит для детей."
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "spbox"
 	illustration = ""
@@ -71,8 +71,8 @@
 		new /obj/item/toy/snappop(src)
 
 /obj/item/storage/box/matches
-	name = "matchbox"
-	desc = "A small box of Almost But Not Quite Plasma Premium Matches."
+	name = "спичечный коробок"
+	desc = "Маленькая коробочка Почти, Но Не Совсем Плазменных Премиальных Спичек."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "matchbox"
 	inhand_icon_state = "zippo"
@@ -113,8 +113,8 @@
 			icon_state = "[base_icon_state]_e"
 
 /obj/item/storage/box/lights
-	name = "box of replacement bulbs"
-	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
+	name = "коробка сменных лампочек"
+	desc = "Эта коробка имеет такую форму, что туда вмещаются только лампочки и лампы накаливания."
 	inhand_icon_state = "syringe_kit"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -133,7 +133,7 @@
 		new /obj/item/light/bulb(src)
 
 /obj/item/storage/box/lights/tubes
-	name = "box of replacement tubes"
+	name = "коробка ламп дневного света "
 	illustration = "lighttube"
 
 /obj/item/storage/box/lights/tubes/PopulateContents()
@@ -141,7 +141,7 @@
 		new /obj/item/light/tube(src)
 
 /obj/item/storage/box/lights/mixed
-	name = "box of replacement lights"
+	name = "коробка сменных ламп"
 	illustration = "lightmixed"
 
 /obj/item/storage/box/lights/mixed/PopulateContents()
@@ -151,7 +151,7 @@
 		new /obj/item/light/bulb(src)
 
 /obj/item/storage/box/fountainpens
-	name = "box of fountain pens"
+	name = "коробка перьевых ручек"
 	illustration = "fpen"
 
 /obj/item/storage/box/fountainpens/PopulateContents()
@@ -159,8 +159,8 @@
 		new /obj/item/pen/fountain(src)
 
 /obj/item/storage/box/dishdrive
-	name = "DIY Dish Drive Kit"
-	desc = "Contains everything you need to build your own Dish Drive!"
+	name = "комплект утилизатора тарелок"
+	desc = "Содержит детали длям ашины, которая использует преобразование вещества в энергию для хранения посуды и осколков. Удобно!"
 	custom_premium_price = PAYCHECK_CREW * 3
 
 /obj/item/storage/box/dishdrive/PopulateContents()
@@ -177,8 +177,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/actionfigure
-	name = "box of action figures"
-	desc = "The latest set of collectable action figures."
+	name = "коробка фигурок"
+	desc = "Последний набор коллекционных фигурок."
 	icon_state = "box"
 
 /obj/item/storage/box/actionfigure/PopulateContents()
@@ -205,8 +205,8 @@
 		new /obj/item/reagent_containers/spray/chemsprayer/party(src)
 
 /obj/item/storage/box/stickers
-	name = "box of stickers"
-	desc = "A box full of random stickers. Do give to the clown."
+	name = "коробка стикеров"
+	desc = "Полная коробка случайных стикеров. Не давать клоуну."
 
 /obj/item/storage/box/stickers/proc/generate_non_contraband_stickers_list()
 	. = list()
@@ -223,8 +223,8 @@
 		new type(src)
 
 /obj/item/storage/box/stickers/googly
-	name = "box of googly eye stickers"
-	desc = "Turn anything and everything into something vaguely alive!"
+	name = "коробка глазиков"
+	desc = "Время сделать что-то живым!"
 
 /obj/item/storage/box/stickers/googly/PopulateContents()
 	for(var/i in 1 to 6)

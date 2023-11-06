@@ -99,7 +99,7 @@
 	if(!istype(the_folder))
 		return
 	if(opened)
-		to_chat(the_folder, span_warning("Вы боретесь с [src], но он не хочет складываться пока открыт."))
+		to_chat(the_folder, span_warning("Борюсь с [src], но он не хочет складываться в открытом состоянии."))
 		return
 	for(var/content_thing in contents)
 		if(istype(content_thing, /mob) || isobj(content_thing))
@@ -158,7 +158,7 @@
 		var/atom/movable/content = am
 		content.forceMove(folding_bodybag)
 		if(isliving(content))
-			to_chat(content, span_userdanger("Внезапно оказались в крошечном, сжатом пространстве!"))
+			to_chat(content, span_userdanger("Внезапно оказываюсь в крошечном, сжатом пространстве!"))
 		if(iscarbon(content))
 			var/mob/living/carbon/mob = content
 			if (mob.dna?.get_mutation(/datum/mutation/human/dwarfism))

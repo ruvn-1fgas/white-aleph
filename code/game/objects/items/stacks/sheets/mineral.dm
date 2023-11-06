@@ -497,7 +497,7 @@ GLOBAL_LIST_INIT(metalhydrogen_recipes, list(
 	name = "Заукерит"
 	icon_state = "zaukerite"
 	inhand_icon_state = "sheet-zaukerite"
-	singular_name = "zaukerite crystal"
+	singular_name = "заукерит"
 	w_class = WEIGHT_CLASS_NORMAL
 	point_value = 120
 	mats_per_unit = list(/datum/material/zaukerite = SHEET_MATERIAL_AMOUNT)

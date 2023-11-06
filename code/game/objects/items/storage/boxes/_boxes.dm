@@ -1,7 +1,7 @@
 /// The common cardboard box.
 /obj/item/storage/box
-	name = "box"
-	desc = "It's just an ordinary box."
+	name = "коробка"
+	desc = "Просто обычная коробка."
 	icon = 'icons/obj/storage/box.dmi'
 	icon_state = "box"
 	inhand_icon_state = "syringe_kit"
@@ -42,13 +42,13 @@
 	if(!foldable_result || (flags_1 & HOLOGRAM_1))
 		return
 	if(contents.len)
-		balloon_alert(user, "items inside!")
+		to_chat(user, span_warning("Не могу сложить коробку с предметами внутри!"))
 		return
 	if(!ispath(foldable_result))
 		return
 
 	var/obj/item/result = new foldable_result(user.drop_location())
-	balloon_alert(user, "folded")
+	balloon_alert(user, "Складываю коробку")
 	qdel(src)
 	user.put_in_hands(result)
 

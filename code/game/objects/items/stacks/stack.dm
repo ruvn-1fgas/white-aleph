@@ -147,7 +147,7 @@
 
 /obj/item/stack/grind_requirements()
 	if(is_cyborg)
-		to_chat(usr, span_warning("[src] is too integrated into your chassis and can't be ground up!"))
+		to_chat(usr, span_warning("[src] синтезируется в электронном виде в вашем шасси и не может быть измельчен!"))
 		return
 	return TRUE
 
@@ -219,15 +219,11 @@
 	if(is_cyborg)
 		return
 	if(singular_name)
-		if(get_amount()>1)
-			. += "There are [get_amount()] [singular_name]\s in the stack."
-		else
-			. += "There is [get_amount()] [singular_name] in the stack."
+		. += "Всего здесь [get_amount()] [singular_name] в куче."
 	else if(get_amount()>1)
-		. += "There are [get_amount()] in the stack."
-	else
-		. += "There is [get_amount()] in the stack."
-	. += span_notice("<b>ПКМ</b> with an empty hand to take a custom amount.")
+		. += "Здесь [get_amount()] в куче."
+
+	. += span_notice("<b>ПКМ</b> для изъятия произвольного количества.")
 
 /obj/item/stack/proc/get_amount()
 	if(is_cyborg)
@@ -321,7 +317,7 @@
 			return make_item(usr, recipe, multiplier)
 
 /// The key / title for a radial option that shows the entire list of buildables (uses the old menu)
-#define FULL_LIST "view full list"
+#define FULL_LIST "полный список"
 
 /// Shows a radial consisting of every radial recipe we have in our list.
 /obj/item/stack/proc/show_construction_radial(mob/builder)
@@ -399,15 +395,15 @@
 		var/adjusted_time = 0
 		builder.balloon_alert(builder, "building...")
 		builder.visible_message(
-			span_notice("[builder] starts building \a [recipe.title]."),
-			span_notice("You start building \a [recipe.title]..."),
+			span_notice("[builder] начинает создавать [recipe.title]."),
+			span_notice("Начинаю создавать [recipe.title]..."),
 		)
 		if(HAS_TRAIT(builder, recipe.trait_booster))
 			adjusted_time = (recipe.time * recipe.trait_modifier)
 		else
 			adjusted_time = recipe.time
 		if(!do_after(builder, adjusted_time, target = builder))
-			builder.balloon_alert(builder, "interrupted!")
+			builder.balloon_alert(builder, "помешали!")
 			return
 		if(!building_checks(builder, recipe, multiplier))
 			return
@@ -415,20 +411,20 @@
 	var/atom/created
 	if(recipe.max_res_amount > 1) // Is it a stack?
 		created = new recipe.result_type(builder.drop_location(), recipe.res_amount * multiplier)
-		builder.balloon_alert(builder, "built items")
+		builder.balloon_alert(builder, "создаю")
 
 	else if(ispath(recipe.result_type, /turf))
 		var/turf/covered_turf = builder.drop_location()
 		if(!isturf(covered_turf))
 			return
 		var/turf/created_turf = covered_turf.PlaceOnTop(recipe.result_type, flags = CHANGETURF_INHERIT_AIR)
-		builder.balloon_alert(builder, "placed [ispath(recipe.result_type, /turf/open) ? "floor" : "wall"]")
+		builder.balloon_alert(builder, "устанавливаю [ispath(recipe.result_type, /turf/open) ? "пол" : "стену"]")
 		if(recipe.applies_mats && LAZYLEN(mats_per_unit))
 			created_turf.set_custom_materials(mats_per_unit, recipe.req_amount / recipe.res_amount)
 
 	else
 		created = new recipe.result_type(builder.drop_location())
-		builder.balloon_alert(builder, "built item")
+		builder.balloon_alert(builder, "создано")
 
 	if(created)
 		created.setDir(builder.dir)
@@ -558,11 +554,9 @@
 		// then a more specific message about how much they need and what they need specifically
 		if(singular_name)
 			if(amount > 1)
-				to_chat(user, span_warning("You need at least [amount] [singular_name]\s to do this!"))
-			else
-				to_chat(user, span_warning("You need at least [amount] [singular_name] to do this!"))
+				to_chat(user, span_warning("Мне потребуется [amount] [singular_name] для этого!"))
 		else
-			to_chat(user, span_warning("You need at least [amount] to do this!"))
+			to_chat(user, span_warning("Мне потребуется [amount] для этого!"))
 
 		return FALSE
 
@@ -704,7 +698,7 @@
 	if(!stackmaterial || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	split_stack(user, stackmaterial)
-	to_chat(user, span_notice("You take [stackmaterial] sheets out of the stack."))
+	to_chat(user, span_notice("Достаю [stackmaterial] листов из кучи."))
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /** Splits the stack into two stacks.
@@ -732,7 +726,7 @@
 	if(can_merge(W, inhand = TRUE))
 		var/obj/item/stack/S = W
 		if(merge(S))
-			to_chat(user, span_notice("Your [S.name] stack now contains [S.get_amount()] [S.singular_name]\s."))
+			to_chat(user, span_notice("Моя куча <b>[S.name]</b> теперь содержит [S.get_amount()] [S.singular_name]."))
 	else
 		. = ..()
 
