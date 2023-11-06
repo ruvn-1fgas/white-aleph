@@ -1,6 +1,6 @@
 /obj/structure/toilet
-	name = "toilet"
-	desc = "The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean."
+	name = "туалет"
+	desc = "HT-451 - устройство для удаления мелких отходов, работающее на основе крутящего момента. Этот кажется на удивление чистым."
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "toilet00"
 	density = FALSE
@@ -26,7 +26,7 @@
 	if(swirlie)
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, SFX_SWING_HIT, 25, TRUE)
-		swirlie.visible_message(span_danger("[user] slams the toilet seat onto [swirlie]'s head!"), span_userdanger("[user] slams the toilet seat onto your head!"), span_hear("You hear reverberating porcelain."))
+		swirlie.visible_message(span_danger("[user] бьет туалетной крышкой об голову [swirlie]!") , span_userdanger("[user] бьет мою голову крышкой унитаза!") , span_hear("Слышу звон фарфора."))
 		log_combat(user, swirlie, "swirlied (brute)")
 		swirlie.adjustBruteLoss(5)
 
@@ -35,15 +35,15 @@
 		var/mob/living/GM = user.pulling
 		if(user.grab_state >= GRAB_AGGRESSIVE)
 			if(GM.loc != get_turf(src))
-				to_chat(user, span_warning("[GM] needs to be on [src]!"))
+				to_chat(user, span_warning("Надо бы подтащить [GM] поближе к унитазу!"))
 				return
 			if(!swirlie)
 				if(open)
-					GM.visible_message(span_danger("[user] starts to give [GM] a swirlie!"), span_userdanger("[user] starts to give you a swirlie..."))
+					GM.visible_message(span_danger("[user] начинает запихивать голову [GM] в сартир!") , span_userdanger("[user] пытается утопить меня в сартире..."))
 					swirlie = GM
 					var/was_alive = (swirlie.stat != DEAD)
 					if(do_after(user, 3 SECONDS, target = src, timed_action_flags = IGNORE_HELD_ITEM))
-						GM.visible_message(span_danger("[user] gives [GM] a swirlie!"), span_userdanger("[user] gives you a swirlie!"), span_hear("You hear a toilet flushing."))
+						GM.visible_message(span_danger("[user] нажимает кнопку слива! [GM] булькает!") , span_userdanger("[user] нажал кнопку смыва! ВОДА!") , span_hear("Слышу звук смываемой воды."))
 						if(iscarbon(GM))
 							var/mob/living/carbon/C = GM
 							if(!C.internal)
@@ -57,22 +57,22 @@
 					swirlie = null
 				else
 					playsound(src.loc, 'sound/effects/bang.ogg', 25, TRUE)
-					GM.visible_message(span_danger("[user] slams [GM.name] into [src]!"), span_userdanger("[user] slams you into [src]!"))
+					GM.visible_message(span_danger("[user] вмазывает [GM.name] об [src]!") , span_userdanger("[user] ударяет меня об [src]!"))
 					log_combat(user, GM, "toilet slammed")
 					GM.adjustBruteLoss(5)
 		else
-			to_chat(user, span_warning("You need a tighter grip!"))
+			to_chat(user, span_warning("Вырывается! Надо схватить сильнее!"))
 
 	else if(cistern && !open && user.CanReach(src))
 		if(!contents.len)
-			to_chat(user, span_notice("The cistern is empty."))
+			to_chat(user, span_notice("Бачок для воды пуст."))
 		else
 			var/obj/item/I = pick(contents)
 			if(ishuman(user))
 				user.put_in_hands(I)
 			else
 				I.forceMove(drop_location())
-			to_chat(user, span_notice("You find [I] in the cistern."))
+			to_chat(user, span_notice("Внутри бачка для воды лежит [I]."))
 			w_items -= I.w_class
 	else
 		open = !open
@@ -98,10 +98,10 @@
 /obj/structure/toilet/attackby(obj/item/I, mob/living/user, params)
 	add_fingerprint(user)
 	if(I.tool_behaviour == TOOL_CROWBAR)
-		to_chat(user, span_notice("You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]..."))
+		to_chat(user, span_notice("Начинаю [cistern ? "закрывать бачок туалета" : "открывать бачок туалета"]..."))
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
 		if(I.use_tool(src, user, 30))
-			user.visible_message(span_notice("[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!"), span_notice("You [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!"), span_hear("You hear grinding porcelain."))
+			user.visible_message(span_notice("[user] [cistern ? "закрывает бачок туалета" : "открывает бачок туалета"]!") , span_notice("[cistern ? "закрываю бачок туалета" : "открываю бачок туалета"]!") , span_hear("Слышу звук фарфора."))
 			cistern = !cistern
 			update_appearance()
 		return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -111,16 +111,16 @@
 		return TRUE
 	else if(cistern && !user.combat_mode)
 		if(I.w_class > WEIGHT_CLASS_NORMAL)
-			to_chat(user, span_warning("[I] does not fit!"))
+			to_chat(user, span_warning("[I] не помещается!"))
 			return
 		if(w_items + I.w_class > WEIGHT_CLASS_HUGE)
-			to_chat(user, span_warning("The cistern is full!"))
+			to_chat(user, span_warning("Нет места!"))
 			return
 		if(!user.transferItemToLoc(I, src))
-			to_chat(user, span_warning("\The [I] is stuck to your hand, you cannot put it in the cistern!"))
+			to_chat(user, span_warning("<b>[capitalize(I)]</b> прилипла к руке!"))
 			return
 		w_items += I.w_class
-		to_chat(user, span_notice("You carefully place [I] into the cistern."))
+		to_chat(user, span_notice("Аккуратно запихиваю [I] внутрь бачка туалета."))
 		return
 
 	if(is_reagent_container(I) && !user.combat_mode)
@@ -132,7 +132,7 @@
 			return
 		var/obj/item/reagent_containers/RG = I
 		RG.reagents.add_reagent(/datum/reagent/water, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
-		to_chat(user, span_notice("You fill [RG] from [src]. Gross."))
+		to_chat(user, span_notice("Наполняю [RG] из туалета. Отвратительно..."))
 	. = ..()
 
 /obj/structure/toilet/secret
@@ -152,8 +152,8 @@
 	buildstacktype = null
 
 /obj/structure/urinal
-	name = "urinal"
-	desc = "The HU-452, an experimental urinal. Comes complete with experimental urinal cake."
+	name = "писуар"
+	desc = "Экспериментальный писуар ХУ-452. Поставляется в комплекте с набором туалетных таблеток."
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "urinal"
 	density = FALSE
@@ -259,13 +259,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 	addtimer(VARSET_CALLBACK(src, icon_state, "urinalcake"), 8)
 
 /obj/item/bikehorn/rubberducky/plasticducky
-	name = "plastic ducky"
-	desc = "It's a cheap plastic knockoff of a loveable bathtime toy."
+	name = "пластиковая уточка"
+	desc = "Дешевая пластиковая подделка вашей любимой игрушки для ванны."
 	custom_materials = list(/datum/material/plastic =HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/bikehorn/rubberducky
-	name = "rubber ducky"
-	desc = "Rubber ducky you're so fine, you make bathtime lots of fuuun. Rubber ducky I'm awfully fooooond of yooooouuuu~" //thanks doohl
+	name = "резиновая уточка"
+	desc = "Резиновая уточка, такая милая! С ней так весело купаааааться. Я всегда тебя найдууу!!!"
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "rubberducky"
 	inhand_icon_state = "rubberducky"
@@ -275,7 +275,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 	sound_file = 'sound/effects/quack.ogg'
 
 /obj/structure/sink
-	name = "sink"
+	name = "умывальник"
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "sink"
 	desc = "A sink used for washing one's hands and face. Passively reclaims water over time."
@@ -386,7 +386,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 	if(is_reagent_container(O))
 		var/obj/item/reagent_containers/RG = O
 		if(reagents.total_volume <= 0)
-			to_chat(user, span_notice("\The [src] is dry."))
+			to_chat(user, span_notice(" [src] is dry."))
 			return FALSE
 		if(RG.is_refillable())
 			if(!RG.reagents.holder_full())
@@ -394,7 +394,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 				begin_reclamation()
 				to_chat(user, span_notice("You fill [RG] from [src]."))
 				return TRUE
-			to_chat(user, span_notice("\The [RG] is full."))
+			to_chat(user, span_notice(" [RG] is full."))
 			return FALSE
 
 	if(istype(O, /obj/item/melee/baton/security))
@@ -411,7 +411,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 
 	if(istype(O, /obj/item/mop))
 		if(reagents.total_volume <= 0)
-			to_chat(user, span_notice("\The [src] is dry."))
+			to_chat(user, span_notice(" [src] is dry."))
 			return FALSE
 		reagents.trans_to(O, 5, transferred_by = user)
 		begin_reclamation()
@@ -648,7 +648,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink/kitchen, (-16))
 				container.reagents.add_reagent(dispensedreagent, min(container.volume - container.reagents.total_volume, container.amount_per_transfer_from_this))
 				to_chat(user, span_notice("You fill [container] from [src]."))
 				return TRUE
-			to_chat(user, span_notice("\The [container] is full."))
+			to_chat(user, span_notice(" [container] is full."))
 			return FALSE
 
 	if(istype(O, /obj/item/melee/baton/security))
@@ -735,7 +735,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink/kitchen, (-16))
 //Defines used are pre-existing in layers.dm//
 
 /obj/structure/curtain
-	name = "занавески"
+	name = "занавеска"
 	desc = "Содержит менее одного процента ртути."
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "bathroom-open"

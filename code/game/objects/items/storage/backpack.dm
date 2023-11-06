@@ -10,8 +10,8 @@
  */
 
 /obj/item/storage/backpack
-	name = "backpack"
-	desc = "You wear this on your back and put items into it."
+	name = "рюкзак"
+	desc = "Ты носишь это на спине и кладешь туда вещи."
 	icon = 'icons/obj/storage/backpack.dmi'
 	worn_icon = 'icons/mob/clothing/back/backpack.dmi'
 	icon_state = "backpack"
@@ -37,8 +37,8 @@
 	atom_storage.max_total_storage = 12
 
 /obj/item/bag_of_holding_inert
-	name = "inert bag of holding"
-	desc = "What is currently a just an unwieldly block of metal with a slot ready to accept a bluespace anomaly core."
+	name = "инертная блюспейс сумка"
+	desc = "То, что в настоящее время представляет собой просто громоздкий металлический блок со слотом, готовым принять ядро блюспейс аномалии."
 	icon = 'icons/obj/storage/backpack.dmi'
 	worn_icon = 'icons/mob/clothing/back/backpack.dmi'
 	icon_state = "bag_of_holding-inert"
@@ -80,8 +80,8 @@
 
 
 /obj/item/storage/backpack/santabag
-	name = "Santa's Gift Bag"
-	desc = "Space Santa uses this to deliver presents to all the nice children in space in Christmas! Wow, it's pretty big!"
+	name = "подарочный мешок Санты"
+	desc = "Космический Санта использует это, чтобы доставить подарки всем хорошим детям в пространстве в Рождество! Вау, он довольно большой!"
 	icon_state = "giftbag0"
 	inhand_icon_state = "giftbag"
 	w_class = WEIGHT_CLASS_BULKY
@@ -108,111 +108,111 @@
 
 
 /obj/item/storage/backpack/cultpack
-	name = "trophy rack"
-	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
+	name = "рюкзак для трофеев"
+	desc = "Он полезен как для переноски дополнительного снаряжения, так и для гордого декларирования безумия."
 	icon_state = "backpack-cult"
 	inhand_icon_state = "backpack"
 	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER
 
 /obj/item/storage/backpack/clown
 	name = "Giggles von Honkerton"
-	desc = "It's a backpack made by Honk! Co."
+	desc = "Рюкзак, сделанный Хонком!"
 	icon_state = "backpack-clown"
 	inhand_icon_state = "clownpack"
 
 /obj/item/storage/backpack/explorer
-	name = "explorer bag"
-	desc = "A robust backpack for stashing your loot."
+	name = "рюкзак исследователя"
+	desc = "Прочный рюкзак для хранения добытого имущества."
 	icon_state = "backpack-explorer"
 	inhand_icon_state = "explorerpack"
 
 /obj/item/storage/backpack/mime
 	name = "Parcel Parceaux"
-	desc = "A silent backpack made for those silent workers. Silence Co."
+	desc = "Безмолвный рюкзак, сделанный для тех безмолвных рабочих. Тишина Ко."
 	icon_state = "backpack-mime"
 	inhand_icon_state = "mimepack"
 
 /obj/item/storage/backpack/medic
-	name = "medical backpack"
-	desc = "It's a backpack especially designed for use in a sterile environment."
+	name = "медицинский рюкзак"
+	desc = "Рюкзак, специально разработанный для использования в стерильных условиях."
 	icon_state = "backpack-medical"
 	inhand_icon_state = "medicalpack"
 
 /obj/item/storage/backpack/coroner
-	name = "coroner backpack"
-	desc = "It's a backpack especially designed for use in an undead environment."
+	name = "рюкзак коронера"
+	desc = "Рюкзак, специально разработанный для использования в морге."
 	icon_state = "backpack-coroner"
 	inhand_icon_state = "coronerpack"
 
 /obj/item/storage/backpack/security
-	name = "security backpack"
-	desc = "It's a very robust backpack."
+	name = "рюкзак офицера"
+	desc = "Очень прочный рюкзак."
 	icon_state = "backpack-security"
 	inhand_icon_state = "securitypack"
 
 /obj/item/storage/backpack/captain
-	name = "captain's backpack"
-	desc = "It's a special backpack made exclusively for Nanotrasen officers."
+	name = "капитанский рюкзак"
+	desc = "Специальный рюкзак, сделанный исключительно для офицеров NanoTrasen."
 	icon_state = "backpack-captain"
 	inhand_icon_state = "captainpack"
 
 /obj/item/storage/backpack/industrial
-	name = "industrial backpack"
-	desc = "It's a tough backpack for the daily grind of station life."
+	name = "промышленный рюкзак"
+	desc = "Жесткий рюкзак для повседневной работы на станции."
 	icon_state = "backpack-engineering"
 	inhand_icon_state = "engiepack"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/botany
-	name = "botany backpack"
-	desc = "It's a backpack made of all-natural fibers."
+	name = "ботанический рюкзак"
+	desc = "Рюкзак из натуральных волокон."
 	icon_state = "backpack-hydroponics"
 	inhand_icon_state = "botpack"
 
 /obj/item/storage/backpack/chemistry
-	name = "chemistry backpack"
-	desc = "A backpack specially designed to repel stains and hazardous liquids."
+	name = "химический рюкзак"
+	desc = "Рюкзак, специально разработанный для защиты от пятен и опасных жидкостей."
 	icon_state = "backpack-chemistry"
 	inhand_icon_state = "chempack"
 
 /obj/item/storage/backpack/genetics
-	name = "genetics backpack"
-	desc = "A bag designed to be super tough, just in case someone hulks out on you."
+	name = "генетический рюкзак"
+	desc = "Сумка, разработанная для того, чтобы быть суперпрочной, на случай, если кто-нибудь на меня набросится."
 	icon_state = "backpack-genetics"
 	inhand_icon_state = "genepack"
 
 /obj/item/storage/backpack/science
-	name = "science backpack"
-	desc = "A specially designed backpack. It's fire resistant and smells vaguely of plasma."
+	name = "научный рюкзак"
+	desc = "Специально разработанный рюкзак. Он огнестойкий и смутно пахнет плазмой."
 	icon_state = "backpack-science"
 	inhand_icon_state = "scipack"
 
 /obj/item/storage/backpack/virology
-	name = "virology backpack"
-	desc = "A backpack made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey."
+	name = "вирусологический рюкзак"
+	desc = "Рюкзак из гипоаллергенных волокон. Он разработан для предотвращения распространения болезней. Пахнет обезьяной."
 	icon_state = "backpack-virology"
 	inhand_icon_state = "viropack"
 
 /obj/item/storage/backpack/ert
-	name = "emergency response team commander backpack"
-	desc = "A spacious backpack with lots of pockets, worn by the Commander of an Emergency Response Team."
+	name = "рюкзак командира группы реагирования на чрезвычайные ситуации"
+	desc = "Просторный рюкзак с большим количеством карманов, который носит командир группы быстрого реагирования."
 	icon_state = "ert_commander"
 	inhand_icon_state = "securitypack"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/ert/security
-	name = "emergency response team security backpack"
-	desc = "A spacious backpack with lots of pockets, worn by Security Officers of an Emergency Response Team."
+	name = "рюкзак службы безопасности группы реагирования на чрезвычайные ситуации"
+	desc = "Просторный рюкзак с большим количеством карманов, который носят сотрудники службы безопасности Группы реагирования на чрезвычайные ситуации."
 	icon_state = "ert_security"
 
 /obj/item/storage/backpack/ert/medical
-	name = "emergency response team medical backpack"
-	desc = "A spacious backpack with lots of pockets, worn by Medical Officers of an Emergency Response Team."
+	name = "медицинский рюкзак группы экстренного реагирования"
+	desc = "Просторный рюкзак с большим количеством карманов, который носят медицинские работники бригады быстрого реагирования."
 	icon_state = "ert_medical"
 
 /obj/item/storage/backpack/ert/engineer
-	name = "emergency response team engineer backpack"
-	desc = "A spacious backpack with lots of pockets, worn by Engineers of an Emergency Response Team."
+	name = "рюкзак инженера группы реагирования на чрезвычайные ситуации"
+	desc = "Просторный рюкзак с большим количеством карманов, который носят инженеры аварийно-спасательной службы."
 	icon_state = "ert_engineering"
 
 /obj/item/storage/backpack/ert/janitor
@@ -290,14 +290,14 @@
  */
 
 /obj/item/storage/backpack/satchel
-	name = "satchel"
-	desc = "A trendy looking satchel."
+	name = "сумка"
+	desc = "Модная сумка."
 	icon_state = "satchel-norm"
 	inhand_icon_state = "satchel-norm"
 
 /obj/item/storage/backpack/satchel/leather
-	name = "leather satchel"
-	desc = "It's a very fancy satchel made with fine leather."
+	name = "кожаная сумка"
+	desc = "Очень модная сумка из тонкой кожи."
 	icon_state = "satchel-leather"
 	inhand_icon_state = "satchel"
 
@@ -308,75 +308,75 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/satchel/eng
-	name = "industrial satchel"
-	desc = "A tough satchel with extra pockets."
+	name = "промышленная сумка"
+	desc = "Прочная сумка с дополнительными карманами."
 	icon_state = "satchel-engineering"
 	inhand_icon_state = "satchel-eng"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/satchel/med
-	name = "medical satchel"
-	desc = "A sterile satchel used in medical departments."
+	name = "медицинская сумка"
+	desc = "Стерильная сумка, используемая для хирургических инструментов."
 	icon_state = "satchel-medical"
 	inhand_icon_state = "satchel-med"
 
 /obj/item/storage/backpack/satchel/vir
-	name = "virologist satchel"
-	desc = "A sterile satchel with virologist colours."
+	name = "сумка вирусолога"
+	desc = "Стерильная сумка для переноски вирусов."
 	icon_state = "satchel-virology"
 	inhand_icon_state = "satchel-vir"
 
 /obj/item/storage/backpack/satchel/chem
-	name = "chemist satchel"
-	desc = "A sterile satchel with chemist colours."
+	name = "аптекарская сумка"
+	desc = "Стерильная сумка для лекарств."
 	icon_state = "satchel-chemistry"
 	inhand_icon_state = "satchel-chem"
 
 /obj/item/storage/backpack/satchel/coroner
-	name = "coroner satchel"
-	desc = "A satchel used to carry whatever's left of human bodies."
+	name = "сумка коронера"
+	desc = "Сумка, используемая для переноски того, что осталось от человеческих тел."
 	icon_state = "satchel-coroner"
 	inhand_icon_state = "satchel-coroner"
 
 /obj/item/storage/backpack/satchel/gen
-	name = "geneticist satchel"
-	desc = "A sterile satchel with geneticist colours."
+	name = "сумка генетика"
+	desc = "Стерильная сумка голубого цвета."
 	icon_state = "satchel-genetics"
 	inhand_icon_state = "satchel-gen"
 
 /obj/item/storage/backpack/satchel/science
-	name = "scientist satchel"
-	desc = "Useful for holding research materials."
+	name = "сумка ученого"
+	desc = "Полезно для хранения научных материалов."
 	icon_state = "satchel-science"
 	inhand_icon_state = "satchel-sci"
 
 /obj/item/storage/backpack/satchel/hyd
-	name = "botanist satchel"
-	desc = "A satchel made of all natural fibers."
+	name = "сумка ботаника"
+	desc = "Сумка из натуральных волокон."
 	icon_state = "satchel-hydroponics"
 	inhand_icon_state = "satchel-hyd"
 
 /obj/item/storage/backpack/satchel/sec
-	name = "security satchel"
-	desc = "A robust satchel for security related needs."
+	name = "сумка офицера"
+	desc = "Надежная сумка для нужд офицеров СБ."
 	icon_state = "satchel-security"
 	inhand_icon_state = "satchel-sec"
 
 /obj/item/storage/backpack/satchel/explorer
-	name = "explorer satchel"
-	desc = "A robust satchel for stashing your loot."
+	name = "сумка исследователя"
+	desc = "Надежная сумка для хранения награбленного."
 	icon_state = "satchel-explorer"
 	inhand_icon_state = "satchel-explorer"
 
 /obj/item/storage/backpack/satchel/cap
-	name = "captain's satchel"
-	desc = "An exclusive satchel for Nanotrasen officers."
+	name = "сумка капитана"
+	desc = "Эксклюзивная сумка для офицеров NanoTrasen."
 	icon_state = "satchel-captain"
 	inhand_icon_state = "satchel-cap"
 
 /obj/item/storage/backpack/satchel/flat
-	name = "smuggler's satchel"
-	desc = "A very slim satchel that can easily fit into tight spaces."
+	name = "сумка контрабандиста"
+	desc = "Очень тонкая сумка, которая легко помещается в ограниченном пространстве."
 	icon_state = "satchel-flat"
 	inhand_icon_state = "satchel-flat"
 	w_class = WEIGHT_CLASS_NORMAL //Can fit in backpacks itself.
@@ -401,8 +401,8 @@
 	return
 
 /obj/item/storage/backpack/duffelbag
-	name = "duffel bag"
-	desc = "A large duffel bag for holding extra things."
+	name = "вещмешок"
+	desc = "Большая сумка для хранения лишних вещей."
 	icon_state = "duffel"
 	inhand_icon_state = "duffel"
 	actions_types = list(/datum/action/item_action/zipper)
@@ -504,10 +504,8 @@
 	update_appearance()
 
 /obj/item/storage/backpack/duffelbag/cursed
-	name = "living duffel bag"
-	desc = "A cursed clown duffel bag that hungers for food of any kind. A warning label suggests that it eats food inside. \
-		If that food happens to be a horribly ruined mess or the chef scrapped out of the microwave, or poisoned in some way, \
-		then it might have negative effects on the bag..."
+	name = "живая сумка"
+	desc = "Огромная, проклятая, всеядная и весьма голодная сумка. Если такая цапнет то уже не отпустит. Кажется если ее кормить то она ненадолго успокаивается. Тут сбоку есть этикетка и на ней написано \"Не смейте кормить мою прелесть всякой гадостью, ее от этого тошнит. Она предпочитает мясные блюда, желательно из ассистентов.\""
 	icon_state = "duffel-curse"
 	inhand_icon_state = "duffel-curse"
 	zip_slowdown = 2
@@ -518,68 +516,61 @@
 	AddComponent(/datum/component/curse_of_hunger, add_dropdel = TRUE)
 
 /obj/item/storage/backpack/duffelbag/captain
-	name = "captain's duffel bag"
-	desc = "A large duffel bag for holding extra captainly goods."
+	name = "капитанский вещмешок"
+	desc = "Большая сумка для хранения дополнительных капитанских вещей."
 	icon_state = "duffel-captain"
 	inhand_icon_state = "duffel-captain"
 
 /obj/item/storage/backpack/duffelbag/med
-	name = "medical duffel bag"
-	desc = "A large duffel bag for holding extra medical supplies."
+	name = "медицинская сумка для вещей"
+	desc = "Большая сумка для хранения дополнительных медицинских принадлежностей."
 	icon_state = "duffel-medical"
 	inhand_icon_state = "duffel-med"
 
 /obj/item/storage/backpack/duffelbag/coroner
-	name = "coroner duffel bag"
-	desc = "A large duffel bag for holding large amounts of organs at once."
+	name = "вещмешок коронера"
 	icon_state = "duffel-coroner"
 	inhand_icon_state = "duffel-coroner"
 
 /obj/item/storage/backpack/duffelbag/explorer
-	name = "explorer duffel bag"
-	desc = "A large duffel bag for holding extra exotic treasures."
+	name = "вещмешок исследователя"
 	icon_state = "duffel-explorer"
 	inhand_icon_state = "duffel-explorer"
 
 /obj/item/storage/backpack/duffelbag/hydroponics
-	name = "hydroponic's duffel bag"
-	desc = "A large duffel bag for holding extra gardening tools."
+	name = "ботанический вещмешок"
 	icon_state = "duffel-hydroponics"
 	inhand_icon_state = "duffel-hydroponics"
 
 /obj/item/storage/backpack/duffelbag/chemistry
-	name = "chemistry duffel bag"
-	desc = "A large duffel bag for holding extra chemical substances."
+	name = "вещмешок химика"
 	icon_state = "duffel-chemistry"
 	inhand_icon_state = "duffel-chemistry"
 
 /obj/item/storage/backpack/duffelbag/genetics
-	name = "geneticist's duffel bag"
-	desc = "A large duffel bag for holding extra genetic mutations."
+	name = "вещмешок генетика"
 	icon_state = "duffel-genetics"
 	inhand_icon_state = "duffel-genetics"
 
 /obj/item/storage/backpack/duffelbag/science
-	name = "scientist's duffel bag"
-	desc = "A large duffel bag for holding extra scientific components."
+	name = "вещмешок ученого"
 	icon_state = "duffel-science"
 	inhand_icon_state = "duffel-sci"
 
 /obj/item/storage/backpack/duffelbag/virology
-	name = "virologist's duffel bag"
+	name = "вещмешок вирусолога"
 	desc = "A large duffel bag for holding extra viral bottles."
 	icon_state = "duffel-virology"
 	inhand_icon_state = "duffel-virology"
 
 /obj/item/storage/backpack/duffelbag/sec
-	name = "security duffel bag"
-	desc = "A large duffel bag for holding extra security supplies and ammunition."
+	name = "вещмешок офицера"
 	icon_state = "duffel-security"
 	inhand_icon_state = "duffel-sec"
 
 /obj/item/storage/backpack/duffelbag/sec/surgery
-	name = "surgical duffel bag"
-	desc = "A large duffel bag for holding extra supplies - this one has a material inlay with space for various sharp-looking tools."
+	name = "хирургический вещмешок"
+	desc = "Большая сумка для хранения дополнительных медицинских принадлежностей - похоже, она предназначена для хранения хирургических инструментов."
 
 /obj/item/storage/backpack/duffelbag/sec/surgery/PopulateContents()
 	new /obj/item/scalpel(src)
@@ -594,15 +585,15 @@
 	new /obj/item/blood_filter(src)
 
 /obj/item/storage/backpack/duffelbag/engineering
-	name = "industrial duffel bag"
-	desc = "A large duffel bag for holding extra tools and supplies."
+	name = "промышленный  вещмешок"
+	desc = "Большая сумка для хранения дополнительных инструментов и принадлежностей."
 	icon_state = "duffel-engineering"
 	inhand_icon_state = "duffel-eng"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/duffelbag/drone
-	name = "drone duffel bag"
-	desc = "A large duffel bag for holding tools and hats."
+	name = "вещмешок дрона"
+	desc = "Большая сумка для хранения инструментов и шляп."
 	icon_state = "duffel-drone"
 	inhand_icon_state = "duffel-drone"
 	resistance_flags = FIRE_PROOF
@@ -617,8 +608,8 @@
 	new /obj/item/multitool(src)
 
 /obj/item/storage/backpack/duffelbag/clown
-	name = "clown's duffel bag"
-	desc = "A large duffel bag for holding lots of funny gags!"
+	name = "вещмешок клоуна"
+	desc = "Большая сумка для хранения смешных шуток!"
 	icon_state = "duffel-clown"
 	inhand_icon_state = "duffel-clown"
 
@@ -630,8 +621,8 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/duffelbag/syndie
-	name = "suspicious looking duffel bag"
-	desc = "A large duffel bag for holding extra tactical supplies. It contains an oiled plastitanium zipper for maximum speed tactical zipping, and is better balanced on your back than an average duffelbag. Can hold two bulky items!"
+	name = "подозрительно выглядящий вещевой мешок"
+	desc = "Большая сумка для хранения дополнительных тактических принадлежностей."
 	icon_state = "duffel-syndie"
 	inhand_icon_state = "duffel-syndieammo"
 	storage_type = /datum/storage/duffel/syndicate
@@ -643,7 +634,7 @@
 	unzip_sfx = 'sound/items/zip_up.ogg'
 
 /obj/item/storage/backpack/duffelbag/syndie/hitman
-	desc = "A large duffel bag for holding extra things. There is a Nanotrasen logo on the back."
+	desc = "Большая сумка для хранения лишних вещей. Сзади виднеется логотип NanoTrasen."
 	icon_state = "duffel-syndieammo"
 	inhand_icon_state = "duffel-syndieammo"
 
@@ -658,14 +649,14 @@
 	new /obj/item/clothing/head/fedora(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/med
-	name = "medical duffel bag"
-	desc = "A large duffel bag for holding extra tactical medical supplies."
+	name = "медицинская сумка для вещей"
+	desc = "Большая сумка для хранения дополнительных медицинских принадлежностей."
 	icon_state = "duffel-syndiemed"
 	inhand_icon_state = "duffel-syndiemed"
 
 /obj/item/storage/backpack/duffelbag/syndie/surgery
-	name = "surgery duffel bag"
-	desc = "A suspicious looking duffel bag for holding surgery tools."
+	name = "хирургический вещмешок"
+	desc = "Большая сумка для хранения дополнительных медицинских принадлежностей - похоже, она предназначена для хранения хирургических инструментов."
 	icon_state = "duffel-syndiemed"
 	inhand_icon_state = "duffel-syndiemed"
 
@@ -685,13 +676,13 @@
 	new /obj/item/mmi/syndie(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/ammo
-	name = "ammunition duffel bag"
-	desc = "A large duffel bag for holding extra weapons ammunition and supplies."
+	name = "вещмешок с аммуницией"
+	desc = "Большая сумка для хранения дополнительных боеприпасов и принадлежностей для оружия."
 	icon_state = "duffel-syndieammo"
 	inhand_icon_state = "duffel-syndieammo"
 
 /obj/item/storage/backpack/duffelbag/syndie/ammo/mech
-	desc = "A large duffel bag, packed to the brim with various exosuit ammo."
+	desc = "Большая сумка для вещей, упакованная до краев с различными экзотическими боеприпасами."
 
 /obj/item/storage/backpack/duffelbag/syndie/ammo/mech/PopulateContents()
 	new /obj/item/mecha_ammo/scattershot(src)
@@ -701,7 +692,7 @@
 	new /obj/item/storage/belt/utility/syndicate(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/ammo/mauler
-	desc = "A large duffel bag, packed to the brim with various exosuit ammo."
+	desc = "Большая сумка для вещей, упакованная до краев с различными экзотическими боеприпасами."
 
 /obj/item/storage/backpack/duffelbag/syndie/ammo/mauler/PopulateContents()
 	new /obj/item/mecha_ammo/lmg(src)
@@ -715,7 +706,7 @@
 	new /obj/item/mecha_ammo/missiles_srm(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/med/medicalbundle
-	desc = "A large duffel bag containing a medical equipment, a Donksoft LMG, a big jumbo box of riot darts, and a magboot MODsuit module."
+	desc = "Большая сумка с медицинским оборудованием, газонокосилкой Donksoft LMG, большой гигантской коробкой с метательными дротиками и парой поддельных магбутсов."
 
 /obj/item/storage/backpack/duffelbag/syndie/med/medicalbundle/PopulateContents()
 	new /obj/item/mod/module/magboot(src)
@@ -724,7 +715,7 @@
 	new /obj/item/ammo_box/foambox/riot(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/med/bioterrorbundle
-	desc = "A large duffel bag containing deadly chemicals, a handheld chem sprayer, Bioterror foam grenade, a Donksoft assault rifle, box of riot grade darts, a dart pistol, and a box of syringes."
+	desc = "Большая сумка со смертоносными химикатами, ручной химический распылитель, пенная граната Bioterror, штурмовая винтовка Donksoft, коробка со стрелами, пистолет-пулемет и коробка со шприцами."
 
 /obj/item/storage/backpack/duffelbag/syndie/med/bioterrorbundle/PopulateContents()
 	new /obj/item/reagent_containers/spray/chemsprayer/bioterror(src)
@@ -746,7 +737,7 @@
 		new /obj/item/grenade/c4/x4(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/firestarter
-	desc = "A large duffel bag containing a New Russian pyro backpack sprayer, Elite MODsuit, a Stechkin APS pistol, minibomb, ammo, and other equipment."
+	desc = "Большая спортивная сумка, содержащая новый российский пиротехнический ранцевый распылитель, костюм Elite MOD, пистолет Stechkin APS, мини-бомбу, боеприпасы и другое снаряжение."
 
 /obj/item/storage/backpack/duffelbag/syndie/firestarter/PopulateContents()
 	new /obj/item/clothing/under/syndicate/soviet(src)
@@ -799,12 +790,12 @@
 	new /obj/item/flashlight/seclite(src)
 
 /*
- * Messenger Bag Types
+ * сумка-мессенджер Types
  */
 
 /obj/item/storage/backpack/messenger
-	name = "messenger bag"
-	desc = "A trendy looking messenger bag; sometimes known as a courier bag. Fashionable and portable."
+	name = "сумка-мессенджер"
+	desc = "Модная сумка-мессенджер."
 	icon_state = "messenger"
 	inhand_icon_state = "messenger"
 	icon = 'icons/obj/storage/backpack.dmi'
@@ -813,74 +804,73 @@
 	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 
 /obj/item/storage/backpack/messenger/eng
-	name = "industrial messenger bag"
-	desc = "A tough messenger bag made of advanced treated leather for fireproofing. It also has more pockets than usual."
+	name = "промышленная сумка-мессенджер"
+	desc = "Прочная сумка-мессенджер с дополнительными карманами."
 	icon_state = "messenger_engineering"
 	inhand_icon_state = "messenger_engineering"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/messenger/med
-	name = "medical messenger bag"
-	desc = "A sterile messenger bag well loved by medics for its portability and sleek profile."
+	name = "медицинская сумка-мессенджер"
+	desc = "Стерильная сумка-мессенджер, хорошо знакомая медикам за ее портативность и элегантный профиль."
 	icon_state = "messenger_medical"
 	inhand_icon_state = "messenger_medical"
 
 /obj/item/storage/backpack/messenger/vir
-	name = "virologist messenger bag"
-	desc = "A sterile messenger bag with virologist colours, useful for deploying biohazards in record times."
+	name = "сумка-мессенджер вирусолога"
 	icon_state = "messenger_virology"
 	inhand_icon_state = "messenger_virology"
 
 /obj/item/storage/backpack/messenger/chem
-	name = "chemist messenger bag"
-	desc = "A sterile messenger bag with chemist colours, good for getting to your alleyway deals on time."
+	name = "сумка-мессенджер химика"
+	desc = "Стерильная сумка-мессенджер. Хороша для того, чтобы проносить товар на сделки."
 	icon_state = "messenger_chemistry"
 	inhand_icon_state = "messenger_chemistry"
 
 /obj/item/storage/backpack/messenger/coroner
-	name = "coroner messenger bag"
-	desc = "A messenger bag used to sneak your way out of graveyards at a good pace."
+	name = "сумка-мессенджер коронера"
+	desc = "Сумка, используемая для переноски того, что осталось от человеческих тел."
 	icon_state = "messenger_coroner"
 	inhand_icon_state = "messenger_coroner"
 
 /obj/item/storage/backpack/messenger/gen
-	name = "geneticist messenger bag"
-	desc = "A sterile messenger bag with geneticist colours, making a remarkably cute accessory for hulks."
+	name = "сумка-мессенджер генетика"
+	desc = "Стерильная сумка-мессенджер голубого цвета."
 	icon_state = "messenger_genetics"
 	inhand_icon_state = "messenger_genetics"
 
 /obj/item/storage/backpack/messenger/science
-	name = "scientist messenger bag"
-	desc = "Useful for holding research materials, and for speeding your way to different scan objectives."
+	name = "сумка-мессенджер ученого"
+	desc = "Полезна для хранения научных материалов."
 	icon_state = "messenger_science"
 	inhand_icon_state = "messenger_science"
 
 /obj/item/storage/backpack/messenger/hyd
-	name = "botanist messenger bag"
-	desc = "A messenger bag made of all natural fibers, great for getting to the sesh in time."
+	name = "ботаническая сумка-мессенджер"
+	desc = "Сумка-мессенджер из натуральных волокон."
 	icon_state = "messenger_hydroponics"
 	inhand_icon_state = "messenger_hydroponics"
 
 /obj/item/storage/backpack/messenger/sec
-	name = "security messenger bag"
-	desc = "A robust messenger bag for security related needs."
+	name = "сумка-мессенджер офицера"
+	desc = "A robust сумка-мессенджер for security related needs."
+	desc = "Надежная сумка-мессенджер для нужд офицеров СБ."
 	icon_state = "messenger_security"
 	inhand_icon_state = "messenger_security"
 
 /obj/item/storage/backpack/messenger/explorer
-	name = "explorer messenger bag"
-	desc = "A robust messenger bag for stashing your loot, as well as making a remarkably cute accessory for your drakebone armor."
+	name = "исследовательская сумка-мессенджер"
 	icon_state = "messenger_explorer"
 	inhand_icon_state = "messenger_explorer"
 
 /obj/item/storage/backpack/messenger/cap
-	name = "captain's messenger bag"
-	desc = "An exclusive messenger bag for Nanotrasen officers, made of real whale leather."
+	name = "капитанская сумка-мессенджер"
+	desc = "Эксклюзивная сумка-мессенджер для старших офицеров NanoTrasen."
 	icon_state = "messenger_captain"
 	inhand_icon_state = "messenger_captain"
 
 /obj/item/storage/backpack/messenger/clown
 	name = "Giggles von Honkerton Jr."
-	desc = "The latest in storage 'technology' from Honk Co. Hey, how does this fit so much with such a small profile anyway? The wearer will definitely never tell you."
+	desc = "Новинка в области хранения от Honk Co. Эй, как туда помещается так много вещей?"
 	icon_state = "messenger_clown"
 	inhand_icon_state = "messenger_clown"

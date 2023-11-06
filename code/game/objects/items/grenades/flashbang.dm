@@ -1,5 +1,5 @@
 /obj/item/grenade/flashbang
-	name = "flashbang"
+	name = "свето-шумовая граната"
 	icon_state = "flashbang"
 	inhand_icon_state = "flashbang"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
@@ -31,7 +31,7 @@
 /obj/item/grenade/flashbang/proc/bang(turf/turf, mob/living/living_mob)
 	if(living_mob.stat == DEAD) //They're dead!
 		return
-	living_mob.show_message(span_warning("BANG"), MSG_AUDIBLE)
+	living_mob.show_message(span_warning("БАМ!"), MSG_AUDIBLE)
 	var/distance = max(0, get_dist(get_turf(src), turf))
 
 //Flash
@@ -51,7 +51,8 @@
 		living_mob.soundbang_act(1, max(200 / max(1, distance), 60), rand(0, 5))
 
 /obj/item/grenade/stingbang
-	name = "stingbang"
+	name = "травматическая граната"
+	desc = "<B>ВНИМАНИЕ: Гранаты чрезвычайно опасны и могут привести к тяжелым травмам или смерти при повторном использовании.</B>"
 	icon_state = "timeg"
 	inhand_icon_state = "flashbang"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
@@ -112,7 +113,7 @@
 		living_mob.Knockdown(200)
 		living_mob.soundbang_act(1, 200, 10, 15)
 		if(living_mob.apply_damages(brute = 10, burn = 10))
-			to_chat(living_mob, span_userdanger("The blast from \the [src] bruises and burns you!"))
+			to_chat(living_mob, span_userdanger("The blast from  [src] bruises and burns you!"))
 
 	// only checking if they're on top of the tile, cause being one tile over will be its own punishment
 

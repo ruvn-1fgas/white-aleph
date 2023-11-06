@@ -431,7 +431,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/cultivator/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is scratching [user.p_their()] back as hard as [user.p_they()] can with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] is scratching [user.p_their()] back as hard as [user.p_they()] can with  [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 
 /obj/item/cultivator/rake
@@ -569,7 +569,7 @@
 /obj/item/secateurs
 	name = "secateurs"
 	desc = "It's a tool for cutting grafts off plants or changing podperson looks."
-	desc_controls = "Right-click to stylize podperson hair or other plant features!"
+	desc_controls = "ПКМ to stylize podperson hair or other plant features!"
 	icon = 'icons/obj/service/hydroponics/equipment.dmi'
 	icon_state = "secateurs"
 	inhand_icon_state = null

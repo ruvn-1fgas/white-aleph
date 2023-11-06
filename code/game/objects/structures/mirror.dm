@@ -16,8 +16,8 @@
 #define MAGIC_MIRROR_OPTIONS list(CHANGE_HAIR, CHANGE_BEARD, CHANGE_RACE, CHANGE_SEX, CHANGE_EYES, CHANGE_NAME)
 
 /obj/structure/mirror
-	name = "mirror"
-	desc = "Mirror mirror on the wall, who's the most robust of them all?"
+	name = "зеркало"
+	desc = "Свет мой, зеркальце, скажи, да всю правду доложи! Я ль на свете всех сильнее, всех робастней и милее?"
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "mirror"
 	movement_type = FLOATING

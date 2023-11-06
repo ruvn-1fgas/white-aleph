@@ -472,7 +472,7 @@ BLIND     // can't see anything
 
 	visor_toggling()
 
-	to_chat(user, span_notice("You adjust \the [src] [up ? "up" : "down"]."))
+	to_chat(user, span_notice("You adjust  [src] [up ? "up" : "down"]."))
 
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user

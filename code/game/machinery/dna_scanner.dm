@@ -1,6 +1,6 @@
 /obj/machinery/dna_scannernew
-	name = "\improper DNA scanner"
-	desc = "It scans DNA structures."
+	name = "Манипулятор ДНК"
+	desc = "При подключении к консоли позволяет видоизменять ДНК подопытного для получения ценной информации и коррекции генетического кода."
 	icon = 'icons/obj/machines/cloning.dmi'
 	icon_state = "scanner"
 	base_icon_state = "scanner"
@@ -31,7 +31,7 @@
 /obj/machinery/dna_scannernew/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Radiation pulse accuracy increased by factor <b>[precision_coeff**2]</b>.<br>Radiation pulse damage decreased by factor <b>[damage_coeff**2]</b>.")
+		. += span_notice("Дисплей: Radiation pulse accuracy increased by factor <b>[precision_coeff**2]</b>.<br>Radiation pulse damage decreased by factor <b>[damage_coeff**2]</b>.")
 
 /obj/machinery/dna_scannernew/update_icon_state()
 	//no power or maintenance

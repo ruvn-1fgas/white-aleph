@@ -357,7 +357,7 @@
 		. += span_notice("Its control panel is [bot_cover_flags & BOT_COVER_LOCKED ? "locked" : "unlocked"].")
 		var/is_sillycone = issilicon(user)
 		if(!(bot_cover_flags & BOT_COVER_EMAGGED) && (is_sillycone || user.Adjacent(src)))
-			. += span_info("Alt-click [is_sillycone ? "" : "or use your ID on "]it to [bot_cover_flags & BOT_COVER_LOCKED ? "un" : ""]lock its control panel.")
+			. += span_info("Alt-клик [is_sillycone ? "" : "or use your ID on "]it to [bot_cover_flags & BOT_COVER_LOCKED ? "un" : ""]lock its control panel.")
 	if(paicard)
 		. += span_notice("It has a pAI device installed.")
 		if(!(bot_cover_flags & BOT_COVER_OPEN))

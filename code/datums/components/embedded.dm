@@ -245,7 +245,7 @@
 	limb._unembed_object(weapon)
 
 	if(victim)
-		to_chat(victim, span_userdanger("\The [weapon] that was embedded in your [limb.plaintext_zone] disappears!"))
+		to_chat(victim, span_userdanger(" [weapon] that was embedded in your [limb.plaintext_zone] disappears!"))
 
 	qdel(src)
 

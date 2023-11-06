@@ -1,13 +1,13 @@
 // Knife Template, should not appear in game normaly //
 /obj/item/knife
-	name = "knife"
+	name = "нож"
 	icon = 'icons/obj/service/kitchen.dmi'
 	icon_state = "knife"
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
 	inhand_icon_state = "knife"
 	worn_icon_state = "knife"
-	desc = "The original knife, it is said that all other knives are only copies of this one."
+	desc = "Оригинальный нож, говорят, что все остальные ножи - это только копии этого."
 	flags_1 = CONDUCT_1
 	force = 10
 	demolition_mod = 0.75
@@ -51,8 +51,8 @@
 	return BRUTELOSS
 
 /obj/item/knife/ritual
-	name = "ritual knife"
-	desc = "The unearthly energies that once powered this blade are now dormant."
+	name = "ритуальный серп"
+	desc = "Неземные энергии, которые когда-то питали этот клинок, теперь дремлют."
 	icon = 'icons/obj/weapons/khopesh.dmi'
 	icon_state = "bone_blade"
 	inhand_icon_state = "bone_blade"
@@ -68,8 +68,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/knife/bloodletter
-	name = "bloodletter"
-	desc = "An occult looking dagger that is cold to the touch. Somehow, the flawless orb on the pommel is made entirely of liquid blood."
+	name = "кровопускатель"
+	desc = "Кинжал оккультного вида, холодный на ощупь. Каким-то образом безупречный шар на навершии полностью сделан из жидкой крови."
 	icon = 'icons/obj/weapons/khopesh.dmi'
 	icon_state = "bloodletter"
 	worn_icon_state = "render"
@@ -91,10 +91,10 @@
 		B.add_stacks(bleed_stacks_per_hit)
 
 /obj/item/knife/butcher
-	name = "butcher's cleaver"
+	name = "тесак мясника"
+	desc = "Огромная штука, используемая для измельчения мяса. Включая клоунов и прочее ГМО."
 	icon_state = "butch"
 	inhand_icon_state = "butch"
-	desc = "A huge thing used for chopping and chopping up meat. This includes clowns and clown by-products."
 	flags_1 = CONDUCT_1
 	force = 15
 	throwforce = 10
@@ -106,9 +106,9 @@
 	wound_bonus = 15
 
 /obj/item/knife/hunting
-	name = "hunting knife"
+	name = "охотничий нож"
+	desc = "Несмотря на свое название, он в основном используется для разделки мяса мертвой добычи, а не для настоящей охоты."
 	icon = 'icons/obj/weapons/stabby.dmi'
-	desc = "Despite its name, it's mainly used for cutting meat from dead prey rather than actual hunting."
 	inhand_icon_state = "huntingknife"
 	icon_state = "huntingknife"
 	wound_bonus = 10
@@ -121,10 +121,10 @@
 	)
 
 /obj/item/knife/combat
-	name = "combat knife"
+	name = "боевой нож"
+	desc = "Армейский нож для выживания."
 	icon = 'icons/obj/weapons/stabby.dmi'
 	icon_state = "buckknife"
-	desc = "A military combat utility survival knife."
 	embedding = list("pain_mult" = 4, "embed_chance" = 65, "fall_chance" = 10, "ignore_throwspeed_threshold" = TRUE)
 	force = 20
 	throwforce = 20
@@ -133,24 +133,24 @@
 	bayonet = TRUE
 
 /obj/item/knife/combat/survival
-	name = "survival knife"
+	name = "нож выживальщика"
+	desc = "Охотничий нож для выживания."
 	icon = 'icons/obj/weapons/stabby.dmi'
 	icon_state = "survivalknife"
 	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
-	desc = "A hunting grade survival knife."
 	force = 15
 	throwforce = 15
 	bayonet = TRUE
 
 /obj/item/knife/combat/bone
-	name = "bone dagger"
+	name = "костяной нож"
+	desc = "Заостренная кость. Абсолютный минимум для выживания."
 	inhand_icon_state = "bone_dagger"
 	icon = 'icons/obj/weapons/stabby.dmi'
 	icon_state = "bone_dagger"
 	worn_icon_state = "bone_dagger"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	desc = "A sharpened bone. The bare minimum in survival."
 	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
 	force = 15
 	throwforce = 15
@@ -161,19 +161,19 @@
 	return ..()
 
 /obj/item/knife/combat/cyborg
-	name = "cyborg knife"
+	name = "нож киборга"
+	desc = "Пластиковый нож киборга. Чрезвычайно острый и прочный."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "knife_cyborg"
-	desc = "A cyborg-mounted plasteel knife. Extremely sharp and durable."
 
 /obj/item/knife/shiv
-	name = "glass shiv"
+	name = "стеклянная заточка"
+	desc = "Твой единственный шанс на сохранение невинности если ты вдруг уронил мыло."
 	icon = 'icons/obj/weapons/stabby.dmi'
 	icon_state = "shiv"
 	inhand_icon_state = "shiv"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	desc = "A makeshift glass shiv."
 	force = 8
 	throwforce = 12
 	attack_verb_continuous = list("shanks", "shivs")
@@ -186,10 +186,9 @@
 	return ..()
 
 /obj/item/knife/shiv/plasma
-	name = "plasma shiv"
+	name = "плазменная заточка"
 	icon_state = "plasmashiv"
 	inhand_icon_state = "plasmashiv"
-	desc = "A makeshift plasma glass shiv."
 	force = 9
 	throwforce = 13
 	armor_type = /datum/armor/shiv_plasma
@@ -205,10 +204,9 @@
 	acid = 50
 
 /obj/item/knife/shiv/titanium
-	name = "titanium shiv"
+	name = "титановая заточка"
 	icon_state = "titaniumshiv"
 	inhand_icon_state = "titaniumshiv"
-	desc = "A makeshift titanium-infused glass shiv."
 	throwforce = 14
 	throw_range = 7
 	wound_bonus = 10
@@ -225,10 +223,9 @@
 	acid = 50
 
 /obj/item/knife/shiv/plastitanium
-	name = "plastitanium shiv"
+	name = "пластитановая заточка"
 	icon_state = "plastitaniumshiv"
 	inhand_icon_state = "plastitaniumshiv"
-	desc = "A makeshift titanium-infused plasma glass shiv."
 	force = 10
 	throwforce = 15
 	throw_speed = 4
@@ -248,12 +245,12 @@
 	acid = 75
 
 /obj/item/knife/shiv/carrot
-	name = "carrot shiv"
+	name = "морковная заточка"
+	desc = "Не вся морковь полезна для здоровья."
 	icon_state = "carrotshiv"
 	inhand_icon_state = "carrotshiv"
-	desc = "Unlike other carrots, you should probably keep this far away from your eyes."
 	custom_materials = null
 
 /obj/item/knife/shiv/carrot/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] forcefully drives \the [src] into [user.p_their()] eye! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] forcefully drives  [src] into [user.p_their()] eye! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS

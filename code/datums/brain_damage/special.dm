@@ -146,7 +146,7 @@
 
 
 /obj/effect/client_image_holder/bluespace_stream/attack_tk(mob/user)
-	to_chat(user, span_warning("\The [src] actively rejects your mind, and the bluespace energies surrounding it disrupt your telekinesis!"))
+	to_chat(user, span_warning(" [src] actively rejects your mind, and the bluespace energies surrounding it disrupt your telekinesis!"))
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/brain_trauma/special/quantum_alignment

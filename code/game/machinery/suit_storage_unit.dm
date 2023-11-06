@@ -803,7 +803,7 @@
 	. = !(state_open || panel_open || is_operational || locked || (flags_1 & NODECONSTRUCT_1)) && crowbar.tool_behaviour == TOOL_CROWBAR
 	if(.)
 		crowbar.play_tool_sound(src, 50)
-		visible_message(span_notice("[usr] вскрывает [src]."), span_notice("Вскрываю \the [src]."))
+		visible_message(span_notice("[usr] вскрывает [src]."), span_notice("Вскрываю  [src]."))
 		open_machine()
 
 /obj/machinery/suit_storage_unit/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)

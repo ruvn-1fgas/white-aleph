@@ -1,6 +1,6 @@
 
 /obj/effect/anomaly/hallucination
-	name = "hallucination anomaly"
+	name = "галюциногенная аномалия"
 	icon_state = "hallucination"
 	aSignal = /obj/item/assembly/signaler/anomaly/hallucination
 	/// Time passed since the last effect, increased by seconds_per_tick of the SSobj
@@ -9,10 +9,10 @@
 	var/release_delay = 5
 	/// Messages sent to people feeling the pulses
 	var/static/list/messages = list(
-		span_warning("You feel your conscious mind fall apart!"),
-		span_warning("Reality warps around you!"),
-		span_warning("Something's wispering around you!"),
-		span_warning("You are going insane!"),
+		span_warning("Сознание разваливается!"),
+		span_warning("Реальность оборачивается вокруг меня!"),
+		span_warning("Кто-то что-то шепчет!"),
+		span_warning("ААААААААААААААА!"),
 	)
 
 /obj/effect/anomaly/hallucination/anomalyEffect(seconds_per_tick)

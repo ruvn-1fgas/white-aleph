@@ -1,6 +1,6 @@
 /obj/structure/lattice
-	name = "lattice"
-	desc = "A lightweight support lattice. These hold our station together."
+	name = "опорная балка"
+	desc = "Легкая опорная балка состоящая из стержней. Она позволяет нашей станции не развалиться на части."
 	icon = 'icons/obj/smooth_structures/lattice.dmi'
 	icon_state = "lattice-255"
 	base_icon_state = "lattice"
@@ -34,7 +34,7 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/lattice/proc/deconstruction_hints(mob/user)
-	return span_notice("The rods look like they could be <b>cut</b>. There's space for more <i>rods</i> or a <i>tile</i>.")
+	return span_notice("Эти стержни можно <b>отрезать</b>. Здесь есть ещё место для <i>стержней</i> или для <i>плитки</i>.")
 
 /obj/structure/lattice/Initialize(mapload)
 	. = ..()
@@ -88,8 +88,8 @@
 		deconstruct()
 
 /obj/structure/lattice/catwalk
-	name = "catwalk"
-	desc = "A catwalk for easier EVA maneuvering and cable placement."
+	name = "помост"
+	desc = "Помост для более легкого маневрирования в открытом космосе и прокладки кабелей."
 	icon = 'icons/obj/smooth_structures/catwalk.dmi'
 	icon_state = "catwalk-0"
 	base_icon_state = "catwalk"
@@ -105,7 +105,7 @@
 	AddElement(/datum/element/footstep_override, footstep = FOOTSTEP_CATWALK)
 
 /obj/structure/lattice/catwalk/deconstruction_hints(mob/user)
-	return span_notice("The supporting rods look like they could be <b>cut</b>.")
+	return span_notice("Эти стержни можно <b>отрезать</b>.")
 
 /obj/structure/lattice/catwalk/Move()
 	var/turf/T = loc
@@ -133,16 +133,16 @@
 		return TRUE
 
 /obj/structure/lattice/catwalk/mining
-	name = "reinforced catwalk"
-	desc = "A heavily reinforced catwalk used to build bridges in hostile environments. It doesn't look like anything could make this budge."
+	name = "жаропрочная балка"
+	desc = "Специализированная опорная балка для строительства на лаве. Смотри куда идёшь."
 	resistance_flags = INDESTRUCTIBLE
 
 /obj/structure/lattice/catwalk/mining/deconstruction_hints(mob/user)
 	return
 
 /obj/structure/lattice/lava
-	name = "heatproof support lattice"
-	desc = "A specialized support beam for building across lava. Watch your step."
+	name = "жаропрочная балка"
+	desc = "Специализированная опорная балка для строительства на лаве. Смотри куда идёшь."
 	icon = 'icons/obj/smooth_structures/catwalk.dmi'
 	icon_state = "catwalk-0"
 	base_icon_state = "catwalk"
@@ -156,7 +156,7 @@
 	give_turf_traits = list(TRAIT_LAVA_STOPPED, TRAIT_CHASM_STOPPED, TRAIT_IMMERSE_STOPPED, TRAIT_HYPERSPACE_STOPPED)
 
 /obj/structure/lattice/lava/deconstruction_hints(mob/user)
-	return span_notice("The rods look like they could be <b>cut</b>, but the <i>heat treatment will shatter off</i>. There's space for a <i>tile</i>.")
+	return span_notice("Эти стержни можно <b>отрезать</b>, но <i>термозащита будет уничтожена</i>. Здесь есть место для установки <i>плитки</i>.")
 
 /obj/structure/lattice/lava/attackby(obj/item/C, mob/user, params)
 	. = ..()

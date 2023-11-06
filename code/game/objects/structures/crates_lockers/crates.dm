@@ -1,6 +1,6 @@
 /obj/structure/closet/crate
-	name = "crate"
-	desc = "A rectangular steel crate."
+	name = "ящик"
+	desc = "Прямоугольный ящик, как деревянный, только стальной."
 	icon = 'icons/obj/storage/crates.dmi'
 	icon_state = "crate"
 	base_icon_state = "crate"
@@ -122,8 +122,8 @@
 	icon_state = "crateopen"
 
 /obj/structure/closet/crate/coffin
-	name = "coffin"
-	desc = "It's a burial receptacle for the dearly departed."
+	name = "гроб"
+	desc = "Погребальный сосуд для тел тех, кто сейчас в лучшем мире."
 	icon_state = "coffin"
 	base_icon_state = "coffin"
 	resistance_flags = FLAMMABLE
@@ -159,16 +159,16 @@
 		new /obj/effect/spawner/random/maintenance(src)
 
 /obj/structure/closet/crate/trashcart //please make this a generic cart path later after things calm down a little
-	desc = "A heavy, metal trashcart with wheels."
-	name = "trash cart"
+	desc = "Тяжелая металлическая мусорная тележка на колесиках."
+	name = "тележка для мусора"
 	icon_state = "trashcart"
 	base_icon_state = "trashcart"
 	can_install_electronics = FALSE
 	paint_jobs = null
 
 /obj/structure/closet/crate/trashcart/laundry
-	name = "laundry cart"
-	desc = "A large cart for hauling around large amounts of laundry."
+	name = "тележка для белья"
+	desc = "Большая тележка для перевозки большого количества белья. Большой стирке большая тележка"
 	icon_state = "laundry"
 	base_icon_state = "laundry"
 
@@ -192,20 +192,20 @@
 			new /obj/item/storage/bag/trash/filled(src)
 
 /obj/structure/closet/crate/internals
-	desc = "An internals crate."
-	name = "internals crate"
+	desc = "Ящик неотложной помощи."
+	name = "Ящик экстренной помощи"
 	icon_state = "o2crate"
 	base_icon_state = "o2crate"
 
 /obj/structure/closet/crate/medical
-	desc = "A medical crate."
-	name = "medical crate"
+	desc = "Медицинский ящик."
+	name = "ящик с медицинским оборудованием"
 	icon_state = "medicalcrate"
 	base_icon_state = "medicalcrate"
 
 /obj/structure/closet/crate/freezer
-	desc = "A freezer."
-	name = "freezer"
+	desc = "Фризер."
+	name = "морозильник"
 	icon_state = "freezer"
 	base_icon_state = "freezer"
 	paint_jobs = null
@@ -227,8 +227,8 @@
 	return ..()
 
 /obj/structure/closet/crate/freezer/blood
-	name = "blood freezer"
-	desc = "A freezer containing packs of blood."
+	name = "морозильник для крови"
+	desc = "Холодильник с пакетами крови."
 
 /obj/structure/closet/crate/freezer/blood/PopulateContents()
 	. = ..()
@@ -245,8 +245,8 @@
 		new /obj/item/reagent_containers/blood/random(src)
 
 /obj/structure/closet/crate/freezer/surplus_limbs
-	name = "surplus prosthetic limbs"
-	desc = "A crate containing an assortment of cheap prosthetic limbs."
+	name = "бюджетные протезы конечностей"
+	desc = "Ящик с набором бюджетных протезов."
 
 /obj/structure/closet/crate/freezer/surplus_limbs/PopulateContents()
 	. = ..()
@@ -260,19 +260,19 @@
 	new /obj/item/bodypart/leg/right/robot/surplus(src)
 
 /obj/structure/closet/crate/radiation
-	desc = "A crate with a radiation sign on it."
-	name = "radiation crate"
+	desc = "Ящик со знаком радиации на нем."
+	name = "радиационный ящик"
 	icon_state = "radiation"
 	base_icon_state = "radiation"
 
 /obj/structure/closet/crate/hydroponics
-	name = "hydroponics crate"
-	desc = "All you need to destroy those pesky weeds and pests."
+	name = "ящик гидропоники"
+	desc = "Все, что вам нужно, для уничтожения надоедливых сорняков и вредителей."
 	icon_state = "hydrocrate"
 	base_icon_state = "hydrocrate"
 
 /obj/structure/closet/crate/engineering
-	name = "engineering crate"
+	name = "инженерный ящик"
 	icon_state = "engi_crate"
 	base_icon_state = "engi_crate"
 
@@ -281,8 +281,8 @@
 	base_icon_state = "engi_e_crate"
 
 /obj/structure/closet/crate/rcd
-	desc = "A crate for the storage of an RCD."
-	name = "\improper RCD crate"
+	desc = "Ящик для хранения RCD."
+	name = "ящик для RCD"
 	icon_state = "engi_crate"
 	base_icon_state = "engi_crate"
 
@@ -293,8 +293,8 @@
 	new /obj/item/construction/rcd(src)
 
 /obj/structure/closet/crate/science
-	name = "science crate"
-	desc = "A science crate."
+	name = "ящик научного отдела"
+	desc = "Ящик научного отдела."
 	icon_state = "scicrate"
 	base_icon_state = "scicrate"
 
@@ -311,7 +311,7 @@
 		new /obj/item/clothing/neck/link_scryer/loaded(src)
 
 /obj/structure/closet/crate/solarpanel_small
-	name = "budget solar panel crate"
+	name = "ящик бюджетных солнечных батарей"
 	icon_state = "engi_e_crate"
 	base_icon_state = "engi_e_crate"
 
@@ -324,7 +324,7 @@
 	new /obj/item/electronics/tracker(src)
 
 /obj/structure/closet/crate/goldcrate
-	name = "gold crate"
+	name = "золотой ящик"
 
 /obj/structure/closet/crate/goldcrate/PopulateContents()
 	..()

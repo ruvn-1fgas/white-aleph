@@ -10,8 +10,8 @@
 	icon = 'icons/obj/pipes_n_cables/atmos.dmi'
 	icon_state = "sheater-off"
 	base_icon_state = "sheater"
-	name = "space heater"
-	desc = "Made by Space Amish using traditional space techniques, this heater/cooler is guaranteed not to set the station on fire. Warranty void if used in engines."
+	name = "обогреватель"
+	desc = "Обогреватель/охладитель, сделанный космическими амишами с использованием традиционных космических технологий, гарантированно не подожжет станцию. Гарантия аннулируется при использовании в двигателях."
 	max_integrity = 250
 	armor_type = /datum/armor/machinery_space_heater
 	circuit = /obj/item/circuitboard/machine/space_heater
@@ -87,14 +87,14 @@
 
 /obj/machinery/space_heater/examine(mob/user)
 	. = ..()
-	. += "\The [src] is [on ? "on" : "off"], and the hatch is [panel_open ? "open" : "closed"]."
+	. += "<hr>"
+	. += "<b>[capitalize(src.name)]</b> [on ? "включен" : "выключен"] и его техническая панель [panel_open ? "открыта" : "закрыта"]."
 	if(cell)
-		. += "The charge meter reads [cell ? round(cell.percent(), 1) : 0]%."
+		. += "<hr>Заряд: [cell ? round(cell.percent(), 1) : 0]%."
 	else
-		. += "There is no power cell installed."
+		. += "<hr>Внутри нет батарейки."
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Temperature range at <b>[settable_temperature_range]°C</b>.<br>Heating power at <b>[siunit(heating_power, "W", 1)]</b>.<br>Power consumption at <b>[(efficiency*-0.0025)+150]%</b>.") //100%, 75%, 50%, 25%
-		. += span_notice("<b>Right-click</b> to toggle [on ? "off" : "on"].")
+		. += "<hr><span class='notice'>Дисплей: Температурный диапазон <b>[settable_temperature_range]°C</b>.<br>Сила нагрева <b>[siunit(heating_power, "W", 1)]</b>.<br>Потребление <b>[(efficiency*-0.0025)+150]%</b>.</span>" //100%, 75%, 50%, 25%
 
 /obj/machinery/space_heater/update_icon_state()
 	. = ..()
@@ -193,7 +193,7 @@
 	add_fingerprint(user)
 
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, I))
-		user.visible_message(span_notice("\The [user] [panel_open ? "opens" : "closes"] the hatch on \the [src]."), span_notice("You [panel_open ? "open" : "close"] the hatch on \the [src]."))
+		user.visible_message(span_notice("[capitalize(user)] [panel_open ? "открывает" : "закрывает"] the hatch on  [src]."), span_notice("[panel_open ? "Закрываю" : "Открываю"] техническую панель <b>[src.name]</b>."))
 		update_appearance()
 		return TRUE
 
@@ -205,13 +205,13 @@
 			to_chat(user, span_warning("The hatch must be open to insert a power cell!"))
 			return
 		if(cell)
-			to_chat(user, span_warning("There is already a power cell inside!"))
+			to_chat(user, span_warning("Внутри уже есть батарейка!"))
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		cell = I
 		I.add_fingerprint(usr)
-		user.visible_message(span_notice("\The [user] inserts a power cell into \the [src]."), span_notice("You insert the power cell into \the [src]."))
+		user.visible_message(span_notice("[capitalize(user)] вставляет батарейку в <b>[src.name]</b>.") , span_notice("Вставляю батарейку внутрь <b>[src.name]</b>."))
 		SStgui.update_uis(src)
 		return TRUE
 	return ..()
@@ -375,7 +375,7 @@
 		cell = item
 		item.add_fingerprint(usr)
 
-		user.visible_message(span_notice("\The [user] inserts a power cell into \the [src]."), span_notice("You insert the power cell into \the [src]."))
+		user.visible_message(span_notice(" [user] inserts a power cell into  [src]."), span_notice("You insert the power cell into  [src]."))
 		SStgui.update_uis(src)
 	//reagent containers
 	if(is_reagent_container(item) && !(item.item_flags & ABSTRACT) && item.is_open_container())

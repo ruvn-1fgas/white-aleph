@@ -13,8 +13,8 @@
 
 
 /obj/machinery/medical_kiosk
-	name = "medical kiosk"
-	desc = "A freestanding medical kiosk, which can provide a wide range of medical analysis for diagnosis."
+	name = "Медицинский киоск"
+	desc = "За небольшую плату поможет продиагностировать пациента на основные виды повреждений и заболеваний."
 	icon = 'icons/obj/machines/medical_kiosk.dmi'
 	icon_state = "kiosk"
 	base_icon_state = "kiosk"
@@ -186,9 +186,9 @@
 /obj/machinery/medical_kiosk/examine(mob/user)
 	. = ..()
 	if(scanner_wand == null)
-		. += span_notice("\The [src] is missing its scanner.")
+		. += span_notice(" [src] is missing its scanner.")
 	else
-		. += span_notice("\The [src] has its scanner clipped to the side. Right Click to remove.")
+		. += span_notice(" [src] has its scanner clipped to the side. Right Click to remove.")
 
 /obj/machinery/medical_kiosk/ui_interact(mob/user, datum/tgui/ui)
 	var/patient_distance = 0

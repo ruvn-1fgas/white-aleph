@@ -32,37 +32,37 @@ const PAGE_HEIGHT = 30;
 
 const TIER2TIERDATA: TierData[] = [
   {
-    name: 'Lesser Mutant',
+    name: 'Малый мутант',
     desc: multiline`
-      Lesser Mutants usually have a smaller list of potential mutations, and
-      do not have bonuses for infusing many organs. Common species, cosmetics,
-      and things of that sort are here. Always available!
+      Малые мутанты обычно имеют меньший список потенциальных мутаций
+      и не имеют бонусов за инфузию многих органов.
+      Здесь находятся обычные виды, косметика и тому подобное. Всегда доступны!
     `,
     icon: 'circle-o',
   },
   {
-    name: 'Regular Mutant',
+    name: 'Обычный мутант',
     desc: multiline`
-      Regular Mutants all have bonuses for infusing DNA into yourself, and are
-      common enough to find consistently in a shift. Always available!
+      Обычные мутанты имеют бонусы за инфузию ДНК в себя и достаточно часто
+      встречаются во время смены. Всегда доступны!
     `,
     icon: 'circle-half-stroke',
   },
   {
-    name: 'Greater Mutant',
+    name: 'Большой мутант',
     desc: multiline`
-      Greater Mutants have stronger upsides and downsides along with their
-      bonus, and are harder to find in a shift. Must be unlocked by first
-      unlocking a DNA Mutant bonus of a lower tier.
+      Большие мутанты имеют более сильные плюсы и минусы вместе с бонусом,
+      и их труднее найти во время смены. Должны быть разблокированы,
+      сначала разблокировав бонус мутанта ДНК более низкого уровня.
     `,
     icon: 'circle',
   },
   {
-    name: 'Abberation',
+    name: 'Аберрация',
     desc: multiline`
-      We've been able to get stronger mutants out of vatgrown specimen,
-      henceforth named "Abberations". Abberations have either strong utility
-      purpose, anomalous qualities, or deadly capabilities.
+      Нам удалось получить более сильных мутантов из выращенных в воде особей,
+      отныне называемых "Аберрациями". Мутации имеют либо сильную полезность, либо
+      утилитарную цель, аномальные качества или смертоносные способности.
     `,
     icon: 'teeth',
   },
@@ -120,11 +120,11 @@ export const InfuserBook = (props, context) => {
   };
 
   const tabs = [
-    'Introduction',
-    'Tier 0 - Lesser Mutants',
-    'Tier 1 - Regular Mutants',
-    'Tier 2 - Greater Mutants',
-    'Tier 3 - Abberations - RESTRICTED',
+    'Вступление',
+    'Тир 0 - Малые мутанты',
+    'Тир 1 - Обычные мутанты',
+    'Тир 2 - Большие мутанты',
+    'Тир 3 - Аберрации - ЗАКРЫТО',
   ];
 
   const paginatedTabs = paginate(tabs, 3);
@@ -132,7 +132,7 @@ export const InfuserBook = (props, context) => {
   const restrictedNext = chapter === 3 && pageInChapter === 0;
 
   return (
-    <Window title="DNA Infusion Manual" width={620} height={500}>
+    <Window title="Инструкция к рекомбинатору" width={620} height={520}>
       <Window.Content>
         <Stack vertical>
           <Stack.Item mb={-1}>
@@ -169,12 +169,12 @@ export const InfuserBook = (props, context) => {
             <Stack fontSize="18px" fill>
               <Stack.Item grow={2}>
                 <Button onClick={() => setPage(pageInChapter - 1)} fluid>
-                  Last Page
+                  Пред.
                 </Button>
               </Stack.Item>
               <Stack.Item grow={1}>
                 <Section fitted fill pt="3px">
-                  Page {pageInChapter + 1}/
+                  Страница {pageInChapter + 1}/
                   {paginatedEntries[chapter].length + (chapter === 0 ? 1 : 0)}
                 </Section>
               </Stack.Item>
@@ -183,7 +183,7 @@ export const InfuserBook = (props, context) => {
                   color={restrictedNext && 'black'}
                   onClick={() => setPage(pageInChapter + 1)}
                   fluid>
-                  {restrictedNext ? 'RESTRICTED' : 'Next Page'}
+                  {restrictedNext ? 'RESTRICTED' : 'След.'}
                 </Button>
               </Stack.Item>
             </Stack>
@@ -196,33 +196,30 @@ export const InfuserBook = (props, context) => {
 
 export const InfuserInstructions = (props, context) => {
   return (
-    <Section title="DNA Infusion Guide" height={PAGE_HEIGHT}>
+    <Section title="Инструкция" height={PAGE_HEIGHT}>
       <Stack vertical>
-        <Stack.Item fontSize="16px">What does it do?</Stack.Item>
+        <Stack.Item fontSize="16px">Как это работает?</Stack.Item>
         <Stack.Item color="label">
-          DNA Infusion is the practice of integrating dead creature DNA into
-          yourself, mutating one of your organs into a genetic slurry that sits
-          somewhere between being yours or the creature&apos;s. While this does
-          bring you further away from being human, and gives a slew of...
-          unfortunate side effects, it also grants new capabilities.{' '}
+          Инфузия ДНК - это практика интеграции ДНК мертвого существа в
+          вас самих, мутации одного из ваших органов в генетическую кашицу,
+          которая находится где-то между вашей и этого существа.
+          Хотя это еще больше отдаляет вас от того, чтобы быть человеком,
+          и дает множество... неприятных побочных эффектов, это также
+          предоставляет новые возможности..{' '}
           <b>
-            Above all else, you have to understand that gene-mutants are usually
-            very good at specific things, especially with their threshold
-            bonuses.
+            Прежде всего, вы должны понимать, что генные мутанты обычно
+            очень хороши в определенных вещах, особенно с их пороговыми бонусами.
           </b>
         </Stack.Item>
-        <Stack.Item fontSize="16px">I&apos;m sold! How do I do it?</Stack.Item>
+        <Stack.Item fontSize="16px">Я готов! Как это всё таки работает?</Stack.Item>
         <Stack.Item color="label">
-          1. Load a dead creature into the machine. This is what you&apos;re
-          infusing from.
-          <br />
-          2. Enter the machine, like you would the DNA scanner.
-          <br />
-          3. Have someone activate the machine externally.
-          <br />
+          <li>
+            <ul>1. Поместите мёртвое существо в рекомбинатор. Из него вы будете брать ДНК.</ul>
+            <ul>2. Войдите в машину, как в манипулятор ДНК.</ul>
+            <ul>3. Попросите кого-нибудь активировать машину снаружи.</ul>
+          </li>
           <Box mt="10px" inline color="white">
-            And you&apos;re done! Note that the infusion source will be
-            obliterated in the process.
+            Готово! Обратите внимание, что существо будет уничтожено в процессе инфузии ДНК.
           </Box>
         </Stack.Item>
       </Stack>
@@ -242,7 +239,7 @@ const InfuserEntry = (props: InfuserEntryProps, context) => {
   return (
     <Section
       fill
-      title={entry.name + ' Mutant'}
+      title={entry.name}
       height={PAGE_HEIGHT}
       buttons={
         <Button tooltip={tierData.desc} icon={tierData.icon}>
@@ -254,7 +251,7 @@ const InfuserEntry = (props: InfuserEntryProps, context) => {
           <BlockQuote>
             {entry.desc}{' '}
             {entry.threshold_desc && (
-              <>If a subject infuses with enough DNA, {entry.threshold_desc}</>
+              <> Если субъект инфузирует достаточно ДНК, {entry.threshold_desc}</>
             )}
           </BlockQuote>
         </Stack.Item>
@@ -270,11 +267,11 @@ const InfuserEntry = (props: InfuserEntryProps, context) => {
         </Stack.Item>
         <Stack.Divider />
         <Stack.Item>
-          Created from infusing{' '}
-          <Box inline color={entry.name === 'Rejected' ? 'red' : 'green'}>
+          Создаётся путём добавления ДНК{' '}
+          <Box inline color={entry.name === 'Отклонено' ? 'red' : 'green'}>
             {entry.infuse_mob_name}
           </Box>{' '}
-          DNA into a subject.
+          к субъекту.
         </Stack.Item>
       </Stack>
     </Section>

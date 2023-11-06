@@ -588,7 +588,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/spawner, 0)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/unanchored/spawner, 0)
 
 /obj/structure/window/plasma
-	name = "окно из плазмы"
+	name = "направленное окно из плазмы"
 	desc = "Окно из плазменно-силикатного сплава. Выглядит безумно сложным для ломания и прожигания."
 	icon_state = "plasmawindow"
 	reinf = FALSE
@@ -617,7 +617,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/plasma/spawner, 0)
 	anchored = FALSE
 
 /obj/structure/window/reinforced/plasma
-	name = "армированное окно из плазмы"
+	name = "направленное армированное окно из плазмы"
 	desc = "Окно из плазменно-силикатного сплава и стержневой матрицы. Он выглядит безнадежно жестким для разрушения и, скорее всего, почти пожаробезопасным."
 	icon_state = "plasmarwindow"
 	reinf = TRUE
@@ -683,6 +683,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	anchored = FALSE
 
 /obj/structure/window/plasma/fulltile
+	name = "окно из плазмы"
 	icon = 'icons/obj/smooth_structures/plasma_window.dmi'
 	icon_state = "plasma_window-0"
 	base_icon_state = "plasma_window"
@@ -699,9 +700,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	anchored = FALSE
 
 /obj/structure/window/reinforced/plasma/fulltile
+	name = "армированное окно из плазмы"
 	icon = 'icons/obj/windows/window_rplasma.dmi'
-	icon_state = "rplasma_window-0"
-	base_icon_state = "rplasma_window"
+	icon_state = "window_rplasma-0"
+	base_icon_state = "window_rplasma"
 	state = RWINDOW_SECURE
 	max_integrity = 1000
 	fulltile = TRUE

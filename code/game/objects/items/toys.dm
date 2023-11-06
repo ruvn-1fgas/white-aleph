@@ -715,8 +715,8 @@
 
 /obj/item/toy/talking/proc/activation_message(mob/user)
 	user.visible_message(
-		span_notice("[user] pulls the string on \the [src]."),
-		span_notice("You pull the string on \the [src]."),
+		span_notice("[user] pulls the string on  [src]."),
+		span_notice("You pull the string on  [src]."),
 		span_notice("You hear a string being pulled."))
 
 /obj/item/toy/talking/proc/generate_messages()
@@ -757,8 +757,8 @@
 
 /obj/item/toy/talking/codex_gigas/activation_message(mob/user)
 	user.visible_message(
-		span_notice("[user] presses the button on \the [src]."),
-		span_notice("You press the button on \the [src]."),
+		span_notice("[user] presses the button on  [src]."),
+		span_notice("You press the button on  [src]."),
 		span_notice("You hear a soft click."))
 
 /obj/item/toy/talking/owl

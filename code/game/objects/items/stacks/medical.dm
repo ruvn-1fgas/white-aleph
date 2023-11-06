@@ -1,6 +1,7 @@
 /obj/item/stack/medical
-	name = "medical pack"
-	singular_name = "medical pack"
+	name = "медипак"
+	var/skloname = "медипак"
+	singular_name = "медипак"
 	icon = 'icons/obj/medical/stack_medical.dmi'
 	worn_icon_state = "nothing"
 	amount = 6
@@ -65,12 +66,12 @@
 		return
 	if(patient == user)
 		if(!silent)
-			user.visible_message(span_notice("[user] starts to apply [src] on [user.p_them()]self..."), span_notice("You begin applying [src] on yourself..."))
+			user.visible_message(span_notice("<b>[user]</b> начинает применять <b>[skloname]</b> на себе...") , span_notice("Начинаю применять <b>[skloname]</b> на себе..."))
 		if(!do_after(user, self_delay, patient, extra_checks=CALLBACK(patient, TYPE_PROC_REF(/mob/living, try_inject), user, null, INJECT_TRY_SHOW_ERROR_MESSAGE)))
 			return
 	else if(other_delay)
 		if(!silent)
-			user.visible_message(span_notice("[user] starts to apply [src] on [patient]."), span_notice("You begin applying [src] on [patient]..."))
+			user.visible_message(span_notice("<b>[user]</b> начинает применять <b>[skloname]</b> на <b>[patient]</b>.") , span_notice("Начинаю применять <b>[skloname]</b> на <b>[patient]</b>..."))
 		if(!do_after(user, other_delay, patient, extra_checks=CALLBACK(patient, TYPE_PROC_REF(/mob/living, try_inject), user, null, INJECT_TRY_SHOW_ERROR_MESSAGE)))
 			return
 
@@ -83,42 +84,39 @@
 /// Apply the actual effects of the healing if it's a simple animal, goes to [/obj/item/stack/medical/proc/heal_carbon] if it's a carbon, returns TRUE if it works, FALSE if it doesn't
 /obj/item/stack/medical/proc/heal(mob/living/patient, mob/user)
 	if(patient.stat == DEAD)
-		patient.balloon_alert(user, "they're dead!")
+		to_chat(user, span_warning("[patient] мертв! Ничем не могу помочь [patient.ru_na()]."))
 		return
 	if(isanimal_or_basicmob(patient) && heal_brute) // only brute can heal
 		if (!(patient.mob_biotypes & MOB_ORGANIC))
-			patient.balloon_alert(user, "can't fix that!")
+			to_chat(user, span_warning("Не могу использовать [src] на [patient]!"))
 			return FALSE
 		if (patient.health == patient.maxHealth)
-			patient.balloon_alert(user, "not hurt!")
+			to_chat(user, span_notice("[patient] полностью здоров."))
 			return FALSE
-		user.visible_message("<span class='infoplain'><span class='green'>[user] applies [src] on [patient].</span></span>", "<span class='infoplain'><span class='green'>You apply [src] on [patient].</span></span>")
+		user.visible_message(span_green("[user] использует [src] на [patient].") , span_green("Использую [src] на [patient]."))
 		patient.heal_bodypart_damage((heal_brute * patient.maxHealth/100))
 		return TRUE
 	if(iscarbon(patient))
 		return heal_carbon(patient, user, heal_brute, heal_burn)
-	patient.balloon_alert(user, "can't heal that!")
+	to_chat(user, span_warning("Не могу вылечить [patient] с помощью [src]!"))
 
 /// The healing effects on a carbon patient. Since we have extra details for dealing with bodyparts, we get our own fancy proc. Still returns TRUE on success and FALSE on fail
-/obj/item/stack/medical/proc/heal_carbon(mob/living/carbon/patient, mob/user, brute, burn)
-	var/obj/item/bodypart/affecting = patient.get_bodypart(check_zone(user.zone_selected))
+/obj/item/stack/medical/proc/heal_carbon(mob/living/carbon/C, mob/user, brute, burn)
+	var/obj/item/bodypart/affecting = C.get_bodypart(check_zone(user.zone_selected))
 	if(!affecting) //Missing limb?
-		patient.balloon_alert(user, "no [parse_zone(user.zone_selected)]!")
+		to_chat(user, span_warning("А у <b>[C]</b> совсем отсутствует <b>[ru_exam_parse_zone(parse_zone(user.zone_selected))]</b>!"))
 		return FALSE
 	if(!IS_ORGANIC_LIMB(affecting)) //Limb must be organic to be healed - RR
-		patient.balloon_alert(user, "it's not organic!")
+		to_chat(user,  span_warning("<b>[capitalize(src)]</b> не будет работать на механической конечности!"))
 		return FALSE
 	if(affecting.brute_dam && brute || affecting.burn_dam && burn)
-		user.visible_message(
-			span_infoplain(span_green("[user] applies [src] on [patient]'s [parse_zone(affecting.body_zone)].")),
-			span_infoplain(span_green("You apply [src] on [patient]'s [parse_zone(affecting.body_zone)]."))
-		)
+		user.visible_message(span_green("<b>[user]</b> применяет <b>[skloname]</b> на <b>[ru_parse_zone(affecting.name)] [C]</b>.") , span_green("Применяю <b>[skloname]</b> на <b>[ru_parse_zone(affecting.name)] [C]</b>."))
 		var/previous_damage = affecting.get_damage()
 		if(affecting.heal_damage(brute, burn))
-			patient.update_damage_overlays()
-		post_heal_effects(max(previous_damage - affecting.get_damage(), 0), patient, user)
+			C.update_damage_overlays()
+		post_heal_effects(max(previous_damage - affecting.get_damage(), 0), C, user)
 		return TRUE
-	patient.balloon_alert(user, "can't heal that!")
+	to_chat(user, span_warning("<b>[capitalize(affecting.name)] [C]</b> не может быть вылечена при помощи [src]!"))
 	return FALSE
 
 ///Override this proc for special post heal effects.
@@ -126,9 +124,10 @@
 	return
 
 /obj/item/stack/medical/bruise_pack
-	name = "bruise pack"
-	singular_name = "bruise pack"
-	desc = "A therapeutic gel pack and bandages designed to treat blunt-force trauma."
+	name = "гель и пластыри"
+	singular_name = "гель и пластыри"
+	skloname = "гель и пластыри"
+	desc = "Терапевтический гель и пластыри, предназначенные для лечения травм."
 	icon_state = "brutepack"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -139,14 +138,15 @@
 	merge_type = /obj/item/stack/medical/bruise_pack
 
 /obj/item/stack/medical/bruise_pack/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is bludgeoning [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] избивает [user.ru_na()]себя с помощью [src]! Это выглядит будто [user.p_theyre()] пытается совершить самоубийство!"))
 	return BRUTELOSS
 
 /obj/item/stack/medical/gauze
-	name = "medical gauze"
-	desc = "A roll of elastic cloth, perfect for stabilizing all kinds of wounds, from cuts and burns, to broken bones. "
+	name = "медицинский бинт"
+	skloname = "медицинский бинт"
+	desc = "Рулон эластичной ткани, который чрезвычайно эффективен при остановке кровотечения, правит переломы, но не заживляет раны."
 	gender = PLURAL
-	singular_name = "medical gauze"
+	singular_name = "медицинская марля"
 	icon_state = "gauze"
 	self_delay = 5 SECONDS
 	other_delay = 2 SECONDS
@@ -170,16 +170,16 @@
 	gauzed_bodypart = null
 
 // gauze is only relevant for wounds, which are handled in the wounds themselves
-/obj/item/stack/medical/gauze/try_heal(mob/living/patient, mob/user, silent)
+/obj/item/stack/medical/gauze/try_heal(mob/living/M, mob/user, silent)
 
-	var/treatment_delay = (user == patient ? self_delay : other_delay)
+	var/treatment_delay = (user == M ? self_delay : other_delay)
 
-	var/obj/item/bodypart/limb = patient.get_bodypart(check_zone(user.zone_selected))
+	var/obj/item/bodypart/limb = M.get_bodypart(check_zone(user.zone_selected))
 	if(!limb)
-		patient.balloon_alert(user, "missing limb!")
+		to_chat(user, span_notice("Здесь нечего перевязывать!"))
 		return
 	if(!LAZYLEN(limb.wounds))
-		patient.balloon_alert(user, "no wounds!") // good problem to have imo
+		to_chat(user, span_notice("Рана не требует перевязки на [limb.name][user==M ? "" : " [M]"]!")) // good problem to have imo
 		return
 
 	var/gauzeable_wound = FALSE
@@ -190,26 +190,22 @@
 			gauzeable_wound = TRUE
 			break
 	if(!gauzeable_wound)
-		patient.balloon_alert(user, "can't heal those!")
+		to_chat(user, span_notice("Рана не требует перевязки на [limb.name][user==M ? "" : " [M]"]!")) // good problem to have imo
 		return
 
 	if(limb.current_gauze && (limb.current_gauze.absorption_capacity * 1.2 > absorption_capacity)) // ignore if our new wrap is < 20% better than the current one, so someone doesn't bandage it 5 times in a row
-		patient.balloon_alert(user, pick("already bandaged!", "bandage is clean!")) // good enough
+		to_chat(user, span_warning("Бинт на [limb.name] [user==M ? "" : "[M]"] всё ещё в норме!"))
 		return
 
 	if(HAS_TRAIT(woundies, TRAIT_WOUND_SCANNED))
 		treatment_delay *= 0.5
-		if(user == patient)
-			to_chat(user, span_notice("You keep in mind the indications from the holo-image about your injury, and expertly begin wrapping your wounds with [src]."))
-		else
-			user.visible_message(span_warning("[user] begins expertly wrapping the wounds on [patient]'s [limb.plaintext_zone] with [src]..."), span_warning("You begin quickly wrapping the wounds on [patient]'s [limb.plaintext_zone] with [src], keeping the holo-image indications in mind..."))
-	else
-		user.visible_message(span_warning("[user] begins wrapping the wounds on [patient]'s [limb.plaintext_zone] with [src]..."), span_warning("You begin wrapping the wounds on [user == patient ? "your" : "[patient]'s"] [limb.plaintext_zone] with [src]..."))
 
-	if(!do_after(user, treatment_delay, target = patient))
+	user.visible_message(span_warning("[user] начинает оборачивать [limb.name] [M] используя [src.name]...") , span_warning("Начинаю оборачивать [limb.name] [user == M ? "" : "[M]"] используя [src.name]..."))
+
+	if(!do_after(user, treatment_delay, target = M))
 		return
 
-	user.visible_message("<span class='infoplain'><span class='green'>[user] applies [src] to [patient]'s [limb.plaintext_zone].</span></span>", "<span class='infoplain'><span class='green'>You bandage the wounds on [user == patient ? "your" : "[patient]'s"] [limb.plaintext_zone].</span></span>")
+	user.visible_message(span_green("[user] применяет [src.name] на [limb.name] [M].") , span_green("Перевязываю раны на [limb.name] [user == M ? "yourself" : "[M]"]."))
 	limb.apply_gauze(src)
 
 /obj/item/stack/medical/gauze/twelve
@@ -218,16 +214,16 @@
 /obj/item/stack/medical/gauze/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER || I.get_sharpness())
 		if(get_amount() < 2)
-			balloon_alert(user, "not enough gauze!")
+			to_chat(user, span_warning("На как минимум два кусочка бинта!"))
 			return
 		new /obj/item/stack/sheet/cloth(I.drop_location())
 		if(user.CanReach(src))
-			user.visible_message(span_notice("[user] cuts [src] into pieces of cloth with [I]."), \
-				span_notice("You cut [src] into pieces of cloth with [I]."), \
-				span_hear("You hear cutting."))
+			user.visible_message(span_notice("<b>[user]</b> нарезает <b>[src]</b> на куски ткани при помощи <b>[I]</b>.") , \
+			span_notice("Нарезаю <b>[src]</b> на куски ткани при помощи <b>[I]</b>.") , \
+			span_hear("Слышу как что-то режет ткань."))
 		else //telekinesis
-			visible_message(span_notice("[I] cuts [src] into pieces of cloth."), \
-				blind_message = span_hear("You hear cutting."))
+			visible_message(span_notice("[I] режет [src] на кусочки."), \
+				blind_message = span_hear("Слышу как что-то режет ткань."))
 		use(2)
 	else
 		return ..()
@@ -237,9 +233,10 @@
 	return OXYLOSS
 
 /obj/item/stack/medical/gauze/improvised
-	name = "improvised gauze"
-	singular_name = "improvised gauze"
-	desc = "A roll of cloth roughly cut from something that does a decent job of stabilizing wounds, but less efficiently so than real medical gauze."
+	name = "импровизированный бинт"
+	skloname = "импровизированный бинт"
+	singular_name = "импровизированный бинт"
+	desc = "Рулон эластичной ткани, который чрезвычайно эффективен при остановке кровотечения, правит переломы, но не заживляет раны. Менее эффективен своих аналогов."
 	self_delay = 6 SECONDS
 	other_delay = 3 SECONDS
 	splint_factor = 0.85
@@ -257,10 +254,10 @@
 	 */
 
 /obj/item/stack/medical/suture
-	name = "suture"
-	desc = "Basic sterile sutures used to seal up cuts and lacerations and stop bleeding."
-	gender = PLURAL
-	singular_name = "suture"
+	name = "хирургическая нить"
+	skloname = "хирургическую нить"
+	desc = "Стерильные швы используются для герметизации порезов и разрывов."
+	gender = FEMALE
 	icon_state = "suture"
 	self_delay = 3 SECONDS
 	other_delay = 1 SECONDS
@@ -273,27 +270,29 @@
 	merge_type = /obj/item/stack/medical/suture
 
 /obj/item/stack/medical/suture/emergency
-	name = "emergency suture"
-	desc = "A value pack of cheap sutures, not very good at repairing damage, but still decent at stopping bleeding."
+	name = "экстренный шов"
+	desc = "Набор дешевых швов, не очень хорош для залатывания ран, однако эффективно останавливает кровотечения."
 	heal_brute = 5
 	amount = 5
 	max_amount = 5
 	merge_type = /obj/item/stack/medical/suture/emergency
 
 /obj/item/stack/medical/suture/medicated
-	name = "medicated suture"
+	name = "лечебная хирургическая нить"
+	skloname = "лечебную хирургическую нить"
+	desc = "Нить, наполненная лекарственными средствами, ускоряющими заживление раны на обработанной ране."
 	icon_state = "suture_purp"
-	desc = "A suture infused with drugs that speed up wound healing of the treated laceration."
 	heal_brute = 15
 	stop_bleeding = 0.75
 	grind_results = list(/datum/reagent/medicine/polypyr = 1)
 	merge_type = /obj/item/stack/medical/suture/medicated
 
 /obj/item/stack/medical/ointment
-	name = "ointment"
-	desc = "Basic burn ointment, rated effective for second degree burns with proper bandaging, though it's still an effective stabilizer for worse burns. Not terribly good at outright healing burns though."
-	gender = PLURAL
-	singular_name = "ointment"
+	name = "мазь"
+	skloname = "мазь"
+	desc = "Используется для лечения этих неприятных ожоговых ран."
+	gender = FEMALE
+	singular_name = "мазь"
 	icon_state = "ointment"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -313,10 +312,11 @@
 	return TOXLOSS
 
 /obj/item/stack/medical/mesh
-	name = "regenerative mesh"
-	desc = "A bacteriostatic mesh used to dress burns."
-	gender = PLURAL
-	singular_name = "mesh piece"
+	name = "регенеративная сетка"
+	skloname = "регенеративную сетку"
+	desc = "Бактериостатическая сетка используется для прижигания ожогов. Для использования необходимо снять стерильную пленку."
+	gender = FEMALE
+	singular_name = "регенеративная сетка"
 	icon_state = "regen_mesh"
 	self_delay = 3 SECONDS
 	other_delay = 1 SECONDS
@@ -344,36 +344,37 @@
 
 /obj/item/stack/medical/mesh/try_heal(mob/living/patient, mob/user, silent = FALSE)
 	if(!is_open)
-		balloon_alert(user, "open it first!")
+		to_chat(user, span_warning("Надо бы открыть <b>[src]</b> сначала."))
 		return
 	return ..()
 
 /obj/item/stack/medical/mesh/AltClick(mob/living/user)
 	if(!is_open)
-		balloon_alert(user, "open it first!")
+		to_chat(user, span_warning("Надо бы открыть <b>[src]</b> сначала."))
 		return
 	return ..()
 
 /obj/item/stack/medical/mesh/attack_hand(mob/user, list/modifiers)
 	if(!is_open && user.get_inactive_held_item() == src)
-		balloon_alert(user, "open it first!")
+		to_chat(user, span_warning("Надо бы открыть <b>[src]</b> сначала."))
 		return
 	return ..()
 
 /obj/item/stack/medical/mesh/attack_self(mob/user)
 	if(!is_open)
 		is_open = TRUE
-		balloon_alert(user, "opened")
+		to_chat(user, span_notice("Открываю стерильную упаковку сетки."))
 		update_appearance()
 		playsound(src, 'sound/items/poster_ripped.ogg', 20, TRUE)
 		return
 	return ..()
 
 /obj/item/stack/medical/mesh/advanced
-	name = "advanced regenerative mesh"
-	desc = "An advanced mesh made with aloe extracts and sterilizing chemicals, used to treat burns."
-
-	gender = PLURAL
+	name = "продвинутая регенеративная сетка"
+	skloname = "продвинутую регенеративную сетку"
+	desc = "Передовая сетка из экстрактов алоэ и стерилизующих химикатов, используемых для лечения ожогов."
+	gender = FEMALE
+	singular_name = "продвинутая регенеративная сетка"
 	icon_state = "aloe_mesh"
 	heal_burn = 15
 	sanitization = 1.25
@@ -387,8 +388,8 @@
 	icon_state = "aloe_mesh_closed"
 
 /obj/item/stack/medical/aloe
-	name = "aloe cream"
-	desc = "A healing paste for minor cuts and burns."
+	name = "крем алоэ"
+	skloname = "крем алоэ"
 
 	gender = PLURAL
 	singular_name = "aloe cream"
@@ -408,9 +409,9 @@
 	amount = 2
 
 /obj/item/stack/medical/bone_gel
-	name = "bone gel"
+	name = "Костный гель"
 	singular_name = "bone gel"
-	desc = "A potent medical gel that, when applied to a damaged bone in a proper surgical setting, triggers an intense melding reaction to repair the wound. Can be directly applied alongside surgical sticky tape to a broken bone in dire circumstances, though this is very harmful to the patient and not recommended."
+	desc = "Мощный медицинский гель, который при нанесении на поврежденную кость в надлежащих хирургических условиях вызывает сращивание кости. Может применяться вместе с хирургической липкой лентой к сломанной кости в чрезвычайных ситуациях, хотя это и не рекомендуется ведь это вредно для пациента."
 
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "bone-gel"
@@ -434,21 +435,21 @@
 /obj/item/stack/medical/bone_gel/suicide_act(mob/living/user)
 	if(!iscarbon(user))
 		return
-	var/mob/living/carbon/patient = user
-	patient.visible_message(span_suicide("[patient] is squirting all of [src] into [patient.p_their()] mouth! That's not proper procedure! It looks like [patient.p_theyre()] trying to commit suicide!"))
-	if(!do_after(patient, 2 SECONDS))
-		patient.visible_message(span_suicide("[patient] screws up like an idiot and still dies anyway!"))
+	var/mob/living/carbon/C = user
+	C.visible_message(span_suicide("[C] впрыскивает весь [src] в рот [C.ru_ego ()]! Это неправильная процедура! Похоже, [C.p_theyre ()] пытается покончить жизнь самоубийством!"))
+	if(!do_after(C, 2 SECONDS))
+		C.visible_message(span_suicide("[C] облажался и все равно умирает!"))
 		return BRUTELOSS
 
-	patient.emote("scream")
-	for(var/i in patient.bodyparts)
+	C.emote("scream")
+	for(var/i in C.bodyparts)
 		var/obj/item/bodypart/bone = i // fine to just, use these raw, its a meme anyway
 		var/datum/wound/blunt/bone/severe/oof_ouch = new
 		oof_ouch.apply_wound(bone, wound_source = "bone gel")
 		var/datum/wound/blunt/bone/critical/oof_OUCH = new
 		oof_OUCH.apply_wound(bone, wound_source = "bone gel")
 
-	for(var/i in patient.bodyparts)
+	for(var/i in C.bodyparts)
 		var/obj/item/bodypart/bone = i
 		bone.receive_damage(brute=60)
 	use(1)
@@ -458,9 +459,9 @@
 	amount = 1
 
 /obj/item/stack/medical/poultice
-	name = "mourning poultices"
+	name = "поминальные припарки"
 	singular_name = "mourning poultice"
-	desc = "A type of primitive herbal poultice.\nWhile traditionally used to prepare corpses for the mourning feast, it can also treat scrapes and burns on the living, however, it is liable to cause shortness of breath when employed in this manner.\nIt is imbued with ancient wisdom."
+	desc = "Тип примитивной травяной припарки. \nХотя она традиционно используется для подготовки покойника к прощанию, ей также можно лечить царапины и ожоги у живых, однако при таком применении может вызвать сбивчивое дыхание. \nМудрость предков."
 	icon_state = "poultice"
 	amount = 15
 	max_amount = 15
@@ -485,8 +486,8 @@
 	healed_mob.adjustOxyLoss(amount_healed)
 
 /obj/item/stack/medical/bandage
-	name = "first aid bandage"
-	desc = "A DeForest brand bandage designed for basic first aid on blunt-force trauma."
+	name = "бинт"
+	desc = "Бинт, предназначенный для оказания первой помощи."
 	icon_state = "bandage"
 	inhand_icon_state = "bandage"
 	novariants = TRUE

@@ -1,6 +1,6 @@
 
 /obj/effect/anomaly/bioscrambler
-	name = "bioscrambler anomaly"
+	name = "биоконверсионная аномалия"
 	icon_state = "bioscrambler"
 	aSignal = /obj/item/assembly/signaler/anomaly/bioscrambler
 	immortal = TRUE

@@ -105,7 +105,7 @@
 	// If the traitor theft objective is still present, this will destroy it...
 	if(!source_code_hdd)
 		return ..()
-	to_chat(ninja, span_notice("Hacking \the [src]..."))
+	to_chat(ninja, span_notice("Hacking  [src]..."))
 	AI_notify_hack()
 	to_chat(ninja, span_notice("Encrypted source code detected. Overloading storage device..."))
 	INVOKE_ASYNC(src, PROC_REF(ninjadrain_charge), ninja, hacking_module)

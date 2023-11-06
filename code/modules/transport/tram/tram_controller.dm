@@ -754,7 +754,7 @@
 	if(cover_open)
 		. += span_notice("The [EXAMINE_HINT("yellow reset button")] resets the tram controller if a problem occurs or needs to be restarted.")
 		. += span_notice("The [EXAMINE_HINT("red stop button")] immediately stops the tram, requiring a reset afterwards.")
-		. += span_notice("The cabinet can be closed with a [EXAMINE_HINT("Right-click.")]")
+		. += span_notice("The cabinet can be closed with a [EXAMINE_HINT("ПКМ.")]")
 	else
 		. += span_notice("The cabinet can be opened with a [EXAMINE_HINT("Left-click.")]")
 

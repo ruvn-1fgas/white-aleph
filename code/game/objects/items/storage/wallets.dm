@@ -1,6 +1,6 @@
 /obj/item/storage/wallet
-	name = "wallet"
-	desc = "It can hold a few small and personal things."
+	name = "кошелёк"
+	desc = "Может вместить несколько мелких и личных вещей."
 	icon_state = "wallet"
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FLAMMABLE
@@ -123,7 +123,7 @@
 /obj/item/storage/wallet/examine()
 	. = ..()
 	if(front_id)
-		. += span_notice("Alt-click to remove the id.")
+		. += span_notice("Alt-клик to remove the id.")
 
 /obj/item/storage/wallet/get_id_examine_strings(mob/user)
 	. = ..()

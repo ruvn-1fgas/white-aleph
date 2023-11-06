@@ -59,7 +59,7 @@
 	if(!express_console)
 		. += span_notice("[src] is not currently linked to an Express Supply console.")
 	else
-		. += span_notice("Alt-click to unlink it from the Express Supply console.")
+		. += span_notice("Alt-клик to unlink it from the Express Supply console.")
 
 /obj/item/supplypod_beacon/Destroy()
 	if(express_console)

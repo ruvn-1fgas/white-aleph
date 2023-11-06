@@ -731,7 +731,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 			valve_open = !valve_open
 			if(valve_open)
 				SSair.start_processing_machine(src)
-				logmsg = "Valve was <b>opened</b> by [key_name(usr)], starting a transfer into \the [holding || "air"].<br>"
+				logmsg = "Valve was <b>opened</b> by [key_name(usr)], starting a transfer into  [holding || "air"].<br>"
 				if(!holding)
 					var/list/gaseslog = list() //list for logging all gases in canister
 					for(var/id in air_contents.gases)
@@ -753,7 +753,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 					if(danger) //sent to admin's chat if contains dangerous gases
 						message_admins(admin_msg)
 			else
-				logmsg = "valve was <b>closed</b> by [key_name(usr)], stopping the transfer into \the [holding || "air"].<br>"
+				logmsg = "valve was <b>closed</b> by [key_name(usr)], stopping the transfer into  [holding || "air"].<br>"
 			investigate_log(logmsg, INVESTIGATE_ATMOS)
 			release_log += logmsg
 			. = TRUE

@@ -135,7 +135,7 @@
 				if(!computer)
 					// This program shouldn't even be runnable without computer.
 					CRASH("Var computer is null!")
-				computer.visible_message(span_warning("\The [computer] shows an \"I/O Error - Hard drive may be full. Please free some space and try again. Required space: [logfile.size]GQ\" warning."))
+				computer.visible_message(span_warning(" [computer] shows an \"I/O Error - Hard drive may be full. Please free some space and try again. Required space: [logfile.size]GQ\" warning."))
 			return TRUE
 		if("PRG_renamechannel")
 			if(!authed)

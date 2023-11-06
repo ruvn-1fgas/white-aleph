@@ -90,7 +90,7 @@
 	. = ..()
 	respawn_progress = 0
 	if(blade && special != HEART_SPECIAL_SHADOWIFY)
-		heart_owner.visible_message(span_warning("\The [blade] disintegrates!"))
+		heart_owner.visible_message(span_warning(" [blade] disintegrates!"))
 		QDEL_NULL(blade)
 
 /obj/item/organ/internal/heart/nightmare/Stop()

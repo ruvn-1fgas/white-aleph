@@ -10,8 +10,8 @@
  * has a popup window when used, allowing to set the timer.
  */
 /obj/machinery/status_display/door_timer
-	name = "door timer"
-	desc = "A remote control for a door."
+	name = "таймер шлюза"
+	desc = "Удалённое управление шлюзом. Отлично."
 	current_mode = SD_MESSAGE
 	req_access = list(ACCESS_SECURITY)
 	text_color = "#F44"
@@ -131,7 +131,7 @@
 
 	if(!forced)
 		sec_radio.set_frequency(FREQ_SECURITY)
-		sec_radio.talk_into(src, "Timer has expired. Releasing prisoner.", FREQ_SECURITY)
+		sec_radio.talk_into(src, "Таймер закончился. Освобождаю заключённого.", FREQ_SECURITY)
 
 	timing = FALSE
 	activation_time = null
@@ -218,7 +218,7 @@
 	var/mob/user = usr
 
 	if(!allowed(usr))
-		to_chat(usr, span_warning("Access denied."))
+		to_chat(usr, span_warning("Доступ запрещён."))
 		return FALSE
 
 	switch(action)

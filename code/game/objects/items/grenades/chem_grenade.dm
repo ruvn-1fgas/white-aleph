@@ -1,6 +1,6 @@
 /obj/item/grenade/chem_grenade
-	name = "chemical grenade"
-	desc = "A custom made grenade."
+	name = "Химическая граната"
+	desc = "Каркас химической гранаты."
 	icon_state = "chemg"
 	base_icon_state = "chemg"
 	inhand_icon_state = "flashbang"
@@ -23,7 +23,7 @@
 	/// How much to scale the reagents by when the grenade detonates. Used by advanced grenades to make them slightly more worthy.
 	var/threatscale = 1
 	/// The description when examining empty casings.
-	var/casedesc = "This basic model accepts both beakers and bottles. It heats contents by 10 K upon ignition."
+	var/casedesc = "Поддерживает стандартные емкости. При детонации нагревает состав на 10°K." // Appears when examining empty casings.
 	/// Whether or not the grenade is currently acting as a landmine. Currently broken and not my current project.
 	var/obj/item/assembly/prox_sensor/landminemode = null
 
@@ -51,20 +51,20 @@
 	. = ..()
 	if(user.can_see_reagents())
 		if(beakers.len)
-			. += span_notice("You scan the grenade and detect the following reagents:")
+			. += span_notice("Внутри обнаружены следующие реагенты:")
 			for(var/obj/item/reagent_containers/cup/glass_beaker in beakers)
 				for(var/datum/reagent/reagent in glass_beaker.reagents.reagent_list)
-					. += span_notice("[reagent.volume] units of [reagent.name] in the [glass_beaker.name].")
+					. += span_notice("[reagent.volume] единиц [reagent.name] в [glass_beaker.name].")
 			if(beakers.len == 1)
-				. += span_notice("You detect no second beaker in the grenade.")
+				. += span_notice("торой емкости не обнаружено.")
 		else
-			. += span_notice("You scan the grenade, but detect nothing.")
+			. += span_notice("Граната не снаряжена.")
 	else if(stage != GRENADE_READY && beakers.len)
 		if(beakers.len == 2 && beakers[1].name == beakers[2].name)
-			. += span_notice("You see two [beakers[1].name]s inside the grenade.")
+			. += span_notice("Внутри находится два [beakers[1].name].")
 		else
 			for(var/obj/item/reagent_containers/cup/glass_beaker in beakers)
-				. += span_notice("You see a [glass_beaker.name] inside the grenade.")
+				. += span_notice("Внутри находится [glass_beaker.name].")
 
 /obj/item/grenade/chem_grenade/update_name(updates)
 	switch(stage)
@@ -130,15 +130,15 @@
 			to_chat(user, span_notice("You disarm the [landminemode.name]."))
 			tool.play_tool_sound(src, 25)
 		else
-			to_chat(user, span_warning("You need to add at least one beaker before locking the [initial(name)] assembly!"))
+			to_chat(user, span_warning("Для завершения сборки необходимо поместить внутрь хотя бы одну емкость!"))
 	else if(stage == GRENADE_READY)
 		det_time = det_time == 50 ? 30 : 50 //toggle between 30 and 50
 		if(landminemode)
 			landminemode.time = det_time * 0.1 //overwrites the proxy sensor activation timer
 		tool.play_tool_sound(src, 25)
-		to_chat(user, span_notice("You modify the time delay. It's set for [DisplayTimeText(det_time)]."))
+		to_chat(user, span_notice("Устанавливаю задержку в [DisplayTimeText(det_time)]."))
 	else
-		to_chat(user, span_warning("You need to add a wire!"))
+		to_chat(user, span_warning("Для начала необходимо добавить провода!"))
 
 	return TRUE
 
@@ -166,7 +166,7 @@
 	wires.detach_assembly(wires.get_wire(1))
 	new /obj/item/stack/cable_coil(get_turf(src), 1)
 	stage_change(GRENADE_EMPTY)
-	to_chat(user, span_notice("You remove the activation mechanism from the [initial(name)] assembly."))
+	to_chat(user, span_notice("Отсоединяю взрыватель."))
 
 /obj/item/grenade/chem_grenade/attackby(obj/item/item, mob/user, params)
 	if(isassembly(item) && stage == GRENADE_WIRED)

@@ -79,7 +79,8 @@
 	update_appearance()
 
 /obj/item/storage/lockbox/loyalty
-	name = "lockbox of mindshield implants"
+	name = "кейс с микроимплантами щита разума"
+	desc = "Защищает от промывки мозгов при помощи сертефицированной НТ промывкой мозгов."
 	req_access = list(ACCESS_SECURITY)
 
 /obj/item/storage/lockbox/loyalty/PopulateContents()
@@ -118,7 +119,7 @@
 /obj/item/storage/lockbox/medal/examine(mob/user)
 	. = ..()
 	if(!atom_storage.locked)
-		. += span_notice("Alt-click to [open ? "close":"open"] it.")
+		. += span_notice("Alt-клик to [open ? "close":"open"] it.")
 
 /obj/item/storage/lockbox/medal/AltClick(mob/user)
 	if(!user.can_perform_action(src))

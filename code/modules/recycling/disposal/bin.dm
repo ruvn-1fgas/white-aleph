@@ -120,9 +120,9 @@
 			if(!I.tool_start_check(user, amount=1))
 				return
 
-			to_chat(user, span_notice("You start slicing the floorweld off \the [src]..."))
+			to_chat(user, span_notice("You start slicing the floorweld off  [src]..."))
 			if(I.use_tool(src, user, 20, volume=SMALL_MATERIAL_AMOUNT) && panel_open)
-				to_chat(user, span_notice("You slice the floorweld off \the [src]."))
+				to_chat(user, span_notice("You slice the floorweld off  [src]."))
 				deconstruct()
 			return
 
@@ -159,7 +159,7 @@
 /// Moves an item into the diposal bin
 /obj/machinery/disposal/proc/place_item_in_disposal(obj/item/I, mob/user)
 	I.forceMove(src)
-	user.visible_message(span_notice("[user.name] places \the [I] into \the [src]."), span_notice("You place \the [I] into \the [src]."))
+	user.visible_message(span_notice("[user.name] places  [I] into  [src]."), span_notice("You place  [I] into  [src]."))
 
 /// Mouse drop another mob or self
 /obj/machinery/disposal/MouseDrop_T(mob/living/target, mob/living/user)
@@ -563,9 +563,9 @@
 		return
 	target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
 	target.forceMove(src)
-	target.visible_message(span_danger("[shover.name] shoves [target.name] into \the [src]!"),
-		span_userdanger("You're shoved into \the [src] by [target.name]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
-	to_chat(src, span_danger("You shove [target.name] into \the [src]!"))
+	target.visible_message(span_danger("[shover.name] shoves [target.name] into  [src]!"),
+		span_userdanger("You're shoved into  [src] by [target.name]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
+	to_chat(src, span_danger("You shove [target.name] into  [src]!"))
 	log_combat(shover, target, "shoved", "into [src] (disposal bin)")
 	return COMSIG_CARBON_SHOVE_HANDLED
 

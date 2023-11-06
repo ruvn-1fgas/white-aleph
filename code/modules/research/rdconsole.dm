@@ -86,7 +86,7 @@ Nothing else in the console has ID requirements.
 		else
 			to_chat(user, span_warning("Machine cannot accept disks in that format."))
 			return
-		to_chat(user, span_notice("You insert [D] into \the [src]!"))
+		to_chat(user, span_notice("You insert [D] into  [src]!"))
 		return
 	return ..()
 

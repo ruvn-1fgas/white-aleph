@@ -1,6 +1,6 @@
 /obj/machinery/computer/apc_control
-	name = "power flow control console"
-	desc = "Used to remotely control the flow of power to different parts of the station."
+	name = "консоль управления энергопотреблением"
+	desc = "Используется для дистанционного управления подачи электроэнергии в различные части станции."
 	icon_screen = "solar"
 	icon_keyboard = "power_key"
 	req_access = list(ACCESS_CE)
@@ -53,7 +53,7 @@
 	if(isnull(apc))
 		return
 	if(apc.remote_control_user)
-		to_chat(user, span_warning("\The [apc] is being controlled by someone else!"))
+		to_chat(user, span_warning(" [apc] is being controlled by someone else!"))
 		return
 	if(active_apc)
 		disconnect_apc()

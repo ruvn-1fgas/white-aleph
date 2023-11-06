@@ -376,7 +376,7 @@
 			span_notice("You open [src]'s casing."), span_hear("You hear a noise."))
 		deconstruct()
 		return
-	to_chat(user, span_userdanger("You stick \the [tool] into the light socket!"))
+	to_chat(user, span_userdanger("You stick  [tool] into the light socket!"))
 	if(has_power() && (tool.flags_1 & CONDUCT_1))
 		do_sparks(3, TRUE, src)
 		if (prob(75))

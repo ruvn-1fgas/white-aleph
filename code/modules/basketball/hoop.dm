@@ -105,7 +105,7 @@
 	var/dunk_pixel_x = dunk_dir & EAST && 16 || dunk_dir & WEST && -16 || 0
 
 	INVOKE_ASYNC(src, PROC_REF(dunk_animation), baller, dunk_pixel_y, dunk_pixel_x)
-	visible_message(span_warning("[baller] dunks [ball] into \the [src]!"))
+	visible_message(span_warning("[baller] dunks [ball] into  [src]!"))
 	baller.add_mood_event("basketball", /datum/mood_event/basketball_dunk)
 	score(ball, baller, 2)
 
@@ -132,7 +132,7 @@
 		return
 	loser.forceMove(loc)
 	loser.Paralyze(100)
-	visible_message(span_danger("[baller] dunks [loser] into \the [src]!"))
+	visible_message(span_danger("[baller] dunks [loser] into  [src]!"))
 	playsound(src, 'sound/machines/scanbuzz.ogg', 100, FALSE)
 	baller.adjustStaminaLoss(STAMINA_COST_DUNKING_MOB)
 	baller.stop_pulling()

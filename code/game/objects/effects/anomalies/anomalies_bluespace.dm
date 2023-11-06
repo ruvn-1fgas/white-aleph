@@ -1,6 +1,6 @@
 
 /obj/effect/anomaly/bluespace
-	name = "bluespace anomaly"
+	name = "блюспейс аномалия"
 	icon = 'icons/obj/weapons/guns/projectiles.dmi'
 	icon_state = "bluespace"
 	density = TRUE
@@ -41,7 +41,7 @@
 	var/turf/TO = get_turf(chosen) // the turf of origin we're travelling TO
 
 	playsound(TO, 'sound/effects/phasein.ogg', 100, TRUE)
-	priority_announce("Massive bluespace translocation detected.", "Anomaly Alert")
+	priority_announce("Обнаружена массивная блюспейс-транслокация.", "Аномальная тревога")
 
 	var/list/flashers = list()
 	for(var/mob/living/carbon/C in viewers(TO, null))

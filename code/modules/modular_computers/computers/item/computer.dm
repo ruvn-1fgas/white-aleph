@@ -219,7 +219,7 @@
 /obj/item/modular_computer/get_id_examine_strings(mob/user)
 	. = ..()
 	if(computer_id_slot)
-		. += "\The [src] is displaying [computer_id_slot]."
+		. += " [src] is displaying [computer_id_slot]."
 		. += computer_id_slot.get_id_examine_strings(user)
 
 /obj/item/modular_computer/proc/print_text(text_to_print, paper_title = "")
@@ -250,7 +250,7 @@
 	if(user)
 		if(!user.transferItemToLoc(inserting_id, src))
 			return FALSE
-		to_chat(user, span_notice("You insert \the [inserting_id] into the card slot."))
+		to_chat(user, span_notice("You insert  [inserting_id] into the card slot."))
 	else
 		inserting_id.forceMove(src)
 
@@ -320,7 +320,7 @@
 	if(obj_flags & EMAGGED)
 		balloon_alert(user, "already emagged!")
 		if (emag_card)
-			to_chat(user, span_notice("You swipe \the [src] with [emag_card]. A console window fills the screen, but it quickly closes itself after only a few lines are written to it."))
+			to_chat(user, span_notice("You swipe  [src] with [emag_card]. A console window fills the screen, but it quickly closes itself after only a few lines are written to it."))
 		return FALSE
 
 	. = ..()
@@ -328,7 +328,7 @@
 	device_theme = PDA_THEME_SYNDICATE
 	balloon_alert(user, "syndieOS loaded")
 	if (emag_card)
-		to_chat(user, span_notice("You swipe \the [src] with [emag_card]. A console window momentarily fills the screen, with white text rapidly scrolling past."))
+		to_chat(user, span_notice("You swipe  [src] with [emag_card]. A console window momentarily fills the screen, with white text rapidly scrolling past."))
 	return TRUE
 
 /obj/item/modular_computer/examine(mob/user)
@@ -348,10 +348,10 @@
 
 	if(computer_id_slot)
 		if(Adjacent(user))
-			. += "It has \the [computer_id_slot] card installed in its card slot."
+			. += "It has  [computer_id_slot] card installed in its card slot."
 		else
 			. += "Its identification card slot is currently occupied."
-		. += span_info("Alt-click [src] to eject the identification card.")
+		. += span_info("Alt-клик [src] to eject the identification card.")
 
 /obj/item/modular_computer/examine_more(mob/user)
 	. = ..()
@@ -436,16 +436,16 @@
 	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
 	if(atom_integrity <= integrity_failure * max_integrity)
 		if(issynth)
-			to_chat(user, span_warning("You send an activation signal to \the [src], but it responds with an error code. It must be damaged."))
+			to_chat(user, span_warning("You send an activation signal to  [src], but it responds with an error code. It must be damaged."))
 		else
 			to_chat(user, span_warning("You press the power button, but the computer fails to boot up, displaying variety of errors before shutting down again."))
 		return FALSE
 
 	if(use_power()) // checks if the PC is powered
 		if(issynth)
-			to_chat(user, span_notice("You send an activation signal to \the [src], turning it on."))
+			to_chat(user, span_notice("You send an activation signal to  [src], turning it on."))
 		else
-			to_chat(user, span_notice("You press the power button and start up \the [src]."))
+			to_chat(user, span_notice("You press the power button and start up  [src]."))
 		if(looping_sound)
 			soundloop.start()
 		enabled = TRUE
@@ -455,9 +455,9 @@
 		return TRUE
 	else // Unpowered
 		if(issynth)
-			to_chat(user, span_warning("You send an activation signal to \the [src] but it does not respond."))
+			to_chat(user, span_warning("You send an activation signal to  [src] but it does not respond."))
 		else
-			to_chat(user, span_warning("You press the power button but \the [src] does not respond."))
+			to_chat(user, span_warning("You press the power button but  [src] does not respond."))
 		return FALSE
 
 // Process currently calls handle_power(), may be expanded in future if more things are added.
@@ -500,7 +500,7 @@
 	if(!caller || !caller.alert_able || caller.alert_silenced || !alerttext) //Yeah, we're checking alert_able. No, you don't get to make alerts that the user can't silence.
 		return FALSE
 	playsound(src, sound, 50, TRUE)
-	physical.loc.visible_message(span_notice("[icon2html(physical, viewers(physical.loc))] \The [src] displays a [caller.filedesc] notification: [alerttext]"))
+	physical.loc.visible_message(span_notice("[icon2html(physical, viewers(physical.loc))]  [src] displays a [caller.filedesc] notification: [alerttext]"))
 
 /obj/item/modular_computer/proc/ring(ringtone) // bring bring
 	if(HAS_TRAIT(SSstation, STATION_TRAIT_PDA_GLITCHED))
@@ -566,7 +566,7 @@
 		CRASH("tried to open program that does not belong to this computer")
 
 	if(!program || !istype(program)) // Program not found or it's not executable program.
-		to_chat(user, span_danger("\The [src]'s screen shows \"I/O ERROR - Unable to run program\" warning."))
+		to_chat(user, span_danger(" [src]'s screen shows \"I/O ERROR - Unable to run program\" warning."))
 		return FALSE
 
 	// The program is already running. Resume it.
@@ -583,11 +583,11 @@
 		return FALSE
 
 	if(idle_threads.len > max_idle_programs)
-		to_chat(user, span_danger("\The [src] displays a \"Maximal CPU load reached. Unable to run another program.\" error."))
+		to_chat(user, span_danger(" [src] displays a \"Maximal CPU load reached. Unable to run another program.\" error."))
 		return FALSE
 
 	if(program.requires_ntnet && !get_ntnet_status()) // The program requires NTNet connection, but we are not connected to NTNet.
-		to_chat(user, span_danger("\The [src]'s screen shows \"Unable to connect to NTNet. Please retry. If problem persists contact your system administrator.\" warning."))
+		to_chat(user, span_danger(" [src]'s screen shows \"Unable to connect to NTNet. Please retry. If problem persists contact your system administrator.\" warning."))
 		return FALSE
 
 	if(!program.on_start(user))
@@ -639,7 +639,7 @@
 	if(looping_sound)
 		soundloop.stop()
 	if(physical && loud)
-		physical.visible_message(span_notice("\The [src] shuts down."))
+		physical.visible_message(span_notice(" [src] shuts down."))
 	enabled = FALSE
 	update_appearance()
 
@@ -738,12 +738,12 @@
 		if(ismachinery(physical))
 			return
 		if(internal_cell)
-			to_chat(user, span_warning("You try to connect \the [attacking_item] to \the [src], but its connectors are occupied."))
+			to_chat(user, span_warning("You try to connect  [attacking_item] to  [src], but its connectors are occupied."))
 			return
 		if(user && !user.transferItemToLoc(attacking_item, src))
 			return
 		internal_cell = attacking_item
-		to_chat(user, span_notice("You plug \the [attacking_item] to \the [src]."))
+		to_chat(user, span_notice("You plug  [attacking_item] to  [src]."))
 		return
 
 	if(istype(attacking_item, /obj/item/photo))
@@ -819,17 +819,17 @@
 /obj/item/modular_computer/welder_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(atom_integrity == max_integrity)
-		to_chat(user, span_warning("\The [src] does not require repairs."))
+		to_chat(user, span_warning(" [src] does not require repairs."))
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 
 	if(!tool.tool_start_check(user, amount=1))
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 
-	to_chat(user, span_notice("You begin repairing damage to \the [src]..."))
+	to_chat(user, span_notice("You begin repairing damage to  [src]..."))
 	if(!tool.use_tool(src, user, 20, volume=50))
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	atom_integrity = max_integrity
-	to_chat(user, span_notice("You repair \the [src]."))
+	to_chat(user, span_notice("You repair  [src]."))
 	update_appearance()
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
@@ -843,7 +843,7 @@
 			inserted_disk?.forceMove(drop_location())
 			new /obj/item/stack/sheet/iron(drop_location(), steel_sheet_cost)
 		else
-			physical.visible_message(span_notice("\The [src] breaks apart!"))
+			physical.visible_message(span_notice(" [src] breaks apart!"))
 			new /obj/item/stack/sheet/iron(drop_location(), round(steel_sheet_cost * 0.5))
 	relay_qdel()
 	return ..()

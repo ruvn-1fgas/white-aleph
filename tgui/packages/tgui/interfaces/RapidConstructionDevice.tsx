@@ -133,9 +133,9 @@ const DesignSection = (props, context) => {
             className={classes(['rcd-tgui32x32', design.icon])}
             style={{
               transform:
-                design.title === 'full tile window' ||
-                design.title === 'full tile reinforced window' ||
-                design.title === 'catwalk'
+                design.title === 'Окно' ||
+                design.title === 'Армированное окно' ||
+                design.title === 'Решётка'
                   ? 'scale(0.7)'
                   : 'scale(1.0)',
             }}

@@ -117,13 +117,13 @@
 		if(!tank)
 			var/obj/item/tank/internals/IT = W
 			if(IT.volume <= 3)
-				to_chat(user, span_warning("\The [IT] is too small for \the [src]."))
+				to_chat(user, span_warning(" [IT] is too small for  [src]."))
 				return
 			updateTank(W, 0, user)
 	else if(W.type == type)
 		to_chat(user, span_warning("You're fairly certain that putting a pneumatic cannon inside another pneumatic cannon would cause a spacetime disruption."))
 	else if(loadedWeightClass >= maxWeightClass)
-		to_chat(user, span_warning("\The [src] can't hold any more items!"))
+		to_chat(user, span_warning(" [src] can't hold any more items!"))
 	else if(isitem(W))
 		var/obj/item/IW = W
 		load_item(IW, user)
@@ -137,11 +137,11 @@
 		return
 	if((loadedWeightClass + I.w_class) > maxWeightClass) //Only make messages if there's a user
 		if(user)
-			to_chat(user, span_warning("\The [I] won't fit into \the [src]!"))
+			to_chat(user, span_warning(" [I] won't fit into  [src]!"))
 		return FALSE
 	if(I.w_class > w_class)
 		if(user)
-			to_chat(user, span_warning("\The [I] is too large to fit into \the [src]!"))
+			to_chat(user, span_warning(" [I] is too large to fit into  [src]!"))
 		return FALSE
 	return TRUE
 
@@ -151,7 +151,7 @@
 	if(user) //Only use transfer proc if there's a user, otherwise just set loc.
 		if(!user.transferItemToLoc(I, src))
 			return FALSE
-		to_chat(user, span_notice("You load \the [I] into \the [src]."))
+		to_chat(user, span_notice("You load  [I] into  [src]."))
 	else
 		I.forceMove(src)
 	loadedItems += I
@@ -177,16 +177,16 @@
 	if(!can_trigger_gun(user))
 		return
 	if(!loadedItems || !loadedWeightClass)
-		to_chat(user, span_warning("\The [src] has nothing loaded."))
+		to_chat(user, span_warning(" [src] has nothing loaded."))
 		return
 	if(!tank && checktank)
-		to_chat(user, span_warning("\The [src] can't fire without a source of gas."))
+		to_chat(user, span_warning(" [src] can't fire without a source of gas."))
 		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("You can't bring yourself to fire \the [src]! You don't want to risk harming anyone...") )
+		to_chat(user, span_warning("You can't bring yourself to fire  [src]! You don't want to risk harming anyone...") )
 		return
 	if(tank && !tank.remove_air(gasPerThrow * pressure_setting))
-		to_chat(user, span_warning("\The [src] lets out a weak hiss and doesn't react!"))
+		to_chat(user, span_warning(" [src] lets out a weak hiss and doesn't react!"))
 		return
 	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(75) && clumsyCheck && iscarbon(user))
 		var/mob/living/carbon/C = user
@@ -199,8 +199,8 @@
 			target = pick(possible_targets)
 		discharge = 1
 	if(!discharge)
-		user.visible_message(span_danger("[user] fires \the [src]!"), \
-				    		 span_danger("You fire \the [src]!"))
+		user.visible_message(span_danger("[user] fires  [src]!"), \
+				    		 span_danger("You fire  [src]!"))
 	log_combat(user, target, "fired at", src)
 	var/turf/T = get_target(target, get_turf(src))
 	playsound(src, fire_sound, 50, TRUE)
@@ -273,17 +273,17 @@
 	if(removing)
 		if(!tank)
 			return
-		to_chat(user, span_notice("You detach \the [thetank] from \the [src]."))
+		to_chat(user, span_notice("You detach  [thetank] from  [src]."))
 		tank.forceMove(user.drop_location())
 		user.put_in_hands(tank)
 		tank = null
 	if(!removing)
 		if(tank)
-			to_chat(user, span_warning("\The [src] already has a tank."))
+			to_chat(user, span_warning(" [src] already has a tank."))
 			return
 		if(!user.transferItemToLoc(thetank, src))
 			return
-		to_chat(user, span_notice("You hook \the [thetank] up to \the [src]."))
+		to_chat(user, span_notice("You hook  [thetank] up to  [src]."))
 		tank = thetank
 	update_appearance()
 

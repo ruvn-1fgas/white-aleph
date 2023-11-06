@@ -106,22 +106,21 @@
 	if(panel_open)
 		if(!device && isassembly(W))
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, span_warning("\The [W] is stuck to you!"))
+				to_chat(user, span_warning("[W] прилип ко мне!"))
 				return
 			device = W
-			to_chat(user, span_notice("You add [W] to the button."))
+			to_chat(user, span_notice("Прикручиваю [W] к кнопке."))
 
 		if(!board && istype(W, /obj/item/electronics/airlock))
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, span_warning("\The [W] is stuck to you!"))
+				to_chat(user, span_warning("[W] прилип ко мне!"))
 				return
 			board = W
 			if(board.one_access)
 				req_one_access = board.accesses
 			else
 				req_access = board.accesses
-			balloon_alert(user, "electronics added")
-			to_chat(user, span_notice("You add [W] to the button."))
+			to_chat(user, span_notice("Прикручиваю [W] к кнопке."))
 
 		if(!device && !board && W.tool_behaviour == TOOL_WRENCH)
 			to_chat(user, span_notice("You start unsecuring the button frame..."))
@@ -152,7 +151,7 @@
 	// The device inside can be emagged by swiping the button
 	// returning TRUE will prevent feedback (so we can do our own)
 	if(!device?.emag_act(user, emag_card))
-		balloon_alert(user, "access overridden")
+		balloon_alert(user, "доступ получен")
 	return TRUE
 
 /obj/machinery/button/attack_ai(mob/user)
@@ -171,7 +170,7 @@
 	if(board)
 		. += span_notice("There is \a [board] inside, which could be removed with an <b>empty hand</b>.")
 	if(!board && !device)
-		. += span_notice("There is nothing currently installed in \the [src].")
+		. += span_notice("There is nothing currently installed in  [src].")
 
 /obj/machinery/button/proc/setup_device()
 	if(id && istype(device, /obj/item/assembly/control))
@@ -273,17 +272,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 	..()
 
 /obj/machinery/button/door/incinerator_vent_ordmix
-	name = "combustion chamber vent control"
+	name = "управление системой вентиляции камеры сгорания"
 	id = INCINERATOR_ORDMIX_VENT
 	req_access = list(ACCESS_ORDNANCE)
 
 /obj/machinery/button/door/incinerator_vent_atmos_main
-	name = "turbine vent control"
+	name = "управление системой вентиляции турбины"
 	id = INCINERATOR_ATMOS_MAINVENT
 	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_MAINT_TUNNELS)
 
 /obj/machinery/button/door/incinerator_vent_atmos_aux
-	name = "combustion chamber vent control"
+	name = "управление системой вентиляции камеры сгорания"
 	id = INCINERATOR_ATMOS_AUXVENT
 	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_MAINT_TUNNELS)
 
@@ -298,12 +297,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 	req_one_access = list(ACCESS_ATMOSPHERICS)
 
 /obj/machinery/button/door/incinerator_vent_syndicatelava_main
-	name = "turbine vent control"
+	name = "управление системой вентиляции турбины"
 	id = INCINERATOR_SYNDICATELAVA_MAINVENT
 	req_access = list(ACCESS_SYNDICATE)
 
 /obj/machinery/button/door/incinerator_vent_syndicatelava_aux
-	name = "combustion chamber vent control"
+	name = "управление системой вентиляции камеры сгорания"
 	id = INCINERATOR_SYNDICATELAVA_AUXVENT
 	req_access = list(ACCESS_SYNDICATE)
 
@@ -364,8 +363,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 	return ..()
 
 /obj/machinery/button/crematorium
-	name = "crematorium igniter"
-	desc = "Burn baby burn!"
+	name = "переключатель крематория"
+	desc = "Гори, детка, гори!"
 	icon_state= "button-warning"
 	skin = "-warning"
 	device_type = /obj/item/assembly/control/crematorium
@@ -376,8 +375,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/item/wallframe/button
-	name = "button frame"
-	desc = "Used for building buttons."
+	name = "рама для кнопки"
+	desc = "Используется для сборки кнопок."
 	icon_state = "button"
 	result_path = /obj/machinery/button
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)

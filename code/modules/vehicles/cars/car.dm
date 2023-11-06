@@ -35,7 +35,7 @@
 		mob_exit(future_pedestrian, silent)
 		return TRUE
 	if (escape_time > 0)
-		to_chat(user, span_notice("You push against the back of \the [src]'s trunk to try and get out."))
+		to_chat(user, span_notice("You push against the back of  [src]'s trunk to try and get out."))
 		if(!do_after(user, escape_time, target = src))
 			return FALSE
 	to_chat(user,span_danger("[user] gets out of [src]."))
@@ -73,7 +73,7 @@
 ///Proc called when someone is forcefully stuffedd into a car
 /obj/vehicle/sealed/car/proc/mob_forced_enter(mob/kidnapped, silent = FALSE)
 	if(!silent)
-		kidnapped.visible_message(span_warning("[kidnapped] is forced into \the [src]!"))
+		kidnapped.visible_message(span_warning("[kidnapped] is forced into  [src]!"))
 	kidnapped.forceMove(src)
 	add_occupant(kidnapped, VEHICLE_CONTROL_KIDNAPPED)
 

@@ -1,6 +1,6 @@
 /obj/machinery/mass_driver
-	name = "mass driver"
-	desc = "The finest in spring-loaded piston toy technology, now on a space station near you."
+	name = "массированый выброс"
+	desc = "Лучшее из технологии игрушек с пружинным поршнем теперь на космической станции рядом с вами."
 	icon = 'icons/obj/machines/floor.dmi'
 	icon_state = "mass_driver"
 	circuit = /obj/item/circuitboard/machine/mass_driver
@@ -19,7 +19,7 @@
 	. = ..()
 
 /obj/machinery/mass_driver/chapelgun
-	name = "holy driver"
+	name = "священный выброс"
 	id = MASSDRIVER_CHAPEL
 
 /obj/machinery/mass_driver/ordnance

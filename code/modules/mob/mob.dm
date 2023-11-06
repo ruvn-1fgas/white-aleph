@@ -624,7 +624,7 @@
 		return FALSE
 
 	to_chat(src, span_notice("You start feeling around for something..."))
-	visible_message(span_notice(" [name] begins feeling around for \the [examined_thing.name]..."))
+	visible_message(span_notice(" [name] begins feeling around for  [examined_thing.name]..."))
 
 	/// how long it takes for the blind person to find the thing they're examining
 	var/examine_delay_length = rand(1 SECONDS, 2 SECONDS)

@@ -5,15 +5,15 @@
  * - might serve a job purpose for others (goliath) and thus should be gainable early enough
 */
 /datum/infuser_entry/goliath
-	name = "Goliath"
-	infuse_mob_name = "goliath"
-	desc = "The guy who said 'Whoever fights monsters should see to it that in the process he does not become a monster' clearly didn't see what a goliath miner can do!"
-	threshold_desc = "you can walk on lava!"
+	name = "Голиаф"
+	infuse_mob_name = "голиафа"
+	desc = "Кто-то сказал: 'Кто борется с чудовищами, тот должен позаботиться о том, чтобы в процессе он сам не стал чудовищем'. Но этот человек явно не видел, что может сделать голиаф-шахтер!"
+	threshold_desc = "он сможет ходить по лаве!"
 	qualities = list(
-		"can breathe both the station and lavaland air, but be careful around pure oxygen",
-		"immune to ashstorms",
-		"eyes that can see in the dark",
-		"a tendril hand can easily dig through basalt and obliterate hostile fauna, but your glove-wearing days are behind you...",
+		"может дышать как воздухом станции, так и воздухом лаваленда, но будьте осторожны с чистым кислородом",
+		"иммунитет к пепельным бурям",
+		"глаза, которые могут видеть в темноте",
+		"руки-тентакли легко пробиваются через базальт и уничтожают враждебную фауну, но дни ношения перчаток позади...",
 	)
 	input_obj_or_mob = list(
 		/mob/living/basic/mining/goliath,
@@ -24,20 +24,19 @@
 		/obj/item/organ/internal/heart/goliath,
 		/obj/item/organ/internal/lungs/lavaland/goliath,
 	)
-	infusion_desc = "armored tendril-like"
+	infusion_desc = "бронированный, щупольцеподобный"
 	tier = DNA_MUTANT_TIER_ONE
 	status_effect_type = /datum/status_effect/organ_set_bonus/goliath
 
 /datum/infuser_entry/carp
-	name = "Carp"
-	infuse_mob_name = "space-cyprinidae"
-	desc = "Carp-mutants are very well-prepared for long term deep space exploration. In fact, they can't stand not doing it!"
-	threshold_desc = "you learn how to propel yourself through space. Like a fish!"
+	name = "Карп"
+	infuse_mob_name = "космического карпа"
+	desc = "Карп-мутанты очень хорошо подготовлены для длительных космических путешествий. На самом деле, они не могут устоять перед ними."
+	threshold_desc = "он узнает, как \"плавать\" в космосе!"
 	qualities = list(
-		"big jaws, big teeth",
-		"swim through space, no problem",
-		"face every problem when you go back on station",
-		"always wants to travel",
+		"большие челюсти, большие зубы",
+		"плавать в космосе - не проблема",
+		"всегда хочет путешествовать",
 	)
 	input_obj_or_mob = list(
 		/mob/living/basic/carp,
@@ -48,20 +47,19 @@
 		/obj/item/organ/internal/lungs/carp,
 		/obj/item/organ/internal/tongue/carp,
 	)
-	infusion_desc = "nomadic"
+	infusion_desc = "кочующий"
 	tier = DNA_MUTANT_TIER_ONE
 	status_effect_type = /datum/status_effect/organ_set_bonus/carp
 
 /datum/infuser_entry/rat
-	name = "Rat"
-	infuse_mob_name = "rodent"
-	desc = "Frail, small, positively cheesed to face the world. Easy to stuff yourself full of rat DNA, but perhaps not the best choice?"
-	threshold_desc = "you become lithe enough to crawl through ventilation."
+	name = "Крыса"
+	infuse_mob_name = "крысы"
+	desc = "Крысы - это маленькие, но очень быстрые существа, которые могут проникнуть в самые маленькие щели. Они также очень быстро размножаются, так что будьте осторожны!"
+	threshold_desc = "он станет настолько маленьким, что сможет пролезть через вентиляцию."
 	qualities = list(
-		"cheesy lines",
-		"will eat anything",
-		"wants to eat anything, constantly",
-		"frail but quick",
+		"ест все, что попадется под руку",
+		"может пролезть в самые маленькие щели",
+		"слабый, но быстрый",
 	)
 	input_obj_or_mob = list(
 		/obj/item/food/deadmouse,
@@ -72,26 +70,22 @@
 		/obj/item/organ/internal/stomach/rat,
 		/obj/item/organ/internal/tongue/rat,
 	)
-	infusion_desc = "skittish"
+	infusion_desc = "пугливый"
 	tier = DNA_MUTANT_TIER_ONE
 	status_effect_type = /datum/status_effect/organ_set_bonus/rat
 
 /datum/infuser_entry/roach
-	name = "Roach"
-	infuse_mob_name = "cockroach"
-	desc = "It seems as if you're a fan of ancient literature by your interest in this. Assuredly, merging cockroach DNA into your genome \
-		will not cause you to become incapable of leaving your bed. These creatures are incredibly resilient against many things \
-		humans are weak to, and we can use that! Who wouldn't like to survive a nuclear blast? \
-		NOTE: Squished roaches will not work for the infuser, if that wasn't obvious. Try spraying them with some pestkiller from botany!"
-	threshold_desc = "you will no longer be gibbed by explosions, and gain incredible resistance to viruses and radiation."
+	name = "Таракан"
+	infuse_mob_name = "таракана"
+	desc = "Судя по вашему интересу к этому, вы поклонник древней литературы. Несомненно, включение ДНК таракана в ваш геном\
+		не приведет к тому, что вы не сможете встать с постели. Эти существа невероятно устойчивы ко многим вещам\
+		, и мы можем это использовать! Кто бы не хотел пережить ядерный взрыв?\
+		ПРИМЕЧАНИЕ: Раздавленные тараканы не подойдут, если это не было очевидно. Попробуйте опрыскать их каким-нибудь средством от вредителей из ботаники!"
+	threshold_desc = "он будет невероятно устойчивым к вирусам, взрывам и радиации."
 	qualities = list(
-		"resilience to attacks from behind",
-		"healthier organs",
-		"get over disgust very quickly",
-		"the ability to survive a nuclear apocalypse",
-		"harder to pick yourself up from falling over",
-		"avoid toxins at all costs",
-		"always down to find a snack",
+		"устойчивость к нападениям сзади",
+		"более здоровые органы",
+		"способен пережить ядерный апокалипсис",
 	)
 	input_obj_or_mob = list(
 		/mob/living/basic/cockroach,

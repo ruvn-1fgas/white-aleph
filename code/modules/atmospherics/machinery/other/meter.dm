@@ -125,11 +125,11 @@
 
 /obj/machinery/meter/wrench_act(mob/user, obj/item/wrench)
 	..()
-	to_chat(user, span_notice("You begin to unfasten \the [src]..."))
+	to_chat(user, span_notice("You begin to unfasten  [src]..."))
 	if (wrench.use_tool(src, user, 40, volume=50))
 		user.visible_message(
-			"[user] unfastens \the [src].",
-			span_notice("You unfasten \the [src]."),
+			"[user] unfastens  [src].",
+			span_notice("You unfasten  [src]."),
 			span_hear("You hear ratchet."))
 		deconstruct()
 	return TRUE

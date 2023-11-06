@@ -1,6 +1,6 @@
 /obj/item/geiger_counter //DISCLAIMER: I know nothing about how real-life Geiger counters work. This will not be realistic. ~Xhuis
-	name = "\improper Geiger counter"
-	desc = "A handheld device used for detecting and measuring radiation pulses."
+	name = "счётчик гейгера"
+	desc = "Портативное устройство, используемое для регистрации и измерения импульсов излучения."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "geiger_off"
 	inhand_icon_state = "multitool"
@@ -25,18 +25,18 @@
 	. = ..()
 	if(!scanning)
 		return
-	. += span_info("Alt-click it to clear stored radiation levels.")
+	. += span_info("Alt-клик для очистки показателей.")
 	switch(last_perceived_radiation_danger)
 		if(null)
-			. += span_notice("Ambient radiation level count reports that all is well.")
+			. += span_notice("Подсчет уровня радиации показывает, что все в порядке.")
 		if(PERCEIVED_RADIATION_DANGER_LOW)
-			. += span_alert("Ambient radiation levels slightly above average.")
+			. += span_alert("Уровни внешней радиации немного выше среднего.")
 		if(PERCEIVED_RADIATION_DANGER_MEDIUM)
-			. += span_warning("Ambient radiation levels above average.")
+			. += span_warning("Уровень радиации выше среднего.")
 		if(PERCEIVED_RADIATION_DANGER_HIGH)
-			. += span_danger("Ambient radiation levels highly above average.")
+			. += span_danger("Уровни внешней радиации значительно выше среднего.")
 		if(PERCEIVED_RADIATION_DANGER_EXTREME)
-			. += span_suicide("Ambient radiation levels reaching critical level!")
+			. += span_suicide("Уровень радиации приближается к критическому уровню.")
 
 /obj/item/geiger_counter/update_icon_state()
 	if(!scanning)
@@ -65,7 +65,7 @@
 		qdel(GetComponent(/datum/component/geiger_sound))
 
 	update_appearance(UPDATE_ICON)
-	balloon_alert(user, "switch [scanning ? "on" : "off"]")
+	balloon_alert(user, "[scanning ? "включаю" : "выключаю"]")
 
 /obj/item/geiger_counter/afterattack(atom/target, mob/living/user, params)
 	. = ..()
@@ -77,7 +77,7 @@
 	if (!CAN_IRRADIATE(target))
 		return
 
-	user.visible_message(span_notice("[user] scans [target] with [src]."), span_notice("You scan [target]'s radiation levels with [src]..."))
+	user.visible_message(span_notice("[user] сканирует [target]."), span_notice("Сканирую уровень радиации [target]..."))
 	addtimer(CALLBACK(src, PROC_REF(scan), target, user), 20, TIMER_UNIQUE) // Let's not have spamming GetAllContents
 
 /obj/item/geiger_counter/equipped(mob/user, slot, initial)
@@ -114,8 +114,8 @@
 	if(!istype(user) || !user.can_perform_action(src))
 		return ..()
 	if(!scanning)
-		to_chat(usr, span_warning("[src] must be on to reset its radiation level!"))
+		to_chat(usr, span_warning("Сначала нужно включить [src.name]!"))
 		return
-	to_chat(usr, span_notice("You flush [src]'s radiation counts, resetting it to normal."))
+	to_chat(usr, span_notice("Сбрасываю уровни радиации [src.name]."))
 	last_perceived_radiation_danger = null
 	update_appearance(UPDATE_ICON)

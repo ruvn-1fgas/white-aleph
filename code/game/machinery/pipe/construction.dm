@@ -8,8 +8,8 @@ Buildable meters
 //...otherwise construction will stop working
 
 /obj/item/pipe
-	name = "pipe"
-	desc = "A pipe."
+	name = "труба"
+	desc = "Труба?"
 	var/pipe_type
 	var/pipename
 	force = 7
@@ -245,8 +245,8 @@ Buildable meters
 
 	wrench.play_tool_sound(src)
 	user.visible_message( \
-		"[user] fastens \the [src].", \
-		span_notice("You fasten \the [src]."), \
+		"[user] fastens  [src].", \
+		span_notice("You fasten  [src]."), \
 		span_hear("You hear ratcheting."))
 
 	qdel(src)

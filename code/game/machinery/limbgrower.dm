@@ -1,8 +1,8 @@
 /// The limbgrower. Makes organd and limbs with synthflesh and chems.
 /// See [limbgrower_designs.dm] for everything we can make.
 /obj/machinery/limbgrower
-	name = "limb grower"
-	desc = "It grows new limbs using Synthflesh."
+	name = "Биосинтезатор"
+	desc = "Выращивает органы и конечности из синтетической плоти."
 	icon = 'icons/obj/machines/limbgrower.dmi'
 	icon_state = "limbgrower_idleoff"
 	density = TRUE
@@ -127,8 +127,8 @@
 		return
 
 	if(istype(user_item, /obj/item/disk/design_disk/limbs))
-		user.visible_message(span_notice("[user] begins to load \the [user_item] in \the [src]..."),
-			span_notice("You begin to load designs from \the [user_item]..."),
+		user.visible_message(span_notice("[user] begins to load  [user_item] in  [src]..."),
+			span_notice("You begin to load designs from  [user_item]..."),
 			span_hear("You hear the clatter of a floppy drive."))
 		busy = TRUE
 		var/obj/item/disk/design_disk/limbs/limb_design_disk = user_item
@@ -266,7 +266,7 @@
 /obj/machinery/limbgrower/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Storing up to <b>[reagents.maximum_volume]u</b> of reagents.<br>Reagent consumption rate at <b>[production_coefficient * 100]%</b>.")
+		. += span_notice("Дисплей: Storing up to <b>[reagents.maximum_volume]u</b> of reagents.<br>Reagent consumption rate at <b>[production_coefficient * 100]%</b>.")
 
 /*
  * Checks our reagent list to see if a design can be built.

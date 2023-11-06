@@ -362,26 +362,26 @@
 		user.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 		if(buckled == user)
 			if(prob(60))
-				user.visible_message(span_warning("[user] attempts to wrestle \the [name] off!"), \
-					span_danger("You attempt to wrestle \the [name] off!"))
+				user.visible_message(span_warning("[user] attempts to wrestle  [name] off!"), \
+					span_danger("You attempt to wrestle  [name] off!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				user.visible_message(span_warning("[user] manages to wrestle \the [name] off!"), \
-					span_notice("You manage to wrestle \the [name] off!"))
+				user.visible_message(span_warning("[user] manages to wrestle  [name] off!"), \
+					span_notice("You manage to wrestle  [name] off!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(user)
 
 		else
 			if(prob(30))
-				buckled.visible_message(span_warning("[user] attempts to wrestle \the [name] off of [buckled]!"), \
-					span_warning("[user] attempts to wrestle \the [name] off of you!"))
+				buckled.visible_message(span_warning("[user] attempts to wrestle  [name] off of [buckled]!"), \
+					span_warning("[user] attempts to wrestle  [name] off of you!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				buckled.visible_message(span_warning("[user] manages to wrestle \the [name] off of [buckled]!"), \
-					span_notice("[user] manage to wrestle \the [name] off of you!"))
+				buckled.visible_message(span_warning("[user] manages to wrestle  [name] off of [buckled]!"), \
+					span_notice("[user] manage to wrestle  [name] off of you!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(user)

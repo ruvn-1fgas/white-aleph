@@ -1,4 +1,4 @@
-#define USE_GENDER "Выбранный пол"
+#define USE_GENDER "Gender"
 
 /datum/preference/choiced/body_type
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES

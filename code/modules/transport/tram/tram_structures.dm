@@ -179,8 +179,8 @@
 
 		if(TRAM_IN_FRAME)
 			if(tool.tool_behaviour == TOOL_CROWBAR)
-				user.visible_message(span_notice("[user] wedges \the [tool] into the tram panel's gap in the frame and starts prying..."),
-				span_notice("You wedge \the [tool] into the tram panel's gap in the frame and start prying..."))
+				user.visible_message(span_notice("[user] wedges  [tool] into the tram panel's gap in the frame and starts prying..."),
+				span_notice("You wedge  [tool] into the tram panel's gap in the frame and start prying..."))
 				if(tool.use_tool(src, user, 1 SECONDS, volume = 50))
 					state = TRAM_OUT_OF_FRAME
 					to_chat(user, span_notice("The panel pops out of the frame, exposing some cabling that look like they can be cut."))
@@ -194,8 +194,8 @@
 
 		if(TRAM_OUT_OF_FRAME)
 			if(tool.tool_behaviour == TOOL_WIRECUTTER)
-				user.visible_message(span_notice("[user] starts cutting the connective cabling on \the [src]..."),
-				span_notice("You start cutting the connective cabling on \the [src]"))
+				user.visible_message(span_notice("[user] starts cutting the connective cabling on  [src]..."),
+				span_notice("You start cutting the connective cabling on  [src]"))
 				if(tool.use_tool(src, user, 1 SECONDS, volume = 50))
 					to_chat(user, span_notice("The panels falls out of the way exposing the frame backing."))
 					deconstruct(disassembled = TRUE)
@@ -521,7 +521,7 @@
 		if(!deployed)
 			// Bring out the blades
 			if(malfunctioning)
-				visible_message(span_danger("\the [src] locks up due to its servo overheating!"))
+				visible_message(span_danger(" [src] locks up due to its servo overheating!"))
 			do_sparks(3, cardinal_only = FALSE, source = src)
 			deploy_spoiler()
 		return
@@ -585,12 +585,12 @@
 		return FALSE
 
 	if(atom_integrity >= max_integrity)
-		to_chat(user, span_warning("You begin to weld \the [src], [malfunctioning ? "repairing damage" : "preventing retraction"]."))
+		to_chat(user, span_warning("You begin to weld  [src], [malfunctioning ? "repairing damage" : "preventing retraction"]."))
 		if(!tool.use_tool(src, user, 4 SECONDS, volume = 50))
 			return
 		malfunctioning = !malfunctioning
-		user.visible_message(span_warning("[user] [malfunctioning ? "welds \the [src] in place" : "repairs \the [src]"] with [tool]."), \
-			span_warning("You finish welding \the [src], [malfunctioning ? "locking it in place." : "it can move freely again!"]"), null, COMBAT_MESSAGE_RANGE)
+		user.visible_message(span_warning("[user] [malfunctioning ? "welds  [src] in place" : "repairs  [src]"] with [tool]."), \
+			span_warning("You finish welding  [src], [malfunctioning ? "locking it in place." : "it can move freely again!"]"), null, COMBAT_MESSAGE_RANGE)
 
 		if(malfunctioning)
 			deploy_spoiler()

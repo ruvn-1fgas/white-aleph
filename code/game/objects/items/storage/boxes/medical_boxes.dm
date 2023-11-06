@@ -1,8 +1,8 @@
 // This file contains all boxes used by the Medical department, or otherwise associated with the task of mob interactions.
 
 /obj/item/storage/box/syringes
-	name = "box of syringes"
-	desc = "A box full of syringes."
+	name = "коробка шприцев"
+	desc = "Коробка со шприцами."
 	illustration = "syringe"
 
 /obj/item/storage/box/syringes/PopulateContents()
@@ -10,7 +10,7 @@
 		new /obj/item/reagent_containers/syringe(src)
 
 /obj/item/storage/box/syringes/variety
-	name = "syringe variety box"
+	name = "коробка разнообразных шприцов"
 
 /obj/item/storage/box/syringes/variety/PopulateContents()
 	new /obj/item/reagent_containers/syringe(src)
@@ -19,8 +19,8 @@
 	new /obj/item/reagent_containers/syringe/bluespace(src)
 
 /obj/item/storage/box/medipens
-	name = "box of medipens"
-	desc = "A box full of epinephrine MediPens."
+	name = "коробка медипенов"
+	desc = "Коробка, полная адреналином медипенов."
 	illustration = "epipen"
 
 /obj/item/storage/box/medipens/PopulateContents()
@@ -28,8 +28,8 @@
 		new /obj/item/reagent_containers/hypospray/medipen(src)
 
 /obj/item/storage/box/medipens/utility
-	name = "stimpack value kit"
-	desc = "A box with several stimpack medipens for the economical miner."
+	name = "набор стимуляторов"
+	desc = "Коробка с несколькими стимуляторами для экономичного шахтёра."
 	illustration = "epipen"
 
 /obj/item/storage/box/medipens/utility/PopulateContents()
@@ -38,7 +38,7 @@
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack(src)
 
 /obj/item/storage/box/beakers
-	name = "box of beakers"
+	name = "коробка химических стаканов"
 	illustration = "beaker"
 
 /obj/item/storage/box/beakers/PopulateContents()
@@ -46,7 +46,7 @@
 		new /obj/item/reagent_containers/cup/beaker( src )
 
 /obj/item/storage/box/beakers/bluespace
-	name = "box of bluespace beakers"
+	name = "коробка блюспейс химических стаканов"
 	illustration = "beaker"
 
 /obj/item/storage/box/beakers/bluespace/PopulateContents()
@@ -54,7 +54,7 @@
 		new /obj/item/reagent_containers/cup/beaker/bluespace(src)
 
 /obj/item/storage/box/beakers/variety
-	name = "beaker variety box"
+	name = "коробка различных химических стаканов"
 
 /obj/item/storage/box/beakers/variety/PopulateContents()
 	new /obj/item/reagent_containers/cup/beaker(src)
@@ -65,8 +65,8 @@
 	new /obj/item/reagent_containers/cup/beaker/plastic(src)
 
 /obj/item/storage/box/medigels
-	name = "box of medical gels"
-	desc = "A box full of medical gel applicators, with unscrewable caps and precision spray heads."
+	name = "коробка аэрозолей"
+	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля."
 	illustration = "medgel"
 
 /obj/item/storage/box/medigels/PopulateContents()
@@ -74,8 +74,8 @@
 		new /obj/item/reagent_containers/medigel( src )
 
 /obj/item/storage/box/injectors
-	name = "box of DNA injectors"
-	desc = "This box contains injectors, it seems."
+	name = "коробка ДНК инъекторов"
+	desc = "В этой коробке, кажется, находятся инъекторы."
 	illustration = "dna"
 
 /obj/item/storage/box/injectors/PopulateContents()
@@ -96,8 +96,8 @@
 		new /obj/item/bodybag(src)
 
 /obj/item/storage/box/pillbottles
-	name = "box of pill bottles"
-	desc = "It has pictures of pill bottles on its front."
+	name = "коробка с баночками для таблеток"
+	desc = "На передней панели изображены пузырьки с таблетками."
 	illustration = "pillbox"
 
 /obj/item/storage/box/pillbottles/PopulateContents()
@@ -131,8 +131,8 @@
 	generate_items_inside(items_inside, src)
 
 /obj/item/storage/box/bandages
-	name = "box of bandages"
-	desc = "A box of DeForest brand gel bandages designed to treat blunt-force trauma."
+	name = "коробка бинтов"
+	desc = "Коробка с гелевыми бинтами DeForest."
 	icon_state = "brutebox"
 	base_icon_state = "brutebox"
 	inhand_icon_state = "brutebox"

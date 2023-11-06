@@ -37,7 +37,7 @@
 /obj/machinery/airalarm/wrench_act(mob/living/user, obj/item/tool)
 	if(buildstage != AIR_ALARM_BUILD_NO_CIRCUIT)
 		return
-	to_chat(user, span_notice("You detach \the [src] from the wall."))
+	to_chat(user, span_notice("You detach  [src] from the wall."))
 	tool.play_tool_sound(src)
 	var/obj/item/wallframe/airalarm/alarm_frame = new(drop_location())
 	user.put_in_hands(alarm_frame)

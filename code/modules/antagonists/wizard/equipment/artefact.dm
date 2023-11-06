@@ -63,7 +63,7 @@
 
 /obj/effect/rend/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/nullrod))
-		user.visible_message(span_danger("[user] seals \the [src] with \the [I]."))
+		user.visible_message(span_danger("[user] seals  [src] with  [I]."))
 		qdel(src)
 		return
 	else

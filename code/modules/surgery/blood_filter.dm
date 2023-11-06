@@ -70,9 +70,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("\The [tool] pings as it finishes filtering [target]'s blood."),
-		span_notice("\The [tool] pings as it stops pumping [target]'s blood."),
-		span_notice("\The [tool] pings as it stops pumping."),
+		span_notice(" [tool] pings as it finishes filtering [target]'s blood."),
+		span_notice(" [tool] pings as it stops pumping [target]'s blood."),
+		span_notice(" [tool] pings as it stops pumping."),
 	)
 
 	if(locate(/obj/item/healthanalyzer) in user.held_items)

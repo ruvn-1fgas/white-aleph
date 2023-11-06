@@ -6,9 +6,9 @@
  * They'll link to servers if bus is not present, with some delay added to it.
  */
 /obj/machinery/telecomms/processor
-	name = "processor unit"
+	name = "Процессорный блок"
 	icon_state = "processor"
-	desc = "This machine is used to process large quantities of information."
+	desc = "Эта машина используется для обработки больших объемов информации."
 	telecomms_type = /obj/machinery/telecomms/processor
 	density = TRUE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.01

@@ -28,4 +28,4 @@
 					to_chat(usr, span_notice("Printer is out of paper."))
 					return
 				else
-					computer.visible_message(span_notice("\The [computer] prints out a paper."))
+					computer.visible_message(span_notice(" [computer] prints out a paper."))

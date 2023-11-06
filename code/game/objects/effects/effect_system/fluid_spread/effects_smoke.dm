@@ -234,7 +234,7 @@
 
 /// Green smoke that makes you cough.
 /obj/effect/particle_effect/fluid/smoke/bad/green
-	name = "green smoke"
+	name = "зелёный дым"
 	color = "#00FF00"
 	opacity = FALSE
 
@@ -244,7 +244,7 @@
 
 /// Black smoke that makes you cough. (Actually dark grey)
 /obj/effect/particle_effect/fluid/smoke/bad/black
-	name = "black smoke"
+	name = "чёрный дым"
 	color = "#383838"
 	opacity = FALSE
 
@@ -258,7 +258,7 @@
 
 /// Light blue, transparent smoke which is usually paired with a blast that chills every turf in the area.
 /obj/effect/particle_effect/fluid/smoke/freezing
-	name = "nanofrost smoke"
+	name = "холодный дым"
 	color = "#B2FFFF"
 	opacity = FALSE
 
@@ -310,7 +310,7 @@
 			if(!isnull(comp.welded) && !comp.welded) //must be an unwelded vent pump or vent scrubber.
 				comp.welded = TRUE
 				comp.update_appearance()
-				comp.visible_message(span_danger("[comp] is frozen shut!"))
+				comp.visible_message(span_danger("[comp] замерзает!"))
 
 	// Extinguishes everything in the turf
 	for(var/mob/living/potential_tinder in chilly)

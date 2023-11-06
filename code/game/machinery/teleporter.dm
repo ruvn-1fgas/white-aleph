@@ -4,8 +4,8 @@
 	density = TRUE
 
 /obj/machinery/teleport/hub
-	name = "teleporter hub"
-	desc = "It's the hub of a teleporting machine."
+	name = "телепортационная арка"
+	desc = "Открывает проход сквозь блюспейс пространство."
 	icon_state = "tele0"
 	base_icon_state = "tele"
 	circuit = /obj/item/circuitboard/machine/teleporter_hub
@@ -33,7 +33,7 @@
 /obj/machinery/teleport/hub/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Probability of malfunction decreased by <b>[(accuracy*25)-25]%</b>.")
+		. += span_notice("Дисплей: Probability of malfunction decreased by <b>[(accuracy*25)-25]%</b>.")
 
 /obj/machinery/teleport/hub/proc/link_power_station()
 	if(power_station)
@@ -104,8 +104,8 @@
 	RefreshParts()
 
 /obj/machinery/teleport/station
-	name = "teleporter station"
-	desc = "The power control station for a bluespace teleporter. Used for toggling power, and can activate a test-fire to prevent malfunctions."
+	name = "телепортационная станция"
+	desc = "Станция управления питанием блюспейс телепорта. Распределяет силовые нагрузки и калибрует пространственный прокол для предотвращения искажений."
 	icon_state = "controller"
 	base_icon_state = "controller"
 	circuit = /obj/item/circuitboard/machine/teleporter_station
@@ -133,7 +133,7 @@
 	else
 		. += span_notice("The <i>linking</i> device is now able to be <i>scanned</i> with a multitool.")
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: This station can be linked to <b>[efficiency]</b> other station(s).")
+		. += span_notice("Дисплей: This station can be linked to <b>[efficiency]</b> other station(s).")
 
 /obj/machinery/teleport/station/proc/link_console_and_hub()
 	for(var/direction in GLOB.cardinals)

@@ -269,7 +269,7 @@
 
 	if(blob.point_return)
 		add_points(blob.point_return)
-		to_chat(src, span_notice("Gained [blob.point_return] resources from removing \the [blob]."))
+		to_chat(src, span_notice("Gained [blob.point_return] resources from removing  [blob]."))
 		blob.balloon_alert(src, "+[blob.point_return] resource\s")
 
 	qdel(blob)

@@ -1,6 +1,6 @@
 
 /obj/effect/anomaly/pyro
-	name = "pyroclastic anomaly"
+	name = "пирокластерная аномалия"
 	icon_state = "pyroclastic"
 	var/ticks = 0
 	/// How many seconds between each gas release
@@ -35,7 +35,7 @@
 	var/datum/action/innate/slime/reproduce/repro_action = new
 	repro_action.Grant(pyro)
 
-	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as a pyroclastic anomaly slime?", ROLE_SENTIENCE, null, 10 SECONDS, pyro, POLL_IGNORE_PYROSLIME)
+	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Вы хотите переродится в качестве Слайма из пирокластерной аномалии?", ROLE_SENTIENCE, null, 100, pyro, POLL_IGNORE_PYROSLIME)
 	if(!LAZYLEN(candidates))
 		return
 

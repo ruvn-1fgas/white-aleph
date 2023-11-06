@@ -288,8 +288,8 @@
 	if (stat != DEAD)
 		log_combat(M, src, "attacked")
 		M.do_attack_animation(src)
-		visible_message(span_danger("\The [M.name] glomps [src]!"), \
-						span_userdanger("\The [M.name] glomps you!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), COMBAT_MESSAGE_RANGE, M)
+		visible_message(span_danger(" [M.name] glomps [src]!"), \
+						span_userdanger(" [M.name] glomps you!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), COMBAT_MESSAGE_RANGE, M)
 		to_chat(M, span_danger("You glomp [src]!"))
 		return TRUE
 
@@ -298,8 +298,8 @@
 	user.face_atom(src)
 	if(user.melee_damage_upper == 0)
 		if(user != src)
-			visible_message(span_notice("\The [user] [user.friendly_verb_continuous] [src]!"), \
-							span_notice("\The [user] [user.friendly_verb_continuous] you!"), null, COMBAT_MESSAGE_RANGE, user)
+			visible_message(span_notice(" [user] [user.friendly_verb_continuous] [src]!"), \
+							span_notice(" [user] [user.friendly_verb_continuous] you!"), null, COMBAT_MESSAGE_RANGE, user)
 			to_chat(user, span_notice("You [user.friendly_verb_simple] [src]!"))
 		return FALSE
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
@@ -309,8 +309,8 @@
 	if(user.attack_sound)
 		playsound(loc, user.attack_sound, 50, TRUE, TRUE)
 	user.do_attack_animation(src)
-	visible_message(span_danger("\The [user] [user.attack_verb_continuous] [src]!"), \
-					span_userdanger("\The [user] [user.attack_verb_continuous] you!"), null, COMBAT_MESSAGE_RANGE, user)
+	visible_message(span_danger(" [user] [user.attack_verb_continuous] [src]!"), \
+					span_userdanger(" [user] [user.attack_verb_continuous] you!"), null, COMBAT_MESSAGE_RANGE, user)
 	to_chat(user, span_danger("You [user.attack_verb_simple] [src]!"))
 	log_combat(user, src, "attacked")
 	return TRUE
@@ -439,7 +439,7 @@
 		adjustStaminaLoss(shock_damage)
 	if(!(flags & SHOCK_SUPPRESS_MESSAGE))
 		visible_message(
-			span_danger("[src] was shocked by \the [source]!"), \
+			span_danger("[src] was shocked by  [source]!"), \
 			span_userdanger("You feel a powerful shock coursing through your body!"), \
 			span_hear("You hear a heavy electrical crack.") \
 		)

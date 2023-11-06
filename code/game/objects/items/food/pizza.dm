@@ -9,7 +9,7 @@
 		/datum/reagent/consumable/tomatojuice = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 	)
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | DAIRY | VEGETABLES
 	venue_value = FOOD_PRICE_CHEAP
 	crafting_complexity = FOOD_COMPLEXITY_2
@@ -45,8 +45,8 @@
 	AddElement(/datum/element/processable, TOOL_ROLLINGPIN, /obj/item/stack/sheet/pizza, 1, 1 SECONDS, table_required = TRUE, screentip_verb = "Flatten")
 
 /obj/item/food/pizza/margherita
-	name = "pizza margherita"
-	desc = "The most cheezy pizza in galaxy."
+	name = "пицца Маргарита"
+	desc = "Самая сырная пицца в галактике."
 	icon_state = "pizzamargherita"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 25,
@@ -54,14 +54,14 @@
 		/datum/reagent/consumable/tomatojuice = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 	)
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/margherita
 	boxtag = "Margherita Deluxe"
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/margherita/raw
-	name = "raw pizza margherita"
+	name = "сырая пицца Маргарита"
 	icon_state = "pizzamargherita_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	slice_type = null
@@ -79,10 +79,10 @@
 	)
 
 /obj/item/food/pizzaslice/margherita
-	name = "margherita slice"
-	desc = "A slice of the most cheezy pizza in galaxy."
+	name = "кусок Маргариты"
+	desc = "Кусочек самой сырной пиццы в галактике."
 	icon_state = "pizzamargheritaslice"
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	crafting_complexity = FOOD_COMPLEXITY_3
 
@@ -91,8 +91,8 @@
 	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 12)
 
 /obj/item/food/pizza/meat
-	name = "meatpizza"
-	desc = "Greasy pizza with delicious meat."
+	name = "мясная пицца"
+	desc = "Жирная пицца со вкусным мясом."
 	icon_state = "meatpizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 25,
@@ -106,7 +106,7 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/meat/raw
-	name = "raw meatpizza"
+	name = "сырая Мясная пицца"
 	icon_state = "meatpizza_raw"
 	foodtypes = GRAIN | VEGETABLES| DAIRY | MEAT | RAW
 	slice_type = null
@@ -115,30 +115,30 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/meat, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/meat
-	name = "meatpizza slice"
-	desc = "A nutritious slice of meatpizza."
+	name = "кусок Мясной пицца"
+	desc = "Очень вкусный кусочек мясной пиццы."
 	icon_state = "meatpizzaslice"
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "meat" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/mushroom
-	name = "mushroom pizza"
-	desc = "Very special pizza."
+	name = "грибная пицца"
+	desc = "Очень особенная пицца."
 	icon_state = "mushroompizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 28,
 		/datum/reagent/consumable/nutriment/protein = 3,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 	)
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "mushroom" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "грибы" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/mushroom
 	boxtag = "Mushroom Special"
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/pizza/mushroom/raw
-	name = "raw mushroom pizza"
+	name = "сырая Грибная пицца"
 	icon_state = "mushroompizza_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	slice_type = null
@@ -147,31 +147,31 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mushroom, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/mushroom
-	name = "mushroom pizza slice"
-	desc = "Maybe it is the last slice of pizza in your life."
+	name = "кусок Грибной пиццы"
+	desc = "Может быть, это последний кусок пиццы в вашей жизни."
 	icon_state = "mushroompizzaslice"
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "mushroom" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "грибы" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 
 /obj/item/food/pizza/vegetable
-	name = "vegetable pizza"
-	desc = "No one of Tomatos Sapiens were harmed during making this pizza."
+	name = "овощная пицца"
+	desc = "При приготовлении этой пиццы не пострадал ни один разумный томат."
 	icon_state = "vegetablepizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 25,
 		/datum/reagent/consumable/tomatojuice = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 	)
-	tastes = list("crust" = 1, "tomato" = 2, "cheese" = 1, "carrot" = 1)
+	tastes = list("корка" = 1, "томаты" = 2, "сыр" = 1, "морковь" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/vegetable
 	boxtag = "Gourmet Vegetable"
 	venue_value = FOOD_PRICE_NORMAL
 
 /obj/item/food/pizza/vegetable/raw
-	name = "raw vegetable pizza"
+	name = "сырая Овощная пицца"
 	icon_state = "vegetablepizza_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	slice_type = null
@@ -181,16 +181,16 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/vegetable, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/vegetable
-	name = "vegetable pizza slice"
-	desc = "A slice of the most green pizza of all pizzas not containing green ingredients."
+	name = "кусок Овощной пиццы"
+	desc = "Кусочек самой веганской пиццы из всех пицц."
 	icon_state = "vegetablepizzaslice"
-	tastes = list("crust" = 1, "tomato" = 2, "cheese" = 1, "carrot" = 1)
+	tastes = list("корка" = 1, "томаты" = 2, "сыр" = 1, "морковь" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/donkpocket
-	name = "donkpocket pizza"
-	desc = "Who thought this would be a good idea?"
+	name = "пицца \"Донк-покет\""
+	desc = "Кто решил, что это будет хорошей идеей?"
 	icon_state = "donkpocketpizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -199,14 +199,14 @@
 		/datum/reagent/medicine/omnizine = 10,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 	)
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "meat" = 1, "laziness" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1, "лень" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD
 	slice_type = /obj/item/food/pizzaslice/donkpocket
 	boxtag = "Bangin' Donk"
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/donkpocket/raw
-	name = "raw donkpocket pizza"
+	name = "сырая пицца \"Донк-покет\""
 	icon_state = "donkpocketpizza_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD | RAW
 	slice_type = null
@@ -215,15 +215,15 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/donkpocket, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/donkpocket
-	name = "donkpocket pizza slice"
-	desc = "Smells like donkpocket."
+	name = "кусок пиццы \"Донк-покет\""
+	desc = "Пахнет донк-покетом"
 	icon_state = "donkpocketpizzaslice"
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "meat" = 1, "laziness" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1, "лень" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD
 
 /obj/item/food/pizza/dank
-	name = "dank pizza"
-	desc = "The hippie's pizza of choice."
+	name = "шняжная пицца"
+	desc = "Лучшая пицца, по мнению хиппи."
 	icon_state = "dankpizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 25,
@@ -231,14 +231,14 @@
 		/datum/reagent/consumable/tomatojuice = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 	)
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "meat" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/dank
 	boxtag = "Fresh Herb"
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/dank/raw
-	name = "raw dank pizza"
+	name = "сырая Шняжная пицца"
 	icon_state = "dankpizza_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	slice_type = null
@@ -247,15 +247,15 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/dank, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/dank
-	name = "dank pizza slice"
-	desc = "So good, man..."
+	name = "кусок Шняжной пиццы"
+	desc = "Как же она хороша, чувак..."
 	icon_state = "dankpizzaslice"
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "meat" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
 /obj/item/food/pizza/sassysage
-	name = "sassysage pizza"
-	desc = "You can almost taste the sassiness."
+	name = "колбасная пицца"
+	desc = "Ты действительно чувствуешь запах \"колбасок\"."
 	icon_state = "sassysagepizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -263,14 +263,14 @@
 		/datum/reagent/consumable/tomatojuice = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 6,
 	)
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "meat" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT
 	slice_type = /obj/item/food/pizzaslice/sassysage
 	boxtag = "Sausage Lovers"
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/sassysage/raw
-	name = "raw sassysage pizza"
+	name = "сырая Колбасная пицца"
 	icon_state = "sassysagepizza_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | RAW
 	slice_type = null
@@ -279,16 +279,16 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/sassysage, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/sassysage
-	name = "sassysage pizza slice"
-	desc = "Deliciously sassy."
+	name = "кусок Колбасной пиццы"
+	desc = "Восхитительный кусок пиццы."
 	icon_state = "sassysagepizzaslice"
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "meat" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "мясо" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/pineapple
-	name = "\improper Hawaiian pizza"
-	desc = "The pizza equivalent of Einstein's riddle."
+	name = "гавайская пицца"
+	desc = "Эта пицца - эквивалент загадки Эйнштейна."
 	icon_state = "pineapplepizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -297,14 +297,14 @@
 		/datum/reagent/consumable/nutriment/vitamin = 6,
 		/datum/reagent/consumable/pineapplejuice = 8,
 	)
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "pineapple" = 2, "ham" = 2)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "pineapple" = 2, "ham" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE
 	slice_type = /obj/item/food/pizzaslice/pineapple
 	boxtag = "Honolulu Chew"
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/pizza/pineapple/raw
-	name = "raw Hawaiian pizza"
+	name = "сырая Гавайская пицца"
 	icon_state = "pineapplepizza_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE | RAW
 	slice_type = null
@@ -313,19 +313,18 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/pineapple, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/pineapple
-	name = "\improper Hawaiian pizza slice"
-	desc = "A slice of delicious controversy."
+	name = "кусок Гавайской пиццы"
+	desc = "Кусочек самой противоречивой пиццы."
 	icon_state = "pineapplepizzaslice"
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "pineapple" = 2, "ham" = 2)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "ананас" = 2, "ветчина" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE
 
 
 // Moldly Pizza
 // Used in cytobiology.
 /obj/item/food/pizzaslice/moldy
-	name = "moldy pizza slice"
-	desc = "This was once a perfectly good slice of pizza pie, but now it lies here, rancid and bursting with spores. \
-		What a bummer! But we should not dwell on the past, only look towards the future."
+	name = "заплесневелый кусок пиццы"
+	desc = "Когда-то это был отличный кусок пиццы, но теперь он лежит здесь, прогорклый и кишащий бактериями. Какой ужас! Но мы не должны зацикливаться на прошлом."
 	icon_state = "moldy_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -348,8 +347,8 @@
 // Arnold Pizza
 // Has meme code.
 /obj/item/food/pizza/arnold
-	name = "\improper Arnold pizza"
-	desc = "Hello, you've reached Arnold's pizza shop. I'm not here now, I'm out killing pepperoni."
+	name = "пицца Арнольд"
+	desc = "Здравствуйте, вы позвонили в пиццерию Арнольда. Меня здесь сейчас нет, я убиваю пепперони."
 	icon_state = "arnoldpizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 25,
@@ -358,13 +357,13 @@
 		/datum/reagent/iron = 10,
 		/datum/reagent/medicine/omnizine = 30,
 	)
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "pepperoni" = 2, "9 millimeter bullets" = 2)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "пепперони" = 2, "9-ти миллиметровые пули" = 2)
 	slice_type = /obj/item/food/pizzaslice/arnold
 	boxtag = "9mm Pepperoni"
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/pizza/arnold/raw
-	name = "raw Arnold pizza"
+	name = "сырая пицца Арнольд"
 	icon_state = "arnoldpizza_raw"
 	foodtypes = GRAIN | DAIRY | VEGETABLES | RAW
 	slice_type = null
@@ -381,17 +380,16 @@
 	var/did_the_thing = (left?.dismember() || right?.dismember()) //not all limbs can be removed, so important to check that we did. the. thing.
 	if(!did_the_thing)
 		return
-	to_chat(user, span_userdanger("Maybe I'll give you a pizza, maybe I'll break off your arm.")) //makes the reference more obvious
-	user.visible_message(span_warning("\The [src] breaks off [user]'s arm!"), span_warning("\The [src] breaks off your arm!"))
+	to_chat(user, span_userdanger("Может быть, я дам тебе пиццу, может быть, я сломаю тебе руку..")) //makes the reference more obvious
+	user.visible_message(span_warning("<b>[capitalize(src)]</b> ломает руку [user]!") , span_warning("<b>[capitalize(src)]</b> ломает мою руку!"))
 	playsound(user, SFX_DESECRATION, 50, TRUE, -1)
 
-/obj/item/food/proc/i_kill_you(obj/item/item, mob/living/user)
-	if(istype(item, /obj/item/food/pineappleslice))
-		to_chat(user, "<font color='red' size='7'>If you want something crazy like pineapple, I'll kill you.</font>") //this is in bigger text because it's hard to spam something that gibs you, and so that you're perfectly aware of the reason why you died
-		user.investigate_log("has been gibbed by putting pineapple on an arnold pizza.", INVESTIGATE_DEATHS)
-		user.gib(DROP_ALL_REMAINS) //if you want something crazy like pineapple, i'll kill you
-	else if(istype(item, /obj/item/food/grown/mushroom) && iscarbon(user))
-		to_chat(user, span_userdanger("So, if you want mushroom, shut up.")) //not as large as the pineapple text, because you could in theory spam it
+/obj/item/food/proc/i_kill_you(obj/item/I, mob/living/user)
+	if(istype(I, /obj/item/food/pineappleslice))
+		to_chat(user, span_boldwarning("Если ты хочешь чего-то безумного, по типу ананасов, я убью тебя.")) //this is in bigger text because it's hard to spam something that gibs you, and so that you're perfectly aware of the reason why you died
+		user.gib() //if you want something crazy like pineapple, i'll kill you
+	else if(istype(I, /obj/item/food/grown/mushroom) && iscarbon(user))
+		to_chat(user, span_userdanger("Так что, если хочешь грибов, заткнись.")) //not as large as the pineapple text, because you could in theory spam it
 		var/mob/living/carbon/shutup = user
 		shutup.gain_trauma(/datum/brain_trauma/severe/mute)
 
@@ -404,10 +402,10 @@
 	. = ..()
 
 /obj/item/food/pizzaslice/arnold
-	name = "\improper Arnold pizza slice"
-	desc = "I come over, maybe I give you a pizza, maybe I break off your arm."
+	name = "кусок пиццы Арнольд"
+	desc = "Я приду, может, угощу тебя пиццей, может, сломаю тебе руку."
 	icon_state = "arnoldpizzaslice"
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "pepperoni" = 2, "9 millimeter bullets" = 2)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "пепперони" = 2, "9-ти миллиметровые пули" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT
 	crafting_complexity = FOOD_COMPLEXITY_4
 
@@ -420,15 +418,25 @@
 	. = ..()
 
 // Ant Pizza, now with more ants.
+/obj/item/food/pizza/ants
+	name = "пицца для муравьиной вечеринки"
+	desc = "// Блять, NoCringe, не забудь пофиксить"
+	icon_state = "antpizza"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/ants = 25, /datum/reagent/consumable/tomatojuice = 10, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/nutriment/protein = 2)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "жуки" = 1)
+	foodtypes = GRAIN | VEGETABLES | DAIRY | GROSS
+	slice_type = /obj/item/food/pizzaslice/ants
+	boxtag = "Anthill Deluxe"
+
 /obj/item/food/pizzaslice/ants
-	name = "\improper Ant Party pizza slice"
-	desc = "The key to a perfect slice of pizza is not to overdo it with the ants."
+	name = "кусок пиццы для муравьиной вечеринки"
+	desc = "Ключ к идеальному куску пиццы - не переборщить с муравьями."
 	icon_state = "antpizzaslice"
 	food_reagents = list(
 		/datum/reagent/ants = 5,
 		/datum/reagent/consumable/nutriment/protein = 2,
 	)
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "insects" = 1)
+	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "insects" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | BUGS
 
 // Ethereal Pizza, for when they want a slice
@@ -472,7 +480,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 		/datum/reagent/consumable/nutriment/protein = 2,
 	)
-	tastes = list("raw dough" = 1, "raw meat" = 1, "cheese" = 1, "tomato sauce" = 1)
+	tastes = list("raw dough" = 1, "raw meat" = 1, "сыр" = 1, "tomato sauce" = 1)
 	foodtypes = GRAIN | RAW | DAIRY | MEAT
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3

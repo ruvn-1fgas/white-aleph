@@ -69,8 +69,8 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 
 
 /obj/structure/mystery_box
-	name = "mystery box"
-	desc = "A wooden crate that seems equally magical and mysterious, capable of granting the user all kinds of different pieces of gear."
+	name = "загадочная коробка"
+	desc = "Удивительная."
 	icon = 'icons/obj/storage/crates.dmi'
 	icon_state = "wooden"
 	pixel_y = -4

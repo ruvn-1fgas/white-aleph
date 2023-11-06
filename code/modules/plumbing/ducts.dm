@@ -268,8 +268,8 @@ All the important duct code:
 	if(anchored || can_anchor())
 		set_anchored(!anchored)
 		user.visible_message( \
-		"[user] [anchored ? null : "un"]fastens \the [src].", \
-		span_notice("You [anchored ? null : "un"]fasten \the [src]."), \
+		"[user] [anchored ? null : "un"]fastens  [src].", \
+		span_notice("You [anchored ? null : "un"]fasten  [src]."), \
 		span_hear("You hear ratcheting."))
 	return TRUE
 

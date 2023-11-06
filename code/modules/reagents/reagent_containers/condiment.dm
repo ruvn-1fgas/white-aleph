@@ -50,8 +50,8 @@
 		return FALSE
 
 	if(M == user)
-		user.visible_message(span_notice("[user] swallows some of the contents of \the [src]."), \
-			span_notice("You swallow some of the contents of \the [src]."))
+		user.visible_message(span_notice("[user] swallows some of the contents of  [src]."), \
+			span_notice("You swallow some of the contents of  [src]."))
 	else
 		M.visible_message(span_warning("[user] attempts to feed [M] from [src]."), \
 			span_warning("[user] attempts to feed you from [src]."))

@@ -75,7 +75,7 @@
 			chosen_color = "blue"
 		else
 			colour = "#000000"
-	to_chat(user, span_notice("\The [src] will now write in [chosen_color]."))
+	to_chat(user, span_notice(" [src] will now write in [chosen_color]."))
 	desc = "It's a fancy four-color ink pen, set to [chosen_color]."
 
 /obj/item/pen/fountain
@@ -184,7 +184,7 @@
 				if(label)
 					label.remove_label()
 					label.apply_label()
-				to_chat(user, span_notice("You have successfully renamed \the [oldname] to [O]."))
+				to_chat(user, span_notice("You have successfully renamed  [oldname] to [O]."))
 				O.renamedByPlayer = TRUE
 				O.update_appearance(UPDATE_ICON)
 

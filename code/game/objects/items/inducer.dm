@@ -1,6 +1,6 @@
 /obj/item/inducer
-	name = "inducer"
-	desc = "A tool for inductively charging internal power cells."
+	name = "индуктор"
+	desc = "Инструмент для индуктивной зарядки элементов питания, позволяя заряжать их без необходимости извлечения."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "inducer-engi"
 	inhand_icon_state = "inducer-engi"
@@ -47,15 +47,15 @@
 
 /obj/item/inducer/proc/cantbeused(mob/user)
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, span_warning("You don't have the dexterity to use [src]!"))
+		to_chat(user, span_warning("Мне не хватает ловкости для использования [src]!"))
 		return TRUE
 
 	if(!cell)
-		balloon_alert(user, "no cell installed!")
+		to_chat(user, span_warning("[capitalize(src.name)] не имеет установленного элемента питания!"))
 		return TRUE
 
 	if(!cell.charge)
-		balloon_alert(user, "no charge!")
+		to_chat(user, span_warning("[capitalize(src.name)] батарея разряжена!"))
 		return TRUE
 	return FALSE
 
@@ -63,12 +63,12 @@
 	. = TRUE
 	tool.play_tool_sound(src)
 	if(!opened)
-		to_chat(user, span_notice("You unscrew the battery compartment."))
+		to_chat(user, span_notice("Откручиваю защиту батарейного отсека."))
 		opened = TRUE
 		update_appearance()
 		return
 	else
-		to_chat(user, span_notice("You close the battery compartment."))
+		to_chat(user, span_notice("Закручиваю защиту батарейного отсека."))
 		opened = FALSE
 		update_appearance()
 		return
@@ -79,12 +79,12 @@
 			if(!cell)
 				if(!user.transferItemToLoc(W, src))
 					return
-				to_chat(user, span_notice("You insert [W] into [src]."))
+				to_chat(user, span_notice("Помещаю [W] в [src]."))
 				cell = W
 				update_appearance()
 				return
 			else
-				to_chat(user, span_warning("[src] already has \a [cell] installed!"))
+				to_chat(user, span_warning("В [capitalize(src.name)] уже установлена [cell]!"))
 				return
 
 	if(cantbeused(user))
@@ -106,20 +106,20 @@
 	var/obj/O
 	var/coefficient = 1
 	if(istype(A, /obj/item/gun/energy))
-		to_chat(user, span_alert("Error: unable to interface with device."))
+		to_chat(user, span_alert("Ошибка, не удается подключиться к устройству."))
 		return FALSE
 	if(istype(A, /obj/item/clothing/suit/space))
-		to_chat(user, span_alert("Error: unable to interface with device."))
+		to_chat(user, span_alert("Ошибка, не удается подключиться к устройству."))
 		return FALSE
 	if(isobj(A))
 		O = A
 	if(C)
 		var/done_any = FALSE
 		if(C.charge >= C.maxcharge)
-			balloon_alert(user, "it's fully charged!")
+			to_chat(user, span_notice("[A] полностью заряжен!"))
 			recharging = FALSE
 			return TRUE
-		user.visible_message(span_notice("[user] starts recharging [A] with [src]."), span_notice("You start recharging [A] with [src]."))
+		user.visible_message(span_notice("[user] начинает заряжать [A] при помощи [src].") , span_notice("Начинаю заряжать [A] при помощи [src]."))
 		while(C.charge < C.maxcharge)
 			if(do_after(user, 10, target = user) && cell.charge)
 				done_any = TRUE
@@ -130,7 +130,7 @@
 			else
 				break
 		if(done_any) // Only show a message if we succeeded at least once
-			user.visible_message(span_notice("[user] recharged [A]!"), span_notice("You recharged [A]!"))
+			user.visible_message(span_notice("[user] зарядил [A]!") , span_notice("[A] заряжен!"))
 		recharging = FALSE
 		return TRUE
 	recharging = FALSE
@@ -150,7 +150,7 @@
 
 /obj/item/inducer/attack_self(mob/user)
 	if(opened && cell)
-		user.visible_message(span_notice("[user] removes [cell] from [src]!"), span_notice("You remove [cell]."))
+		user.visible_message(span_notice("[user] извлекает [cell] из [src]!") , span_notice("Извлекаю [cell]."))
 		cell.update_appearance()
 		user.put_in_hands(cell)
 		cell = null
@@ -160,11 +160,11 @@
 /obj/item/inducer/examine(mob/living/M)
 	. = ..()
 	if(cell)
-		. += span_notice("Its display shows: [display_energy(cell.charge)].")
+		. += span_notice("Его дисплей показывает: [display_energy(cell.charge)].")
 	else
-		. += span_notice("Its display is dark.")
+		. += span_notice("Его дисплей темный.")
 	if(opened)
-		. += span_notice("Its battery compartment is open.")
+		. += span_notice("Его батарейный отсек открыт.")
 
 /obj/item/inducer/update_overlays()
 	. = ..()
@@ -175,7 +175,7 @@
 /obj/item/inducer/sci
 	icon_state = "inducer-sci"
 	inhand_icon_state = "inducer-sci"
-	desc = "A tool for inductively charging internal power cells. This one has a science color scheme, and is less potent than its engineering counterpart."
+	desc = "Инструмент для индуктивной зарядки внутренних элементов питания. Этот имеет научную цветовую гамму и менее мощный, чем его инженерный аналог."
 	cell_type = null
 	powertransfer = 500
 	opened = TRUE
@@ -187,6 +187,6 @@
 /obj/item/inducer/syndicate
 	icon_state = "inducer-syndi"
 	inhand_icon_state = "inducer-syndi"
-	desc = "A tool for inductively charging internal power cells. This one has a suspicious colour scheme, and seems to be rigged to transfer charge at a much faster rate."
+	desc = "Инструмент для индуктивной зарядки внутренних элементов питания. Этот имеет подозрительную цветовую гамму и, похоже, приспособлен для передачи заряда с гораздо большей скоростью."
 	powertransfer = 2000
 	cell_type = /obj/item/stock_parts/cell/super

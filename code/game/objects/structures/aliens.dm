@@ -36,8 +36,8 @@
  */
 
 /obj/structure/alien/gelpod
-	name = "gelatinous mound"
-	desc = "A mound of jelly-like substance encasing something inside."
+	name = "смоляной кокон"
+	desc = "Застывшая смола сформированная в виде огромного кокона, кажется внутри кто-то есть..."
 	icon = 'icons/obj/fluff/general.dmi'
 	icon_state = "gelmound"
 
@@ -50,8 +50,8 @@
  * Resin
  */
 /obj/structure/alien/resin
-	name = "resin"
-	desc = "Looks like some kind of thick resin."
+	name = "смола"
+	desc = "Черная, липкая, но в то же время весьма прочная субстанция."
 	icon = 'icons/obj/smooth_structures/alien/resin_wall.dmi'
 	icon_state = "resin_wall-0"
 	base_icon_state = "resin_wall"
@@ -80,8 +80,8 @@
 	move_update_air(T)
 
 /obj/structure/alien/resin/wall
-	name = "resin wall"
-	desc = "Thick resin solidified into a wall."
+	name = "смоляная стена"
+	desc = "Черная, липкая, но в то же время весьма прочная субстанция, перегораживающая проход."
 	icon = 'icons/obj/smooth_structures/alien/resin_wall.dmi'
 	icon_state = "resin_wall-0"
 	base_icon_state = "resin_wall"
@@ -98,13 +98,13 @@
 	move_resist = MOVE_FORCE_VERY_STRONG
 
 /obj/structure/alien/resin/wall/creature
-	name = "gelatinous wall"
-	desc = "Thick material shaped into a wall. Yuck."
+	name = "студенистая стена"
+	desc = "Прочная субстанция, перегораживающая проход."
 	color = "#8EC127"
 
 /obj/structure/alien/resin/membrane
-	name = "resin membrane"
-	desc = "Resin just thin enough to let light pass through."
+	name = "смоляная мембрана"
+	desc = "Биполяризованная смола достаточно тонкая и прозрачная для того, чтобы сквозь нее можно было различить силуэты по ту сторону пленки."
 	icon = 'icons/obj/smooth_structures/alien/resin_membrane.dmi'
 	icon_state = "resin_membrane-0"
 	base_icon_state = "resin_membrane"
@@ -119,8 +119,8 @@
 
 ///Used in the big derelict ruin exclusively.
 /obj/structure/alien/resin/membrane/creature
-	name = "gelatinous membrane"
-	desc = "A strange combination of thin, gelatinous material."
+	name = "студенистая мембрана"
+	desc = "Странный прозрачный материал похожий на древесную смолу."
 	color = "#4BAE56"
 
 /*
@@ -131,8 +131,8 @@
 
 /obj/structure/alien/weeds
 	gender = PLURAL
-	name = "resin floor"
-	desc = "A thick resin surface covers the floor."
+	name = "смола"
+	desc = "Черный, пружинистый наст, покрывающий пол тонким слоем."
 	anchored = TRUE
 	density = FALSE
 	layer = MID_TURF_LAYER
@@ -253,8 +253,8 @@
 	take_damage(5, BURN, 0, 0)
 
 /obj/structure/alien/weeds/node
-	name = "glowing resin"
-	desc = "Blue bioluminescence shines from beneath the surface."
+	name = "смоляная колония"
+	desc = "Чужеродная колония-опухоль населенная микроксеноорганизмами, терраформирующими окружающую территорию при помощи биполярной смолы."
 	icon = 'icons/obj/smooth_structures/alien/weednode.dmi'
 	icon_state = "weednode-0"
 	base_icon_state = "weednode"
@@ -306,8 +306,8 @@
 	return //No icon randomization at init. The node's icon is already well defined.
 
 /obj/structure/alien/weeds/creature
-	name = "gelatinous floor"
-	desc = "A thick gelatinous surface covers the floor.  Someone get the galoshes."
+	name = "студенистый наст"
+	desc = "Странная, зеленая масса, покрывающая пол тонким слоем."
 	color = "#4BAE56"
 
 
@@ -328,8 +328,8 @@
 #define MAX_GROWTH_TIME 1500
 
 /obj/structure/alien/egg
-	name = "egg"
-	desc = "A large mottled egg."
+	name = "яйцо"
+	desc = "Огромное, кожистое яйцо."
 	icon_state = "egg_growing"
 	base_icon_state = "egg"
 	density = FALSE
@@ -387,22 +387,22 @@
 	if(user.get_organ_by_type(/obj/item/organ/internal/alien/plasmavessel))
 		switch(status)
 			if(BURSTING)
-				to_chat(user, span_notice("The child is hatching out."))
+				to_chat(user, span_notice("Детеныш вылупляется."))
 				return
 			if(BURST)
-				to_chat(user, span_notice("You clear the hatched egg."))
+				to_chat(user, span_notice("Убираю вылупившееся яйцо."))
 				playsound(loc, 'sound/effects/attackblob.ogg', 100, TRUE)
 				qdel(src)
 				return
 			if(GROWING)
-				to_chat(user, span_notice("The child is not developed yet."))
+				to_chat(user, span_notice("Этот детеныш еще не готов к вылуплению."))
 				return
 			if(GROWN)
-				to_chat(user, span_notice("You retrieve the child."))
+				to_chat(user, span_notice("Пробуждаю детеныша."))
 				Burst(kill=FALSE)
 				return
 	else
-		to_chat(user, span_notice("It feels slimy."))
+		to_chat(user, span_notice("Оно склизкое на ощупь."))
 		user.changeNext_move(CLICK_CD_MELEE)
 
 

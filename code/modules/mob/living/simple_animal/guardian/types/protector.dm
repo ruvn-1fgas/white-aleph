@@ -68,11 +68,11 @@
 		return
 	if(istype(summoner.loc, /obj/effect))
 		to_chat(src, span_holoparasite("You moved out of range, and were pulled back! You can only move [range] meters from [summoner.real_name]!"))
-		visible_message(span_danger("\The [src] jumps back to its user."))
+		visible_message(span_danger(" [src] jumps back to its user."))
 		recall(forced = TRUE)
 		return
 	to_chat(summoner, span_holoparasite("You moved out of range, and were pulled back! You can only move [range] meters from <font color=\"[guardian_color]\"><b>[real_name]</b></font>!"))
-	summoner.visible_message(span_danger("\The [summoner] jumps back to [summoner.p_their()] protector."))
+	summoner.visible_message(span_danger(" [summoner] jumps back to [summoner.p_their()] protector."))
 	new /obj/effect/temp_visual/guardian/phase/out(get_turf(summoner))
 	summoner.forceMove(get_turf(src))
 	new /obj/effect/temp_visual/guardian/phase(get_turf(summoner))

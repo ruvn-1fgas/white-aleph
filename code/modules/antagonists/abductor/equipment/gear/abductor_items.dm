@@ -620,7 +620,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 
 /obj/item/abductor/alien_omnitool
 	name = "quizzandric interfacer"
-	desc = "Effectively just a Space Swiss Army Knife. Contains a multitude of integrated tools. Right-click it to switch which toolset is active."
+	desc = "Effectively just a Space Swiss Army Knife. Contains a multitude of integrated tools. ПКМ it to switch which toolset is active."
 	icon_state = "omnitool"
 	inhand_icon_state = "silencer"
 	toolspeed = 0.25

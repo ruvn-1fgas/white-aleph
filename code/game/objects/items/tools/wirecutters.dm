@@ -1,6 +1,6 @@
 /obj/item/wirecutters
-	name = "wirecutters"
-	desc = "This cuts wires."
+	name = "кусачки"
+	desc = "Чтобы резать кабели."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "cutters_map"
 	worn_icon_state = "cutters"
@@ -20,8 +20,8 @@
 	throw_range = 7
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.8)
-	attack_verb_continuous = list("pinches", "nips")
-	attack_verb_simple = list("pinch", "nip")
+	attack_verb_continuous = list("кусает", "прокусывает")
+	attack_verb_simple = list("кусает", "прокусывает")
 	hitsound = 'sound/items/wirecutter.ogg'
 	usesound = 'sound/items/wirecutter.ogg'
 	drop_sound = 'sound/items/handling/wirecutter_drop.ogg'
@@ -64,8 +64,8 @@
 	return BRUTELOSS
 
 /obj/item/wirecutters/abductor
-	name = "alien wirecutters"
-	desc = "Extremely sharp wirecutters, made out of a silvery-green metal."
+	name = "инопланетные кусачки"
+	desc = "Очень острые канаторезы, изготовленные из серебристо-зеленого металла."
 	icon = 'icons/obj/antags/abductor.dmi'
 	custom_materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = SHEET_MATERIAL_AMOUNT*1.25, /datum/material/plasma =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/titanium =SHEET_MATERIAL_AMOUNT, /datum/material/diamond =SHEET_MATERIAL_AMOUNT)
 	icon_state = "cutters"
@@ -74,8 +74,8 @@
 	snap_time_strong_handcuffs = 1 SECONDS
 
 /obj/item/wirecutters/cyborg
-	name = "powered wirecutters"
-	desc = "Cuts wires with the power of ELECTRICITY. Faster than normal wirecutters."
+	name = "механизированные кусачки"
+	desc = "Обрезает провода силой ЭЛЕКТРИЧЕСКОсти. Быстрее, чем обычные канаторезы."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "wirecutters_cyborg"
 	worn_icon_state = "cutters"

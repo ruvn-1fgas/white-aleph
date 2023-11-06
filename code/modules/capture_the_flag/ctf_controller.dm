@@ -123,7 +123,7 @@
 ///Called when a flag is captured by the provided team. Messages players telling them who scored a point and if points are high enough declares victory.
 /datum/ctf_controller/proc/capture_flag(team_color, mob/living/user, team_span, obj/item/ctf_flag/flag)
 	teams[team_color].score_points(flag.flag_value)
-	message_all_teams("<span class='userdanger [team_span]'>[user.real_name] has captured \the [flag], scoring a point for [team_color] team! They now have [get_points(team_color)]/[points_to_win] points!</span>")
+	message_all_teams("<span class='userdanger [team_span]'>[user.real_name] has captured  [flag], scoring a point for [team_color] team! They now have [get_points(team_color)]/[points_to_win] points!</span>")
 	if(get_points(team_color) >= points_to_win)
 		victory(team_color)
 

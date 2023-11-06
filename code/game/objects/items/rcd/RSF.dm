@@ -6,8 +6,8 @@ RSF
 ///Extracts the related object from an associated list of objects and values, or lists and objects.
 #define OBJECT_OR_LIST_ELEMENT(from, input) (islist(input) ? from[input] : input)
 /obj/item/rsf
-	name = "\improper Rapid-Service-Fabricator"
-	desc = "A device used to rapidly deploy service items."
+	name = "РСФ - Сервировщик"
+	desc = "Устройство для быстрого сервирования стола."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rsf"
 	inhand_icon_state = "rsf"
@@ -76,7 +76,7 @@ RSF
 	if(is_type_in_list(W,matter_by_item))//If the thing we got hit by is in our matter list
 		var/tempMatter = matter_by_item[W.type] + matter
 		if(tempMatter > max_matter)
-			to_chat(user, span_warning("\The [src] can't hold any more [discriptor]!"))
+			to_chat(user, span_warning(" [src] can't hold any more [discriptor]!"))
 			return
 		if(isstack(W))
 			var/obj/item/stack/stack = W
@@ -85,7 +85,7 @@ RSF
 			qdel(W)
 		matter = tempMatter //We add its value
 		playsound(src.loc, 'sound/machines/click.ogg', 10, TRUE)
-		to_chat(user, span_notice("\The [src] now holds [matter]/[max_matter] [discriptor]."))
+		to_chat(user, span_notice(" [src] now holds [matter]/[max_matter] [discriptor]."))
 		icon_state = base_icon_state//and set the icon state to the base state
 	else
 		return ..()
@@ -154,11 +154,11 @@ RSF
 		return TRUE
 	else
 		if(matter - 1 < 0)
-			to_chat(user, span_warning("\The [src] doesn't have enough [discriptor] left."))
+			to_chat(user, span_warning(" [src] doesn't have enough [discriptor] left."))
 			icon_state = spent_icon_state
 			return FALSE
 		matter--
-		to_chat(user, span_notice("\The [src] now holds [matter]/[max_matter] [discriptor]."))
+		to_chat(user, span_notice(" [src] now holds [matter]/[max_matter] [discriptor]."))
 		return TRUE
 
 ///Helper proc that iterates through all the things we are allowed to spawn on, and sees if the passed atom is one of them

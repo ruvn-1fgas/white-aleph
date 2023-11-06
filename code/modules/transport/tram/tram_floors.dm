@@ -248,8 +248,8 @@
 		return FALSE
 
 	else
-		user.visible_message(span_notice("[user] wedges \the [tool] into the tile's gap in the edge and starts prying..."),
-		span_notice("You wedge \the [tool] into the tram panel's gap in the frame and start prying..."))
+		user.visible_message(span_notice("[user] wedges  [tool] into the tile's gap in the edge and starts prying..."),
+		span_notice("You wedge  [tool] into the tram panel's gap in the frame and start prying..."))
 		if(tool.use_tool(src, user, 1 SECONDS, volume = 50))
 			to_chat(user, span_notice("The panel pops out of the frame."))
 			var/obj/item/stack/thermoplastic/pulled_tile = new()

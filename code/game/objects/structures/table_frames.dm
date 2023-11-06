@@ -10,8 +10,8 @@
  */
 
 /obj/structure/table_frame
-	name = "table frame"
-	desc = "Four metal legs with four framing rods for a table. You could easily pass through this."
+	name = "рама стола"
+	desc = "Четыре металлические ножки с четырьмя каркасными стержнями для стола. Вы могли бы легко пройти через это."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "table_frame"
 	density = FALSE
@@ -23,7 +23,7 @@
 
 
 /obj/structure/table_frame/wrench_act(mob/living/user, obj/item/I)
-	to_chat(user, span_notice("You start disassembling [src]..."))
+	to_chat(user, span_notice("Начинаю разбирать [src]..."))
 	I.play_tool_sound(src)
 	if(!I.use_tool(src, user, 3 SECONDS))
 		return TRUE
@@ -37,23 +37,23 @@
 		var/obj/item/stack/material = I
 		if(material.tableVariant)
 			if(material.get_amount() < 1)
-				to_chat(user, span_warning("You need one [material.name] sheet to do this!"))
+				to_chat(user, span_warning("Надо бы [material.name] чтобы закончить это!"))
 				return
 			if(locate(/obj/structure/table) in loc)
-				to_chat(user, span_warning("There's already a table built here!"))
+				to_chat(user, span_warning("Здесь уже есть стол!"))
 				return
-			to_chat(user, span_notice("You start adding [material] to [src]..."))
+			to_chat(user, span_notice("Начинаю добавлять [material] к [src]..."))
 			if(!do_after(user, 2 SECONDS, target = src) || !material.use(1) || (locate(/obj/structure/table) in loc))
 				return
 			make_new_table(material.tableVariant)
 		else if(istype(material, /obj/item/stack/sheet))
 			if(material.get_amount() < 1)
-				to_chat(user, span_warning("You need one sheet to do this!"))
+				to_chat(user, span_warning("Надо бы больше металла!"))
 				return
 			if(locate(/obj/structure/table) in loc)
-				to_chat(user, span_warning("There's already a table built here!"))
+				to_chat(user, span_warning("Здесь уже есть стол!"))
 				return
-			to_chat(user, span_notice("You start adding [material] to [src]..."))
+			to_chat(user, span_notice("Начинаю добавлять [material] к [src]..."))
 			if(!do_after(user, 2 SECONDS, target = src) || !material.use(1) || (locate(/obj/structure/table) in loc))
 				return
 			var/list/material_list = list()
@@ -88,8 +88,8 @@
  */
 
 /obj/structure/table_frame/wood
-	name = "wooden table frame"
-	desc = "Four wooden legs with four framing wooden rods for a wooden table. You could easily pass through this."
+	name = "деревянная рама стола"
+	desc = "Четыре деревянные ножки с четырьмя обрамляющими деревянными стержнями для деревянного стола. Вы могли бы легко пройти через это."
 	icon_state = "wood_frame"
 	framestack = /obj/item/stack/sheet/mineral/wood
 	framestackamount = 2
@@ -107,9 +107,9 @@
 			carpet_type = I.type
 		if (toConstruct)
 			if(material.get_amount() < 1)
-				to_chat(user, span_warning("You need one [material.name] sheet to do this!"))
+				to_chat(user, span_warning("Надо бы [material.name], чтобы закончить это!"))
 				return
-			to_chat(user, span_notice("You start adding [material] to [src]..."))
+			to_chat(user, span_notice("Начинаю добавлять [material] к [src]..."))
 			if(do_after(user, 20, target = src) && material.use(1))
 				make_new_table(toConstruct, null, carpet_type)
 	else

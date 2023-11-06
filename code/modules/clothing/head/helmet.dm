@@ -159,7 +159,7 @@
 	flags_inv ^= visor_flags_inv
 	flags_cover ^= visor_flags_cover
 	icon_state = "[initial(icon_state)][up ? "up" : ""]"
-	to_chat(user, span_notice("[up ? alt_toggle_message : toggle_message] \the [src]."))
+	to_chat(user, span_notice("[up ? alt_toggle_message : toggle_message]  [src]."))
 
 	user.update_worn_head()
 	if(iscarbon(user))

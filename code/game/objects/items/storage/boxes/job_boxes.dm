@@ -2,8 +2,7 @@
 
 // Ordinary survival box. Every crewmember gets one of these.
 /obj/item/storage/box/survival
-	name = "survival box"
-	desc = "A box with the bare essentials of ensuring the survival of you and others."
+	name = "коробка"
 	icon_state = "internals"
 	illustration = "emergencytank"
 	/// What type of mask are we going to use for this box?
@@ -44,7 +43,7 @@
 
 	if(HAS_TRAIT(SSstation, STATION_TRAIT_RADIOACTIVE_NEBULA))
 		new /obj/item/storage/pill_bottle/potassiodide(src)
-	
+
 	if(SSmapping.is_planetary() && LAZYLEN(SSmapping.multiz_levels))
 		new /obj/item/climbing_hook/emergency(src)
 
@@ -72,8 +71,6 @@
 
 // Engineer survival box
 /obj/item/storage/box/survival/engineer
-	name = "extended-capacity survival box"
-	desc = "A box with the bare essentials of ensuring the survival of you and others. This one is labelled to contain an extended-capacity tank."
 	illustration = "extendedtank"
 	internal_type = /obj/item/tank/internals/emergency_oxygen/engi
 
@@ -83,8 +80,6 @@
 
 // Syndie survival box
 /obj/item/storage/box/survival/syndie
-	name = "operation-ready survival box"
-	desc = "A box with the essentials of your operation. This one is labelled to contain an extended-capacity tank and a handy guide on survival."
 	icon_state = "syndiebox"
 	illustration = "extendedtank"
 	mask_type = /obj/item/clothing/mask/gas/syndicate
@@ -99,8 +94,6 @@
 	new /obj/item/paper/fluff/operative(src)
 
 /obj/item/storage/box/survival/centcom
-	name = "emergency response survival box"
-	desc = "A box with the bare essentials of ensuring the survival of your team. This one is labelled to contain a double tank."
 	illustration = "extendedtank"
 	internal_type = /obj/item/tank/internals/emergency_oxygen/double
 
@@ -129,8 +122,8 @@
 //Mime spell boxes
 
 /obj/item/storage/box/mime
-	name = "invisible box"
-	desc = "Unfortunately not large enough to trap the mime."
+	name = "невидимая коробка"
+	desc = "К сожалению, недостаточно большая, чтобы поймать мима."
 	foldable_result = null
 	icon_state = "box"
 	inhand_icon_state = null
@@ -147,8 +140,8 @@
 	return ..()
 
 /obj/item/storage/box/hug
-	name = "box of hugs"
-	desc = "A special box for sensitive people."
+	name = "коробка объятий"
+	desc = "Специальная коробка для чувствительных людей."
 	icon_state = "hugbox"
 	illustration = "heart"
 	foldable_result = null
@@ -161,7 +154,7 @@
 	..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, SFX_RUSTLE, 50, vary=TRUE, extrarange=-5)
-	user.visible_message(span_notice("[user] hugs [src]."),span_notice("You hug [src]."))
+	user.visible_message(span_notice("[user] обнимает <b>[skloname(name, VINITELNI, gender)]</b>.") ,span_notice("Обнимаю <b>[skloname(name, VINITELNI, gender)]</b>."))
 
 /obj/item/storage/box/hug/black
 	icon_state = "hugbox_black"
@@ -169,19 +162,19 @@
 
 // clown box, we also use this for the honk bot assembly
 /obj/item/storage/box/clown
-	name = "clown box"
-	desc = "A colorful cardboard box for the clown"
+	name = "коробка клоуна"
+	desc = "Красочная картонная коробка для клоуна"
 	illustration = "clown"
 
 /obj/item/storage/box/clown/attackby(obj/item/I, mob/user, params)
 	if((istype(I, /obj/item/bodypart/arm/left/robot)) || (istype(I, /obj/item/bodypart/arm/right/robot)))
 		if(contents.len) //prevent accidently deleting contents
-			balloon_alert(user, "items inside!")
+			to_chat(user, span_warning("Нужно опустошить [src] сначала!"))
 			return
 		if(!user.temporarilyRemoveItemFromInventory(I))
 			return
 		qdel(I)
-		balloon_alert(user, "wheels added, honk!")
+		to_chat(user, span_notice("Добавляю колёса для [src]! Теперь у меня есть сборка хонкбота! Хонк!"))
 		var/obj/item/bot_assembly/honkbot/A = new
 		qdel(src)
 		user.put_in_hands(A)
@@ -204,8 +197,8 @@
 
 //Clown survival box
 /obj/item/storage/box/survival/hug
-	name = "box of hugs"
-	desc = "A special box for sensitive people."
+	name = "коробка объятий"
+	desc = "Специальная коробка для чувствительных людей."
 	icon_state = "hugbox"
 	illustration = "heart"
 	foldable_result = null
@@ -237,12 +230,11 @@
 	..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, SFX_RUSTLE, 50, vary=TRUE, extrarange=-5)
-	user.visible_message(span_notice("[user] hugs [src]."),span_notice("You hug [src]."))
+	user.visible_message(span_notice("[user] обнимает <b>[skloname(name, VINITELNI, gender)]</b>.") ,span_notice("Обнимаю <b>[skloname(name, VINITELNI, gender)]</b>."))
 
 /obj/item/storage/box/hug/plushes
-	name = "tactical cuddle kit"
-	desc = "A lovely little box filled with soft, cute plushies, perfect for calming down people who have just suffered a traumatic event. Legend has it there's a special part of hell \
-	for Medical Officers who just take the box for themselves."
+	name = "коробка игрушек"
+	desc = "Маленькая милая коробка с плюшевыми игрушками."
 
 /obj/item/storage/box/hug/plushes/PopulateContents()
 	for(var/i in 1 to 7)
@@ -275,8 +267,8 @@
 			new modkit(src)
 
 /obj/item/storage/box/skillchips
-	name = "box of skillchips"
-	desc = "Contains one copy of every skillchip"
+	name = "коробка чипов навыков"
+	desc = "Содержит по одной копии каждого чипа навыков"
 
 /obj/item/storage/box/skillchips/PopulateContents()
 	var/list/skillchips = subtypesof(/obj/item/skillchip)
@@ -285,16 +277,16 @@
 		new skillchip(src)
 
 /obj/item/storage/box/skillchips/science
-	name = "box of science job skillchips"
-	desc = "Contains spares of every science job skillchip."
+	name = "коробка с чипами для научных работ"
+	desc = "Содержит запасные чипы для всех научных работ."
 
 /obj/item/storage/box/skillchips/science/PopulateContents()
 	new/obj/item/skillchip/job/roboticist(src)
 	new/obj/item/skillchip/job/roboticist(src)
 
 /obj/item/storage/box/skillchips/engineering
-	name = "box of engineering job skillchips"
-	desc = "Contains spares of every engineering job skillchip."
+	name = "Коробка с чипами инженерных навыков"
+	desc = "Содержит запасные чипы для всех технических навыков."
 
 /obj/item/storage/box/skillchips/engineering/PopulateContents()
 	new/obj/item/skillchip/job/engineer(src)

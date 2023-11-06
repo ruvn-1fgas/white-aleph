@@ -5,7 +5,7 @@
 	var/rotation_flags = NONE
 
 /**
- * Adds the ability to rotate an object by Alt-click or using Right-click verbs.
+ * Adds the ability to rotate an object by Alt-клик or using ПКМ verbs.
  *
  * args:
  * * rotation_flags (optional) Bitflags that determine behavior for rotation (defined at the top of this file)

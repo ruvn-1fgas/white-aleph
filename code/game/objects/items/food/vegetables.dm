@@ -1,6 +1,6 @@
 /obj/item/food/eggplantparm
-	name = "eggplant parmigiana"
-	desc = "The only good recipe for eggplant."
+	name = "баклажанная пармиджана"
+	desc = "Единственный хороший рецепт приготовления баклажанов."
 	icon_state = "eggplantparm"
 
 	food_reagents = list(
@@ -15,8 +15,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/yakiimo
-	name = "yaki imo"
-	desc = "Made with roasted sweet potatoes!"
+	name = "яки-имо"
+	desc = "Приготовлено из жареного сладкого картофеля!"
 	icon_state = "yakiimo"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 5,
@@ -28,8 +28,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/roastparsnip
-	name = "roast parsnip"
-	desc = "Sweet and crunchy."
+	name = "жаренный пастернак"
+	desc = "Сладкий и хрустящий."
 	icon_state = "roastparsnip"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -42,8 +42,8 @@
 
 // Potatoes
 /obj/item/food/tatortot
-	name = "tator tot"
-	desc = "A large fried potato nugget that may or may not try to valid you."
+	name = "драники"
+	desc = "Натёртый сырой картофель, пожареный на масле."
 	icon_state = "tatortot"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
 	tastes = list("potato" = 3, "valids" = 1)
@@ -102,8 +102,8 @@
 
 // Fries
 /obj/item/food/fries
-	name = "space fries"
-	desc = "AKA: French Fries, Freedom Fries, etc."
+	name = "космический картофель фри"
+	desc = "Вкусно и точка."
 	icon_state = "fries"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
 	tastes = list("fries" = 3, "salt" = 1)
@@ -117,8 +117,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/cheesyfries
-	name = "cheesy fries"
-	desc = "Fries. Covered in cheese. Duh."
+	name = "сырное фри"
+	desc = "Картошка фри. В сыре. Ага."
 	icon_state = "cheesyfries"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -135,8 +135,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/carrotfries
-	name = "carrot fries"
-	desc = "Tasty fries from fresh carrots."
+	name = "морковка фри"
+	desc = "Вкусное фри из свежей моркови."
 	icon_state = "carrotfries"
 
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
@@ -150,8 +150,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/poutine
-	name = "poutine"
-	desc = "Fries covered in cheese curds and gravy."
+	name = "путин"
+	desc = "Фри, покрытые сырными крошками и соусом."
 	icon_state = "poutine"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 7)
 	tastes = list("potato" = 3, "gravy" = 1, "squeaky cheese" = 1)
@@ -192,8 +192,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/falafel
-	name = "falafel"
-	desc = "Beans, herbs, onions, and garlic mashed together and formed into a ball, then deep-fried. The herbs give the interior a unique green color."
+	name = "фалафель"
+	desc = "Бобы, травы, лук и чеснок, смешанные вместе и сформированные в шар, затем обжаренные во фритюре. Травы придают интерьеру уникальный зеленый цвет."
 	icon_state = "falafel"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,

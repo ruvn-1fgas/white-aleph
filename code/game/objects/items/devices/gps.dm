@@ -1,7 +1,7 @@
 
 /obj/item/gps
-	name = "global positioning system"
-	desc = "Helping lost spacemen find their way through the planets since 2016."
+	name = "GPS - глобальная система позиционирования"
+	desc = "Помогает потерянным космонавтам найти дорогу домой с 2016 года."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gps-c"
 	inhand_icon_state = "electronic"
@@ -35,7 +35,7 @@
 /obj/item/gps/mining
 	icon_state = "gps-m"
 	gpstag = "MINE0"
-	desc = "A positioning system helpful for rescuing trapped or injured miners, keeping one on you at all times while mining might just save your life."
+	desc = "GPS поисковая система для поиска пропавших шахтеров и объектов повышенного интереса."
 
 /obj/item/gps/cyborg
 	icon_state = "gps-b"

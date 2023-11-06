@@ -301,13 +301,13 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 	var/error_message = null
 	if(!toner_cartridge)
 		copies_amount = 0
-		error_message = span_warning("An error message flashes across \the [src]'s screen: \"No toner cartridge found. Aborting.\"")
+		error_message = span_warning("An error message flashes across  [src]'s screen: \"No toner cartridge found. Aborting.\"")
 	else if(toner_cartridge.charges < toner_use * copies_amount)
 		copies_amount = FLOOR(toner_cartridge.charges / toner_use, 1)
-		error_message = span_warning("An error message flashes across \the [src]'s screen: \"Not enough toner to perform [copies_amount >= 1 ? "full " : ""]operation.\"")
+		error_message = span_warning("An error message flashes across  [src]'s screen: \"Not enough toner to perform [copies_amount >= 1 ? "full " : ""]operation.\"")
 	if(get_paper_count() < paper_use * copies_amount)
 		copies_amount = FLOOR(get_paper_count() / paper_use, 1)
-		error_message = span_warning("An error message flashes across \the [src]'s screen: \"Not enough paper to perform [copies_amount >= 1 ? "full " : ""]operation.\"")
+		error_message = span_warning("An error message flashes across  [src]'s screen: \"Not enough paper to perform [copies_amount >= 1 ? "full " : ""]operation.\"")
 
 	copies_left = copies_amount
 
@@ -555,7 +555,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 		balloon_alert(user, "cartridge inserted")
 
 	else if(istype(object, /obj/item/areaeditor/blueprints))
-		to_chat(user, span_warning("\The [object] is too large to put into the copier. You need to find something else to record the document."))
+		to_chat(user, span_warning(" [object] is too large to put into the copier. You need to find something else to record the document."))
 
 	else if(istype(object, /obj/item/paperwork))
 		if(istype(object, /obj/item/paperwork/photocopy)) //No infinite paper chain. You need the original paperwork to make more copies.

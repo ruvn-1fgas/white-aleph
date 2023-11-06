@@ -115,7 +115,7 @@ no power level overlay is currently in the overlays list.
 /obj/machinery/field/generator/can_be_unfasten_wrench(mob/user, silent)
 	if(active)
 		if(!silent)
-			to_chat(user, span_warning("Turn \the [src] off first!"))
+			to_chat(user, span_warning("Turn  [src] off first!"))
 		return FAILED_UNFASTEN
 
 	else if(state == FG_WELDED)
@@ -145,7 +145,7 @@ no power level overlay is currently in the overlays list.
 				return TRUE
 			user.visible_message(
 				span_notice("[user] starts to weld [src] to the floor."),
-				span_notice("You start to weld \the [src] to the floor..."),
+				span_notice("You start to weld  [src] to the floor..."),
 				span_hear("You hear welding."))
 			if(welder.use_tool(src, user, 20, volume=50) && state == FG_SECURED)
 				state = FG_WELDED
@@ -156,11 +156,11 @@ no power level overlay is currently in the overlays list.
 				return TRUE
 			user.visible_message(
 				span_notice("[user] starts to cut [src] free from the floor."),
-				span_notice("You start to cut \the [src] free from the floor..."),
+				span_notice("You start to cut  [src] free from the floor..."),
 				span_hear("You hear welding."))
 			if(welder.use_tool(src, user, 20, volume=50) && state == FG_WELDED)
 				state = FG_SECURED
-				to_chat(user, span_notice("You cut \the [src] free from the floor."))
+				to_chat(user, span_notice("You cut  [src] free from the floor."))
 
 	return TRUE
 

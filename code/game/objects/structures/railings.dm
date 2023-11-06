@@ -1,6 +1,6 @@
 /obj/structure/railing
-	name = "railing"
-	desc = "Basic railing meant to protect idiots like you from falling."
+	name = "перила"
+	desc = "Простые перила, предназначенные для защиты таких идиотов, как вы, от падения."
 	icon = 'icons/obj/railings.dmi'
 	icon_state = "railing"
 	flags_1 = ON_BORDER_1
@@ -79,12 +79,12 @@
 			if(!I.tool_start_check(user, amount=1))
 				return
 
-			to_chat(user, span_notice("You begin repairing [src]..."))
+			to_chat(user, span_notice("Начинаю чинить [src]..."))
 			if(I.use_tool(src, user, 40, volume=50))
 				atom_integrity = max_integrity
-				to_chat(user, span_notice("You repair [src]."))
+				to_chat(user, span_notice("Чиню [src]."))
 		else
-			to_chat(user, span_warning("[src] is already in good condition!"))
+			to_chat(user, span_warning("[src] и так в хорошем состоянии!"))
 		return
 
 /obj/structure/railing/AltClick(mob/user)
@@ -92,7 +92,7 @@
 
 /obj/structure/railing/wirecutter_act(mob/living/user, obj/item/I)
 	. = ..()
-	to_chat(user, span_warning("You cut apart the railing."))
+	to_chat(user, span_warning("Разрезаю перила."))
 	I.play_tool_sound(src, 100)
 	deconstruct()
 	return TRUE
@@ -112,10 +112,10 @@
 	. = ..()
 	if(flags_1&NODECONSTRUCT_1)
 		return
-	to_chat(user, span_notice("You begin to [anchored ? "unfasten the railing from":"fasten the railing to"] the floor..."))
+	to_chat(user, span_notice("Начинаю [anchored ? "откреплять перила":"прикреплять перила"]..."))
 	if(I.use_tool(src, user, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_anchored), anchored)))
 		set_anchored(!anchored)
-		to_chat(user, span_notice("You [anchored ? "fasten the railing to":"unfasten the railing from"] the floor."))
+		to_chat(user, span_notice("[anchored ? "Прикручиваю перила к полу":"Откручиваю перила от пола"]."))
 	return TRUE
 
 /obj/structure/railing/CanPass(atom/movable/mover, border_dir)

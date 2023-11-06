@@ -18,8 +18,8 @@
 	ADD_TRAIT(src, TRAIT_APC_SHOCKING, INNATE_TRAIT)
 
 /obj/item/kitchen/fork
-	name = "fork"
-	desc = "Pointy."
+	name = "вилка"
+	desc = "Один удар четыре дырки."
 	icon_state = "fork"
 	force = 4
 	w_class = WEIGHT_CLASS_TINY
@@ -45,7 +45,7 @@
 	AddElement(/datum/element/eyestab)
 
 /obj/item/kitchen/fork/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] stabs \the [src] into [user.p_their()] chest! It looks like [user.p_theyre()] trying to take a bite out of [user.p_them()]self!"))
+	user.visible_message(span_suicide("[user] stabs  [src] into [user.p_their()] chest! It looks like [user.p_theyre()] trying to take a bite out of [user.p_them()]self!"))
 	playsound(src, 'sound/items/eatfood.ogg', 50, TRUE)
 	return BRUTELOSS
 
@@ -66,8 +66,8 @@
 		return ..()
 
 /obj/item/kitchen/fork/plastic
-	name = "plastic fork"
-	desc = "Really takes you back to highschool lunch."
+	name = "пластиковая вилка"
+	desc = "Ностальгия возвращает тебя обратно к школьному столу."
 	icon_state = "plastic_fork"
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
@@ -80,14 +80,14 @@
 	AddElement(/datum/element/easily_fragmented, PLASTIC_BREAK_PROBABILITY)
 
 /obj/item/knife/kitchen
-	name = "kitchen knife"
-	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
+	name = "кухонный нож"
+	desc = "Универсальный поварской нож производства Космо Шэф Инк. Гарантированно останется острым на долгие годы."
 
 /obj/item/knife/plastic
-	name = "plastic knife"
+	name = "пластиковый нож"
 	icon_state = "plastic_knife"
 	inhand_icon_state = "knife"
-	desc = "A very safe, barely sharp knife made of plastic. Good for cutting food and not much else."
+	desc = "Очень безопасный, едва заточенный нож из пластика. Хорош для нарезки продуктов и не более того."
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 0
@@ -103,7 +103,7 @@
 	AddElement(/datum/element/easily_fragmented, PLASTIC_BREAK_PROBABILITY)
 
 /obj/item/knife/kitchen/silicon
-	name = "Kitchen Toolset"
+	name = "Набор кухонной утвари"
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "sili_knife"
 	desc = "A breakthrough in synthetic engineering, this tool is a knife programmed to dull when not used for cooking purposes, and can exchange the blade for a rolling pin"
@@ -145,8 +145,8 @@
 		attack_verb_simple = list("prod", "whiff", "scratch", "poke")
 
 /obj/item/kitchen/rollingpin
-	name = "rolling pin"
-	desc = "Used to knock out the Bartender."
+	name = "скалка"
+	desc = "Использовать для вырубания бармена."
 	icon = 'icons/obj/service/kitchen.dmi'
 	icon_state = "rolling_pin"
 	worn_icon_state = "rolling_pin"
@@ -164,8 +164,8 @@
 	tool_behaviour = TOOL_ROLLINGPIN
 
 /obj/item/kitchen/rollingpin/illegal
-	name = "metal rolling pin"
-	desc = "A heavy metallic rolling pin used to bash in those annoying ingredients."
+	name = "металлическая скалка"
+	desc = "Тяжелая металлическая скалка, используемая для разбивания надоедливых ингредиентов."
 	icon_state = "metal_rolling_pin"
 	inhand_icon_state = "metal_rolling_pin"
 	force = 12
@@ -175,13 +175,13 @@
 	bare_wound_bonus = 14
 
 /obj/item/kitchen/rollingpin/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins flattening [user.p_their()] head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] begins flattening [user.p_their()] head with  [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 /* Trays  moved to /obj/item/storage/bag */
 
 /obj/item/kitchen/spoon
-	name = "spoon"
-	desc = "Just be careful your food doesn't melt the spoon first."
+	name = "ложка"
+	desc = "Один удар протянешь ножки."
 	icon_state = "spoon"
 	base_icon_state = "spoon"
 	w_class = WEIGHT_CLASS_TINY
@@ -297,7 +297,7 @@
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/item/kitchen/spoon/plastic
-	name = "plastic spoon"
+	name = "пластиковая ложка"
 	icon_state = "plastic_spoon"
 	force = 0
 	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 1.2)
@@ -313,8 +313,8 @@
 	AddElement(/datum/element/easily_fragmented, PLASTIC_BREAK_PROBABILITY)
 
 /obj/item/kitchen/spoon/soup_ladle
-	name = "ladle"
-	desc = "What is a ladle but a comically large spoon?"
+	name = "половник"
+	desc = "Что такое половник, если не большая ложка?"
 	icon_state = "ladle"
 	base_icon_state = "ladle"
 	inhand_icon_state = "spoon"

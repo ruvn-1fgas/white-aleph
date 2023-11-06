@@ -99,7 +99,7 @@
 
 /obj/item/gun/ballistic/revolver/ignition_effect(atom/A, mob/user)
 	if(last_fire && last_fire + 15 SECONDS > world.time)
-		. = span_notice("[user] touches the end of [src] to \the [A], using the residual heat to ignite it in a puff of smoke. What a badass.")
+		. = span_notice("[user] touches the end of [src] to  [A], using the residual heat to ignite it in a puff of smoke. What a badass.")
 
 /obj/item/gun/ballistic/revolver/c38
 	name = "\improper .38 revolver"
@@ -223,14 +223,14 @@
 	if(target != user)
 		playsound(src, dry_fire_sound, 30, TRUE)
 		user.visible_message(
-			span_danger("[user.name] tries to fire \the [src] at the same time, but only succeeds at looking like an idiot."), \
-			span_danger("\The [src]'s anti-combat mechanism prevents you from firing it at anyone but yourself!"))
+			span_danger("[user.name] tries to fire  [src] at the same time, but only succeeds at looking like an idiot."), \
+			span_danger(" [src]'s anti-combat mechanism prevents you from firing it at anyone but yourself!"))
 		return
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!spun)
-			to_chat(user, span_warning("You need to spin \the [src]'s chamber first!"))
+			to_chat(user, span_warning("You need to spin  [src]'s chamber first!"))
 			return
 
 		spun = FALSE
@@ -283,7 +283,7 @@
 	if(!stone.capture_soul(user, forced = TRUE)) //Something went wrong
 		qdel(stone)
 		return
-	user.visible_message(span_danger("[user.name]'s soul is captured by \the [src]!"), span_userdanger("You've lost the gamble! Your soul is forfeit!"))
+	user.visible_message(span_danger("[user.name]'s soul is captured by  [src]!"), span_userdanger("You've lost the gamble! Your soul is forfeit!"))
 
 /obj/item/gun/ballistic/revolver/reverse //Fires directly at its user... unless the user is a clown, of course.
 	clumsy_check = FALSE

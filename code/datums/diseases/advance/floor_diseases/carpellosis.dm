@@ -100,6 +100,6 @@
 		affected_mob.set_combat_mode(TRUE)
 		target.attack_paw(affected_mob)
 	else
-		affected_mob.visible_message("грызёт [target.name].", visible_message_flags = EMOTE_MESSAGE)
+		affected_mob.visible_message("скрежет зубами на [target.name].", visible_message_flags = EMOTE_MESSAGE)
 
 #undef GNASHING_RANGE

@@ -1,6 +1,6 @@
 /obj/machinery/autolathe
-	name = "autolathe"
-	desc = "It produces items using iron, glass, plastic and maybe some more."
+	name = "автолат"
+	desc = "Производит изделия из металла и стекла."
 	icon = 'icons/obj/machines/lathes.dmi'
 	icon_state = "autolathe"
 	density = TRUE
@@ -140,14 +140,14 @@
 
 	if(action == "make")
 		if(disabled)
-			say("The autolathe wires are disabled.")
+			say("Провода автолата отключены.")
 			return
 		if(busy)
-			say("The autolathe is busy. Please wait for completion of previous operation.")
+			say("Автолат занят. Дождитесь завершения предыдущей операции.")
 			return
 
 		if(isclosedturf(get_step(src, drop_direction)))
-			say("Output is obstructed.")
+			say("Выход автолата заблокирован.")
 			return
 
 		var/design_id = params["id"]
@@ -184,8 +184,8 @@
 				//ask user to pick specific material from list
 				used_material = tgui_input_list(
 					usr,
-					"Choose [used_material]",
-					"Custom Material",
+					"Выбирайте мудро [used_material]",
+					"Материал",
 					sort_list(list_to_show, GLOBAL_PROC_REF(cmp_typepaths_asc))
 				)
 				if(isnull(used_material))
@@ -195,7 +195,7 @@
 			materials_used[used_material] = amount_needed
 
 		if(!materials.has_materials(materials_used, coeff, multiplier))
-			say("Not enough materials for this operation!.")
+			say("Недостаточно материалов для этой операции!.")
 			return
 
 		//use power
@@ -206,7 +206,7 @@
 
 		//use materials
 		materials.use_materials(materials_used, coeff, multiplier)
-		to_chat(usr, span_notice("You print [multiplier] item(s) from the [src]"))
+		to_chat(usr, span_notice("Удалось распечатать [multiplier] предметов в [src]"))
 		update_static_data_for_all_viewers()
 		//print item
 		icon_state = "autolathe_n"
@@ -215,15 +215,15 @@
 
 		return TRUE
 
-/obj/machinery/autolathe/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/machinery/autolathe/attackby(obj/item/O, mob/living/user, params)
 	if(busy)
 		balloon_alert(user, "it's busy!")
 		return TRUE
 
-	if(default_deconstruction_crowbar(attacking_item))
+	if(default_deconstruction_crowbar(O))
 		return TRUE
 
-	if(panel_open && is_wire_tool(attacking_item))
+	if(panel_open && is_wire_tool(O))
 		wires.interact(user)
 		return TRUE
 
@@ -233,13 +233,13 @@
 	if(machine_stat)
 		return TRUE
 
-	if(istype(attacking_item, /obj/item/disk/design_disk))
-		user.visible_message(span_notice("[user] begins to load \the [attacking_item] in \the [src]..."),
-			balloon_alert(user, "uploading design..."),
-			span_hear("You hear the chatter of a floppy drive."))
+	if(istype(O, /obj/item/disk/design_disk))
+		user.visible_message(span_notice("[user] начинает загружать [O] в [src]...") ,
+			span_notice("Начинаю загружать [O]...") ,
+			span_hear("Слышу шелест дискет."))
 		busy = TRUE
 		if(do_after(user, 14.4, target = src))
-			var/obj/item/disk/design_disk/disky = attacking_item
+			var/obj/item/disk/design_disk/disky = O
 			var/list/not_imported
 			for(var/datum/design/blueprint as anything in disky.blueprints)
 				if(!blueprint)
@@ -258,8 +258,8 @@
 		balloon_alert(user, "close the panel first!")
 		return FALSE
 
-	if(istype(attacking_item, /obj/item/storage/bag/trash))
-		for(var/obj/item/content_item in attacking_item.contents)
+	if(istype(O, /obj/item/storage/bag/trash))
+		for(var/obj/item/content_item in O.contents)
 			if(!do_after(user, 0.5 SECONDS, src))
 				return FALSE
 			attackby(content_item, user)
@@ -270,7 +270,7 @@
 /obj/machinery/autolathe/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if(busy)
-		balloon_alert(user, "it's busy!")
+		balloon_alert(user, "занят!")
 		return
 
 	if(default_deconstruction_screwdriver(user, "autolathe_t", "autolathe", weapon))
@@ -280,7 +280,7 @@
 		return SECONDARY_ATTACK_CALL_NORMAL
 
 	if(panel_open)
-		balloon_alert(user, "close the panel first!")
+		balloon_alert(user, "нужно закрыть панель!")
 		return
 
 	return SECONDARY_ATTACK_CALL_NORMAL
@@ -361,12 +361,7 @@
 /obj/machinery/autolathe/examine(mob/user)
 	. += ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Storing up to <b>[materials.max_amount]</b> material units.<br>Material consumption at <b>[creation_efficiency*100]%</b>.")
-		if(drop_direction)
-			. += span_notice("Currently configured to drop printed objects <b>[dir2text(drop_direction)]</b>.")
-			. += span_notice("<b>Alt-click</b> to reset.")
-		else
-			. += span_notice("<b>Drag towards a direction</b> (while next to it) to change drop direction.")
+		. += "<hr><span class='notice'>Дисплей: Хранение до <b>[materials.max_amount]</b> юнитов.<br>Потребление материалов <b>[creation_efficiency*100]%</b>.</span>"
 
 /obj/machinery/autolathe/AltClick(mob/user)
 	. = ..()

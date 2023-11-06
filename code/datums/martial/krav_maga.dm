@@ -157,7 +157,7 @@
 					span_userdanger("<b>[A]</b> вершит насилие надо мной!"), span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, A)
 			to_chat(A, span_danger("Втаптываю <b>[D]</b> поучительно!"))
 			playsound(D, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
-	log_combat(A, D, "shoved (Krav Maga)", "[stuff_in_hand ? " removing \the [stuff_in_hand]" : ""]")
+	log_combat(A, D, "shoved (Krav Maga)", "[stuff_in_hand ? " removing  [stuff_in_hand]" : ""]")
 	return FALSE
 
 //Krav Maga Gloves

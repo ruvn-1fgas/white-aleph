@@ -75,7 +75,7 @@
 		if(!broken && !burnt)
 			for(var/obj/O in src)
 				for(var/M in O.buckled_mobs)
-					to_chat(user, span_warning("Someone is buckled to \the [O]! Unbuckle [M] to move \him out of the way."))
+					to_chat(user, span_warning("Someone is buckled to  [O]! Unbuckle [M] to move \him out of the way."))
 					return
 			var/obj/item/stack/tile/tile = C
 			tile.place_tile(src, user)

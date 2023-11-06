@@ -164,7 +164,7 @@
 	return ..()
 
 /obj/item/soulstone/proc/hot_potato(mob/living/user)
-	to_chat(user, span_userdanger("Holy magics residing in \the [src] burn your hand!"))
+	to_chat(user, span_userdanger("Holy magics residing in  [src] burn your hand!"))
 	var/obj/item/bodypart/affecting = user.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 	affecting.receive_damage( 0, 10 ) // 10 burn damage
 	user.emote("scream")

@@ -167,7 +167,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 
 /obj/machinery/shower/screwdriver_act(mob/living/user, obj/item/I)
 	..()
-	to_chat(user, span_notice("You begin to adjust the temperature valve with \the [I]..."))
+	to_chat(user, span_notice("You begin to adjust the temperature valve with  [I]..."))
 	if(I.use_tool(src, user, 50))
 		switch(current_temperature)
 			if(SHOWER_NORMAL)
@@ -176,7 +176,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 				current_temperature = SHOWER_BOILING
 			if(SHOWER_BOILING)
 				current_temperature = SHOWER_NORMAL
-		user.visible_message(span_notice("[user] adjusts the shower with \the [I]."), span_notice("You adjust the shower with \the [I] to [current_temperature] temperature."))
+		user.visible_message(span_notice("[user] adjusts the shower with  [I]."), span_notice("You adjust the shower with  [I] to [current_temperature] temperature."))
 		user.log_message("has wrenched a shower to [current_temperature].", LOG_ATTACK)
 		add_hiddenprint(user)
 	handle_mist()

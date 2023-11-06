@@ -1,6 +1,6 @@
 /obj/item/mop
-	desc = "The world of janitalia wouldn't be complete without a mop."
-	name = "mop"
+	desc = "Мир \"janitalia\" не был бы полным без швабры."
+	name = "швабра"
 	icon = 'icons/obj/service/janitor.dmi'
 	icon_state = "mop"
 	inhand_icon_state = "mop"
@@ -11,14 +11,14 @@
 	throw_speed = 3
 	throw_range = 7
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb_continuous = list("mops", "bashes", "bludgeons", "whacks")
-	attack_verb_simple = list("mop", "bash", "bludgeon", "whack")
+	attack_verb_continuous = list("моет", "лупит", "бьёт", "ударяет")
+	attack_verb_simple = list("моет", "лупит", "бьёт", "ударяет")
 	resistance_flags = FLAMMABLE
 	var/mopcount = 0
 	///Maximum volume of reagents it can hold.
 	var/max_reagent_volume = 15
 	var/mopspeed = 1.5 SECONDS
-	force_string = "robust... against germs"
+	force_string = "крепкая... против микробов"
 	var/insertable = TRUE
 	var/static/list/clean_blacklist = typecacheof(list(
 		/obj/item/reagent_containers/cup/bucket,
@@ -48,7 +48,7 @@
 	if(clean_blacklist[atom_to_clean.type])
 		return DO_NOT_CLEAN
 	if(reagents.total_volume < 0.1)
-		cleaner.balloon_alert(cleaner, "mop is dry!")
+		cleaner.balloon_alert(cleaner, "швабра сухая!")
 		return DO_NOT_CLEAN
 	return reagents.has_chemical_flag(REAGENT_CLEANS, 1)
 
@@ -72,8 +72,8 @@
 	ADD_TRAIT(src, TRAIT_NODROP, CYBORG_ITEM_TRAIT)
 
 /obj/item/mop/advanced
-	desc = "The most advanced tool in a custodian's arsenal, complete with a condenser for self-wetting! Just think of all the viscera you will clean up with this!"
-	name = "advanced mop"
+	name = "продвинутая швабра"
+	desc = "Самый передовой инструмент в арсенале уборщика, в комплекте с влагоуловителем для смачивания! Просто представьте сколько размозженных голов и кровавых луж, вы сможете ей убрать!"
 	max_reagent_volume = 10
 	icon_state = "advmop"
 	inhand_icon_state = "advmop"
@@ -98,7 +98,7 @@
 		START_PROCESSING(SSobj, src)
 	else
 		STOP_PROCESSING(SSobj,src)
-	user.balloon_alert(user, "condenser switch [refill_enabled ? "on" : "off"]")
+	to_chat(user, span_notice("Устанавливаю переключатель конденсатора в положение '[refill_enabled ? "ВКЛ" : "ВЫКЛ"]'."))
 	playsound(user, 'sound/machines/click.ogg', 30, TRUE)
 
 /obj/item/mop/advanced/process(seconds_per_tick)
@@ -108,7 +108,7 @@
 
 /obj/item/mop/advanced/examine(mob/user)
 	. = ..()
-	. += span_notice("The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.")
+	. += span_notice("Переключатель конденсатора сейчас в положении <b>[refill_enabled ? "ВКЛ" : "ВЫКЛ"]</b>.")
 
 /obj/item/mop/advanced/Destroy()
 	STOP_PROCESSING(SSobj, src)

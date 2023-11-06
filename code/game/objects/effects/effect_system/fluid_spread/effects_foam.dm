@@ -11,7 +11,7 @@
  * Similar to smoke, but slower and mobs absorb its reagent through their exposed skin.
  */
 /obj/effect/particle_effect/fluid/foam
-	name = "foam"
+	name = "пена"
 	icon_state = "foam"
 	opacity = FALSE
 	anchored = TRUE
@@ -334,7 +334,7 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
-	to_chat(user, span_warning("You hit [src] but bounce off it!"))
+	to_chat(user, span_warning("Бью [src], но ей всё равно!"))
 	playsound(src.loc, 'sound/weapons/tap.ogg', 100, TRUE)
 
 /obj/structure/foamedmetal/attackby(obj/item/W, mob/user, params)
@@ -353,13 +353,13 @@
 	var/obj/item/stack/sheet/sheet_for_plating = W
 	if(istype(sheet_for_plating, /obj/item/stack/sheet/iron))
 		if(sheet_for_plating.get_amount() < 2)
-			to_chat(user, span_warning("You need two sheets of iron to finish a wall on [src]!"))
+			to_chat(user, span_warning("Потребуется два листа металла для создания стены на [src]!"))
 			return
-		to_chat(user, span_notice("You start adding plating to the foam structure..."))
+		to_chat(user, span_notice("Начинаю добавлять металл..."))
 		if (do_after(user, 40 * platingmodifier, target = src))
 			if(!sheet_for_plating.use(2))
 				return
-			to_chat(user, span_notice("You add the plating."))
+			to_chat(user, span_notice("Добавляю металл."))
 			var/turf/T = get_turf(src)
 			T.PlaceOnTop(/turf/closed/wall/metal_foam_base)
 			transfer_fingerprints_to(T)
@@ -370,7 +370,7 @@
 
 /// A metal foam variant which produces slightly sturdier walls.
 /obj/effect/particle_effect/fluid/foam/metal/iron
-	name = "iron foam"
+	name = "металлопена"
 	result_type = /obj/structure/foamedmetal/iron
 
 /// A factory which produces iron metal foam.
@@ -384,7 +384,7 @@
 
 /// A variant of metal foam which only produces walls at area boundaries.
 /obj/effect/particle_effect/fluid/foam/metal/smart
-	name = "smart foam"
+	name = "умная пена"
 
 /// A factory which produces smart aluminium metal foam.
 /datum/effect_system/fluid_spread/foam/metal/smart
@@ -406,13 +406,13 @@
 
 /// A foam variant which produces atmos resin walls.
 /obj/effect/particle_effect/fluid/foam/metal/resin
-	name = "resin foam"
+	name = "резиновая пена"
 	result_type = /obj/structure/foamedmetal/resin
 
 /// Atmos Backpack Resin, transparent, prevents atmos and filters the air
 /obj/structure/foamedmetal/resin
-	name = "\improper ATMOS Resin"
-	desc = "A lightweight, transparent resin used to suffocate fires, scrub the air of toxins, and restore the air to a safe temperature. It can be used as base to construct a wall."
+	name = "пожарная пена"
+	desc = "Легкий прозрачный полимер, используемый для тушения пожаров, очистки воздуха от токсинов и восстановления безопасной температуры воздуха."
 	opacity = FALSE
 	icon_state = "atmos_resin"
 	alpha = 120

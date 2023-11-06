@@ -1,6 +1,6 @@
 /obj/machinery/recharge_station
-	name = "recharging station"
-	desc = "This device recharges energy dependent lifeforms, like cyborgs, ethereals and MODsuit users."
+	name = "Станция зарядки киборгов"
+	desc = "Устройство, заряжающее киборгов и переснаряжающая их материалами."
 	icon = 'icons/obj/machines/borg_charger.dmi'
 	icon_state = "borgcharger0"
 	density = FALSE
@@ -55,11 +55,9 @@
 /obj/machinery/recharge_station/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Recharging <b>[recharge_speed]J</b> per cycle.")
-		if(materials.silo)
-			. += span_notice("The ore silo link indicator is lit, and cyborg restocking can be toggled by <b>Right-Clicking</b> [src].")
+		. += "<hr><span class='notice'>Дисплей: Скорость зарядки <b>[recharge_speed] Дж</b> за цикл.</span>"
 		if(repairs)
-			. += span_notice("[src] has been upgraded to support automatic repairs.")
+			. += span_notice("\n[capitalize(src.name)] поддерживает функцию автоматизированного ремонта.")
 
 /obj/machinery/recharge_station/on_set_is_operational(old_value)
 	if(old_value) //Turned off

@@ -17,18 +17,18 @@ export const BrigTimer = (props, context) => {
     <Window width={300} height={138}>
       <Window.Content scrollable>
         <Section
-          title="Cell Timer"
+          title="Таймер камеры"
           buttons={
             <>
               <Button
                 icon="clock-o"
-                content={timing ? 'Stop' : 'Start'}
+                content={timing ? 'Стоп' : 'Старт'}
                 selected={timing}
                 onClick={() => act(timing ? 'stop' : 'start')}
               />
               <Button
                 icon="lightbulb-o"
-                content={flash_charging ? 'Recharging' : 'Flash'}
+                content={flash_charging ? 'Перезарядка' : 'Вспышка'}
                 disabled={flash_charging}
                 onClick={() => act('flash')}
               />
@@ -51,17 +51,17 @@ export const BrigTimer = (props, context) => {
           <br />
           <Button
             icon="hourglass-start"
-            content="Short"
+            content="Короткий"
             onClick={() => act('preset', { preset: 'short' })}
           />
           <Button
             icon="hourglass-start"
-            content="Medium"
+            content="Средний"
             onClick={() => act('preset', { preset: 'medium' })}
           />
           <Button
             icon="hourglass-start"
-            content="Long"
+            content="Долгий"
             onClick={() => act('preset', { preset: 'long' })}
           />
         </Section>

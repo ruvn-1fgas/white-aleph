@@ -1,6 +1,6 @@
 /obj/item/food/bait
-	name = "this is bait"
-	desc = "you got baited."
+	name = "наживка"
+	desc = "Попался!"
 	icon = 'icons/obj/fishing.dmi'
 	/// Quality trait of this bait
 	var/bait_quality = TRAIT_BASIC_QUALITY_BAIT
@@ -12,8 +12,8 @@
 	ADD_TRAIT(src, bait_quality, INNATE_TRAIT)
 
 /obj/item/food/bait/worm
-	name = "worm"
-	desc = "It's a wriggling worm from a can of fishing bait. You're not going to eat it are you ?"
+	name = "червь"
+	desc = "Это червяк из банки с наживкой. Ты же не собираешься его есть?"
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "worm"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 1)
@@ -24,13 +24,13 @@
 	rod_overlay_icon_state = "worm_overlay"
 
 /obj/item/food/bait/worm/premium
-	name = "extra slimy worm"
-	desc = "This worm looks very sophisticated."
+	name = "премиум червь"
+	desc = "Этот червь выглядит очень изысканно."
 	bait_quality = TRAIT_GOOD_QUALITY_BAIT
 
 /obj/item/food/bait/natural
-	name = "natural bait"
-	desc = "Fish can't seem to get enough of this!"
+	name = "\"натуральная\" наживка"
+	desc = "Рыба не может насытиться этим!"
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "pill9"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
@@ -41,8 +41,8 @@
 	bait_quality = TRAIT_GREAT_QUALITY_BAIT
 
 /obj/item/food/bait/doughball
-	name = "doughball"
-	desc = "Small piece of dough. Simple but effective fishing bait."
+	name = "кусочек теста"
+	desc = "Маленький кусочек теста. Простая, но эффективная наживка."
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "doughball"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 1)
@@ -60,7 +60,7 @@
  * making that rod a shoddy choice in the long run.
  */
 /obj/item/food/bait/doughball/synthetic
-	name = "synthetic doughball"
+	name = "кусочек синтетического теста"
 	icon_state = "doughball"
 	preserved_food = TRUE
 

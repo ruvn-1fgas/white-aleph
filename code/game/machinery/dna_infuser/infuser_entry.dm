@@ -19,19 +19,18 @@ GLOBAL_LIST_INIT(infuser_entries, prepare_infuser_entries())
 /datum/infuser_entry
 	//-- Vars for DNA Infusion Book --//
 	/// name of the mutant you become
-	var/name = "Mutant"
+	var/name = "Мутант"
 	/// what you have to infuse to become it
-	var/infuse_mob_name = "some kind of mutant"
+	var/infuse_mob_name = "какой-то мутант"
 	/// general desc
-	var/desc = "The ignorants call you a mutant. I prefer to think of mutants as the future of mankind! They could use a guy like you on their team."
+	var/desc = "Другие называют меня мутантом. Я предпочитаю думать о мутантах как о будущем человечества! Я могу им понадобиться."
 	/// desc of what passing the threshold gets you. if this is empty, there is no threshold, so this is also really a tally of whether this is a "meme" mutant or not
-	var/threshold_desc = "the DNA mess takes over, and you turn into a mutant freak!"
+	var/threshold_desc = "Моя ДНК слишком сильно мутировала. Теперь я чудовище!"
 	/// List of personal attributes added by the mutation.
 	var/list/qualities = list(
-		"override this",
-		"puts pineapple on pizza",
-		"inspiration for birth control",
-		"just a weird guy",
+		"любит пиццу с ананасами",
+		"вдохновляет на применение контрацептивов",
+		"просто странный парень",
 	)
 	/// status effect type of the corresponding bonus, if it has one. tier zero won't ever set this.
 	var/status_effect_type

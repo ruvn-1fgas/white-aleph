@@ -18,13 +18,13 @@ const PacketInfo = (props, context) => {
         </Flex.Item>
       </Flex>
       <LabeledList>
-        <LabeledList.Item label="Data Type">{packet.type}</LabeledList.Item>
-        <LabeledList.Item label="Source">
+        <LabeledList.Item label="Тип Данных">{packet.type}</LabeledList.Item>
+        <LabeledList.Item label="Источник">
           {packet.source + (packet.job ? ' (' + packet.job + ')' : '')}
         </LabeledList.Item>
-        <LabeledList.Item label="Class">{packet.race}</LabeledList.Item>
-        <LabeledList.Item label="Contents">{packet.message}</LabeledList.Item>
-        <LabeledList.Item label="Language">{packet.language}</LabeledList.Item>
+        <LabeledList.Item label="Категория">{packet.race}</LabeledList.Item>
+        <LabeledList.Item label="Содержимое">{packet.message}</LabeledList.Item>
+        <LabeledList.Item label="Язык">{packet.language}</LabeledList.Item>
       </LabeledList>
       <Divider />
     </Stack.Item>
@@ -38,18 +38,18 @@ const ServerScreen = (props, context) => {
     <Stack fill vertical>
       <Stack.Item>
         <Section
-          title="Server Information"
+          title="Информация"
           buttons={
             <Button
-              content="Main Menu"
+              content="Главное меню"
               icon="home"
               onClick={() => act('return_home')}
             />
           }>
           <LabeledList>
-            <LabeledList.Item label="Network">{network}</LabeledList.Item>
-            <LabeledList.Item label="Server">{server.name}</LabeledList.Item>
-            <LabeledList.Item label="Total Recorded Traffic">
+            <LabeledList.Item label="Сеть">{network}</LabeledList.Item>
+            <LabeledList.Item label="Сервер">{server.name}</LabeledList.Item>
+            <LabeledList.Item label="Общее число записанных данных">
               {server.traffic >= 1024
                 ? server.traffic / 1024 + ' TB'
                 : server.traffic + ' GB'}
@@ -58,7 +58,7 @@ const ServerScreen = (props, context) => {
         </Section>
       </Stack.Item>
       <Stack.Item grow>
-        <Section fill scrollable title="Stored Packets">
+        <Section fill scrollable title="Сохранённые пакеты данных">
           <Stack vertical>
             {server.packets?.map((p) => (
               <PacketInfo key={p.ref} packet={p} />
@@ -86,7 +86,7 @@ const MainScreen = (props, context) => {
           <Input
             value={networkId}
             onInput={(e, value) => setNetworkId(value)}
-            placeholder="Network ID"
+            placeholder="ID сети"
           />
           <Button
             content="Scan"
@@ -98,10 +98,10 @@ const MainScreen = (props, context) => {
         <Section
           fill
           scrollable
-          title="Detected Telecommunication Servers"
+          title="Найденные телекоммуникационные сервера"
           buttons={
             <Button
-              content="Clear Buffer"
+              content="Сброс буфера"
               icon="trash"
               color="red"
               disabled={servers.length === 0}
@@ -110,9 +110,9 @@ const MainScreen = (props, context) => {
           }>
           <Table>
             <Table.Row header>
-              <Table.Cell>Address</Table.Cell>
-              <Table.Cell>Identification String</Table.Cell>
-              <Table.Cell>Name</Table.Cell>
+              <Table.Cell>Адрес</Table.Cell>
+              <Table.Cell>ID</Table.Cell>
+              <Table.Cell>Название</Table.Cell>
             </Table.Row>
             {servers?.map((s) => (
               <Table.Row key={s.ref}>

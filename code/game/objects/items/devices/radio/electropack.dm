@@ -1,6 +1,6 @@
 /obj/item/electropack
-	name = "electropack"
-	desc = "Dance my monkeys! DANCE!!!"
+	name = "электропак"
+	desc = "Танцуйте, мои мартышки! ТАНЦУЙТЕ!!!"
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "electropack0"
 	inhand_icon_state = "electropack"
@@ -33,7 +33,7 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(src == C.back)
-			to_chat(user, span_warning("You need help taking this off!"))
+			to_chat(user, span_warning("Мне потребуется чья-то помощь!"))
 			return
 	return ..()
 
@@ -43,7 +43,7 @@
 		A.icon = 'icons/obj/assemblies/assemblies.dmi'
 
 		if(!user.transferItemToLoc(W, A))
-			to_chat(user, span_warning("[W] is stuck to your hand, you cannot attach it to [src]!"))
+			to_chat(user, span_warning("[capitalize(W.name)] застрял в моей руки, не получится прикрепить это к [src.name]!"))
 			return
 		W.master = A
 		A.helmet_part = W
@@ -68,7 +68,7 @@
 		var/mob/living/L = loc
 		step(L, pick(GLOB.cardinals))
 
-		to_chat(L, span_danger("You feel a sharp shock!"))
+		to_chat(L, span_userdanger("МЕНЯ УДАРИЛО ТОКОМ!!!"))
 		var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 		s.set_up(3, 1, L)
 		s.start()

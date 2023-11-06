@@ -1,7 +1,7 @@
 //Anomalies, used for anomaly events. Anomalies cause adverse effects on their surroundings and can be mitigated by signalling their respective frequency.
 /obj/effect/anomaly
-	name = "anomaly"
-	desc = "A mysterious anomaly, seen commonly only in the region of space that the station orbits..."
+	name = "аномалия"
+	desc = "Таинственная аномалия, обычно наблюдаемая только в той области космоса, вокруг которой вращается станция..."
 	icon = 'icons/effects/anomalies.dmi'
 	icon_state = "vortex"
 	density = FALSE
@@ -103,7 +103,7 @@
 
 /obj/effect/anomaly/attackby(obj/item/weapon, mob/user, params)
 	if(weapon.tool_behaviour == TOOL_ANALYZER && aSignal)
-		to_chat(user, span_notice("Analyzing... [src]'s unstable field is fluctuating along frequency [format_frequency(aSignal.frequency)], code [aSignal.code]."))
+		to_chat(user, span_notice("Анализ... [src] нестабильное поле колеблется по частоте [format_frequency(aSignal.frequency)], код [aSignal.code]."))
 		return TRUE
 
 	return ..()

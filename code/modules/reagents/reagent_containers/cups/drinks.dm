@@ -118,7 +118,7 @@
 
 /obj/item/reagent_containers/cup/glass/coffee/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click to toggle cup lid.")
+	. += span_notice("Alt-клик to toggle cup lid.")
 	return
 
 /obj/item/reagent_containers/cup/glass/coffee/AltClick(mob/user)
@@ -243,9 +243,9 @@
 	if(cap_lost)
 		. += span_notice("The cap seems to be missing.")
 	else if(cap_on)
-		. += span_notice("The cap is firmly on to prevent spilling. Alt-click to remove the cap.")
+		. += span_notice("The cap is firmly on to prevent spilling. Alt-клик to remove the cap.")
 	else
-		. += span_notice("The cap has been taken off. Alt-click to put a cap on.")
+		. += span_notice("The cap has been taken off. Alt-клик to put a cap on.")
 
 /obj/item/reagent_containers/cup/glass/waterbottle/AltClick(mob/user)
 	. = ..()

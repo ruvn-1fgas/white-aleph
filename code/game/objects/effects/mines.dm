@@ -58,7 +58,7 @@
 	armed = TRUE
 	update_appearance(UPDATE_ICON_STATE)
 	playsound(src, 'sound/machines/nuke/angry_beep.ogg', 40, FALSE, -2)
-	visible_message(span_danger("\The [src] beeps softly, indicating it is now active."), vision_distance = COMBAT_MESSAGE_RANGE)
+	visible_message(span_danger(" [src] beeps softly, indicating it is now active."), vision_distance = COMBAT_MESSAGE_RANGE)
 
 /// Can this mine trigger on the passed movable?
 /obj/effect/mine/proc/can_trigger(atom/movable/on_who)
@@ -256,7 +256,7 @@
 		return
 
 	playsound(src, 'sound/weapons/armbomb.ogg', 70, TRUE)
-	to_chat(user, span_warning("You arm \the [src], causing it to shake! It will deploy in 3 seconds."))
+	to_chat(user, span_warning("You arm  [src], causing it to shake! It will deploy in 3 seconds."))
 	active = TRUE
 	addtimer(CALLBACK(src, PROC_REF(deploy_mine)), 3 SECONDS)
 
@@ -265,7 +265,7 @@
 	do_alert_animation()
 	playsound(loc, 'sound/machines/chime.ogg', 30, FALSE, -3)
 	var/obj/effect/mine/new_mine = new mine_type(get_turf(src))
-	visible_message(span_danger("\The [src] releases a puff of smoke, revealing \a [new_mine]!"))
+	visible_message(span_danger(" [src] releases a puff of smoke, revealing \a [new_mine]!"))
 	var/obj/effect/particle_effect/fluid/smoke/poof = new (get_turf(src))
 	poof.lifetime = 3
 	qdel(src)
