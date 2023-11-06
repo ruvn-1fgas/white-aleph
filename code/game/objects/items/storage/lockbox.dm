@@ -79,7 +79,8 @@
 	update_appearance()
 
 /obj/item/storage/lockbox/loyalty
-	name = "lockbox of mindshield implants"
+	name = "кейс с микроимплантами щита разума"
+	desc = "Защищает от промывки мозгов при помощи сертефицированной НТ промывкой мозгов."
 	req_access = list(ACCESS_SECURITY)
 
 /obj/item/storage/lockbox/loyalty/PopulateContents()

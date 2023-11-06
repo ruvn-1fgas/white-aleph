@@ -1,42 +1,34 @@
 /obj/item/storage/bag/garment
-	name = "garment bag"
+	name = "сумка для одежды"
 	icon = 'icons/obj/storage/storage.dmi'
 	icon_state = "garment_bag"
-	desc = "A bag for storing extra clothes and shoes."
+	desc = "Специально для хранения одежды."
 	slot_flags = NONE
 	resistance_flags = FLAMMABLE
 
 /obj/item/storage/bag/garment/captain
-	name = "captain's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the captain."
+	name = "сумка для одежды капитана"
 
 /obj/item/storage/bag/garment/hos
-	name = "head of security's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the head of security."
+	name = "сумка для одежды начальника охраны"
 
 /obj/item/storage/bag/garment/warden
-	name = "warden's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the warden."
+	name = "сумка для одежды надзирателя"
 
 /obj/item/storage/bag/garment/hop
-	name = "head of personnel's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the head of personnel."
+	name = "сумка для одежды главы персонала"
 
 /obj/item/storage/bag/garment/research_director
-	name = "research director's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the research director."
+	name = "сумка для одежды научного руководителя"
 
 /obj/item/storage/bag/garment/chief_medical
-	name = "chief medical officer's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the chief medical officer."
+	name = "сумка для одежды главного врача"
 
 /obj/item/storage/bag/garment/engineering_chief
-	name = "chief engineer's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the chief engineer."
+	name = "сумка для одежды старшего инженера"
 
 /obj/item/storage/bag/garment/quartermaster
-	name = "quartermasters's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the quartermaster."
+	name = "сумка для одежды квартирмейстера"
 
 /obj/item/storage/bag/garment/Initialize(mapload)
 	. = ..()

@@ -88,7 +88,7 @@
 	if(!cell)
 		. += "The slot for a cell is empty."
 	else
-		. += " [cell] is firmly in place. [span_info("Ctrl-click with an empty hand to remove it.")]"
+		. += " [cell] is firmly in place. [span_info("Ctrl-клик with an empty hand to remove it.")]"
 
 /**
  * Create our report

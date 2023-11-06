@@ -145,7 +145,7 @@
 	if(scanning_mode == SCAN_SALES_TAG)
 		. += span_notice("Profit split on sale is currently set to [round(cut_multiplier*100)]%. <b>Alt-клик</b> to change.")
 		if(payments_acc)
-			. += span_notice("<b>Ctrl-click</b> to clear the registered account.")
+			. += span_notice("<b>Ctrl-клик</b> to clear the registered account.")
 
 	if(scanning_mode == SCAN_PRICE_TAG)
 		. += span_notice("The current custom price is set to [new_custom_price] cr. <b>ПКМ</b> to change.")

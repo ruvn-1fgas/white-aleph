@@ -1,7 +1,7 @@
 
 /obj/item/storage/belt/holster
-	name = "shoulder holster"
-	desc = "A rather plain but still cool looking holster that can hold a handgun."
+	name = "пистолетная кобура"
+	desc = "Довольно простая, но все равно классно выглядящая кобура, в которую можно поместить пистолет."
 	icon_state = "holster"
 	inhand_icon_state = "holster"
 	worn_icon_state = "holster"
@@ -54,8 +54,8 @@
 	))
 
 /obj/item/storage/belt/holster/energy/thermal
-	name = "thermal shoulder holsters"
-	desc = "A rather plain pair of shoulder holsters with a bit of insulated padding inside. Meant to hold a twinned pair of thermal pistols, but can fit several kinds of energy handguns as well."
+	name = "кобура парных нанопистолетов"
+	desc = "Специальная двойная кобура для дуальных термальных нанопистолетов. Здесь есть специальные ремни для крепления на бронежилетах."
 
 /obj/item/storage/belt/holster/energy/thermal/PopulateContents()
 	generate_items_inside(list(
@@ -80,8 +80,8 @@
 	),src)
 
 /obj/item/storage/belt/holster/detective
-	name = "detective's holster"
-	desc = "A holster able to carry handguns and some ammo. WARNING: Badasses only."
+	name = "пистолетная кобура"
+	desc = "Качественная кобура, в которую можно поместить пистолет и пару скорозарядников."
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/belt/holster/detective/Initialize(mapload)
@@ -116,8 +116,8 @@
 	), src)
 
 /obj/item/storage/belt/holster/detective/full/ert
-	name = "marine's holster"
-	desc = "Wearing this makes you feel badass, but you suspect it's just a repainted detective's holster from the NT surplus."
+	name = "кобура осназа"
+	desc = "Надев это, вы чувствуете себя крутым, но подозреваете, что это всего лишь перекрашенная кобура детектива со складов NT."
 	icon_state = "syndicate_holster"
 	inhand_icon_state = "syndicate_holster"
 	worn_icon_state = "syndicate_holster"
@@ -129,8 +129,8 @@
 	),src)
 
 /obj/item/storage/belt/holster/chameleon
-	name = "syndicate holster"
-	desc = "A hip holster that uses chameleon technology to disguise itself, due to the added chameleon tech, it cannot be mounted onto armor."
+	name = "кобура синдиката"
+	desc = "Набедренная кобура, использующая технологию \"хамелеон\" для маскировки, в ней могут храниться пистолеты и патроны к ним."
 	icon_state = "syndicate_holster"
 	inhand_icon_state = "syndicate_holster"
 	worn_icon_state = "syndicate_holster"
@@ -164,8 +164,8 @@
 	atom_storage.silent = TRUE
 
 /obj/item/storage/belt/holster/nukie
-	name = "operative holster"
-	desc = "A deep shoulder holster capable of holding almost any form of firearm and its ammo."
+	name = "оперативная кобура"
+	desc = "Наплечная кобура, способная вместить практически любой вид огнестрельного оружия и патроны к нему."
 	icon_state = "syndicate_holster"
 	inhand_icon_state = "syndicate_holster"
 	worn_icon_state = "syndicate_holster"

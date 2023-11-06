@@ -946,7 +946,7 @@ DEFINE_BITFIELD(turret_flags, list(
 /obj/machinery/turretid/examine(mob/user)
 	. += ..()
 	if(issilicon(user) && !(machine_stat & BROKEN))
-		. += {"[span_notice("Ctrl-click [src] to [ enabled ? "disable" : "enable"] turrets.")]
+		. += {"[span_notice("Ctrl-клик [src] to [ enabled ? "disable" : "enable"] turrets.")]
 					[span_notice("Alt-клик [src] to set turrets to [ lethal ? "stun" : "kill"].")]"}
 
 /obj/machinery/turretid/attackby(obj/item/I, mob/user, params)

@@ -1,6 +1,6 @@
 /obj/item/storage/toolbox
-	name = "toolbox"
-	desc = "Danger. Very robust."
+	name = "ящик с инструментами"
+	desc = "Опасно! Хранить в недоступном для ассистентов месте!"
 	icon = 'icons/obj/storage/toolbox.dmi'
 	icon_state = "toolbox_default"
 	inhand_icon_state = "toolbox_default"
@@ -46,7 +46,7 @@
 	return BRUTELOSS
 
 /obj/item/storage/toolbox/emergency
-	name = "emergency toolbox"
+	name = "аварийный ящик"
 	icon_state = "red"
 	inhand_icon_state = "toolbox_red"
 	material_flags = NONE
@@ -66,13 +66,13 @@
 	new /obj/item/radio/off(src)
 
 /obj/item/storage/toolbox/emergency/old
-	name = "rusty red toolbox"
+	name = "ржавый красный ящик"
 	icon_state = "toolbox_red_old"
 	has_latches = FALSE
 	material_flags = NONE
 
 /obj/item/storage/toolbox/mechanical
-	name = "mechanical toolbox"
+	name = "ящик с инструментами"
 	icon_state = "blue"
 	inhand_icon_state = "toolbox_blue"
 	material_flags = NONE
@@ -88,14 +88,14 @@
 	new /obj/item/wirecutters(src)
 
 /obj/item/storage/toolbox/mechanical/old
-	name = "rusty blue toolbox"
+	name = "ржавый синий ящик"
 	icon_state = "toolbox_blue_old"
 	has_latches = FALSE
 	has_soul = TRUE
 
 /obj/item/storage/toolbox/mechanical/old/heirloom
-	name = "toolbox" //this will be named "X family toolbox"
-	desc = "It's seen better days."
+	name = "ящик с инструментами" //this will be named "X family toolbox"
+	desc = "Похоже, он знавал лучшие дни."
 	force = 5
 	w_class = WEIGHT_CLASS_NORMAL
 
@@ -107,8 +107,8 @@
 	return
 
 /obj/item/storage/toolbox/mechanical/old/clean // the assistant traitor toolbox, damage scales with TC inside
-	name = "toolbox"
-	desc = "An old, blue toolbox, it looks robust."
+	name = "ящик с инструментами"
+	desc = "Не так нов и чист, но еще задаст жару."
 	icon_state = "oldtoolboxclean"
 	inhand_icon_state = "toolbox_blue"
 	has_latches = FALSE
@@ -140,7 +140,7 @@
 	new /obj/item/clothing/gloves/color/yellow(src)
 
 /obj/item/storage/toolbox/electrical
-	name = "electrical toolbox"
+	name = "ящик электрика"
 	icon_state = "yellow"
 	inhand_icon_state = "toolbox_yellow"
 	material_flags = NONE
@@ -162,7 +162,7 @@
 		new_cable_three.set_cable_color(pickedcolor)
 
 /obj/item/storage/toolbox/syndicate
-	name = "suspicious looking toolbox"
+	name = "подозрительно выглядящий ящик с инструментами"
 	icon_state = "syndicate"
 	inhand_icon_state = "toolbox_syndi"
 	force = 15
@@ -183,7 +183,7 @@
 	new /obj/item/clothing/gloves/combat(src)
 
 /obj/item/storage/toolbox/drone
-	name = "mechanical toolbox"
+	name = "ящик с инструментами"
 	icon_state = "blue"
 	inhand_icon_state = "toolbox_blue"
 	material_flags = NONE
@@ -199,8 +199,8 @@
 	new /obj/item/multitool(src)
 
 /obj/item/storage/toolbox/artistic
-	name = "artistic toolbox"
-	desc = "A toolbox painted bright green. Why anyone would store art supplies in a toolbox is beyond you, but it has plenty of extra space."
+	name = "актерский ящик"
+	desc = "Ящик с инструментами, выкрашенный в ярко-зеленый цвет. Зачем кому-то хранить актерские принадлежности в ящике для инструментов, вам непонятно, но зато в нем много дополнительного места."
 	icon_state = "green"
 	inhand_icon_state = "artistic_toolbox"
 	w_class = WEIGHT_CLASS_GIGANTIC //Holds more than a regular toolbox!
@@ -225,8 +225,8 @@
 	new /obj/item/stack/pipe_cleaner_coil/brown(src)
 
 /obj/item/storage/toolbox/ammobox
-	name = "ammo canister"
-	desc = "A metal canister designed to hold ammunition"
+	name = "ящик с патронами"
+	desc = "Хранит несколько магазинов."
 	icon_state = "ammobox"
 	inhand_icon_state = "ammobox"
 	lefthand_file = 'icons/mob/inhands/equipment/toolbox_lefthand.dmi'

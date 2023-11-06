@@ -67,7 +67,7 @@
 		. += "The display indicates ready."
 	. += "Left-click to dispatch tram."
 	. += "ПКМ to set destination."
-	. += "Ctrl-click to toggle safety bypass."
+	. += "Ctrl-клик to toggle safety bypass."
 	. += "Alt-клик to change configured tram."
 
 /obj/item/assembly/control/transport/remote/update_icon_state()

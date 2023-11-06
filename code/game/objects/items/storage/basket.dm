@@ -1,6 +1,6 @@
 /obj/item/storage/basket
-	name = "Корзина"
-	desc = "Корзина, сделанная своими руками."
+	name = "корзина"
+	desc = "Корзина ручной работы."
 	icon = 'icons/obj/storage/basket.dmi'
 	icon_state = "basket"
 	w_class = WEIGHT_CLASS_BULKY

@@ -32,8 +32,8 @@
 //          Trash bag
 // -----------------------------
 /obj/item/storage/bag/trash
-	name = "trash bag"
-	desc = "It's the heavy-duty black polymer kind. Time to take out the trash!"
+	name = "мешок для мусора"
+	desc = "Сверхпрочный черный полимерный материал. Пора выносить мусор!"
 	icon = 'icons/obj/service/janitor.dmi'
 	icon_state = "trashbag"
 	inhand_icon_state = "trashbag"
@@ -97,8 +97,8 @@
 	update_icon_state()
 
 /obj/item/storage/bag/trash/bluespace
-	name = "trash bag of holding"
-	desc = "The latest and greatest in custodial convenience, a trashbag that is capable of holding vast quantities of garbage."
+	name = "бездонный мешок для мусора"
+	desc = "Новейший и самый удобный при хранении мешок для мусора, способный вместить огромное количество мусора."
 	icon_state = "bluetrashbag"
 	inhand_icon_state = "bluetrashbag"
 	item_flags = NO_MAT_REDEMPTION
@@ -116,8 +116,8 @@
 // -----------------------------
 
 /obj/item/storage/bag/ore
-	name = "mining satchel"
-	desc = "This little bugger can be used to store and transport ores."
+	name = "сумка для руды"
+	desc = "Эту сумку можно использовать для хранения и транспортировки руды."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "satchel"
 	worn_icon_state = "satchel"
@@ -178,7 +178,7 @@
 				show_message = TRUE
 			else
 				if(!spam_protection)
-					balloon_alert(user, "bag full!")
+					to_chat(user, span_warning("Видимо, [name] полна и не может вмещать больше!"))
 					spam_protection = TRUE
 					continue
 	if(show_message)
@@ -190,24 +190,24 @@
 		if (box)
 			balloon_alert(user, "scoops ore into box")
 			user.visible_message(
-				span_notice("[user] offloads the ores beneath [user.p_them()] into [box]."),
+				span_notice("[user] выгружает руду под собой в [box]."),
 				ignored_mobs = user
 			)
 		else
-			balloon_alert(user, "scoops ore into bag")
+			balloon_alert(user, "собираю руду под собой в сумку")
 			user.visible_message(
-				span_notice("[user] scoops up the ores beneath [user.p_them()]."),
+				span_notice("[user] собирает руду под собой."),
 				ignored_mobs = user
 			)
 
 	spam_protection = FALSE
 
 /obj/item/storage/bag/ore/cyborg
-	name = "cyborg mining satchel"
+	name = "сумка для руды киборга"
 
 /obj/item/storage/bag/ore/holding //miners, your messiah has arrived
-	name = "mining satchel of holding"
-	desc = "A revolution in convenience, this satchel allows for huge amounts of ore storage. It's been outfitted with anti-malfunction safety measures."
+	name = "бездонная сумка для руды"
+	desc = "Революция в удобстве: этот рюкзак позволяет хранить огромное количество руды. Он оборудован мерами безопасности от сбоев."
 	icon_state = "satchel_bspace"
 
 /obj/item/storage/bag/ore/holding/Initialize(mapload)
@@ -221,7 +221,7 @@
 // -----------------------------
 
 /obj/item/storage/bag/plants
-	name = "plant bag"
+	name = "сумка для растений"
 	icon = 'icons/obj/service/hydroponics/equipment.dmi'
 	icon_state = "plantbag"
 	worn_icon_state = "plantbag"
@@ -242,8 +242,8 @@
 ////////
 
 /obj/item/storage/bag/plants/portaseeder
-	name = "portable seed extractor"
-	desc = "For the enterprising botanist on the go. Less efficient than the stationary model, it creates one seed per plant."
+	name = "портативный экстрактор семян"
+	desc = "Для предприимчивого ботаника в движении. Менее эффективен, чем стационарная модель, он дает одно семя на растение."
 	icon_state = "portaseeder"
 
 /obj/item/storage/bag/plants/portaseeder/Initialize(mapload)
@@ -257,13 +257,13 @@
 	mob/living/user
 )
 
-	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Make seeds"
+	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Создать семена"
 	return CONTEXTUAL_SCREENTIP_SET
 
 
 /obj/item/storage/bag/plants/portaseeder/examine(mob/user)
 	. = ..()
-	. += span_notice("Ctrl-click to activate seed extraction.")
+	. += span_notice("Ctrl-клик для активации.")
 
 /obj/item/storage/bag/plants/portaseeder/CtrlClick(mob/user)
 	if(user.incapacitated())
@@ -277,8 +277,8 @@
 // sorry sayu your sheet snatcher is now OBSOLETE but i'm leaving it because idc
 
 /obj/item/storage/bag/sheetsnatcher
-	name = "sheet snatcher"
-	desc = "A patented Nanotrasen storage system designed for any kind of mineral sheet."
+	name = "сумка для материалов"
+	desc = "Сумка разработанная для шахтеров и строителей, способная хранить до 500 листов различных материалов."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "sheetsnatcher"
 	worn_icon_state = "satchel"
@@ -304,8 +304,8 @@
 // -----------------------------
 
 /obj/item/storage/bag/sheetsnatcher/borg
-	name = "sheet snatcher 9000"
-	desc = ""
+	name = "сумка для материалов киборга"
+	desc = "Сумка разработанная для шахтеров и строителей, способная хранить до 1000 листов различных материалов."
 	capacity = 500//Borgs get more because >specialization
 
 // -----------------------------
@@ -313,8 +313,8 @@
 // -----------------------------
 
 /obj/item/storage/bag/books
-	name = "book bag"
-	desc = "A bag for books."
+	name = "Сумка для книг"
+	desc = "Сумка для книг."
 	icon = 'icons/obj/service/library.dmi'
 	icon_state = "bookbag"
 	worn_icon_state = "bookbag"
@@ -335,11 +335,11 @@
  * Trays - Agouri
  */
 /obj/item/storage/bag/tray
-	name = "serving tray"
+	name = "поднос"
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "tray"
 	worn_icon_state = "tray"
-	desc = "A metal tray to lay food on."
+	desc = "Металлический поднос."
 	force = 5
 	throwforce = 10
 	throw_speed = 3
@@ -367,7 +367,7 @@
 		/obj/item/storage/fancy,
 		/obj/item/trash,
 		)) //Should cover: Bottles, Beakers, Bowls, Booze, Glasses, Food, Food Containers, Food Trash, Organs, Tobacco Products, Lighters, and Kitchen Tools.
-	atom_storage.insert_preposition = "on"
+	atom_storage.insert_preposition = "на"
 	atom_storage.max_slots = 7
 
 /obj/item/storage/bag/tray/attack(mob/living/M, mob/living/user)
@@ -419,21 +419,21 @@
 	update_appearance()
 
 /obj/item/storage/bag/tray/cafeteria
-	name = "cafeteria tray"
+	name = "поднос кафетерия"
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "foodtray"
-	desc = "A cheap metal tray to pile today's meal onto."
+	desc = "Дешевый металлический поднос."
 
 /*
  * Chemistry bag
  */
 
 /obj/item/storage/bag/chemistry
-	name = "chemistry bag"
+	name = "сумка для химии"
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "bag"
 	worn_icon_state = "chembag"
-	desc = "A bag for storing pills, patches, and bottles."
+	desc = "Сумка для хранения таблеток, пластырей и бутылочек."
 	resistance_flags = FLAMMABLE
 
 /obj/item/storage/bag/chemistry/Initialize(mapload)
@@ -457,11 +457,11 @@
  */
 
 /obj/item/storage/bag/bio
-	name = "bio bag"
+	name = "био сумка"
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "biobag"
 	worn_icon_state = "biobag"
-	desc = "A bag for the safe transportation and disposal of biowaste and other virulent materials."
+	desc = "Сумка для безопасной транспортировки и утилизации биоотходов и других биологических материалов."
 	resistance_flags = FLAMMABLE
 
 /obj/item/storage/bag/bio/Initialize(mapload)
@@ -487,11 +487,11 @@
  */
 
 /obj/item/storage/bag/xeno
-	name = "science bag"
+	name = "био сумка"
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "xenobag"
 	worn_icon_state = "xenobag"
-	desc = "A bag for the storage and transport of anomalous materials."
+	desc = "Сумка для безопасной транспортировки и утилизации биоотходов и других биологических материалов."
 	resistance_flags = FLAMMABLE
 
 /obj/item/storage/bag/xeno/Initialize(mapload)
@@ -518,11 +518,11 @@
  */
 
 /obj/item/storage/bag/construction
-	name = "construction bag"
+	name = "строительная сумка"
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "construction_bag"
 	worn_icon_state = "construction_bag"
-	desc = "A bag for storing small construction components."
+	desc = "Сумка для хранения мелких строительных деталей."
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_POCKETS
 	resistance_flags = FLAMMABLE
 

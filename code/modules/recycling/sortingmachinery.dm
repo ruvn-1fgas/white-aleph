@@ -349,7 +349,7 @@
 	. += span_notice("[src] has [paper_count]/[max_paper_count] available barcodes. Refill with paper.")
 	. += span_notice("Profit split on sale is currently set to [round(cut_multiplier*100)]%. <b>Alt-клик</b> to change.")
 	if(payments_acc)
-		. += span_notice("<b>Ctrl-click</b> to clear the registered account.")
+		. += span_notice("<b>Ctrl-клик</b> to clear the registered account.")
 
 /obj/item/sales_tagger/attackby(obj/item/item, mob/living/user, params)
 	. = ..()
