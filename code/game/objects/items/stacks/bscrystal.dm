@@ -1,10 +1,10 @@
 //Bluespace crystals, used in telescience and when crushed it will blink you to a random turf.
 /obj/item/stack/ore/bluespace_crystal
-	name = "bluespace crystal"
-	desc = "A glowing bluespace crystal, not much is known about how they work. It looks very delicate."
+	name = "блюспейс кристаллы"
+	desc = "Светящийся блюспейс кристалл, мало что известно о том, как они работают. Этот выглядит очень деликатно."
 	icon = 'icons/obj/ore.dmi'
 	icon_state = "bluespace_crystal"
-	singular_name = "bluespace crystal"
+	singular_name = "блюспейс кристалл"
 	dye_color = DYE_COSMIC
 	w_class = WEIGHT_CLASS_TINY
 	mats_per_unit = list(/datum/material/bluespace=SHEET_MATERIAL_AMOUNT)
@@ -17,7 +17,7 @@
 	var/blink_range = 8
 
 /obj/item/stack/ore/bluespace_crystal/refined
-	name = "refined bluespace crystal"
+	name = "изысканный блюспейс кристалл"
 	points = 0
 	refined_type = null
 	merge_type = /obj/item/stack/ore/bluespace_crystal/refined
@@ -31,7 +31,7 @@
 	return 1
 
 /obj/item/stack/ore/bluespace_crystal/attack_self(mob/user)
-	user.visible_message(span_warning("[user] crushes [src]!"), span_danger("You crush [src]!"))
+	user.visible_message(span_warning("<b>[user]</b> раздавливает <b>[src]</b>!") , span_danger("Раздавливаю <b>[src]</b>!"))
 	new /obj/effect/particle_effect/sparks(loc)
 	playsound(loc, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	blink_mob(user)
@@ -42,7 +42,7 @@
 
 /obj/item/stack/ore/bluespace_crystal/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	if(!..()) // not caught in mid-air
-		visible_message(span_notice("[src] fizzles and disappears upon impact!"))
+		visible_message(span_notice("<b>[capitalize(src.name)]</b> шипит и исчезает при ударе!"))
 		var/turf/T = get_turf(hit_atom)
 		new /obj/effect/particle_effect/sparks(T)
 		playsound(loc, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
@@ -52,8 +52,8 @@
 
 //Artificial bluespace crystal, doesn't give you much research.
 /obj/item/stack/ore/bluespace_crystal/artificial
-	name = "artificial bluespace crystal"
-	desc = "An artificially made bluespace crystal, it looks delicate."
+	name = "синтетический блюспейс кристалл"
+	desc = "Искусственно сделанный блюспейс кристалл, выглядит изысканно."
 	mats_per_unit = list(/datum/material/bluespace=SHEET_MATERIAL_AMOUNT*0.5)
 	blink_range = 4 // Not as good as the organic stuff!
 	points = 0 //nice try
@@ -63,15 +63,15 @@
 
 //Polycrystals, aka stacks
 /obj/item/stack/sheet/bluespace_crystal
-	name = "bluespace polycrystal"
+	name = "блюспейс поликристаллы"
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "polycrystal"
 	inhand_icon_state = null
-	singular_name = "bluespace polycrystal"
-	desc = "A stable polycrystal, made of fused-together bluespace crystals. You could probably break one off."
+	singular_name = "блюспейс поликристалл"
+	desc = "Стабильный поликристалл, изготовленный из сплавленных блюспейс кристаллов. Вы могли бы вероятно сломать один."
 	mats_per_unit = list(/datum/material/bluespace=SHEET_MATERIAL_AMOUNT)
-	attack_verb_continuous = list("bluespace polybashes", "bluespace polybatters", "bluespace polybludgeons", "bluespace polythrashes", "bluespace polysmashes")
-	attack_verb_simple = list("bluespace polybash", "bluespace polybatter", "bluespace polybludgeon", "bluespace polythrash", "bluespace polysmash")
+	attack_verb_continuous = list("блюспейс полибьёт", "блюспейс полиударяет", "блюспейс полилупит", "блюспейс поливмазывает", "блюспейс полиразносит")
+	attack_verb_simple = list("блюспейс полибьёт", "блюспейс полиударяет", "блюспейс полилупит", "блюспейс поливмазывает", "блюспейс полиразносит")
 	novariants = TRUE
 	grind_results = list(/datum/reagent/bluespace = 20)
 	point_value = 30
@@ -79,7 +79,7 @@
 	var/crystal_type = /obj/item/stack/ore/bluespace_crystal/refined
 
 /obj/item/stack/sheet/bluespace_crystal/attack_self(mob/user)// to prevent the construction menu from ever happening
-	to_chat(user, span_warning("You cannot crush the polycrystal in-hand, try breaking one off."))
+	to_chat(user, span_warning("Не могу сломать целый поликристалл в руке. Надо бы их разделить."))
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/stack/sheet/bluespace_crystal/attack_hand(mob/user, list/modifiers)
@@ -90,8 +90,8 @@
 		user.put_in_hands(BC)
 		use(1)
 		if(!amount)
-			to_chat(user, span_notice("You break the final crystal off."))
+			to_chat(user, span_notice("Разбиваю последний кристалл."))
 		else
-			to_chat(user, span_notice("You break off a crystal."))
+			to_chat(user, span_notice("Разбиваю кристалл."))
 	else
 		..()

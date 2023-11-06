@@ -24,13 +24,13 @@ Mineral Sheets
  */
 
 GLOBAL_LIST_INIT(sandstone_recipes, list ( \
-	new/datum/stack_recipe("sandstone door", /obj/structure/mineral_door/sandstone, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
+	new/datum/stack_recipe("Дверь из Песчаника", /obj/structure/mineral_door/sandstone, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
 	new/datum/stack_recipe("Breakdown into sand", /obj/item/stack/ore/glass, 1, one_per_turf = FALSE, on_solid_ground = TRUE, category = CAT_MISC) \
 	))
 
 /obj/item/stack/sheet/mineral/sandstone
-	name = "sandstone brick"
-	desc = "This appears to be a combination of both sand and stone."
+	name = "Кирпич из песчаника"
+	desc = "Кажется, это комбинация из песка и камня."
 	singular_name = "sandstone brick"
 	icon_state = "sheet-sandstone"
 	inhand_icon_state = null
@@ -54,15 +54,15 @@ GLOBAL_LIST_INIT(sandstone_recipes, list ( \
  */
 
 /obj/item/stack/sheet/mineral/sandbags
-	name = "sandbags"
+	name = "Мешки с песком"
 	icon_state = "sandbags"
-	singular_name = "sandbag"
+	singular_name = "Мешок с песком"
 	layer = LOW_ITEM_LAYER
 	novariants = TRUE
 	merge_type = /obj/item/stack/sheet/mineral/sandbags
 
 GLOBAL_LIST_INIT(sandbag_recipes, list ( \
-	new/datum/stack_recipe("sandbags", /obj/structure/barricade/sandbags, 1, time = 3 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("мешки с песком", /obj/structure/barricade/sandbags, 1, time = 3 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE), \
 	))
 
 /obj/item/stack/sheet/mineral/sandbags/get_main_recipes()
@@ -70,8 +70,8 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 	. += GLOB.sandbag_recipes
 
 /obj/item/emptysandbag
-	name = "empty sandbag"
-	desc = "A bag to be filled with sand."
+	name = "пустой мешок для песка"
+	desc = "Мешок для песка."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "sandbag"
 	w_class = WEIGHT_CLASS_TINY
@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 /obj/item/emptysandbag/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/ore/glass))
 		var/obj/item/stack/ore/glass/G = W
-		to_chat(user, span_notice("You fill the sandbag."))
+		to_chat(user, span_notice("Наполняю мешок с песком."))
 		var/obj/item/stack/sheet/mineral/sandbags/I = new /obj/item/stack/sheet/mineral/sandbags(drop_location())
 		qdel(src)
 		if (Adjacent(user) && !issilicon(user))
@@ -92,10 +92,10 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
  * Diamond
  */
 /obj/item/stack/sheet/mineral/diamond
-	name = "diamond"
+	name = "алмаз"
 	icon_state = "sheet-diamond"
 	inhand_icon_state = "sheet-diamond"
-	singular_name = "diamond"
+	singular_name = "алмаз"
 	sheettype = "diamond"
 	mats_per_unit = list(/datum/material/diamond=SHEET_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/carbon = 20)
@@ -105,8 +105,8 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/diamond
 
 GLOBAL_LIST_INIT(diamond_recipes, list ( \
-	new/datum/stack_recipe("diamond door", /obj/structure/mineral_door/transparent/diamond, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
-	new/datum/stack_recipe("diamond tile", /obj/item/stack/tile/mineral/diamond, 1, 4, 20, check_density = FALSE, category = CAT_TILES),  \
+	new/datum/stack_recipe("Алмазная дверь", /obj/structure/mineral_door/transparent/diamond, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
+	new/datum/stack_recipe("Алмазная плитка", /obj/item/stack/tile/mineral/diamond, 1, 4, 20, check_density = FALSE, category = CAT_TILES),  \
 	))
 
 /obj/item/stack/sheet/mineral/diamond/get_main_recipes()
@@ -117,10 +117,10 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
  * Uranium
  */
 /obj/item/stack/sheet/mineral/uranium
-	name = "uranium"
+	name = "уран"
 	icon_state = "sheet-uranium"
 	inhand_icon_state = "sheet-uranium"
-	singular_name = "uranium sheet"
+	singular_name = "урановый лист"
 	sheettype = "uranium"
 	mats_per_unit = list(/datum/material/uranium=SHEET_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/uranium = 20)
@@ -130,8 +130,8 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/uranium
 
 GLOBAL_LIST_INIT(uranium_recipes, list ( \
-	new/datum/stack_recipe("uranium door", /obj/structure/mineral_door/uranium, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
-	new/datum/stack_recipe("uranium tile", /obj/item/stack/tile/mineral/uranium, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
+	new/datum/stack_recipe("Урановая дверь", /obj/structure/mineral_door/uranium, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
+	new/datum/stack_recipe("Урановая плитка", /obj/item/stack/tile/mineral/uranium, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
 	))
 
 /obj/item/stack/sheet/mineral/uranium/get_main_recipes()
@@ -148,10 +148,10 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
  * Plasma
  */
 /obj/item/stack/sheet/mineral/plasma
-	name = "solid plasma"
+	name = "твердая плазма"
 	icon_state = "sheet-plasma"
 	inhand_icon_state = "sheet-plasma"
-	singular_name = "plasma sheet"
+	singular_name = "лист плазмы"
 	sheettype = "plasma"
 	resistance_flags = FLAMMABLE
 	max_integrity = 100
@@ -163,12 +163,12 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/plasma
 
 /obj/item/stack/sheet/mineral/plasma/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins licking  [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] начинает облизывать <b>[src.name]</b>! Похоже [user.p_theyre()] пытается совершить самоубийство!"))
 	return TOXLOSS//dont you kids know that stuff is toxic?
 
 GLOBAL_LIST_INIT(plasma_recipes, list ( \
-	new/datum/stack_recipe("plasma door", /obj/structure/mineral_door/transparent/plasma, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
-	new/datum/stack_recipe("plasma tile", /obj/item/stack/tile/mineral/plasma, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
+	new/datum/stack_recipe("Плазменная дверь", /obj/structure/mineral_door/transparent/plasma, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
+	new/datum/stack_recipe("Плазменная плитка", /obj/item/stack/tile/mineral/plasma, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
 	))
 
 /obj/item/stack/sheet/mineral/plasma/get_main_recipes()
@@ -185,10 +185,10 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
  * Gold
  */
 /obj/item/stack/sheet/mineral/gold
-	name = "gold"
+	name = "золото"
 	icon_state = "sheet-gold"
 	inhand_icon_state = "sheet-gold"
-	singular_name = "gold bar"
+	singular_name = "золотой слиток"
 	sheettype = "gold"
 	mats_per_unit = list(/datum/material/gold=SHEET_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/gold = 20)
@@ -198,10 +198,10 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/gold
 
 GLOBAL_LIST_INIT(gold_recipes, list ( \
-	new/datum/stack_recipe("golden door", /obj/structure/mineral_door/gold, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
-	new/datum/stack_recipe("gold tile", /obj/item/stack/tile/mineral/gold, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
-	new/datum/stack_recipe("blank plaque", /obj/item/plaque, 1, check_density = FALSE, category = CAT_FURNITURE), \
-	new/datum/stack_recipe("Simple Crown", /obj/item/clothing/head/costume/crown, 5, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("Золотая дверь", /obj/structure/mineral_door/gold, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
+	new/datum/stack_recipe("Золотая плитка", /obj/item/stack/tile/mineral/gold, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
+	new/datum/stack_recipe("Пустая табличка", /obj/item/plaque, 1, check_density = FALSE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("Обычная корона", /obj/item/clothing/head/costume/crown, 5, check_density = FALSE, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/mineral/gold/get_main_recipes()
@@ -212,10 +212,10 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
  * Silver
  */
 /obj/item/stack/sheet/mineral/silver
-	name = "silver"
+	name = "серебро"
 	icon_state = "sheet-silver"
 	inhand_icon_state = "sheet-silver"
-	singular_name = "silver bar"
+	singular_name = "серебряный слиток"
 	sheettype = "silver"
 	mats_per_unit = list(/datum/material/silver=SHEET_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/silver = 20)
@@ -226,8 +226,8 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/silver
 
 GLOBAL_LIST_INIT(silver_recipes, list ( \
-	new/datum/stack_recipe("silver door", /obj/structure/mineral_door/silver, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
-	new/datum/stack_recipe("silver tile", /obj/item/stack/tile/mineral/silver, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
+	new/datum/stack_recipe("Серебряная дверь", /obj/structure/mineral_door/silver, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, applies_mats = TRUE, category = CAT_DOORS), \
+	new/datum/stack_recipe("Серебряная плитка", /obj/item/stack/tile/mineral/silver, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
 	))
 
 /obj/item/stack/sheet/mineral/silver/get_main_recipes()
@@ -238,10 +238,10 @@ GLOBAL_LIST_INIT(silver_recipes, list ( \
  * Clown
  */
 /obj/item/stack/sheet/mineral/bananium
-	name = "bananium"
+	name = "бананиум"
 	icon_state = "sheet-bananium"
 	inhand_icon_state = null
-	singular_name = "bananium sheet"
+	singular_name = "лист бананиума"
 	sheettype = "bananium"
 	mats_per_unit = list(/datum/material/bananium=SHEET_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/consumable/banana = 20)
@@ -251,7 +251,7 @@ GLOBAL_LIST_INIT(silver_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/bananium
 
 GLOBAL_LIST_INIT(bananium_recipes, list ( \
-	new/datum/stack_recipe("bananium tile", /obj/item/stack/tile/mineral/bananium, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
+	new/datum/stack_recipe("Бананиевая плитка", /obj/item/stack/tile/mineral/bananium, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
 	))
 
 /obj/item/stack/sheet/mineral/bananium/get_main_recipes()
@@ -265,10 +265,10 @@ GLOBAL_LIST_INIT(bananium_recipes, list ( \
  * Titanium
  */
 /obj/item/stack/sheet/mineral/titanium
-	name = "titanium"
+	name = "титан"
 	icon_state = "sheet-titanium"
 	inhand_icon_state = "sheet-titanium"
-	singular_name = "titanium sheet"
+	singular_name = "лист титана"
 	force = 5
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
@@ -282,8 +282,8 @@ GLOBAL_LIST_INIT(bananium_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/titanium
 
 GLOBAL_LIST_INIT(titanium_recipes, list ( \
-	new/datum/stack_recipe("Titanium tile", /obj/item/stack/tile/mineral/titanium, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
-	new/datum/stack_recipe("Shuttle seat", /obj/structure/chair/comfy/shuttle, 2, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("Титановая плитка", /obj/item/stack/tile/mineral/titanium, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
+	new/datum/stack_recipe("Сиденье для шаттла", /obj/structure/chair/comfy/shuttle, 2, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_FURNITURE), \
 	))
 
 /obj/item/stack/sheet/mineral/titanium/get_main_recipes()
@@ -297,10 +297,11 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
  * Plastitanium
  */
 /obj/item/stack/sheet/mineral/plastitanium
-	name = "plastitanium"
+	name = "пластитан"
+	desc = "Пластитан является сплавом титана и плазмы. Довольно крепкий, однако из за новизны ученые еще не спроектировали основные производственные чертежи."
 	icon_state = "sheet-plastitanium"
 	inhand_icon_state = "sheet-plastitanium"
-	singular_name = "plastitanium sheet"
+	singular_name = "лист пластитаниума"
 	force = 5
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
@@ -315,7 +316,7 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/plastitanium
 
 GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
-	new/datum/stack_recipe("plastitanium tile", /obj/item/stack/tile/mineral/plastitanium, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
+	new/datum/stack_recipe("Пластитаниумная плитка", /obj/item/stack/tile/mineral/plastitanium, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
 	))
 
 /obj/item/stack/sheet/mineral/plastitanium/get_main_recipes()
@@ -328,11 +329,11 @@ GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
  */
 
 /obj/item/stack/sheet/mineral/snow
-	name = "snow"
+	name = "снег"
 	icon_state = "sheet-snow"
 	inhand_icon_state = null
 	mats_per_unit = list(/datum/material/snow = SHEET_MATERIAL_AMOUNT)
-	singular_name = "snow block"
+	singular_name = "блок снега"
 	force = 1
 	throwforce = 2
 	grind_results = list(/datum/reagent/consumable/ice = 20)
@@ -341,10 +342,10 @@ GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
 	material_type = /datum/material/snow
 
 GLOBAL_LIST_INIT(snow_recipes, list ( \
-	new/datum/stack_recipe("snow wall", /turf/closed/wall/mineral/snow, 5, time = 4 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE), \
-	new/datum/stack_recipe("snowman", /obj/structure/statue/snow/snowman, 5, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_ENTERTAINMENT), \
-	new/datum/stack_recipe("snowball", /obj/item/toy/snowball, 1, check_density = FALSE, category = CAT_WEAPON_RANGED), \
-	new/datum/stack_recipe("snow tile", /obj/item/stack/tile/mineral/snow, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
+	new/datum/stack_recipe("стена из снега", /turf/closed/wall/mineral/snow, 5, time = 4 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("снеговик", /obj/structure/statue/snow/snowman, 5, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("снежок", /obj/item/toy/snowball, 1, check_density = FALSE, category = CAT_WEAPON_RANGED), \
+	new/datum/stack_recipe("снежный пол", /obj/item/stack/tile/mineral/snow, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
 ))
 
 /obj/item/stack/sheet/mineral/snow/Initialize(mapload, new_amount, merge, list/mat_override, mat_amt)
@@ -363,14 +364,14 @@ GLOBAL_LIST_INIT(snow_recipes, list ( \
 
 
 GLOBAL_LIST_INIT(adamantine_recipes, list(
-	new /datum/stack_recipe("incomplete servant golem shell", /obj/item/golem_shell/servant, req_amount=1, res_amount=1, category = CAT_ROBOT),
+	new /datum/stack_recipe("незаконченная оболочка голема-слуги", /obj/item/golem_shell/servant, req_amount=1, res_amount=1, category = CAT_ROBOT),
 	))
 
 /obj/item/stack/sheet/mineral/adamantine
-	name = "adamantine"
+	name = "адамантий"
 	icon_state = "sheet-adamantine"
 	inhand_icon_state = "sheet-adamantine"
-	singular_name = "adamantine sheet"
+	singular_name = "лист адамантия"
 	mats_per_unit = list(/datum/material/adamantine=SHEET_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/mineral/adamantine
 
@@ -383,9 +384,9 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
  */
 
 /obj/item/stack/sheet/mineral/runite
-	name = "runite"
-	desc = "Rare material found in distant lands."
-	singular_name = "runite bar"
+	name = "Рунит"
+	desc = "Редкий материал найденный в далеких краях."
+	singular_name = "рунитовый слиток"
 	icon_state = "sheet-runite"
 	inhand_icon_state = "sheet-runite"
 	mats_per_unit = list(/datum/material/runite=SHEET_MATERIAL_AMOUNT)
@@ -397,10 +398,10 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
  * Mythril
  */
 /obj/item/stack/sheet/mineral/mythril
-	name = "mythril"
+	name = "мифрил"
 	icon_state = "sheet-mythril"
 	inhand_icon_state = "sheet-mythril"
-	singular_name = "mythril sheet"
+	singular_name = "лист мифрила"
 	novariants = TRUE
 	mats_per_unit = list(/datum/material/mythril=SHEET_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/mineral/mythril
@@ -409,11 +410,12 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
  * Alien Alloy
  */
 /obj/item/stack/sheet/mineral/abductor
-	name = "alien alloy"
+	name = "инопланетный сплав"
+	desc = "Загадочный материал с неизведанными свойствами."
 	icon = 'icons/obj/antags/abductor.dmi'
 	icon_state = "sheet-abductor"
 	inhand_icon_state = "sheet-abductor"
-	singular_name = "alien alloy sheet"
+	singular_name = "лист инопланетного сплава"
 	sheettype = "abductor"
 	mats_per_unit = list(/datum/material/alloy/alien=SHEET_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/mineral/abductor
@@ -421,12 +423,12 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
 	walltype = /turf/closed/wall/mineral/abductor
 
 GLOBAL_LIST_INIT(abductor_recipes, list ( \
-	new/datum/stack_recipe("alien bed", /obj/structure/bed/abductor, 2, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_FURNITURE), \
-	new/datum/stack_recipe("alien locker", /obj/structure/closet/abductor, 2, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_FURNITURE), \
-	new/datum/stack_recipe("alien table frame", /obj/structure/table_frame/abductor, 1, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_FURNITURE), \
-	new/datum/stack_recipe("alien airlock assembly", /obj/structure/door_assembly/door_assembly_abductor, 4, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_DOORS), \
+	new/datum/stack_recipe("инопланетная кровать", /obj/structure/bed/abductor, 2, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("инопланетный шкафчик", /obj/structure/closet/abductor, 2, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("инопланетная рама стола", /obj/structure/table_frame/abductor, 1, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("сборка инопланетного шлюза", /obj/structure/door_assembly/door_assembly_abductor, 4, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_DOORS), \
 	null, \
-	new/datum/stack_recipe("alien floor tile", /obj/item/stack/tile/mineral/abductor, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
+	new/datum/stack_recipe("инопланетная плитка пола", /obj/item/stack/tile/mineral/abductor, 1, 4, 20, check_density = FALSE, category = CAT_TILES), \
 	))
 
 /obj/item/stack/sheet/mineral/abductor/get_main_recipes()
@@ -438,11 +440,11 @@ GLOBAL_LIST_INIT(abductor_recipes, list ( \
  */
 
 /obj/item/stack/sheet/mineral/coal
-	name = "coal"
-	desc = "Someone's gotten on the naughty list."
+	name = "уголь"
+	desc = "Черный как негр."
 	icon = 'icons/obj/ore.dmi'
 	icon_state = "slag"
-	singular_name = "coal lump"
+	singular_name = "кусок угля"
 	merge_type = /obj/item/stack/sheet/mineral/coal
 	grind_results = list(/datum/reagent/carbon = 20)
 	novariants = TRUE
@@ -469,17 +471,17 @@ GLOBAL_LIST_INIT(abductor_recipes, list ( \
 
 //Metal Hydrogen
 GLOBAL_LIST_INIT(metalhydrogen_recipes, list(
-	new /datum/stack_recipe("incomplete servant golem shell", /obj/item/golem_shell/servant, req_amount=20, res_amount=1, check_density = FALSE, category = CAT_ROBOT),
-	new /datum/stack_recipe("ancient armor", /obj/item/clothing/suit/armor/elder_atmosian, req_amount = 5, res_amount = 1, check_density = FALSE, category = CAT_CLOTHING),
-	new /datum/stack_recipe("ancient helmet", /obj/item/clothing/head/helmet/elder_atmosian, req_amount = 3, res_amount = 1, check_density = FALSE, category = CAT_CLOTHING),
-	new /datum/stack_recipe("metallic hydrogen axe", /obj/item/fireaxe/metal_h2_axe, req_amount = 15, res_amount = 1, check_density = FALSE, category = CAT_WEAPON_MELEE),
+	new /datum/stack_recipe("незаконченная оболочка голема-слуги", /obj/item/golem_shell/servant, req_amount=20, res_amount=1, check_density = FALSE, category = CAT_ROBOT),
+	new /datum/stack_recipe("древняя броня", /obj/item/clothing/suit/armor/elder_atmosian, req_amount = 5, res_amount = 1, check_density = FALSE, category = CAT_CLOTHING),
+	new /datum/stack_recipe("древний шлем", /obj/item/clothing/head/helmet/elder_atmosian, req_amount = 3, res_amount = 1, check_density = FALSE, category = CAT_CLOTHING),
+	new /datum/stack_recipe("топор из металлического водорода", /obj/item/fireaxe/metal_h2_axe, req_amount = 15, res_amount = 1, check_density = FALSE, category = CAT_WEAPON_MELEE),
 	))
 
 /obj/item/stack/sheet/mineral/metal_hydrogen
-	name = "metal hydrogen"
+	name = "металлический водород"
 	icon_state = "sheet-metalhydrogen"
 	inhand_icon_state = null
-	singular_name = "metal hydrogen sheet"
+	singular_name = "лист металлического водорода"
 	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = FIRE_PROOF | LAVA_PROOF | ACID_PROOF | INDESTRUCTIBLE
 	point_value = 100
@@ -492,7 +494,7 @@ GLOBAL_LIST_INIT(metalhydrogen_recipes, list(
 	. += GLOB.metalhydrogen_recipes
 
 /obj/item/stack/sheet/mineral/zaukerite
-	name = "zaukerite"
+	name = "Заукерит"
 	icon_state = "zaukerite"
 	inhand_icon_state = "sheet-zaukerite"
 	singular_name = "zaukerite crystal"

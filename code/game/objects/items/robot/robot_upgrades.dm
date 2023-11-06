@@ -22,11 +22,6 @@
 		to_chat(user, span_warning("[capitalize(src.name)] невозможно подключить к деактевированному киборгу!"))
 		return FALSE
 
- 	if(model_type && !is_type_in_list(R.model, model_type))
-		to_chat(R, span_alert("Ошибка установки модуля! Подходящей точки крепления не обнаружено."))
-		to_chat(user, span_warning("Подходящей точки крепления не обнаружено!"))
-		return FALSE
-
 	return TRUE
 
 /obj/item/borg/upgrade/proc/deactivate(mob/living/silicon/robot/R, user = usr)
