@@ -86,8 +86,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/bodybags
-	name = "body bags"
-	desc = "The label indicates that it contains body bags."
+	name = "сумки для тела"
+	desc = "На этикетке указано, что он содержит мешки для тела."
 	illustration = "bodybags"
 
 /obj/item/storage/box/bodybags/PopulateContents()

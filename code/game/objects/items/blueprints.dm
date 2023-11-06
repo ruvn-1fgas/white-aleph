@@ -43,8 +43,8 @@
 
 //Station blueprints!!!
 /obj/item/areaeditor/blueprints
-	name = "station blueprints"
-	desc = "Blueprints of the station. There is a \"Classified\" stamp and several coffee stains on it."
+	name = "станционные чертежи"
+	desc = "Чертежи станции. На них также есть печать \"Засекречено\" и несколько пятен от кофе."
 	icon = 'icons/obj/scrolls.dmi'
 	icon_state = "blueprints"
 	fluffnotice = "Property of Nanotrasen. For heads of staff only. Store in high-secure storage."
@@ -64,14 +64,14 @@
 	if(!legend)
 		var/area/A = get_area(user)
 		if(get_area_type() == AREA_STATION)
-			. += "<p>According to \the [src], you are now in <b>\"[html_encode(A.name)]\"</b>.</p>"
-			. += "<p><a href='?src=[REF(src)];edit_area=1'>Change area name</a></p>"
-		. += "<p><a href='?src=[REF(src)];view_legend=1'>View wire colour legend</a></p>"
+			. += "<p>Судя по \the [src], я сейчас в <b>\"[html_encode(A.name)]\"</b>.</p>"
+			. += "<p><a href='?src=[REF(src)];edit_area=1'>Изменить название области</a></p>"
+		. += "<p><a href='?src=[REF(src)];view_legend=1'>Просмотр цветовой легенды кабелей</a></p>"
 		if(!viewing)
-			. += "<p><a href='?src=[REF(src)];view_blueprints=1'>View structural data</a></p>"
+			. += "<p><a href='?src=[REF(src)];view_blueprints=1'>Просмотр структурных данных</a></p>"
 		else
-			. += "<p><a href='?src=[REF(src)];refresh=1'>Refresh structural data</a></p>"
-			. += "<p><a href='?src=[REF(src)];hide_blueprints=1'>Hide structural data</a></p>"
+			. += "<p><a href='?src=[REF(src)];refresh=1'>Обновление структурных данных</a></p>"
+			. += "<p><a href='?src=[REF(src)];hide_blueprints=1'>Скрыть структурные данные</a></p>"
 	else
 		if(legend == TRUE)
 			. += "<a href='?src=[REF(src)];exit_legend=1'><< Back</a>"
@@ -104,9 +104,9 @@
 	if(href_list["view_wireset"])
 		legend = href_list["view_wireset"];
 	if(href_list["view_blueprints"])
-		set_viewer(usr, span_notice("You flip the blueprints over to view the complex information diagram."))
+		set_viewer(usr, span_notice("Я переворачиваю чертежи, чтобы просмотреть сложную информационную диаграмму."))
 	if(href_list["hide_blueprints"])
-		clear_viewer(usr,span_notice("You flip the blueprints over to view the simple information diagram."))
+		clear_viewer(usr,span_notice("Я переворачиваю чертежи, чтобы просмотреть простую информационную диаграмму."))
 	if(href_list["refresh"])
 		clear_viewer(usr)
 		set_viewer(usr)
@@ -192,13 +192,13 @@
 	if(!str || !length(str) || str == prevname) //cancel
 		return
 	if(length(str) > 50)
-		to_chat(usr, span_warning("The given name is too long. The area's name is unchanged."))
+		to_chat(usr, span_warning("Слишком длинное название. Имя зоны не изменено."))
 		return
 
 	rename_area(A, str)
 
-	to_chat(usr, span_notice("You rename the '[prevname]' to '[str]'."))
-	usr.log_message("has renamed [prevname] to [str]", LOG_GAME)
+	to_chat(usr, span_notice("Переименовываю '[prevname]' to '[str]'."))
+	usr.log_message("переименовал [prevname] to [str]", LOG_GAME)
 	A.update_areasize()
 	interact()
 	return TRUE
@@ -206,8 +206,8 @@
 //Blueprint Subtypes
 
 /obj/item/areaeditor/blueprints/cyborg
-	name = "station schematics"
-	desc = "A digital copy of the station blueprints stored in your memory."
+	name = "Схема станции"
+	desc = "Цифровая копия чертежей станции, хранящаяся в памяти юнита."
 	icon = 'icons/obj/scrolls.dmi'
 	icon_state = "blueprints"
 	fluffnotice = "Intellectual Property of Nanotrasen. For use in engineering cyborgs only. Wipe from memory upon departure from the station."
