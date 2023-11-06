@@ -8,8 +8,8 @@
  * EMAG AND SUBTYPES
  */
 /obj/item/card/emag
-	desc = "It's a card with a magnetic strip attached to some circuitry."
-	name = "cryptographic sequencer"
+	desc = "Это карта с магнитной полосой, прикрепленной к какой-то схеме."
+	name = "криптографический секвенсор"
 	icon_state = "emag"
 	item_flags = NO_MAT_REDEMPTION | NOBLUDGEON
 	slot_flags = ITEM_SLOT_ID
@@ -34,8 +34,8 @@
 	icon_state = "hack_o_lantern"
 
 /obj/item/card/emagfake
-	desc = "It's a card with a magnetic strip attached to some circuitry. Closer inspection shows that this card is a poorly made replica, with a \"Donk Co.\" logo stamped on the back."
-	name = "cryptographic sequencer"
+	desc = "Это карта с магнитной полосой, прикрепленной к какой-то схеме. При ближайшем рассмотрении оказывается, что эта карта - реплика, с логотипом \"DonkCo\" на обратной стороне."
+	name = "криптографический секвенсор"
 	icon_state = "emag"
 	slot_flags = ITEM_SLOT_ID
 	worn_icon_state = "emag"

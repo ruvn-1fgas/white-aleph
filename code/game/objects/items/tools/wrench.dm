@@ -1,6 +1,6 @@
 /obj/item/wrench
-	name = "wrench"
-	desc = "A wrench with common uses. Can be found in your hand."
+	name = "гаечный ключ"
+	desc = "Ключ общего назначения. Его можно найти в твоей руке."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "wrench"
 	inhand_icon_state = "wrench"
@@ -18,8 +18,8 @@
 	drop_sound = 'sound/items/handling/wrench_drop.ogg'
 	pickup_sound = 'sound/items/handling/wrench_pickup.ogg'
 
-	attack_verb_continuous = list("bashes", "batters", "bludgeons", "whacks")
-	attack_verb_simple = list("bash", "batter", "bludgeon", "whack")
+	attack_verb_continuous = list("колотит", "бьёт", "ударяет", "вмазывает")
+	attack_verb_simple = list("колотит", "бьёт", "ударяет", "вмазывает")
 	tool_behaviour = TOOL_WRENCH
 	toolspeed = 1
 	armor_type = /datum/armor/item_wrench
@@ -38,8 +38,8 @@
 	return BRUTELOSS
 
 /obj/item/wrench/abductor
-	name = "alien wrench"
-	desc = "A polarized wrench. It causes anything placed between the jaws to turn."
+	name = "инопланетный гаечный ключ"
+	desc = "Поляризованный ключ. Это приводит к тому, что все, что находится между полюсами, поворачивается."
 	icon = 'icons/obj/antags/abductor.dmi'
 	belt_icon_state = "wrench_alien"
 	custom_materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = SHEET_MATERIAL_AMOUNT*1.25, /datum/material/plasma =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/titanium =SHEET_MATERIAL_AMOUNT, /datum/material/diamond =SHEET_MATERIAL_AMOUNT)
@@ -48,21 +48,21 @@
 
 
 /obj/item/wrench/medical
-	name = "medical wrench"
-	desc = "A medical wrench with common(medical?) uses. Can be found in your hand."
+	name = "медицинский гаечный ключ"
+	desc = "Медицинский ключ с обычным (медицинским?) использованием. Его можно найти в твоей руке."
 	icon_state = "wrench_medical"
 	inhand_icon_state = "wrench_medical"
 	force = 2 //MEDICAL
 	throwforce = 4
-	attack_verb_continuous = list("heals", "medicals", "taps", "pokes", "analyzes") //"cobbyed"
-	attack_verb_simple = list("heal", "medical", "tap", "poke", "analyze")
+	attack_verb_continuous = list("крутит", "лечит", "стукает", "тычет", "вмазывает") //"cobbyed"
+	attack_verb_simple = list("крутит", "лечит", "стукает", "тычет", "вмазывает")
 	///var to hold the name of the person who suicided
 	var/suicider
 
 /obj/item/wrench/medical/examine(mob/user)
 	. = ..()
 	if(suicider)
-		. += span_notice("For some reason, it reminds you of [suicider].")
+		. += span_notice("По какой-то причине, это напоминает мне о [suicider].")
 
 /obj/item/wrench/medical/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is praying to the medical wrench to take [user.p_their()] soul. It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -84,8 +84,8 @@
 	return OXYLOSS
 
 /obj/item/wrench/cyborg
-	name = "hydraulic wrench"
-	desc = "An advanced robotic wrench, powered by internal hydraulics. Twice as fast as the handheld version."
+	name = "гидравлический гаечный ключ"
+	desc = "Усовершенствованный роботизированный ключ, приводимый в действие внутренней гидравликой. В два раза быстрее, чем версия для портативных устройств."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "wrench_cyborg"
 	toolspeed = 0.5

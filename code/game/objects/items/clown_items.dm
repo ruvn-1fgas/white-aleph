@@ -11,8 +11,8 @@
  */
 
 /obj/item/soap
-	name = "soap"
-	desc = "A cheap bar of soap. Doesn't smell."
+	name = "мыло"
+	desc = "Дешевый брусок мыла без запаха."
 	gender = PLURAL
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "soap"
@@ -38,24 +38,25 @@
 /obj/item/soap/examine(mob/user)
 	. = ..()
 	var/max_uses = initial(uses)
-	var/msg = "It looks like it just came out of the package."
+	var/msg = "Только что из упаковки."
 	if(uses != max_uses)
 		var/percentage_left = uses / max_uses
 		switch(percentage_left)
 			if(0 to 0.15)
-				msg = "There's just a tiny bit left of what it used to be, you're not sure it'll last much longer."
+				msg = "Жалкий обмылок, почти ничего не осталось."
 			if(0.15 to 0.30)
-				msg = "It's dissolved quite a bit, but there's still some life to it."
+				msg = "Осталось еще немного, но на пару раз еще хватит."
 			if(0.30 to 0.50)
-				msg = "It's past its prime, but it's definitely still good."
+				msg = "Тут немого меньше половины."
 			if(0.50 to 0.75)
-				msg = "It's started to get a little smaller than it used to be, but it'll definitely still last for a while."
+				msg = "Тут все еще очень много."
 			else
-				msg = "It's seen some light use, but it's still pretty fresh."
-	. += span_notice("[msg]")
+				msg = "Почти как новое, но заметны следы использования."
+	. += "<hr><span class='notice'>[msg]</span>"
 
 /obj/item/soap/homemade
-	desc = "A homemade bar of soap. Smells of... well...."
+	name = "самодельное мыло"
+	desc = "Самодельный брусок мыла пахнет он мягко говоря... на любителя...."
 	grind_results = list(/datum/reagent/consumable/liquidgibs = 9, /datum/reagent/lye = 9)
 	icon_state = "soapgibs"
 	inhand_icon_state = "soapgibs"
@@ -63,7 +64,7 @@
 	cleanspeed = 3 SECONDS // faster than base soap to reward chemists for going to the effort
 
 /obj/item/soap/nanotrasen
-	desc = "A heavy duty bar of Nanotrasen brand soap. Smells of plasma."
+	desc = "Сверхпрочный брусок мыла марки Nanotrasen. Немного пахнет плазмой."
 	grind_results = list(/datum/reagent/toxin/plasma = 10, /datum/reagent/lye = 10)
 	icon_state = "soapnt"
 	inhand_icon_state = "soapnt"
@@ -74,7 +75,7 @@
 /obj/item/soap/nanotrasen/cyborg
 
 /obj/item/soap/deluxe
-	desc = "A deluxe Waffle Co. brand bar of soap. Smells of high-class luxury."
+	desc = "Роскошный кусок мыла марки Waffle Co. Пахнет высококлассной роскошью."
 	grind_results = list(/datum/reagent/consumable/aloejuice = 10, /datum/reagent/lye = 10)
 	icon_state = "soapdeluxe"
 	inhand_icon_state = "soapdeluxe"
@@ -82,7 +83,7 @@
 	cleanspeed = 2 SECONDS //captain gets one of these
 
 /obj/item/soap/syndie
-	desc = "An untrustworthy bar of soap made of strong chemical agents that dissolve blood faster."
+	desc = "Подозрительный кусок мыла, изготовленный из едких химических веществ, быстро растворяющих кровь."
 	grind_results = list(/datum/reagent/toxin/acid = 10, /datum/reagent/lye = 10)
 	icon_state = "soapsyndie"
 	inhand_icon_state = "soapsyndie"
@@ -90,8 +91,8 @@
 	cleanspeed = 0.5 SECONDS //faster than mops so it's useful for traitors who want to clean crime scenes
 
 /obj/item/soap/omega
-	name = "\improper Omega soap"
-	desc = "The most advanced soap known to mankind. The beginning of the end for germs."
+	name = "омега мыло"
+	desc = "Самое совершенное мыло, известное человечеству."
 	grind_results = list(/datum/reagent/consumable/potato_juice = 9, /datum/reagent/consumable/ethanol/lizardwine = 9, /datum/reagent/monkey_powder = 9, /datum/reagent/drug/krokodil = 9, /datum/reagent/toxin/acid/nitracid = 9, /datum/reagent/baldium = 9, /datum/reagent/consumable/ethanol/hooch = 9, /datum/reagent/bluespace = 9, /datum/reagent/drug/pumpup = 9, /datum/reagent/consumable/space_cola = 9)
 	icon_state = "soapomega"
 	inhand_icon_state = "soapomega"
@@ -160,8 +161,8 @@
  */
 
 /obj/item/bikehorn
-	name = "bike horn"
-	desc = "A horn off of a bicycle. Rumour has it that they're made from recycled clowns."
+	name = "велосипедный гудок"
+	desc = "Клаксон от велосипеда. Ходят слухи, что они сделаны из переработанных клоунов."
 	icon = 'icons/obj/art/horn.dmi'
 	icon_state = "bike_horn"
 	inhand_icon_state = "bike_horn"
@@ -199,16 +200,16 @@
 
 //air horn
 /obj/item/bikehorn/airhorn
-	name = "air horn"
-	desc = "Damn son, where'd you find this?"
+	name = "корабельный гудок"
+	desc = "Дьявол тебя побери, сынок, где ты это достал?"
 	icon_state = "air_horn"
 	worn_icon_state = "horn_air"
 	sound_file = 'sound/items/airhorn2.ogg'
 
 //golden bikehorn
 /obj/item/bikehorn/golden
-	name = "golden bike horn"
-	desc = "Golden? Clearly, it's made with bananium! Honk!"
+	name = "золотой велосипедный гудок"
+	desc = "Золотой? Вообще то он сделан из бананиума. Хонк!"
 	icon_state = "gold_horn"
 	inhand_icon_state = "gold_horn"
 	worn_icon_state = "horn_gold"

@@ -1,6 +1,6 @@
 /obj/item/screwdriver
-	name = "screwdriver"
-	desc = "You can be totally screwy with this."
+	name = "отвёртка"
+	desc = "Ею можно откручивать и закручивать различные штуки."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "screwdriver_map"
 	inhand_icon_state = "screwdriver"
@@ -17,8 +17,8 @@
 	throw_speed = 3
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.75)
-	attack_verb_continuous = list("stabs")
-	attack_verb_simple = list("stab")
+	attack_verb_continuous = list("втыкает")
+	attack_verb_simple = list("втыкает")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	usesound = list('sound/items/screwdriver.ogg', 'sound/items/screwdriver2.ogg')
 	tool_behaviour = TOOL_SCREWDRIVER
@@ -60,8 +60,8 @@
 	AddElement(/datum/element/falling_hazard, damage = force, wound_bonus = wound_bonus, hardhat_safety = TRUE, crushes = FALSE, impact_sound = hitsound)
 
 /obj/item/screwdriver/abductor
-	name = "alien screwdriver"
-	desc = "An ultrasonic screwdriver."
+	name = "инопланетная отвёртка"
+	desc = "Похожа на экспериментальную сверхзвуковую отвертку."
 	icon = 'icons/obj/antags/abductor.dmi'
 	icon_state = "screwdriver_a"
 	inhand_icon_state = "screwdriver_nuke"
@@ -76,8 +76,8 @@
 	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_alien")
 
 /obj/item/screwdriver/power
-	name = "hand drill"
-	desc = "A simple powered hand drill."
+	name = "шуруповерт"
+	desc = "Удобный и компактный инструмент со сменными насадками."
 	icon_state = "drill"
 	belt_icon_state = null
 	inhand_icon_state = "drill"
@@ -89,8 +89,8 @@
 	throwforce = 8
 	throw_speed = 2
 	throw_range = 3//it's heavier than a screw driver/wrench, so it does more damage, but can't be thrown as far
-	attack_verb_continuous = list("drills", "screws", "jabs", "whacks")
-	attack_verb_simple = list("drill", "screw", "jab", "whack")
+	attack_verb_continuous = list("дреллирует", "накручивает", "отвёртничает", "вмазывает")
+	attack_verb_simple = list("дреллирует", "накручивает", "отвёртничает", "вмазывает")
 	hitsound = 'sound/items/drill_hit.ogg'
 	usesound = 'sound/items/drill_use.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
@@ -127,13 +127,13 @@
 
 	tool_behaviour = (active ? TOOL_WRENCH : TOOL_SCREWDRIVER)
 	if(user)
-		balloon_alert(user, "attached [active ? "bolt bit" : "screw bit"]")
+		balloon_alert(user, "ставлю [active ? "большую" : "маленькую"] крутяку")
 	playsound(src, 'sound/items/change_drill.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/screwdriver/power/examine()
 	. = ..()
-	. += " It's fitted with a [tool_behaviour == TOOL_SCREWDRIVER ? "screw" : "bolt"] bit."
+	. += "<hr>На конце установлен [tool_behaviour == TOOL_SCREWDRIVER ? "маленькая" : "большая"] крутяка."
 
 /obj/item/screwdriver/power/suicide_act(mob/living/user)
 	if(tool_behaviour == TOOL_SCREWDRIVER)
@@ -144,8 +144,8 @@
 	return BRUTELOSS
 
 /obj/item/screwdriver/cyborg
-	name = "automated screwdriver"
-	desc = "A powerful automated screwdriver, designed to be both precise and quick."
+	name = "автоматическая отвертка"
+	desc = "Мощная автоматическая отвертка, разработанная для быстрой и точной работы."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "screwdriver_cyborg"
 	hitsound = 'sound/items/drill_hit.ogg'

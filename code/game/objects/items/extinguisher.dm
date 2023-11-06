@@ -1,6 +1,6 @@
 /obj/item/extinguisher
-	name = "fire extinguisher"
-	desc = "A traditional red fire extinguisher."
+	name = "огнетушитель"
+	desc = "Классический красный огнетушитель. Может оказаться в одном месте при неправильном обращении."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "fire_extinguisher0"
 	worn_icon_state = "fire_extinguisher"
@@ -14,8 +14,8 @@
 	force = 10
 	demolition_mod = 1.25
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.9)
-	attack_verb_continuous = list("slams", "whacks", "bashes", "thunks", "batters", "bludgeons", "thrashes")
-	attack_verb_simple = list("slam", "whack", "bash", "thunk", "batter", "bludgeon", "thrash")
+	attack_verb_continuous = list("бьёт", "ударяет", "устраивает развал", "баллонит", "грейтайдит", "наносит удар")
+	attack_verb_simple = list("бьёт", "ударяет", "устраивает развал", "баллонит", "грейтайдит", "наносит удар")
 	dog_fashion = /datum/dog_fashion/back
 	resistance_flags = FIRE_PROOF
 	/// The max amount of water this extinguisher can hold.
@@ -56,8 +56,8 @@
 	starting_water = FALSE
 
 /obj/item/extinguisher/mini
-	name = "pocket fire extinguisher"
-	desc = "A light and compact fibreglass-framed model fire extinguisher."
+	name = "карманный огнетушитель"
+	desc = "Лёгкий и компактный, рамка из оптоволокна, что ещё нужно?"
 	icon_state = "miniFE0"
 	worn_icon_state = "miniFE"
 	inhand_icon_state = "miniFE"
@@ -75,7 +75,7 @@
 	starting_water = FALSE
 
 /obj/item/extinguisher/crafted
-	name = "Импровизированный охлаждающий спрей"
+	name = "импровизированный охлаждающий спрей"
 	desc = "Спрей, который может мощно пшикнуть."
 	icon_state = "coolant0"
 	worn_icon_state = "miniFE"
@@ -113,8 +113,8 @@
 		create_reagents(max_water, AMOUNT_VISIBLE)
 
 /obj/item/extinguisher/advanced
-	name = "advanced fire extinguisher"
-	desc = "Used to stop thermonuclear fires from spreading inside your engine."
+	name = "продвинутый огнетушитель"
+	desc = "Используется для остановки распространения термоядерных пожаров внутри двигателя."
 	icon_state = "foam_extinguisher0"
 	worn_icon_state = "foam_extinguisher"
 	inhand_icon_state = "foam_extinguisher"
@@ -161,10 +161,10 @@
 
 /obj/item/extinguisher/examine(mob/user)
 	. = ..()
-	. += "The safety is [safety ? "on" : "off"]."
+	. += "Предохранитель [safety ? "включен" : "отключен"]."
 
 	if(reagents.total_volume)
-		. += span_notice("Alt-клик to empty it.")
+		. += span_notice("Alt-клик, чтобы опустошить")
 
 /obj/item/extinguisher/proc/AttemptRefill(atom/target, mob/user)
 	if(istype(target, tanktype) && target.Adjacent(user))
@@ -174,12 +174,12 @@
 		var/obj/structure/reagent_dispensers/W = target //will it work?
 		var/transferred = W.reagents.trans_to(src, max_water, transferred_by = user)
 		if(transferred > 0)
-			to_chat(user, span_notice(" [src] has been refilled by [transferred] units."))
+			to_chat(user, span_notice("[capitalize(src.name)] пополнен [transferred] единицами."))
 			playsound(src.loc, 'sound/effects/refill.ogg', 50, TRUE, -6)
 			for(var/datum/reagent/water/R in reagents.reagent_list)
 				R.cooling_temperature = cooling_power
 		else
-			to_chat(user, span_warning(" [W] is empty!"))
+			to_chat(user, span_warning("[capitalize(W.name)] совсем пустой!"))
 
 		return TRUE
 	else
@@ -273,7 +273,7 @@
 	if(!user.can_perform_action(src, NEED_DEXTERITY|NEED_HANDS))
 		return
 	if(!user.is_holding(src))
-		to_chat(user, span_notice("You must be holding the [src] in your hands do this!"))
+		to_chat(user, span_notice("Надо бы держать в руках [src]!"))
 		return
 	EmptyExtinguisher(user)
 
@@ -286,12 +286,12 @@
 			var/turf/open/theturf = T
 			theturf.MakeSlippery(TURF_WET_WATER, min_wet_time = 10 SECONDS, wet_time_to_add = 5 SECONDS)
 
-		user.visible_message(span_notice("[user] empties out  [src] onto the floor using the release valve."), span_info("You quietly empty out  [src] using its release valve."))
+		user.visible_message(span_notice("[user] опустошает [src] используя выпускной клапан.") , span_info("Быстренько опустошаю [src] используя выпускной клапан."))
 
 //firebot assembly
 /obj/item/extinguisher/attackby(obj/O, mob/user, params)
 	if(istype(O, /obj/item/bodypart/arm/left/robot) || istype(O, /obj/item/bodypart/arm/right/robot))
-		to_chat(user, span_notice("You add [O] to [src]."))
+		to_chat(user, span_notice("Добавляю [O] к [src]."))
 		qdel(O)
 		qdel(src)
 		user.put_in_hands(new /obj/item/bot_assembly/firebot)

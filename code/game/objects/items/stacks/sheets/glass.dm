@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(glass_recipes, list ( \
 
 /obj/item/stack/sheet/glass
 	name = "стекло"
-	desc = "HOLY SHEET! Это много стекла."
+	desc = "HOLY SHEET! Здесь много стекла."
 	singular_name = "лист стекла"
 	icon_state = "sheet-glass"
 	inhand_icon_state = "sheet-glass"

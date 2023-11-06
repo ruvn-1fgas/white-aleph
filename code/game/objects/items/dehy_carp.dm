@@ -14,7 +14,7 @@
 	if(owner)
 		return ..()
 	add_fingerprint(user)
-	to_chat(user, span_notice("You pet [src]. You swear it looks up at you."))
+	to_chat(user, span_notice("Глажу [src]. Клянусь, он посмотрел на меня."))
 	owner = user
 	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(owner_deleted))
 
@@ -25,8 +25,8 @@
 	if(swelling)
 		return
 	swelling = TRUE
-	desc = "It's growing!"
-	visible_message(span_notice("[src] swells up!"))
+	desc = "Он растет!"
+	visible_message(span_notice("[capitalize(src.name)] раздувается в размерах!"))
 
 	//Animation
 	icon = 'icons/mob/simple/carp.dmi'

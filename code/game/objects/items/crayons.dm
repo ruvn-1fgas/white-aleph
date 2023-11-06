@@ -1,12 +1,12 @@
-#define RANDOM_GRAFFITI "Random Graffiti"
-#define RANDOM_LETTER "Random Letter"
-#define RANDOM_PUNCTUATION "Random Punctuation"
-#define RANDOM_NUMBER "Random Number"
-#define RANDOM_SYMBOL "Random Symbol"
-#define RANDOM_DRAWING "Random Drawing"
-#define RANDOM_ORIENTED "Random Oriented"
-#define RANDOM_RUNE "Random Rune"
-#define RANDOM_ANY "Random Anything"
+#define RANDOM_GRAFFITI "Случайное граффити"
+#define RANDOM_LETTER "Случайная буква"
+#define RANDOM_PUNCTUATION "Случайный знак препинания"
+#define RANDOM_NUMBER "Случайная цифра"
+#define RANDOM_SYMBOL "Случайный символ"
+#define RANDOM_DRAWING "Случайный рисуок"
+#define RANDOM_ORIENTED "Случайное ориентированное"
+#define RANDOM_RUNE "Случайная руна"
+#define RANDOM_ANY "Случайное всё"
 
 #define PAINT_NORMAL 1
 #define PAINT_LARGE_HORIZONTAL 2
@@ -19,16 +19,15 @@
 /*
  * Crayons
  */
-
 /obj/item/toy/crayon
-	name = "crayon"
-	desc = "A colourful crayon. Looks tasty. Mmmm..."
+	name = "красный мелок"
+	desc = "Цветной мелок. Такой вкусный. Ммм..."
 	icon = 'icons/obj/art/crayons.dmi'
 	icon_state = "crayonred"
-	worn_icon_state = "crayon"
+	worn_icon_state = "мелок"
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb_continuous = list("attacks", "colours")
-	attack_verb_simple = list("attack", "colour")
+	attack_verb_continuous = list("бьёт", "мажет")
+	attack_verb_simple = list("бьёт", "мажет")
 	grind_results = list()
 
 	/// Icon state to use when capped
@@ -311,46 +310,48 @@
 	// no u
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Crayon", name)
+		ui = new(user, src, "мелок", name)
 		ui.open()
 
 /obj/item/toy/crayon/proc/staticDrawables()
+
 	. = list()
 
 	var/list/g_items = list()
-	. += list(list("name" = "Graffiti", "items" = g_items))
+	. += list(list("name" = "Граффити", "items" = g_items))
 	for(var/g in graffiti)
 		g_items += list(list("item" = g))
 
 	var/list/glh_items = list()
-	. += list(list("name" = "Graffiti Large Horizontal", "items" = glh_items))
+	. += list(list("name" = "Большие горизонтальные граффити", "items" = glh_items))
 	for(var/glh in graffiti_large_h)
 		glh_items += list(list("item" = glh))
 
 	var/list/S_items = list()
-	. += list(list("name" = "Symbols", "items" = S_items))
+	. += list(list("name" = "Символы", "items" = S_items))
 	for(var/S in symbols)
 		S_items += list(list("item" = S))
 
 	var/list/D_items = list()
-	. += list(list("name" = "Drawings", "items" = D_items))
+	. += list(list("name" = "Рисунки", "items" = D_items))
 	for(var/D in drawings)
 		D_items += list(list("item" = D))
 
 	var/list/O_items = list()
-	. += list(list(name = "Oriented", "items" = O_items))
+	. += list(list(name = "Ориентированные", "items" = O_items))
 	for(var/O in oriented)
 		O_items += list(list("item" = O))
 
 	var/list/R_items = list()
-	. += list(list(name = "Runes", "items" = R_items))
+	. += list(list(name = "Руны", "items" = R_items))
 	for(var/R in runes)
 		R_items += list(list("item" = R))
 
 	var/list/rand_items = list()
-	. += list(list(name = "Random", "items" = rand_items))
+	. += list(list(name = "Случайно", "items" = rand_items))
 	for(var/i in randoms)
 		rand_items += list(list("item" = i))
+
 
 
 /obj/item/toy/crayon/ui_data()
@@ -393,12 +394,10 @@
 		if("select_colour")
 			. = can_change_colour && pick_painting_tool_color(usr, paint_color)
 		if("enter_text")
-			var/txt = tgui_input_text(usr, "Choose what to write", "Scribbles", text_buffer)
+			var/txt = tgui_input_text(usr, "Что же мы напишем?", "Писюльки", text_buffer)
 			if(isnull(txt))
 				return
-			txt = crayon_text_strip(txt)
-			if(text_buffer == txt)
-				return // No valid changes.
+
 			text_buffer = txt
 
 			. = TRUE
@@ -455,20 +454,20 @@
 	if(check_empty(user, cost))
 		return
 
-	var/temp = "rune"
+	var/temp = "руна"
 	var/ascii = (length(drawing) == 1)
 	if(ascii && is_alpha(drawing))
-		temp = "letter"
+		temp = "буква"
 	else if(ascii && is_digit(drawing))
-		temp = "number"
+		temp = "цифра"
 	else if(drawing in punctuation)
-		temp = "punctuation mark"
+		temp = "знак препинания"
 	else if(drawing in symbols)
-		temp = "symbol"
+		temp = "символ"
 	else if(drawing in drawings)
-		temp = "drawing"
+		temp = "рисунок"
 	else if(drawing in graffiti|oriented)
-		temp = "graffiti"
+		temp = "граффити"
 
 	var/graf_rot
 	if(drawing in oriented)
@@ -491,10 +490,10 @@
 		clicky = clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(world.icon_size/2), world.icon_size/2)
 
 	if(!instant)
-		to_chat(user, span_notice("You start drawing a [temp] on the [target.name]..."))
+		to_chat(user, span_notice("Начинаю рисовать [temp] на [target.name]..."))
 
 	if(pre_noise)
-		audible_message(span_notice("You hear spraying."))
+		audible_message(span_notice("Слышу спрей."))
 		playsound(user.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
 
 	var/wait_time = 50
@@ -537,16 +536,16 @@
 			created_art.AddElement(/datum/element/art, BAD_ART)
 
 	if(!instant)
-		to_chat(user, span_notice("You finish drawing  [temp]."))
+		to_chat(user, span_notice("Заканчиваю рисовать [temp]."))
 	else
-		to_chat(user, span_notice("You spray a [temp] on  [target.name]"))
+		to_chat(user, span_notice("Рисую [temp] на [target.name]"))
 
 	if(length(text_buffer) > 1)
 		text_buffer = copytext(text_buffer, length(text_buffer[1]) + 1)
 		SStgui.update_uis(src)
 
 	if(post_noise)
-		audible_message(span_hear("You hear spraying."))
+		audible_message(span_hear("Слышу спрей."))
 		playsound(user.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
 
 	var/fraction = min(1, . / reagents.maximum_volume)
@@ -580,7 +579,7 @@
 	)
 
 /obj/item/toy/crayon/red
-	name = "red crayon"
+	name = "красный мелок"
 	icon_state = "crayonred"
 	paint_color = COLOR_CRAYON_RED
 	crayon_color = "red"
@@ -588,7 +587,7 @@
 	dye_color = DYE_RED
 
 /obj/item/toy/crayon/orange
-	name = "orange crayon"
+	name = "оранжевый мелок"
 	icon_state = "crayonorange"
 	paint_color = COLOR_CRAYON_ORANGE
 	crayon_color = "orange"
@@ -596,7 +595,7 @@
 	dye_color = DYE_ORANGE
 
 /obj/item/toy/crayon/yellow
-	name = "yellow crayon"
+	name = "жёлтый мелок"
 	icon_state = "crayonyellow"
 	paint_color = COLOR_CRAYON_YELLOW
 	crayon_color = "yellow"
@@ -604,7 +603,7 @@
 	dye_color = DYE_YELLOW
 
 /obj/item/toy/crayon/green
-	name = "green crayon"
+	name = "зелёный мелок"
 	icon_state = "crayongreen"
 	paint_color = COLOR_CRAYON_GREEN
 	crayon_color = "green"
@@ -612,7 +611,7 @@
 	dye_color = DYE_GREEN
 
 /obj/item/toy/crayon/blue
-	name = "blue crayon"
+	name = "синий мелок"
 	icon_state = "crayonblue"
 	paint_color = COLOR_CRAYON_BLUE
 	crayon_color = "blue"
@@ -620,7 +619,7 @@
 	dye_color = DYE_BLUE
 
 /obj/item/toy/crayon/purple
-	name = "purple crayon"
+	name = "фиолетовый мелок"
 	icon_state = "crayonpurple"
 	paint_color = COLOR_CRAYON_PURPLE
 	crayon_color = "purple"
@@ -628,7 +627,7 @@
 	dye_color = DYE_PURPLE
 
 /obj/item/toy/crayon/black
-	name = "black crayon"
+	name = "чёрный мелок"
 	icon_state = "crayonblack"
 	paint_color = COLOR_CRAYON_BLACK
 	crayon_color = "black"
@@ -636,7 +635,7 @@
 	dye_color = DYE_BLACK
 
 /obj/item/toy/crayon/white
-	name = "white crayon"
+	name = "белый мелок"
 	icon_state = "crayonwhite"
 	paint_color = COLOR_WHITE
 	crayon_color = "white"
@@ -644,9 +643,9 @@
 	dye_color = DYE_WHITE
 
 /obj/item/toy/crayon/mime
-	name = "mime crayon"
+	name = "мелок мима"
 	icon_state = "crayonmime"
-	desc = "A very sad-looking crayon."
+	desc = "Весьма грустный мелок."
 	paint_color = COLOR_WHITE
 	crayon_color = "mime"
 	reagent_contents = list(/datum/reagent/consumable/nutriment = 0.5, /datum/reagent/colorful_reagent/powder/invisible = 1.5)
@@ -654,7 +653,7 @@
 	dye_color = DYE_MIME
 
 /obj/item/toy/crayon/rainbow
-	name = "rainbow crayon"
+	name = "радужный мелок"
 	icon_state = "crayonrainbow"
 	paint_color = COLOR_CRAYON_RAINBOW
 	crayon_color = "rainbow"
@@ -672,12 +671,27 @@
  */
 
 /obj/item/storage/crayons
-	name = "box of crayons"
-	desc = "A box of crayons for all your rune drawing needs."
+	name = "коробка с мелками"
+	desc = "Полна сил для всех ваших прекрасных художеств на полу и стенах."
 	icon = 'icons/obj/art/crayons.dmi'
 	icon_state = "crayonbox"
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/cardboard = SHEET_MATERIAL_AMOUNT)
+	var/is_music_played = FALSE
+
+/obj/item/storage/crayons/proc/on_pickup(datum/source, mob/grabber)
+	SIGNAL_HANDLER
+
+	if(is_music_played)
+		return
+
+	if(!iscarbon(grabber))
+		return
+
+	var/mob/living/carbon/carbon_grabber = grabber
+	playsound(carbon_grabber, 'sound/music/crayon_box.ogg', 50)
+	is_music_played = TRUE
+
 
 /obj/item/storage/crayons/Initialize(mapload)
 	. = ..()
@@ -719,7 +733,7 @@
 //Spraycan stuff
 
 /obj/item/toy/crayon/spraycan
-	name = "spray can"
+	name = "баллончик с краской"
 	icon_state = "spraycan"
 	worn_icon_state = "spraycan"
 
@@ -731,7 +745,7 @@
 	inhand_icon_state = "spraycan"
 	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
-	desc = "A metallic container containing tasty paint."
+	desc = "Металлический контейнер с вкусной краской."
 	w_class = WEIGHT_CLASS_SMALL
 	custom_price = PAYCHECK_CREW * 2.5
 
@@ -790,14 +804,14 @@
 	. = ..()
 	if(charges != INFINITE_CHARGES)
 		if(charges_left)
-			. += "It's roughly [PERCENT(charges_left/charges)]% full."
+			. += "<hr>Ещё есть примерно [charges_left] использований."
 		else
-			. += "It is empty."
-	. += span_notice("Alt-клик [src] to [ is_capped ? "take the cap off" : "put the cap on"]. ПКМ a colored object to match its existing color.")
+			. += "<hr>Он пустой."
+	. += span_notice("Alt-клик [src] по [src.name], чтобы [ is_capped ? "снять крышку" : "вернуть крышку на место"].")
 
 /obj/item/toy/crayon/spraycan/use_on(atom/target, mob/user, params)
 	if(is_capped)
-		balloon_alert(user, "take the cap off first!")
+		balloon_alert(user, "надо бы снять крышку!")
 		return
 
 	if(check_empty(user))
@@ -808,8 +822,8 @@
 			playsound(user.loc, 'sound/effects/spray.ogg', 25, TRUE, 5)
 
 		var/mob/living/carbon/carbon_target = target
-		user.visible_message(span_danger("[user] sprays [src] into the face of [target]!"))
-		to_chat(target, span_userdanger("[user] sprays [src] into your face!"))
+		user.visible_message(span_danger("[user] пшикает из [src.name] прямо в лицо [target]!"))
+		to_chat(target, span_userdanger("[user] пшикает из [src.name] прямо мне в лицо!"))
 
 		if(carbon_target.client)
 			carbon_target.set_eye_blur_if_lower(6 SECONDS)
@@ -926,8 +940,8 @@
 		. += spray_overlay
 
 /obj/item/toy/crayon/spraycan/borg
-	name = "cyborg spraycan"
-	desc = "A metallic container containing shiny synthesised paint."
+	name = "баллончик киборга"
+	desc = "Металлический контейнер с блестящей синтезированной краской.."
 	charges = INFINITE_CHARGES
 
 /obj/item/toy/crayon/spraycan/borg/use_charges(mob/user, amount = 1, requires_full = TRUE, override_infinity = FALSE)
@@ -945,8 +959,8 @@
 
 
 /obj/item/toy/crayon/spraycan/hellcan
-	name = "hellcan"
-	desc = "This spraycan doesn't seem to be filled with paint..."
+	name = "адончик"
+	desc = "Этот баллончик не залит краской..."
 	icon_state = "deathcan2_cap"
 	icon_capped = "deathcan2_cap"
 	icon_uncapped = "deathcan2"
@@ -963,8 +977,8 @@
 	return isfloorturf(surface)
 
 /obj/item/toy/crayon/spraycan/lubecan
-	name = "slippery spraycan"
-	desc = "You can barely keep hold of this thing."
+	name = "скользкий баллончик"
+	desc = "Вы едва можете удержать это в руках."
 	icon_state = "clowncan2_cap"
 	icon_capped = "clowncan2_cap"
 	icon_uncapped = "clowncan2"
@@ -978,8 +992,8 @@
 	return isfloorturf(surface)
 
 /obj/item/toy/crayon/spraycan/mimecan
-	name = "silent spraycan"
-	desc = "Art is best seen, not heard."
+	name = "бесшумный баллончик"
+	desc = "Искусство лучше всего видно, а не слышно."
 	icon_state = "mimecan_cap"
 	icon_capped = "mimecan_cap"
 	icon_uncapped = "mimecan"
@@ -993,9 +1007,9 @@
 	reagent_contents = list(/datum/reagent/consumable/nothing = 1, /datum/reagent/toxin/mutetoxin = 1)
 
 /obj/item/toy/crayon/spraycan/infinite
-	name = "infinite spraycan"
+	name = "бесконечный баллончик"
 	charges = INFINITE_CHARGES
-	desc = "Now with 30% more bluespace technology."
+	desc = "Теперь на 30% больше технологий блюспейса."
 
 #undef RANDOM_GRAFFITI
 #undef RANDOM_LETTER

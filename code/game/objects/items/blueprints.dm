@@ -3,8 +3,8 @@
 	icon = 'icons/obj/scrolls.dmi'
 	icon_state = "blueprints"
 	inhand_icon_state = "blueprints"
-	attack_verb_continuous = list("attacks", "baps", "hits")
-	attack_verb_simple = list("attack", "bap", "hit")
+	attack_verb_continuous = list("шлёпает", "тычет", "бьёт")
+	attack_verb_simple = list("шлёпает", "тычет", "бьёт")
 	var/fluffnotice = "Nobody's gonna read this stuff!"
 	var/in_use = FALSE
 	///When using it to create a new area, this will be its type.
@@ -104,9 +104,9 @@
 	if(href_list["view_wireset"])
 		legend = href_list["view_wireset"];
 	if(href_list["view_blueprints"])
-		set_viewer(usr, span_notice("Я переворачиваю чертежи, чтобы просмотреть сложную информационную диаграмму."))
+		set_viewer(usr, span_notice("Переворачиваю чертежи, чтобы просмотреть сложную информационную диаграмму."))
 	if(href_list["hide_blueprints"])
-		clear_viewer(usr,span_notice("Я переворачиваю чертежи, чтобы просмотреть простую информационную диаграмму."))
+		clear_viewer(usr,span_notice("Переворачиваю чертежи, чтобы просмотреть простую информационную диаграмму."))
 	if(href_list["refresh"])
 		clear_viewer(usr)
 		set_viewer(usr)
@@ -206,7 +206,7 @@
 //Blueprint Subtypes
 
 /obj/item/areaeditor/blueprints/cyborg
-	name = "Схема станции"
+	name = "схема станции"
 	desc = "Цифровая копия чертежей станции, хранящаяся в памяти юнита."
 	icon = 'icons/obj/scrolls.dmi'
 	icon_state = "blueprints"
