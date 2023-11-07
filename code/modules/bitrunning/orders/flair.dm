@@ -24,7 +24,7 @@
 
 /datum/orderable_item/bitrunning_flair/medkit_fire
 	item_path = /obj/item/storage/medkit/fire
-	desc = "Идеалльный после того как у тебя подгорело."
+	desc = "Идеально, особенно после того как у тебя подгорело."
 	cost_per_order = 500
 
 /datum/orderable_item/bitrunning_flair/oval_sunglasses

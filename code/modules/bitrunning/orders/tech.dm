@@ -12,7 +12,7 @@
 /datum/orderable_item/bepis/party_sleeper
 	item_path = /obj/item/circuitboard/machine/sleeper/party
 	cost_per_order = 750
-	desc = "A decommissioned sleeper circuitboard, repurposed for recreational purposes."
+	desc = "Снятая с производства печатная плата слипера. Перепрофилирована под использование в рекреационных целях."
 
 /datum/orderable_item/bepis/sprayoncan
 	item_path = /obj/item/toy/sprayoncan

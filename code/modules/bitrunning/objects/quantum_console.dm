@@ -10,7 +10,7 @@
 
 /obj/machinery/computer/quantum_console/Initialize(mapload, obj/item/circuitboard/circuit)
 	. = ..()
-	desc = "Даже в далёком [CURRENT_STATION_YEAR] году, Нанотрасен до сих пор используют REST API.  Как печально."
+	desc = "Даже в далёком [CURRENT_STATION_YEAR] году, Нанотрейзен до сих пор используют REST API. Как печально."
 
 	return INITIALIZE_HINT_LATELOAD
 

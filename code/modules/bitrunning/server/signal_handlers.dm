@@ -32,7 +32,7 @@
 /obj/machinery/quantum_server/proc/on_examine(datum/source, mob/examiner, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_infoplain("Работа может быть ресурсоемкой. Обеспечить адекватное электропитание.")
+	examine_text += span_infoplain("Работа может быть ресурсоемкой. Следует обеспечить адекватное электропитание.")
 
 	if(capacitor_coefficient < 1)
 		examine_text += span_infoplain("Емкость охлаждающей жидкости уменьшает время охлаждения на [(1 - capacitor_coefficient) * 100]%.")
@@ -73,7 +73,7 @@
 	SIGNAL_HANDLER
 
 	examine_text += span_info("Под вашим взглядом пол тонко пульсирует потоками закодированных данных.")
-	examine_text += span_info("По-видимому, это часть места, предназначенного для извлечения зашифрованных полезных нагрузок.")
+	examine_text += span_info("По видимому, это часть места, предназначенного для извлечения зашифрованных полезных нагрузок.")
 
 /// Scans over the inbound created_atoms from lazy templates
 /obj/machinery/quantum_server/proc/on_template_loaded(datum/lazy_template/source, list/created_atoms)

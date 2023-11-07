@@ -36,5 +36,5 @@
 	if(!isliving(living_owner))
 		return
 
-	if(tgui_alert(living_owner, "Безопастно отключится?", "Сообщение сервера", list("Выйти", "Остатся"), 10 SECONDS) == "Выйти")
+	if(tgui_alert(living_owner, "Безопасно отключиться?", "Сообщение сервера", list("Выйти", "Остаться"), 10 SECONDS) == "Выйти")
 		SEND_SIGNAL(living_owner, COMSIG_BITRUNNER_SAFE_DISCONNECT)

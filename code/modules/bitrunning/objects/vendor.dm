@@ -2,7 +2,7 @@
 
 /obj/machinery/computer/order_console/bitrunning
 	name = "консоль заказа Битраннеров"
-	desc = "НексаКеш™! Сомнительно подлинное оборудование для цифровых смельчаков."
+	desc = "НексаКэш™! Сомнительно подлинное оборудование для цифровых смельчаков."
 	icon = 'icons/obj/machines/bitrunning.dmi'
 	icon_state = "vendor"
 	icon_keyboard = null
@@ -13,7 +13,7 @@
 	express_cost_multiplier = 1
 	purchase_tooltip = @{"Ваш заказ прибудет в карго,
 	и в лучшем случае доставлен ими.
-	на 35% дешевле чем експресс доставка."}
+	на 35% дешевле чем экспресс доставка."}
 	express_tooltip = @{"Отправляет ваш заказ моментально."}
 	credit_type = CREDIT_TYPE_BITRUNNING
 
@@ -55,8 +55,8 @@
 		cost_type = credit_type,
 		can_be_cancelled = FALSE,
 	)
-	say("Спасибо за ваш заказ! Он прибудет в следующем шаттле карго!")
-	radio.talk_into(src, "Битраннер заказал снаряжение, которое прибудет на шаттле карго! Пожалуйста убедитесь что он получит заказ как можно быстрее!", radio_channel)
+	say("Спасибо за Ваш заказ! Он прибудет в следующем шаттле карго!")
+	radio.talk_into(src, "Битраннер заказал снаряжение, которое прибудет на шаттле карго! Пожалуйста, убедитесь что он получит заказ как можно быстрее!", radio_channel)
 	SSshuttle.shopping_list += new_order
 
 /obj/machinery/computer/order_console/bitrunning/retrieve_points(obj/item/card/id/id_card)
