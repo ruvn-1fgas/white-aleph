@@ -218,8 +218,8 @@
 	name = "ковер"
 	singular_name = "carpet tile"
 	desc = "Кусок ковра. Он такого же размера, как напольная плитка."
-	icon_state = "tile-ковёр"
-	inhand_icon_state = "tile-ковёр"
+	icon_state = "tile-carpet"
+	inhand_icon_state = "tile-carpet"
 	turf_type = /turf/open/floor/carpet
 	resistance_flags = FLAMMABLE
 	tableVariant = /obj/structure/table/wood/fancy
