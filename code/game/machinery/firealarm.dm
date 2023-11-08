@@ -170,8 +170,8 @@
 		return
 
 	if(obj_flags & EMAGGED)
-		. += mutable_appearance(icon, "fire_emagged")
-		. += emissive_appearance(icon, "fire_emagged", src, alpha = src.alpha)
+		. += mutable_appearance(icon, "fire_emag")
+		. += emissive_appearance(icon, "fire_emag_e", src, alpha = src.alpha)
 		set_light(l_color = LIGHT_COLOR_BLUE)
 
 	else if(!(my_area?.fire || LAZYLEN(my_area?.active_firelocks)))
@@ -179,7 +179,7 @@
 			if(is_station_level(z))
 				var/current_level = SSsecurity_level.get_current_level_as_number()
 				. += mutable_appearance(icon, "fire_[current_level]")
-				. += emissive_appearance(icon, "fire_overlay", src, alpha = src.alpha)
+				. += emissive_appearance(icon, "fire_level_e", src, alpha = src.alpha)
 				switch(current_level)
 					if(SEC_LEVEL_GREEN)
 						set_light(l_color = LIGHT_COLOR_BLUEGREEN)
@@ -191,20 +191,20 @@
 						set_light(l_color = LIGHT_COLOR_INTENSE_RED)
 			else
 				. += mutable_appearance(icon, "fire_offstation")
-				. += emissive_appearance(icon, "fire_overlay", src, alpha = src.alpha)
+				. += emissive_appearance(icon, "fire_level_e", src, alpha = src.alpha)
 				set_light(l_color = LIGHT_COLOR_FAINT_BLUE)
 		else
 			. += mutable_appearance(icon, "fire_disabled")
-			. += emissive_appearance(icon, "fire_overlay", src, alpha = src.alpha)
+			. += emissive_appearance(icon, "fire_level_e", src, alpha = src.alpha)
 			set_light(l_color = COLOR_WHITE)
 
 	else if(my_area?.fire_detect && my_area?.fire)
-		. += mutable_appearance(icon, "fire_detected")
-		. += emissive_appearance(icon, "fire_on_e", src, alpha = src.alpha)
+		. += mutable_appearance(icon, "fire_alerting")
+		. += emissive_appearance(icon, "fire_alerting_e", src, alpha = src.alpha)
 		set_light(l_color = LIGHT_COLOR_INTENSE_RED)
 	else
-		. += mutable_appearance(icon, "fire_detected")
-		. += emissive_appearance(icon, "fire_on_e", src, alpha = src.alpha)
+		. += mutable_appearance(icon, "fire_alerting")
+		. += emissive_appearance(icon, "fire_alerting_e", src, alpha = src.alpha)
 		set_light(l_color = LIGHT_COLOR_INTENSE_RED)
 
 /obj/machinery/firealarm/emp_act(severity)

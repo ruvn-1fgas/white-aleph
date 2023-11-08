@@ -155,10 +155,10 @@
 	var/list/msg = list(span_notice("<i>Замечаю почтовый штемпель на лицевой стороне письма...</i>"))
 	var/datum/mind/recipient = recipient_ref.resolve()
 	if(recipient)
-		msg += "\t<span class='info'>Сертифицированная NanoTrasen посылка для [recipient].</span>"
+		msg += "\t<span class='info'>Сертифицированная Nanotrasen посылка для [recipient].</span>"
 	else
 		msg += "\t<span class='info'>Сертифицированная посылка для [GLOB.station_name].</span>"
-	msg += "\t<span class='info'>Для распространения вручную или через метки назначения с использованием сертифицированной системы мусоропровода NanoTrasen.</span>"
+	msg += "\t<span class='info'>Для распространения вручную или через метки назначения с использованием сертифицированной системы мусоропровода Nanotrasen.</span>"
 	return msg
 
 /// Accepts a mind to initialize goodies for a piece of mail.
@@ -218,7 +218,7 @@
 	var/list/junk_names = list(
 		/obj/item/paper/pamphlet/gateway = "[initial(name)] для [pick(GLOB.adjectives)] приключенцев",
 		/obj/item/paper/pamphlet/violent_video_games = "[initial(name)] за правду об аркадных автоматах, которую центком не хочет слышать",
-		/obj/item/paper/fluff/junkmail_redpill = "[initial(name)] для [pick(GLOB.adjectives)] работяг NanoTrasen",
+		/obj/item/paper/fluff/junkmail_redpill = "[initial(name)] для [pick(GLOB.adjectives)] работяг Nanotrasen",
 		/obj/effect/decal/cleanable/ash = "[initial(name)] с НЕВЕРОЯТНО ВАЖНЫМ АРТЕФАКТОМ - ДОСТАВИТЬ В НАУЧНЫЙ ОТДЕЛ. ОЧЕНЬ ХРУПКОЕ СОДЕРЖИМОЕ.",
 	)
 

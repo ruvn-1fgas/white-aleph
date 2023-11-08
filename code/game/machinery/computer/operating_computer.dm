@@ -40,8 +40,12 @@
 /obj/machinery/computer/operating/Destroy()
 	for(var/direction in GLOB.alldirs)
 		table = locate(/obj/structure/table/optable) in get_step(src, direction)
-		if(table && table.computer == src)
+		if(table)
 			table.computer = null
+		else
+			sbed = locate(/obj/machinery/stasis) in get_step(src, direction)
+			if(sbed)
+				sbed.op_computer = null
 	QDEL_NULL(experiment_handler)
 	return ..()
 
@@ -73,12 +77,14 @@
 /obj/machinery/computer/operating/proc/find_table()
 	for(var/direction in GLOB.alldirs)
 		table = locate(/obj/structure/table/optable) in get_step(src, direction)
-		if(table && table.computer == src)
-			table.computer = null
+		if(table)
+			table.computer = src
+			break
 		else
 			sbed = locate(/obj/machinery/stasis) in get_step(src, direction)
-			if(sbed && sbed.op_computer == src)
-				sbed.op_computer = null
+			if(sbed)
+				sbed.op_computer = src
+				break
 
 /obj/machinery/computer/operating/ui_state(mob/user)
 	return GLOB.not_incapacitated_state
@@ -110,12 +116,12 @@
 
 	if(table)
 		data["table"] = table
-		// check if table has a patient, if not, return null
-		if(!table.patient)
+		if(!table.patient || !ishuman(table.patient))
 			return data
+		patient = table.patient
 	else
 		data["table"] = sbed
-		if(!sbed.occupant)
+		if(!sbed.occupant || !ishuman(sbed.occupant))
 			return data
 		patient = sbed.occupant
 

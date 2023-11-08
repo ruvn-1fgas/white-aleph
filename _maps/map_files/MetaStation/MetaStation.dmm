@@ -2869,7 +2869,7 @@
 	normaldoorcontrol = 1;
 	pixel_x = -6;
 	pixel_y = 7;
-	req_access = slist("security")
+	req_access = list("security")
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 9

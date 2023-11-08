@@ -1,4 +1,10 @@
 /// Fires an absurd amount of bullets at the target
+
+#define A_LITTLE "Слегка"
+#define A_LOT "Нормально"
+#define MUCH "Сильно"
+#define MUCH_MORE "НЕНАВИЖУ БЛЯТЬ"
+
 /datum/smite/berforate
 	name = ":B:erforate"
 
@@ -6,29 +12,28 @@
 	var/hatred
 
 /datum/smite/berforate/configure(client/user)
-	var/static/list/how_fucked_is_this_dude = list("A little", "A lot", "So fucking much", "FUCK THIS DUDE")
-	hatred = input(user, "How much do you hate this guy?") in how_fucked_is_this_dude
-
+	var/static/list/how_fucked_is_this_dude = list(A_LITTLE, A_LOT, MUCH, MUCH_MORE)
+	hatred = tgui_input_list(user, "Насколько ты его ненавидишь?", , how_fucked_is_this_dude)
 /datum/smite/berforate/effect(client/user, mob/living/target)
 	. = ..()
 	if (!iscarbon(target))
-		to_chat(user, span_warning("This must be used on a carbon mob."), confidential = TRUE)
+		to_chat(user, span_warning("Это можно использовать только на /mob/living/carbon."), confidential = TRUE)
 		return
 
 	var/repetitions
 	var/shots_per_limb_per_rep = 2
 	var/damage
 	switch (hatred)
-		if ("A little")
+		if (A_LITTLE)
 			repetitions = 1
 			damage = 5
-		if ("A lot")
+		if (A_LOT)
 			repetitions = 2
 			damage = 8
-		if ("So fucking much")
+		if (MUCH)
 			repetitions = 3
 			damage = 10
-		if ("FUCK THIS DUDE")
+		if (MUCH_MORE)
 			repetitions = 4
 			damage = 10
 
@@ -51,3 +56,8 @@
 				shots_this_limb += 1
 				if (shots_this_limb > shots_per_limb_per_rep)
 					break
+
+#undef A_LITTLE
+#undef A_LOT
+#undef MUCH
+#undef MUCH_MORE

@@ -1,6 +1,6 @@
 /datum/action/changeling/fakedeath
-	name = "Reviving Stasis"
-	desc = "We fall into a stasis, allowing us to regenerate and trick our enemies. Costs 15 chemicals."
+	name = "Восстанавливающий стазис"
+	desc = "Мы падаем в стазис, позволяя нам возродиться и обмануть наших врагов. Стоит 15 химикатов."
 	button_icon_state = "fake_death"
 	chemical_cost = 15
 	dna_cost = CHANGELING_POWER_INNATE
@@ -22,7 +22,7 @@
 		disable_revive(user) // this should be already called via signal, but just incase something wacky happens
 
 	else if(enable_fakedeath(user))
-		to_chat(user, span_changeling("We begin our stasis, preparing energy to arise once more."))
+		to_chat(user, span_changeling("Мы начинаем наш стазис, готовя энергию, чтобы возродиться еще раз."))
 
 	else
 		stack_trace("Changeling revive failed to enter fakedeath when it should have been in a valid state to.")
@@ -78,7 +78,7 @@
 		return
 
 	source.cure_fakedeath(CHANGELING_TRAIT)
-	to_chat(source, span_changeling("We exit our stasis early."))
+	to_chat(source, span_changeling("Мы рано выходим из стазиса."))
 
 /datum/action/changeling/fakedeath/proc/revive(mob/living/carbon/user)
 	if(!istype(user))
@@ -91,7 +91,7 @@
 	var/flags_to_heal = (HEAL_DAMAGE|HEAL_BODY|HEAL_STATUS|HEAL_CC_STATUS)
 	// but leave out limbs so we can do it specially
 	user.revive(flags_to_heal & ~HEAL_LIMBS)
-	to_chat(user, span_changeling("We have revived ourselves."))
+	to_chat(user, span_changeling("Мы оживили себя."))
 
 	var/static/list/dont_regenerate = list(BODY_ZONE_HEAD) // headless changelings are funny
 	if(!length(user.get_missing_limbs() - dont_regenerate))
@@ -99,9 +99,9 @@
 
 	playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 	user.visible_message(
-		span_warning("[user]'s missing limbs reform, making a loud, grotesque sound!"),
-		span_userdanger("Your limbs regrow, making a loud, crunchy sound and giving you great pain!"),
-		span_hear("You hear organic matter ripping and tearing!"),
+		span_warning("Конечности <b>[user]</b> внезапно отрастают, издавая громкие хрустящие звуки!") ,
+		span_userdanger("Наши конечности вырастают, издают громкий хрустящий звук и причиняют нам сильную боль!") ,
+		span_hear("Слышу, как что-то органическое разрывается!")
 	)
 	user.emote("scream")
 	// Manually call this (outside of revive/fullheal) so we can pass our blacklist
@@ -117,7 +117,7 @@
 	if(!HAS_TRAIT_FROM(user, TRAIT_DEATHCOMA, CHANGELING_TRAIT))
 		return
 
-	to_chat(user, span_changeling("We are ready to revive."))
+	to_chat(user, span_changeling("Мы готовы возродиться."))
 	enable_revive(user)
 
 /datum/action/changeling/fakedeath/can_sting(mob/living/user)
@@ -128,7 +128,7 @@
 		return
 	//Confirmation for living changelings if they want to fake their death
 	if(user.stat != DEAD)
-		if(tgui_alert(user, "Are we sure we wish to fake our own death?", "Feign Death", list("Yes", "No")) != "Yes")
+		if(tgui_alert(user, "Хотим ли мы устроить иммитацию нашей смерти?", list("Да", "Нет")) != "Да")
 			return
 		if(QDELETED(user) || QDELETED(src) || !can_enter_stasis(user))
 			return
@@ -137,17 +137,17 @@
 
 /datum/action/changeling/fakedeath/proc/can_enter_stasis(mob/living/user)
 	if(HAS_TRAIT_FROM(user, TRAIT_DEATHCOMA, CHANGELING_TRAIT))
-		user.balloon_alert(user, "already reviving!")
+		user.balloon_alert(user, "уже возрождаюсь!")
 		return FALSE
 	return TRUE
 
 /datum/action/changeling/fakedeath/update_button_name(atom/movable/screen/movable/action_button/button, force)
 	if(revive_ready)
-		name = "Revive"
-		desc = "We arise once more."
+		name = "Возрождение"
+		desc = "Мы восстанем ещё раз."
 	else
-		name = "Reviving Stasis"
-		desc = "We fall into a stasis, allowing us to regenerate and trick our enemies."
+		name = "Возрождение"
+		desc = "Мы падаем в стазис, позволяя нам возродиться и обмануть наших врагов. Стоит 15 химикатов."
 	return ..()
 
 /datum/action/changeling/fakedeath/apply_button_icon(atom/movable/screen/movable/action_button/current_button, force)

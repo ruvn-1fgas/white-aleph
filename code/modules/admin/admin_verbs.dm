@@ -504,7 +504,7 @@ GLOBAL_PROTECT(admin_verbs_poll)
 #define STEALTH_MODE_TRAIT "stealth_mode"
 
 /client/proc/enable_stealth_mode()
-	var/new_key = ckeyEx(stripped_input(usr, "Enter your desired display name.", "Fake Key", key, 26))
+	var/new_key = stripped_input(usr, "Выбери сикей. Можно на русском!", "Маскируемся", key, 26)
 	if(!new_key)
 		return
 	holder.fakekey = new_key

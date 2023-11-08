@@ -2,7 +2,7 @@
 #define WELDER_FUEL_BURN_INTERVAL 5
 /obj/item/weldingtool
 	name = "сварочный аппарат"
-	desc = "Сварка стандартного исполнения, предоставленная компанией NanoTrasen."
+	desc = "Сварка стандартного исполнения, предоставленная компанией Nanotrasen."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "welder"
 	inhand_icon_state = "welder"

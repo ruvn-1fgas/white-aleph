@@ -1,9 +1,8 @@
 /datum/action/changeling/void_adaption
-	name = "Void Adaption"
-	desc = "We prepare our cells to resist the hostile environment outside of the station. We may freely travel wherever we wish."
-	helptext = "This ability is passive, and will automatically protect you in situations of extreme cold or vacuum, \
-		as well as removing your need to breathe. While it is actively protecting you from temperature or pressure \
-		it reduces your chemical regeneration rate."
+	name = "Космическая адаптация"
+	desc = "Мы готовим наши клетки к сопротивлению среде вне станции. Мы можем свободно перемещаться, куда нам угодно."
+	helptext = "Эта способность пассивна и автоматически защищает вас в ситуациях с экстремальным холодом или вакуумом, \
+		а также устраняет необходимость дышать. Пока она активна, она снижает скорость регенерации химикатов."
 	owner_has_control = FALSE
 	dna_cost = 2
 
@@ -23,7 +22,7 @@
 	remove_from.remove_traits(gain_traits, REF(src))
 	UnregisterSignal(remove_from, COMSIG_LIVING_LIFE)
 	if (currently_active)
-		on_removed_adaption(remove_from, "Our cells relax, despite the danger!")
+		on_removed_adaption(remove_from, "Наши клетки расслабляются, несмотря на опасность!")
 	return ..()
 
 /// Checks if we would be providing any useful benefit at present
@@ -43,20 +42,20 @@
 
 			var/affected_pressure = special_boy.calculate_affecting_pressure(environment.return_pressure())
 			if (affected_pressure < HAZARD_LOW_PRESSURE)
-				active_reasons += "vacuum"
+				active_reasons += "низкого давления"
 
 		if (affected_temperature < vulnerable_temperature)
-			active_reasons += "cold"
+			active_reasons += "холода"
 
 	var/should_be_active = !!length(active_reasons)
 	if (currently_active == should_be_active)
 		return
 
 	if (!should_be_active)
-		on_removed_adaption(void_adapted, "Our cells relax in safer air.")
+		on_removed_adaption(void_adapted, "Наши клетки расслабляются в безопасной атмосфере.")
 		return
 	var/datum/antagonist/changeling/changeling_data = void_adapted.mind?.has_antag_datum(/datum/antagonist/changeling)
-	to_chat(void_adapted, span_changeling("Our cells harden themselves against the [pick(active_reasons)]."))
+	to_chat(void_adapted, span_changeling("Наши клетки укрепляются против [pick(active_reasons)]."))
 	changeling_data?.chem_recharge_slowdown -= recharge_slowdown
 	currently_active = TRUE
 

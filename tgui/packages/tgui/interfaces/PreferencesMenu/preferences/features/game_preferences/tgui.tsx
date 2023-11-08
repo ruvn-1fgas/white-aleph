@@ -4,7 +4,8 @@ export const tgui_fancy: FeatureToggle = {
   name: 'Enable fancy TGUI',
   name_ru: 'Включить новый TGUI',
   category: 'UI',
-  description: 'Делает TGUI окна красивее, но может вызывать проблемы совместимости.',
+  description:
+    'Делает TGUI окна красивее, но может вызывать проблемы совместимости.',
   component: CheckboxInput,
 };
 

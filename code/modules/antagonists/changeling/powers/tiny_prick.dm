@@ -1,6 +1,7 @@
 /datum/action/changeling/sting//parent path, not meant for users afaik
-	name = "Tiny Prick"
+	name = "Жало"
 	desc = "Stabby stabby"
+
 
 /datum/action/changeling/sting/Trigger(trigger_flags)
 	var/mob/user = owner
@@ -16,7 +17,7 @@
 	return
 
 /datum/action/changeling/sting/proc/set_sting(mob/user)
-	to_chat(user, span_notice("We prepare our sting. Alt+click or click the middle mouse button on a target to sting them."))
+	to_chat(user, span_notice("Мы готовим наше жало. Alt + клик или щелчок средней кнопкой мыши на цели, чтобы жалить их."))
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	changeling.chosen_sting = src
 
@@ -24,7 +25,7 @@
 	changeling.lingstingdisplay.SetInvisibility(0, id=type)
 
 /datum/action/changeling/sting/proc/unset_sting(mob/user)
-	to_chat(user, span_warning("We retract our sting, we can't sting anyone for now."))
+	to_chat(user, span_warning("Мы убираем наше жало, пока мы не можем никого жалить."))
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	changeling.chosen_sting = null
 
@@ -42,7 +43,7 @@
 		return
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	if(!changeling.chosen_sting)
-		to_chat(user, "We haven't prepared our sting yet!")
+		to_chat(user, "Мы еще не подготовили наше жало!")
 	if(!iscarbon(target))
 		return
 	if(!isturf(user.loc))
@@ -57,19 +58,16 @@
 /datum/action/changeling/sting/sting_feedback(mob/user, mob/target)
 	if(!target)
 		return
-	to_chat(user, span_notice("We stealthily sting [target.name]."))
+	to_chat(user, span_notice("Мы незаметно жалим <b>[target.name]</b>."))
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(target, span_warning("You feel a tiny prick."))
+		to_chat(target, span_warning("Что-то укололо меня."))
 	return 1
 
 
 /datum/action/changeling/sting/transformation
-	name = "Transformation Sting"
-	desc = "We silently sting an organism, injecting a retrovirus that forces them to transform."
-	helptext = "The victim will transform much like a changeling would. \
-		For complex humanoids, the transformation is temporarily, but the duration is paused while the victim is dead or in stasis. \
-		For more simple humanoids, such as monkeys, the transformation is permanent. \
-		Does not provide a warning to others. Mutations will not be transferred."
+	name = "Трансформирующее жало"
+	desc = "Мы незаметно жалим человека, вводя ретровирус, который заставляет их трансформироваться. Стоит 50 химикатов."
+	helptext = "Жертва превратится так же, как генокрад. Не дает предупреждение другим. Мутации не будут переданы, и обезьяны станут людьми."
 	button_icon_state = "sting_transform"
 	chemical_cost = 33 // Low enough that you can sting only two people in quick succession
 	dna_cost = 2
@@ -84,8 +82,6 @@
 
 /datum/action/changeling/sting/transformation/update_button_name(atom/movable/screen/movable/action_button/button, force)
 	. = ..()
-	button.desc += " Lasts [DisplayTimeText(sting_duration)] for humans, but duration is paused while dead or in stasis."
-	button.desc += " Costs [chemical_cost] chemicals."
 
 /datum/action/changeling/sting/transformation/Destroy()
 	selected_dna = null
@@ -113,20 +109,19 @@
 		|| HAS_TRAIT(target, TRAIT_HUSK) \
 		|| HAS_TRAIT(target, TRAIT_BADDNA) \
 		|| (HAS_TRAIT(target, TRAIT_NO_DNA_COPY) && !ismonkey(target))) // sure, go ahead, make a monk-clone
-		user.balloon_alert(user, "incompatible DNA!")
+		user.balloon_alert(user, "несовместимая ДНК!")
 		return FALSE
 	if(target.has_status_effect(/datum/status_effect/temporary_transformation/trans_sting))
-		user.balloon_alert(user, "already transformed!")
+		user.balloon_alert(user, "уже трансформирован!")
 		return FALSE
 	return TRUE
 
 /datum/action/changeling/sting/transformation/sting_action(mob/living/user, mob/living/target)
 	var/final_duration = sting_duration
-	var/final_message = span_notice("We transform [target] into [selected_dna.dna.real_name].")
+	var/final_message = span_notice("Меняем форму <b>[target]</b> в <b>[selected_dna.dna.real_name]</b>.")
 	if(ismonkey(target))
 		final_duration = INFINITY
-		final_message = span_warning("Our genes cry out as we transform the lesser form of [target] into [selected_dna.dna.real_name] permanently!")
-
+		final_message = span_warning("Наши гены кричат, когда мы трансоформируем <b>[target]</b> в <b>[selected_dna.dna.real_name]</b> навсегда!")
 	if(target.apply_status_effect(/datum/status_effect/temporary_transformation/trans_sting, final_duration, selected_dna.dna))
 		..()
 		log_combat(user, target, "stung", "transformation sting", " new identity is '[selected_dna.dna.real_name]'")
@@ -135,15 +130,15 @@
 	return FALSE
 
 /datum/action/changeling/sting/false_armblade
-	name = "False Armblade Sting"
-	desc = "We silently sting a human, injecting a retrovirus that mutates their arm to temporarily appear as an armblade. Costs 20 chemicals."
-	helptext = "The victim will form an armblade much like a changeling would, except the armblade is dull and useless."
+	name = "Жало ложной руки-лезвия"
+	desc = "Мы незаметно жалим человека, вводя ретровирус, который временно трансформирует его руку в клинок. Стоит 20 химикатов."
+	helptext = "Жертва сформирует руку-лезвие так же, как генокрад, за исключением того, что клинок тупой и бесполезный."
 	button_icon_state = "sting_armblade"
 	chemical_cost = 20
 	dna_cost = 1
 
 /obj/item/melee/arm_blade/false
-	desc = "A grotesque mass of flesh that used to be your arm. Although it looks dangerous at first, you can tell it's actually quite dull and useless."
+	desc = "Гротескная масса плоти, которая была моей рукой. Хотя поначалу это выглядит опасно, можно сказать, что на самом деле оно довольно тупое и бесполезное."
 	force = 5 //Basically as strong as a punch
 	fake = TRUE
 
@@ -161,17 +156,17 @@
 
 	var/obj/item/held = target.get_active_held_item()
 	if(held && !target.dropItemToGround(held))
-		to_chat(user, span_warning("[held] is stuck to [target.p_their()] hand, you cannot grow a false armblade over it!"))
+		to_chat(user, span_warning("<b>[capitalize(held)]</b> застрял в руке жертвы, у нас не получится сформировать клинок поверх этой штуки!"))
 		return
 
 	..()
 	log_combat(user, target, "stung", object = "false armblade sting")
 	if(ismonkey(target))
-		to_chat(user, span_notice("Our genes cry out as we sting [target.name]!"))
+		to_chat(user, span_notice("Наши гены кричат, когда мы жалим <b>[target.name]</b>!"))
 
 	var/obj/item/melee/arm_blade/false/blade = new(target,1)
 	target.put_in_hands(blade)
-	target.visible_message(span_warning("A grotesque blade forms around [target.name]\'s arm!"), span_userdanger("Your arm twists and mutates, transforming into a horrific monstrosity!"), span_hear("You hear organic matter ripping and tearing!"))
+	target.visible_message(span_warning("Гротескный клинок формируется из руки <b>[target.name]</b>!") , span_userdanger("Наша рука крутится и мутирует, превращаясь в ужасающее чудовище!") , span_hear("Слышу как что-то органическое разрывается!"))
 	playsound(target, 'sound/effects/blobattack.ogg', 30, TRUE)
 
 	addtimer(CALLBACK(src, PROC_REF(remove_fake), target, blade), 600)
@@ -179,18 +174,17 @@
 
 /datum/action/changeling/sting/false_armblade/proc/remove_fake(mob/target, obj/item/melee/arm_blade/false/blade)
 	playsound(target, 'sound/effects/blobattack.ogg', 30, TRUE)
-	target.visible_message("<span class='warning'>With a sickening crunch, \
-	[target] reforms [target.p_their()] [blade.name] into an arm!</span>",
-	span_warning("[blade] reforms back to normal."),
-	"<span class='italics>You hear organic matter ripping and tearing!</span>")
+	target.visible_message(span_warning("С отвратительным хрустом, <b>[target]</b> формирует [blade.name] обратно в руку!") ,
+	span_warning("[capitalize(blade)] трансформируется в нормальную руку.") ,
+	"<span class='italics>Слышу как что-то органическое разрывается!</span>")
 
 	qdel(blade)
 	target.update_held_items()
 
 /datum/action/changeling/sting/extract_dna
-	name = "Extract DNA Sting"
-	desc = "We stealthily sting a target and extract their DNA. Costs 25 chemicals."
-	helptext = "Will give you the DNA of your target, allowing you to transform into them."
+	name = "Извлекающее ДНК жало"
+	desc = "Мы незаметно жалим цель и извлекаем её ДНК. Стоит 25 химикатов."
+	helptext = "Даст вам ДНК вашей цели, что позволит вам превратиться в них."
 	button_icon_state = "sting_extract"
 	chemical_cost = 25
 	dna_cost = 0
@@ -209,9 +203,9 @@
 	return TRUE
 
 /datum/action/changeling/sting/mute
-	name = "Mute Sting"
-	desc = "We silently sting a human, completely silencing them for a short time. Costs 20 chemicals."
-	helptext = "Does not provide a warning to the victim that they have been stung, until they try to speak and cannot."
+	name = "Жало безмолвия"
+	desc = "Мы незаметно жалим человека, на короткое время полностью делая его немым. Стоит 20 химикатов."
+	helptext = "Не предупреждает жертву о том, что ее ужалили, пока она не попытается заговорить и поймёт, что не может."
 	button_icon_state = "sting_mute"
 	chemical_cost = 20
 	dna_cost = 2
@@ -223,9 +217,9 @@
 	return TRUE
 
 /datum/action/changeling/sting/blind
-	name = "Blind Sting"
-	desc = "We temporarily blind our victim. Costs 25 chemicals."
-	helptext = "This sting completely blinds a target for a short time, and leaves them with blurred vision for a long time. Does not work if target has robotic or missing eyes."
+	name = "Ослепляющее жало"
+	desc = "Мы временно ослепляем нашу жертву. Стоит 25 химикатов."
+	helptext = "Это жало на короткое время полностью ослепляет цель и на долгое время оставляет её с нечетким зрением."
 	button_icon_state = "sting_blind"
 	chemical_cost = 25
 	dna_cost = 1
@@ -233,26 +227,25 @@
 /datum/action/changeling/sting/blind/sting_action(mob/user, mob/living/carbon/target)
 	var/obj/item/organ/internal/eyes/eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
 	if(!eyes)
-		user.balloon_alert(user, "no eyes!")
+		user.balloon_alert(user, "нет глаз!")
 		return FALSE
 
 	if(IS_ROBOTIC_ORGAN(eyes))
-		user.balloon_alert(user, "robotic eyes!")
+		user.balloon_alert(user, "у него кибернетические глаза!")
 		return FALSE
 
 	..()
 	log_combat(user, target, "stung", "blind sting")
-	to_chat(target, span_danger("Your eyes burn horrifically!"))
+	to_chat(target, span_danger("Глаза горят ужасно!"))
 	eyes.apply_organ_damage(eyes.maxHealth * 0.8)
 	target.adjust_temp_blindness(40 SECONDS)
 	target.set_eye_blur_if_lower(80 SECONDS)
 	return TRUE
 
 /datum/action/changeling/sting/lsd
-	name = "Hallucination Sting"
-	desc = "We cause mass terror to our victim. Costs 10 chemicals."
-	helptext = "We evolve the ability to sting a target with a powerful hallucinogenic chemical. \
-			The target does not notice they have been stung, and the effect occurs after 30 to 60 seconds."
+	name = "Галлюн-жало"
+	desc = "Мы причиняем муки и страдания нашей жертве."
+	helptext = "Мы развиваем способность поражать цель мощным галлюциногенным химическим веществом. Цель не замечает, что её ужалили, и эффект наступает через 30-60 секунд."
 	button_icon_state = "sting_lsd"
 	chemical_cost = 10
 	dna_cost = 1
@@ -269,9 +262,9 @@
 	target.adjust_hallucinations(180 SECONDS)
 
 /datum/action/changeling/sting/cryo
-	name = "Cryogenic Sting"
-	desc = "We silently sting our victim with a cocktail of chemicals that freezes them from the inside. Costs 15 chemicals."
-	helptext = "Does not provide a warning to the victim, though they will likely realize they are suddenly freezing."
+	name = "Замораживающее жало"
+	desc = "Мы незаметно жалим нашу жертву коктейлем из химикатов, который замораживает её изнутри. Стоит 15 химикатов."
+	helptext = "Не дает предупреждение жертве, хотя она, вероятно, поймёт, что она внезапно начнёт замерзать."
 	button_icon_state = "sting_cryo"
 	chemical_cost = 15
 	dna_cost = 2

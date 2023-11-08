@@ -39,7 +39,7 @@ export const CellularEmporium = (props, context) => {
         <Section
           fill
           scrollable
-          title={'Genetic Points'}
+          title={'Генетические очки'}
           buttons={
             <Stack>
               <Stack.Item fontSize="16px">
@@ -49,14 +49,14 @@ export const CellularEmporium = (props, context) => {
               <Stack.Item>
                 <Button
                   icon="undo"
-                  content="Readapt"
+                  content="Переадаптировать"
                   color="good"
                   disabled={!can_readapt}
                   tooltip={
                     can_readapt
-                      ? 'We readapt, un-evolving all evolved abilities \
-                    and refunding our genetic points.'
-                      : 'We cannot readapt until we absorb more DNA.'
+                      ? 'Мы переадаптируемся, отменяя все эволюционные способности \
+                    и возвращая генетические очки.'
+                      : 'Мы не можем переадаптироваться, пока не поглотим больше ДНК.'
                   }
                   onClick={() => act('readapt')}
                 />
@@ -104,9 +104,9 @@ const AbilityList = (props, context) => {
     return (
       <NoticeBox>
         {abilities.length === 0
-          ? 'No abilities available to purchase. \
-        This is in error, contact your local hivemind today.'
-          : 'No abilities found.'}
+          ? 'Нет доступных способностей для покупки. \
+          Это ошибка, свяжитесь с кодером.'
+          : 'Способности не найдены.'}
       </NoticeBox>
     );
   } else {
@@ -124,7 +124,7 @@ const AbilityList = (props, context) => {
                   <Icon
                     name="dna"
                     color={
-                      owned_abilities.includes(ability.path)
+                      owned_abilities.includes(ability.name)
                         ? '#DD66DD'
                         : 'gray'
                     }
@@ -132,16 +132,16 @@ const AbilityList = (props, context) => {
                 </Stack.Item>
                 <Stack.Item>
                   <Button
-                    content={'Evolve'}
+                    content={'Развить'}
                     disabled={
-                      owned_abilities.includes(ability.path) ||
+                      owned_abilities.includes(ability.name) ||
                       ability.genetic_point_required > genetic_points_count ||
                       ability.absorbs_required > absorb_count ||
                       ability.dna_required > dna_count
                     }
                     onClick={() =>
                       act('evolve', {
-                        path: ability.path,
+                        name: ability.name,
                       })
                     }
                   />

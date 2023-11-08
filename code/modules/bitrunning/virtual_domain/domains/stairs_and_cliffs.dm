@@ -3,8 +3,8 @@
 	cost = BITRUNNER_COST_LOW
 	desc = "Коварный подъем, который мало кто выдержит. Зато отличное кардио."
 	help_text = "Слышали когда-нибудь о 'Змеях и лестницах'? Это похоже на то, но \
-	 вместо лестницы - лестница, а вместо змей - крутое падение с обрыва. \
-	 в неровные камни или жидкую плазму."
+	вместо лестницы - лестница, а вместо змей - крутое падение с обрыва. \
+	в неровные камни или жидкую плазму."
 	extra_loot = list(/obj/item/clothing/suit/costume/snowman = 2)
 	difficulty = BITRUNNER_DIFFICULTY_LOW
 	forced_outfit = /datum/outfit/job/virtual_domain_iceclimber

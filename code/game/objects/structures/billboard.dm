@@ -26,12 +26,12 @@
 	icon_state = "billboard_space_cola"
 
 /obj/structure/billboard/nanotrasen
-	name = "рекламный щит NanoTrasen"
+	name = "рекламный щит Nanotrasen"
 	desc = "A billboard advertising Nanotrasen: A Better Tomorrow, Today."
 	icon_state = "billboard_nanotrasen"
 
 /obj/structure/billboard/nanotrasen/defaced
-	name = "рекламный щит обезличивания NanoTrasen"
+	name = "рекламный щит обезличивания Nanotrasen"
 	desc = "A billboard advertising Nanotrasen. Someone's sprayed a message onto it: Fuck Corpo Pigs."
 	icon_state = "billboard_fuck_corps"
 

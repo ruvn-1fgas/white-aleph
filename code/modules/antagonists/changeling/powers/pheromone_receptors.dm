@@ -4,9 +4,9 @@
 
 
 /datum/action/changeling/pheromone_receptors
-	name = "Pheromone Receptors"
-	desc = "We attune our senses to track other changelings by scent.  The closer they are, the easier we can find them."
-	helptext = "We will know the general direction of nearby changelings, with closer scents being stronger.  Our chemical generation is slowed while this is active."
+	name = "Феромонные рецепторы"
+	desc = "Мы настраиваем наши чувства, чтобы отслеживать других генокрадов по запаху. Чем ближе они, тем легче их найти."
+	helptext = "Мы узнаем общее направление ближайших генокрадов, причем более близкие ароматы будут сильнее. Наша регенерация химикатов замедляется, пока оно активно."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "nose"
 	chemical_cost = 0 //Reduces regain rate while active.
@@ -24,11 +24,11 @@
 	..()
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	if(!receptors_active)
-		to_chat(user, span_warning("We search for the scent of any nearby changelings."))
+		to_chat(user, span_warning("Мы ищем запах любых близлежащих генокрадов."))
 		changeling.chem_recharge_slowdown += 0.25
 		user.apply_status_effect(/datum/status_effect/agent_pinpointer/changeling)
 	else
-		to_chat(user, span_notice("We stop searching for now."))
+		to_chat(user, span_notice("Мы прекратим поиск сейчас."))
 		changeling.chem_recharge_slowdown -= 0.25
 		user.remove_status_effect(/datum/status_effect/agent_pinpointer/changeling)
 
@@ -63,8 +63,8 @@
 
 
 /atom/movable/screen/alert/status_effect/agent_pinpointer/changeling
-	name = "Pheromone Scent"
-	desc = "The nose always knows."
+	name = "Феромонный аромат"
+	desc = "Нос всегда знает."
 
 #undef CHANGELING_PHEROMONE_MIN_DISTANCE
 #undef CHANGELING_PHEROMONE_MAX_DISTANCE

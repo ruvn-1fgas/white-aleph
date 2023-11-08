@@ -18,7 +18,7 @@
 	gland_owner.remove_language(/datum/language/slime, source = LANGUAGE_GLAND)
 
 /obj/item/organ/internal/heart/gland/slime/activate()
-	to_chat(owner, span_warning("You feel nauseated!"))
+	to_chat(owner, span_warning("Меня тошнит!"))
 	owner.vomit(VOMIT_CATEGORY_DEFAULT, lost_nutrition = 20)
 
 	var/mob/living/simple_animal/slime/Slime = new(get_turf(owner), "grey")

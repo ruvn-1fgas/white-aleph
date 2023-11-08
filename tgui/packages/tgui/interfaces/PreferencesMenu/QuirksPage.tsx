@@ -26,9 +26,7 @@ const QuirkList = (props: {
   return (
     // Stack is not used here for a variety of IE flex bugs
     <Box className="PreferencesMenu__Quirks__QuirkList">
-      {
-
-      props.quirks.map(([quirkKey, quirk]) => {
+      {props.quirks.map(([quirkKey, quirk]) => {
         const className = 'PreferencesMenu__Quirks__QuirkList__quirk';
 
         const child = (
@@ -109,9 +107,7 @@ const QuirkList = (props: {
         } else {
           return child;
         }
-      })
-
-      }
+      })}
     </Box>
   );
 };
@@ -143,7 +139,11 @@ export const QuirksPage = (props, context) => {
     <ServerPreferencesFetcher
       render={(data) => {
         if (!data) {
-          return <Box>Система особенностей ещё не инициализирована. Надо подождать...</Box>;
+          return (
+            <Box>
+              Система особенностей ещё не инициализирована. Надо подождать...
+            </Box>
+          );
         }
 
         const {

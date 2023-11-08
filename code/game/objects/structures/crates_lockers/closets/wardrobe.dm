@@ -1,6 +1,6 @@
 /obj/structure/closet/wardrobe
 	name = "гардероб"
-	desc = "Хранилище для стандартной одежды NanoTrasen."
+	desc = "Хранилище для стандартной одежды Nanotrasen."
 	icon_door = "blue"
 
 /obj/structure/closet/wardrobe/PopulateContents()
@@ -70,7 +70,7 @@
 
 /obj/structure/closet/wardrobe/orange
 	name = "шкаф с тюремной одеждой"
-	desc = "Хранилище для одежды заключенных, регламентируемая NanoTrasen."
+	desc = "Хранилище для одежды заключенных, регламентируемая Nanotrasen."
 	icon_door = "orange"
 
 /obj/structure/closet/wardrobe/orange/PopulateContents()

@@ -17,7 +17,7 @@ const MATERIAL_RARITY: Record<string, number> = {
   'серебро': 5,
   'золото': 6,
   'уран': 7,
-  'аламаз': 8,
+  'алмаз': 8,
   'блюспейс кристалл': 9,
   'бананиум': 10,
 };
@@ -31,7 +31,7 @@ const MATERIAL_RU_TO_EN: Record<string, string> = {
   'серебро': 'silver',
   'золото': 'gold',
   'уран': 'uranium',
-  'аламаз': 'diamond',
+  'алмаз': 'diamond',
   'блюспейс кристалл': 'bluespace crystal',
   'бананиум': 'bananium',
 };
@@ -118,7 +118,10 @@ const MaterialCounter = (props: MaterialCounterProps, context) => {
           onClick={() => onEjectRequested(1)}
           className="MaterialDock__Label">
           <Flex.Item>
-            <MaterialIcon materialName={MATERIAL_RU_TO_EN[material.name]} sheets={sheets} />
+            <MaterialIcon
+              materialName={MATERIAL_RU_TO_EN[material.name]}
+              sheets={sheets}
+            />
           </Flex.Item>
           <Flex.Item>
             <AnimatedNumber value={sheets} format={LABEL_FORMAT} />

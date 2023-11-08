@@ -174,35 +174,37 @@ export const JobSelection = (props, context) => {
                         .toString(),
                     }}>
                     <Stack vertical>
-                      {Object.entries(entry.jobs).sort((a, b) => {
-                        if (a[1].command && !b[1].command) {
-                          return -1;
-                        }
+                      {Object.entries(entry.jobs)
+                        .sort((a, b) => {
+                          if (a[1].command && !b[1].command) {
+                            return -1;
+                          }
 
-                        if (!a[1].command && b[1].command) {
-                          return 1;
-                        }
+                          if (!a[1].command && b[1].command) {
+                            return 1;
+                          }
 
-                        if(a[1].command && b[1].command) {
-                          return 0;
-                        }
+                          if (a[1].command && b[1].command) {
+                            return 0;
+                          }
 
-                        const jobNameA = JOB2RUSSIAN[a[0]] || a[0];
-                        const jobNameB = JOB2RUSSIAN[b[0]] || b[0];
-                        return jobNameA.localeCompare(jobNameB);
-                    }).map((job) => (
-                        <Stack.Item key={job[0]}>
-                          <JobEntry
-                            key={job[0]}
-                            jobName={job[0]}
-                            job={job[1]}
-                            department={entry}
-                            onClick={() => {
-                              act('select_job', { job: job[0] });
-                            }}
-                          />
-                        </Stack.Item>
-                      ))}
+                          const jobNameA = JOB2RUSSIAN[a[0]] || a[0];
+                          const jobNameB = JOB2RUSSIAN[b[0]] || b[0];
+                          return jobNameA.localeCompare(jobNameB);
+                        })
+                        .map((job) => (
+                          <Stack.Item key={job[0]}>
+                            <JobEntry
+                              key={job[0]}
+                              jobName={job[0]}
+                              job={job[1]}
+                              department={entry}
+                              onClick={() => {
+                                act('select_job', { job: job[0] });
+                              }}
+                            />
+                          </Stack.Item>
+                        ))}
                     </Stack>
                   </StyleableSection>
                 </Box>

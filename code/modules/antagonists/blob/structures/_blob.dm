@@ -1,9 +1,9 @@
 //I will need to recode parts of this but I am way too tired atm //I don't know who left this comment but they never did come back
 /obj/structure/blob
-	name = "blob"
+	name = "масса"
 	icon = 'icons/mob/nonhuman-player/blob.dmi'
 	light_range = 2
-	desc = "A thick wall of writhing tendrils."
+	desc = "Крепкая стена."
 	density = TRUE
 	opacity = FALSE
 	anchored = TRUE
@@ -60,12 +60,12 @@
 		return .
 
 	if(istype(src, /obj/structure/blob/normal))
-		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Create strong blob"
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Создать крепкую массу"
 	if(istype(src, /obj/structure/blob/shield) && !istype(src, /obj/structure/blob/shield/reflective))
-		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Create reflective blob"
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Создать отражающую массу"
 
 	if(point_return >= 0)
-		context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove blob"
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Удалить массу"
 
 	return CONTEXTUAL_SCREENTIP_SET
 
@@ -244,13 +244,13 @@
 /obj/structure/blob/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_ANALYZER)
 		user.changeNext_move(CLICK_CD_MELEE)
-		to_chat(user, "<b>The analyzer beeps once, then reports:</b><br>")
+		to_chat(user, "<b>Анализатор пищит и выдаёт:</b><br>")
 		SEND_SOUND(user, sound('sound/machines/ping.ogg'))
 		if(overmind)
-			to_chat(user, "<b>Progress to Critical Mass:</b> [span_notice("[overmind.blobs_legit.len]/[overmind.blobwincount].")]")
+			to_chat(user, "<b>Прогресс до критической массы:</b> <span class='notice'>[overmind.blobs_legit.len]/[overmind.blobwincount].</span>")
 			to_chat(user, chemeffectreport(user).Join("\n"))
 		else
-			to_chat(user, "<b>Blob core neutralized. Critical mass no longer attainable.</b>")
+			to_chat(user, "<b>Ядро массы нейтрализовано. Набор критической массы более невозможен.</b>")
 		to_chat(user, typereport(user).Join("\n"))
 	else
 		return ..()
@@ -259,18 +259,19 @@
 	RETURN_TYPE(/list)
 	. = list()
 	if(overmind)
-		. += list("<b>Material: <font color=\"[overmind.blobstrain.color]\">[overmind.blobstrain.name]</font>[span_notice(".")]</b>",
-		"<b>Material Effects:</b> [span_notice("[overmind.blobstrain.analyzerdescdamage]")]",
-		"<b>Material Properties:</b> [span_notice("[overmind.blobstrain.analyzerdesceffect || "N/A"]")]")
+		. += list("\n<b>Материал: <font color=\"[overmind.blobstrain.color]\">[overmind.blobstrain.name]</font><span class='notice'>.</span></b>",
+		"\n<b>Эффекты:</b> <span class='notice'>[overmind.blobstrain.analyzerdescdamage]</span>",
+		"\n<b>Свойства:</b> <span class='notice'>[overmind.blobstrain.analyzerdesceffect || "N/A"]</span>")
 	else
-		. += "<b>No Material Detected!</b>"
+		. += "\n<b>Не обнаружен материал!</b>"
 
 /obj/structure/blob/proc/typereport(mob/user)
 	RETURN_TYPE(/list)
-	return list("<b>Blob Type:</b> [span_notice("[uppertext(initial(name))]")]",
-							"<b>Health:</b> [span_notice("[atom_integrity]/[max_integrity]")]",
-							"<b>Effects:</b> [span_notice("[scannerreport()]")]")
-
+	return list(
+		"\n<b>Тип массы:</b> <span class='notice'>[uppertext(initial(name))]</span>",
+		"\n<b>Здоровье:</b> <span class='notice'>[atom_integrity]/[max_integrity]</span>",
+		"\n<b>Эффекты:</b> <span class='notice'>[scannerreport()]</span>"
+	)
 
 /obj/structure/blob/attack_animal(mob/living/simple_animal/user, list/modifiers)
 	if(ROLE_BLOB in user.faction) //sorry, but you can't kill the blob as a blobbernaut
@@ -327,28 +328,28 @@
 	. = ..()
 	var/datum/atom_hud/hud_to_check = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	if(HAS_TRAIT(user, TRAIT_RESEARCH_SCANNER) || hud_to_check.hud_users[user])
-		. += "<b>Your HUD displays an extensive report...</b><br>"
+		. += "<hr><b>HUD показывает расширенный отчёт...</b><br>"
 		if(overmind)
 			. += overmind.blobstrain.examine(user)
 		else
-			. += "<b>Core neutralized. Critical mass no longer attainable.</b>"
+			. += "\n<b>Ядро массы нейтрализовано. Набор критической массы более невозможен.</b>"
 		. += chemeffectreport(user)
 		. += typereport(user)
 	else
 		if((user == overmind || isobserver(user)) && overmind)
 			. += overmind.blobstrain.examine(user)
-		. += "It seems to be made of [get_chem_name()]."
+		. += "<hr>Материал судя по всему [get_chem_name()]."
 
 /obj/structure/blob/proc/scannerreport()
-	return "A generic blob. Looks like someone forgot to override this proc, adminhelp this."
+	return "Обычная масса. Блять."
 
 /obj/structure/blob/proc/get_chem_name()
 	if(overmind)
 		return overmind.blobstrain.name
-	return "some kind of organic tissue"
+	return "какая-то органика"
 
 /obj/structure/blob/normal
-	name = "normal blob"
+	name = "обычная масса"
 	icon_state = "blob"
 	light_range = 0
 	max_integrity = BLOB_REGULAR_MAX_HP
@@ -362,21 +363,21 @@
 
 /obj/structure/blob/normal/scannerreport()
 	if(atom_integrity <= 15)
-		return "Currently weak to brute damage."
+		return "Сильный удар и эта штука развалится."
 	return "N/A"
 
 /obj/structure/blob/normal/update_name()
 	. = ..()
-	name = "[(atom_integrity <= 15) ? "fragile " : (overmind ? null : "dead ")][initial(name)]"
+	name = "[(atom_integrity <= 15) ? "хрупкая " : (overmind ? null : "мёртвая ")][initial(name)]"
 
 /obj/structure/blob/normal/update_desc()
 	. = ..()
 	if(atom_integrity <= 15)
-		desc = "A thin lattice of slightly twitching tendrils."
+		desc = "Крепкая стена, которая сейчас развалится."
 	else if(overmind)
-		desc = "A thick wall of writhing tendrils."
+		desc = "Крепкая стена."
 	else
-		desc = "A thick wall of lifeless tendrils."
+		desc = "Крепкая стена."
 
 /obj/structure/blob/normal/update_icon_state()
 	icon_state = "blob[(atom_integrity <= 15) ? "_damaged" : null]"
