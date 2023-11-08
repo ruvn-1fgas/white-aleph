@@ -1,5 +1,5 @@
 /datum/outfit/cyber_police
-	name = "Cyber Police"
+	name = "Кибер Коп"
 
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/cyber_police

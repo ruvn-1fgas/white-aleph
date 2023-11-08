@@ -1,7 +1,7 @@
 /datum/lazy_template/virtual_domain/bubblegum
 	name = "Логово, пропитанное кровью"
 	cost = BITRUNNER_COST_HIGH
-	desc = "Король демонов-убийц. Бубльгум - массивное, громоздкое чудовище, склонное к насилию."
+	desc = "Король демонов-убийц. Бубльгум - массивное, громоздкое чудовище, чей внешний вид прочно ассоциируется со смертью в муках."
 	difficulty = BITRUNNER_DIFFICULTY_HIGH
 	extra_loot = list(/obj/item/toy/plush/bubbleplush = 1)
 	forced_outfit = /datum/outfit/job/miner

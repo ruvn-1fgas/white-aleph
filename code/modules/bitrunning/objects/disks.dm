@@ -5,8 +5,8 @@
  * Just make it fun and engaging, it's PvE content.
  */
 /obj/item/bitrunning_disk
-	name = "обычная битраннерская программа"
-	desc = "Диск содержащий исходный код."
+	name = "стандартная битраннерская программа"
+	desc = "Диск, содержащий исходный код."
 	icon = 'icons/obj/assemblies/module.dmi'
 	base_icon_state = "datadisk"
 	icon_state = "datadisk0"
@@ -23,17 +23,17 @@
 /obj/item/bitrunning_disk/proc/on_examined(datum/source, mob/examiner, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_infoplain("Диск должен быть у человека перед заходом в сетевой под для получения снаряжения.")
+	examine_text += span_infoplain("Диск должен быть у пользователя перед заходом в сетевой под для получения снаряжения.")
 
 	if(isnull(choice_made))
-		examine_text += span_notice("Для выбора, используй диск в руке.")
+		examine_text += span_notice("Для выбора используйте диск в руке.")
 		return
 
-	examine_text += span_info("Он был использован что-бы получить: <b>[choice_made]</b>.")
+	examine_text += span_info("Он был использован чтобы получить: <b>[choice_made]</b>.")
 	examine_text += span_notice("Он не может сделать другой выбор.")
 
 /obj/item/bitrunning_disk/ability
-	desc = "Диск содержащий исходный код. Он может быть использован что-бы загрузить способности в виртуальный домен."
+	desc = "Диск, содержащий исходный код. Он может быть использован чтобы загрузить способности в виртуальный домен."
 	/// The selected ability that this grants
 	var/datum/action/granted_action
 	/// The list of actions that this can grant
@@ -90,7 +90,7 @@
 	)
 
 /obj/item/bitrunning_disk/item
-	desc = "Диск содержащий исходный код. Он может быть использован что-бы загрузить предметы в виртуальный домен."
+	desc = "Диск, содержащий исходный код. Он может быть использован чтобы загрузить предметы в виртуальный домен."
 	/// The selected item that this grants
 	var/obj/granted_item
 	/// The list of actions that this can grant
@@ -138,7 +138,7 @@
 
 /// Tier 3 items. Very powerful, game breaking.
 /obj/item/bitrunning_disk/item/tier3
-	name = "битраннерское снаряжение: расширенный"
+	name = "битраннерское снаряжение: элитное"
 	selectable_items = list(
 		/obj/item/gun/energy/tesla_cannon,
 		/obj/item/dualsaber/green,

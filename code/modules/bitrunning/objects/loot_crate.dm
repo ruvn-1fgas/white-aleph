@@ -9,13 +9,13 @@
 #define ORE_MULTIPLIER_BLUESPACE_CRYSTAL 0.2
 
 /obj/structure/closet/crate/secure/bitrunning // Base class. Do not spawn this.
-	name = "кеш базового класса"
+	name = "кэш базового класса"
 	desc = "Побазарь с кодером."
 
 /// The virtual domain - side of the bitrunning crate. Deliver to the send location.
 /obj/structure/closet/crate/secure/bitrunning/encrypted
-	name = "зашифрованный кеш"
-	desc = "Нужна расшифровка в убежище что-бы открыть."
+	name = "зашифрованный кэш"
+	desc = "Нужна расшифровка в убежище чтобы открыть."
 	locked = TRUE
 
 /obj/structure/closet/crate/secure/bitrunning/encrypted/can_unlock(mob/living/user, obj/item/card/id/player_id, obj/item/card/id/registered_id)
@@ -23,7 +23,7 @@
 
 /// The bitrunner den - side of the bitrunning crate. Appears in the receive location.
 /obj/structure/closet/crate/secure/bitrunning/decrypted
-	name = "расшифрованный кеш"
+	name = "расшифрованный кэш"
 	desc = "Скомпилирован из виртуального домена. Награда успешного битраннера."
 	locked = FALSE
 

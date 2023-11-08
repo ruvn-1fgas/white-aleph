@@ -5,7 +5,7 @@
 
 	base_icon_state = "netpod"
 	circuit = /obj/item/circuitboard/machine/netpod
-	desc = "Связь в сеть. Он имеет ассортимент кабелей для подключения к виртуальному домену."
+	desc = "Связь с сетью. Под имеет целый ворох кабелей для подключения пользователя к виртуальному домену."
 	icon = 'icons/obj/machines/bitrunning.dmi'
 	icon_state = "netpod"
 	max_integrity = 300
@@ -415,9 +415,9 @@
 /obj/machinery/netpod/proc/on_examine(datum/source, mob/examiner, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_infoplain("Затащите себя в капсулу, чтобы задействовать связь.")
+	examine_text += span_infoplain("Затащите себя в капсулу чтобы задействовать связь.")
 	examine_text += span_infoplain("Он обладает ограниченными возможностями реанимации. Оставшись в капсуле, можно залечить некоторые повреждения.")
-	examine_text += span_infoplain("Он оснащен системой безопасности, которая предупредит пользователя о несанкционированном вмешательстве.")
+	examine_text += span_infoplain("Он оснащен системой безопасности которая предупредит пользователя о несанкционированном вмешательстве.")
 
 	if(isnull(occupant))
 		examine_text += span_notice("Он не занят.")

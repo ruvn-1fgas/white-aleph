@@ -26,7 +26,7 @@
 
 	var/obj/machinery/byteforge/chosen_forge = pick(nearby_forges)
 	if(isnull(chosen_forge))
-		stack_trace("Не удалось найти турф, на котором может появиться ящик с добычей.")
+		stack_trace("Не удалось найти место, куда может дислоцироваться ящик с добычей.")
 		return FALSE
 
 	var/bonus = calculate_rewards()
@@ -61,7 +61,7 @@
 
 	text += "### [generated_domain.name][domain_randomized ? " (Randomized)" : ""]\n"
 	text += "- **Сложность:** [generated_domain.difficulty]\n"
-	text += "- **Опастности:** [domain_threats]\n"
+	text += "- **Опасности:** [domain_threats]\n"
 	text += "- **Базовые очки:** [base_points][domain_randomized ? " +1" : ""]\n\n"
 	text += "- **Всего бонусов:** [bonuses]x\n\n"
 
@@ -78,7 +78,7 @@
 		text += "- **Совместная игра:** + [(length(avatar_connection_refs) - 1) * multiplayer_bonus]\n"
 
 	if(domain_threats > 0)
-		text += "- **Опастности:** + [domain_threats * 2]\n"
+		text += "- **Опасности:** + [domain_threats * 2]\n"
 
 	var/servo_rating = servo_bonus
 

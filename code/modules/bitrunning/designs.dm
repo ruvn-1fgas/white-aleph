@@ -18,7 +18,7 @@
 // Netpod
 
 /obj/item/circuitboard/machine/netpod
-	name = "Netpod"
+	name = "Сетевой под"
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/netpod
 	req_components = list(
@@ -27,8 +27,8 @@
 	)
 
 /datum/design/board/netpod
-	name = "Netpod Board"
-	desc = "The circuit board for a netpod."
+	name = "Плата сетевого пода"
+	desc = "Печатная плата для сетевого пода."
 	id = "netpod"
 	build_path = /obj/item/circuitboard/machine/netpod
 	category = list(
@@ -39,13 +39,13 @@
 // Quantum console
 
 /obj/item/circuitboard/computer/quantum_console
-	name = "Quantum Console"
+	name = "Квантовая консоль"
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/quantum_console
 
 /datum/design/board/quantum_console
-	name = "Quantum Console Board"
-	desc = "Allows for the construction of circuit boards used to build a Quantum Console."
+	name = "Печатная плата квантовой консоли"
+	desc = "Позволяет создавать печатные платы, используемые для сборки квантовой консоли."
 	id = "quantum_console"
 	build_path = /obj/item/circuitboard/computer/quantum_console
 	category = list(
@@ -56,7 +56,7 @@
 // Byteforge
 
 /obj/item/circuitboard/machine/byteforge
-	name = "Byteforge"
+	name = "Бинарная кузня"
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/byteforge
 	req_components = list(
@@ -64,8 +64,8 @@
 	)
 
 /datum/design/board/byteforge
-	name = "Byteforge Board"
-	desc = "Allows for the construction of circuit boards used to build a Byteforge."
+	name = "Печатная плата бинарной кузни"
+	desc = "Позволяет создавать печатные платы, используемые для сборки бинарной кузни"
 	id = "byteforge"
 	build_path = /obj/item/circuitboard/machine/byteforge
 	category = list(
@@ -76,8 +76,9 @@
 
 /datum/techweb_node/bitrunning
 	id = "bitrunning"
-	display_name = "Bitrunning Technology"
-	description = "Bluespace technology has led to the development of quantum-scale computing, which unlocks the means to materialize atomic structures while executing advanced programs."
+	display_name = "Технология Виртуальных Доменов"
+	description = "Блюспейс технология позволила расширить возможности квантовых вычислений, которые, в свою очередь, \
+	открывают возможности для материализации атомных структур при выполнении передовых программ.."
 	prereq_ids = list("practical_bluespace")
 	design_ids = list(
 		"byteforge",

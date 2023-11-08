@@ -122,4 +122,4 @@
 			avatar.put_in_hands(new item_disk.granted_item())
 
 	if(failed)
-		to_chat(neo, span_warning("Один из ваших дисков не смог загрузиться. Ты должен активировать его."))
+		to_chat(neo, span_warning("Один из твоих дисков не смог загрузиться. Ты должен активировать его."))
