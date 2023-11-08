@@ -221,7 +221,7 @@
 	name = "знамя командования"
 	desc = "Знамя командования, верного и древнего рода бюрократических королей и королев"
 	//No icon state here since the default one is the NT banner
-	warcry = "Слава NanoTrasen!"
+	warcry = "Слава Nanotrasen!"
 
 /obj/item/banner/command/Initialize(mapload)
 	. = ..()

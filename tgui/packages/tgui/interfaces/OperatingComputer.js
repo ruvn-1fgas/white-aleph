@@ -48,9 +48,6 @@ export const OperatingComputer = (props, context) => {
 const PatientStateView = (props, context) => {
   const { act, data } = useBackend(context);
   const { table, procedures = [], patient = {} } = data;
-  if(!patient) {
-    return <NoticeBox>Не обнаружен пациент</NoticeBox>;
-  }
   if (!table) {
     return <NoticeBox>Не обнаружен хиругический стол</NoticeBox>;
   }

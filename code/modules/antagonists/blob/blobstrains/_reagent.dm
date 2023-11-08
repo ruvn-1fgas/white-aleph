@@ -24,7 +24,7 @@
 	name = "Unknown"
 	description = "shouldn't exist and you should adminhelp immediately."
 	color = "#FFFFFF"
-	taste_description = "bad code and slime"
+	taste_description = "плохой код и желе"
 	chemical_flags = NONE
 	penetrates_skin = NONE
 

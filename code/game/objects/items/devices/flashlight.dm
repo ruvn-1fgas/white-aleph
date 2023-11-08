@@ -388,7 +388,7 @@
 // FLARES
 /obj/item/flashlight/flare
 	name = "сигнальная шашка"
-	desc = "Собственность NanoTrasen. Сбоку есть инструкция: \"потяни за шнур, зажги\"."
+	desc = "Собственность Nanotrasen. Сбоку есть инструкция: \"потяни за шнур, зажги\"."
 	light_range = 7 // Pretty bright.
 	icon_state = "flare"
 	inhand_icon_state = "flare"

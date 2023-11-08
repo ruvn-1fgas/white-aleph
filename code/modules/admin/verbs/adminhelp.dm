@@ -556,31 +556,31 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 /datum/admin_help/proc/TicketPanel()
 	var/list/dat = list("<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Ticket #[id]</title></head>")
 	var/ref_src = "[REF(src)]"
-	dat += "<h4>Admin Help Ticket #[id]: [LinkedReplyName(ref_src)]</h4>"
-	dat += "<b>State: [ticket_status()]</b>"
-	dat += "[FOURSPACES][TicketHref("Refresh", ref_src)][FOURSPACES][TicketHref("Re-Title", ref_src, "retitle")]"
+	dat += "<h4>Тикет #[id]: [LinkedReplyName(ref_src)]</h4>"
+	dat += "<b>Состояние: [ticket_status()]</b>"
+	dat += "[FOURSPACES][TicketHref("Обновить", ref_src)][FOURSPACES][TicketHref("Изменить", ref_src, "retitle")]"
 	if(state != AHELP_ACTIVE)
-		dat += "[FOURSPACES][TicketHref("Reopen", ref_src, "reopen")]"
-	dat += "<br><br>Opened at: [gameTimestamp(wtime = opened_at)] (Approx [DisplayTimeText(world.time - opened_at)] ago)"
+		dat += "[FOURSPACES][TicketHref("Переоткрыть", ref_src, "reopen")]"
+	dat += "<br><br>Открыт в: [gameTimestamp(wtime = opened_at)] (Приблизительно [DisplayTimeText(world.time - opened_at)] назад)"
 	if(closed_at)
-		dat += "<br>Closed at: [gameTimestamp(wtime = closed_at)] (Approx [DisplayTimeText(world.time - closed_at)] ago)"
+		dat += "<br>Закрыт в: [gameTimestamp(wtime = closed_at)] (Приблизительно [DisplayTimeText(world.time - closed_at)] назад)"
 	dat += "<br><br>"
 	if(initiator)
-		dat += "<b>Actions:</b> [FullMonty(ref_src)]<br>"
+		dat += "<b>Действия:</b> [FullMonty(ref_src)]<br>"
 	else
-		dat += "<b>DISCONNECTED</b>[FOURSPACES][ClosureLinks(ref_src)]<br>"
-	dat += "<br><b>Log:</b><br><br>"
+		dat += "<b>ОТКЛЮЧИЛСЯ</b>[FOURSPACES][ClosureLinks(ref_src)]<br>"
+	dat += "<br><b>Журнал:</b><br><br>"
 	for(var/I in ticket_interactions)
 		dat += "[I]<br>"
 
 	// Helper for opening directly to player ticket history
-	dat += "<br><br><b>Player Ticket History:</b>"
+	dat += "<br><br><b>История тикетов игрока:</b>"
 	dat += "[FOURSPACES]<A href='?_src_=holder;[HrefToken()];player_ticket_history=[initiator_ckey]'>Open</A>"
 
 	// Append any tickets also opened by this user if relevant
 	var/list/related_tickets = GLOB.ahelp_tickets.TicketsByCKey(initiator_ckey)
 	if (related_tickets.len > 1)
-		dat += "<br/><b>Other Tickets by User</b><br/>"
+		dat += "<br/><b>Другие тикеты игрока</b><br/>"
 		for (var/datum/admin_help/related_ticket in related_tickets)
 			if (related_ticket.id == id)
 				continue
@@ -594,14 +594,14 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 /datum/admin_help/proc/ticket_status()
 	switch(state)
 		if(AHELP_ACTIVE)
-			return "<font color='red'>OPEN</font>"
+			return "<font color='red'>ОТКРЫТ</font>"
 		if(AHELP_RESOLVED)
-			return "<font color='green'>RESOLVED</font>"
+			return "<font color='green'>РАЗРЕШЁН</font>"
 		if(AHELP_CLOSED)
-			return "CLOSED"
+			return "ЗАКРЫТ"
 		else
 			stack_trace("Invalid ticket state: [state]")
-			return "INVALID, CALL A CODER"
+			return "СЛОМАЛСЯ"
 
 /datum/admin_help/proc/Retitle()
 	var/new_title = input(usr, "Enter a title for the ticket", "Rename Ticket", name) as text|null
@@ -755,7 +755,7 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 
 /datum/admin_help_ui_handler/proc/perform_adminhelp(client/user_client, message, urgent)
 	if(GLOB.say_disabled) //This is here to try to identify lag problems
-		to_chat(usr, span_danger("Speech is currently admin-disabled."), confidential = TRUE)
+		to_chat(usr, span_danger("Пока нельзя..."), confidential = TRUE)
 		return
 
 	if(!message)
@@ -763,7 +763,7 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 
 	//handle muting and automuting
 	if(user_client.prefs.muted & MUTE_ADMINHELP)
-		to_chat(user_client, span_danger("Error: Admin-PM: You cannot send adminhelps (Muted)."), confidential = TRUE)
+		to_chat(user_client, span_danger("Ошибка незакрытого рта. Заткнитесь. Заткнитесь."), confidential = TRUE)
 		return
 	if(user_client.handle_spam_prevention(message, MUTE_ADMINHELP))
 		return
@@ -799,9 +799,9 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 
 /client/verb/adminhelp()
 	set category = "Admin"
-	set name = "Adminhelp"
+	set name = "Помощь администратора"
 	GLOB.admin_help_ui_handler.ui_interact(mob)
-	to_chat(src, span_boldnotice("Adminhelp failing to open or work? <a href='?src=[REF(src)];tguiless_adminhelp=1'>Click here</a>"))
+	to_chat(src, span_boldnotice("Окно помощи не открылось? <a href='?src=[REF(src)];tguiless_adminhelp=1'>Нажми сюда</a>"))
 
 /client/verb/view_latest_ticket()
 	set category = "Admin"
@@ -957,7 +957,7 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 /proc/keywords_lookup(msg,external)
 
 	//This is a list of words which are ignored by the parser when comparing message contents for names. MUST BE IN LOWER CASE!
-	var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","alien","as", "i")
+	var/list/adminhelp_ignored_words = list("неизвестный","мартышка","alien","я")
 
 	//explode the input msg into a list
 	var/list/msglist = splittext(msg, " ")
@@ -997,7 +997,7 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 		var/word = ckey(original_word)
 		if(word)
 			if(!(word in adminhelp_ignored_words))
-				if(word == "ai")
+				if(word == "ии")
 					ai_found = 1
 				else
 					var/mob/found = ckeys[word]
@@ -1027,7 +1027,7 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 
 /proc/get_mob_by_name(msg)
 	//This is a list of words which are ignored by the parser when comparing message contents for names. MUST BE IN LOWER CASE!
-	var/list/ignored_words = list("unknown","the","a","an","of","monkey","alien","as", "i")
+	var/list/ignored_words = list("неизвестный","the","a","an","of","мартышка","alien","as", "i")
 
 	//explode the input msg into a list
 	var/list/msglist = splittext(msg, " ")
@@ -1112,11 +1112,11 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 				var/state_word
 				switch(ahelp_check.state)
 					if(AHELP_ACTIVE)
-						state_word = "Active"
+						state_word = "Активный"
 					if(AHELP_CLOSED)
-						state_word = "Closed"
+						state_word = "Закрыт"
 					if(AHELP_RESOLVED)
-						state_word = "Resolved"
+						state_word = "Решён"
 
 				msglist[i]= "<u><A href='?_src_=holder;[HrefToken(forceGlobal = TRUE)];ahelp=[REF(ahelp_check)];ahelp_action=ticket'>[word] ([state_word] | [ahelp_check.initiator_key_name])</A></u>"
 				modified = TRUE

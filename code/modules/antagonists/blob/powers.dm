@@ -3,8 +3,7 @@
 /** Simple price check */
 /mob/camera/blob/proc/can_buy(cost = 15)
 	if(blob_points < cost)
-		to_chat(src, span_warning("You cannot afford this, you need at least [cost] resources!"))
-		balloon_alert(src, "need [cost-blob_points] more resource\s!")
+		to_chat(src, span_warning("Не хватает ресурсов, требуется [cost]!"))
 		return FALSE
 	add_points(-cost)
 	return TRUE
@@ -19,15 +18,15 @@
 			return FALSE
 		var/turf/placement = get_turf(src)
 		if(placement.density)
-			to_chat(src, span_warning("This spot is too dense to place a blob core on!"))
+			to_chat(src, span_warning("Слишком плотное место для установки!"))
 			return FALSE
 		if(!is_valid_turf(placement))
-			to_chat(src, span_warning("You cannot place your core here!"))
+			to_chat(src, span_warning("Не выходит установить ядро здесь!"))
 			return FALSE
 		if(!check_objects_tile(placement))
 			return FALSE
 		if(!pop_override && world.time <= manualplace_min_time && world.time <= autoplace_max_time)
-			to_chat(src, span_warning("It is too early to place your blob core!"))
+			to_chat(src, span_warning("Слишком рано для установки ядра!"))
 			return FALSE
 	else
 		if(placement_override == BLOB_RANDOM_PLACEMENT)
@@ -55,14 +54,14 @@
 		if(ROLE_BLOB in player.faction)
 			continue
 		if(player.client)
-			to_chat(src, span_warning("There is someone too close to place your blob core!"))
+			to_chat(src, span_warning("Кто-то рядом с моим ядром!"))
 			return FALSE
 
 	for(var/mob/living/player in view(13, src))
 		if(ROLE_BLOB in player.faction)
 			continue
 		if(player.client)
-			to_chat(src, span_warning("Someone could see your blob core from here!"))
+			to_chat(src, span_warning("Кто-то сможет увидеть ядро здесь!"))
 			return FALSE
 
 	return TRUE
@@ -75,11 +74,11 @@
 			if(istype(object, /obj/structure/blob/normal))
 				qdel(object)
 			else
-				to_chat(src, span_warning("There is already a blob here!"))
+				to_chat(src, span_warning("Здесь уже есть масса!"))
 				return FALSE
 		else
 			if(object.density)
-				to_chat(src, span_warning("This spot is too dense to place a blob core on!"))
+				to_chat(src, span_warning("Слишком плотное место для установки!"))
 				return FALSE
 
 	return TRUE
@@ -97,9 +96,9 @@
 	var/list/nodes = list()
 	for(var/index in 1 to length(GLOB.blob_nodes))
 		var/obj/structure/blob/special/node/blob = GLOB.blob_nodes[index]
-		nodes["Blob Node #[index] ([get_area_name(blob)])"] = blob
+		nodes["Родительская Масса #[index] ([get_area_name(blob)])"] = blob
 
-	var/node_name = tgui_input_list(src, "Choose a node to jump to", "Node Jump", nodes)
+	var/node_name = tgui_input_list(src, "Куда прыгнем?", "Прыг-скок", nodes)
 	if(isnull(node_name) || isnull(nodes[node_name]))
 		return FALSE
 
@@ -113,28 +112,28 @@
 		tile = get_turf(src)
 	var/obj/structure/blob/blob = (locate(/obj/structure/blob) in tile)
 	if(!blob)
-		to_chat(src, span_warning("There is no blob here!"))
-		balloon_alert(src, "no blob here!")
+		to_chat(src, span_warning("Здесь нет массы!"))
+		balloon_alert(src, "здесь нет массы!")
 		return FALSE
 	if(!istype(blob, /obj/structure/blob/normal))
-		to_chat(src, span_warning("Unable to use this blob, find a normal one."))
-		balloon_alert(src, "need normal blob!")
+		to_chat(src, span_warning("Невозможно установить здесь. Нужна обычная масса!"))
+		balloon_alert(src, "нужна обычная масса!")
 		return FALSE
 	if(needs_node)
 		var/area/area = get_area(src)
 		if(!(area.area_flags & BLOBS_ALLOWED)) //factory and resource blobs must be legit
-			to_chat(src, span_warning("This type of blob must be placed on the station!"))
-			balloon_alert(src, "can't place off-station!")
+			to_chat(src, span_warning("Этот тип массы может быть установлен только на станции!"))
+			balloon_alert(src, "не могу установить вне станции!")
 			return FALSE
 		if(nodes_required && !(locate(/obj/structure/blob/special/node) in orange(BLOB_NODE_PULSE_RANGE, tile)) && !(locate(/obj/structure/blob/special/core) in orange(BLOB_CORE_PULSE_RANGE, tile)))
-			to_chat(src, span_warning("You need to place this blob closer to a node or core!"))
-			balloon_alert(src, "too far from node or core!")
+			to_chat(src, span_warning("Эту массу необходимо установить рядом с моим ядром или родительской массой!"))
+			balloon_alert(src, "слишком далеко от ядра или родительской массы!")
 			return FALSE //handholdotron 2000
 	if(min_separation)
 		for(var/obj/structure/blob/other_blob in orange(min_separation, tile))
 			if(other_blob.type == blobstrain)
-				to_chat(src, span_warning("There is a similar blob nearby, move more than [min_separation] tiles away from it!"))
-				other_blob.balloon_alert(src, "too close!")
+				to_chat(src, span_warning("Похожая структура рядом, необходимо установить её на расстоянии  [min_separation] клеток от похожей!"))
+				other_blob.balloon_alert(src, "слишком близко!")
 				return FALSE
 	if(!can_buy(price))
 		return FALSE
@@ -145,16 +144,15 @@
 /mob/camera/blob/proc/toggle_node_req()
 	nodes_required = !nodes_required
 	if(nodes_required)
-		to_chat(src, span_warning("You now require a nearby node or core to place factory and resource blobs."))
+		to_chat(src, span_warning("Теперь родительская масса и ядро будут устанавливать прозводящие и ресурсные структуры."))
 	else
-		to_chat(src, span_warning("You no longer require a nearby node or core to place factory and resource blobs."))
+		to_chat(src, span_warning("Теперь родительская масса и ядро не будут устанавливать прозводящие и ресурсные структуры."))
 
 /** Creates a shield to reflect projectiles */
 /mob/camera/blob/proc/create_shield(turf/tile)
 	var/obj/structure/blob/shield/shield = locate(/obj/structure/blob/shield) in tile
 	if(!shield)
 		shield = create_special(BLOB_UPGRADE_STRONG_COST, /obj/structure/blob/shield, 0, FALSE, tile)
-		shield?.balloon_alert(src, "upgraded to [shield.name]!")
 		return FALSE
 
 	if(!can_buy(BLOB_UPGRADE_REFLECTOR_COST))
@@ -162,31 +160,30 @@
 
 	if(shield.get_integrity() < shield.max_integrity * 0.5)
 		add_points(BLOB_UPGRADE_REFLECTOR_COST)
-		to_chat(src, span_warning("This shield blob is too damaged to be modified properly!"))
+		to_chat(src, span_warning("Крепкая масса слишком повреждена для модификации!"))
 		return FALSE
 
-	to_chat(src, span_warning("You secrete a reflective ooze over the shield blob, allowing it to reflect projectiles at the cost of reduced integrity."))
+	to_chat(src, span_warning("Добавляю возможность отражать снаряды, однако структура немного ослаблена."))
 	shield = shield.change_to(/obj/structure/blob/shield/reflective, src)
-	shield.balloon_alert(src, "upgraded to [shield.name]!")
 
 /** Preliminary check before polling ghosts. */
 /mob/camera/blob/proc/create_blobbernaut()
 	var/turf/current_turf = get_turf(src)
 	var/obj/structure/blob/special/factory/factory = locate(/obj/structure/blob/special/factory) in current_turf
 	if(!factory)
-		to_chat(src, span_warning("You must be on a factory blob!"))
+		to_chat(src, span_warning("Нужно находиться прямо на производящей структуре!"))
 		return FALSE
 	if(factory.blobbernaut || factory.is_creating_blobbernaut) //if it already made or making a blobbernaut, it can't do it again
-		to_chat(src, span_warning("This factory blob is already sustaining a blobbernaut."))
+		to_chat(src, span_warning("Эта производящая структура уже поддерживает массанаута."))
 		return FALSE
 	if(factory.get_integrity() < factory.max_integrity * 0.5)
-		to_chat(src, span_warning("This factory blob is too damaged to sustain a blobbernaut."))
+		to_chat(src, span_warning("Эта производящая структура слишком повреждена для массанаута."))
 		return FALSE
 	if(!can_buy(BLOBMOB_BLOBBERNAUT_RESOURCE_COST))
 		return FALSE
 
 	factory.is_creating_blobbernaut = TRUE
-	to_chat(src, span_notice("You attempt to produce a blobbernaut."))
+	to_chat(src, span_notice("Пытаюсь произвести массанаута."))
 	pick_blobbernaut_candidate(factory)
 
 /// Polls ghosts to get a blobbernaut candidate.
@@ -199,7 +196,7 @@
 		ignore_key = POLL_IGNORE_BLOB, \
 		job_bans = ROLE_BLOB, \
 		to_call = to_call, \
-		title = "Blobbernaut", \
+		title = "Массаунт", \
 	)
 
 /// Called when the ghost poll concludes
@@ -229,16 +226,16 @@
 	var/obj/structure/blob/special/node/blob = locate(/obj/structure/blob/special/node) in tile
 
 	if(!blob)
-		to_chat(src, span_warning("You must be on a blob node!"))
+		to_chat(src, span_warning("Надо быть на массе!"))
 		return FALSE
 
 	if(!blob_core)
-		to_chat(src, span_userdanger("You have no core and are about to die! May you rest in peace."))
+		to_chat(src, span_userdanger("У меня нет ядра и я скоро умру! Пиздец."))
 		return FALSE
 
 	var/area/area = get_area(tile)
 	if(isspaceturf(tile) || area && !(area.area_flags & BLOBS_ALLOWED))
-		to_chat(src, span_warning("You cannot relocate your core here!"))
+		to_chat(src, span_warning("Не могу переместить сюда свое ядро!"))
 		return FALSE
 
 	if(!can_buy(BLOB_POWER_RELOCATE_COST))
@@ -256,21 +253,20 @@
 	var/obj/structure/blob/blob = locate() in tile
 
 	if(!blob)
-		to_chat(src, span_warning("There is no blob there!"))
+		to_chat(src, span_warning("Здесь нет массы!"))
 		return FALSE
 
 	if(blob.point_return < 0)
-		to_chat(src, span_warning("Unable to remove this blob."))
+		to_chat(src, span_warning("Невозможно удалить эту массу."))
 		return FALSE
 
 	if(max_blob_points < blob.point_return + blob_points)
-		to_chat(src, span_warning("You have too many resources to remove this blob!"))
+		to_chat(src, span_warning("Ресурсов слишком много!"))
 		return FALSE
 
 	if(blob.point_return)
 		add_points(blob.point_return)
-		to_chat(src, span_notice("Gained [blob.point_return] resources from removing  [blob]."))
-		blob.balloon_alert(src, "+[blob.point_return] resource\s")
+		to_chat(src, span_notice("Получили [blob.point_return] ресурсов благодаря удалению [blob]."))
 
 	qdel(blob)
 
@@ -286,7 +282,7 @@
 		possible_blobs += blob
 
 	if(!length(possible_blobs))
-		to_chat(src, span_warning("There is no blob adjacent to the target tile!"))
+		to_chat(src, span_warning("Здесь нет массы рядом!"))
 		return FALSE
 
 	if(!can_buy(BLOB_EXPAND_COST))
@@ -309,7 +305,7 @@
 			blob.blob_attack_animation(tile, src)
 			add_points(BLOB_ATTACK_REFUND)
 		else
-			to_chat(src, span_warning("There is a blob there!"))
+			to_chat(src, span_warning("Здесь уже есть масса!"))
 			add_points(BLOB_EXPAND_COST) //otherwise, refund all of the cost
 	else
 		directional_attack(tile, possible_blobs, attack_success)
@@ -348,7 +344,7 @@
 
 /** Rally spores to a location */
 /mob/camera/blob/proc/rally_spores(turf/tile)
-	to_chat(src, "You rally your spores.")
+	to_chat(src, "Направляю споры.")
 	var/list/surrounding_turfs = TURF_NEIGHBORS(tile)
 	if(!length(surrounding_turfs))
 		return FALSE
@@ -361,7 +357,7 @@
 /** Opens the reroll menu to change strains */
 /mob/camera/blob/proc/strain_reroll()
 	if (!free_strain_rerolls && blob_points < BLOB_POWER_REROLL_COST)
-		to_chat(src, span_warning("You need at least [BLOB_POWER_REROLL_COST] resources to reroll your strain again!"))
+		to_chat(src, span_warning("Требуется [BLOB_POWER_REROLL_COST] ресурсов для перестроения структуры!"))
 		return FALSE
 
 	open_reroll_menu()

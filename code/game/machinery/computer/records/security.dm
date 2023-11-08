@@ -22,14 +22,14 @@
 
 /obj/machinery/computer/records/security/laptop
 	name = "ноутбук СБ"
-	desc = "Дешёвый ноутбук службы безопасности NanoTrasen, который используется как консоль записей. Прикручен к столу."
+	desc = "Дешёвый ноутбук службы безопасности Nanotrasen, который используется как консоль записей. Прикручен к столу."
 	icon_state = "laptop"
 	icon_screen = "seclaptop"
 	icon_keyboard = "laptop_key"
 	pass_flags = PASSTABLE
 
 /obj/machinery/computer/records/security/laptop/syndie
-	desc = "Дешёвый, взломанный ноутбук службы безопасности NanoTrasen, который используется как консоль записей. Прикручен к столу."
+	desc = "Дешёвый, взломанный ноутбук службы безопасности Nanotrasen, который используется как консоль записей. Прикручен к столу."
 	req_one_access = list(ACCESS_SYNDICATE)
 
 /obj/machinery/computer/records/security/Initialize(mapload, obj/item/circuitboard/C)

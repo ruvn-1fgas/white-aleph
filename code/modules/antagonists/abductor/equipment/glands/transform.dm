@@ -9,7 +9,7 @@
 	mind_control_duration = 300
 
 /obj/item/organ/internal/heart/gland/transform/activate()
-	to_chat(owner, span_notice("You feel unlike yourself."))
+	to_chat(owner, span_notice("Я не я."))
 	randomize_human(owner)
 	var/species = pick(list(/datum/species/human, /datum/species/lizard, /datum/species/moth, /datum/species/fly))
 	owner.set_species(species)

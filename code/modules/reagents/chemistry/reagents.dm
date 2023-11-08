@@ -2,12 +2,14 @@
 /datum/reagent
 	/// datums don't have names by default
 	var/name = ""
+	///для возможности поиска реагентов по их оригинальному, ПИНДОССКОМУ названию. Не трогать своими грязным гуглотранслейтом, блять. Только для поиска реагентов, не для показа игрокам, иначе они испугаются непонятных буковок и умрут.
+	var/enname = ""
 	/// nor do they have descriptions
 	var/description = ""
 	///J/(K*mol)
 	var/specific_heat = SPECIFIC_HEAT_DEFAULT
 	/// used by taste messages
-	var/taste_description = "metaphorical salt"
+	var/taste_description = "метафорическая соль"
 	///how this taste compares to others. Higher values means it is more noticable
 	var/taste_mult = 1
 	/// reagent holder this belongs to

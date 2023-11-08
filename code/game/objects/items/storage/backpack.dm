@@ -152,7 +152,7 @@
 
 /obj/item/storage/backpack/captain
 	name = "капитанский рюкзак"
-	desc = "Специальный рюкзак, сделанный исключительно для офицеров NanoTrasen."
+	desc = "Специальный рюкзак, сделанный исключительно для офицеров Nanotrasen."
 	icon_state = "backpack-captain"
 	inhand_icon_state = "captainpack"
 
@@ -370,7 +370,7 @@
 
 /obj/item/storage/backpack/satchel/cap
 	name = "сумка капитана"
-	desc = "Эксклюзивная сумка для офицеров NanoTrasen."
+	desc = "Эксклюзивная сумка для офицеров Nanotrasen."
 	icon_state = "satchel-captain"
 	inhand_icon_state = "satchel-cap"
 
@@ -634,7 +634,7 @@
 	unzip_sfx = 'sound/items/zip_up.ogg'
 
 /obj/item/storage/backpack/duffelbag/syndie/hitman
-	desc = "Большая сумка для хранения лишних вещей. Сзади виднеется логотип NanoTrasen."
+	desc = "Большая сумка для хранения лишних вещей. Сзади виднеется логотип Nanotrasen."
 	icon_state = "duffel-syndieammo"
 	inhand_icon_state = "duffel-syndieammo"
 
@@ -865,7 +865,7 @@
 
 /obj/item/storage/backpack/messenger/cap
 	name = "капитанская сумка-мессенджер"
-	desc = "Эксклюзивная сумка-мессенджер для старших офицеров NanoTrasen."
+	desc = "Эксклюзивная сумка-мессенджер для старших офицеров Nanotrasen."
 	icon_state = "messenger_captain"
 	inhand_icon_state = "messenger_captain"
 

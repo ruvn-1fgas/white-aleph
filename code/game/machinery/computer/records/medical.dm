@@ -13,7 +13,7 @@
 
 /obj/machinery/computer/records/medical/laptop
 	name = "медицинский ноутбук"
-	desc = "Дешёвый медицинский ноутбук NanoTrasen, он работает как консоль медицинских записей. Прикручен к столу."
+	desc = "Дешёвый медицинский ноутбук Nanotrasen, он работает как консоль медицинских записей. Прикручен к столу."
 	icon_state = "laptop"
 	icon_screen = "medlaptop"
 	icon_keyboard = "laptop_key"

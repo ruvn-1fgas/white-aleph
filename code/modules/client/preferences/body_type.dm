@@ -1,4 +1,4 @@
-#define USE_GENDER "Gender"
+#define USE_GENDER "Use gender"
 
 /datum/preference/choiced/body_type
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -6,7 +6,7 @@
 	savefile_key = "body_type"
 	savefile_identifier = PREFERENCE_CHARACTER
 
-	var/list/friendly_genders = list("Мужской", "Женский")
+	var/list/friendly_genders = list(USE_GENDER, "Мужской", "Женский")
 
 /datum/preference/choiced/body_type/init_possible_values()
 	return friendly_genders

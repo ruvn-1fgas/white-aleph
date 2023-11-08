@@ -1,20 +1,21 @@
 //does brute, burn, and toxin damage, and cools targets down
 /datum/blobstrain/reagent/cryogenic_poison
-	name = "Cryogenic Poison"
-	description = "will inject targets with a freezing poison, applying little impact damage but dealing high damage over time."
-	analyzerdescdamage = "Injects targets with a freezing poison that will gradually solidify the target's internal organs."
+	name = "Криогенный яд"
+	description = "будет вводить в цель леденящий яд, который наносит большой урон с течением времени."
+	analyzerdescdamage = "Вводит в цель ледяной яд, который постепенно укрепляет внутренние органы цели."
 	color = "#8BA6E9"
 	complementary_color = "#7D6EB4"
-	blobbernaut_message = "injects"
-	message = "The blob stabs you"
-	message_living = ", and you feel like your insides are solidifying"
+	blobbernaut_message = "вводит"
+	message = "Масса протыкает меня"
+	message_living = " и всё внутри меня твердеет"
 	reagent = /datum/reagent/blob/cryogenic_poison
 
 /datum/reagent/blob/cryogenic_poison
-	name = "Cryogenic Poison"
-	description = "will inject targets with a freezing poison that does high damage over time."
+	name = "Криогенный яд"
+	enname = "Cryogenic Poison"
+	description = "будет вводить в цель леденящий яд, который наносит большой урон с течением времени."
 	color = "#8BA6E9"
-	taste_description = "brain freeze"
+	taste_description = "заморозка мозгов"
 
 /datum/reagent/blob/cryogenic_poison/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/overmind)
 	. = ..()

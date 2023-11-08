@@ -421,7 +421,7 @@
 /obj/item/food/pizza/ants
 	name = "пицца для муравьиной вечеринки"
 	desc = "// Блять, NoCringe, не забудь пофиксить"
-	icon_state = "antpizza"
+	icon_state = "meatpizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/ants = 25, /datum/reagent/consumable/tomatojuice = 10, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/nutriment/protein = 2)
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1, "жуки" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | GROSS

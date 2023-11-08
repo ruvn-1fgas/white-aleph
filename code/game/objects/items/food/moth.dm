@@ -363,6 +363,7 @@
 /obj/item/food/soup/vegetarian_chili
 	name = "веганский чили кон карне"
 	desc = "Для тех, кто не хочет карне."
+	icon = 'icons/obj/food/soupsalad.dmi'
 	icon_state = "hotchili"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/capsaicin = 3, /datum/reagent/consumable/tomatojuice = 4, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("bitterness" = 1, "sourness" = 1)

@@ -25,7 +25,7 @@
 	deadchat_broadcast(rendered, "<b>[brainwash_victim]</b>", follow_target = brainwash_victim, turf_target = get_turf(brainwash_victim), message_type=DEADCHAT_ANNOUNCEMENT)
 	if(check_holidays(APRIL_FOOLS))
 		// Note: most of the time you're getting brainwashed you're unconscious
-		brainwash_victim.say("You son of a bitch! I'm in.", forced = "That son of a bitch! They're in. (April Fools)")
+		brainwash_victim.say("Ах ты сукин сын, я в деле!", forced = "Ах он сукин сын, он в деле!")
 
 /datum/antagonist/brainwashed
 	name = "\improper Brainwashed Victim"
@@ -46,8 +46,8 @@
 	return data
 
 /datum/antagonist/brainwashed/farewell()
-	to_chat(owner, span_warning("Your mind suddenly clears..."))
-	to_chat(owner, "<big>[span_warning("<b>You feel the weight of the Directives disappear! You no longer have to obey them.</b>")]</big>")
+	to_chat(owner, span_warning("Разум внезапно проясняется..."))
+	to_chat(owner, "<big><span class='warning'><b>Тяжесть Директив исчезает! Больше не обязан им подчиняться.</b></span></big>")
 	if(owner.current)
 		var/mob/living/owner_mob = owner.current
 		owner_mob.log_message("is no longer brainwashed with the objectives: [english_list(objectives)].", LOG_ATTACK)

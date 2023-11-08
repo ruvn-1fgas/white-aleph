@@ -1,18 +1,19 @@
 //does toxin damage, hallucination, targets think they're not hurt at all
 /datum/blobstrain/reagent/regenerative_materia
-	name = "Regenerative Materia"
-	description = "will do medium initial toxin damage, injecting a poison which does more toxin damage and makes targets believe they are fully healed. The core regenerates much faster."
-	analyzerdescdamage = "Does medium initial toxin damage, injecting a poison which does more toxin damage and makes targets believe they are fully healed. Core regenerates much faster."
+	name = "Регенеративная материя"
+	description = "нанесет токсиновый урон и заставит цели поверить, что они полностью исцелены."
+	analyzerdescdamage = "Наносит токсиновый урон и вводит токсин, который заставляет цель поверить в то, что она полностью исцелена. Core восстанавливается намного быстрее."
 	color = "#A88FB7"
 	complementary_color = "#AF7B8D"
-	message_living = ", and you feel <i>alive</i>"
+	message_living = " и я чувствую себя <i>живее</i>"
 	reagent = /datum/reagent/blob/regenerative_materia
-	core_regen_bonus = 18
+	core_regen_bonus = 20
 	point_rate_bonus = 1
 
 /datum/reagent/blob/regenerative_materia
-	name = "Regenerative Materia"
-	taste_description = "heaven"
+	name = "Регенеративная материя"
+	enname = "Regenerative Materia"
+	taste_description = "небеса"
 	color = "#A88FB7"
 
 /datum/reagent/blob/regenerative_materia/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/overmind)

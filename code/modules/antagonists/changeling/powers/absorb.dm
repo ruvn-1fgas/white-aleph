@@ -1,6 +1,6 @@
 /datum/action/changeling/absorb_dna
-	name = "Absorb DNA"
-	desc = "Absorb the DNA of our victim. Requires us to strangle them."
+	name = "Поглотить ДНК"
+	desc = "Поглощает ДНК нашей жертвы. Необходимо её душить при этом."
 	button_icon_state = "absorb_dna"
 	chemical_cost = 0
 	dna_cost = CHANGELING_POWER_INNATE
@@ -13,14 +13,14 @@
 		return
 
 	if(is_absorbing)
-		owner.balloon_alert(owner, "already absorbing!")
+		owner.balloon_alert(owner, "уже поглощаю!")
 		return
 
 	if(!owner.pulling || !iscarbon(owner.pulling))
-		owner.balloon_alert(owner, "needs grab!")
+		owner.balloon_alert(owner, "нужно держать существо для поглощения!")
 		return
 	if(owner.grab_state <= GRAB_NECK)
-		owner.balloon_alert(owner, "needs tighter grip!")
+		owner.balloon_alert(owner, "нужно держать сильнее!")
 		return
 
 	var/mob/living/carbon/target = owner.pulling
@@ -38,8 +38,8 @@
 		return
 
 	SSblackbox.record_feedback("nested tally", "changeling_powers", 1, list("Absorb DNA", "4"))
-	owner.visible_message(span_danger("[owner] sucks the fluids from [target]!"), span_notice("We have absorbed [target]."))
-	to_chat(target, span_userdanger("You are absorbed by the changeling!"))
+	owner.visible_message(span_danger("<b>[owner]</b> высасывает жидкости из <b>[target]</b>!") , span_notice("Поглощаем <b>[target]</b>."))
+	to_chat(target, span_userdanger("Похоже, меня сожрал генокрад!"))
 
 	if(!changeling.has_profile_with_dna(target.dna))
 		changeling.add_new_profile(target)
@@ -81,18 +81,18 @@
 			changeling.antag_memory += "[target]'s antagonist memories: [antagonist_datum.antag_memory]."
 		if(!LAZYLEN(all_objectives))
 			continue
-		changeling.antag_memory += " Objectives:"
+		changeling.antag_memory += " Цели:"
 		var/obj_count = 1
 		for(var/datum/objective/objective as anything in all_objectives)
 			if(!objective) //nulls? in my objective list? it's more likely than you think.
 				continue
-			changeling.antag_memory += " Objective #[obj_count++]: [objective.explanation_text]."
+			changeling.antag_memory += " Цель #[obj_count++]: [objective.explanation_text]."
 			var/list/datum/mind/other_owners = objective.get_owners() - suckedbrain
 			if(!other_owners.len)
 				continue
 			for(var/datum/mind/conspirator as anything in other_owners)
-				changeling.antag_memory += " Objective Conspirator: [conspirator.name]."
-	changeling.antag_memory += " That's all [target] had. "
+				changeling.antag_memory += " Сообщник: [conspirator.name]."
+	changeling.antag_memory += "<b>Это всё, что [target] знает.</b><BR>"
 
 	//Some of target's recent speech, so the changeling can attempt to imitate them better.
 	//Recent as opposed to all because rounds tend to have a LOT of text.
@@ -100,18 +100,18 @@
 	var/list/recent_speech = target.copy_recent_speech()
 
 	if(recent_speech.len)
-		changeling.antag_memory += "<B>Some of [target]'s speech patterns, we should study these to better impersonate [target.p_them()]!</B><br>"
-		to_chat(owner, span_boldnotice("Some of [target]'s speech patterns, we should study these to better impersonate [target.p_them()]!"))
+		changeling.antag_memory += "<B>Некоторые фразы сказанные [target] можно использовать их в наших целях!</B><br>"
+		to_chat(owner, span_boldnotice("Некоторые фразы сказанные [target] можно использовать их в наших целях!"))
 		for(var/spoken_memory in recent_speech)
-			changeling.antag_memory += "\"[spoken_memory]\"<br>"
-			to_chat(owner, span_notice("\"[spoken_memory]\""))
-		changeling.antag_memory += "<B>We have no more knowledge of [target]'s speech patterns.</B><br>"
-		to_chat(owner, span_boldnotice("We have no more knowledge of [target]'s speech patterns."))
+			changeling.antag_memory += "\"[recent_speech[spoken_memory]]\"<br>"
+			to_chat(owner, span_notice("\"[recent_speech[spoken_memory]]\""))
+		changeling.antag_memory += "<B>У нас больше нет знаний о речевых шаблонах [target].</B><br>"
+		to_chat(owner, span_boldnotice("У нас больше нет знаний о речевых шаблонах [target]."))
 
 
 	var/datum/antagonist/changeling/target_ling = target.mind.has_antag_datum(/datum/antagonist/changeling)
 	if(target_ling)//If the target was a changeling, suck out their extra juice and objective points!
-		to_chat(owner, span_boldnotice("[target] was one of us. We have absorbed their power."))
+		to_chat(owner, span_boldnotice("[target] один из нас. Мы поглотили его силы также."))
 
 		// Gain half of their genetic points.
 		var/genetic_points_to_add = round(target_ling.total_genetic_points / 2)
@@ -136,17 +136,17 @@
 	for(var/absorbing_iteration in 1 to 3)
 		switch(absorbing_iteration)
 			if(1)
-				to_chat(owner, span_notice("This creature is compatible. We must hold still..."))
+				to_chat(owner, span_notice("Это существо подходит. Нужно постараться не двигаться..."))
 			if(2)
-				owner.visible_message(span_warning("[owner] extends a proboscis!"), span_notice("We extend a proboscis."))
+				owner.visible_message(span_warning("<b>[owner]</b> выпускает хоботок!") , span_notice("Выпускаем хоботок."))
 			if(3)
-				owner.visible_message(span_danger("[owner] stabs [target] with the proboscis!"), span_notice("We stab [target] with the proboscis."))
-				to_chat(target, span_userdanger("You feel a sharp stabbing pain!"))
+				owner.visible_message(span_danger("<b>[owner]</b> протыкает <b>[target]</b> своим хоботком!") , span_notice("Протыкаем <b>[target]</b> своим хоботком."))
+				to_chat(target, span_userdanger("Что-то острое проникает в меня!"))
 				target.take_overall_damage(40)
 
 		SSblackbox.record_feedback("nested tally", "changeling_powers", 1, list("Absorb DNA", "[absorbing_iteration]"))
 		if(!do_after(owner, 15 SECONDS, target))
-			owner.balloon_alert(owner, "interrupted!")
+			owner.balloon_alert(owner, "меня прервали!")
 			is_absorbing = FALSE
 			return FALSE
 	return TRUE

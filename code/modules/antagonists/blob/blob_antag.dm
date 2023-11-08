@@ -19,7 +19,7 @@
 	if(isovermind(owner.current)) //embarrasing if not
 		var/mob/camera/blob/overmind = owner.current
 		if(!overmind.victory_in_progress) //if it won this doesn't really matter
-			var/point_report = "<br><b>[owner.name]</b> took over [overmind.max_count] tiles at the height of its growth."
+			var/point_report = "<br><b>[owner.name]</b> захватил [overmind.max_count] клеток."
 			return basic_report+point_report
 	return basic_report
 
@@ -27,7 +27,7 @@
 	. = ..()
 	owner.announce_objectives()
 	if(!isovermind(owner.current))
-		to_chat(owner.current, span_notice("Use the pop ability to place your blob core! It is recommended you do this away from anyone else, as you'll be taking on the entire crew!"))
+		to_chat(owner,span_userdanger("Чет меня раздуло."))
 	else
 		has_already_popped = TRUE
 
@@ -85,12 +85,12 @@
 	pop_action.Grant(owner.current)
 
 /datum/objective/blob_takeover
-	explanation_text = "Reach critical mass!"
+	explanation_text = "Достичь критической массы!"
 
 //Non-overminds get this on blob antag assignment
 /datum/action/innate/blobpop
-	name = "Pop"
-	desc = "Unleash the blob!"
+	name = "Чпоньк"
+	desc = "Высвободить массу"
 	button_icon = 'icons/mob/nonhuman-player/blob.dmi'
 	button_icon_state = "blob"
 
@@ -151,7 +151,7 @@
 	if(owner?.current)
 		var/mob/camera/blob/blob_cam = owner.current
 		if(istype(blob_cam))
-			. += "(Progress: [length(blob_cam.blobs_legit)]/[blob_cam.blobwincount])"
+			. += "(Прогресс: [length(blob_cam.blobs_legit)]/[blob_cam.blobwincount])"
 
 /// A subtype of blob meant to represent the infective version.
 /datum/antagonist/blob/infection

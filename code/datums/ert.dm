@@ -43,13 +43,13 @@
 	rename_team = "Эскадрон Смерти"
 	code = "Дельта"
 	mission = "Не оставляйте свидетелей."
-	polldesc = "эскадроне смерти NanoTrasen"
+	polldesc = "эскадроне смерти Nanotrasen"
 
 /datum/ert/marine
 	leader_role = /datum/antagonist/ert/marine
 	roles = list(/datum/antagonist/ert/marine/security, /datum/antagonist/ert/marine/engineer, /datum/antagonist/ert/marine/medic)
 	rename_team = "Marine Squad"
-	polldesc = "спецназе NanoTrasen"
+	polldesc = "спецназе Nanotrasen"
 	opendoors = FALSE
 
 /datum/ert/centcom_official
@@ -71,7 +71,7 @@
 	leader_role = /datum/antagonist/ert/commander/inquisitor
 	rename_team = "Инквизиция"
 	mission = "Уничтожьте все следы паранормальной активности на борту станции."
-	polldesc = "группе реагирования на паранормальные явления NanoTrasen"
+	polldesc = "группе реагирования на паранормальные явления Nanotrasen"
 
 /datum/ert/janitor
 	roles = list(/datum/antagonist/ert/janitor, /datum/antagonist/ert/janitor/heavy)
@@ -80,7 +80,7 @@
 	opendoors = FALSE
 	rename_team = "Уборщик"
 	mission = "Убери ВСЁ."
-	polldesc = "группе специальных уборщиков NanoTrasen"
+	polldesc = "группе специальных уборщиков Nanotrasen"
 
 /datum/ert/intern
 	roles = list(/datum/antagonist/ert/intern)
@@ -89,7 +89,7 @@
 	opendoors = FALSE
 	rename_team = "Орда Интернов"
 	mission = "Помочь в разрешении конфликтов."
-	polldesc = "возможности неоплачиваемой стажировки в NanoTrasen"
+	polldesc = "возможности неоплачиваемой стажировки в Nanotrasen"
 	random_names = FALSE
 
 /datum/ert/intern/unarmed
@@ -103,7 +103,7 @@
 	opendoors = FALSE
 	rename_team = "ЕРП"
 	mission = "Создайте развлечение для экипажа."
-	polldesc = "группе партийного реагирования NanoTrasen. Код: Радужный"
+	polldesc = "группе партийного реагирования Nanotrasen. Код: Радужный"
 	code = "Радужный"
 
 /datum/ert/bounty_hunters
@@ -124,5 +124,5 @@
 	opendoors = FALSE
 	rename_team = "Полиция"
 	mission = "Помочь станции в защите от врагов."
-	polldesc = "группе милиции NanoTrasen"
+	polldesc = "группе милиции Nanotrasen"
 	random_names = TRUE

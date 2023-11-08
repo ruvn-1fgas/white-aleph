@@ -1,5 +1,5 @@
 /datum/antagonist/blob_minion
-	name = "\improper Blob Minion"
+	name = "Спора массы"
 	antagpanel_category = ANTAG_GROUP_BIOHAZARDS
 	show_name_in_check_antagonists = TRUE
 	show_to_ghosts = TRUE
@@ -19,8 +19,8 @@
 	. = ..()
 	owner.announce_objectives()
 /datum/objective/blob_minion
-	name = "protect the blob core"
-	explanation_text = "Protect the blob core at all costs."
+	name = "защищай ядро"
+	explanation_text = "Защищай ядро любой ценой."
 	var/datum/weakref/overmind
 
 /datum/objective/blob_minion/check_completion()

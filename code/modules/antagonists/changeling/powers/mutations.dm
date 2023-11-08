@@ -54,14 +54,14 @@
 		user.temporarilyRemoveItemFromInventory(hand_item, TRUE) //DROPDEL will delete the item
 		if(!silent)
 			playsound(user, 'sound/effects/blobattack.ogg', 30, TRUE)
-			user.visible_message(span_warning("With a sickening crunch, [user] reforms [user.p_their()] [weapon_name_simple] into an arm!"), span_notice("We assimilate the [weapon_name_simple] back into our body."), "<span class='italics>You hear organic matter ripping and tearing!</span>")
+			user.visible_message(span_warning("С отвратительным хрустом, <b>[user]</b> формирует [weapon_name_simple] обратно в руку!") , span_notice("Мы возвращаем [weapon_name_simple] обратно в наше тело.") , "<span class='italics>Слышу как что-то органическое разрывается!</span>")
 		user.update_held_items()
 		return TRUE
 
 /datum/action/changeling/weapon/sting_action(mob/living/carbon/user)
 	var/obj/item/held = user.get_active_held_item()
 	if(held && !user.dropItemToGround(held))
-		user.balloon_alert(user, "hand occupied!")
+		user.balloon_alert(user, "рука занята!")
 		return
 	if(!istype(user))
 		user.balloon_alert(user, "wrong shape!")
@@ -73,7 +73,11 @@
 	else
 		limb_regen = user.regenerate_limb(BODY_ZONE_L_ARM, 1)
 	if(limb_regen)
-		user.visible_message(span_warning("[user]'s missing arm reforms, making a loud, grotesque sound!"), span_userdanger("Your arm regrows, making a loud, crunchy sound and giving you great pain!"), span_hear("You hear organic matter ripping and tearing!"))
+		user.visible_message(
+			span_warning("Рука <b>[user]</b> трансформируется издавая громкий и неприятный звук!") ,
+			span_userdanger("Моя рука отрастает, издает громкий хрустящий звук и причиняет мне сильную боль!") ,
+			span_hear("Слышу как что-то органическое разрывается!")
+		)
 		user.emote("scream")
 	var/obj/item/W = new weapon_type(user, silent)
 	user.put_in_hands(W)
@@ -126,7 +130,7 @@
 		return 1
 	var/mob/living/carbon/human/H = user
 	if(istype(H.wear_suit, suit_type) || istype(H.head, helmet_type))
-		H.visible_message(span_warning("[H] casts off [H.p_their()] [suit_name_simple]!"), span_warning("We cast off our [suit_name_simple]."), span_hear("You hear the organic matter ripping and tearing!"))
+		H.visible_message(span_warning("<b>[H]</b> сбрасывает с себя [suit_name_simple]!") , span_warning("Мы сбрасываем [suit_name_simple].") , span_hear("Слышу как что-то органическое разрывается!"))
 		H.temporarilyRemoveItemFromInventory(H.head, TRUE) //The qdel on dropped() takes care of it
 		H.temporarilyRemoveItemFromInventory(H.wear_suit, TRUE)
 		H.update_worn_oversuit()
@@ -142,10 +146,10 @@
 
 /datum/action/changeling/suit/sting_action(mob/living/carbon/human/user)
 	if(!user.canUnEquip(user.wear_suit))
-		user.balloon_alert(user, "body occupied!")
+		to_chat(user, span_warning("[capitalize(user.wear_suit)] крепко сидит на моём теле, не получится вырастить [suit_name_simple] поверх этого!"))
 		return
 	if(!user.canUnEquip(user.head))
-		user.balloon_alert(user, "head occupied!")
+		to_chat(user, span_warning("[capitalize(user.head)] крепко сидит на моей голове, не получится вырастить [helmet_name_simple] поверх этого!"))
 		return
 	..()
 	user.dropItemToGround(user.head)
@@ -164,19 +168,19 @@
 |***************ARM BLADE***************|
 \***************************************/
 /datum/action/changeling/weapon/arm_blade
-	name = "Arm Blade"
-	desc = "We reform one of our arms into a deadly blade. Costs 20 chemicals."
-	helptext = "We may retract our armblade in the same manner as we form it. Cannot be used while in lesser form."
+	name = "Рука-лезвие"
+	desc = "Мы превращаем одну из наших рук в смертельный клинок. Стоит 20 химикатов."
+	helptext = "Мы можем втягивать наш клинок так же, как мы его формируем. Не может быть использовано в меньшей форме."
 	button_icon_state = "armblade"
 	chemical_cost = 20
 	dna_cost = 2
 	req_human = TRUE
 	weapon_type = /obj/item/melee/arm_blade
-	weapon_name_simple = "blade"
+	weapon_name_simple = "лезвие"
 
 /obj/item/melee/arm_blade
-	name = "arm blade"
-	desc = "A grotesque blade made out of bone and flesh that cleaves through people as a hot knife through butter."
+	name = "рука-лезвие"
+	desc = "Гротескный клинок из кости и плоти, который пронзает людей, как горячий нож сквозь масло."
 	icon = 'icons/obj/weapons/changeling_items.dmi'
 	icon_state = "arm_blade"
 	inhand_icon_state = "arm_blade"
@@ -189,8 +193,8 @@
 	throw_range = 0
 	throw_speed = 0
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
+	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
 	sharpness = SHARP_EDGED
 	wound_bonus = 10
 	bare_wound_bonus = 10
@@ -202,7 +206,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc) && !silent)
-		loc.visible_message(span_warning("A grotesque blade forms around [loc.name]\'s arm!"), span_warning("Our arm twists and mutates, transforming it into a deadly blade."), span_hear("You hear organic matter ripping and tearing!"))
+		loc.visible_message(span_warning("Гротескный клинок формируется из руки <b>[loc.name]</b>!") , span_warning("Наша рука крутится и мутирует, превращаясь в смертельный клинок.") , span_hear("Слышу как что-то органическое разрывается!"))
 	if(synthetic)
 		can_drop = TRUE
 	AddComponent(/datum/component/butchering, \
@@ -228,18 +232,18 @@
 		if((!opening.requiresID() || opening.allowed(user)) && opening.hasPower()) //This is to prevent stupid shit like hitting a door with an arm blade, the door opening because you have acces and still getting a "the airlocks motors resist our efforts to force it" message, power requirement is so this doesn't stop unpowered doors from being pried open if you have access
 			return
 		if(opening.locked)
-			opening.balloon_alert(user, "bolted!")
+			opening.balloon_alert(user, "заболтирован!")
 			return
 
 		if(opening.hasPower())
-			user.visible_message(span_warning("[user] jams [src] into the airlock and starts prying it open!"), span_warning("We start forcing the [opening] open."), \
-			span_hear("You hear a metal screeching sound."))
+			user.visible_message(span_warning("<b>[user]</b> втискивает <b>руку-лезвие</b> в шлюз и начинает открывать его!") , span_warning("Мы начинаем открывать [opening].") , \
+			span_hear("Слышу металлический лязг."))
 			playsound(opening, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
 			if(!do_after(user, 10 SECONDS, target = opening))
 				return
 		//user.say("Heeeeeeeeeerrre's Johnny!")
-		user.visible_message(span_warning("[user] forces the airlock to open with [user.p_their()] [src]!"), span_warning("We force the [opening] to open."), \
-		span_hear("You hear a metal screeching sound."))
+		user.visible_message(span_warning("<b>[user]</b> заставляет шлюз открыться под силой <b>руки-лезвия</b>!") , span_warning("Мы заставляем [opening] открыться.") , \
+		span_hear("Слышу металлический лязг."))
 		opening.open(BYPASS_DOOR_CHECKS)
 
 /obj/item/melee/arm_blade/dropped(mob/user)
@@ -252,23 +256,22 @@
 \***************************************/
 
 /datum/action/changeling/weapon/tentacle
-	name = "Tentacle"
-	desc = "We ready a tentacle to grab items or victims with. Costs 10 chemicals."
-	helptext = "We can use it once to retrieve a distant item. If used on living creatures, the effect depends on our combat mode: \
-	In our neutral stance, we will simply drag them closer; if we try to shove, we will grab whatever they're holding in their active hand instead of them; \
-	in our combat stance, we will put the victim in our hold after catching them, and we will pull them in and stab them if we're also holding a sharp weapon. \
-	Cannot be used while in lesser form."
+	name = "Щупальце"
+	desc = "Мы готовим щупальце, способное захватывать предметы или живых существ. Стоит 10 химикатов."
+	helptext = "Мы можем использовать его один раз, чтобы получить отдаленный предмет. При использовании на живых существ, эффект зависит от намерения: \
+	Помощь просто притянет их ближе, Разоружение захватит все, что они держат вместо них, Захват поместит жертву в нашу хватку после того, как поймает ее, \
+	и Вред втянет его и нанесет удар, если у нас тоже острое оружие. Не может быть использовано в меньшей форме."
 	button_icon_state = "tentacle"
 	chemical_cost = 10
 	dna_cost = 2
 	req_human = TRUE
 	weapon_type = /obj/item/gun/magic/tentacle
-	weapon_name_simple = "tentacle"
+	weapon_name_simple = "щупальце"
 	silent = TRUE
 
 /obj/item/gun/magic/tentacle
-	name = "tentacle"
-	desc = "A fleshy tentacle that can stretch out and grab things or people."
+	name = "щупальце"
+	desc = "Мясистое щупальце, которое может вытянуться и захватить вещи или людей."
 	icon = 'icons/obj/weapons/changeling_items.dmi'
 	icon_state = "tentacle"
 	inhand_icon_state = "tentacle"
@@ -295,13 +298,13 @@
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc))
 		if(!silent)
-			loc.visible_message(span_warning("[loc.name]\'s arm starts stretching inhumanly!"), span_warning("Our arm twists and mutates, transforming it into a tentacle."), span_hear("You hear organic matter ripping and tearing!"))
+			loc.visible_message(span_warning("Рука <b>[loc.name]</b> начинает странно растягиваться!") , span_warning("Наша рука изгибается и мутирует, превращая ее в щупальце.") , span_hear("Слышу как что-то органическое разрывается!"))
 		else
-			to_chat(loc, span_notice("You prepare to extend a tentacle."))
+			to_chat(loc, span_notice("Мы готовимся вытянуть щупальце."))
 
 
 /obj/item/gun/magic/tentacle/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	user.balloon_alert(user, "not ready!")
+	user.balloon_alert(user, "щупальце не готово!")
 
 /obj/item/gun/magic/tentacle/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
 	var/obj/projectile/tentacle/tentacle_shot = chambered.loaded_projectile //Gets the actual projectile we will fire
@@ -315,8 +318,8 @@
 	return OXYLOSS
 
 /obj/item/ammo_casing/magic/tentacle
-	name = "tentacle"
-	desc = "A tentacle."
+	name = "щупальце"
+	desc = "Прикол."
 	projectile_type = /obj/projectile/tentacle
 	caliber = CALIBER_TENTACLE
 	firing_effect_type = null
@@ -331,7 +334,7 @@
 	return ..()
 
 /obj/projectile/tentacle
-	name = "tentacle"
+	name = "щупальце"
 	icon_state = "tentacle_end"
 	pass_flags = PASSTABLE
 	damage = 0
@@ -366,7 +369,7 @@
 		C.grippedby(H, instant = TRUE) //instant aggro grab
 		for(var/obj/item/I in H.held_items)
 			if(I.get_sharpness())
-				C.visible_message(span_danger("[H] impales [C] with [H.p_their()] [I.name]!"), span_userdanger("[H] impales you with [H.p_their()] [I.name]!"))
+				C.visible_message(span_danger("<b>[H]</b> пронзает <b>[C]</b> своим [I.name]!") , span_userdanger("<b>[H]</b> пронзает меня своим [I.name]!"))
 				C.apply_damage(I.force, BRUTE, BODY_ZONE_CHEST, attacking_item = I)
 				H.do_item_attack_animation(C, used_item = I)
 				H.add_mob_blood(C)
@@ -387,7 +390,7 @@
 			return BULLET_ACT_BLOCK
 
 		var/mob/living/carbon/carbon_ling = ling
-		to_chat(carbon_ling, span_notice("You pull [catching] towards yourself."))
+		to_chat(carbon_ling, span_notice("Притягиваю [catching] к себе."))
 		carbon_ling.throw_mode_on(THROW_MODE_TOGGLE)
 		catching.throw_at(
 			target = carbon_ling,
@@ -409,8 +412,8 @@
 
 	if(!iscarbon(victim) || !ishuman(ling) || !ling.combat_mode)
 		victim.visible_message(
-			span_danger("[victim] is grabbed by [ling]'s [src]]!"),
-			span_userdanger("\A [src] grabs you and pulls you towards [ling]!"),
+			span_danger("<b>[victim]</b> утягивается щупальцем <b>[ling]</b>!"),
+			span_userdanger("Щупальце хватает меня и тянет к <b>[ling]</b>!"),
 		)
 		victim.throw_at(
 			target = get_step_towards(ling, victim),
@@ -427,21 +430,21 @@
 		if(!isnull(stealing))
 			if(victim.dropItemToGround(stealing))
 				victim.visible_message(
-					span_danger("[stealing] is yanked off [victim]'s hand by [src]!"),
-					span_userdanger("\A [src] pulls [stealing] away from you!"),
+					span_danger("<b>[stealing]</b> вытягивается из руки <b>[victim]</b> щупальцем!"),
+					span_userdanger("Щупальце <b>[stealing]</b> из моей руки!"),
 				)
 				return on_hit(stealing) //grab the item as if you had hit it directly with the tentacle
 
-			to_chat(ling, span_warning("You can't seem to pry [stealing] off [victim]'s hands!"))
+			to_chat(ling, span_warning("У нас не вышло вырвать <b>[stealing]</b> из рук <b>[victim]</b>!"))
 			return BULLET_ACT_BLOCK
 
-		to_chat(ling, span_danger("[victim] has nothing in hand to disarm!"))
+		to_chat(ling, span_danger("<b>[victim]</b> ничего в руках и не держит!"))
 		return BULLET_ACT_HIT
 
 	if(ling.combat_mode)
 		victim.visible_message(
-			span_danger("[victim] is thrown towards [ling] by \a [src]!"),
-			span_userdanger("\A [src] grabs you and throws you towards [ling]!"),
+			span_danger("</b>[victim]</b> быстро улетает в сторону <b>[ling]</b> силой щупальца!"),
+			span_userdanger("Щупальце хватает меня и тянет к <b>[ling]</b>!"),
 		)
 		victim.throw_at(
 			target = get_step_towards(ling, victim),
@@ -465,9 +468,9 @@
 |****************SHIELD*****************|
 \***************************************/
 /datum/action/changeling/weapon/shield
-	name = "Organic Shield"
-	desc = "We reform one of our arms into a hard shield. Costs 20 chemicals."
-	helptext = "Organic tissue cannot resist damage forever; the shield will break after it is hit too much. The more genomes we absorb, the stronger it is. Cannot be used while in lesser form."
+	name = "Органический щит"
+	desc = "Мы превращаем одну из наших рук в жесткий щит. Стоит 20 химикатов."
+	helptext = "Органическая ткань не может противостоять повреждениям всегда; щит сломается после того, как его ударили слишком сильно. Чем больше геномов мы поглощаем, тем он сильнее. Не может быть использовано в меньшей форме."
 	button_icon_state = "organic_shield"
 	chemical_cost = 20
 	dna_cost = 1
@@ -486,8 +489,8 @@
 	return TRUE
 
 /obj/item/shield/changeling
-	name = "shield-like mass"
-	desc = "A mass of tough, boney tissue. You can still see the fingers as a twisted pattern in the shield."
+	name = "щитообразная масса"
+	desc = "Масса жесткой костной ткани. Мы все еще можем видеть пальцы в виде скрученного рисунка на щите."
 	item_flags = ABSTRACT | DROPDEL
 	icon = 'icons/obj/weapons/changeling_items.dmi'
 	icon_state = "ling_shield"
@@ -501,13 +504,13 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc))
-		loc.visible_message(span_warning("The end of [loc.name]\'s hand inflates rapidly, forming a huge shield-like mass!"), span_warning("We inflate our hand into a strong shield."), span_hear("You hear organic matter ripping and tearing!"))
+		loc.visible_message(span_warning("Конец руки [loc.name] быстро расширяется формируя щитообразное месиво!") , span_warning("Мы раздуваем нашу руку в сильный щит.") , span_hear("Слышу как что-то органическое разрывается!"))
 
 /obj/item/shield/changeling/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(remaining_uses < 1)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
-			H.visible_message(span_warning("With a sickening crunch, [H] reforms [H.p_their()] shield into an arm!"), span_notice("We assimilate our shield into our body"), "<span class='italics>You hear organic matter ripping and tearing!</span>")
+			H.visible_message(span_warning("С отвратительным хрустом, <b>[H]</b> превращает щит в руку!") , span_notice("Мы возвращаем щит обратно в наше тело.") , "<span class='italics>Слышу как что-то органическое разрывается!</span>")
 		qdel(src)
 		return 0
 	else
@@ -518,9 +521,9 @@
 |*****************ARMOR*****************|
 \***************************************/
 /datum/action/changeling/suit/armor
-	name = "Chitinous Armor"
-	desc = "We turn our skin into tough chitin to protect us from damage. Costs 20 chemicals."
-	helptext = "Upkeep of the armor requires a low expenditure of chemicals. The armor provides decent protection against brute force and energy weapons. Cannot be used in lesser form."
+	name = "Органический скафандр"
+	desc = "Мы выращиваем органический костюм, чтобы защитить себя от воздействия космоса. Стоит 20 химикатов."
+	helptext = "Мы должны постоянно ремонтировать нашу форму, чтобы сделать ее космической, сокращая химическое производство, пока мы защищены. Не может использоваться в меньшей форме."
 	button_icon_state = "chitinous_armor"
 	chemical_cost = 20
 	dna_cost = 1
@@ -529,12 +532,12 @@
 
 	suit_type = /obj/item/clothing/suit/armor/changeling
 	helmet_type = /obj/item/clothing/head/helmet/changeling
-	suit_name_simple = "armor"
-	helmet_name_simple = "helmet"
+	suit_name_simple = "костюм из плоти"
+	helmet_name_simple = "шлем из плоти"
 
 /obj/item/clothing/suit/armor/changeling
-	name = "chitinous mass"
-	desc = "A tough, hard covering of black chitin."
+	name = "плоть"
+	desc = "Огромная, громоздкая масса, устойчивая к давлению и температуре, эволюционировала для облегчения космических путешествий."
 	icon_state = "lingarmor"
 	inhand_icon_state = null
 	item_flags = DROPDEL
@@ -558,11 +561,11 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc))
-		loc.visible_message(span_warning("[loc.name]\'s flesh turns black, quickly transforming into a hard, chitinous mass!"), span_warning("We harden our flesh, creating a suit of armor!"), span_hear("You hear organic matter ripping and tearing!"))
+		loc.visible_message(span_warning("Плоть <b>[loc.name]</b> быстро надувается, образуя вздутую массу вокруг тела!") , span_warning("Мы раздуваем нашу плоть, создавая космический костюм!") , span_hear("Слышу как что-то органическое разрывается!"))
 
 /obj/item/clothing/head/helmet/changeling
-	name = "chitinous mass"
-	desc = "A tough, hard covering of black chitin with transparent chitin in front."
+	name = "плоть"
+	desc = "Покрытие из термостойкой органической ткани со стекловидным хитиновым покрытием."
 	icon_state = "lingarmorhelmet"
 	inhand_icon_state = null
 	item_flags = DROPDEL

@@ -1,8 +1,8 @@
 /obj/structure/blob/special/node
-	name = "blob node"
+	name = "родительская масса"
 	icon = 'icons/mob/nonhuman-player/blob.dmi'
 	icon_state = "blank_blob"
-	desc = "A large, pulsating yellow mass."
+	desc = "Большая, пульсирующая масса."
 	max_integrity = BLOB_NODE_MAX_HP
 	health_regen = BLOB_NODE_HP_REGEN
 	armor_type = /datum/armor/special_node
@@ -25,7 +25,7 @@
 	. = ..()
 
 /obj/structure/blob/special/node/scannerreport()
-	return "Gradually expands and sustains nearby blob spores and blobbernauts."
+	return "Быстро расширяется и сохраняет жизнь местной фауне."
 
 /obj/structure/blob/special/node/update_icon()
 	. = ..()
