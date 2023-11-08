@@ -57,8 +57,8 @@
 	REMOVE_TRAIT(owner, TRAIT_STASIS, TRAIT_STATUS_EFFECT(id))
 
 /atom/movable/screen/alert/status_effect/embryonic
-	name = "Embryonic Stasis"
+	name = "Эмбриональный стазис"
 	icon_state = "netpod_stasis"
-	desc = "You feel like you're in a dream."
+	desc = "Чувствую себя будто во сне..."
 
 #undef BASE_HEAL

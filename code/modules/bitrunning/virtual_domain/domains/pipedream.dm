@@ -37,7 +37,7 @@
 
 // ID Cards
 /obj/item/card/id/advanced/factory
-	name = "Карта работника фабрики"
+	name = "карта работника фабрики"
 	trim = /datum/id_trim/factory
 
 /obj/item/card/id/advanced/factory/qm

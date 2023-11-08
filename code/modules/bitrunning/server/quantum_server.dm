@@ -111,7 +111,7 @@
 		balloon_alert(user, "он ужасно горячий!")
 		return TRUE
 	if(length(avatar_connection_refs))
-		balloon_alert(user, "все клиенты должны отключится!")
+		balloon_alert(user, "все клиенты должны отключиться!")
 		return TRUE
 	if(default_deconstruction_crowbar(crowbar))
 		return TRUE

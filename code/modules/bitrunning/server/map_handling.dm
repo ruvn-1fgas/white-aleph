@@ -16,7 +16,7 @@
 	user.visible_message(
 		span_danger("[user] начинает выключать сервер!"),
 		span_notice("Ты начинаешь отключать клиенты..."),
-		span_danger("Вы слышите бешеный стук клавиш на клавиатуре."),
+		span_danger("Вы слышите бешеный стук пальцев по клавиатуре."),
 	)
 
 	SEND_SIGNAL(src, COMSIG_BITRUNNER_SHUTDOWN_ALERT, user)

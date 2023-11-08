@@ -2,7 +2,7 @@
 	name = "монитор хоста"
 
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2)
-	desc = "Сложная электроника, которая будет анализировать состояние связи между хостом и аватаром."
+	desc = "Высокотехнологичная электроника, которая будет анализировать состояние связи между хостом и аватаром."
 	flags_1 = CONDUCT_1
 	icon = 'icons/obj/device.dmi'
 	icon_state = "host_monitor"

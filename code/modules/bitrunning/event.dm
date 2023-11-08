@@ -1,11 +1,11 @@
 /datum/round_event_control/bitrunning_glitch
-	name = "Spawn Bitrunning Glitch"
+	name = "Сбой работы битраннерского алгоритма"
 	admin_setup = list(
 		/datum/event_admin_setup/minimum_candidate_requirement/bitrunning_glitch,
 		/datum/event_admin_setup/listed_options/bitrunning_glitch,
 	)
 	category = EVENT_CATEGORY_INVASION
-	description = "Causes a short term antagonist to spawn in the virtual domain."
+	description = "Спавнит в текущем домене краткосрочного антагониста для противодействия битраннеру."
 	dynamic_should_hijack = FALSE
 	max_occurrences = 5
 	min_players = 1
@@ -39,7 +39,7 @@
 	return length(active_servers) > 0
 
 /datum/event_admin_setup/listed_options/bitrunning_glitch
-	input_text = "Select a role to spawn."
+	input_text = "Выберите роль для появления."
 
 /datum/event_admin_setup/listed_options/bitrunning_glitch/get_list()
 	var/datum/round_event_control/bitrunning_glitch/control = event_control
@@ -71,7 +71,7 @@
 
 /datum/round_event/ghost_role/bitrunning_glitch
 	minimum_required = 1
-	role_name = "Bitrunning Glitch"
+	role_name = "Сбой Битраннерского Алгоритма"
 	fakeable = FALSE
 	/// Admin customization: What to spawn
 	var/forced_role
@@ -122,7 +122,7 @@
 
 /// Polls for a ghost that wants to run it
 /datum/round_event/ghost_role/bitrunning_glitch/proc/get_ghost_mind(role_name)
-	var/list/mob/dead/observer/ghosties = poll_ghost_candidates("A short term antagonist role is available. Would you like to spawn as a '[role_name]'?", role_name)
+	var/list/mob/dead/observer/ghosties = poll_ghost_candidates("Роль в битраннерском домене доступна. Вы хотите ненадолго стать '[role_name]'?", role_name)
 
 	if(!length(ghosties))
 		return

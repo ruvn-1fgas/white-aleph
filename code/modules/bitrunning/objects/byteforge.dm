@@ -1,8 +1,8 @@
 /obj/machinery/byteforge
-	name = "Бинарная Печь"
+	name = "Бинарная кузница"
 
 	circuit = /obj/item/circuitboard/machine/byteforge
-	desc = "Устройство, используемое квантовым сервером. Квантовый код сходится здесь, материализуя расшифрованные активы из виртуальной бездны."
+	desc = "Устройство, используемое квантовым сервером. Квантовый код сходится здесь, материализуя расшифрованные данные из виртуальной бездны."
 	icon = 'icons/obj/machines/bitrunning.dmi'
 	icon_state = "byteforge"
 	obj_flags = BLOCKS_CONSTRUCTION

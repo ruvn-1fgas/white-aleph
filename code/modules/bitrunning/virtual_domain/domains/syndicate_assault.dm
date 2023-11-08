@@ -6,7 +6,7 @@
 	extra_loot = list(/obj/item/toy/plush/nukeplushie = 1)
 	help_text = "Группа боевиков Синдиката похитила ценный груз со станции. \
 	Они поднялись на борт своего корабля и пытаются скрыться. Проникните на их корабль и заберите \
-	ящик. 	Будьте осторожны, они очень вооружены."
+	ящик. Будьте осторожны - они вооружены до зубов и очень опасны."
 	key = "syndicate_assault"
 	map_name = "syndicate_assault"
 	reward_points = BITRUNNER_REWARD_MEDIUM
