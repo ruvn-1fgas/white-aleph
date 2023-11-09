@@ -173,7 +173,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 	var/spanned = attach_spans(input, spans)
 
-	var/random_mod = "<i>[pick(77;"[say_mod(input, message_mods)],", 25;" — ", 25;"молвит,", 25;"сообщает,")]</i>"
+	var/random_mod = "<i>[pick(77;"[say_mod(input, message_mods)]", 25;" — ", 25;"молвит", 25;"сообщает")]</i>"
 
 	return "[random_mod], \"[spanned]\""
 
