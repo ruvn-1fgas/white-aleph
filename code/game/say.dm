@@ -173,9 +173,9 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 	var/spanned = attach_spans(input, spans)
 
-	var/random_mod = "<i>[pick(77;"[say_mod(input, message_mods)]", 25;" — ", 25;"молвит", 25;"сообщает")]</i>"
+	var/random_mod = "<i>[pick(77;"[say_mod(input, message_mods)],", 25;" — ", 25;"молвит,", 25;"сообщает,")]</i>"
 
-	return "[random_mod], \"[spanned]\""
+	return "[random_mod] \"[spanned]\""
 
 /// Transforms the speech emphasis mods from [/atom/movable/proc/say_emphasis] into the appropriate HTML tags. Includes escaping.
 #define ENCODE_HTML_EMPHASIS(input, char, html, varname) \
