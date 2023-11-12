@@ -8,8 +8,8 @@
 
 //Floorbot
 /mob/living/simple_animal/bot/floorbot
-	name = "Узбек"
-	desc = "Маленький робот, кладущий плитку, при виде работы он выглядит радостно!"
+	name = "Флурбот"
+	desc = "Маленький робот, ремонтирующий пол, при виде работы он выглядит радостно!"
 	icon = 'icons/mob/silicon/aibots.dmi'
 	icon_state = "floorbot0"
 	density = FALSE
@@ -77,17 +77,17 @@
 
 /mob/living/simple_animal/bot/floorbot/attackby(obj/item/W , mob/user, params)
 	if(istype(W, /obj/item/stack/tile/iron))
-		to_chat(user, span_notice("Этот бот может производить обычную плитку самостоятельно."))
+		to_chat(user, span_notice("[name] способен самостоятельно воспроизводить обычную плитку и не нуждается в её пополнении."))
 		return
 	if(istype(W, /obj/item/stack/tile))
 		var/old_amount = tilestack ? tilestack.amount : 0
 		var/obj/item/stack/tile/tiles = W
 		if(tilestack)
 			if(!tiles.can_merge(tilestack))
-				to_chat(user, span_warning("Плитки других типов уже находятся внутри напольного робота.."))
+				to_chat(user, span_warning("В флурбота уже вставлен другой вид плитки."))
 				return
 			if(tilestack.amount >= maxtiles)
-				to_chat(user, span_warning("Узбек нагружен под завязку вашими плитками"))
+				to_chat(user, span_warning("Флурбот переполнен"))
 				return
 			tiles.merge(tilestack, maxtiles)
 		else
@@ -96,7 +96,7 @@
 			else
 				tilestack = W
 			tilestack.forceMove(src)
-		to_chat(user, span_notice("Ты загружаешь [tilestack.amount - old_amount] плитки в узбека. Сейчас в нём [tilestack.amount] плиток."))
+		to_chat(user, span_notice("Загружаю [tilestack.amount - old_amount] плитки в флурбота. Сейчас в нём [tilestack.amount] плиток."))
 		return
 	else
 		..()
@@ -160,7 +160,7 @@
 			if(tilestack)
 				tilestack.forceMove(drop_location())
 		if("line_mode")
-			var/setdir = tgui_input_list(usr, "Выберите направление работы", "Направление", list("север", "восток", "юг", "запад", "выключено"))
+			var/setdir = tgui_input_list(usr, "Выбери направление строительства", "Направление", list("north","east","south","west","disable"))
 			if(isnull(setdir))
 				return
 			switch(setdir)

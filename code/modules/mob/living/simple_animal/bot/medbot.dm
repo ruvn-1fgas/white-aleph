@@ -33,7 +33,7 @@
 	data_hud_type = DATA_HUD_MEDICAL_ADVANCED
 	hackables = "health processor circuits"
 	path_image_color = "#DDDDFF"
-	possessed_message = "Ты медибот! Убереги всех ассистентов и остальной экипаж от ран как можно лучше!"
+	possessed_message = "Ты медбот! Убереги всех ассистентов и остальной экипаж от ран как можно лучше!"
 
 	automated_announcements = list(
 		MEDIBOT_VOICED_HOLD_ON = 'sound/voice/medbot/coming.ogg',
@@ -119,8 +119,8 @@
 	medical_mode_flags = MEDBOT_DECLARE_CRIT | MEDBOT_STATIONARY_MODE | MEDBOT_SPEAK_MODE
 
 /mob/living/simple_animal/bot/medbot/mysterious
-	name = "Mysterious Medibot"
-	desc = "Международный загадочный медбот."
+	name = "Загадочный Медбот"
+	desc = "Межпространственный Загадочный Медбот."
 	skin = "bezerk"
 	damagetype_healer = "all"
 	heal_amount = 10
@@ -136,7 +136,7 @@
 
 /mob/living/simple_animal/bot/medbot/nukie
 	name = "Оппенгеймер"
-	desc = "Медибот, украденный со станции Нанотрейзен и модернизированный Синдикатом. Несмотря на все усилия по перепрограммированию, он по-прежнему выглядит очень грустным рядом с ядерной боеголовкой."
+	desc = "Медбот, украденный со станции Нанотрейзен и модернизированный Синдикатом. Несмотря на все усилия по перепрограммированию, он по-прежнему выглядит очень грустным рядом с ядерной боеголовкой."
 	skin = "bezerk"
 	health = 40
 	maxHealth = 40
@@ -320,7 +320,7 @@
 	if(!(bot_cover_flags & BOT_COVER_EMAGGED))
 		return
 	medical_mode_flags &= ~MEDBOT_DECLARE_CRIT
-	balloon_alert(user, "плата синтеза химикатов замкнута!")
+	balloon_alert(user, "плата синтеза химикатов взломана!")
 	audible_message(span_danger("[src] странно жужжит!"))
 	flick("medibot_spark", src)
 	playsound(src, SFX_SPARKS, 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
@@ -632,7 +632,7 @@
 
 		if(!treatment_method && !(bot_cover_flags & BOT_COVER_EMAGGED)) //If they don't need any of that they're probably cured!
 			if(C.maxHealth - C.get_organic_health() < heal_threshold)
-				to_chat(src, span_notice("[C] выглядит здоровым! Твоя программа ограничивает тебя от лечения ран кого-либо без явных ран в количестве [heal_threshold] повреждений любого типа ([heal_threshold + 5] для кислородного голодания.)"))
+				to_chat(src, span_notice("[C] выглядит здоровым! Моя программа ограничивает меня от лечения кого-либо без явных повреждений в количестве [heal_threshold] любого типа ([heal_threshold + 5] для кислородного голодания.)"))
 
 			var/static/list/success_lines = list(
 				MEDIBOT_VOICED_ALL_PATCHED_UP,

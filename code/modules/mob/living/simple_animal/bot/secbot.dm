@@ -62,7 +62,7 @@
 
 /mob/living/simple_animal/bot/secbot/beepsky
 	name = "Коммандер Бип О'Скай"
-	desc = "Это Коммандер Бип О'Скай! Официально являясь старшим офицером среди всех ботов на станции, Бипски остается таким же скромным и преданным закону, как и в тот день, когда его впервые сфабриковали."
+	desc = "Это Коммандер Бип О'Скай! Официально являясь старшим офицером среди всех ботов на станции, Бипски остается таким же скромным и преданным закону, как и в тот день, когда его впервые собрали."
 	bot_mode_flags = BOT_MODE_ON | BOT_MODE_AUTOPATROL | BOT_MODE_REMOTE_ENABLED
 	commissioned = TRUE
 
@@ -77,15 +77,15 @@
 	bot_mode_flags = ~(BOT_MODE_CAN_BE_SAPIENT|BOT_MODE_AUTOPATROL)
 
 /mob/living/simple_animal/bot/secbot/beepsky/armsky
-	name = "Sergeant-At-Armsky"
-	desc = "Это Sergeant-At-Armsky! Недовольный помощник начальника тюрьмы, который, вероятно, пристрелил бы вас, будь у него руки."
+	name = "Сержант Армски"
+	desc = "Знакомьтесь, Сержант Армски! Недовольный помощник начальника тюрьмы, который, вероятно, пристрелил бы вас, будь у него руки."
 	health = 45
 	bot_mode_flags = ~(BOT_MODE_CAN_BE_SAPIENT|BOT_MODE_AUTOPATROL)
 	security_mode_flags = SECBOT_DECLARE_ARRESTS | SECBOT_CHECK_IDS | SECBOT_CHECK_RECORDS
 
 /mob/living/simple_animal/bot/secbot/beepsky/jr
 	name = "Офицер Пискля"
-	desc = "Младший, но такой же агрессивный брат коммандера Бип О'Ская, офицер Пискля."
+	desc = "Младший, но такой же агрессивный, как и его брат - коммандер Бип О'Скай - офицер Пискля."
 	commissioned = FALSE
 
 /mob/living/simple_animal/bot/secbot/beepsky/jr/Initialize(mapload)
@@ -225,7 +225,7 @@
 		// Turns an oversight into a feature. Beepsky will now announce when pacifists taunt him over sec comms.
 		if(HAS_TRAIT(user, TRAIT_PACIFISM))
 			user.visible_message(span_notice("[user] насмехается [src], отважно преследуя [p_them()]!"), \
-				span_notice("Смеешься [src]? Не заставляй меня гнаться за тобой [p_them()]!"), span_hear("Ты слышишь как кто-то выкрикивает дерзкую насмешку!"), DEFAULT_MESSAGE_RANGE, user)
+				span_notice("Смеешься [src]? Не заставляй меня гнаться за тобой [p_them()]!"), span_hear("Слышу, как кто-то выкрикивает дерзкую насмешку!"), DEFAULT_MESSAGE_RANGE, user)
 			speak("Не смеши мои лапки, отброс <b>[user]</b> в [get_area(src)].", radio_channel)
 
 			// Interrupt the attack chain. We've already handled this scenario for pacifists.
@@ -300,7 +300,7 @@
 	mode = BOT_ARREST
 	playsound(src, 'sound/weapons/cablecuff.ogg', 30, TRUE, -2)
 	current_target.visible_message(span_danger("[src] пытается надеть кабельные стяжки [current_target]!"),\
-						span_userdanger("[src] пытается надеть кабельные стяжки на тебя!"))
+						span_userdanger("[src] пытается надеть кабельные стяжки на меня!"))
 	addtimer(CALLBACK(src, PROC_REF(handcuff_target), current_target), 6 SECONDS)
 
 /mob/living/simple_animal/bot/secbot/proc/handcuff_target(mob/living/carbon/current_target)

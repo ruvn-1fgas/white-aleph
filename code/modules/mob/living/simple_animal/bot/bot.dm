@@ -18,7 +18,7 @@
 	verb_say = "заключает"
 	verb_ask = "спрашивает"
 	verb_exclaim = "высказывает"
-	verb_yell = "alarms"
+	verb_yell = "восклицает"
 	initial_language_holder = /datum/language_holder/synthetic
 	bubble_icon = "machine"
 	speech_span = SPAN_ROBOT
@@ -242,16 +242,16 @@
 		return
 	if (user)
 		log_combat(user, src, "изъят из-под [initial(src.name)] контроля.")
-	to_chat(src, span_warning("Ты чувствуешь как исчезаешь, когда твоя личностная матрица перезагружается!"))
+	to_chat(src, span_warning("Чувствую как моё сознание угасает когда личностная матрица перезагружается!"))
 	ghostize(can_reenter_corpse = FALSE)
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
-	speak("Personality matrix reset!")
+	speak("Личностная матрица сброшена!")
 	key = null
 
 /// Returns true if this mob can be controlled
 /mob/living/simple_animal/bot/proc/check_possession(mob/potential_possessor)
 	if (!can_be_possessed)
-		to_chat(potential_possessor, span_warning("Заглузка личностей для бота была отключена!"))
+		to_chat(potential_possessor, span_warning("Загрузка личностей для бота была отключена!"))
 	return can_be_possessed
 
 /// Fired after something takes control of this mob
@@ -491,7 +491,7 @@
 			balloon_alert(user, "извлекаю ПИИ...")
 			if(!do_after(user, 3 SECONDS, target = src) || !paicard)
 				return
-			user.visible_message(span_notice("[user] использует [attacking_item] чтобы вытащить [paicard] из [initial(src.name)]!"),span_notice("Ты вытаскиваешь [paicard] из [initial(src.name)] с помощью [attacking_item]."))
+			user.visible_message(span_notice("[user] использую [attacking_item] чтобы вытащить [paicard] из [initial(src.name)]!"),span_notice("Вытаскиваю [paicard] из [initial(src.name)] с помощью [attacking_item]."))
 			ejectpai(user)
 		return
 	return ..()
@@ -521,7 +521,7 @@
 	new /obj/effect/temp_visual/emp(loc)
 	if(paicard)
 		paicard.emp_act(severity)
-		src.visible_message(span_notice("[paicard] вылетает из [initial(src.name)]!"), span_warning("Вас насильно извлекли из [initial(src.name)]!"))
+		src.visible_message(span_notice("[paicard] вылетает из [initial(src.name)]!"), span_warning("Меня насильно извлекли из [initial(src.name)]!"))
 		ejectpai()
 
 	if (QDELETED(src))
@@ -725,7 +725,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 		access_card.set_access(REGION_ACCESS_ALL_STATION) //Give the bot all-access while under the AI's command.
 		if(client)
 			reset_access_timer_id = addtimer(CALLBACK (src, PROC_REF(bot_reset)), 60 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE) //if the bot is player controlled, they get the extra access for a limited time
-			to_chat(src, span_notice("[span_big("Точка назначения установлена как: [icon2html(calling_ai, src)] <b>[caller]</b>. Иду к <b>[end_area]</b>.")]<br>[path.len-1] метров до точки назначения. Тебе будет предоставлен дополнительный доступ в отделы ещё на 60 секунд."))
+			to_chat(src, span_notice("[span_big("Точка назначения установлена как: [icon2html(calling_ai, src)] <b>[caller]</b>. Иду к <b>[end_area]</b>.")]<br>[path.len-1] метров до точки назначения. Дополнительный доступ в отделы будет предоставлен ещё на 60 секунд."))
 		if(message)
 			to_chat(calling_ai, span_notice("[icon2html(src, calling_ai)] [name] вызван в [end_area]. [path.len-1] метров до точки назначения."))
 		pathset = TRUE
@@ -1092,9 +1092,9 @@ Pass a positive integer as an argument to override a bot's default speed.
 		paicard.pai.fold_in()
 	copy_languages(paicard.pai, source_override = LANGUAGE_PAI)
 	set_active_language(paicard.pai.get_selected_language())
-	user.visible_message(span_notice("[user] вставляет [card] в [src]!"), span_notice("Ты вставляешь [card] в [src]."))
+	user.visible_message(span_notice("[user] вставляет [card] в [src]!"), span_notice("Вставляю [card] в [src]."))
 	paicard.pai.mind.transfer_to(src)
-	to_chat(src, span_notice("Ты чувствуешь, как меняется твоя форма, когда тебя загружают в [src]."))
+	to_chat(src, span_notice("Чувствую, как меняется форма когда меня загружают в [src]."))
 	name = paicard.pai.name
 	faction = user.faction.Copy()
 	log_combat(user, paicard.pai, "загружен в [initial(src.name)],")
@@ -1123,7 +1123,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 	else
 		log_combat(src, paicard.pai, "извлечён")
 	if(announce)
-		to_chat(paicard.pai, span_notice("Ты чувствуешь что теряешь контроль когда [paicard] извлекается из [initial(src.name)]."))
+		to_chat(paicard.pai, span_notice("Чувствую, что теряю контроль когда [paicard] извлекается из [initial(src.name)]."))
 	paicard = null
 	name = initial(src.name)
 	faction = initial(faction)

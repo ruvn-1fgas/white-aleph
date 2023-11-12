@@ -97,7 +97,7 @@
 
 	current_target.visible_message(
 		span_danger("[src] ХОНКает [current_target]!"), \
-		span_userdanger("[src] ХОНКает тебя!"), \
+		span_userdanger("[src] ХОНКает меня!"), \
 	)
 
 	target_lastloc = target.loc

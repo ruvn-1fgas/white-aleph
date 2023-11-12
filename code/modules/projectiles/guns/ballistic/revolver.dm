@@ -56,7 +56,7 @@
 
 
 /obj/item/gun/ballistic/revolver/verb/spin()
-	set name = "Вращает барабан"
+	set name = "Вращаю барабан"
 	set category = "Object"
 	set desc = "Клик чтобы прокрутить барабан."
 
@@ -71,7 +71,7 @@
 
 	if(do_spin())
 		playsound(usr, SFX_REVOLVER_SPIN, 30, FALSE)
-		usr.visible_message(span_notice("[usr] вращает [src] барабан."), span_notice("Ты вращаешь [src] барабан."))
+		usr.visible_message(span_notice("[usr] вращает барабан [src]."), span_notice("Вращаю барабан [src]."))
 	else
 		verbs -= /obj/item/gun/ballistic/revolver/verb/spin
 
@@ -177,7 +177,7 @@
 
 /obj/item/gun/ballistic/revolver/russian
 	name = "Русский револьвер"
-	desc = "Револьвер российского производства, предназначенный для застольных игр. Использует патроны калибра .357 и имеет механизм, требующий перед каждым взведением курка досылать патрон в патронник."
+	desc = "Револьвер российского производства, предназначенный для застольных игр. Имеет механизм, требующий перед каждым взведением курка досылать патрон в патронник. Использует патроны калибра .357."
 	icon_state = "russianrevolver"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rus357
 	var/spun = FALSE
@@ -223,14 +223,14 @@
 	if(target != user)
 		playsound(src, dry_fire_sound, 30, TRUE)
 		user.visible_message(
-			span_danger("[user.name] пытается выстрелить [src] в это же время, но выставляет себя посмешищем."), \
-			span_danger(" [src] специальный механизм не даёт возможности стрелять в кого либо, только в себя!"))
+			span_danger("[user.name] пытается выстрелить из [src] в это же время, но выставляет себя посмешищем."), \
+			span_danger(" [src] специальный механизм не даёт возможности стрелять в кого-либо, только в себя!"))
 		return
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!spun)
-			to_chat(user, span_warning("Следует сперва прокрутить [src] барабан!"))
+			to_chat(user, span_warning("Следует сперва прокрутить барабан [src]!"))
 			return
 
 		spun = FALSE
@@ -258,7 +258,7 @@
 				if(is_target_face)
 					shoot_self(user, affecting)
 				else
-					user.visible_message(span_danger("[user.name] трусливо стреляет [src] в [user.p_their()] [affecting.name]!"), span_userdanger("Ты трусливо стреляешь [src] в своё [affecting.name]!"), span_hear("Ты слышишь выстрел!"))
+					user.visible_message(span_danger("[user.name] трусливо стреляет [src] в [user.p_their()] [affecting.name]!"), span_userdanger("Трусливо стреляю [src] в своё [affecting.name]!"), span_hear("Слышу выстрел!"))
 				chambered = null
 				user.add_mood_event("russian_roulette_lose", /datum/mood_event/russian_roulette_lose)
 				return
@@ -271,11 +271,11 @@
 
 /obj/item/gun/ballistic/revolver/russian/proc/shoot_self(mob/living/carbon/human/user, affecting = BODY_ZONE_HEAD)
 	user.apply_damage(300, BRUTE, affecting)
-	user.visible_message(span_danger("[user.name] стреляет [src] в [user.p_their()] голову!"), span_userdanger("Ты стреляешь [src] в свою голову!"), span_hear("Ты слышишь выстрел!"))
+	user.visible_message(span_danger("[user.name] стреляет из [src] в [user.p_their()] голову!"), span_userdanger("Стреляю из [src] в свою голову!"), span_hear("Слышу выстрел!"))
 
 /obj/item/gun/ballistic/revolver/russian/soul
 	name = "проклятый Русский револьвер"
-	desc = "Чтобы сыграть с этим револьвером потребуется поставить свою душу на кон."
+	desc = "Чтобы сыграть в рулетку этим револьвером потребуется поставить свою душу на кон."
 
 /obj/item/gun/ballistic/revolver/russian/soul/shoot_self(mob/living/user)
 	. = ..()
@@ -301,7 +301,7 @@
 	if(HAS_TRAIT(user, TRAIT_CLUMSY) || is_clown_job(user.mind?.assigned_role))
 		return ..()
 	if(process_fire(user, user, FALSE, null, BODY_ZONE_HEAD))
-		user.visible_message(span_warning("[user] как-то умудряется выстрелить [user.p_them()] в лицо!"), span_userdanger("Каким-то образом ты стреляешь в своё лицо! Какого чёрта?!"))
+		user.visible_message(span_warning("[user] как-то умудряется выстрелить [user.p_them()] в лицо!"), span_userdanger("Каким-то образом я стреляю в своё лицо! Какого чёрта?!"))
 		user.emote("scream")
 		user.drop_all_held_items()
 		user.Paralyze(80)

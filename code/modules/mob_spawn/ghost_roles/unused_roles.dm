@@ -124,7 +124,7 @@
 	var/despawn = tgui_alert(usr, "Вернуться в криокапсулу? (Внимание, ваш персонаж будет удалён!)", null, list("Да", "Нет"))
 	if(despawn == "No" || !loc || !Adjacent(user))
 		return
-	user.visible_message(span_notice("[user.name] забирается назад в криокапсулу..."))
+	user.visible_message(span_notice("[user.name] забираюсь назад в криокапсулу..."))
 	qdel(user)
 
 /datum/outfit/cryobartender
@@ -160,13 +160,13 @@
 	var/message = ""
 	switch(wish)
 		if(1)
-			message = "<b>Ты хотел убить, и ты это сделал. Уже потерял счет их количеству и искра возбуждения, которая когда-то была в убийстве, погасла. Ты чувствуешь только сожаление.</b>"
+			message = "<b>Я хотел убить, и я это сделал. Уже давно потерял счет количеству убийств и та искра возбуждения, которая когда-то возникала в процессе убийства давно погасла. Я испытываю одно лишь сожаление.</b>"
 		if(2)
-			message = "<b>Ты желал нескончаемого богатства, но никакие деньги не стоили такого существования. Может быть, благотворительность сможет искупить грехи?</b>"
+			message = "<b>Я желал нескончаемого богатства, но никакие деньги не стоили такого существования. Может быть, благотворительность сможет искупить грехи?</b>"
 		if(3)
-			message = "<b>Всё, чего ты когда-либо желал - власть. Стоило ли власть изгнания из мира? Ты [gender == MALE ? "князь" : "княгиня"] тьмы, [gender == MALE ? "князь" : "княгиня"] тишины, и чувствуешь только раскаяние  .</b>"
+			message = "<b>Всё, чего когда-либо я желал - власть. Стоила ли власть изгнания из мира? Я [gender == MALE ? "князь" : "княгиня"] тьмы, [gender == MALE ? "князь" : "княгиня"] тишины, и чувствую только раскаяние  .</b>"
 		if(4)
-			message = "<b>Ты желал бессмертия, когда твои друзья умирали ради тебя. Вне зависимости от того, сколько раз ты бросишься в лаву, через несколько дней ты снова просыпаешься в этой комнате. Спасения нет.</b>"
+			message = "<b>Я желал бессмертия, когда мои друзья умирали ради моих целей. Вне зависимости от того, сколько раз я брошусь в лаву, через несколько дней всё равно проснусь в этой комнате. Спасения нет.</b>"
 	to_chat(new_spawn, "<span class='infoplain'>[message]</span>")
 
 /obj/effect/mob_spawn/ghost_role/human/nanotrasensoldier
@@ -176,7 +176,7 @@
 	faction = list(FACTION_NANOTRASEN_PRIVATE)
 	prompt_name = "офицер службы безопасности"
 	you_are_text = "Вы офицер службы безопасности Нанотрейзен!"
-	flavour_text = "Если у высшего командования есть для тебя задание, лучше всего ему следовать. Если нет - смерть Синдикату!"
+	flavour_text = "Если у высшего командования есть для меня задание, лучше всего ему следовать. Если нет - смерть Синдикату!"
 	outfit = /datum/outfit/nanotrasensoldier
 
 /obj/effect/mob_spawn/ghost_role/human/commander
@@ -185,7 +185,7 @@
 	icon_state = "sleeper"
 	prompt_name = "командующий нанотрейзен"
 	you_are_text = "Вы командующий Нанотрейзен!"
-	flavour_text = "Верхушка цепи командования Нанотрейзен. Вас следует уважать как можно сильнее!"
+	flavour_text = "Верхушка цепи командования Нанотрейзен. Меня следует уважать как можно сильнее!"
 	outfit = /datum/outfit/nanotrasencommander
 
 //space doctor, a rat with cancer, and bessie from an old removed lavaland ruin.
@@ -196,7 +196,7 @@
 	icon_state = "sleeper"
 	prompt_name = "космический Айболит"
 	you_are_text = "Ты - космический Айболит!"
-	flavour_text = "Твоя работа - хотя скорее призвание - заботиться и лечить всех, кто в нужде."
+	flavour_text = "Моя работа - хотя скорее призвание - заботиться и лечить всех, кто в нужде."
 	outfit = /datum/outfit/job/doctor
 	spawner_job_path = /datum/job/space_doctor
 
@@ -212,7 +212,7 @@
 	name = "sleeper"
 	mob_type = /mob/living/basic/mouse
 	prompt_name = "мыш"
-	you_are_text = "Вы - мыш!"
+	you_are_text = "Я - мыш!"
 	flavour_text = "Ммм...! Пи-пи, пидрила!"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
@@ -222,7 +222,7 @@
 	mob_name = "Бурёнка"
 	mob_type = /mob/living/basic/cow
 	prompt_name = "коровка"
-	you_are_text = "Вы коровка!"
+	you_are_text = "Я коровка!"
 	flavour_text = "Пожуй немного травы!"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"

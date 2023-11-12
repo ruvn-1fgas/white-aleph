@@ -158,17 +158,17 @@
 /// Medibots - Healing people
 #define BOT_HEALING "Лечу"
 /// MULEbot - Moving to deliver
-#define BOT_DELIVER "Качусь к месту доставки"
+#define BOT_DELIVER "Двигаюсь к месту доставки"
 /// MULEbot - Returning to home
-#define BOT_GO_HOME "Перехожу к рабочему месту"
+#define BOT_GO_HOME "Двигаюсь к рабочему месту"
 /// MULEbot - Blocked
-#define BOT_BLOCKED "Нет Маршрута"
+#define BOT_BLOCKED "Нет маршрута"
 /// MULEbot - Computing navigation
 #define BOT_NAV "Невозможно достигнуть заданной точки"
 /// MULEbot - Waiting for nav computation
 #define BOT_WAIT_FOR_NAV "Вычисляю маршрут"
 /// MULEbot - No destination beacon found (or no route)
-#define BOT_NO_ROUTE "Иду на стартовую позицию"
+#define BOT_NO_ROUTE "Двигаюсь на стартовую позицию"
 
 //Secbot and ED209 judgement criteria bitflag values
 #define JUDGE_EMAGGED (1<<0)
@@ -247,11 +247,11 @@ DEFINE_BITFIELD(janitor_mode_flags, list(
 #define FIREBOT_VOICED_STOP_DROP "Стой, падай и катайся!"
 #define FIREBOT_VOICED_EXTINGUISHING "Тушу пламя!"
 #define FIREBOT_VOICED_NO_FIRES "Пламени не обнаружено."
-#define FIREBOT_VOICED_ONLY_YOU "Только вы можете предотвратить пожары."
+#define FIREBOT_VOICED_ONLY_YOU "Только Вы можете предотвратить пожары."
 #define FIREBOT_VOICED_TEMPERATURE_NOMINAL "Температура в порядке."
 #define FIREBOT_VOICED_KEEP_COOL "Будь хладнокровным."
 
-#define HYGIENEBOT_VOICED_UNHYGIENIC "Грязнуля обнаружен. Пожалуйста, постойте смирно, чтобы я тебя очистил."
+#define HYGIENEBOT_VOICED_UNHYGIENIC "Грязнуля обнаружен. Пожалуйста, постойте смирно, чтобы я вас очистил."
 #define HYGIENEBOT_VOICED_ENJOY_DAY "Наслаждайся своим чистым днём!"
 #define HYGIENEBOT_VOICED_THREAT_AIRLOCK "Либо перестань бежать, либо я выковыряю твой труп из шлюза."
 #define HYGIENEBOT_VOICED_FOUL_SMELL "Вернись сюда, вонючий ублюдок."
@@ -279,7 +279,7 @@ DEFINE_BITFIELD(janitor_mode_flags, list(
 #define MEDIBOT_VOICED_ALWAYS_A_CATCH "There's always a catch, and I'm the best there is."
 #define MEDIBOT_VOICED_LIKE_FLIES "Что это за медбей? Все дохнут как мухи."
 #define MEDIBOT_VOICED_SUFFER "Зачем мы здесь? Чтобы страдать?"
-#define MEDIBOT_VOICED_FUCK_YOU	"Пошёл ты нахуй."
+#define MEDIBOT_VOICED_FUCK_YOU	"Пошёл ты..."
 #define MEDIBOT_VOICED_NOT_A_GAME "Выключи компьютер. Это не игра."
 #define MEDIBOT_VOICED_IM_DIFFERENT	"Я особенный!"
 #define MEDIBOT_VOICED_FOURTH_WALL "Закрой Dreamseeker.exe сейчас же!"
