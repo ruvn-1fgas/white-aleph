@@ -77,7 +77,7 @@
 		return
 
 	if(brewing)
-		. += span_warning("\The [src] is brewing.")
+		. += span_warning(" [src] is brewing.")
 		return
 
 	if(panel_open)
@@ -85,7 +85,7 @@
 		return
 
 	if(coffeepot || cartridge)
-		. += span_notice("\The [src] contains:")
+		. += span_notice(" [src] contains:")
 		if(coffeepot)
 			. += span_notice("- \A [coffeepot].")
 		if(cartridge)
@@ -93,7 +93,7 @@
 		return
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
-		. += "[span_notice("The status display reads:")]\n"+\
+		. += "[span_notice("Дисплей:")]\n"+\
 		span_notice("- Brewing coffee at <b>[speed*100]%</b>.")
 		if(coffeepot)
 			for(var/datum/reagent/consumable/cawfee as anything in coffeepot.reagents.reagent_list)

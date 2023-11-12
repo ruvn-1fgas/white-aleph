@@ -7,16 +7,16 @@
 #define TANK_REMOVING 1
 
 /obj/item/melee/powerfist
-	name = "power-fist"
-	desc = "A metal gauntlet with a piston-powered ram ontop for that extra 'ompfh' in your punch."
+	name = "силовой кулак"
+	desc = "Металлическая перчатка с поршневым тараном на вершине для дополнительной силы в вашем ударе."
 	icon = 'icons/obj/antags/syndicate_tools.dmi'
 	icon_state = "powerfist"
 	inhand_icon_state = "powerfist"
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
 	flags_1 = CONDUCT_1
-	attack_verb_continuous = list("whacks", "fists", "power-punches")
-	attack_verb_simple = list("whack", "fist", "power-punch")
+	attack_verb_continuous = list("вмазывает", "фистит", "очень сильно бьёт")
+	attack_verb_simple = list("вмазывает", "фистит", "очень сильно бьёт")
 	force = 20
 	throwforce = 10
 	throw_range = 7
@@ -79,32 +79,32 @@
 		return
 	var/obj/item/tank/internals/tank_to_insert = item_to_insert
 	if(tank_to_insert.volume <= 3)
-		to_chat(user, span_warning("\The [tank_to_insert] is too small for \the [src]."))
+		to_chat(user, span_warning(" [tank_to_insert] is too small for  [src]."))
 		return
 	update_tank(item_to_insert, TANK_INSERTING, user)
 
 /obj/item/melee/powerfist/proc/update_tank(obj/item/tank/internals/the_tank, removing = TANK_INSERTING, mob/living/carbon/human/user)
 	if(removing)
 		if(!tank)
-			to_chat(user, span_notice("\The [src] currently has no tank attached to it."))
+			to_chat(user, span_notice(" [src] currently has no tank attached to it."))
 			return
-		to_chat(user, span_notice("You detach \the [the_tank] from \the [src]."))
+		to_chat(user, span_notice("You detach  [the_tank] from  [src]."))
 		tank.forceMove(get_turf(user))
 		user.put_in_hands(tank)
 		tank = null
 		return
 
 	if(tank)
-		to_chat(user, span_warning("\The [src] already has a tank."))
+		to_chat(user, span_warning(" [src] already has a tank."))
 		return
 	if(!user.transferItemToLoc(the_tank, src))
 		return
-	to_chat(user, span_notice("You hook \the [the_tank] up to \the [src]."))
+	to_chat(user, span_notice("You hook  [the_tank] up to  [src]."))
 	tank = the_tank
 
 /obj/item/melee/powerfist/attack(mob/living/target, mob/living/user)
 	if(!tank)
-		to_chat(user, span_warning("\The [src] can't operate without a source of gas!"))
+		to_chat(user, span_warning(" [src] can't operate without a source of gas!"))
 		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("You don't want to harm other living beings!"))
@@ -115,7 +115,7 @@
 
 	var/datum/gas_mixture/gas_used = tank.remove_air(gas_per_fist * fist_pressure_setting)
 	if(!gas_used)
-		to_chat(user, span_warning("\The [src]'s tank is empty!"))
+		to_chat(user, span_warning(" [src]'s tank is empty!"))
 		target.apply_damage((force / 5), BRUTE)
 		playsound(loc, 'sound/weapons/punch1.ogg', 50, TRUE)
 		target.visible_message(span_danger("[user]'s powerfist lets out a dull thunk as [user.p_they()] punch[user.p_es()] [target.name]!"), \
@@ -124,7 +124,7 @@
 
 	if(!molar_cmp_equals(gas_used.total_moles(), gas_per_fist * fist_pressure_setting))
 		our_turf.assume_air(gas_used)
-		to_chat(user, span_warning("\The [src]'s piston-ram lets out a weak hiss, it needs more gas!"))
+		to_chat(user, span_warning(" [src]'s piston-ram lets out a weak hiss, it needs more gas!"))
 		playsound(loc, 'sound/weapons/punch4.ogg', 50, TRUE)
 		target.apply_damage((force / 2), BRUTE)
 		target.visible_message(span_danger("[user]'s powerfist lets out a weak hiss as [user.p_they()] punch[user.p_es()] [target.name]!"), \

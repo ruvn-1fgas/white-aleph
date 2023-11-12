@@ -36,7 +36,7 @@
 /obj/item/folder/examine()
 	. = ..()
 	if(length(contents) && !contents_hidden)
-		. += span_notice("<b>Right-click</b> to remove [contents[1]].")
+		. += span_notice("<b>ПКМ</b> to remove [contents[1]].")
 
 /obj/item/folder/proc/rename(mob/user, obj/item/writing_instrument)
 	if(!user.can_write(writing_instrument))

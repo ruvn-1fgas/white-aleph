@@ -114,7 +114,7 @@
 		user.put_in_hands(new_barcode)
 	if(scanning_mode == SCAN_PRICE_TAG)
 		if(loc != user)
-			to_chat(user, span_warning("You must be holding \the [src] to continue!"))
+			to_chat(user, span_warning("You must be holding  [src] to continue!"))
 			return
 		var/chosen_price = tgui_input_number(user, "Set price", "Price", new_custom_price)
 		if(!chosen_price || QDELETED(user) || QDELETED(src) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH) || loc != user)
@@ -143,12 +143,12 @@
 	. += span_notice("It has [paper_count]/[max_paper_count] available barcodes. Refill with paper.")
 
 	if(scanning_mode == SCAN_SALES_TAG)
-		. += span_notice("Profit split on sale is currently set to [round(cut_multiplier*100)]%. <b>Alt-click</b> to change.")
+		. += span_notice("Profit split on sale is currently set to [round(cut_multiplier*100)]%. <b>Alt-клик</b> to change.")
 		if(payments_acc)
-			. += span_notice("<b>Ctrl-click</b> to clear the registered account.")
+			. += span_notice("<b>Ctrl-клик</b> to clear the registered account.")
 
 	if(scanning_mode == SCAN_PRICE_TAG)
-		. += span_notice("The current custom price is set to [new_custom_price] cr. <b>Right-click</b> to change.")
+		. += span_notice("The current custom price is set to [new_custom_price] cr. <b>ПКМ</b> to change.")
 
 /obj/item/universal_scanner/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	switch(scanning_mode)
@@ -233,7 +233,7 @@
 				cube.bounty_handler_account.bank_card_talk("Bank account for [price ? "<b>[price * cube.handler_tip]</b> credit " : ""]handling tip successfully registered.")
 
 				if(cube.bounty_holder_account != cube.bounty_handler_account) //No need to send a tracking update to the person scanning it
-					cube.bounty_holder_account.bank_card_talk("<b>[cube]</b> was scanned in \the <b>[get_area(cube)]</b> by <b>[scan_human] ([scan_human.job])</b>.")
+					cube.bounty_holder_account.bank_card_talk("<b>[cube]</b> was scanned in  <b>[get_area(cube)]</b> by <b>[scan_human] ([scan_human.job])</b>.")
 
 			else
 				to_chat(user, span_warning("Bank account not detected. Handling tip not registered."))

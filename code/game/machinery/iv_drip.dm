@@ -15,8 +15,8 @@
 
 ///Universal IV that can drain blood or feed reagents over a period of time from or to a replaceable container
 /obj/machinery/iv_drip
-	name = "\improper IV drip"
-	desc = "An IV drip with an advanced infusion pump that can both drain blood into and inject liquids from attached containers."
+	name = "капельница"
+	desc = "Капельница для внутривенного вливания с усовершенствованным инфузионным насосом, который позволяет как сливать кровь, так и вводить жидкости из прикрепленных контейнеров. Пакеты с кровью вводятся в ускоренном темпе. ПКМ для изменения скорости потока."
 	icon = 'icons/obj/medical/iv_drip.dmi'
 	icon_state = "iv_drip"
 	base_icon_state = "iv_drip"
@@ -166,7 +166,7 @@
 	if(!Adjacent(target) || !usr.can_perform_action(src))
 		return
 	if(!isliving(usr))
-		to_chat(usr, span_warning("You can't do that!"))
+		to_chat(usr, span_warning("Не могу это сделать!"))
 		return
 	if(!get_reagents())
 		to_chat(usr, span_warning("There's nothing attached to the IV drip!"))
@@ -379,7 +379,7 @@
 	. += span_notice("[attached ? attached : "Nothing"] is connected.")
 
 /datum/crafting_recipe/iv_drip
-	name = "IV drip"
+	name = "Капельница"
 	result = /obj/machinery/iv_drip
 	time = 30
 	tool_behaviors = list(TOOL_SCREWDRIVER)
@@ -391,8 +391,8 @@
 	category = CAT_CHEMISTRY
 
 /obj/machinery/iv_drip/saline
-	name = "saline drip"
-	desc = "An all-you-can-drip saline canister designed to supply a hospital without running out, with a scary looking pump rigged to inject saline into containers, but filling people directly might be a bad idea."
+	name = "бак с физраствором"
+	desc = "Канистра с физиологическим раствором, предназначенная для снабжения целого госпиталя, с устрашающего вида насосом, приспособленным для впрыскивания физиологического раствора в контейнеры. Подключать людей к нему напрямую явно не стоит."
 	icon_state = "saline"
 	base_icon_state = "saline"
 	density = TRUE
@@ -407,8 +407,8 @@
 	. = ..()
 
 /atom/movable/screen/alert/iv_connected
-	name = "IV Connected"
-	desc = "You have an IV connected to your arm. Remember to remove it or drag the IV stand with you before moving, or else it will rip out!"
+	name = "подключенная капельница"
+	desc = "Ко мне подключена капельница. Надо бы отключить её или взять с собой, иначе она вырвется!"
 	icon_state = ALERT_IV_CONNECTED
 
 #undef IV_TAKING

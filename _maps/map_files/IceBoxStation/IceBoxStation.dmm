@@ -51791,10 +51791,10 @@
 /area/station/maintenance/port/fore)
 "pMg" = (
 /obj/machinery/door/airlock/external{
-/obj/structure/fans/tiny,
 	name = "Labor Camp Shuttle Airlock";
 	req_access = list("brig")
 	},
+/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},

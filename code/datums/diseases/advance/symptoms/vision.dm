@@ -7,8 +7,8 @@
  * Bonus: Causes blindness.
 */
 /datum/symptom/visionloss
-	name = "Hyphema"
-	desc = "Sufferers exhibit dangerously low levels of frames per second in the eyes, leading to damage and eventually blindness."
+	name = "Гифема"
+	desc = "Вирус вызывает воспаление сетчатки, что приводит к повреждению глаз и, в конечном итоге, к слепоте."
 	illness = "Diluted Pupils"
 	stealth = -1
 	resistance = -4
@@ -21,8 +21,8 @@
 	symptom_delay_max = 80
 	required_organ = ORGAN_SLOT_EYES
 	threshold_descs = list(
-		"Resistance 12" = "Weakens extraocular muscles, eventually leading to complete detachment of the eyes.",
-		"Stealth 4" = "The symptom remains hidden until active.",
+		"Сопротивление 12" = "Ослабляет экстраокулярные мышцы, что в конечном итоге приводит к полному отслоению глаза.",
+		"Скрытность 4" = "Симптом остается скрытым до тех пор, пока не станет активным.",
 	)
 	/// At max stage: If FALSE, cause blindness. If TRUE, cause their eyes to fall out.
 	var/remove_eyes = FALSE
@@ -47,10 +47,9 @@
 	switch(source_disease.stage)
 		if(1, 2)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(infected_mob, span_warning("Your eyes itch."))
-
+				to_chat(infected_mob, span_warning("Глаза чешутся."))
 		if(3, 4)
-			to_chat(infected_mob, span_boldwarning("Your eyes burn!"))
+			to_chat(infected_mob, span_warning("<b>ГЛАЗА ГОРЯТ!</b>"))
 			infected_mob.set_eye_blur_if_lower(20 SECONDS)
 			eyes.apply_organ_damage(1)
 
@@ -65,15 +64,15 @@
 			if(prob(eyes.damage - eyes.low_threshold + 1))
 				if(remove_eyes)
 					infected_mob.visible_message(
-						span_warning("[infected_mob]'s eyes fall out of their sockets!"),
-						span_userdanger("Your eyes fall out of their sockets!"),
+						span_warning("Глаза [infected_mob] выпадают!"),
+						span_userdanger("Галаза выпали!"),
 					)
 					eyes.Remove(infected_mob)
 					eyes.forceMove(get_turf(infected_mob))
 
 				else if(!infected_mob.is_blind_from(EYE_DAMAGE))
-					to_chat(infected_mob, span_userdanger("You go blind!"))
+					to_chat(infected_mob, span_userdanger("Слепну!"))
 					eyes.apply_organ_damage(eyes.maxHealth)
 
 			else
-				to_chat(infected_mob, span_userdanger("Your eyes burn horrifically!"))
+				to_chat(infected_mob, span_userdanger("ГЛАЗА УЖАСНО БОЛЯТ!"))

@@ -41,7 +41,7 @@
 		)
 	if(hitting_projectile.suppressed != SUPPRESSED_VERY)
 		visible_message(
-			span_danger("[src] is hit by \a [hitting_projectile][damage_sustained ? "" : ", without leaving a mark"]!"),
+		span_danger("В <b>[src]</b> попадает <b>[hitting_projectile.name]</b>!") , null, null,
 			vision_distance = COMBAT_MESSAGE_RANGE,
 		)
 

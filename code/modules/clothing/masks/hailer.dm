@@ -143,7 +143,7 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 	if(!isliving(usr) || !can_use(usr) || !COOLDOWN_FINISHED(src, hailer_cooldown))
 		return
 	if(broken_hailer)
-		to_chat(usr, span_warning("\The [src]'s hailing system is broken."))
+		to_chat(usr, span_warning(" [src]'s hailing system is broken."))
 		return
 
 	// handle recent uses for overuse
@@ -155,12 +155,12 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 
 	switch(recent_uses)
 		if(3)
-			to_chat(usr, span_warning("\The [src] is starting to heat up."))
+			to_chat(usr, span_warning(" [src] is starting to heat up."))
 		if(4)
-			to_chat(usr, span_userdanger("\The [src] is heating up dangerously from overuse!"))
+			to_chat(usr, span_userdanger(" [src] is heating up dangerously from overuse!"))
 		if(5) // overload
 			broken_hailer = TRUE
-			to_chat(usr, span_userdanger("\The [src]'s power modulator overloads and breaks."))
+			to_chat(usr, span_userdanger(" [src]'s power modulator overloads and breaks."))
 			return
 
 	// select phrase to play

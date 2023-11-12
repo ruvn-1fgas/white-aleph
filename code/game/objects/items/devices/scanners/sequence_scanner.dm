@@ -1,12 +1,12 @@
 /obj/item/sequence_scanner
-	name = "genetic sequence scanner"
+	name = "анализатор ДНК"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gene"
 	inhand_icon_state = "healthanalyzer"
 	worn_icon_state = "healthanalyzer"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
-	desc = "A hand-held scanner for analyzing someones gene sequence on the fly. Use on a DNA console to update the internal database."
+	desc = "Позволяет проводить генетический анализ на лету. Если соединить это с консолью ДНК, то устройство будет получать новые данные о мутациях."
 	flags_1 = CONDUCT_1
 	item_flags = NOBLUDGEON
 	slot_flags = ITEM_SLOT_BELT
@@ -33,8 +33,8 @@
 	add_fingerprint(user)
 	//no scanning if its a husk or DNA-less Species
 	if (!HAS_TRAIT(target, TRAIT_GENELESS) && !HAS_TRAIT(target, TRAIT_BADDNA))
-		user.visible_message(span_notice("[user] analyzes [target]'s genetic sequence."))
-		balloon_alert(user, "sequence analyzed")
+		user.visible_message(span_notice("[user] анализирует геном [target].") , \
+							span_notice("Анализирую геном [target]."))
 		playsound(user.loc, 'sound/items/healthanalyzer.ogg', 50) // close enough
 		gene_scan(target, user)
 	else

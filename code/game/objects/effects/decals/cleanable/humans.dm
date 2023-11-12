@@ -1,6 +1,6 @@
 /obj/effect/decal/cleanable/blood
-	name = "blood"
-	desc = "It's red and gooey. Perhaps it's the chef's cooking?"
+	name = "кровь"
+	desc = "Красная и довольно густая. Это же наш повар готовил так?"
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "floor1"
 	random_icon_states = list("floor1", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7")
@@ -9,8 +9,8 @@
 	beauty = -100
 	clean_type = CLEAN_TYPE_BLOOD
 	var/should_dry = TRUE
-	var/dryname = "dried blood" //when the blood lasts long enough, it becomes dry and gets a new name
-	var/drydesc = "Looks like it's been here a while. Eew." //as above
+	var/dryname = "засохшая кровь" //when the blood lasts long enough, it becomes dry and gets a new name
+	var/drydesc = "Омерзительное зрелище. Фу." //as above
 	var/drytime = 0
 
 /obj/effect/decal/cleanable/blood/Initialize(mapload)
@@ -79,17 +79,17 @@
 	return isgroundlessturf(here_turf)
 
 /obj/effect/decal/cleanable/blood/tracks
-	icon_state = "tracks"
+	name = "следы"
 	desc = "They look like tracks left by wheels."
 	random_icon_states = null
 	beauty = -50
-	dryname = "dried tracks"
-	drydesc = "Some old bloody tracks left by wheels. Machines are evil, perhaps."
+	dryname = "высохшие следы"
+	drydesc = "Следы от колёс в виде крови. Машины очень злы, наверное."
 
 /obj/effect/decal/cleanable/trail_holder //not a child of blood on purpose
-	name = "blood"
+	name = "кровь"
 	icon = 'icons/effects/blood.dmi'
-	desc = "Your instincts say you shouldn't be following these."
+	desc = "Мои инстинкты говорят мне, что не стоит идти по этому следу."
 	beauty = -50
 	var/list/existing_dirs = list()
 
@@ -97,8 +97,8 @@
 	return TRUE
 
 /obj/effect/decal/cleanable/blood/gibs
-	name = "gibs"
-	desc = "They look bloody and gruesome."
+	name = "куча ошмёток"
+	desc = "Выглядят довольно вкусно, если бы это была карамель."
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
 	layer = LOW_OBJ_LAYER
@@ -106,8 +106,8 @@
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
 	mergeable_decal = FALSE
 
-	dryname = "rotting gibs"
-	drydesc = "They look bloody and gruesome while some terrible smell fills the air."
+	dryname = "гниющие ошмётки"
+	drydesc = "Выглядят довольно вкусно, если бы это была карамель и не было бы этого тошнотворного запаха."
 	decal_reagent = /datum/reagent/consumable/liquidgibs
 	reagent_amount = 5
 	///Information about the diseases our streaking spawns
@@ -200,13 +200,13 @@
 	random_icon_states = list("gibmid1", "gibmid2", "gibmid3")
 
 /obj/effect/decal/cleanable/blood/gibs/old
-	name = "old rotting gibs"
-	desc = "Space Jesus, why didn't anyone clean this up? They smell terrible."
+	name = "засохшие гнилые ошмётки"
+	desc = "Почему это никто не убрал до сих пор? Пахнет довольно неприятно."
 	icon_state = "gib1-old"
 	bloodiness = 0
 	should_dry = FALSE
-	dryname = "old rotting gibs"
-	drydesc = "Space Jesus, why didn't anyone clean this up? They smell terrible."
+	dryname = "засохшие гнилые ошмётки"
+	drydesc = "Почему это никто не убрал до сих пор? Пахнет довольно неприятно."
 
 /obj/effect/decal/cleanable/blood/gibs/old/Initialize(mapload, list/datum/disease/diseases)
 	. = ..()
@@ -216,14 +216,14 @@
 	dry()
 
 /obj/effect/decal/cleanable/blood/drip
-	name = "drips of blood"
-	desc = "It's red."
+	name = "капельки крови"
+	desc = "Красненькие."
 	icon_state = "drip5" //using drip5 since the others tend to blend in with pipes & wires.
 	random_icon_states = list("drip1","drip2","drip3","drip4","drip5")
 	bloodiness = 0
 	var/drips = 1
-	dryname = "drips of blood"
-	drydesc = "It's red."
+	dryname = "капельки крови"
+	drydesc = "Красненькие."
 
 /obj/effect/decal/cleanable/blood/drip/can_bloodcrawl_in()
 	return TRUE
@@ -231,8 +231,8 @@
 
 //BLOODY FOOTPRINTS
 /obj/effect/decal/cleanable/blood/footprints
-	name = "footprints"
-	desc = "WHOSE FOOTPRINTS ARE THESE?"
+	name = "кровавые следы"
+	desc = "ЧЬИ ЖЕ ЭТО СЛЕДЫ?"
 	icon = 'icons/effects/footprints.dmi'
 	icon_state = "blood1"
 	random_icon_states = null
@@ -246,8 +246,8 @@
 	/// List of species that have made footprints here.
 	var/list/species_types = list()
 
-	dryname = "dried footprints"
-	drydesc = "HMM... SOMEONE WAS HERE!"
+	dryname = "засохшие кровавые следы"
+	drydesc = "ХММ... КТО-ТО ТОЧНО ЗДЕСЬ ЕСТЬ!"
 
 /obj/effect/decal/cleanable/blood/footprints/Initialize(mapload)
 	. = ..()
@@ -305,7 +305,7 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 /obj/effect/decal/cleanable/blood/footprints/examine(mob/user)
 	. = ..()
 	if((shoe_types.len + species_types.len) > 0)
-		. += "You recognise the footprints as belonging to:"
+		. += "<hr>Хм, вероятно эти следы принадлежат:"
 		for(var/sole in shoe_types)
 			var/obj/item/clothing/item = sole
 			var/article = initial(item.gender) == PLURAL ? "Some" : "A"
@@ -313,13 +313,13 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 		for(var/species in species_types)
 			// god help me
 			if(species == "unknown")
-				. += "Some <B>feet</B>."
+				. += "<B>кому-то</B>."
 			else if(species == SPECIES_MONKEY)
-				. += "[icon2html('icons/mob/human/human.dmi', user, "monkey")] Some <B>monkey feet</B>."
+				. += "[icon2html('icons/mob/human/human.dmi', user, "monkey")] <B>мартышке</B>."
 			else if(species == SPECIES_HUMAN)
-				. += "[icon2html('icons/mob/human/bodyparts.dmi', user, "default_human_l_leg")] Some <B>human feet</B>."
+				. += "[icon2html('icons/mob/human/bodyparts.dmi', user, "default_human_l_leg")] <B>человеку</B>."
 			else
-				. += "[icon2html('icons/mob/human/bodyparts.dmi', user, "[species]_l_leg")] Some <B>[species] feet</B>."
+				. += "[icon2html('icons/mob/human/bodyparts.dmi', user, "[species]_l_leg")] <B>мутанту типа [species]</B>."
 
 /obj/effect/decal/cleanable/blood/footprints/replace_decal(obj/effect/decal/cleanable/C)
 	if(blood_state != C.blood_state) //We only replace footprints of the same type as us
@@ -332,7 +332,7 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 	return FALSE
 
 /obj/effect/decal/cleanable/blood/hitsplatter
-	name = "blood splatter"
+	name = "кровь"
 	pass_flags = PASSTABLE | PASSGRILLE
 	icon_state = "hitsplatter1"
 	random_icon_states = list("hitsplatter1", "hitsplatter2", "hitsplatter3")

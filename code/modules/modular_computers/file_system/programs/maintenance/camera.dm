@@ -57,4 +57,4 @@
 				return
 			internal_camera.printpicture(user, internal_picture)
 			computer.stored_paper--
-			computer.visible_message(span_notice("\The [computer] prints out a paper."))
+			computer.visible_message(span_notice(" [computer] prints out a paper."))

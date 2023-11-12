@@ -1,6 +1,6 @@
 /obj/effect/anomaly/ectoplasm
-	name = "ectoplasm anomaly"
-	desc = "It looks like the souls of the damned are trying to break into the realm of the living again. How upsetting."
+	name = "эктоплазменная аномалия"
+	desc = "Похоже, души проклятых снова пытаются проникнуть в царство живых. Как неприятно."
 	icon_state = "ectoplasm"
 	aSignal = /obj/item/assembly/signaler/anomaly/ectoplasm
 	lifespan = ANOMALY_COUNTDOWN_TIMER + 2 SECONDS //This one takes slightly longer, because it can run away.
@@ -22,18 +22,18 @@
 	. = ..()
 
 	if(isobserver(user))
-		. += span_info("Orbiting this anomaly will increase the size and intensity of its effects.")
+		. += span_info("Орбитирование вокруг этой аномалии увеличит её размер и интенсивность.")
 
 /obj/effect/anomaly/ectoplasm/examine_more(mob/user)
 	. = ..()
 
 	switch(effect_power)
 		if(0 to 25)
-			. += span_notice("The space around the anomaly faintly resonates. It doesn't seem very powerful at the moment.")
+			. += span_notice("Пространство вокруг аномалии слабо резонирует. На данный момент она не кажется очень мощной.")
 		if(26 to 49)
-			. += span_notice("The space around the anomaly seems to vibrate, letting out a noise that sounds like ghastly moaning. Someone should probably do something about that.")
+			. += span_notice("Пространство вокруг аномалии вибрирует, издавая звук, похожий на пронзительный стон. Кто-то должен что-то с этим сделать.")
 		if(50 to 100)
-			. += span_alert("The anomaly pulsates heavily, about to burst with unearthly energy. This can't be good.")
+			. += span_alert("Аномалия сильно пульсирует, готовая взорваться неземной энергией. Это не может быть хорошим.")
 
 /obj/effect/anomaly/ectoplasm/anomalyEffect(seconds_per_tick)
 	. = ..()
@@ -85,7 +85,7 @@
 				var/mob/living/carbon/human/mob_to_infect = impacted_thing
 				mob_to_infect.ForceContractDisease(new /datum/disease/revblight(), FALSE, TRUE)
 				new /obj/effect/temp_visual/revenant(get_turf(mob_to_infect))
-				to_chat(mob_to_infect, span_revenminor("A cacophony of ghostly wailing floods your ears for a moment. The noise subsides, but a distant whispering continues echoing inside of your head..."))
+				to_chat(mob_to_infect, span_revenminor("Ваши уши наполняются криками проклятых. Шум стихает, но в голове продолжает раздаваться шепот..."))
 
 			if(istype(impacted_thing, /obj/structure/window))
 				var/obj/structure/window/window_to_damage = impacted_thing
@@ -104,8 +104,7 @@
 
 		new /obj/structure/ghost_portal(get_turf(src), candidate_list)
 
-		priority_announce("Anomaly has reached critical mass. Ectoplasmic outburst detected.", "Anomaly Alert")
-
+		priority_announce("Аномалия достигла критической массы. Обнаружен эктоплазменный выброс.", "Аномалия")
 /**
  * Manages updating the sprite for the anomaly based on how many orbiters it has.
  *
@@ -128,8 +127,8 @@
 // Can be destroyed early to the same effect.
 
 /obj/structure/ghost_portal
-	name = "Spooky Portal"
-	desc = "A portal between our dimension and who-knows-where? It's emitting an absolutely ungodly wailing sound."
+	name = "Пугающий портал"
+	desc = "Портал между нашим измерением и кто знает где? Он издает абсолютно небожественный вой."
 	icon = 'icons/obj/anomaly.dmi'
 	icon_state = "anom"
 	anchored = TRUE

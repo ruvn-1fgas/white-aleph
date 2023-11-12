@@ -6,4 +6,4 @@
 	. = ..()
 	immerse_player(target)
 	SEND_SOUND(target, sound('sound/voice/roleplay.ogg'))
-	to_chat(target, span_boldnotice("Please roleplay appropriately, okay?"))
+	to_chat(target, span_boldnotice("Постарайся лучше отыгрывать, окей?"))

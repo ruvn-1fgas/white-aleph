@@ -13,8 +13,8 @@
  * movespeed controlled by cooldown macros. Can attach obj/item/target, obj/item/training_toolbox, and can buckle mobs to this.
  */
 /obj/structure/training_machine
-	name = "AURUMILL-Brand MkII. Personnel Training Machine"
-	desc = "Used for combat training simulations. Accepts standard training targets. A pair of buckling straps are attached."
+	name = "тренировочный бот"
+	desc = "Используется для моделирования боевой подготовки. Может удерживать стандартные тренировочные мишени. К нему прикреплена пара ремней с пряжками."
 	icon = 'icons/obj/machines/sec.dmi'
 	icon_state = "training_machine"
 	can_buckle = TRUE
@@ -83,7 +83,7 @@
 	if(.)
 		return
 	if (moving && obj_flags & EMAGGED)
-		visible_message(span_warning("The [src]'s control panel fizzles slightly."))
+		visible_message(span_warning("Панель управления бота искрит и дымиться."))
 		return
 	switch(action)
 		if("toggle")
@@ -113,10 +113,10 @@
 	if (!istype(target, /obj/item/training_toolbox) && !istype(target, /obj/item/target))
 		return ..()
 	if (obj_flags & EMAGGED)
-		to_chat(user, span_warning("The toolbox is somehow stuck on! It won't budge!"))
+		to_chat(user, span_warning("Ящик застрял, кажетсяего не вытащить!"))
 		return
 	attach_item(target)
-	to_chat(user, span_notice("You attach \the [attached_item] to the training device."))
+	to_chat(user, span_notice("Присоединяю [attached_item] к тренировочному боту."))
 	playsound(src, SFX_RUSTLE, 50, TRUE)
 
 /**
@@ -184,9 +184,9 @@
 	if (!attached_item)
 		return
 	if (obj_flags & EMAGGED)
-		to_chat(user, span_warning("The toolbox is somehow stuck on! It won't budge!"))
+		to_chat(user, span_warning("Ящик застрял и не извлекается!"))
 		return
-	to_chat(user, span_notice("You remove \the [attached_item] from the training device."))
+	to_chat(user, span_notice("Извлекаю [attached_item] из захвата бота."))
 	remove_attached_item(user)
 	playsound(src, SFX_RUSTLE, 50, TRUE)
 
@@ -206,7 +206,7 @@
  * Arguments
  * * Message - the message the machine says when stopping
  */
-/obj/structure/training_machine/proc/stop_moving(message = "Ending training simulation.")
+/obj/structure/training_machine/proc/stop_moving(message = "Завершение боевой симуляции.")
 	moving = FALSE
 	starting_turf = null
 	say(message)
@@ -221,7 +221,7 @@
 /obj/structure/training_machine/proc/start_moving()
 	moving = TRUE
 	starting_turf = get_turf(src)
-	say("Beginning training simulation.")
+	say("Начало боевой симуляции. К БОЮ!")
 	playsound(src,'sound/machines/triple_beep.ogg',50,FALSE)
 	START_PROCESSING(SSfastprocess, src)
 
@@ -244,7 +244,7 @@
 	if (!target_position)
 		target_position = find_target_position()
 		if (!target_position)
-			stop_moving("ERROR! Cannot calculate suitable movement path.")
+			stop_moving("ОШИБКА! Сбой логистики перемещения!")
 	var/turf/nextStep = get_step_towards(src, target_position)
 	if (!Move(nextStep, get_dir(src, nextStep)))
 		target_position = null //We couldn't move towards the target turf, so find a new target turf
@@ -321,7 +321,7 @@
 	obj_flags |= EMAGGED
 	remove_attached_item(throwing = TRUE) //Toss out the old attached item!
 	attach_item(new /obj/item/storage/toolbox/syndicate(src))
-	to_chat(user, span_warning("You override the training machine's safety protocols, and activate its realistic combat feature. A toolbox pops out of a slot on the top."))
+	to_chat(user, span_warning("Переопределяю протоколы безопасности тренажера и активирую его реальную боевую функцию. Из прорези в верхней части выскакивает ящик с инструментами."))
 	playsound(src, 'sound/machines/click.ogg', 50, TRUE)
 	add_overlay("evil_trainer")
 	return TRUE
@@ -330,12 +330,12 @@
 	. = ..()
 	var/has_buckled_mob = has_buckled_mobs()
 	if(has_buckled_mob)
-		. += span_notice("<b>Alt-Click to unbuckle \the [buckled_mobs[1]]</b>")
+		. += span_notice("<b>Alt-клик для снятия [buckled_mobs[1]]</b>")
 	if (obj_flags & EMAGGED)
-		. += span_warning("It has a dangerous-looking toolbox attached to it, and the control panel is smoking sightly...")
+		. += span_warning("К нему прикреплен опасно выглядящий набор инструментов, а панель управления слегка дымится...")
 	else if (!has_buckled_mob && attached_item) //Can't removed the syndicate toolbox!
-		. += span_notice("<b>Alt-Click to remove \the [attached_item]</b>")
-	. += span_notice("<b>Click to open control interface.</b>")
+		. += span_notice("<b>Alt-клик для изъятия [attached_item]</b>")
+	. += span_notice("<b>Клик для открытия панели управления.</b>")
 
 /**
  * Device that simply counts the number of times you've hit a mob or target with. Looks like a toolbox but isn't.

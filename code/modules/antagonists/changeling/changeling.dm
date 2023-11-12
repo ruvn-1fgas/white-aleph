@@ -170,11 +170,11 @@
 /datum/antagonist/changeling/proc/generate_name()
 	var/honorific
 	if(owner.current.gender == FEMALE)
-		honorific = "Ms."
+		honorific = "Мисс."
 	else if(owner.current.gender == MALE)
-		honorific = "Mr."
+		honorific = "Мистер."
 	else
-		honorific = "Mx."
+		honorific = "Мистер."
 
 	if(!possible_changeling_IDs)
 		possible_changeling_IDs = GLOB.greek_letters.Copy()
@@ -335,6 +335,10 @@
 	if(chosen_sting)
 		chosen_sting.unset_sting(owner.current)
 
+	for(var/datum/action/changeling/p in purchased_powers)
+		purchased_powers -= p
+		p.Remove(owner.current)
+
 	QDEL_LIST_ASSOC_VAL(purchased_powers)
 	if(include_innate)
 		QDEL_LIST(innate_powers)
@@ -343,6 +347,7 @@
 	chem_charges = min(chem_charges, total_chem_storage)
 	chem_recharge_rate = initial(chem_recharge_rate)
 	chem_recharge_slowdown = initial(chem_recharge_slowdown)
+
 
 /*
  * For resetting all of the changeling's action buttons. (IE, re-granting them all.)
@@ -357,44 +362,55 @@
 		if(istype(power))
 			power.Grant(owner.current)
 
+
+/datum/antagonist/changeling/proc/has_sting(datum/action/changeling/power)
+	for(var/P in purchased_powers)
+		var/datum/action/changeling/otherpower = P
+		if(initial(power.name) == otherpower.name)
+			return TRUE
+	return FALSE
+
 /*
  * The act of purchasing a certain power for a changeling.
  *
  * [sting_path] - the power that's being purchased / evolved.
  */
-/datum/antagonist/changeling/proc/purchase_power(datum/action/changeling/sting_path)
-	if(!ispath(sting_path, /datum/action/changeling))
-		CRASH("Changeling purchase_power attempted to purchase an invalid typepath! (got: [sting_path])")
+/datum/antagonist/changeling/proc/purchase_power(sting_name)
+	var/datum/action/changeling/power_path
 
-	if(purchased_powers[sting_path])
-		to_chat(owner.current, span_warning("We have already evolved this ability!"))
-		return FALSE
+	for(var/path in all_powers)
+		var/datum/action/changeling/S = path
+		if(initial(S.name) == sting_name)
+			power_path = new path
+			break
 
-	if(genetic_points < initial(sting_path.dna_cost))
-		to_chat(owner.current, span_warning("We have reached our capacity for abilities!"))
-		return FALSE
+	if(!power_path)
+		to_chat(owner.current, "Что-то сломалось! Нажми F1 и опиши проблему.")
+		return
 
-	if(absorbed_count < initial(sting_path.req_dna))
-		to_chat(owner.current, span_warning("We lack the DNA to evolve this ability!"))
-		return FALSE
+	if(absorbed_count < power_path.req_dna)
+		to_chat(owner.current, span_warning("У нас недостаточно энергии для развития этой способности!"))
+		return
 
-	if(true_absorbs < initial(sting_path.req_absorbs))
-		to_chat(owner.current, span_warning("We lack the absorbed DNA to evolve this ability!"))
-		return FALSE
+	if(has_sting(power_path))
+		to_chat(owner.current, span_warning("Мы уже развили эту способность!"))
+		return
 
-	if(initial(sting_path.dna_cost) < 0)
-		to_chat(owner.current, span_warning("We cannot evolve this ability!"))
-		return FALSE
+	if(power_path.dna_cost < 0)
+		to_chat(owner.current, span_warning("Мы не можем развить эту способность!"))
+		return
 
-	//To avoid potential exploits by buying new powers while in stasis, which clears your verblist. // Probably not a problem anymore, but whatever.
-	if(HAS_TRAIT(owner.current, TRAIT_DEATHCOMA))
-		to_chat(owner.current, span_warning("We lack the energy to evolve new abilities right now!"))
-		return FALSE
+	if(genetic_points < power_path.dna_cost)
+		to_chat(owner.current, span_warning("Мы достигли лимита наших способностей!"))
+		return
 
-	var/success = give_power(sting_path)
-	if(success)
-		genetic_points -= initial(sting_path.dna_cost)
-	return success
+	if(HAS_TRAIT(owner.current, TRAIT_DEATHCOMA))//To avoid potential exploits by buying new powers while in stasis, which clears your verblist.
+		to_chat(owner.current, span_warning("У нас недостаточно силы для развития этой способности сейчас!"))
+		return
+
+	genetic_points -= power_path.dna_cost
+	purchased_powers += power_path
+	power_path.on_purchase(owner.current)//Grant() is ran in this proc, see changeling_powers.dm
 
 /**
  * Gives a passed changeling power datum to the player
@@ -424,7 +440,7 @@
  */
 /datum/antagonist/changeling/proc/readapt()
 	if(!ishuman(owner.current) || ismonkey(owner.current))
-		to_chat(owner.current, span_warning("We can't remove our evolutions in this form!"))
+		to_chat(owner.current, span_warning("Мы не можем избавиться от наших способностей в этой форме!"))
 		return FALSE
 
 	if(HAS_TRAIT_FROM(owner.current, TRAIT_DEATHCOMA, CHANGELING_TRAIT))
@@ -432,10 +448,10 @@
 		return FALSE
 
 	if(!can_respec)
-		to_chat(owner.current, span_warning("You lack the power to readapt your evolutions!"))
+		to_chat(owner.current, span_warning("У нас недостаточно сил для переадаптирования!"))
 		return FALSE
 
-	to_chat(owner.current, span_notice("We have removed our evolutions from this form, and are now ready to readapt."))
+	to_chat(owner.current, span_notice("Мы избавились от способностей в этой форме, теперь мы готовы переадаптироваться."))
 	remove_changeling_powers()
 	can_respec = FALSE
 	SSblackbox.record_feedback("tally", "changeling_power_purchase", 1, "Readapt")
@@ -475,32 +491,32 @@
 		var/datum/changeling_profile/top_profile = stored_profiles[1]
 		if(top_profile.dna.is_same_as(user.dna) && stored_profiles.len > dna_max)
 			if(verbose)
-				to_chat(user, span_warning("We have reached our capacity to store genetic information! We must transform before absorbing more."))
+				to_chat(user, span_warning("Мы достигли максимума хранения запаса ДНК у нас! Мы должны трансформироваться перед поглощением новых генов."))
 			return FALSE
 
 	if(!target.has_dna())
 		if(verbose)
-			to_chat(user, span_warning("[target] is not compatible with our biology."))
+			to_chat(user, span_warning("<b>[target]</b> не подходит нашему биологическому типу."))
 		return FALSE
 	if(has_profile_with_dna(target.dna))
 		if(verbose)
-			to_chat(user, span_warning("We already have this DNA in storage!"))
+			to_chat(user, span_warning("Мы уже поглотили эту ДНК!"))
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_NO_DNA_COPY))
 		if(verbose)
-			to_chat(user, span_warning("[target] is not compatible with our biology."))
+			to_chat(user, span_warning("<b>[target]</b> не подходит нашему биологическому типу."))
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_BADDNA))
 		if(verbose)
-			to_chat(user, span_warning("[target]'s DNA is ruined beyond usability!"))
+			to_chat(user, span_warning("ДНК <b>[target]</b> разрушена и не подлежит восстановлению!"))
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_HUSK))
 		if(verbose)
-			to_chat(user, span_warning("[target]'s body is ruined beyond usability!"))
+			to_chat(user, span_warning("Тело <b>[target]</b> испорчено, геномов не извлечь!"))
 		return FALSE
 	if(!ishuman(target) || ismonkey(target))//Absorbing monkeys is entirely possible, but it can cause issues with transforming. That's what lesser form is for anyway!
 		if(verbose)
-			to_chat(user, span_warning("We could gain no benefit from absorbing a lesser creature."))
+			to_chat(user, span_warning("Мы не получим никакой пользы от поглощения данного существа."))
 		return FALSE
 
 	return TRUE
@@ -966,20 +982,25 @@
 		changeling_win = FALSE
 
 	parts += printplayer(owner)
-	parts += "<b>Genomes Extracted:</b> [absorbed_count]<br>"
+	parts += "<b>ДНК украдено:</b> [absorbed_count]"
+	parts += "<b>ID Генокрада:</b> [changelingID]."
+	parts += " "
+
 
 	if(objectives.len)
 		var/count = 1
 		for(var/datum/objective/objective in objectives)
-			if(!objective.check_completion())
+			if(objective.check_completion())
+				parts += "<b>Цель #[count]</b>: [objective.explanation_text] <span class='greentext'>Успех!</b></span>"
+			else
+				parts += "<b>Цель #[count]</b>: [objective.explanation_text] <span class='redtext'>Провал.</span>"
 				changeling_win = FALSE
-			parts += "<b>Objective #[count]</b>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			count++
 
 	if(changeling_win)
-		parts += span_greentext("The changeling was successful!")
+		parts += span_greentext("Генокрад успешен!")
 	else
-		parts += span_redtext("The changeling has failed.")
+		parts += span_redtext("Генокрад провален.")
 
 	return parts.Join("<br>")
 

@@ -1,4 +1,4 @@
-#define FLY_INFUSED_ORGAN_DESC "You have no idea what the hell this is, or how it manages to keep something alive in any capacity."
+#define FLY_INFUSED_ORGAN_DESC "Не представляю, как это работает, но оно работает."
 #define FLY_INFUSED_ORGAN_ICON pick("brain-x-d", "liver-x", "kidneys-x", "spinner-x", "lungs-x", "random_fly_1", "random_fly_2", "random_fly_3", "random_fly_4", "random_fly_5")
 
 ///bonus of the fly: you... are a flyperson now. sorry.
@@ -16,12 +16,12 @@
 	if(isflyperson(new_fly))
 		return
 	//okay you NEED to be a fly
-	to_chat(new_fly, span_danger("Too much fly DNA! Your skin begins to discolor into a horrible black as you become more fly than person!"))
+	to_chat(new_fly, span_danger("Слишком много ДНК мухи! Моя кожа приобретает ужасающе черный цвет с каждой секундой! Я превращаюсь в муху!"))
 	new_fly.set_species(/datum/species/fly)
 
 /obj/item/organ/internal/eyes/fly
-	name = "fly eyes"
-	desc = "These eyes seem to stare back no matter the direction you look at it from."
+	name = "глаза мухи"
+	desc = "Они всегда за тобой наблюдают."
 	eye_icon_state = "flyeyes"
 	icon_state = "eyeballs-fly"
 	flash_protect = FLASH_PROTECTION_HYPER_SENSITIVE
@@ -32,8 +32,8 @@
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fly)
 
 /obj/item/organ/internal/tongue/fly
-	name = "proboscis"
-	desc = "A freakish looking meat tube that apparently can take in liquids."
+	name = "хоботок"
+	desc = "Причудливо выглядящая мясная трубка."
 	icon = 'icons/obj/medical/organs/fly_organs.dmi'
 	say_mod = "buzzes"
 	taste_sensitivity = 25 // you eat vomit, this is a mercy
@@ -109,8 +109,8 @@
 	body.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE | MOB_VOMIT_HARM), lost_nutrition = 0, distance = 2, purge_ratio = 0.67)
 	playsound(get_turf(owner), 'sound/effects/splat.ogg', 50, TRUE)
 	body.visible_message(
-		span_danger("[body] vomits on the floor!"),
-		span_userdanger("You throw up on the floor!"),
+		span_danger("[body] блюет на пол!"),
+		span_userdanger("Меня вырвало на пол!"),
 	)
 	return ..()
 

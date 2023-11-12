@@ -4,11 +4,12 @@
 **/
 
 /obj/item/ai_module/core/freeformcore
-	name = "'Freeform' Core AI Module"
+	name = "основной модуль - \"Закон в Свободной Форме\""
+	desc = "Добавляет новый основной Закон."
 	laws = list("")
 
 /obj/item/ai_module/core/freeformcore/attack_self(mob/user)
-	var/targName = tgui_input_text(user, "Enter a new core law for the AI.", "Freeform Law Entry", laws[1], CONFIG_GET(number/max_law_len), TRUE)
+	var/targName = stripped_input(user, "Введите закон.", "Ввод", laws[1], CONFIG_GET(number/max_law_len))
 	if(!targName)
 		return
 	if(is_ic_filtered(targName))

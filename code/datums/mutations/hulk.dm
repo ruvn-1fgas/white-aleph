@@ -1,11 +1,11 @@
 //Hulk turns your skin green, makes you strong, and allows you to shrug off stun effect.
 /datum/mutation/human/hulk
-	name = "Hulk"
-	desc = "A poorly understood genome that causes the holder's muscles to expand, inhibit speech and gives the person a bad skin condition."
+	name = "Халк"
+	desc = "Плохо изученный геном, который неестественно увеличивает мышцы, угнетает речевой аппарат и окрашивает кожу в странный зеленый цвет."
 	quality = POSITIVE
 	locked = TRUE
 	difficulty = 16
-	text_gain_indication = "<span class='notice'>Your muscles hurt!</span>"
+	text_gain_indication = span_notice("Мускулы ломит от переполняющей силы!")
 	species_allowed = list(SPECIES_HUMAN) //no skeleton/lizard hulk
 	health_req = 25
 	instability = 40
@@ -52,7 +52,7 @@
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/mutation/human/hulk/proc/scream_attack(mob/living/carbon/human/source)
-	source.say("WAAAAAAAAAAAAAAGH!", forced="hulk")
+	source.say(pick(";РААААААААААРГХ!", ";НГХАААААРРРГГГХХХ!;", ";ГРААААААААРГГГХХХ!", ";ХХАААААРРРРГГГХХ!", ";АААААААААРРРГХ!" ), forced="hulk")
 
 /**
  *Checks damage of a hulk's arm and applies bone wounds as necessary.
@@ -81,7 +81,7 @@
 /datum/mutation/human/hulk/on_life(seconds_per_tick, times_fired)
 	if(owner.health < owner.crit_threshold)
 		on_losing(owner)
-		to_chat(owner, span_danger("You suddenly feel very weak."))
+		to_chat(owner, span_danger("Я чувствую себя таким слабым..."))
 
 /datum/mutation/human/hulk/on_losing(mob/living/carbon/human/owner)
 	if(..())
@@ -129,7 +129,7 @@
 	if(ishuman(possible_throwable))
 		var/mob/living/carbon/human/human_throwable = possible_throwable
 		if(human_throwable.wear_suit && (human_throwable.wear_suit.flags_inv & HIDEJUMPSUIT))
-			to_chat(user, span_warning("You can't reach [human_throwable]'s tail through [human_throwable.p_their()] [human_throwable.wear_suit.name]!"))
+			to_chat(user, span_warning("You can't reach [human_throwable] tail through [human_throwable.p_their()] [human_throwable.wear_suit.name]!"))
 			return
 
 	user.face_atom(clicked_atom)
@@ -175,7 +175,7 @@
 	if(!yeeted_person || !the_hulk || the_hulk.incapacitated())
 		return
 	if(get_dist(the_hulk, yeeted_person) > 1 || !isturf(the_hulk.loc) || !isturf(yeeted_person.loc))
-		to_chat(the_hulk, span_warning("You lose your grasp on [yeeted_person]!"))
+		to_chat(the_hulk, span_warning("[yeeted_person] вырвался из моего захвата!"))
 		return
 
 	var/delay = 5
@@ -246,7 +246,7 @@
 	if(!yeeted_person || !the_hulk || the_hulk.incapacitated())
 		return
 	if(get_dist(the_hulk, yeeted_person) > 1 || !isturf(the_hulk.loc) || !isturf(yeeted_person.loc))
-		to_chat(the_hulk, span_warning("You lose your grasp on [yeeted_person]!"))
+		to_chat(the_hulk, span_warning("[yeeted_person] вырвался из моего захвата!"))
 		return
 
 	the_hulk.setDir(original_dir)

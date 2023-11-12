@@ -21,12 +21,12 @@
 	/// The list of factions this atom belongs to
 	var/list/faction
 
-	var/verb_say = "says"
-	var/verb_ask = "asks"
-	var/verb_exclaim = "exclaims"
-	var/verb_whisper = "whispers"
-	var/verb_sing = "sings"
-	var/verb_yell = "yells"
+	var/verb_say = "говорит"
+	var/verb_ask = "спрашивает"
+	var/verb_exclaim = "восклицает"
+	var/verb_whisper = "шепчет"
+	var/verb_sing = "поёт"
+	var/verb_yell = "выкрикивает"
 	var/speech_span
 	///Are we moving with inertia? Mostly used as an optimization
 	var/inertia_moving = FALSE
@@ -322,7 +322,7 @@
 /atom/movable/proc/onZImpact(turf/impacted_turf, levels, message = TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 	if(message)
-		visible_message(span_danger("[src] crashes into [impacted_turf]!"))
+		visible_message(span_danger("[src] падает на [impacted_turf]!"))
 	var/atom/highest = impacted_turf
 	for(var/atom/hurt_atom as anything in impacted_turf.contents)
 		if(!hurt_atom.density)
@@ -418,16 +418,16 @@
 		destination = get_step_multiz(start, direction)
 		if(!destination)
 			if(z_move_flags & ZMOVE_FEEDBACK)
-				to_chat(rider || src, span_warning("There's nowhere to go in that direction!"))
+				to_chat(rider || src, span_warning("Некуда!"))
 			return FALSE
 	if(z_move_flags & ZMOVE_FALL_CHECKS && (throwing || (movement_type & (FLYING|FLOATING)) || !has_gravity(start)))
 		return FALSE
 	if(z_move_flags & ZMOVE_CAN_FLY_CHECKS && !(movement_type & (FLYING|FLOATING)) && has_gravity(start))
 		if(z_move_flags & ZMOVE_FEEDBACK)
 			if(rider)
-				to_chat(rider, span_warning("[src] is is not capable of flight."))
+				to_chat(rider, span_notice("[src] не умеет летать."))
 			else
-				to_chat(src, span_warning("You are not Superman."))
+				to_chat(src, span_notice("Не умею летать."))
 		return FALSE
 	if((!(z_move_flags & ZMOVE_IGNORE_OBSTACLES) && !(start.zPassOut(direction) && destination.zPassIn(direction))) || (!(z_move_flags & ZMOVE_ALLOW_ANCHORED) && anchored))
 		if(z_move_flags & ZMOVE_FEEDBACK)
@@ -518,8 +518,8 @@
 		var/mob/pulled_mob = pulled_atom
 		log_combat(src, pulled_mob, "grabbed", addition="passive grab")
 		if(!supress_message)
-			pulled_mob.visible_message(span_warning("[src] grabs [pulled_mob] passively."), \
-				span_danger("[src] grabs you passively."))
+			pulled_mob.visible_message(span_warning("<b>[capitalize(src)]</b> хватает <b>[pulled_mob]</b>.") , \
+				span_danger("<b>[capitalize(src)]</b> хватает меня."))
 	return TRUE
 
 /atom/movable/proc/stop_pulling()

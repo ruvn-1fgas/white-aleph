@@ -1,9 +1,9 @@
 /datum/brain_trauma/special/imaginary_friend
-	name = "Imaginary Friend"
-	desc = "Patient can see and hear an imaginary person."
-	scan_desc = "partial schizophrenia"
-	gain_text = span_notice("You feel in good company, for some reason.")
-	lose_text = span_warning("You feel lonely again.")
+	name = "Воображаемый друг"
+	desc = "Пациент может видеть и слышать воображаемого человека."
+	scan_desc = "<b>шизофренического расщепления личности</b>"
+	gain_text = span_notice("У меня похоже есть друг. Круто!")
+	lose_text = span_warning("Мой друг пропал...")
 	var/mob/camera/imaginary_friend/friend
 	var/friend_initialized = FALSE
 
@@ -51,7 +51,7 @@
 	owner.AddComponent(/datum/component/orbit_poll, \
 		ignore_key = POLL_IGNORE_IMAGINARYFRIEND, \
 		job_bans = ROLE_PAI, \
-		title = "[owner.real_name]'s imaginary friend", \
+		title = "Хочешь быть воображаемым другом [owner.real_name]?", \
 		to_call = to_call, \
 	)
 
@@ -63,14 +63,14 @@
 
 	friend.key = ghost.key
 	friend_initialized = TRUE
-	friend.log_message("became [key_name(owner)]'s split personality.", LOG_GAME)
-	message_admins("[ADMIN_LOOKUPFLW(friend)] became [ADMIN_LOOKUPFLW(owner)]'s split personality.")
+	friend.log_message("стал второй личностью [key_name(owner)].", LOG_GAME)
+	message_admins("[ADMIN_LOOKUPFLW(friend)] стал второй личностью [ADMIN_LOOKUPFLW(owner)]")
 
 /mob/camera/imaginary_friend
-	name = "imaginary friend"
-	real_name = "imaginary friend"
+	name = "воображаемый друг"
+	real_name = "воображаемый друг"
 	move_on_shuttle = TRUE
-	desc = "A wonderful yet fake friend."
+	desc = "Прекрасный, но ненастоящий друг."
 	sight = NONE
 	mouse_opacity = MOUSE_OPACITY_ICON
 	see_invisible = SEE_INVISIBLE_LIVING
@@ -94,9 +94,9 @@
 	Show()
 
 /mob/camera/imaginary_friend/proc/greet()
-	to_chat(src, span_notice("<b>You are the imaginary friend of [owner]!</b>"))
-	to_chat(src, span_notice("You are absolutely loyal to your friend, no matter what."))
-	to_chat(src, span_notice("You cannot directly influence the world around you, but you can see what [owner] cannot."))
+	to_chat(src, span_notice("<b>Воображаемый друг [owner]!</b>"))
+	to_chat(src, span_notice("Абсолютно верен своему другу, несмотря ни на что."))
+	to_chat(src, span_notice("Не могу напрямую влиять на мир вокруг меня, но можно видеть, чего [owner] не может."))
 
 /**
  * Arguments:
@@ -248,13 +248,13 @@
 
 	var/quoted_message = say_quote(say_emphasis(message), spans, message_mods)
 	var/rendered = "[span_name("[name]")] [quoted_message]"
-	var/dead_rendered = "[span_name("[name] (Imaginary friend of [owner])")] [quoted_message]"
+	var/dead_rendered = "[span_name("[name] (Воображаемый друг [owner])")] [quoted_message]"
 
 	var/language = message_language || owner.get_selected_language()
 	Hear(rendered, src, language, message, null, spans, message_mods) // We always hear what we say
 	var/group = owner.imaginary_group - src // The people in our group don't, so we have to exclude ourselves not to hear twice
 	for(var/mob/person in group)
-		if(eavesdrop_range && get_dist(src, person) > WHISPER_RANGE + eavesdrop_range && !HAS_TRAIT(person, TRAIT_GOOD_HEARING))
+		if(eavesdrop_range && get_dist(src, person) > 1 + eavesdrop_range)
 			var/new_rendered = "[span_name("[name]")] [say_quote(say_emphasis(eavesdropped_message), spans, message_mods)]"
 			person.Hear(new_rendered, src, language, eavesdropped_message, null, spans, message_mods)
 		else
@@ -314,7 +314,7 @@
 		return TRUE
 
 	var/mob/camera/imaginary_friend/friend = user
-	var/dchatmsg = "[span_bold("[friend] (Imaginary friend of [friend.owner])")] [msg]"
+	var/dchatmsg = "[span_bold("[friend] (Воображаемый друг [friend.owner])")] [msg]"
 	message = "[span_name("[user]")] [msg]"
 
 	var/user_turf = get_turf(user)
@@ -353,15 +353,15 @@
 	if(!can_run_emote(user, TRUE, intentional))
 		return FALSE
 	if(is_banned_from(user.ckey, "Emote"))
-		to_chat(user, span_boldwarning("You cannot send custom emotes (banned)."))
+		to_chat(user, span_boldwarning("Вы не можете использовать кастомные эмоуты (забанен)."))
 		return FALSE
 	else if(QDELETED(user))
 		return FALSE
 	else if(user.client && user.client.prefs.muted & MUTE_IC)
-		to_chat(user, span_boldwarning("You cannot send IC messages (muted)."))
+		to_chat(user, span_boldwarning("Вы не можете отправлять IC сообщения (заглушен)."))
 		return FALSE
 	else if(!params)
-		message = copytext(sanitize(input("Choose an emote to display.") as text|null), 1, MAX_MESSAGE_LEN)
+		message = copytext(sanitize(input("Выбери эмоут.") as text|null), 1, MAX_MESSAGE_LEN)
 	else
 		message = params
 	. = ..()
@@ -439,8 +439,8 @@
 	abstract_move(owner)
 
 /datum/action/innate/imaginary_join
-	name = "Join"
-	desc = "Join your owner, following them from inside their mind."
+	name = "Войти"
+	desc = "Войти в своего хозяина и следить за миром его глазами."
 	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	background_icon_state = "bg_revenant"
 	overlay_icon_state = "bg_revenant_border"
@@ -451,8 +451,8 @@
 	I.recall()
 
 /datum/action/innate/imaginary_hide
-	name = "Hide"
-	desc = "Hide yourself from your owner's sight."
+	name = "Спрятаться"
+	desc = "Спрятать себя от глаз своего хозяина."
 	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	background_icon_state = "bg_revenant"
 	overlay_icon_state = "bg_revenant_border"
@@ -461,12 +461,12 @@
 /datum/action/innate/imaginary_hide/proc/update_status()
 	var/mob/camera/imaginary_friend/I = owner
 	if(I.hidden)
-		name = "Show"
-		desc = "Become visible to your owner."
+		name = "Показаться"
+		desc = "Стать видимым для своего хозяина."
 		button_icon_state = "unhide"
 	else
-		name = "Hide"
-		desc = "Hide yourself from your owner's sight."
+		name = "Спрятаться"
+		desc = "Спрятать себя от глаз своего хозяина."
 		button_icon_state = "hide"
 	build_all_button_icons()
 
@@ -479,11 +479,11 @@
 /datum/action/innate/imaginary_hide/update_button_name(atom/movable/screen/movable/action_button/button, force)
 	var/mob/camera/imaginary_friend/fake_friend = owner
 	if(fake_friend.hidden)
-		name = "Show"
-		desc = "Become visible to your owner."
+		name = "Показаться"
+		desc = "Стать видимым для своего хозяина."
 	else
-		name = "Hide"
-		desc = "Hide yourself from your owner's sight."
+		name = "Спрятаться"
+		desc = "Спрятать себя от глаз своего хозяина."
 	return ..()
 
 /datum/action/innate/imaginary_hide/apply_button_icon(atom/movable/screen/movable/action_button/current_button, force = FALSE)
@@ -499,8 +499,8 @@
 //like imaginary friend but a lot less imagination and more like mind prison//
 
 /datum/brain_trauma/special/imaginary_friend/trapped_owner
-	name = "Trapped Victim"
-	desc = "Patient appears to be targeted by an invisible entity."
+	name = "Пойманная жертва"
+	desc = "Кажется, что пациент является целью невидимой сущности."
 	gain_text = ""
 	lose_text = ""
 	random_gain = FALSE
@@ -519,14 +519,14 @@
 	return
 
 /mob/camera/imaginary_friend/trapped
-	name = "figment of imagination?"
-	real_name = "figment of imagination?"
-	desc = "The previous host of this body."
+	name = "плод воображения?"
+	real_name = "плод воображения?"
+	desc = "Предыдущий хозяин этого тела."
 
 /mob/camera/imaginary_friend/trapped/greet()
-	to_chat(src, span_notice(span_bold("You have managed to hold on as a figment of the new host's imagination!")))
-	to_chat(src, span_notice("All hope is lost for you, but at least you may interact with your host. You do not have to be loyal to them."))
-	to_chat(src, span_notice("You cannot directly influence the world around you, but you can see what the host cannot."))
+	to_chat(src, span_notice("<b>Мне удалось удержаться как плод воображения нового хозяина!</b>"))
+	to_chat(src, span_notice("Вся надежда потеряна для меня, но, по крайней мере, можно взаимодействовать с хозяином. Можно быть не верен ему."))
+	to_chat(src, span_notice("Не могу напрямую влиять на мир вокруг меня, но вы могу видеть то, что хозяин не может."))
 
 /mob/camera/imaginary_friend/trapped/setup_friend()
 	real_name = "[owner.real_name]?"

@@ -1,7 +1,7 @@
 //Pillow and pillow related items
 /obj/item/pillow
-	name = "pillow"
-	desc = "A soft and fluffy pillow. You can smack someone with this!"
+	name = "подушка"
+	desc = "Мягкая подушка. Можно ударить кого-нибудь!"
 	icon = 'icons/obj/bed.dmi'
 	icon_state = "pillow_1_t"
 	inhand_icon_state = "pillow_t"
@@ -99,7 +99,7 @@
 	if(bricked)
 		. += span_info("[p_They()] feel[p_s()] unnaturally heavy.")
 	if(pillow_trophy)
-		. += span_notice("Alt-click to remove the tag!")
+		. += span_notice("Alt-клик to remove the tag!")
 
 /obj/item/pillow/AltClick(mob/user)
 	. = ..()

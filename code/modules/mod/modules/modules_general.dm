@@ -651,7 +651,7 @@
 /obj/item/mod/module/hat_stabilizer/proc/add_examine(datum/source, mob/user, list/base_examine)
 	SIGNAL_HANDLER
 	if(attached_hat)
-		base_examine += span_notice("There's \a [attached_hat] placed on the helmet. Right-click to remove it.")
+		base_examine += span_notice("There's \a [attached_hat] placed on the helmet. ПКМ to remove it.")
 	else
 		base_examine += span_notice("There's nothing placed on the helmet. Yet.")
 

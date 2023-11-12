@@ -66,7 +66,7 @@
 /obj/machinery/mineral/ore_redemption/examine(mob/user)
 	. = ..()
 	if(panel_open)
-		. += span_notice("Alt-click to rotate the input and output direction.")
+		. += span_notice("Alt-клик to rotate the input and output direction.")
 
 /// Turns ore into its refined type, and sends it to its material container
 /obj/machinery/mineral/ore_redemption/proc/smelt_ore(obj/item/stack/ore/gathered_ore)

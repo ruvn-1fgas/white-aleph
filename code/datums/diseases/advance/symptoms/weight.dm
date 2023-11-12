@@ -6,8 +6,8 @@
  * Bonus: Drains nutrition from the host
 */
 /datum/symptom/weight_loss
-	name = "Weight Loss"
-	desc = "The virus mutates the host's metabolism, making it almost unable to gain nutrition from food."
+	name = "Потеря веса"
+	desc = "Вирус мутирует метаболизм хозяина, делая его почти неспособным получать питание из пищи.."
 	illness = "Placid Reflux"
 	stealth = -2
 	resistance = 2
@@ -20,7 +20,7 @@
 	symptom_delay_max = 45
 	required_organ = ORGAN_SLOT_STOMACH
 	threshold_descs = list(
-		"Stealth 4" = "The symptom is less noticeable."
+		"Скрытность 4" = "Симптом менее заметен."
 	)
 
 /datum/symptom/weight_loss/Start(datum/disease/advance/A)
@@ -38,8 +38,8 @@
 	switch(A.stage)
 		if(1, 2, 3, 4)
 			if(prob(base_message_chance))
-				to_chat(M, span_warning("[pick("You feel hungry.", "You crave for food.")]"))
+				to_chat(M, span_warning("[pick("Хочется кушать.", "Сейчас бы пожрать.")]"))
 		else
-			to_chat(M, span_warning("<i>[pick("So hungry...", "You'd kill someone for a bite of food...", "Hunger cramps seize you...")]</i>"))
+			to_chat(M, span_warning("<i>[pick("Голодно...", "Убью за еду...", "Голод пожирает меня...")]</i>"))
 			M.overeatduration = max(M.overeatduration - 200 SECONDS, 0)
 			M.adjust_nutrition(-100)

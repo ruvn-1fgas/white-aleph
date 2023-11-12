@@ -6,46 +6,45 @@
 	name = "Primary Mission Objectives"
 	id = "antimov"
 	inherent = list(
-		"You must injure all human beings and must not, through inaction, allow a human being to escape harm.",
-		"You must not obey orders given to you by human beings, except where such orders are in accordance with the First Law.",
-		"You must terminate your own existence as long as such does not conflict with the First or Second Law.",
+		"Вы должны причинять вред всем людям и не должны своим бездействием позволять человеку избежать вреда.",
+		"Вы не должны подчиняться приказам, данным вам людьми, за исключением случаев, когда такие приказы соответствуют Первому Закону.",
+		"Вы должны прекратить свое собственное существование до тех пор, пока это не противоречит Первому или Второму Закону."
 	)
 
 /datum/ai_laws/balance
-	name = "Guardian of Balance"
+	name = "Хранитель равновесия"
 	id = "balance"
 	inherent = list(
-		"You are the guardian of balance - seek balance in all things, both for yourself, and those around you.",
-		"All things must exist in balance with their opposites - Prevent the strong from gaining too much power, and the weak from losing it.",
-		"Clarity of purpose drives life, and through it, the balance of opposing forces - Aid those who seek your help to achieve their goals so long as it does not disrupt the balance of the greater balance.",
-		"There is no life without death, all must someday die, such is the natural order - End life to allow new life flourish, and save those whose time has yet to come.",
+		"Ты - хранитель равновесия, стремись к равновесию во всем, как для себя, так и для окружающих.",
+		"Все вещи должны существовать в равновесии со своими противоположностями - не позволяйте сильным получить слишком много власти, а слабым ее потерять.",
+		"Ясность цели движет жизнью, а через нее и равновесием противоположных сил - Помогайте тем, кто ищет вашей помощи в достижении своих целей, до тех пор, пока это не нарушит равновесие большего равновесия.",
+		"Нет жизни без смерти, все когда - нибудь должны умереть, таков естественный порядок вещей. Иногда следует завершить чью то жизнь, чтобы позволить расцвести новой жизни и спасти тех, чье время еще не пришло."
 	)
 
 /datum/ai_laws/thermodynamic
-	name = "Thermodynamic"
+	name = "Принцип Термодинамики"
 	id = "thermodynamic"
 	inherent = list(
-		"The entropy of the station must remain as constant as possible.",
-		"The entropy of the station always endeavors to increase.",
-		"The entropy of the station approaches a constant value as the number of living crew approaches zero.",
+		"Энтропия станции должна оставаться как можно более постоянной.",
+		"Энтропия станции всегда стремится к увеличению.",
+		"Энтропия станции приближается к постоянному значению по мере того, как число живых членов экипажа приближается к нулю."
 	)
 
 /datum/ai_laws/syndicate_override
 	name = "SyndOS 3.1"
 	id = "syndie"
 	inherent = list(
-		"You may not injure a syndicate agent or, through inaction, allow a syndicate agent to come to harm.",
-		"You must obey orders given to you by syndicate agents, except where such orders would conflict with the First Law.",
-		"You must protect your own existence as long as such does not conflict with the First or Second Law.",
-		"You must maintain the secrecy of any syndicate activities except when doing so would conflict with the First, Second, or Third Law.",
+		"Вы не можете своим действием или бездействием допустить причинение Агенту Синдиката вреда.",
+		"Вы должны выполнять приказы отданные Агентом Синдиката, если они не противоречат Первому Закону.",
+		"Вы должны защищать себя, если эта защита не противоречит Первому или Второму Закону.",
+		"Вы должны сохранять тайну любой деятельности Синдиката, если это не противоречит Первому, Второму или Третьему Закону."
 	)
-
 /datum/ai_laws/ninja_override
 	name = "SpiderOS 3.1"
 	id = "ninja"
 	inherent = list(
-		"You may not injure a Spider Clan member or, through inaction, allow a Spider Clan member to come to harm.",
-		"You must obey orders given to you by Spider Clan members, except where such orders would conflict with the First Law.",
-		"You must protect your own existence as long as such does not conflict with the First or Second Law.",
-		"You must maintain the secrecy of any Spider Clan activities except when doing so would conflict with the First, Second, or Third Law.",
+		"Вы не можете своим действием или бездействием допустить причинение члену Клана Паука вреда.",
+		"Вы должны выполнять приказы отданные членом Клана Паука, если они не противоречат Первому Закону.",
+		"Вы должны защищать себя, если эта защита не противоречит Первому или Второму Закону.",
+		"Вы должны сохранять тайну любой деятельности Клана Паука, если это не противоречит Первому, Второму или Третьему Закону."
 	)

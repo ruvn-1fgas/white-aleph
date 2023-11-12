@@ -99,7 +99,7 @@
 
 /obj/item/gun/ballistic/shotgun/automatic/dual_tube/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click to pump it.")
+	. += span_notice("Alt-клик to pump it.")
 
 /obj/item/gun/ballistic/shotgun/automatic/dual_tube/Initialize(mapload)
 	. = ..()
@@ -186,7 +186,7 @@
 		. += "If the magazine is empty, [src] will automatically swap to the secondary magazine."
 	. += "You can load a secondary magazine by right-clicking [src] with the magazine you want to load."
 	. += "You can remove a secondary magazine by alt-right-clicking [src]."
-	. += "Right-click to swap the magazine to the secondary position, and vice versa."
+	. += "ПКМ to swap the magazine to the secondary position, and vice versa."
 
 /obj/item/gun/ballistic/shotgun/bulldog/update_overlays()
 	. = ..()
@@ -336,7 +336,7 @@
 
 /obj/item/gun/ballistic/shotgun/hook/examine(mob/user)
 	. = ..()
-	. += span_notice("Right-click to shoot the hook.")
+	. += span_notice("ПКМ to shoot the hook.")
 
 /obj/item/gun/ballistic/shotgun/hook/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
 	hook.afterattack(target, user, proximity_flag, click_parameters)

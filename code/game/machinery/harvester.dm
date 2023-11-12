@@ -1,11 +1,11 @@
 /obj/machinery/harvester
-	name = "organ harvester"
-	desc = "An advanced machine used for harvesting organs and limbs from the deceased."
+	name = "Авто-Потрошитель МК II"
+	desc = "Извлекает из тела ВСЁ лишнее, включая органы, конечности и голову."
 	density = TRUE
 	icon = 'icons/obj/machines/harvester.dmi'
 	icon_state = "harvester"
 	base_icon_state = "harvester"
-	verb_say = "states"
+	verb_say = "констатирует"
 	state_open = FALSE
 	circuit = /obj/item/circuitboard/machine/harvester
 	light_color = LIGHT_COLOR_BLUE
@@ -175,7 +175,7 @@
 	. = !(state_open || panel_open || (flags_1 & NODECONSTRUCT_1)) && tool.tool_behaviour == TOOL_CROWBAR //We removed is_operational here
 	if(.)
 		tool.play_tool_sound(src, 50)
-		visible_message(span_notice("[usr] pries open \the [src]."), span_notice("You pry open [src]."))
+		visible_message(span_notice("[usr] pries open  [src]."), span_notice("You pry open [src]."))
 		open_machine()
 
 /obj/machinery/harvester/emag_act(mob/user, obj/item/card/emag/emag_card)
@@ -211,6 +211,6 @@
 	if(state_open)
 		. += span_notice("[src] must be closed before harvesting.")
 	else if(!harvesting)
-		. += span_notice("Alt-click [src] to start harvesting.")
+		. += span_notice("Alt-клик [src] to start harvesting.")
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Harvest speed at <b>[interval*0.1]</b> seconds per organ. Outputting to the <b>[dir2text(output_dir)]</b>.")
+		. += span_notice("Дисплей: Harvest speed at <b>[interval*0.1]</b> seconds per organ. Outputting to the <b>[dir2text(output_dir)]</b>.")

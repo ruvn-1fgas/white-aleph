@@ -1,58 +1,29 @@
 /datum/station_trait/carp_infestation
-	name = "Carp infestation"
+	name = "Заражение карпами"
 	trait_type = STATION_TRAIT_NEGATIVE
 	weight = 5
 	show_in_report = TRUE
-	report_message = "Dangerous fauna is present in the area of this station."
+	report_message = "В районе станции присутствует опасная фауна."
 	trait_to_give = STATION_TRAIT_CARP_INFESTATION
 
 /datum/station_trait/distant_supply_lines
-	name = "Distant supply lines"
+	name = "Линии дальнего снабжения"
 	trait_type = STATION_TRAIT_NEGATIVE
 	weight = 3
 	show_in_report = TRUE
-	report_message = "Due to the distance to our normal supply lines, cargo orders are more expensive."
+	report_message = "Из-за удаленности от наших обычных линий снабжения заказы на грузовые перевозки обходятся дороже."
 	blacklist = list(/datum/station_trait/strong_supply_lines)
 
 /datum/station_trait/distant_supply_lines/on_round_start()
 	SSeconomy.pack_price_modifier *= 1.2
 
-///A negative trait that reduces the amount of products available from vending machines throughout the station.
-/datum/station_trait/vending_shortage
-	name = "Vending products shortage"
-	trait_type = STATION_TRAIT_NEGATIVE
-	weight = 3
-	show_in_report = TRUE
-	can_revert = FALSE //Because it touches every maploaded vending machine on the station.
-	report_message = "We haven't had the time to take care of the station's vending machines. Some may be tilted, and some products may be unavailable."
-	trait_to_give = STATION_TRAIT_VENDING_SHORTAGE
-
-/datum/station_trait/late_arrivals
-	name = "Late Arrivals"
-	trait_type = STATION_TRAIT_NEGATIVE
-	weight = 2
-	show_in_report = TRUE
-	report_message = "Sorry for that, we didn't expect to fly into that vomiting goose while bringing you to your new station."
-	trait_to_give = STATION_TRAIT_LATE_ARRIVALS
-	blacklist = list(/datum/station_trait/random_spawns, /datum/station_trait/hangover)
-
-/datum/station_trait/random_spawns
-	name = "Drive-by landing"
-	trait_type = STATION_TRAIT_NEGATIVE
-	weight = 2
-	show_in_report = TRUE
-	report_message = "Sorry for that, we missed your station by a few miles, so we just launched you towards your station in pods. Hope you don't mind!"
-	trait_to_give = STATION_TRAIT_RANDOM_ARRIVALS
-	blacklist = list(/datum/station_trait/late_arrivals, /datum/station_trait/hangover)
-
 /datum/station_trait/hangover
-	name = "Hangover"
+	name = "Похмелье"
 	trait_type = STATION_TRAIT_NEGATIVE
 	weight = 2
 	show_in_report = TRUE
-	report_message = "Ohh....Man....That mandatory office party from last shift...God that was awesome..I woke up in some random toilet 3 sectors away..."
+	report_message = "Ох... Чувак... Тот обязательный корпоратив из прошлой смены... Боже, это было круто... Я проснулся в каком-то случайном туалете в трех секторах отсюда..."
 	trait_to_give = STATION_TRAIT_HANGOVER
-	blacklist = list(/datum/station_trait/late_arrivals, /datum/station_trait/random_spawns)
 
 /datum/station_trait/hangover/New()
 	. = ..()
@@ -83,11 +54,11 @@
 
 
 /datum/station_trait/blackout
-	name = "Blackout"
+	name = "Блэкаут"
 	trait_type = STATION_TRAIT_NEGATIVE
 	weight = 3
 	show_in_report = TRUE
-	report_message = "Station lights seem to be damaged, be safe when starting your shift today."
+	report_message = "Освещение станции повреждено, будьте осторожны, начиная свою смену сегодня."
 
 /datum/station_trait/blackout/on_round_start()
 	. = ..()
@@ -95,20 +66,8 @@
 		if(is_station_level(apc.z) && prob(60))
 			apc.overload_lighting()
 
-/datum/station_trait/empty_maint
-	name = "Cleaned out maintenance"
-	trait_type = STATION_TRAIT_NEGATIVE
-	weight = 5
-	show_in_report = TRUE
-	report_message = "Our workers cleaned out most of the junk in the maintenace areas."
-	blacklist = list(/datum/station_trait/filled_maint)
-	trait_to_give = STATION_TRAIT_EMPTY_MAINT
-
-	// This station trait is checked when loot drops initialize, so it's too late
-	can_revert = FALSE
-
 /datum/station_trait/overflow_job_bureaucracy
-	name = "Overflow bureaucracy mistake"
+	name = "Бюрократическая ошибка"
 	trait_type = STATION_TRAIT_NEGATIVE
 	weight = 5
 	show_in_report = TRUE
@@ -119,7 +78,7 @@
 	RegisterSignal(SSjob, COMSIG_SUBSYSTEM_POST_INITIALIZE, PROC_REF(set_overflow_job_override))
 
 /datum/station_trait/overflow_job_bureaucracy/get_report()
-	return "[name] - It seems for some reason we put out the wrong job-listing for the overflow role this shift...I hope you like [chosen_job_name]s."
+	return "[name] - Похоже, по какой-то причине мы выставили неправильный список вакансий для роли переполнения в эту смену... Надеюсь, вам понравится [chosen_job_name]."
 
 /datum/station_trait/overflow_job_bureaucracy/proc/set_overflow_job_override(datum/source)
 	SIGNAL_HANDLER
@@ -128,11 +87,11 @@
 	SSjob.set_overflow_role(picked_job.type)
 
 /datum/station_trait/slow_shuttle
-	name = "Slow Shuttle"
+	name = "Медленный шаттл"
 	trait_type = STATION_TRAIT_NEGATIVE
 	weight = 5
 	show_in_report = TRUE
-	report_message = "Due to distance to our supply station, the cargo shuttle will have a slower flight time to your cargo department."
+	report_message = "Из-за удаленности от нашей станции снабжения грузовой шаттл будет лететь медленнее к вашему грузовому отделу."
 	blacklist = list(/datum/station_trait/quick_shuttle)
 
 /datum/station_trait/slow_shuttle/on_round_start()
@@ -140,18 +99,18 @@
 	SSshuttle.supply.callTime *= 1.5
 
 /datum/station_trait/bot_languages
-	name = "Bot Language Matrix Malfunction"
+	name = "Неисправность матрицы языка ботов"
 	trait_type = STATION_TRAIT_NEGATIVE
 	weight = 4
 	show_in_report = TRUE
-	report_message = "Your station's friendly bots have had their language matrix fried due to an event, resulting in some strange and unfamiliar speech patterns."
+	report_message = "У дружественных ботов вашей станции языковая матрица сгорела из-за какого-то события, что привело к появлению некоторых странных и незнакомых речевых моделей."
 	trait_to_give = STATION_TRAIT_BOTS_GLITCHED
 
 /datum/station_trait/bot_languages/New()
 	. = ..()
 	// What "caused" our robots to go haywire (fluff)
-	var/event_source = pick("an ion storm", "a syndicate hacking attempt", "a malfunction", "issues with your onboard AI", "an intern's mistakes", "budget cuts")
-	report_message = "Your station's friendly bots have had their language matrix fried due to [event_source], resulting in some strange and unfamiliar speech patterns."
+	var/event_source = pick(list("ионный шторм", "попытка взлома синдиката", "сбой", "проблемы с ИИ на станции", "ошибки интерна", "урезания бюджета"))
+	report_message = "Матрица языков дружелюбных ботов вашей станции сгорела из-за того, что [event_source] привели к странностям при общении с машинами."
 
 /datum/station_trait/bot_languages/on_round_start()
 	. = ..()
@@ -160,7 +119,7 @@
 		found_bot.randomize_language_if_on_station()
 
 /datum/station_trait/revenge_of_pun_pun
-	name = "Revenge of Pun Pun"
+	name = "Месть Пун-Пуна"
 	trait_type = STATION_TRAIT_NEGATIVE
 	weight = 2
 

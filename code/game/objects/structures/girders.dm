@@ -1,7 +1,7 @@
 /obj/structure/girder
-	name = "girder"
+	name = "балка"
 	icon_state = "girder"
-	desc = "A large structural assembly made out of metal; It requires a layer of iron before it can be considered a wall."
+	desc = "Большая металлическая структурная сборка. Требуется слой железа, прежде чем он может рассматриваться как стена."
 	anchored = TRUE
 	density = TRUE
 	max_integrity = 200
@@ -25,18 +25,18 @@
 	. = ..()
 	switch(state)
 		if(GIRDER_REINF)
-			. += span_notice("The support struts are <b>screwed</b> in place.")
+			. += span_notice("Ребра жесткости <b>закреплены</b> винтами на своем месте.")
 		if(GIRDER_REINF_STRUTS)
-			. += span_notice("The support struts are <i>unscrewed</i> and the inner <b>grille</b> is intact.")
+			. += span_notice("Ребра жесткости <i>откручены</i> и могут быть <b>перекушены</b> для демонтажа.")
 		if(GIRDER_NORMAL)
 			if(can_displace)
-				. += span_notice("The bolts are <b>wrenched</b> in place.")
+				. += span_notice("Анкерные <b>болты прикручены</b> к полу.")
 		if(GIRDER_DISPLACED)
-			. += span_notice("The bolts are <i>loosened</i>, but the <b>screws</b> are holding [src] together.")
+			. += span_notice("Анкерные <i>болты откручены</i> от пола, вся конструкция удерживается вместе парой <b>винтов</b>.")
 		if(GIRDER_DISASSEMBLED)
-			. += span_notice("[src] is disassembled! You probably shouldn't be able to see this examine message.")
+			. += span_notice("[capitalize(src.name)] Ошибка! Сообщите о ней разработчикам!")
 		if(GIRDER_TRAM)
-			. += span_notice("[src] is designed for tram usage. Deconstructed with a screwdriver!")
+			. += span_notice("[capitalize(src.name)] используется для трамвая. Можно разобрать отвёрткой!")
 
 /obj/structure/girder/attackby(obj/item/W, mob/user, params)
 	var/platingmodifier = 1
@@ -395,7 +395,7 @@
 	qdel(src)
 
 /obj/structure/girder/displaced
-	name = "displaced girder"
+	name = "открученная балка"
 	icon_state = "displaced"
 	anchored = FALSE
 	state = GIRDER_DISPLACED
@@ -403,14 +403,14 @@
 	max_integrity = 120
 
 /obj/structure/girder/reinforced
-	name = "reinforced girder"
+	name = "укрепленная балка"
 	icon_state = "reinforced"
 	state = GIRDER_REINF
 	girderpasschance = 0
 	max_integrity = 350
 
 /obj/structure/girder/tram
-	name = "tram frame"
+	name = "трамвайная балка"
 	desc = "Titanium framework to construct tram walls. Can be plated with <b>titanium glass</b> or other wall materials."
 	icon_state = "tram"
 	state = GIRDER_TRAM
@@ -418,13 +418,13 @@
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN
 
 /obj/structure/girder/tram/corner
-	name = "tram frame corner"
+	name = "угол травмайной балки"
 
 //////////////////////////////////////////// cult girder //////////////////////////////////////////////
 
 /obj/structure/girder/cult
-	name = "runed girder"
-	desc = "Framework made of a strange and shockingly cold metal. It doesn't seem to have any bolts."
+	name = "руническая балка"
+	desc = "Каркас сделан из странного, леденяще-холодного металла. Поверхность полностью монолитна и на ней незаметно никаких болтов."
 	icon = 'icons/obj/antags/cult/structures.dmi'
 	icon_state= "cultgirder"
 	can_displace = FALSE
@@ -497,8 +497,8 @@
 	return FALSE
 
 /obj/structure/girder/bronze
-	name = "wall gear"
-	desc = "A girder made out of sturdy bronze, made to resemble a gear."
+	name = "огромная шестерня"
+	desc = "Балка, сделанная из прочной бронзы и напоминающая гигантскую шестеренку."
 	icon_state = "wall_gear"
 	can_displace = FALSE
 

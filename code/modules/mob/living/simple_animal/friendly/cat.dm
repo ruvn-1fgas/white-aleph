@@ -234,7 +234,7 @@
 							break
 						//Mouse splatting
 						if(ismouse(M))
-							manual_emote("splats \the [M]!")
+							manual_emote("splats  [M]!")
 							var/mob/living/basic/mouse/snack = M
 							snack.splat()
 							movement_target = null
@@ -242,7 +242,7 @@
 							break
 			for(var/obj/item/toy/cattoy/T in view(1,src))
 				if (T.cooldown < (world.time - 400))
-					manual_emote("bats \the [T] around with \his paw!")
+					manual_emote("bats  [T] around with \his paw!")
 					T.cooldown = world.time
 
 	..()

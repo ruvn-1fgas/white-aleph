@@ -1,8 +1,8 @@
 #define CREDIT_TYPE_BITRUNNING "np"
 
 /obj/machinery/computer/order_console/bitrunning
-	name = "bitrunning supplies order console"
-	desc = "NexaCache(tm)! Dubiously authentic gear for the digital daredevil."
+	name = "консоль заказа Битраннеров"
+	desc = "НексаКэш™! Сомнительно подлинное оборудование для цифровых смельчаков."
 	icon = 'icons/obj/machines/bitrunning.dmi'
 	icon_state = "vendor"
 	icon_keyboard = null
@@ -11,10 +11,10 @@
 	cooldown_time = 10 SECONDS
 	cargo_cost_multiplier = 0.65
 	express_cost_multiplier = 1
-	purchase_tooltip = @{"Your purchases will arrive at cargo,
-	and hopefully get delivered by them.
-	35% cheaper than express delivery."}
-	express_tooltip = @{"Sends your purchases instantly."}
+	purchase_tooltip = @{"Ваш заказ прибудет в карго,
+	и в лучшем случае доставлен ими.
+	на 35% дешевле чем экспресс доставка."}
+	express_tooltip = @{"Отправляет ваш заказ моментально."}
 	credit_type = CREDIT_TYPE_BITRUNNING
 
 	order_categories = list(
@@ -55,8 +55,8 @@
 		cost_type = credit_type,
 		can_be_cancelled = FALSE,
 	)
-	say("Thank you for your purchase! It will arrive on the next cargo shuttle!")
-	radio.talk_into(src, "A bitrunner has ordered equipment which will arrive on the cargo shuttle! Please make sure it gets to them as soon as possible!", radio_channel)
+	say("Спасибо за Ваш заказ! Он прибудет в следующем шаттле карго!")
+	radio.talk_into(src, "Битраннер заказал снаряжение, которое прибудет на шаттле карго! Пожалуйста, убедитесь что он получит заказ как можно быстрее!", radio_channel)
 	SSshuttle.shopping_list += new_order
 
 /obj/machinery/computer/order_console/bitrunning/retrieve_points(obj/item/card/id/id_card)
@@ -72,14 +72,14 @@
 	return ..()
 
 /datum/supply_pack/bitrunning
-	name = "bitrunning order"
+	name = "заказ битраннера"
 	hidden = TRUE
-	crate_name = "bitrunning delivery crate"
+	crate_name = "ящик заказа битраннера"
 	access = list(ACCESS_BIT_DEN)
 
 /datum/supply_pack/bitrunning/New(purchaser, cost, list/contains)
 	. = ..()
-	name = "[purchaser]'s Bitrunning Order"
+	name = "Битраннерский заказ [purchaser]"
 	src.cost = cost
 	src.contains = contains
 

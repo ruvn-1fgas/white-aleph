@@ -1,12 +1,12 @@
 /datum/quirk/item_quirk/spiritual
-	name = "Spiritual"
-	desc = "You hold a spiritual belief, whether in God, nature or the arcane rules of the universe. You gain comfort from the presence of holy people, and believe that your prayers are more special than others. Being in the chapel makes you happy."
+	name = "Религиозный"
+	desc = "Шанс, что молитвы будут услышаны, будет немного увеличен. Возможно."
 	icon = FA_ICON_BIBLE
 	value = 4
 	mob_trait = TRAIT_SPIRITUAL
-	gain_text = span_notice("You have faith in a higher power.")
-	lose_text = span_danger("You lose faith!")
-	medical_record_text = "Patient reports a belief in a higher power."
+	gain_text = span_notice("Теперь вы верите в высшую силу.")
+	lose_text = span_danger("Больше не верую!")
+	medical_record_text = "Пациент сообщает о своей вере в некую силу."
 	mail_goodies = list(
 		/obj/item/book/bible/booze,
 		/obj/item/reagent_containers/cup/glass/bottle/holywater,

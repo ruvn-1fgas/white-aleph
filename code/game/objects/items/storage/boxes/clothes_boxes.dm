@@ -1,8 +1,8 @@
 // This contains all boxes that will possess something wearable, like an outfit or something similar.area
 
 /obj/item/storage/box/gloves
-	name = "box of latex gloves"
-	desc = "Contains sterile latex gloves."
+	name = "коробка латексных перчаток"
+	desc = "Содержит стерильные латексные перчатки."
 	illustration = "latex"
 
 /obj/item/storage/box/gloves/PopulateContents()
@@ -10,8 +10,8 @@
 		new /obj/item/clothing/gloves/latex(src)
 
 /obj/item/storage/box/masks
-	name = "box of sterile masks"
-	desc = "This box contains sterile medical masks."
+	name = "коробка стерильных масок"
+	desc = "В этой коробке находятся стерильные медицинские маски."
 	illustration = "sterile"
 
 /obj/item/storage/box/masks/PopulateContents()
@@ -19,8 +19,8 @@
 		new /obj/item/clothing/mask/surgical(src)
 
 /obj/item/storage/box/rxglasses
-	name = "box of prescription glasses"
-	desc = "This box contains nerd glasses."
+	name = "коробка очков по рецепту"
+	desc = "В этой коробке находятся очки для ботаников."
 	illustration = "glasses"
 
 /obj/item/storage/box/rxglasses/PopulateContents()
@@ -38,8 +38,8 @@
 	new /obj/item/stack/sticky_tape(src)
 
 /obj/item/storage/box/fakesyndiesuit
-	name = "boxed space suit and helmet"
-	desc = "A sleek, sturdy box used to hold replica spacesuits."
+	name = "упакованные скафандр и шлем"
+	desc = "Гладкая и прочная коробка, в которой хранятся копии скафандров."
 	icon_state = "syndiebox"
 	illustration = "syndiesuit"
 
@@ -53,8 +53,8 @@
 	new /obj/item/clothing/mask/gas/carp(src)
 
 /obj/item/storage/box/deputy
-	name = "box of deputy armbands"
-	desc = "To be issued to those authorized to act as deputy of security."
+	name = "коробка с повязками Службы Безопасности"
+	desc = "Выдается лицам, уполномоченным действовать в качестве работника службы безопасности."
 	icon_state = "secbox"
 	illustration = "depband"
 

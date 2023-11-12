@@ -2,8 +2,8 @@
  * False Walls
  */
 /obj/structure/falsewall
-	name = "wall"
-	desc = "A huge chunk of metal used to separate rooms."
+	name = "стена"
+	desc = "Здоровенный кусок металла, который служит для разделения помещений."
 	anchored = TRUE
 	icon = 'icons/turf/walls/baywall.dmi'
 	icon_state = "wall-0"
@@ -14,7 +14,8 @@
 	max_integrity = 100
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
-	canSmoothWith = SMOOTH_GROUP_WALLS
+	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+
 	can_be_unanchored = FALSE
 	can_atmos_pass = ATMOS_PASS_DENSITY
 	rad_insulation = RAD_MEDIUM_INSULATION
@@ -146,8 +147,8 @@
  */
 
 /obj/structure/falsewall/reinforced
-	name = "reinforced wall"
-	desc = "A huge chunk of reinforced metal used to separate rooms."
+	name = "армированная стена"
+	desc = "Здоровенный укреплённый кусок металла, который служит для разделения помещений."
 	icon = 'icons/turf/walls/rbaywall.dmi'
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"
@@ -169,8 +170,8 @@
  */
 
 /obj/structure/falsewall/uranium
-	name = "uranium wall"
-	desc = "A wall with uranium plating. This is probably a bad idea."
+	name = "урановая стена"
+	desc = "Стена с урановым покрытием. Это плохая идея."
 	icon = 'icons/turf/walls/uranium_wall.dmi'
 	icon_state = "uranium_wall-0"
 	base_icon_state = "uranium_wall"
@@ -178,7 +179,7 @@
 	walltype = /turf/closed/wall/mineral/uranium
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_URANIUM_WALLS + SMOOTH_GROUP_WALLS
-	canSmoothWith = SMOOTH_GROUP_URANIUM_WALLS
+	canSmoothWith =  SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_URANIUM_WALLS
 
 	/// Mutex to prevent infinite recursion when propagating radiation pulses
 	var/active = null
@@ -220,8 +221,8 @@
  */
 
 /obj/structure/falsewall/gold
-	name = "gold wall"
-	desc = "A wall with gold plating. Swag!"
+	name = "золотая стена"
+	desc = "Стена с золотым покрытием. Чётко!"
 	icon = 'icons/turf/walls/gold_wall.dmi'
 	icon_state = "gold_wall-0"
 	base_icon_state = "gold_wall"
@@ -232,8 +233,8 @@
 	canSmoothWith = SMOOTH_GROUP_GOLD_WALLS
 
 /obj/structure/falsewall/silver
-	name = "silver wall"
-	desc = "A wall with silver plating. Shiny."
+	name = "серебряная стена"
+	desc = "Стена с серебряным покрытием. Сияет."
 	icon = 'icons/turf/walls/silver_wall.dmi'
 	icon_state = "silver_wall-0"
 	base_icon_state = "silver_wall"
@@ -244,8 +245,8 @@
 	canSmoothWith = SMOOTH_GROUP_SILVER_WALLS
 
 /obj/structure/falsewall/diamond
-	name = "diamond wall"
-	desc = "A wall with diamond plating. You monster."
+	name = "алмазная стена"
+	desc = "Стена с алмазным покрытием. Построено идиотом."
 	icon = 'icons/turf/walls/diamond_wall.dmi'
 	icon_state = "diamond_wall-0"
 	base_icon_state = "diamond_wall"
@@ -257,8 +258,8 @@
 	max_integrity = 800
 
 /obj/structure/falsewall/plasma
-	name = "plasma wall"
-	desc = "A wall with plasma plating. This is definitely a bad idea."
+	name = "стена из плазмы"
+	desc = "Стена с покрытием из плазмы. Это плохая идея."
 	icon = 'icons/turf/walls/plasma_wall.dmi'
 	icon_state = "plasma_wall-0"
 	base_icon_state = "plasma_wall"
@@ -269,8 +270,8 @@
 	canSmoothWith = SMOOTH_GROUP_PLASMA_WALLS
 
 /obj/structure/falsewall/bananium
-	name = "bananium wall"
-	desc = "A wall with bananium plating. Honk!"
+	name = "бананиумная стена"
+	desc = "Стена с бананиевым покрытием. Хонк!"
 	icon = 'icons/turf/walls/bananium_wall.dmi'
 	icon_state = "bananium_wall-0"
 	base_icon_state = "bananium_wall"
@@ -282,8 +283,8 @@
 
 
 /obj/structure/falsewall/sandstone
-	name = "sandstone wall"
-	desc = "A wall with sandstone plating. Rough."
+	name = "песчаниковая стена"
+	desc = "Стена с песчанниковым покрытием. Грубая."
 	icon = 'icons/turf/walls/sandstone_wall.dmi'
 	icon_state = "sandstone_wall-0"
 	base_icon_state = "sandstone_wall"
@@ -294,8 +295,8 @@
 	canSmoothWith = SMOOTH_GROUP_SANDSTONE_WALLS
 
 /obj/structure/falsewall/wood
-	name = "wooden wall"
-	desc = "A wall with wooden plating. Stiff."
+	name = "деревянная стена"
+	desc = "Стена с деревянным покрытием. Занозы торчат."
 	icon = 'icons/turf/walls/wood_wall.dmi'
 	icon_state = "wood_wall-0"
 	base_icon_state = "wood_wall"
@@ -306,8 +307,8 @@
 	canSmoothWith = SMOOTH_GROUP_WOOD_WALLS
 
 /obj/structure/falsewall/bamboo
-	name = "bamboo wall"
-	desc = "A wall with bamboo finish. Zen."
+	name = "бамбуковая стена"
+	desc = "Стена с бамбуковой отделкой. Дзен."
 	icon = 'icons/turf/walls/bamboo_wall.dmi'
 	mineral = /obj/item/stack/sheet/mineral/bamboo
 	walltype = /turf/closed/wall/mineral/bamboo
@@ -316,8 +317,8 @@
 	canSmoothWith = SMOOTH_GROUP_BAMBOO_WALLS
 
 /obj/structure/falsewall/iron
-	name = "rough iron wall"
-	desc = "A wall with rough metal plating."
+	name = "грубая металлическая стена"
+	desc = "Стена с металлическим покрытием"
 	icon = 'icons/turf/walls/iron_wall.dmi'
 	icon_state = "iron_wall-0"
 	base_icon_state = "iron_wall"
@@ -330,8 +331,8 @@
 	canSmoothWith = SMOOTH_GROUP_IRON_WALLS
 
 /obj/structure/falsewall/abductor
-	name = "alien wall"
-	desc = "A wall with alien alloy plating."
+	name = "чужеродная стена"
+	desc = "Стена с инопланетным покрытием."
 	icon = 'icons/turf/walls/abductor_wall.dmi'
 	icon_state = "abductor_wall-0"
 	base_icon_state = "abductor_wall"
@@ -342,8 +343,8 @@
 	canSmoothWith = SMOOTH_GROUP_ABDUCTOR_WALLS
 
 /obj/structure/falsewall/titanium
-	name = "wall"
-	desc = "A light-weight titanium wall used in shuttles."
+	name = "титановая стена"
+	desc = "Стена с легковесным титановым покрытием."
 	icon = 'icons/turf/walls/shuttle_wall.dmi'
 	icon_state = "shuttle_wall-0"
 	base_icon_state = "shuttle_wall"
@@ -354,8 +355,6 @@
 	canSmoothWith = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_TITANIUM_WALLS
 
 /obj/structure/falsewall/plastitanium
-	name = "wall"
-	desc = "An evil wall of plasma and titanium."
 	icon = 'icons/turf/walls/plastitanium_wall.dmi'
 	icon_state = "plastitanium_wall-0"
 	base_icon_state = "plastitanium_wall"
@@ -366,8 +365,6 @@
 	canSmoothWith = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_PLASTITANIUM_WALLS
 
 /obj/structure/falsewall/material
-	name = "wall"
-	desc = "A huge chunk of material used to separate rooms."
 	icon = 'icons/turf/walls/materialwall.dmi'
 	icon_state = "materialwall-0"
 	base_icon_state = "materialwall"
@@ -387,7 +384,6 @@
 	qdel(src)
 
 /obj/structure/falsewall/material/mat_update_desc(mat)
-	desc = "A huge chunk of [mat] used to separate rooms."
 
 /obj/structure/falsewall/material/toggle_open()
 	if(!QDELETED(src))

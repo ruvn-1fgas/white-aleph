@@ -1,6 +1,6 @@
 /obj/machinery/door/password
-	name = "door"
-	desc = "This door only opens when provided a password."
+	name = "дверь"
+	desc = "Эта дверь открывается только по паролю."
 	icon = 'icons/obj/doors/blastdoor.dmi'
 	icon_state = "closed"
 	explosion_block = 3
@@ -10,7 +10,7 @@
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	damage_deflection = 70
 	/// Password that must be provided to open the door.
-	var/password = "Swordfish"
+	var/password = "Пороль"
 	/// Setting to true allows the user to input the password through a text box after clicking on the door.
 	var/interaction_activated = TRUE
 	/// Say the password nearby to open the door.
@@ -78,7 +78,7 @@
 			playsound(src, door_deny, 30, TRUE)
 
 /obj/machinery/door/password/proc/ask_for_pass(mob/user)
-	var/guess = tgui_input_text(user, "Enter the password", "Password")
+	var/guess = tgui_input_text(user, "Введите пароль", "Пароль")
 	if(guess == password)
 		return TRUE
 	return FALSE

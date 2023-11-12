@@ -103,9 +103,9 @@
 		if(!can_be_shaved)
 			to_chat(user, span_warning("You can't shave this corgi, [p_they()] [p_do()]n't have a fur coat!"))
 			return
-		user.visible_message(span_notice("[user] starts to shave [src] using \the [attacking_item]."), span_notice("You start to shave [src] using \the [attacking_item]..."))
+		user.visible_message(span_notice("[user] starts to shave [src] using  [attacking_item]."), span_notice("You start to shave [src] using  [attacking_item]..."))
 		if(do_after(user, 5 SECONDS, target = src))
-			user.visible_message(span_notice("[user] shaves [src]'s hair using \the [attacking_item]."))
+			user.visible_message(span_notice("[user] shaves [src]'s hair using  [attacking_item]."))
 			playsound(get_turf(src), 'sound/items/welder2.ogg', 20, TRUE)
 			shaved = TRUE
 			icon_living = "[icon_living]_shaved"
@@ -208,7 +208,7 @@
 		return FALSE
 
 	if(user && !user.temporarilyRemoveItemFromInventory(item_to_add))
-		to_chat(user, span_warning("\The [item_to_add] is stuck to your hand, you cannot put it on [src]'s head!"))
+		to_chat(user, span_warning(" [item_to_add] is stuck to your hand, you cannot put it on [src]'s head!"))
 		return FALSE
 
 	//Various hats and items (worn on his head) change Ian's behaviour. His attributes are reset when a hat is removed.
@@ -222,7 +222,7 @@
 
 	if (user)
 		if(stat == DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH))
-			to_chat(user, span_notice("There is merely a dull, lifeless look in [real_name]'s eyes as you put \the [item_to_add] on [p_them()]."))
+			to_chat(user, span_notice("There is merely a dull, lifeless look in [real_name]'s eyes as you put  [item_to_add] on [p_them()]."))
 		else
 			user.visible_message(span_notice("[user] puts [item_to_add] on [real_name]'s head. [src] looks at [user] and barks once."),
 				span_notice("You put [item_to_add] on [real_name]'s head. [src] gives you a peculiar look, then wags [p_their()] tail once and barks."),

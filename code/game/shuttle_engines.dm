@@ -5,7 +5,7 @@
 #define ENGINE_WELDTIME (20 SECONDS)
 
 /obj/machinery/power/shuttle_engine
-	name = "engine"
+	name = "двигатель"
 	desc = "A bluespace engine used to make shuttles move."
 	icon = 'icons/turf/shuttle.dmi'
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
@@ -57,11 +57,11 @@
 	. = ..()
 	switch(engine_state)
 		if(ENGINE_UNWRENCHED)
-			. += span_notice("\The [src] is unbolted from the floor. It needs to be wrenched to the floor to be installed.")
+			. += span_notice(" [src] is unbolted from the floor. It needs to be wrenched to the floor to be installed.")
 		if(ENGINE_WRENCHED)
-			. += span_notice("\The [src] is bolted to the floor and can be unbolted with a wrench. It needs to be welded to the floor to finish installation.")
+			. += span_notice(" [src] is bolted to the floor and can be unbolted with a wrench. It needs to be welded to the floor to finish installation.")
 		if(ENGINE_WELDED)
-			. += span_notice("\The [src] is welded to the floor and can be unwelded. It is currently fully installed.")
+			. += span_notice(" [src] is welded to the floor and can be unwelded. It is currently fully installed.")
 
 /obj/machinery/power/shuttle_engine/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	if(held_item?.tool_behaviour == TOOL_WELDER && engine_state == ENGINE_WRENCHED)
@@ -117,12 +117,12 @@
 				return TRUE
 
 			user.visible_message(span_notice("[user.name] starts to weld the [name] to the floor."), \
-				span_notice("You start to weld \the [src] to the floor..."), \
+				span_notice("You start to weld  [src] to the floor..."), \
 				span_hear("You hear welding."))
 
 			if(tool.use_tool(src, user, ENGINE_WELDTIME, volume=50))
 				engine_state = ENGINE_WELDED
-				to_chat(user, span_notice("You weld \the [src] to the floor."))
+				to_chat(user, span_notice("You weld  [src] to the floor."))
 				alter_engine_power(engine_power)
 
 		if(ENGINE_WELDED)
@@ -130,12 +130,12 @@
 				return TRUE
 
 			user.visible_message(span_notice("[user.name] starts to cut the [name] free from the floor."), \
-				span_notice("You start to cut \the [src] free from the floor..."), \
+				span_notice("You start to cut  [src] free from the floor..."), \
 				span_hear("You hear welding."))
 
 			if(tool.use_tool(src, user, ENGINE_WELDTIME, volume=50))
 				engine_state = ENGINE_WRENCHED
-				to_chat(user, span_notice("You cut \the [src] free from the floor."))
+				to_chat(user, span_notice("You cut  [src] free from the floor."))
 				alter_engine_power(-engine_power)
 	return TRUE
 
@@ -186,7 +186,7 @@
 	icon_state = "burst_r"
 
 /obj/machinery/power/shuttle_engine/large
-	name = "engine"
+	name = "двигатель"
 	icon = 'icons/obj/fluff/2x2.dmi'
 	icon_state = "large_engine"
 	desc = "A very large bluespace engine used to propel very large ships."
@@ -197,7 +197,7 @@
 	appearance_flags = LONG_GLIDE
 
 /obj/machinery/power/shuttle_engine/huge
-	name = "engine"
+	name = "двигатель"
 	icon = 'icons/obj/fluff/3x3.dmi'
 	icon_state = "huge_engine"
 	desc = "An extremely large bluespace engine used to propel extremely large ships."

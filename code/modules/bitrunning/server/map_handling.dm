@@ -6,17 +6,17 @@
 		return
 
 	if(!length(avatar_connection_refs))
-		balloon_alert(user, "powering down domain...")
+		balloon_alert(user, "отключение домена...")
 		playsound(src, 'sound/machines/terminal_off.ogg', 40, 2)
 		reset()
 		return
 
-	balloon_alert(user, "notifying clients...")
+	balloon_alert(user, "оповещение клиентов...")
 	playsound(src, 'sound/machines/terminal_alert.ogg', 100, TRUE)
 	user.visible_message(
-		span_danger("[user] begins depowering the server!"),
-		span_notice("You start disconnecting clients..."),
-		span_danger("You hear frantic keying on a keyboard."),
+		span_danger("[user] начинает выключать сервер!"),
+		span_notice("Ты начинаешь отключать клиенты..."),
+		span_danger("Вы слышите бешеный стук пальцев по клавиатуре."),
 	)
 
 	SEND_SIGNAL(src, COMSIG_BITRUNNER_SHUTDOWN_ALERT, user)
@@ -37,29 +37,29 @@
 		return FALSE
 
 	if(isnull(map_key))
-		balloon_alert(user, "no domain specified.")
+		balloon_alert(user, "домен не выбран.")
 		return FALSE
 
 	if(generated_domain)
-		balloon_alert(user, "stop the current domain first.")
+		balloon_alert(user, "сначала остановите текущий домен.")
 		return FALSE
 
 	if(length(avatar_connection_refs))
-		balloon_alert(user, "all clients must disconnect!")
+		balloon_alert(user, "все клиенты должны быть отключены!")
 		return FALSE
 
 	is_ready = FALSE
 	playsound(src, 'sound/machines/terminal_processing.ogg', 30, 2)
 
 	if(!initialize_domain(map_key) || !initialize_safehouse() || !initialize_map_items())
-		balloon_alert(user, "initialization failed.")
+		balloon_alert(user, "ошибка инициализации.")
 		scrub_vdom()
 		is_ready = TRUE
 		return FALSE
 
 	is_ready = TRUE
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 30, 2)
-	balloon_alert(user, "domain loaded.")
+	balloon_alert(user, "домен загружен.")
 	generated_domain.start_time = world.time
 	points -= generated_domain.cost
 	update_use_power(ACTIVE_POWER_USE)

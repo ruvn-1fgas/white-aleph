@@ -60,7 +60,7 @@
 	SIGNAL_HANDLER
 
 	if(!eater.has_quirk(/datum/quirk/deviant_tastes))
-		eater.add_mood_event("disgust", /datum/mood_event/disgust/dirty_food)
+		eater.add_mood_event("disgust", /datum/mood_event/disgusting_food)
 
 	if(is_weak && !prob(weak_infection_chance))
 		return

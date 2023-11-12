@@ -43,7 +43,7 @@
 
 	var/obj/item/card/id/outfit_id = avatar.wear_id
 	if(outfit_id)
-		outfit_id.assignment = "Bit Avatar"
+		outfit_id.assignment = "Бинарный аватар"
 		outfit_id.registered_name = avatar.real_name
 
 		outfit_id.registered_account = new()
@@ -122,4 +122,4 @@
 			avatar.put_in_hands(new item_disk.granted_item())
 
 	if(failed)
-		to_chat(neo, span_warning("One of your disks failed to load. You must activate them to make a selection."))
+		to_chat(neo, span_warning("Один из твоих дисков не смог загрузиться. Ты должен активировать его."))

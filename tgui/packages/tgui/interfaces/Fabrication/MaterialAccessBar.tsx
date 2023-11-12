@@ -9,17 +9,31 @@ import { Material } from './Types';
 // by popular demand of discord people (who are always right and never wrong)
 // this is completely made up
 const MATERIAL_RARITY: Record<string, number> = {
-  'glass': 0,
-  'iron': 1,
-  'plastic': 2,
-  'titanium': 3,
-  'plasma': 4,
-  'silver': 5,
-  'gold': 6,
-  'uranium': 7,
-  'diamond': 8,
-  'bluespace crystal': 9,
-  'bananium': 10,
+  'стекло': 0,
+  'железо': 1,
+  'пластик': 2,
+  'титан': 3,
+  'плазма': 4,
+  'серебро': 5,
+  'золото': 6,
+  'уран': 7,
+  'алмаз': 8,
+  'блюспейс кристалл': 9,
+  'бананиум': 10,
+};
+
+const MATERIAL_RU_TO_EN: Record<string, string> = {
+  'стекло': 'glass',
+  'железо': 'iron',
+  'пластик': 'plastic',
+  'титан': 'titanium',
+  'плазма': 'plasma',
+  'серебро': 'silver',
+  'золото': 'gold',
+  'уран': 'uranium',
+  'алмаз': 'diamond',
+  'блюспейс кристалл': 'bluespace crystal',
+  'бананиум': 'bananium',
 };
 
 export type MaterialAccessBarProps = {
@@ -104,7 +118,10 @@ const MaterialCounter = (props: MaterialCounterProps, context) => {
           onClick={() => onEjectRequested(1)}
           className="MaterialDock__Label">
           <Flex.Item>
-            <MaterialIcon materialName={material.name} sheets={sheets} />
+            <MaterialIcon
+              materialName={MATERIAL_RU_TO_EN[material.name]}
+              sheets={sheets}
+            />
           </Flex.Item>
           <Flex.Item>
             <AnimatedNumber value={sheets} format={LABEL_FORMAT} />

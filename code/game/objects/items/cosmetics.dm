@@ -30,7 +30,7 @@
 
 /obj/item/lipstick/examine(mob/user)
 	. = ..()
-	. += "Alt-click to change the style."
+	. += "Alt-клик to change the style."
 
 /obj/item/lipstick/update_icon_state()
 	icon_state = "lipstick[open ? "_uncap" : null]"
@@ -150,17 +150,17 @@
 		return
 
 	if(target == user)
-		user.visible_message(span_notice("[user] does [user.p_their()] lips with \the [src]."), \
-			span_notice("You take a moment to apply \the [src]. Perfect!"))
+		user.visible_message(span_notice("[user] does [user.p_their()] lips with  [src]."), \
+			span_notice("You take a moment to apply  [src]. Perfect!"))
 		target.update_lips(style, lipstick_color, lipstick_trait)
 		return
 
-	user.visible_message(span_warning("[user] begins to do [target]'s lips with \the [src]."), \
-		span_notice("You begin to apply \the [src] on [target]'s lips..."))
+	user.visible_message(span_warning("[user] begins to do [target]'s lips with  [src]."), \
+		span_notice("You begin to apply  [src] on [target]'s lips..."))
 	if(!do_after(user, 2 SECONDS, target = target))
 		return
-	user.visible_message(span_notice("[user] does [target]'s lips with \the [src]."), \
-		span_notice("You apply \the [src] on [target]'s lips."))
+	user.visible_message(span_notice("[user] does [target]'s lips with  [src]."), \
+		span_notice("You apply  [src] on [target]'s lips."))
 	target.update_lips(style, lipstick_color, lipstick_trait)
 
 //you can wipe off lipstick with paper!
@@ -174,11 +174,11 @@
 		target.update_lips(null)
 		return
 
-	user.visible_message(span_warning("[user] begins to wipe [target]'s lipstick off with \the [src]."), \
+	user.visible_message(span_warning("[user] begins to wipe [target]'s lipstick off with  [src]."), \
 		span_notice("You begin to wipe off [target]'s lipstick..."))
 	if(!do_after(user, 10, target = target))
 		return
-	user.visible_message(span_notice("[user] wipes [target]'s lipstick off with \the [src]."), \
+	user.visible_message(span_notice("[user] wipes [target]'s lipstick off with  [src]."), \
 		span_notice("You wipe off [target]'s lipstick."))
 	target.update_lips(null)
 

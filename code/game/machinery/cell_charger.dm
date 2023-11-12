@@ -1,6 +1,6 @@
 /obj/machinery/cell_charger
-	name = "cell charger"
-	desc = "It charges power cells."
+	name = "зарядник батарей"
+	desc = "Заряжает аккумуляторные батареи, не подходит для вооружения."
 	icon = 'icons/obj/machines/cell_charger.dmi'
 	icon_state = "ccharger"
 	power_channel = AREA_USAGE_EQUIP
@@ -27,11 +27,11 @@
 
 /obj/machinery/cell_charger/examine(mob/user)
 	. = ..()
-	. += "There's [charging ? "\a [charging]" : "no cell"] in the charger."
+	. += "<hr>Внутри [charging ? "батарейка" : "нет батарейки"] в заряднике."
 	if(charging)
-		. += "Current charge: [round(charging.percent(), 1)]%."
+		. += "<hr><b>Заряд:</b> [round(charging.percent(), 1)]%."
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Charging power: <b>[charge_rate]W</b>.")
+		. += "<hr><span class='notice'>Дисплей: [charge_rate == 1 ? "Стандартная скорость зарядки." : "Скорость зарядки увеличена в <b>[charge_rate]</b> раза."]</span>"
 
 /obj/machinery/cell_charger/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -44,26 +44,26 @@
 /obj/machinery/cell_charger/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell) && !panel_open)
 		if(machine_stat & BROKEN)
-			to_chat(user, span_warning("[src] is broken!"))
+			to_chat(user, span_warning("[capitalize(src.name)] сломан!"))
 			return
 		if(!anchored)
-			to_chat(user, span_warning("[src] isn't attached to the ground!"))
+			to_chat(user, span_warning("[capitalize(src.name)] не прикручен!"))
 			return
 		if(charging)
-			to_chat(user, span_warning("There is already a cell in the charger!"))
+			to_chat(user, span_warning("Здесь уже есть батарейка!"))
 			return
 		else
 			var/area/a = loc.loc // Gets our locations location, like a dream within a dream
 			if(!isarea(a))
 				return
 			if(a.power_equip == 0) // There's no APC in this area, don't try to cheat power!
-				to_chat(user, span_warning("[src] blinks red as you try to insert the cell!"))
+				to_chat(user, span_warning("[capitalize(src.name)] мигает красным диодом!"))
 				return
 			if(!user.transferItemToLoc(W,src))
 				return
 
 			charging = W
-			user.visible_message(span_notice("[user] inserts a cell into [src]."), span_notice("You insert a cell into [src]."))
+			user.visible_message(span_notice("[user] вставляет батарейку в [src].") , span_notice("Вставляю батарейку в [src]."))
 			update_appearance()
 	else
 		if(!charging && default_deconstruction_screwdriver(user, icon_state, icon_state, W))
@@ -96,7 +96,7 @@
 	user.put_in_hands(charging)
 	charging.add_fingerprint(user)
 
-	user.visible_message(span_notice("[user] removes [charging] from [src]."), span_notice("You remove [charging] from [src]."))
+	user.visible_message(span_notice("[user] достаёт [charging] из [src].") , span_notice("Достаю [charging] из [src]."))
 
 	removecell()
 
@@ -106,7 +106,7 @@
 		return
 
 	charging.forceMove(loc)
-	to_chat(user, span_notice("You telekinetically remove [charging] from [src]."))
+	to_chat(user, span_notice("Телекинетически достаю [charging] из [src]."))
 
 	removecell()
 	return COMPONENT_CANCEL_ATTACK_CHAIN

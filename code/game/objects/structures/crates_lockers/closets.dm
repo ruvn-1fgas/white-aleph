@@ -5,8 +5,8 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 
 
 /obj/structure/closet
-	name = "closet"
-	desc = "It's a basic storage unit."
+	name = "шкаф"
+	desc = "Наиболее распространенный вид хранилища."
 	icon = 'icons/obj/storage/closet.dmi'
 	icon_state = "generic"
 	density = TRUE
@@ -799,18 +799,18 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 				if(!weapon.tool_start_check(user, amount=1))
 					return
 
-				to_chat(user, span_notice("You begin cutting \the [src] apart..."))
+				to_chat(user, span_notice("You begin cutting  [src] apart..."))
 				if(weapon.use_tool(src, user, 40, volume=50))
 					if(!opened)
 						return
-					user.visible_message(span_notice("[user] slices apart \the [src]."),
-									span_notice("You cut \the [src] apart weaponith \the [weapon]."),
+					user.visible_message(span_notice("[user] slices apart  [src]."),
+									span_notice("You cut  [src] apart weaponith  [weapon]."),
 									span_hear("You hear weaponelding."))
 					deconstruct(TRUE)
 				return
 			else // for example cardboard box is cut with wirecutters
-				user.visible_message(span_notice("[user] cut apart \the [src]."), \
-									span_notice("You cut \the [src] apart weaponith \the [weapon]."))
+				user.visible_message(span_notice("[user] cut apart  [src]."), \
+									span_notice("You cut  [src] apart weaponith  [weapon]."))
 				deconstruct(TRUE)
 				return
 		if (user.combat_mode)
@@ -827,8 +827,8 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 				return
 			welded = !welded
 			after_weld(welded)
-			user.visible_message(span_notice("[user] [welded ? "welds shut" : "unwelded"] \the [src]."),
-							span_notice("You [welded ? "weld" : "unwelded"] \the [src] with \the [weapon]."),
+			user.visible_message(span_notice("[user] [welded ? "welds shut" : "unwelded"]  [src]."),
+							span_notice("You [welded ? "weld" : "unwelded"]  [src] with  [weapon]."),
 							span_hear("You hear welding."))
 			user.log_message("[welded ? "welded":"unwelded"] closet [src] with [weapon]", LOG_GAME)
 			update_appearance()

@@ -20,12 +20,12 @@
 	if(L)
 		START_PROCESSING(SSdcs, src)
 		last_breath = world.time
-		to_chat(C, span_notice("You suddenly realize you're breathing manually."))
+		to_chat(C, span_notice("Неожиданно забываю как дышать."))
 
 /datum/component/manual_breathing/Destroy(force, silent)
 	L = null
 	STOP_PROCESSING(SSdcs, src)
-	to_chat(parent, span_notice("You revert back to automatic breathing."))
+	to_chat(parent, span_notice("Вспомнил как дышать."))
 	return ..()
 
 /datum/component/manual_breathing/RegisterWithParent()
@@ -55,17 +55,16 @@
 /datum/component/manual_breathing/process()
 	var/mob/living/carbon/C = parent
 
-	var/next_text = initial(next_breath_type.key)
 	if(world.time > (last_breath + check_every + grace_period))
 		if(!warn_dying)
-			to_chat(C, span_userdanger("You begin to suffocate, you need to [next_text]!"))
+			to_chat(C, span_userdanger("Начинаю задыхаться, надо дышать!"))
 			warn_dying = TRUE
 
 		L.apply_organ_damage(damage_rate)
 		C.losebreath += 0.8
 	else if(world.time > (last_breath + check_every))
 		if(!warn_grace)
-			to_chat(C, span_danger("You feel a need to [next_text]!"))
+			to_chat(C, span_danger("Чувствую, что мне надо дышать!"))
 			warn_grace = TRUE
 
 /datum/component/manual_breathing/proc/check_added_organ(mob/who_cares, obj/item/organ/O)

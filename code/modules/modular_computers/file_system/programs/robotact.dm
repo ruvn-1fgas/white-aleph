@@ -15,7 +15,7 @@
 
 /datum/computer_file/program/robotact/on_start(mob/living/user)
 	if(!istype(computer, /obj/item/modular_computer/pda/silicon))
-		to_chat(user, span_warning("A warning flashes across \the [computer]: Device Incompatible."))
+		to_chat(user, span_warning("A warning flashes across  [computer]: Device Incompatible."))
 		return FALSE
 	. = ..()
 	if(.)

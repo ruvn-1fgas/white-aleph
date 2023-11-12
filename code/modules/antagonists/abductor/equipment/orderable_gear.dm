@@ -85,7 +85,7 @@ GLOBAL_LIST_INIT(abductor_gear, subtypesof(/datum/abductor_gear))
 /datum/abductor_gear/omnitool
 	name = "Alien Omnitool"
 	description = "A handheld device with an absurd number of integrated tools. Can be used as a convenient tool replacement for either role. \
-				Right-click it to switch between medical and hacking toolsets."
+				ПКМ it to switch between medical and hacking toolsets."
 	id = "omnitool"
 	cost = 2
 	build_path = list(/obj/item/abductor/alien_omnitool = 1)

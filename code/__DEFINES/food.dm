@@ -1,4 +1,4 @@
-#define MEAT (1<<0)
+	#define MEAT (1<<0)
 #define VEGETABLES (1<<1)
 #define RAW (1<<2)
 #define JUNKFOOD (1<<3)
@@ -71,27 +71,25 @@ DEFINE_BITFIELD(foodtypes, list(
 
 /// IC meaning (more or less) for food flags
 #define FOOD_FLAGS_IC list( \
-	"Meat", \
-	"Vegetables", \
-	"Raw food", \
-	"Junk food", \
-	"Grain", \
-	"Fruits", \
-	"Dairy products", \
-	"Fried food", \
-	"Alcohol", \
-	"Sugary food", \
-	"Gross food", \
-	"Toxic food", \
-	"Pineapples", \
-	"Breakfast food", \
-	"Clothing", \
-	"Nuts", \
-	"Seafood", \
-	"Oranges", \
-	"Bugs", \
-	"Gore", \
-	"Rocks", \
+	"Мясо", \
+	"Овощи", \
+	"Сырое", \
+	"Вредное", \
+	"Зерновое", \
+	"Фрукты", \
+	"Молочное", \
+	"Жаренное", \
+	"Алкоголь", \
+	"Сладкая", \
+	"Жирная", \
+	"Токсичная", \
+	"Ананасы", \
+	"Завтрак", \
+	"Одежда", \
+	"Орехи", \
+	"Морепродукты", \
+	"Цитрусы", \
+	"Жуки", \
 )
 
 #define DRINK_REVOLTING 1
@@ -118,13 +116,13 @@ DEFINE_BITFIELD(foodtypes, list(
 
 /// Labels for food quality
 GLOBAL_LIST_INIT(food_quality_description, list(
-	FOOD_QUALITY_NORMAL = "okay",
-	FOOD_QUALITY_NICE = "nice",
-	FOOD_QUALITY_GOOD = "good",
-	FOOD_QUALITY_VERYGOOD = "very good",
-	FOOD_QUALITY_FANTASTIC = "fantastic",
-	FOOD_QUALITY_AMAZING = "amazing",
-	FOOD_QUALITY_TOP = "godlike",
+	FOOD_QUALITY_NORMAL = "нормально",
+	FOOD_QUALITY_NICE = "неплохо",
+	FOOD_QUALITY_GOOD = "хорошо",
+	FOOD_QUALITY_VERYGOOD = "очень вкусно",
+	FOOD_QUALITY_FANTASTIC = "фантастически",
+	FOOD_QUALITY_AMAZING = "удивительно",
+	FOOD_QUALITY_TOP = "божественно",
 ))
 
 /// Mood events for food quality

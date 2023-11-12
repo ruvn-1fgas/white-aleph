@@ -65,7 +65,7 @@
 		status = TRUE
 		var/datum/gas_mixture/bomb_mix = bombtank.return_air()
 		log_bomber(user, "welded a single tank bomb,", src, "| Temp: [bomb_mix.temperature]")
-		to_chat(user, span_notice("A pressure hole has been bored to [bombtank] valve. \The [bombtank] can now be ignited."))
+		to_chat(user, span_notice("A pressure hole has been bored to [bombtank] valve.  [bombtank] can now be ignited."))
 		add_fingerprint(user)
 		return TRUE
 

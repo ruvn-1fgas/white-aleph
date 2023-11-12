@@ -1,7 +1,8 @@
 /obj/structure/window
-	name = "window"
-	desc = "A directional window."
+	name = "направленное окно"
+	desc = "Окно. Невероятно."
 	icon_state = "window"
+	base_icon_state = "window"
 	density = TRUE
 	layer = ABOVE_OBJ_LAYER //Just above doors
 	pressure_resistance = 4*ONE_ATMOSPHERE
@@ -84,14 +85,14 @@
 
 	switch(state)
 		if(WINDOW_SCREWED_TO_FRAME)
-			. += span_notice("The window is <b>screwed</b> to the frame.")
+			. += span_notice("Окно <b>прикручено</b> к рамке.")
 		if(WINDOW_IN_FRAME)
-			. += span_notice("The window is <i>unscrewed</i> but <b>pried</b> into the frame.")
+			. += span_notice("Окно <i>откручено</i> от рамки, но всё ещё <b>пристыковано</b> к ней.")
 		if(WINDOW_OUT_OF_FRAME)
 			if (anchored)
-				. += span_notice("The window is <b>screwed</b> to the floor.")
+				. += span_notice("Окно вышло из рамки, но может быть <i>пристыковано</i> к ней. Оно <b>прикручено</b> к полу.")
 			else
-				. += span_notice("The window is <i>unscrewed</i> from the floor, and could be deconstructed by <b>wrenching</b>.")
+				. += span_notice("Окно <i>окручено</i> от пола, и может быть разобрано <b>раскручиванием</b>.")
 
 /obj/structure/window/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	if(the_rcd.mode == RCD_DECONSTRUCT)
@@ -100,6 +101,7 @@
 
 /obj/structure/window/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, list/rcd_data)
 	if(rcd_data["[RCD_DESIGN_MODE]"] == RCD_DECONSTRUCT)
+		to_chat(user, span_notice("Разбираю окно."))
 		qdel(src)
 		return TRUE
 	return FALSE
@@ -155,7 +157,7 @@
 
 /obj/structure/window/attack_tk(mob/user)
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message(span_notice("Something knocks on [src]."))
+	user.visible_message(span_notice("Что-то стучит по окну."))
 	add_fingerprint(user)
 	playsound(src, knock_sound, 50, TRUE)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -175,12 +177,12 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	if(!user.combat_mode)
-		user.visible_message(span_notice("[user] knocks on [src]."), \
-			span_notice("You knock on [src]."))
+		user.visible_message(span_notice("[user] стучит по окну.") , \
+			span_notice("Стучу по окну."))
 		playsound(src, knock_sound, 50, TRUE)
 	else
-		user.visible_message(span_warning("[user] bashes [src]!"), \
-			span_warning("You bash [src]!"))
+		user.visible_message(span_warning("[user] долбится в окно!") , \
+			span_warning("Долблю окно!"))
 		playsound(src, bash_sound, 100, TRUE)
 
 /obj/structure/window/attack_paw(mob/user, list/modifiers)
@@ -199,15 +201,15 @@
 
 /obj/structure/window/welder_act(mob/living/user, obj/item/tool)
 	if(atom_integrity >= max_integrity)
-		to_chat(user, span_warning("[src] is already in good condition!"))
+		to_chat(user, span_warning("[capitalize(skloname(src.name, VINITELNI, src.gender))] не требуется починка!"))
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	if(!tool.tool_start_check(user, amount = 0))
 		return FALSE
-	to_chat(user, span_notice("You begin repairing [src]..."))
+	to_chat(user, span_notice("Начинаю чинить [src.name]..."))
 	if(tool.use_tool(src, user, 4 SECONDS, volume = 50))
 		atom_integrity = max_integrity
 		update_nearby_icons()
-		to_chat(user, span_notice("You repair [src]."))
+		to_chat(user, span_notice("Чиню [src.name]."))
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/structure/window/screwdriver_act(mob/living/user, obj/item/tool)
@@ -216,26 +218,26 @@
 
 	switch(state)
 		if(WINDOW_SCREWED_TO_FRAME)
-			to_chat(user, span_notice("You begin to unscrew the window from the frame..."))
+			to_chat(user, span_notice("Начинаю откручивать окно от рамы..."))
 			if(tool.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 				state = WINDOW_IN_FRAME
-				to_chat(user, span_notice("You unfasten the window from the frame."))
+				to_chat(user, span_notice("Откручиваю окно от рамы."))
 		if(WINDOW_IN_FRAME)
-			to_chat(user, span_notice("You begin to screw the window to the frame..."))
+			to_chat(user, span_notice("Начинаю вставлять окно в раму..."))
 			if(tool.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 				state = WINDOW_SCREWED_TO_FRAME
-				to_chat(user, span_notice("You fasten the window to the frame."))
+				to_chat(user, span_notice("Вставляю окно в раму."))
 		if(WINDOW_OUT_OF_FRAME)
 			if(anchored)
-				to_chat(user, span_notice("You begin to unscrew the frame from the floor..."))
+				to_chat(user, span_notice("Начинаю откручивать от пола..."))
 				if(tool.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 					set_anchored(FALSE)
-					to_chat(user, span_notice("You unfasten the frame from the floor."))
+					to_chat(user, span_notice("Откручиваю от пола."))
 			else
-				to_chat(user, span_notice("You begin to screw the frame to the floor..."))
+				to_chat(user, span_notice("Начинаю прикручивать к полу..."))
 				if(tool.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 					set_anchored(TRUE)
-					to_chat(user, span_notice("You fasten the frame to the floor."))
+					to_chat(user, span_notice("Прикручиваю к полу."))
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/structure/window/wrench_act(mob/living/user, obj/item/tool)
@@ -244,14 +246,14 @@
 	if((flags_1 & NODECONSTRUCT_1) || (reinf && state >= RWINDOW_FRAME_BOLTED))
 		return FALSE
 
-	to_chat(user, span_notice("You begin to disassemble [src]..."))
+	to_chat(user, span_notice("Начинаю разбирать [src]..."))
 	if(!tool.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	var/obj/item/stack/sheet/G = new glass_type(user.loc, glass_amount)
 	if (!QDELETED(G))
 		G.add_fingerprint(user)
 	playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
-	to_chat(user, span_notice("You successfully disassemble [src]."))
+	to_chat(user, span_notice("Разобрал [src]."))
 	qdel(src)
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
@@ -261,15 +263,15 @@
 
 	switch(state)
 		if(WINDOW_IN_FRAME)
-			to_chat(user, span_notice("You begin to lever the window out of the frame..."))
+			to_chat(user, span_notice("Начинаю доставать окно из рамы..."))
 			if(tool.use_tool(src, user, 10 SECONDS, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 				state = WINDOW_OUT_OF_FRAME
-				to_chat(user, span_notice("You pry the window out of the frame."))
+				to_chat(user, span_notice("Достаю окно из рамы."))
 		if(WINDOW_OUT_OF_FRAME)
-			to_chat(user, span_notice("You begin to lever the window back into the frame..."))
+			to_chat(user, span_notice("Начинаю вставлять окно в раму..."))
 			if(tool.use_tool(src, user, 5 SECONDS, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 				state = WINDOW_SCREWED_TO_FRAME
-				to_chat(user, span_notice("You pry the window back into the frame."))
+				to_chat(user, span_notice("Вставил окно в раму."))
 		else
 			return FALSE
 
@@ -450,9 +452,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/spawner, 0)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 
 /obj/structure/window/reinforced
-	name = "reinforced window"
-	desc = "A window that is reinforced with metal rods."
+	name = "направленное армированное окно"
+	desc = "Окно, которое укреплено стальными прутьями."
 	icon_state = "rwindow"
+	base_icon_state = "rwindow"
 	reinf = TRUE
 	heat_resistance = 1600
 	armor_type = /datum/armor/window_reinforced
@@ -490,56 +493,55 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 		if(RWINDOW_SECURE)
 			if(tool.tool_behaviour == TOOL_WELDER)
 				if(tool.tool_start_check(user))
-					user.visible_message(span_notice("[user] holds \the [tool] to the security screws on \the [src]..."),
-						span_notice("You begin heating the security screws on \the [src]..."))
+					user.visible_message(span_notice("[user] направляет [skloname(tool.name, VINITELNI, tool.gender)] на защищённые винтики [skloname(src.name, VINITELNI, src.gender)]...") ,
+										span_notice("Начинаю нагревать винтики [skloname(src.name, VINITELNI, src.gender)]..."))
 					if(tool.use_tool(src, user, 15 SECONDS, volume = 100))
-						to_chat(user, span_notice("The security screws are glowing white hot and look ready to be removed."))
+						to_chat(user, span_notice("Винтики раскалены до бела, похоже можно открутить их прямо сейчас."))
 						state = RWINDOW_BOLTS_HEATED
 						addtimer(CALLBACK(src, PROC_REF(cool_bolts)), 30 SECONDS)
 			else if (tool.tool_behaviour)
-				to_chat(user, span_warning("The security screws need to be heated first!"))
+				to_chat(user, span_warning("Сначала нужно нагреть винтики!"))
 
 		if(RWINDOW_BOLTS_HEATED)
 			if(tool.tool_behaviour == TOOL_SCREWDRIVER)
-				user.visible_message(span_notice("[user] digs into the heated security screws and starts removing them..."),
-										span_notice("You dig into the heated screws hard and they start turning..."))
+				user.visible_message(span_notice("[user] втыкает отвёртку в раскалённые винтики и начинает их выкручивать...") ,
+										span_notice("Втыкаю отвёртку в раскалённые винтики и начинаю их выкручивать..."))
 				if(tool.use_tool(src, user, 50, volume = 50))
 					state = RWINDOW_BOLTS_OUT
-					to_chat(user, span_notice("The screws come out, and a gap forms around the edge of the pane."))
+					to_chat(user, span_notice("Винтики удалены и теперь окно можно подпереть."))
 			else if (tool.tool_behaviour)
-				to_chat(user, span_warning("The security screws need to be removed first!"))
+				to_chat(user, span_warning("Сначала нужно выкрутить винтики!"))
 
 		if(RWINDOW_BOLTS_OUT)
 			if(tool.tool_behaviour == TOOL_CROWBAR)
-				user.visible_message(span_notice("[user] wedges \the [tool] into the gap in the frame and starts prying..."),
-										span_notice("You wedge \the [tool] into the gap in the frame and start prying..."))
+				user.visible_message(span_notice("[user] вставляет [skloname(tool.name, VINITELNI, tool.gender)] в щель и начинает подпирать окно...") ,
+										span_notice("Вставляю [skloname(tool.name, VINITELNI, tool.gender)] в щель и начинаю подпирать окно..."))
 				if(tool.use_tool(src, user, 40, volume = 50))
 					state = RWINDOW_POPPED
-					to_chat(user, span_notice("The panel pops out of the frame, exposing some thin metal bars that looks like they can be cut."))
+					to_chat(user, span_notice("Основная плита вышла из рамки и стали видны прутья, которые можно откусить."))
 			else if (tool.tool_behaviour)
-				to_chat(user, span_warning("The gap needs to be pried first!"))
+				to_chat(user, span_warning("Сначала нужно подпереть окно!"))
 
 		if(RWINDOW_POPPED)
 			if(tool.tool_behaviour == TOOL_WIRECUTTER)
-				user.visible_message(span_notice("[user] starts cutting the exposed bars on \the [src]..."),
-										span_notice("You start cutting the exposed bars on \the [src]"))
+				user.visible_message(span_notice("[user] начинает откусывать доступные прутья [skloname(src.name, VINITELNI, src.gender)]...") ,
+										span_notice("Начинаю откусывать доступные прутья [skloname(src.name, VINITELNI, src.gender)]..."))
 				if(tool.use_tool(src, user, 20, volume = 50))
 					state = RWINDOW_BARS_CUT
-					to_chat(user, span_notice("The panels falls out of the way exposing the frame bolts."))
+					to_chat(user, span_notice("Основная плита отделена от рамки и теперь её удерживает только несколько болтов."))
 			else if (tool.tool_behaviour)
-				to_chat(user, span_warning("The bars need to be cut first!"))
+				to_chat(user, span_warning("Сначала нужно откусить прутья!"))
 
 		if(RWINDOW_BARS_CUT)
 			if(tool.tool_behaviour == TOOL_WRENCH)
-				user.visible_message(span_notice("[user] starts unfastening \the [src] from the frame..."),
-					span_notice("You start unfastening the bolts from the frame..."))
+				user.visible_message(span_notice("[user] начинает откручивать [skloname(src.name, VINITELNI, src.gender)] от рамки...") ,
+					span_notice("Начинаю откручивать болты..."))
 				if(tool.use_tool(src, user, 40, volume = 50))
-					to_chat(user, span_notice("You unscrew the bolts from the frame and the window pops loose."))
+					to_chat(user, span_notice("Снимаю окно с болтов и теперь оно может быть свободно перемещено."))
 					state = WINDOW_OUT_OF_FRAME
 					set_anchored(FALSE)
 			else if (tool.tool_behaviour)
-				to_chat(user, span_warning("The bolts need to be loosened first!"))
-
+				to_chat(user, span_warning("Сначала нужно открутить болты!"))
 
 	if (tool.tool_behaviour)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -551,32 +553,31 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 		return FALSE
 	if((flags_1 & NODECONSTRUCT_1) || (state != WINDOW_OUT_OF_FRAME))
 		return FALSE
-	to_chat(user, span_notice("You begin to lever the window back into the frame..."))
+	to_chat(user, span_notice("Начинаю вставлять окно в раму..."))
 	if(tool.use_tool(src, user, 10 SECONDS, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 		state = RWINDOW_SECURE
-		to_chat(user, span_notice("You pry the window back into the frame."))
+		to_chat(user, span_notice("Вставляю окно в раму."))
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/structure/window/proc/cool_bolts()
 	if(state == RWINDOW_BOLTS_HEATED)
 		state = RWINDOW_SECURE
-		visible_message(span_notice("The bolts on \the [src] look like they've cooled off..."))
-
+		visible_message(span_notice("Винтики на [skloname(src.name, TVORITELNI, src.gender)] выглядят как будто они остыли..."))
 /obj/structure/window/reinforced/examine(mob/user)
 	. = ..()
 	if(flags_1 & NODECONSTRUCT_1)
 		return
 	switch(state)
 		if(RWINDOW_SECURE)
-			. += span_notice("It's been screwed in with one way screws, you'd need to <b>heat them</b> to have any chance of backing them out.")
+			. += span_notice("Окно прикручено одноразовыми винтами. Придётся <b>нагреть их</b>, чтобы получить хоть какой-то шанс выкрутить их обратно.")
 		if(RWINDOW_BOLTS_HEATED)
-			. += span_notice("The screws are glowing white hot, and you'll likely be able to <b>unscrew them</b> now.")
+			. += span_notice("Винтики раскалены до бела, похоже можно <b>открутить их</b> прямо сейчас.")
 		if(RWINDOW_BOLTS_OUT)
-			. += span_notice("The screws have been removed, revealing a small gap you could fit a <b>prying tool</b> in.")
+			. += span_notice("Винтики удалены и теперь окно можно <b>подпереть</b> сквозь доступную щель.")
 		if(RWINDOW_POPPED)
-			. += span_notice("The main plate of the window has popped out of the frame, exposing some bars that look like they can be <b>cut</b>.")
+			. += span_notice("Основная плита вышла из рамки и стали видны прутья, которые можно <b>откусить</b>.")
 		if(RWINDOW_BARS_CUT)
-			. += span_notice("The main pane can be easily moved out of the way to reveal some <b>bolts</b> holding the frame in.")
+			. += span_notice("Основная плита отделена от рамки и теперь её удерживает только несколько <b>болтов</b>.")
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/spawner, 0)
 
@@ -587,8 +588,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/spawner, 0)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/unanchored/spawner, 0)
 
 /obj/structure/window/plasma
-	name = "plasma window"
-	desc = "A window made out of a plasma-silicate alloy. It looks insanely tough to break and burn through."
+	name = "направленное окно из плазмы"
+	desc = "Окно из плазменно-силикатного сплава. Выглядит безумно сложным для ломания и прожигания."
 	icon_state = "plasmawindow"
 	reinf = FALSE
 	heat_resistance = 25000
@@ -616,8 +617,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/plasma/spawner, 0)
 	anchored = FALSE
 
 /obj/structure/window/reinforced/plasma
-	name = "reinforced plasma window"
-	desc = "A window made out of a plasma-silicate alloy and a rod matrix. It looks hopelessly tough to break and is most likely nigh fireproof."
+	name = "направленное армированное окно из плазмы"
+	desc = "Окно из плазменно-силикатного сплава и стержневой матрицы. Он выглядит безнадежно жестким для разрушения и, скорее всего, почти пожаробезопасным."
 	icon_state = "plasmarwindow"
 	reinf = TRUE
 	heat_resistance = 50000
@@ -646,13 +647,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/plasma/spawner, 0)
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/tinted
-	name = "tinted window"
+	name = "затемненное окно"
 	icon_state = "twindow"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/spawner, 0)
 
 /obj/structure/window/reinforced/tinted/frosted
-	name = "frosted window"
+	name = "заледеневшее окно"
 	icon_state = "fwindow"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spawner, 0)
@@ -660,18 +661,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 /* Full Tile Windows (more atom_integrity) */
 
 /obj/structure/window/fulltile
-	name = "full tile window"
-	desc = "A full tile window."
-	icon = 'icons/obj/smooth_structures/window.dmi'
-	icon_state = "window-0"
-	base_icon_state = "window"
+	name = "окно"
+	icon = 'icons/obj/windows/window_glass.dmi'
+	icon_state = "window_glass-0"
+	base_icon_state = "window_glass"
 	max_integrity = 100
 	fulltile = TRUE
 	flags_1 = PREVENT_CLICK_UNDER_1
 	obj_flags = CAN_BE_HIT
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE
+	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	glass_amount = 2
 
 /obj/structure/window/fulltile/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
@@ -683,6 +683,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	anchored = FALSE
 
 /obj/structure/window/plasma/fulltile
+	name = "окно из плазмы"
 	icon = 'icons/obj/smooth_structures/plasma_window.dmi'
 	icon_state = "plasma_window-0"
 	base_icon_state = "plasma_window"
@@ -692,16 +693,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	obj_flags = CAN_BE_HIT
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE
+	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	glass_amount = 2
 
 /obj/structure/window/plasma/fulltile/unanchored
 	anchored = FALSE
 
 /obj/structure/window/reinforced/plasma/fulltile
-	icon = 'icons/obj/smooth_structures/rplasma_window.dmi'
-	icon_state = "rplasma_window-0"
-	base_icon_state = "rplasma_window"
+	name = "армированное окно из плазмы"
+	icon = 'icons/obj/windows/window_rplasma.dmi'
+	icon_state = "window_rplasma-0"
+	base_icon_state = "window_rplasma"
 	state = RWINDOW_SECURE
 	max_integrity = 1000
 	fulltile = TRUE
@@ -709,7 +711,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	obj_flags = CAN_BE_HIT
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE
+	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	glass_amount = 2
 
 /obj/structure/window/reinforced/plasma/fulltile/unanchored
@@ -717,11 +719,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/fulltile
-	name = "full tile reinforced window"
-	desc = "A full tile reinforced window"
-	icon = 'icons/obj/smooth_structures/reinforced_window.dmi'
-	icon_state = "reinforced_window-0"
-	base_icon_state = "reinforced_window"
+	name = "армированное окно"
+	icon = 'icons/obj/windows/window_rglass.dmi'
+	icon_state = "window_rglass-0"
+	base_icon_state = "window_rglass"
 	max_integrity = 150
 	fulltile = TRUE
 	flags_1 = PREVENT_CLICK_UNDER_1
@@ -729,7 +730,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	state = RWINDOW_SECURE
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE
+	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	glass_amount = 2
 
 /obj/structure/window/reinforced/fulltile/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
@@ -742,15 +743,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/tinted/fulltile
-	icon = 'icons/obj/smooth_structures/tinted_window.dmi'
-	icon_state = "tinted_window-0"
-	base_icon_state = "tinted_window"
+	icon = 'icons/obj/windows/window_glass.dmi'
+	icon_state = "window_glass-0"
+	base_icon_state = "window_glass"
 	fulltile = TRUE
 	flags_1 = PREVENT_CLICK_UNDER_1
 	obj_flags = CAN_BE_HIT
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE
+	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	glass_amount = 2
 	// Not on the parent because directional opacity does NOT WORK
 	opacity = TRUE
@@ -764,8 +765,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 
 //there is a sub shuttle window in survival_pod.dm for mining pods
 /obj/structure/window/reinforced/shuttle//this is called reinforced because it is reinforced w/titanium
-	name = "shuttle window"
-	desc = "A reinforced, air-locked pod window."
+	name = "окно шаттла"
+	desc = "Усиленное герметичное окно кабины."
 	icon = 'icons/obj/smooth_structures/shuttle_window.dmi'
 	icon_state = "shuttle_window-0"
 	base_icon_state = "shuttle_window"
@@ -813,8 +814,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	return FALSE
 
 /obj/structure/window/reinforced/plasma/plastitanium
-	name = "plastitanium window"
-	desc = "A durable looking window made of an alloy of of plasma and titanium."
+	name = "пластитановое окно"
+	desc = "Прочное окно из сплава плазмы и титана."
 	icon = 'icons/obj/smooth_structures/plastitanium_window.dmi'
 	icon_state = "plastitanium_window-0"
 	base_icon_state = "plastitanium_window"
@@ -827,7 +828,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	armor_type = /datum/armor/plasma_plastitanium
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_WINDOW_FULLTILE_PLASTITANIUM
-	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE_PLASTITANIUM
+	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE_PLASTITANIUM + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	explosion_block = 3
 	damage_deflection = 21 //The same as reinforced plasma windows.3
 	glass_type = /obj/item/stack/sheet/plastitaniumglass
@@ -846,8 +847,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/paperframe
-	name = "paper frame"
-	desc = "A fragile separator made of thin wood and paper."
+	name = "бумажная рамка"
+	desc = "Хрупкий разделитель из тонкого дерева и бумаги."
 	icon = 'icons/obj/smooth_structures/paperframes.dmi'
 	icon_state = "paperframes-0"
 	base_icon_state = "paperframes"
@@ -880,7 +881,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 /obj/structure/window/paperframe/examine(mob/user)
 	. = ..()
 	if(atom_integrity < max_integrity)
-		. += span_info("It looks a bit damaged, you may be able to fix it with some <b>paper</b>.")
+		. += span_info("Она выглядит немного поврежденной, можно починить с помощью <b>бумаги</b>.")
 
 /obj/structure/window/paperframe/spawn_debris(location)
 	. = list(new /obj/item/stack/sheet/mineral/wood(location))
@@ -916,11 +917,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	if(user.combat_mode)
 		return ..()
 	if(istype(W, /obj/item/paper) && atom_integrity < max_integrity)
-		user.visible_message(span_notice("[user] starts to patch the holes in \the [src]."))
+		user.visible_message(span_notice("[user] начинает заделывать щели в [skloname(src.name, TVORITELNI, src.gender)]."))
 		if(do_after(user, 20, target = src))
 			atom_integrity = min(atom_integrity+4,max_integrity)
 			qdel(W)
-			user.visible_message(span_notice("[user] patches some of the holes in \the [src]."))
+			user.visible_message(span_notice("[user] заделывает некоторые щели в [skloname(src.name, TVORITELNI, src.gender)]."))
 			if(atom_integrity == max_integrity)
 				update_appearance()
 			return
@@ -928,8 +929,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	update_appearance()
 
 /obj/structure/window/bronze
-	name = "brass window"
-	desc = "A paper-thin pane of translucent yet reinforced brass. Nevermind, this is just weak bronze!"
+	name = "латунное окно"
+	desc = "Тонкая, как бумага, панель из полупрозрачной, но усиленной латуни. Да ладно, это слабая латунь!"
 	icon = 'icons/obj/smooth_structures/clockwork_window.dmi'
 	icon_state = "clockwork_window_single"
 	glass_type = /obj/item/stack/sheet/bronze

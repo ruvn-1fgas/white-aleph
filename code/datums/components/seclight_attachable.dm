@@ -160,7 +160,8 @@
 	var/successful_toggle = light.toggle_light(user)
 	if(!successful_toggle)
 		return TRUE
-	user.balloon_alert(user, "[light.name] toggled [light.light_on ? "on":"off"]")
+	if(user)
+		user.balloon_alert(user, "[light.name] [light.light_on ? "включается":"выключается"]")
 	update_light()
 	return TRUE
 
@@ -218,14 +219,14 @@
 		return
 
 	if(light)
-		source.balloon_alert(attacker, "already has \a [light]!")
+		source.balloon_alert(attacker, "уже имеет [light]!")
 		return
 
 	if(!attacker.transferItemToLoc(attacking_item, source))
 		return
 
 	add_light(attacking_item, attacker)
-	source.balloon_alert(attacker, "attached [attacking_item]")
+	source.balloon_alert(attacker, "прикрепляю [attacking_item]")
 	return COMPONENT_NO_AFTERATTACK
 
 /// Signal proc for [COMSIG_ATOM_TOOL_ACT] via [TOOL_SCREWDRIVER] that removes any attached seclite.
@@ -241,7 +242,7 @@
 /// Invoked asyncronously from [proc/on_screwdriver]. Handles removing the light from our parent.
 /datum/component/seclite_attachable/proc/unscrew_light(obj/item/source, mob/user, obj/item/tool)
 	tool?.play_tool_sound(source)
-	source.balloon_alert(user, "unscrewed [light]")
+	source.balloon_alert(user, "откручивает [light]")
 
 	var/obj/item/flashlight/seclite/to_remove = light
 
@@ -255,9 +256,10 @@
 	SIGNAL_HANDLER
 
 	if(light)
-		examine_list += "It has \a [light] [is_light_removable ? "mounted on it with a few <b>screws</b>" : "permanently mounted on it"]."
+		examine_list += "<hr>На нём установлен [light], который [is_light_removable ? "" : "<b>надёжно</b> "]прикручен к нему."
 	else
-		examine_list += "It has a mounting point for a <b>seclite</b>."
+		examine_list += "<hr>Здесь присутствует посадочное место для <b>фонарика</b>."
+
 
 /// Signal proc for [COMSIG_ATOM_UPDATE_OVERLAYS] that updates our parent with our seclite overlays, if we have some.
 /datum/component/seclite_attachable/proc/on_update_overlays(obj/item/source, list/overlays)

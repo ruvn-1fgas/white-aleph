@@ -580,12 +580,12 @@ Striking a noncultist, however, will tear their flesh."}
 
 /obj/item/cult_shift/attack_self(mob/user)
 	if(!uses || !iscarbon(user))
-		to_chat(user, span_warning("\The [src] is dull and unmoving in your hands."))
+		to_chat(user, span_warning(" [src] is dull and unmoving in your hands."))
 		return
 	if(!IS_CULTIST(user))
 		user.dropItemToGround(src, TRUE)
 		step(src, pick(GLOB.alldirs))
-		to_chat(user, span_warning("\The [src] flickers out of your hands, your connection to this dimension is too strong!"))
+		to_chat(user, span_warning(" [src] flickers out of your hands, your connection to this dimension is too strong!"))
 		return
 
 	//The user of the shifter
@@ -640,7 +640,7 @@ Striking a noncultist, however, will tear their flesh."}
 
 	if(!isitem(A))
 		..()
-		to_chat(user, span_warning("\The [src] can only transport items!"))
+		to_chat(user, span_warning(" [src] can only transport items!"))
 		return
 
 	. |= AFTERATTACK_PROCESSED_ITEM
@@ -667,11 +667,11 @@ Striking a noncultist, however, will tear their flesh."}
 	if(A in user.get_all_contents())
 		to_chat(user, "<span class='cult italic'>[A] must be on a surface in order to teleport it!</span>")
 		return
-	to_chat(user, "<span class='cult italic'>You ignite [A] with \the [src], turning it to ash, but through the torch's flames you see that [A] has reached [cultist_to_receive]!</span>")
-	user.log_message("teleported [A] to [cultist_to_receive] with \the [src].", LOG_GAME)
+	to_chat(user, "<span class='cult italic'>You ignite [A] with  [src], turning it to ash, but through the torch's flames you see that [A] has reached [cultist_to_receive]!</span>")
+	user.log_message("teleported [A] to [cultist_to_receive] with  [src].", LOG_GAME)
 	cultist_to_receive.put_in_hands(A)
 	charges--
-	to_chat(user, "\The [src] now has [charges] charge\s.")
+	to_chat(user, " [src] now has [charges] charge\s.")
 	if(charges == 0)
 		qdel(src)
 

@@ -43,13 +43,13 @@
 	src.min_distance = min_distance
 
 	var/mob/P = parent
-	to_chat(P, span_notice("You are now able to launch tackles! You can do so by activating throw mode, and clicking on your target with an empty hand."))
+	to_chat(P, span_notice("Теперь я могу совершать прыжок перехвата! Для того чтобы сделать это, я должен активировать намерение броска и нажать на свою цель пустой рукой."))
 
 	addtimer(CALLBACK(src, PROC_REF(resetTackle)), base_knockdown, TIMER_STOPPABLE)
 
 /datum/component/tackler/Destroy()
 	var/mob/P = parent
-	to_chat(P, span_notice("You can no longer tackle."))
+	to_chat(P, span_notice("Я больше не умею прыгать."))
 	return ..()
 
 /datum/component/tackler/RegisterWithParent()
@@ -81,23 +81,24 @@
 		return
 
 	if(HAS_TRAIT(user, TRAIT_HULK))
-		to_chat(user, span_warning("You're too angry to remember how to tackle!"))
-		return
+		if(prob(50))
+			to_chat(user, span_warning("ПРЫГАТЬ! НАДА ПРЫГАТЬ! ЫААА! А КАК ПРЫГАТЬ? ВСПОМИНАТЬ!"))
+			return
 
 	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
-		to_chat(user, span_warning("You need free use of your hands to tackle!"))
+		to_chat(user, span_warning("Невозможно прыгнуть с связанными руками!"))
 		return
 
 	if(user.body_position == LYING_DOWN)
-		to_chat(user, span_warning("You must be standing to tackle!"))
+		to_chat(user, span_warning("Прыгать можно только из положения стоя!"))
 		return
 
 	if(tackling)
-		to_chat(user, span_warning("You're not ready to tackle!"))
+		to_chat(user, span_warning("Я еще не готов!"))
 		return
 
 	if(user.has_movespeed_modifier(/datum/movespeed_modifier/shove)) // can't tackle if you just got shoved
-		to_chat(user, span_warning("You're too off balance to tackle!"))
+		to_chat(user, span_warning("Я слишком выведен из равновесия, чтобы справиться с этим!"))
 		return
 
 	user.face_atom(clicked_atom)
@@ -106,11 +107,10 @@
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(checkObstacle))
 	playsound(user, 'sound/weapons/thudswoosh.ogg', 40, TRUE, -1)
 
-	var/leap_word = isfelinid(user) ? "pounce" : "leap" //If cat, "pounce" instead of "leap".
 	if(can_see(user, clicked_atom, 7))
-		user.visible_message(span_warning("[user] [leap_word]s at [clicked_atom]!"), span_danger("You [leap_word] at [clicked_atom]!"))
+		user.visible_message(span_warning("[user] прыгает на [clicked_atom]!"), span_danger("Прыгаю на [clicked_atom]!"))
 	else
-		user.visible_message(span_warning("[user] [leap_word]s!"), span_danger("You [leap_word]!"))
+		user.visible_message(span_warning("[user] прыгает!"), span_danger("Прыгаю!"))
 
 	if(get_dist(user, clicked_atom) < min_distance)
 		var/tackle_angle = get_angle(user, clicked_atom)
@@ -157,7 +157,6 @@
 	var/mob/living/carbon/target = hit
 	var/mob/living/carbon/human/T = target
 	var/mob/living/carbon/human/S = user
-	var/tackle_word = isfelinid(user) ? "pounce" : "tackle" //If cat, "pounce" instead of "tackle".
 
 	var/roll = rollTackle(target)
 	tackling = FALSE
@@ -165,8 +164,8 @@
 
 	switch(roll)
 		if(-INFINITY to -5)
-			user.visible_message(span_danger("[user] botches [user.p_their()] [tackle_word] and slams [user.p_their()] head into [target], knocking [user.p_them()]self silly!"), span_userdanger("You botch your [tackle_word] and slam your head into [target], knocking yourself silly!"), ignored_mobs = target)
-			to_chat(target, span_userdanger("[user] botches [user.p_their()] [tackle_word] and slams [user.p_their()] head into you, knocking [user.p_them()]self silly!"))
+			user.visible_message(span_danger("[user] неуклюже прыгает на [target], ударяясь головами друг об друга!"), span_userdanger("Неуклюже прыгаю на [target], но наши головы сталкиваются при падении!"), ignored_mobs = target)
+			to_chat(target, span_userdanger("[user] неуклюже прыгает на меня, ударяясь своей головой об мою!"))
 
 			user.Paralyze(3 SECONDS)
 			var/obj/item/bodypart/head/hed = user.get_bodypart(BODY_ZONE_HEAD)
@@ -175,8 +174,8 @@
 			user.gain_trauma(/datum/brain_trauma/mild/concussion)
 
 		if(-4 to -2) // glancing blow at best
-			user.visible_message(span_warning("[user] lands a weak [tackle_word] on [target], briefly knocking [target.p_them()] off-balance!"), span_userdanger("You land a weak [tackle_word] on [target], briefly knocking [target.p_them()] off-balance!"), ignored_mobs = target)
-			to_chat(target, span_userdanger("[user] lands a weak [tackle_word] on you, briefly knocking you off-balance!"))
+			user.visible_message(span_warning("[user] прыгает на [target], после чего они падают!"), span_userdanger("Прыгаю на [target], сбивая цель с ног, но так же падаю при этом!"), ignored_mobs = target)
+			to_chat(target, span_userdanger("[user] прыгает на меня и сбивает с ног!"))
 
 			user.Knockdown(30)
 			if(ishuman(target) && !T.has_movespeed_modifier(/datum/movespeed_modifier/shove))
@@ -184,8 +183,8 @@
 				addtimer(CALLBACK(T, TYPE_PROC_REF(/mob/living/carbon, clear_shove_slowdown)), SHOVE_SLOWDOWN_LENGTH * 2)
 
 		if(-1 to 0) // decent hit, both parties are about equally inconvenienced
-			user.visible_message(span_warning("[user] lands a passable [tackle_word] on [target], sending them both tumbling!"), span_userdanger("You land a passable [tackle_word] on [target], sending you both tumbling!"), ignored_mobs = target)
-			to_chat(target, span_userdanger("[user] lands a passable [tackle_word] on you, sending you both tumbling!"))
+			user.visible_message(span_warning("[user] прыгает на [target], после чего они валятся на пол в клинче!"), span_userdanger("Прыгаю на [target], сбивая цель с ног и удерживая ее!"), ignored_mobs = target)
+			to_chat(target, span_userdanger("[user] прыгает на меня, сбивая с ног и прижимая к земле!"))
 
 			target.adjustStaminaLoss(stamina_cost)
 			target.Paralyze(0.5 SECONDS)
@@ -193,8 +192,8 @@
 			target.Knockdown(2.5 SECONDS)
 
 		if(1 to 2) // solid hit, tackler has a slight advantage
-			user.visible_message(span_warning("[user] lands a solid [tackle_word] on [target], knocking them both down hard!"), span_userdanger("You land a solid [tackle_word] on [target], knocking you both down hard!"), ignored_mobs = target)
-			to_chat(target, span_userdanger("[user] lands a solid [tackle_word] on you, knocking you both down hard!"))
+			user.visible_message(span_warning("[user] прыгает [target], после чего пытается скрутить цель!"), span_userdanger("Прыгаю на [target], сбивая цель с ног и пытаюсь скрутить!"), ignored_mobs = target)
+			to_chat(target, span_userdanger("[user] прыгает на меня и пытается скрутить цель!"))
 
 			target.adjustStaminaLoss(30)
 			target.Paralyze(0.5 SECONDS)
@@ -202,8 +201,8 @@
 			target.Knockdown(2 SECONDS)
 
 		if(3 to 4) // really good hit, the target is definitely worse off here. Without positive modifiers, this is as good a tackle as you can land
-			user.visible_message(span_warning("[user] lands an expert [tackle_word] on [target], knocking [target.p_them()] down hard while landing on [user.p_their()] feet with a passive grip!"), span_userdanger("You land an expert [tackle_word] on [target], knocking [target.p_them()] down hard while landing on your feet with a passive grip!"), ignored_mobs = target)
-			to_chat(target, span_userdanger("[user] lands an expert [tackle_word] on you, knocking you down hard and maintaining a passive grab!"))
+			user.visible_message(span_warning("[user] прыгает на [target], сбивая цель с ног и заламывая ей руку!"), span_userdanger("Прыгаю на [target], сбивая цель с ног и заламываю ей руку!"), ignored_mobs = target)
+			to_chat(target, span_userdanger("[user] прыгает на меня и заламывает мне руку!"))
 
 			// Ignore_canstun has to be true, or else a stunimmune user would stay knocked down.
 			user.SetKnockdown(0, ignore_canstun = TRUE)
@@ -217,28 +216,19 @@
 				S.setGrabState(GRAB_PASSIVE)
 
 		if(5 to INFINITY) // absolutely BODIED
-			var/stamcritted_user = HAS_TRAIT_FROM(user, TRAIT_INCAPACITATED, STAMINA)
-			if(stamcritted_user) // in case the user went into stamcrit from the tackle itself and cannot actually aggro grab (since they will be crit) we make the tackle a bit more effective on the target
-				user.visible_message(span_warning("[user] lands a monsterly reckless [tackle_word] on [target], knocking both of them senseless!"), span_userdanger("You land a monsterly reckless [tackle_word] on [target], knocking both of you senseless!"), ignored_mobs = target)
-				to_chat(target, span_userdanger("[user] lands a monsterly reckless [tackle_word] on you, knocking the both of you senseless!"))
-				user.forceMove(get_turf(target))
-				target.adjustStaminaLoss(60)
-				target.Paralyze(1 SECONDS)
-				target.Knockdown(5 SECONDS)
-			else
-				user.visible_message(span_warning("[user] lands a monster [tackle_word] on [target], knocking [target.p_them()] senseless and applying an aggressive pin!"), span_userdanger("You land a monster [tackle_word] on [target], knocking [target.p_them()] senseless and applying an aggressive pin!"), ignored_mobs = target)
-				to_chat(target, span_userdanger("[user] lands a monster [tackle_word] on you, knocking you senseless and aggressively pinning you!"))
+			user.visible_message(span_warning("[user] прыгает на [target], сбив цель с ног и жестко берет на болевой захват!"), span_userdanger("Прыгаю на [target], сбивая цель с ног и беру ее на болевой захват!"), ignored_mobs = target)
+			to_chat(target, span_userdanger("[user] прыгает на меня и берет на болевой захват!"))
 
-				// Ignore_canstun has to be true, or else a stunimmune user would stay knocked down.
-				user.SetKnockdown(0, ignore_canstun = TRUE)
-				user.get_up(TRUE)
-				user.forceMove(get_turf(target))
-				target.adjustStaminaLoss(40)
-				target.Paralyze(0.5 SECONDS)
-				target.Knockdown(3 SECONDS)
-				if(ishuman(target) && ishuman(user))
-					INVOKE_ASYNC(S.dna.species, TYPE_PROC_REF(/datum/species, grab), S, T)
-					S.setGrabState(GRAB_AGGRESSIVE)
+			// Ignore_canstun has to be true, or else a stunimmune user would stay knocked down.
+			user.SetKnockdown(0, ignore_canstun = TRUE)
+			user.get_up(TRUE)
+			user.forceMove(get_turf(target))
+			target.adjustStaminaLoss(40)
+			target.Paralyze(0.5 SECONDS)
+			target.Knockdown(3 SECONDS)
+			if(ishuman(target) && ishuman(user))
+				INVOKE_ASYNC(S.dna.species, TYPE_PROC_REF(/datum/species, grab), S, T)
+				S.setGrabState(GRAB_AGGRESSIVE)
 
 
 	return COMPONENT_MOVABLE_IMPACT_FLIP_HITPUSH

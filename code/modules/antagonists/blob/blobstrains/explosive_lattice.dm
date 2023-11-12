@@ -1,14 +1,14 @@
 //does aoe brute damage when hitting targets, is immune to explosions
 /datum/blobstrain/reagent/explosive_lattice
-	name = "Explosive Lattice"
-	description = "will attack with small explosions, dealing a medium mix of brute and burn damage to everyone nearby. Spores explode on death."
-	effectdesc = "will also resist explosions, but takes increased damage from fire and other energy sources."
-	analyzerdescdamage = "Does a medium mix of brute and burn damage in a small explosion around its targets.  Spores explode on death."
-	analyzerdesceffect = "Is highly resistant to explosions, but takes increased damage from fire and other energy sources."
+	name = "Взрывная решетка"
+	description = "нанесет грубый урон в области вокруг целей."
+	effectdesc = "также будет сопротивляться взрывам, но получает повышенный урон от огня и других источников энергии."
+	analyzerdescdamage = "Наносит средний грубый урон и наносит урон всем, кто находится рядом с его целями. При смерти споры взрываются."
+	analyzerdesceffect = "Обладает высокой устойчивостью к взрывам, но получает повышенный урон от огня и других источников энергии."
 	color = "#8B2500"
 	complementary_color = "#00668B"
-	blobbernaut_message = "blasts"
-	message = "The blob blasts you"
+	blobbernaut_message = "лупит"
+	message = "Масса лупит меня"
 	reagent = /datum/reagent/blob/explosive_lattice
 
 /datum/blobstrain/reagent/explosive_lattice/damage_reaction(obj/structure/blob/B, damage, damage_type, damage_flag)
@@ -27,8 +27,9 @@
 		actor.take_overall_damage(10, 10)
 
 /datum/reagent/blob/explosive_lattice
-	name = "Explosive Lattice"
-	taste_description = "the bomb"
+	name = "Взрывная решетка"
+	enname = "Explosive Lattice"
+	taste_description = "бомба"
 	color = "#8B2500"
 
 /datum/reagent/blob/explosive_lattice/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/overmind)
@@ -51,7 +52,7 @@
 			brute_loss = brute_loss*(2 - round(bomb_armor*0.01, 0.05))
 
 		burn_loss = brute_loss
-			
+
 		exposed_mob.take_overall_damage(brute_loss, burn_loss)
 
 		for(var/mob/living/nearby_mob in orange(epicenter_turf, 1))
@@ -69,6 +70,6 @@
 				burn_loss = brute_loss
 
 			nearby_mob.take_overall_damage(brute_loss, burn_loss)
-		
+
 	else
 		exposed_mob.apply_damage(0.6*reac_volume, BRUTE, wound_bonus=CANT_WOUND)

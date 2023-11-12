@@ -21,7 +21,7 @@
 
 /obj/item/reagent_containers/cup/maunamug/examine(mob/user)
 	. = ..()
-	. += span_notice("The status display reads: Current temperature: <b>[reagents.chem_temp]K</b> Current Charge:[cell ? "[cell.charge / cell.maxcharge * 100]%" : "No cell found"].")
+	. += span_notice("Дисплей: Current temperature: <b>[reagents.chem_temp]K</b> Current Charge:[cell ? "[cell.charge / cell.maxcharge * 100]%" : "No cell found"].")
 	if(open)
 		. += span_notice("The battery case is open.")
 	if(cell && cell.charge > 0)
@@ -147,12 +147,12 @@
 	var/log_object = "containing [reagentlist]"
 	if(user.combat_mode && !carbon_target.is_mouth_covered())
 		reagents.trans_to(carbon_target, reagents.total_volume, transferred_by = user, methods = INGEST)
-		carbon_target.visible_message(span_danger("[user] smothers \the [carbon_target] with \the [src]!"), span_userdanger("[user] smothers you with \the [src]!"), span_hear("You hear some struggling and muffled cries of surprise."))
+		carbon_target.visible_message(span_danger("[user] smothers  [carbon_target] with  [src]!"), span_userdanger("[user] smothers you with  [src]!"), span_hear("You hear some struggling and muffled cries of surprise."))
 		log_combat(user, carbon_target, "smothered", src, log_object)
 	else
 		reagents.expose(carbon_target, TOUCH)
 		reagents.clear_reagents()
-		carbon_target.visible_message(span_notice("[user] touches \the [carbon_target] with \the [src]."))
+		carbon_target.visible_message(span_notice("[user] touches  [carbon_target] with  [src]."))
 		log_combat(user, carbon_target, "touched", src, log_object)
 
 ///Checks whether or not we should clean.

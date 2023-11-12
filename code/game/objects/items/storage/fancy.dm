@@ -51,9 +51,9 @@
 	if(!open_status)
 		return
 	if(length(contents) == 1)
-		. += "There is one [contents_tag] left."
+		. += "Это последняя!"
 	else
-		. += "There are [contents.len <= 0 ? "no" : "[contents.len]"] [contents_tag]s left."
+		. += "Внутри <b>[contents.len <= 0 ? "НОЛЬ" : "[contents.len]"]</b> [contents_tag]."
 
 /obj/item/storage/fancy/attack_self(mob/user)
 	if(open_status == FANCY_CONTAINER_CLOSED)
@@ -92,8 +92,8 @@
  */
 
 /obj/item/storage/fancy/donut_box
-	name = "donut box"
-	desc = "Mmm. Donuts."
+	name = "коробка с пончиками"
+	desc = "Ммм. Пончики."
 	icon = 'icons/obj/food/donuts.dmi'
 	icon_state = "donutbox_open" //composite image used for mapping
 	base_icon_state = "donutbox"
@@ -145,8 +145,8 @@
 	base_icon_state = "eggbox"
 	lefthand_file = 'icons/mob/inhands/items/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/food_righthand.dmi'
-	name = "egg box"
-	desc = "A carton for containing eggs."
+	name = "коробка для яиц"
+	desc = "Картонная упаковка для яиц."
 	spawn_type = /obj/item/food/egg
 	spawn_count = 12
 	contents_tag = "egg"
@@ -160,8 +160,8 @@
  */
 
 /obj/item/storage/fancy/candle_box
-	name = "candle pack"
-	desc = "A pack of red candles."
+	name = "упаковка свечей"
+	desc = "Упаковка с красными свечами."
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candlebox5"
 	base_icon_state = "candlebox"
@@ -182,8 +182,8 @@
 //CIG PACK//
 ////////////
 /obj/item/storage/fancy/cigarettes
-	name = "\improper Space Cigarettes packet"
-	desc = "The most popular brand of cigarettes, sponsors of the Space Olympics. On the back it advertises to be the only brand that can be smoked in the vaccum of space."
+	name = "пачка космических сигарет"
+	desc = "Самый популярный бренд сигарет, спонсор Космической Олимпиады."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cig"
 	inhand_icon_state = "cigpacket"
@@ -210,14 +210,14 @@
 	if(contents.len != 0 || !spawn_coupon)
 		return ..()
 
-	balloon_alert(user, "ooh, free coupon")
+	balloon_alert(user, "о, купон!")
 	var/obj/item/coupon/attached_coupon = new
 	user.put_in_hands(attached_coupon)
 	attached_coupon.generate(rigged_omen)
 	attached_coupon = null
 	spawn_coupon = FALSE
-	name = "discarded cigarette packet"
-	desc = "An old cigarette packet with the back torn off, worth less than nothing now."
+	name = "выброшенная пачка сигарет"
+	desc = "Старая пачка сигарет с оторванной спинкой, которая сейчас стоит меньше, чем ничего."
 	atom_storage.max_slots = 0
 
 /obj/item/storage/fancy/cigarettes/Initialize(mapload)
@@ -256,7 +256,7 @@
 	. = ..()
 
 	if(spawn_coupon)
-		. += span_notice("There's a coupon on the back of the pack! You can tear it off once it's empty.")
+		. += span_notice("\nНа обратной стороне упаковки есть купон! Можно оторвать его, когда содержимое пачки станет пустым.")
 
 /obj/item/storage/fancy/cigarettes/update_icon_state()
 	. = ..()
@@ -381,8 +381,8 @@
 	spawn_type = /obj/item/clothing/mask/cigarette/rollie/mindbreaker
 
 /obj/item/storage/fancy/rollingpapers
-	name = "rolling paper pack"
-	desc = "A pack of Nanotrasen brand rolling papers."
+	name = "упаковка папиросной бумаги"
+	desc = "Тонкий лист бумаги, используемый для приготовления сигаретных изделий."
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cig_paper_pack"

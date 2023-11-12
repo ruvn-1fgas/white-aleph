@@ -7,8 +7,8 @@
  * Bonus: Adds disfiguration trait making the mob appear as "Unknown" to others.
  */
 /datum/symptom/disfiguration
-	name = "Disfiguration"
-	desc = "The virus liquefies facial muscles, disfiguring the host."
+	name = "Обезображивание"
+	desc = "Вирус разжижает лицевые мышцы, обезображивая хозяина."
 	illness = "Broken Face"
 	stealth = 2
 	resistance = 0
@@ -29,9 +29,9 @@
 	switch(A.stage)
 		if(5)
 			ADD_TRAIT(M, TRAIT_DISFIGURED, DISEASE_TRAIT)
-			M.visible_message(span_warning("[M]'s face appears to cave in!"), span_notice("You feel your face crumple and cave in!"))
+			M.visible_message(span_warning("Лицо [M], кажется, входит в череп!") , span_notice("Лицо входит в череп!"))
 		else
-			M.visible_message(span_warning("[M]'s face begins to contort..."), span_notice("Your face feels wet and malleable..."))
+			M.visible_message(span_warning("Лицо [M] начинает дёргаться...") , span_notice("Моё лицо становится мокрым и немного подёргивающимся..."))
 
 
 /datum/symptom/disfiguration/End(datum/disease/advance/A)

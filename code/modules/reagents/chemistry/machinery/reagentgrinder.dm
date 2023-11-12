@@ -77,11 +77,11 @@
 		return
 
 	if(operating)
-		. += span_warning("\The [src] is operating.")
+		. += span_warning(" [src] is operating.")
 		return
 
 	if(beaker || length(holdingitems))
-		. += span_notice("\The [src] contains:")
+		. += span_notice(" [src] contains:")
 		if(beaker)
 			. += span_notice("- \A [beaker].")
 		for(var/i in holdingitems)
@@ -89,7 +89,7 @@
 			. += span_notice("- \A [O.name].")
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
-		. += "[span_notice("The status display reads:")]\n"+\
+		. += "[span_notice("Дисплей:")]\n"+\
 		span_notice("- Grinding reagents at <b>[speed*100]%</b>.")
 		if(beaker)
 			for(var/datum/reagent/R in beaker.reagents.reagent_list)

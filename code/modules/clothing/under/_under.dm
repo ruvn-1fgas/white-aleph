@@ -268,7 +268,7 @@
 /obj/item/clothing/under/examine(mob/user)
 	. = ..()
 	if(can_adjust)
-		. += "Alt-click on [src] to wear it [adjusted == ALT_STYLE ? "normally" : "casually"]."
+		. += "Alt-клик on [src] to wear it [adjusted == ALT_STYLE ? "normally" : "casually"]."
 	if(has_sensor == BROKEN_SENSORS)
 		. += "Its sensors appear to be shorted out. You could repair it with some cabling."
 	else if(has_sensor > NO_SENSORS)

@@ -17,7 +17,7 @@
 		return
 
 	if(quickdraw)
-		to_chat(user, span_notice("You discreetly slip [to_insert] into [resolve_parent]. Right-click [resolve_parent] to remove it."))
+		to_chat(user, span_notice("You discreetly slip [to_insert] into [resolve_parent]. ПКМ [resolve_parent] to remove it."))
 	else
 		to_chat(user, span_notice("You discreetly slip [to_insert] into [resolve_parent]."))
 

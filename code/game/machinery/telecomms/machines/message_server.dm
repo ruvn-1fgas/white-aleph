@@ -58,8 +58,8 @@
 	return ..()
 
 /obj/item/blackbox
-	name = "\proper the blackbox"
-	desc = "A strange relic, capable of recording data on extradimensional vertices. It lives inside the blackbox recorder for safe keeping."
+	name = "черный ящик"
+	desc = "Высокозащищенное устройство записи данных с криптошифрованием. Теоретически способно пережить даже атомный взрыв."
 	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "blackcube"
 	inhand_icon_state = "blackcube"
@@ -76,8 +76,8 @@
  * require the message server.
  */
 /obj/machinery/telecomms/message_server
-	name = "Messaging Server"
-	desc = "A machine that processes and routes PDA and request console messages."
+	name = "Сервер месенджера"
+	desc = "Машина, которая обрабатывает и маршрутизирует сообщения КПК и запрашивает консольные сообщения."
 	icon_state = "message_server"
 	telecomms_type = /obj/machinery/telecomms/message_server
 	density = TRUE

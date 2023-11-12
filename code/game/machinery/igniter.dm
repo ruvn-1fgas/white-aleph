@@ -231,9 +231,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/sparker, 26)
 	tool.play_tool_sound(src, 50)
 	disable = !disable
 	if (disable)
-		user.visible_message(span_notice("[user] disables \the [src]!"), span_notice("You disable the connection to \the [src]."))
+		user.visible_message(span_notice("[user] disables  [src]!"), span_notice("You disable the connection to  [src]."))
 	if (!disable)
-		user.visible_message(span_notice("[user] reconnects \the [src]!"), span_notice("You fix the connection to \the [src]."))
+		user.visible_message(span_notice("[user] reconnects  [src]!"), span_notice("You fix the connection to  [src]."))
 	update_appearance()
 	return TRUE
 

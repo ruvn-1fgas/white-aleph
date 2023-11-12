@@ -316,7 +316,7 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 	if (!isnull(source.loc))
 		forceMove(source.loc)
 	to_chat(src, span_danger("Your summoner has died!"))
-	visible_message(span_bolddanger("\The [src] dies along with its user!"))
+	visible_message(span_bolddanger(" [src] dies along with its user!"))
 	source.visible_message(span_bolddanger("[source]'s body is completely consumed by the strain of sustaining [src]!"))
 	source.dust(drop_items = TRUE)
 	death(TRUE)
@@ -348,7 +348,7 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 	if(get_dist(get_turf(summoner), get_turf(src)) <= range)
 		return
 	to_chat(src, span_holoparasite("You moved out of range, and were pulled back! You can only move [range] meters from [summoner.real_name]!"))
-	visible_message(span_danger("\The [src] jumps back to its user."))
+	visible_message(span_danger(" [src] jumps back to its user."))
 	new /obj/effect/temp_visual/guardian/phase/out(loc)
 	if(istype(summoner.loc, /obj/effect) || isnull(summoner.loc))
 		recall(forced = TRUE)

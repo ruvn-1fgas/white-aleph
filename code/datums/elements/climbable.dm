@@ -52,15 +52,16 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		user.do_attack_animation(climbed_thing)
 		structure_climber.Paralyze(40)
-		structure_climber.visible_message(span_warning("[structure_climber] is knocked off [climbed_thing]."), span_warning("You're knocked off [climbed_thing]!"), span_hear("You hear a cry from [structure_climber], followed by a slam."))
-
+		structure_climber.visible_message(span_warning("[structure_climber] столкнут с [climbed_thing]."),\
+			span_warning("Столкнули с [climbed_thing]!"),\
+			span_hear("Слышу крик [structure_climber] и удар об пол следом за ним."))
 
 /datum/element/climbable/proc/climb_structure(atom/climbed_thing, mob/living/user, params)
 	if(!can_climb(climbed_thing, user))
 		return
 	climbed_thing.add_fingerprint(user)
-	user.visible_message(span_warning("[user] starts climbing onto [climbed_thing]."), \
-								span_notice("You start climbing onto [climbed_thing]..."))
+	user.visible_message(span_warning("[user] начинает взбираться на [climbed_thing]."), \
+								span_notice("Лезу на [climbed_thing]..."))
 	var/adjusted_climb_time = climb_time
 	var/adjusted_climb_stun = climb_stun
 	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED)) //climbing takes twice as long without help from the hands.
@@ -78,13 +79,13 @@
 		if(QDELETED(climbed_thing)) //Checking if structure has been destroyed
 			return
 		if(do_climb(climbed_thing, user, params))
-			user.visible_message(span_warning("[user] climbs onto [climbed_thing]."), \
-								span_notice("You climb onto [climbed_thing]."))
+			user.visible_message(span_warning("[user] залезает на [climbed_thing]."), \
+								span_notice("Влезаю на [climbed_thing]."))
 			log_combat(user, climbed_thing, "climbed onto")
 			if(adjusted_climb_stun)
 				user.Stun(adjusted_climb_stun)
 		else
-			to_chat(user, span_warning("You fail to climb onto [climbed_thing]."))
+			to_chat(user, span_warning("Не вышло залезть."))
 	LAZYREMOVEASSOC(current_climbers, climbed_thing, user)
 
 

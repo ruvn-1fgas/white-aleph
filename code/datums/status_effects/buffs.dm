@@ -8,7 +8,7 @@
 	var/bloodlust = 0
 
 /atom/movable/screen/alert/status_effect/his_grace
-	name = "His Grace"
+	name = "Его Величество"
 	desc = "His Grace hungers, and you must feed Him."
 	icon_state = "his_grace"
 	alerttooltipstyle = "hisgrace"
@@ -314,11 +314,11 @@
 							qdel(L)
 							consume_owner() //see above comment
 							return
-					to_chat(itemUser, span_notice("Your arm suddenly grows back with the Rod of Asclepius still attached!"))
+					to_chat(itemUser, span_notice("Моя рука мгновенно отрастает и в ней появляется жезл Асклепия!"))
 				else
 					//Otherwise get rid of whatever else is in their hand and return the rod to said hand
 					itemUser.put_in_hand(newRod, hand, forced = TRUE)
-					to_chat(itemUser, span_notice("The Rod of Asclepius suddenly grows back out of your arm!"))
+					to_chat(itemUser, span_notice("Посох Асклепия возвращается в мою руку!"))
 			//Because a servant of medicines stops at nothing to help others, lets keep them on their toes and give them an additional boost.
 			if(itemUser.health < itemUser.maxHealth)
 				new /obj/effect/temp_visual/heal(get_turf(itemUser), "#375637")
@@ -360,8 +360,8 @@
 		owner.add_mood_event("goodmusic", /datum/mood_event/goodmusic)
 
 /atom/movable/screen/alert/status_effect/regenerative_core
-	name = "Regenerative Core Tendrils"
-	desc = "You can move faster than your broken body could normally handle!"
+	name = "Регенеративное ядро"
+	desc = "Я могу двигаться быстрее, чем обычно может выдержать мое бренное тело!"
 	icon_state = "regenerative_core"
 
 /datum/status_effect/regenerative_core

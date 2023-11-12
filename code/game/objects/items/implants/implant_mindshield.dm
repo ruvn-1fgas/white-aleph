@@ -1,18 +1,18 @@
 /obj/item/implant/mindshield
-	name = "mindshield implant"
-	desc = "Protects against brainwashing."
+	name = "микроимплант щита разума"
+	desc = "Защищает от промывки мозгов при помощи сертефицированной NT промывкой мозгов."
 	actions_types = null
 
 /obj/item/implant/mindshield/get_data()
-	var/dat = {"<b>Implant Specifications:</b><BR>
-				<b>Name:</b> Nanotrasen Employee Management Implant<BR>
-				<b>Life:</b> Ten years.<BR>
-				<b>Important Notes:</b> Personnel injected with this device are much more resistant to brainwashing.<BR>
+	var/dat = {"<b>Спецификация импланта:</b><BR>
+				<b>Название:</b> Имплантат лояльности сотрудника Nanotrasen<BR>
+				<b>Срок службы:</b> 10 лет.<BR>
+				<b>Важные замечания:</b> Персонал, которому вводится это устройство, гораздо более устойчив к промыванию мозгов.<BR>
 				<HR>
-				<b>Implant Details:</b><BR>
-				<b>Function:</b> Contains a small pod of nanobots that protects the host's mental functions from manipulation.<BR>
-				<b>Special Features:</b> Will prevent and cure most forms of brainwashing.<BR>
-				<b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."}
+				<b>Детали имплантации:</b><BR>
+				<b>Техническое описание:</b> Содержит небольшой набор наноботов, который защищает психические функции хозяина от манипуляций.<BR>
+				<b>Спец свойства:</b> Предотвратит и вылечит большинство форм промывания мозгов.<BR>
+				<b>Целостность:</b> Имплантат прослужит до тех пор, пока нанороботы находятся в кровотоке."}
 	return dat
 
 
@@ -23,18 +23,18 @@
 	if(target.mind)
 		if((SEND_SIGNAL(target.mind, COMSIG_PRE_MINDSHIELD_IMPLANT, user) & COMPONENT_MINDSHIELD_RESISTED) || target.mind.unconvertable)
 			if(!silent)
-				target.visible_message(span_warning("[target] seems to resist the implant!"), span_warning("You feel something interfering with your mental conditioning, but you resist it!"))
+				target.visible_message(span_warning("[target] сопротивляется воздействию импланта!") , span_warning("Чувствую, что что-то пытается вмешаться в мое подсознание, но я сопротивляетесь этому!"))
 			removed(target, TRUE)
 			qdel(src)
 			return TRUE
 		if(SEND_SIGNAL(target.mind, COMSIG_MINDSHIELD_IMPLANTED, user) & COMPONENT_MINDSHIELD_DECONVERTED)
 			if(prob(1) || check_holidays(APRIL_FOOLS))
-				target.say("I'm out! I quit! Whose kidneys are these?", forced = "They're out! They quit! Whose kidneys do they have?")
+				target.say("Только не по почкам!", forced = "Только не по почкам!")
 
 	ADD_TRAIT(target, TRAIT_MINDSHIELD, IMPLANT_TRAIT)
 	target.sec_hud_set_implants()
 	if(!silent)
-		to_chat(target, span_notice("You feel a sense of peace and security. You are now protected from brainwashing."))
+		to_chat(target, span_warning("Чувствую, что что-то пытается вмешаться в мое подсознание, но я сопротивляетесь этому!"))
 	return TRUE
 
 /obj/item/implant/mindshield/removed(mob/target, silent = FALSE, special = FALSE)
@@ -50,10 +50,11 @@
 	return TRUE
 
 /obj/item/implanter/mindshield
-	name = "implanter (mindshield)"
+	name = "имплантер щита разума"
+	desc = "Защищает от промывки мозгов при помощи сертефицированной НТ промывкой мозгов."
 	imp_type = /obj/item/implant/mindshield
 
 /obj/item/implantcase/mindshield
-	name = "implant case - 'Mindshield'"
-	desc = "A glass case containing a mindshield implant."
+	name = "футляр микроимпланта щита разума"
+	desc = "Защищает от промывки мозгов при помощи сертефицированной НТ промывкой мозгов."
 	imp_type = /obj/item/implant/mindshield

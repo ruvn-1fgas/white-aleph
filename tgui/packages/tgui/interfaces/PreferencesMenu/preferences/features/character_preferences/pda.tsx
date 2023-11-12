@@ -9,6 +9,7 @@ export const pda_theme: FeatureChoiced = {
 
 export const pda_ringtone: Feature<string> = {
   name: 'Рингтон ПДА',
-  description: "Рингтон, который вы услышите, когда кто-то отправит вам сообщение на ПДА.",
+  description:
+    'Рингтон, который вы услышите, когда кто-то отправит вам сообщение на ПДА.',
   component: FeatureShortTextInput,
 };

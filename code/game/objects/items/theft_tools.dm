@@ -171,7 +171,7 @@
 	if(istype(W, /obj/item/hemostat/supermatter))
 		var/obj/item/hemostat/supermatter/tongs = W
 		if (tongs.sliver)
-			to_chat(user, span_warning("\The [tongs] is already holding a supermatter sliver!"))
+			to_chat(user, span_warning(" [tongs] is already holding a supermatter sliver!"))
 			return FALSE
 		forceMove(tongs)
 		tongs.sliver = src
@@ -180,7 +180,7 @@
 	else if(istype(W, /obj/item/scalpel/supermatter) || istype(W, /obj/item/nuke_core_container/supermatter/)) // we don't want it to dust
 		return
 	else
-		to_chat(user, span_notice("As it touches \the [src], both \the [src] and \the [W] burst into dust!"))
+		to_chat(user, span_notice("As it touches  [src], both  [src] and  [W] burst into dust!"))
 		radiation_pulse(user, max_range = 2, threshold = RAD_EXTREME_INSULATION, chance = 40)
 		playsound(src, 'sound/effects/supermatter.ogg', 50, TRUE)
 		qdel(W)
@@ -310,7 +310,7 @@
 /obj/item/hemostat/supermatter/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum) // no instakill supermatter javelins
 	if(sliver)
 		sliver.forceMove(loc)
-		visible_message(span_notice("\The [sliver] falls out of \the [src] as it hits the ground."))
+		visible_message(span_notice(" [sliver] falls out of  [src] as it hits the ground."))
 		sliver = null
 		update_appearance()
 	return ..()
@@ -333,7 +333,7 @@
 		qdel(AM)
 	if (user)
 		log_combat(user, AM, "consumed", sliver, "via [src]")
-		user.visible_message(span_danger("As [user] touches [AM] with \the [src], both flash into dust and silence fills the room..."),\
+		user.visible_message(span_danger("As [user] touches [AM] with  [src], both flash into dust and silence fills the room..."),\
 			span_userdanger("You touch [AM] with [src], and everything suddenly goes silent.\n[AM] and [sliver] flash into dust, and soon as you can register this, you do as well."),\
 			span_hear("Everything suddenly goes silent."))
 		user.investigate_log("has been dusted by [src].", INVESTIGATE_DEATHS)

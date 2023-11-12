@@ -7,15 +7,15 @@
 /datum/status_effect/organ_set_bonus/carp
 	id = "organ_set_bonus_carp"
 	organs_needed = 4
-	bonus_activate_text = span_notice("Carp DNA is deeply infused with you! You've learned how to propel yourself through space!")
-	bonus_deactivate_text = span_notice("Your DNA is once again mostly yours, and so fades your ability to space-swim...")
+	bonus_activate_text = span_notice("ДНК карпа теперь часть меня! Теперь я могу \"плавать\" в космосе!")
+	bonus_deactivate_text = span_notice("Моя ДНК стала обычной и теперь я не могу \"плавать\" в космосе...")
 	bonus_traits = list(TRAIT_SPACEWALK)
 
 ///Carp lungs! You can breathe in space! Oh... you can't breathe on the station, you need low oxygen environments.
 /// Inverts behavior of lungs. Bypasses suffocation due to space / lack of gas, but also allows Oxygen to suffocate.
 /obj/item/organ/internal/lungs/carp
-	name = "mutated carp-lungs"
-	desc = "Carp DNA infused into what was once some normal lungs."
+	name = "легкие карпа"
+	desc = "ДНК карпа внедрена в то, что когда-то было обычными легкими."
 	// Oxygen causes suffocation.
 	safe_oxygen_min = 0
 	safe_oxygen_max = 15
@@ -27,15 +27,14 @@
 
 /obj/item/organ/internal/lungs/carp/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/noticable_organ, "neck has odd gills.", BODY_ZONE_HEAD)
+	AddElement(/datum/element/noticable_organ, "шея покрыта странными жабрами.", BODY_ZONE_HEAD)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
 	ADD_TRAIT(src, TRAIT_SPACEBREATHING, REF(src))
 
 ///occasionally sheds carp teeth, stronger melee (bite) attacks, but you can't cover your mouth anymore.
 /obj/item/organ/internal/tongue/carp
-	name = "mutated carp-jaws"
-	desc = "Carp DNA infused into what was once some normal teeth."
-
+	name = "челюсти карпа"
+	desc = "ДНК карпа внедрена в то, что когда-то было обычными зубами."
 	say_mod = "gnashes"
 
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
@@ -45,7 +44,7 @@
 
 /obj/item/organ/internal/tongue/carp/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/noticable_organ, "teeth are big and sharp.", BODY_ZONE_PRECISE_MOUTH)
+	AddElement(/datum/element/noticable_organ, "зубы выглядят большими и острыми.", BODY_ZONE_PRECISE_MOUTH)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
 
 /obj/item/organ/internal/tongue/carp/on_insert(mob/living/carbon/tongue_owner)
@@ -86,14 +85,14 @@
 		new /obj/item/knife/carp(tooth_fairy)
 
 /obj/item/knife/carp
-	name = "carp tooth"
-	desc = "Looks sharp. Sharp enough to poke someone's eye out. Holy fuck it's big."
+	name = "зуб карпа"
+	desc = "Выглядят как клыки. Достаточно острые, чтобы выколоть глаз."
 	icon_state = "carptooth"
 
 ///carp brain. you need to occasionally go to a new zlevel. think of it as... walking your dog!
 /obj/item/organ/internal/brain/carp
-	name = "mutated carp-brain"
-	desc = "Carp DNA infused into what was once a normal brain."
+	name = "мозг карпа"
+	desc = "ДНК карпа внедрена в то, что когда-то был нормальным мозгом."
 
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
 	icon_state = "brain"
@@ -108,7 +107,7 @@
 /obj/item/organ/internal/brain/carp/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
-	AddElement(/datum/element/noticable_organ, "seem%PRONOUN_S unable to stay still.")
+	AddElement(/datum/element/noticable_organ, "не может устоять на месте.")
 
 /obj/item/organ/internal/brain/carp/on_insert(mob/living/carbon/brain_owner)
 	. = ..()
@@ -134,8 +133,8 @@
 
 /// makes you cold resistant, but heat-weak.
 /obj/item/organ/internal/heart/carp
-	name = "mutated carp-heart"
-	desc = "Carp DNA infused into what was once a normal heart."
+	name = "сердце карпа"
+	desc = "ДНК карпа внедрена в то, что когда-то было нормальным сердцем."
 
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
 	icon_state = "heart"
@@ -146,7 +145,7 @@
 
 /obj/item/organ/internal/heart/carp/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/noticable_organ, "skin has small patches of scales growing on it.", BODY_ZONE_CHEST)
+	AddElement(/datum/element/noticable_organ, "кожа покрыта небольшой чешуёй.", BODY_ZONE_CHEST)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
 
 #undef CARP_ORGAN_COLOR

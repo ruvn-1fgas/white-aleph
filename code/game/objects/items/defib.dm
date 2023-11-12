@@ -3,9 +3,8 @@
 #define DEFIB_CAN_HURT(source) (source.combat || (source.req_defib && !source.defib.safety))
 
 /obj/item/defibrillator
-	name = "defibrillator"
-	desc = "A device that delivers powerful shocks to detachable paddles that resuscitate incapacitated patients. \
-	Has a rear bracket for attachments to wall mounts and medical cyborgs."
+	name = "дефибриллятор"
+	desc = "Устройство генерирует короткий высоковольтный импульс, вызывающий полное сокращение миокарда. После того, как сердце полностью сократилось, существует вероятность восстановления нормального синусового ритма."
 	icon = 'icons/obj/medical/defib.dmi'
 	icon_state = "defibunit"
 	inhand_icon_state = "defibunit"
@@ -67,9 +66,9 @@
 	if(!cell_removable)
 		return
 	if(cell)
-		. += span_notice("Use a screwdriver to remove the cell.")
+		. += span_notice("Можно использовать отвёртку, чтобы извлечь батарею.")
 	else
-		. += span_warning("It has no power cell!")
+		. += span_warning("Батарея отсутствует!")
 
 /obj/item/defibrillator/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
@@ -124,13 +123,13 @@
 			if(user.get_item_by_slot(ITEM_SLOT_BACK) == src)
 				ui_action_click()
 			else
-				to_chat(user, span_warning("Put the defibrillator on your back first!"))
+				to_chat(user, span_warning("Для этого нужно экипировать дефибриллятор на спину!"))
 
 		else if(slot_flags & ITEM_SLOT_BELT)
 			if(user.get_item_by_slot(ITEM_SLOT_BELT) == src)
 				ui_action_click()
 			else
-				to_chat(user, span_warning("Strap the defibrillator's belt on first!"))
+				to_chat(user, span_warning("Для этого нужно экипировать дефибриллятор на поясе!"))
 		return
 	else if(istype(loc, /obj/machinery/defibrillator_mount))
 		ui_action_click() //checks for this are handled in defibrillator.mount.dm
@@ -150,7 +149,7 @@
 
 	cell.update_appearance()
 	cell.forceMove(get_turf(src))
-	balloon_alert(user, "removed [cell]")
+	balloon_alert(user, "вытаскиваю [cell]")
 	cell = null
 	tool.play_tool_sound(src, 50)
 	update_power()
@@ -162,15 +161,15 @@
 	else if(istype(W, /obj/item/stock_parts/cell))
 		var/obj/item/stock_parts/cell/C = W
 		if(cell)
-			to_chat(user, span_warning("[src] already has a cell!"))
+			to_chat(user, span_warning("[capitalize(src.name)] уже имеет батарейку!"))
 		else
 			if(C.maxcharge < paddles.revivecost)
-				to_chat(user, span_notice("[src] requires a higher capacity cell."))
+				to_chat(user, span_notice("[capitalize(src.name)] требует батарейку большей ёмкости."))
 				return
 			if(!user.transferItemToLoc(W, src))
 				return
 			cell = W
-			to_chat(user, span_notice("You install a cell in [src]."))
+			to_chat(user, span_notice("Устанавливаю батарейку в [src]."))
 			update_power()
 	else
 		return ..()
@@ -179,8 +178,8 @@
 
 	safety = !safety
 
-	var/enabled_or_disabled = (safety ? "enabled" : "disabled")
-	balloon_alert(user, "safety protocols [enabled_or_disabled]")
+	var/enabled_or_disabled = (safety ? "включены" : "выключены")
+	balloon_alert(user, "протоколы безопасности [enabled_or_disabled]")
 
 	return TRUE
 
@@ -194,8 +193,8 @@
 	update_power()
 
 /obj/item/defibrillator/proc/toggle_paddles()
-	set name = "Toggle Paddles"
-	set category = "Object"
+	set name = "Достать электроды"
+	set category = "Объект"
 	on = !on
 
 	var/mob/living/carbon/user = usr
@@ -203,7 +202,7 @@
 		//Detach the paddles into the user's hands
 		if(!usr.put_in_hands(paddles))
 			on = FALSE
-			to_chat(user, span_warning("You need a free hand to hold the paddles!"))
+			to_chat(user, span_warning("Нужна свободная рука чтобы держать электроды!"))
 			update_power()
 			return
 	else
@@ -255,10 +254,10 @@
 /obj/item/defibrillator/proc/finish_charging()
 	if(cell)
 		if(cell.charge >= paddles.revivecost)
-			visible_message(span_notice("[src] beeps: Unit ready."))
+			visible_message(span_notice("[capitalize(src.name)] пищит: Конденсатор заряжен."))
 			playsound(src, 'sound/machines/defib_ready.ogg', 50, FALSE)
 		else
-			visible_message(span_notice("[src] beeps: Charge depleted."))
+			visible_message(span_notice("[capitalize(src.name)] пищит: Недостаточно энергии."))
 			playsound(src, 'sound/machines/defib_failed.ogg', 50, FALSE)
 	paddles.cooldown = FALSE
 	paddles.update_appearance()
@@ -271,8 +270,8 @@
 	return COMPONENT_DEFIB_STOP
 
 /obj/item/defibrillator/compact
-	name = "compact defibrillator"
-	desc = "A belt-equipped defibrillator that can be rapidly deployed."
+	name = "компактный дефибриллятор"
+	desc = "Более компактная и продвинутая версия дефибриллятора. Можно носить на поясе."
 	icon_state = "defibcompact"
 	inhand_icon_state = null
 	worn_icon_state = "defibcompact"
@@ -294,8 +293,8 @@
 	update_power()
 
 /obj/item/defibrillator/compact/combat
-	name = "combat defibrillator"
-	desc = "A belt-equipped blood-red defibrillator. Can revive through thick clothing, has an experimental self-recharging battery, and can be utilized in combat via applying the paddles in a disarming or aggressive manner."
+	name = "боевой дефибриллятор"
+	desc = "Военный образец дефибриллятора. Его мощные конденсаторы позволяют реанимировать пациента через одежду, а так же он может быть использован в бою в обезоруживающей или агрессивной манере."
 	icon_state = "defibcombat" //needs defib inhand sprites
 	inhand_icon_state = null
 	worn_icon_state = "defibcombat"
@@ -321,8 +320,8 @@
 		return
 
 /obj/item/defibrillator/compact/combat/loaded/nanotrasen
-	name = "elite Nanotrasen defibrillator"
-	desc = "A belt-equipped state-of-the-art defibrillator. Can revive through thick clothing, has an experimental self-recharging battery, and can be utilized in combat via applying the paddles in a disarming or aggressive manner."
+	name = "элитный дефибриллятор Nanotrasen"
+	desc = "Военный образец. Мощные конденсаторы позволяют пробивать легкую одежду, а так же использовать его в бою для разоружения или агрессивного электрошока."
 	icon_state = "defibnt" //needs defib inhand sprites
 	inhand_icon_state = null
 	worn_icon_state = "defibnt"
@@ -332,8 +331,8 @@
 //paddles
 
 /obj/item/shockpaddles
-	name = "defibrillator paddles"
-	desc = "A pair of plastic-gripped paddles with flat metal surfaces that are used to deliver powerful electric shocks."
+	name = "электроды дефибриллятора"
+	desc = "Пара токопроводящих электродов."
 	icon = 'icons/obj/medical/defib.dmi'
 	icon_state = "defibpaddles0"
 	inhand_icon_state = "defibpaddles0"
@@ -386,9 +385,9 @@
 	if(!in_range(src,defib))
 		if(isliving(loc))
 			var/mob/living/user = loc
-			to_chat(user, span_warning("[defib]'s paddles overextend and come out of your hands!"))
+			to_chat(user, span_warning("Электроды [defib] перетянуты и вылетают из рук!"))
 		else
-			visible_message(span_notice("[src] snap back into [defib]."))
+			visible_message(span_notice("[capitalize(src.name)] возвращаются обратно в [defib]."))
 		snap_back()
 
 /obj/item/shockpaddles/proc/recharge(time = 0)
@@ -400,7 +399,7 @@
 
 /obj/item/shockpaddles/proc/finish_recharge()
 	var/turf/current_turf = get_turf(src)
-	current_turf.audible_message(span_notice("[src] beeps: Unit is recharged."))
+	current_turf.audible_message(span_notice("[capitalize(src.name)] пищит: Конденсатор заряжен."))
 	playsound(src, 'sound/machines/defib_ready.ogg', 50, FALSE)
 	cooldown = FALSE
 	update_appearance()
@@ -417,7 +416,7 @@
 	update_appearance()
 
 /obj/item/shockpaddles/suicide_act(mob/living/user)
-	user.visible_message(span_danger("[user] is putting the live paddles on [user.p_their()] chest! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_danger("[user] прикладывает активные электроды себе на грудь! Похоже [user.p_theyre()] пытается покончить с собой!"))
 	if(req_defib)
 		defib.deductcharge(revivecost)
 	playsound(src, 'sound/machines/defib_zap.ogg', 50, TRUE, -1)
@@ -436,7 +435,7 @@
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 	if(req_defib)
 		if(user)
-			to_chat(user, span_notice("The paddles snap back into the main unit."))
+			to_chat(user, span_notice("Электроды возвращаются обратно в дефибриллятор."))
 		snap_back()
 
 /obj/item/shockpaddles/proc/snap_back()
@@ -451,20 +450,20 @@
 		return
 	defib?.update_power()
 	if(req_defib && !defib.powered)
-		user.visible_message(span_warning("[defib] beeps: Not enough charge!"))
+		user.visible_message(span_notice("[defib] пищит: Устройство обесточено."))
 		playsound(src, 'sound/machines/defib_failed.ogg', 50, FALSE)
 		return
 	if(!HAS_TRAIT(src, TRAIT_WIELDED))
 		if(iscyborg(user))
-			to_chat(user, span_warning("You must activate the paddles in your active module before you can use them on someone!"))
+			to_chat(user, span_warning("Требуется активация модуля дефибриллятора для работы электродов!"))
 		else
-			to_chat(user, span_warning("You need to wield the paddles in both hands before you can use them on someone!"))
+			to_chat(user, span_warning("Необходимо взять электроды в обе руки для использования!"))
 		return
 	if(cooldown)
 		if(req_defib)
-			to_chat(user, span_warning("[defib] is recharging!"))
+			to_chat(user, span_warning("[defib] перезаряжается!"))
 		else
-			to_chat(user, span_warning("[src] are recharging!"))
+			to_chat(user, span_warning("[capitalize(src.name)] перезаряжается!"))
 		return
 
 	var/list/modifiers = params2list(params)
@@ -474,14 +473,14 @@
 
 	if(!iscarbon(M))
 		if(req_defib)
-			to_chat(user, span_warning("The instructions on [defib] don't mention how to revive that..."))
+			to_chat(user, span_warning("Приложенные инструкции не поясняют как работать... с этим..."))
 		else
-			to_chat(user, span_warning("You aren't sure how to revive that..."))
+			to_chat(user, span_warning("Понятия не имею как можно это реанимировать..."))
 		return
 	var/mob/living/carbon/H = M
 
 	if(user.zone_selected != BODY_ZONE_CHEST)
-		to_chat(user, span_warning("You need to target your patient's chest with [src]!"))
+		to_chat(user, span_warning("Нужно нацелиться на грудь пациента!"))
 		return
 
 	if(user.combat_mode)
@@ -489,7 +488,7 @@
 		return
 
 	if(H.can_defib() == DEFIB_POSSIBLE)
-		H.notify_ghost_cloning("Your heart is being defibrillated!")
+		H.notify_ghost_cloning("Кто-то пытается меня откачать!")
 		H.grab_ghost() // Shove them back in their body.
 
 	do_help(H, user)
@@ -515,15 +514,15 @@
 	if(isliving(H.pulledby)) //CLEAR!
 		var/mob/living/M = H.pulledby
 		if(M.electrocute_act(dmg, H))
-			M.visible_message(span_danger("[M] is electrocuted by [M.p_their()] contact with [H]!"))
+			M.visible_message(span_danger("[M] получает удар током при контакте с [H]"))
 			M.emote("scream")
 
 /obj/item/shockpaddles/proc/do_disarm(mob/living/M, mob/living/user)
 	if(!DEFIB_CAN_HURT(src))
 		return
 	busy = TRUE
-	M.visible_message(span_danger("[user] touches [M] with [src]!"), \
-			span_userdanger("[user] touches [M] with [src]!"))
+	M.visible_message(span_danger("[user] касается [M] [src]!") , \
+			span_userdanger("[user] касается [M] [src]!"))
 	M.adjustStaminaLoss(60)
 	M.Knockdown(75)
 	M.set_jitter_if_lower(100 SECONDS)
@@ -537,37 +536,37 @@
 /obj/item/shockpaddles/proc/do_harm(mob/living/carbon/H, mob/living/user)
 	if(!DEFIB_CAN_HURT(src))
 		return
-	user.visible_message(span_warning("[user] begins to place [src] on [H]'s chest."),
-		span_warning("You overcharge the paddles and begin to place them onto [H]'s chest..."))
+	user.visible_message(span_warning("[user] начинает устанавливать [src] на грудь [H].") ,
+		span_warning("Перегружаю электроды и устанавливаю на грудь [H]..."))
 	busy = TRUE
 	update_appearance()
 	if(do_after(user, 1.5 SECONDS, H, extra_checks = CALLBACK(src, PROC_REF(is_wielded))))
-		user.visible_message(span_notice("[user] places [src] on [H]'s chest."),
-			span_warning("You place [src] on [H]'s chest and begin to charge them."))
+		user.visible_message(span_notice("[user] устанавливает [src] на грудь [H].") ,
+			span_warning("Устанавливаю [src] на грудь [H] и начинаю зарядку."))
 		var/turf/T = get_turf(defib)
 		playsound(src, 'sound/machines/defib_charge.ogg', 50, FALSE)
 		if(req_defib)
-			T.audible_message(span_warning("\The [defib] lets out an urgent beep and lets out a steadily rising hum..."))
+			T.audible_message(span_warning("<b>[capitalize(defib)]</b> издаёт громкий звуковой сигнал и начинает сильно гудеть..."))
 		else
-			user.audible_message(span_warning("[src] let out an urgent beep."))
+			user.audible_message(span_warning("[capitalize(src.name)] издаёт громкий звуковой сигнал."))
 		if(do_after(user, 1.5 SECONDS, H, extra_checks = CALLBACK(src, PROC_REF(is_wielded)))) //Takes longer due to overcharging
 			if(!H)
 				do_cancel()
 				return
 			if(H && H.stat == DEAD)
-				to_chat(user, span_warning("[H] is dead."))
+				to_chat(user, span_warning("[H] мёртв."))
 				playsound(src, 'sound/machines/defib_failed.ogg', 50, FALSE)
 				do_cancel()
 				return
-			user.visible_message(span_boldannounce("<i>[user] shocks [H] with \the [src]!"), span_warning("You shock [H] with \the [src]!"))
+			user.visible_message(span_boldannounce("<i>[user] ударяет током [H] используя <b>[src.name]</b>!") , span_warning("Ударяю током [H] используя <b>[src.name]</b>!"))
 			playsound(src, 'sound/machines/defib_zap.ogg', 100, TRUE, -1)
 			playsound(src, 'sound/weapons/egloves.ogg', 100, TRUE, -1)
 			H.emote("scream")
 			shock_pulling(45, H)
 			if(H.can_heartattack() && !H.undergoing_cardiac_arrest())
 				if(!H.stat)
-					H.visible_message(span_warning("[H] thrashes wildly, clutching at [H.p_their()] chest!"),
-						span_userdanger("You feel a horrible agony in your chest!"))
+					H.visible_message(span_warning("[H] изгибается в дугу, хватаясь [H.ru_ego()] грудь!") ,
+						span_userdanger("Чувствую ужасно сильную боль у себя в груди!"))
 				H.set_heartattack(TRUE)
 			H.apply_damage(50, BURN, BODY_ZONE_CHEST)
 			log_combat(user, H, "overloaded the heart of", defib)
@@ -578,11 +577,11 @@
 	do_cancel()
 
 /obj/item/shockpaddles/proc/do_help(mob/living/carbon/H, mob/living/user)
-	user.visible_message(span_warning("[user] begins to place [src] on [H]'s chest."), span_warning("You begin to place [src] on [H]'s chest..."))
+	user.visible_message(span_warning("[user] устанавливает [src] на грудь [H].") , span_warning("Начинаю устанавливать [src] на грудь [H]..."))
 	busy = TRUE
 	update_appearance()
 	if(do_after(user, 3 SECONDS, H, extra_checks = CALLBACK(src, PROC_REF(is_wielded)))) //beginning to place the paddles on patient's chest to allow some time for people to move away to stop the process
-		user.visible_message(span_notice("[user] places [src] on [H]'s chest."), span_warning("You place [src] on [H]'s chest."))
+		user.visible_message(span_notice("[user] устанавливает [src] на грудь [H].") , span_warning("Устанавливаю [src] на грудь [H]."))
 		playsound(src, 'sound/machines/defib_charge.ogg', 75, FALSE)
 		var/obj/item/organ/internal/heart = H.get_organ_by_type(/obj/item/organ/internal/heart)
 		if(do_after(user, 2 SECONDS, H, extra_checks = CALLBACK(src, PROC_REF(is_wielded)))) //placed on chest and short delay to shock for dramatic effect, revive time is 5sec total
@@ -597,7 +596,7 @@
 				do_cancel()
 				return
 			if(H.stat == DEAD)
-				H.visible_message(span_warning("[H]'s body convulses a bit."))
+				H.visible_message(span_warning("[H] недолго бьется в конвульсиях."))
 				playsound(src, SFX_BODYFALL, 50, TRUE)
 				playsound(src, 'sound/machines/defib_zap.ogg', 75, TRUE, -1)
 				shock_pulling(30, H)
@@ -607,26 +606,26 @@
 
 				switch (defib_result)
 					if (DEFIB_FAIL_SUICIDE)
-						fail_reason = "Recovery of patient impossible. Further attempts futile."
+						fail_reason = "Восстановление пациента невозможно. Дальнейшие попытки будут безрезультативны."
 					if (DEFIB_FAIL_NO_HEART)
-						fail_reason = "Patient's heart is missing."
+						fail_reason = "Сердце пациента отсутствует."
 					if (DEFIB_FAIL_FAILING_HEART)
-						fail_reason = "Patient's heart too damaged, replace or repair and try again."
+						fail_reason = "Сердце пациента слишком сильно повреждено. Требуется замена или хирургическое вмешательство."
 					if (DEFIB_FAIL_TISSUE_DAMAGE)
-						fail_reason = "Tissue damage too severe, repair and try again."
+						fail_reason = "Ткани пациента слишком сильно повреждены. Требуется хирургическое вмешательство."
 					if (DEFIB_FAIL_HUSK)
-						fail_reason = "Patient's body is a mere husk, repair and try again."
+						fail_reason = "Тело пациента хаскировано. Требуется регенерация всех тканей."
 					if (DEFIB_FAIL_FAILING_BRAIN)
-						fail_reason = "Patient's brain is too damaged, repair and try again."
+						fail_reason = "Мозг пациента слишком сильно поврежден. Требуется хирургическое вмешательство."
 					if (DEFIB_FAIL_NO_INTELLIGENCE)
-						fail_reason = "No intelligence pattern can be detected in patient's brain. Further attempts futile."
+						fail_reason = "Не обнаружены признаки разума. Дальнейшие попытки будут безрезультативны."
 					if (DEFIB_FAIL_NO_BRAIN)
-						fail_reason = "Patient's brain is missing. Further attempts futile."
+						fail_reason = "Мозг пациента отсутсвует. Дальнейшие попытки будут безрезультативны."
 					if (DEFIB_FAIL_BLACKLISTED)
-						fail_reason = "Patient has been blacklisted from revival. Further attempts futile."
+						fail_reason = "Пациент внесён в черный список. Дальнейшие попытки будут безрезультативны."
 
 				if(fail_reason)
-					user.visible_message(span_warning("[req_defib ? "[defib]" : "[src]"] buzzes: Resuscitation failed - [fail_reason]"))
+					user.visible_message(span_warning("[req_defib ? "[defib]" : "[src]"] гудит: Реанимация провалена - [fail_reason]"))
 					playsound(src, 'sound/machines/defib_failed.ogg', 50, FALSE)
 				else
 					var/total_brute = H.getBruteLoss()
@@ -681,7 +680,7 @@
 	return HAS_TRAIT(src, TRAIT_WIELDED)
 
 /obj/item/shockpaddles/cyborg
-	name = "cyborg defibrillator paddles"
+	name = "кибернетические электроды дефибриллятора"
 	icon = 'icons/obj/medical/defib.dmi'
 	icon_state = "defibpaddles0"
 	inhand_icon_state = "defibpaddles0"
@@ -700,8 +699,8 @@
 	. = ..()
 
 /obj/item/shockpaddles/syndicate
-	name = "syndicate defibrillator paddles"
-	desc = "A pair of paddles used to revive deceased operatives. They possess both the ability to penetrate armor and to deliver powerful or disabling shocks offensively."
+	name = "электроды дефибриллятора Синдиката"
+	desc = "Военный образец. Мощные конденсаторы позволяют пробивать легкую одежду, а так же использовать его в бою для разоружения или агрессивного электрошока."
 	combat = TRUE
 	icon = 'icons/obj/medical/defib.dmi'
 	icon_state = "syndiepaddles0"
@@ -709,8 +708,8 @@
 	base_icon_state = "syndiepaddles"
 
 /obj/item/shockpaddles/syndicate/nanotrasen
-	name = "elite nanotrasen defibrillator paddles"
-	desc = "A pair of paddles used to revive deceased ERT members. They possess both the ability to penetrate armor and to deliver powerful or disabling shocks offensively."
+	name = "электроды элитного дефибриллятора НаноТрейзен"
+	desc = "Военный образец. Мощные конденсаторы позволяют пробивать легкую одежду, а так же использовать его в бою для разоружения или агрессивного электрошока."
 	icon_state = "ntpaddles0"
 	inhand_icon_state = "ntpaddles0"
 	base_icon_state = "ntpaddles"

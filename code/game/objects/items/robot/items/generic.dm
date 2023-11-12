@@ -13,7 +13,7 @@
 	icon = 'icons/mob/silicon/robot_items.dmi'
 
 /obj/item/borg/stun
-	name = "electrically-charged arm"
+	name = "электрифицированная рука"
 	icon_state = "elecarm"
 	var/stamina_damage = 60 //Same as normal batong
 	/// Cost to use the stun arm
@@ -54,9 +54,9 @@
 	log_combat(user, attacked_mob, "stunned", src, "(Combat mode: [user.combat_mode ? "On" : "Off"])")
 
 /obj/item/borg/cyborghug
-	name = "hugging module"
+	name = "модуль обьятий"
 	icon_state = "hugmodule"
-	desc = "For when a someone really needs a hug."
+	desc = "Когда кому-то действительно нужны обнимашки."
 	/// Hug mode
 	var/mode = HUG_MODE_NICE
 	/// Crush cooldown
@@ -81,13 +81,13 @@
 			mode = HUG_MODE_NICE
 	switch(mode)
 		if(HUG_MODE_NICE)
-			to_chat(user, "<span class='infoplain'>Power reset. Hugs!</span>")
+			to_chat(user, "Обнимашки!")
 		if(HUG_MODE_HUG)
-			to_chat(user, "<span class='infoplain'>Power increased!</span>")
+			to_chat(user, "Усиливаю обьятия!")
 		if(HUG_MODE_SHOCK)
-			to_chat(user, "<span class='warningplain'>BZZT. Electrifying arms...</span>")
+			to_chat(user, "БЗЗЗ. Электризую руки...")
 		if(HUG_MODE_CRUSH)
-			to_chat(user, "<span class='warningplain'>ERROR: ARM ACTUATORS OVERLOADED.</span>")
+			to_chat(user, "ОШИБКА: Сервомоторы рук перегружены.")
 
 /obj/item/borg/cyborghug/attack(mob/living/attacked_mob, mob/living/silicon/robot/user, params)
 	if(attacked_mob == user)
@@ -179,7 +179,7 @@
 	boop = TRUE
 
 /obj/item/borg/charger
-	name = "power connector"
+	name = "зарядник"
 	icon_state = "charger_draw"
 	item_flags = NOBLUDGEON
 	/// Charging mode
@@ -198,7 +198,7 @@
 		mode = "charge"
 	else
 		mode = "draw"
-	to_chat(user, span_notice("You toggle [src] to \"[mode]\" mode."))
+	to_chat(user, span_notice("Переключаю [src] в режим [mode == "draw" ? "вытягивания" : "передачи"] энергии."))
 	update_appearance()
 
 /obj/item/borg/charger/afterattack(obj/item/target, mob/living/silicon/robot/user, proximity_flag)
@@ -306,8 +306,8 @@
 		to_chat(user, span_notice("You stop charging [target]."))
 
 /obj/item/harmalarm
-	name = "\improper Sonic Harm Prevention Tool"
-	desc = "Releases a harmless blast that confuses most organics. For when the harm is JUST TOO MUCH."
+	name = "звуковой подавитель насилия"
+	desc = "Позволяет дезориентировать большинство органических существ. Когда насилия СЛИШКОМ много."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "megaphone"
 	/// Harm alarm cooldown

@@ -1,6 +1,6 @@
 /obj/item/laser_pointer
-	name = "laser pointer"
-	desc = "Don't shine it in your eyes!"
+	name = "лазерная указка"
+	desc = "Не свети в глаза!"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "pointer"
 	inhand_icon_state = "pen"
@@ -88,16 +88,16 @@
 			return
 		var/obj/item/stock_parts/attack_diode = attack_item
 		if(crystal_lens && attack_diode.rating < 3) //only tier 3 and up are small enough to fit
-			to_chat(user, span_warning("You try to jam \the [attack_item.name] in place, but \the [crystal_lens.name] is in the way!"))
+			to_chat(user, span_warning("You try to jam  [attack_item.name] in place, but  [crystal_lens.name] is in the way!"))
 			playsound(src, 'sound/machines/airlock_alien_prying.ogg', 20)
 			if(do_after(user, 2 SECONDS, src))
 				var/atom/atom_to_teleport = pick(user, attack_item)
 				if(atom_to_teleport == user)
-					to_chat(user, span_warning("You jam \the [attack_item.name] in too hard and break \the [crystal_lens.name] inside, teleporting you away!"))
+					to_chat(user, span_warning("You jam  [attack_item.name] in too hard and break  [crystal_lens.name] inside, teleporting you away!"))
 					user.drop_all_held_items()
 				else if(atom_to_teleport == attack_item)
 					attack_item.forceMove(drop_location())
-					to_chat(user, span_warning("You jam \the [attack_item.name] in too hard and break \the [crystal_lens.name] inside, teleporting \the [attack_item.name] away!"))
+					to_chat(user, span_warning("You jam  [attack_item.name] in too hard and break  [crystal_lens.name] inside, teleporting  [attack_item.name] away!"))
 				do_teleport(atom_to_teleport, get_turf(src), crystal_lens.blink_range, asoundin = 'sound/effects/phasein.ogg', channel = TELEPORT_CHANNEL_BLUESPACE)
 				qdel(crystal_lens)
 			return
@@ -105,7 +105,7 @@
 			return
 		playsound(src, 'sound/items/screwdriver.ogg', 30)
 		diode = attack_item
-		balloon_alert(user, "installed \the [diode.name]")
+		balloon_alert(user, "installed  [diode.name]")
 		//we have a diode now, try starting a charge sequence in case the pointer was charging when we took out the diode
 		recharging = TRUE
 		START_PROCESSING(SSobj, src)
@@ -118,16 +118,16 @@
 		//the crystal stack we're trying to install a crystal from
 		var/obj/item/stack/ore/bluespace_crystal/crystal_stack = attack_item
 		if(diode && diode.rating < 3) //only lasers of tier 3 and up can house a lens
-			to_chat(user, span_warning("You try to jam \the [crystal_stack.name] in front of the diode, but it's a bad fit!"))
+			to_chat(user, span_warning("You try to jam  [crystal_stack.name] in front of the diode, but it's a bad fit!"))
 			playsound(src, 'sound/machines/airlock_alien_prying.ogg', 20)
 			if(do_after(user, 2 SECONDS, src))
 				var/atom/atom_to_teleport = pick(user, src)
 				if(atom_to_teleport == user)
-					to_chat(user, span_warning("You press on \the [crystal_stack.name] too hard and are teleported away!"))
+					to_chat(user, span_warning("You press on  [crystal_stack.name] too hard and are teleported away!"))
 					user.drop_all_held_items()
 				else if(atom_to_teleport == src)
 					forceMove(drop_location())
-					to_chat(user, span_warning("You press on \the [crystal_stack.name] too hard and \the [src] is teleported away!"))
+					to_chat(user, span_warning("You press on  [crystal_stack.name] too hard and  [src] is teleported away!"))
 				do_teleport(atom_to_teleport, get_turf(src), crystal_stack.blink_range, asoundin = 'sound/effects/phasein.ogg', channel = TELEPORT_CHANNEL_BLUESPACE)
 				crystal_stack.use_tool(src, user, amount = 1) //use only one if we were installing from a stack of crystals
 			return
@@ -139,7 +139,7 @@
 			return
 		crystal_lens = single_crystal
 		playsound(src, 'sound/items/screwdriver2.ogg', 30)
-		balloon_alert(user, "installed \the [crystal_lens.name]")
+		balloon_alert(user, "installed  [crystal_lens.name]")
 		to_chat(user, span_notice("You install a [crystal_lens.name] in [src]. \
 			It can now be used to shine through obstacles at the cost of double the energy drain."))
 		return TRUE
@@ -165,11 +165,11 @@
 		return
 	switch(diode.rating)
 		if(1)
-			. += "<i>\The [diode.name] is fit neatly into the casing.</i>"
+			. += "<i> [diode.name] is fit neatly into the casing.</i>"
 		if(2)
-			. += "<i>\The [diode.name] is secured in place, with a little bit of room left between it and the focus lens.</i>"
+			. += "<i> [diode.name] is secured in place, with a little bit of room left between it and the focus lens.</i>"
 		if(3 to 4)
-			. += "<i>\The [diode.name]'s size is much smaller compared to the previous generation lasers, \
+			. += "<i> [diode.name]'s size is much smaller compared to the previous generation lasers, \
 			and the wide margin between it and the focus lens could probably house <b>a crystal</b> of some sort.</i>"
 
 /obj/item/laser_pointer/afterattack(atom/target, mob/living/user, flag, params)
@@ -190,7 +190,7 @@
 		return
 
 	if(!IN_GIVEN_RANGE(target, user, max_range))
-		to_chat(user, span_warning("\The [target] is too far away!"))
+		to_chat(user, span_warning(" [target] is too far away!"))
 		return
 	if(!(user in (view(max_range, target)))) //check if we are visible from the target's PoV
 		if(isnull(crystal_lens))

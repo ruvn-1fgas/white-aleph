@@ -26,7 +26,7 @@
 					else if(path == /obj/structure/window/reinforced)
 						sprite_icon = icon(icon = 'icons/hud/radial.dmi', icon_state = "windowtype")
 					else if(path == /obj/structure/window/fulltile || path == /obj/structure/window/reinforced/fulltile)
-						sprite_icon = icon(icon = initial(path.icon), icon_state = initial(path.icon_state))
+						sprite_icon = icon(icon = initial(path.icon), icon_state = initial(path.base_icon_state))
 						sprite_icon.Blend(icon(icon = 'icons/obj/structures.dmi', icon_state = "grille"), ICON_UNDERLAY)
 
 				//icons for solid airlocks have an added solid overlay on top of their glass icons
@@ -42,4 +42,4 @@
 				else
 					sprite_icon = icon(icon = initial(path.icon), icon_state = initial(path.icon_state))
 
-				Insert(sanitize_css_class_name(sprite_name), sprite_icon)
+				Insert(sprite_name, sprite_icon)

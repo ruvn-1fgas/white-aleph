@@ -260,32 +260,32 @@
 ///Bomb Subtypes///
 
 /obj/machinery/syndicatebomb/training
-	name = "training bomb"
+	name = "тренировочная бомба"
 	icon_state = "training-bomb"
-	desc = "A salvaged syndicate device gutted of its explosives to be used as a training aid for aspiring bomb defusers."
+	desc = "Устройство Синдиката с вынутой взрывчаткой внутри, которая используется для тренировки начинающих сапёров."
 	payload = /obj/item/bombcore/training
 
 /obj/machinery/syndicatebomb/emp
-	name = "EMP Bomb"
-	desc = "A modified bomb designed to release a crippling electromagnetic pulse instead of explode"
+	name = "ЭМИ бомба"
+	desc = "Модифицированная бомба, сделанная для выпуска разрушительного электромагнетического пульса вместо взрыва."
 	payload = /obj/item/bombcore/emp
 
 /obj/machinery/syndicatebomb/badmin
 	name = "generic summoning badmin bomb"
-	desc = "Oh god what is in this thing?"
+	desc = "О боже, что это за штука?"
 	payload = /obj/item/bombcore/badmin/summon
 
 /obj/machinery/syndicatebomb/badmin/clown
-	name = "clown bomb"
+	name = "клоунская бомба"
 	icon_state = "clown-bomb"
-	desc = "HONK."
+	desc = "ХОНК."
 	payload = /obj/item/bombcore/badmin/summon/clown
 	beepsound = 'sound/items/bikehorn.ogg'
 
 /obj/machinery/syndicatebomb/empty
-	name = "bomb"
+	name = "бомба"
 	icon_state = "base-bomb"
-	desc = "An ominous looking device designed to detonate an explosive payload. Can be bolted down using a wrench."
+	desc = "Зловеще выглядящее устройство, предназначенное для детонации взрывного боезаряда. Может быть прикручено к полу с помощью гаечного ключа."
 	payload = null
 	open_panel = TRUE
 	timer_set = 120
@@ -295,16 +295,16 @@
 	wires.cut_all()
 
 /obj/machinery/syndicatebomb/self_destruct
-	name = "self-destruct device"
-	desc = "Do not taunt. Warranty invalid if exposed to high temperature. Not suitable for agents under 3 years of age."
+	name = "механизм самоуничтожения"
+	desc = "Не трогать. Гарантия недействительна, если подвергается высоким температурам. Не подходит для агентов возрастом ниже трёх лет."
 	payload = /obj/item/bombcore/syndicate/large
 	can_unanchor = FALSE
 
 ///Bomb Cores///
 
 /obj/item/bombcore
-	name = "bomb payload"
-	desc = "A powerful secondary explosive of syndicate design and unknown composition, it should be stable under normal conditions..."
+	name = "боезаряд бомбы"
+	desc = "Мощная взрывчатка неизвестной структуры произведённая Синдикатом. Она должна быть стабильной в нормальных условиях..."
 	icon = 'icons/obj/assemblies/assemblies.dmi'
 	icon_state = "bombcore"
 	inhand_icon_state = "eshield"
@@ -360,8 +360,8 @@
 	range_flame = 20
 
 /obj/item/bombcore/training
-	name = "dummy payload"
-	desc = "A Nanotrasen replica of a syndicate payload. It's not intended to explode but to announce that it WOULD have exploded, then rewire itself to allow for more training."
+	name = "тренировочный боезаряд"
+	desc = "Точная копия боезаряда Синдиката, сделанная Nanotrasen. Полностью лишенная взрывчатки, на ней можно практиковать свои навыки обезвреживания бомб."
 	var/defusals = 0
 	var/attempts = 0
 
@@ -396,7 +396,7 @@
 
 /obj/item/bombcore/badmin
 	name = "badmin payload"
-	desc = "If you're seeing this someone has either made a mistake or gotten dangerously savvy with var editing!"
+	desc = "Если вы видите это, значит кто-то обосрался!"
 
 /obj/item/bombcore/badmin/defuse() //because we wouldn't want them being harvested by players
 	var/obj/machinery/syndicatebomb/B = loc
@@ -424,14 +424,14 @@
 	..()
 
 /obj/item/bombcore/large
-	name = "large bomb payload"
+	name = "боезаряд большой бомбы"
 	range_heavy = 5
 	range_medium = 10
 	range_light = 20
 	range_flame = 20
 
 /obj/item/bombcore/miniature
-	name = "small bomb core"
+	name = "ядро малой бомбы"
 	w_class = WEIGHT_CLASS_SMALL
 	range_heavy = 1
 	range_medium = 2
@@ -439,8 +439,8 @@
 	range_flame = 2
 
 /obj/item/bombcore/chemical
-	name = "chemical payload"
-	desc = "An explosive payload designed to spread chemicals, dangerous or otherwise, across a large area. Properties of the core may vary with grenade casing type, and must be loaded before use."
+	name = "химический боезаряд"
+	desc = "Взрывоопасный заряд предназначенный для распространения химикатов. Свойства ядра могут варьироваться с типом корпуса гранаты. Граната должна быть установлена перед использованием"
 	icon_state = "chemcore"
 	/// The initial volume of the reagent holder the bombcore has.
 	var/core_holder_volume = 1000
@@ -519,9 +519,9 @@
 			if(!user.transferItemToLoc(I, src))
 				return
 			beakers += I
-			to_chat(user, span_notice("You load [src] with [I]."))
+			to_chat(user, span_notice("Устанавливаю [src] вместе с [I]."))
 		else
-			to_chat(user, span_warning("[I] won't fit! \The [src] can only hold up to [max_beakers] containers."))
+			to_chat(user, span_warning("[I] не вмещается! <b>[src.name]</b> может содержать до [max_beakers] контейнеров."))
 			return
 	..()
 
@@ -566,8 +566,8 @@
 		qdel(G)
 
 /obj/item/bombcore/emp
-	name = "EMP payload"
-	desc = "A set of superconducting electromagnetic coils designed to release a powerful pulse to destroy electronics and scramble circuits"
+	name = "ЭМИ заряд"
+	desc = "Сборка сверхпроводящих электромагнитных катушек предназначенных для выпуска мощного импульса для того, чтобы уничтожить электронику"
 	range_heavy = 15
 	range_medium = 25
 
@@ -583,8 +583,8 @@
 ///Syndicate Detonator (aka the big red button)///
 
 /obj/item/syndicatedetonator
-	name = "big red button"
-	desc = "Your standard issue bomb synchronizing button. Five second safety delay to prevent 'accidents'."
+	name = "большая красная кнопка"
+	desc = "Кнопка синхронизации взрыва нескольких бомб. Чтобы избежать инцидентов, взрыв бомб происходит спустя пять секунд после активации."
 	icon = 'icons/obj/assemblies/assemblies.dmi'
 	icon_state = "bigred"
 	inhand_icon_state = "electronic"

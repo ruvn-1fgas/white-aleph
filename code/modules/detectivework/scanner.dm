@@ -110,10 +110,10 @@
 
 
 	user.visible_message(
-		span_notice("\The [user] points the [src.name] at \the [scanned_atom] and performs a forensic scan."),
+		span_notice(" [user] points the [src.name] at  [scanned_atom] and performs a forensic scan."),
 		ignored_mobs = user
 	)
-	to_chat(user, span_notice("You scan \the [scanned_atom]. The scanner is now analysing the results..."))
+	to_chat(user, span_notice("You scan  [scanned_atom]. The scanner is now analysing the results..."))
 
 
 	// GATHER INFORMATION
@@ -198,10 +198,10 @@
 	if(!found_something)
 		add_log("<I># No forensic traces found #</I>", 0) // Don't display this to the holder user
 		if(holder)
-			to_chat(holder, span_warning("Unable to locate any fingerprints, materials, fibers, or blood on \the [target_name]!"))
+			to_chat(holder, span_warning("Unable to locate any fingerprints, materials, fibers, or blood on  [target_name]!"))
 	else
 		if(holder)
-			to_chat(holder, span_notice("You finish scanning \the [target_name]."))
+			to_chat(holder, span_notice("You finish scanning  [target_name]."))
 
 	add_log("---------------------------------------------------------", 0)
 	return TRUE
@@ -236,7 +236,7 @@
 /obj/item/detective_scanner/examine(mob/user)
 	. = ..()
 	if(LAZYLEN(log) && !scanner_busy)
-		. += span_notice("Alt-click to clear scanner logs.")
+		. += span_notice("Alt-клик to clear scanner logs.")
 
 /obj/item/detective_scanner/proc/display_detective_scan_results(mob/living/user)
 	// No need for can-use checks since the action button should do proper checks

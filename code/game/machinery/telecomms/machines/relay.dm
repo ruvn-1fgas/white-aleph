@@ -7,9 +7,9 @@
  * from other Z levels.
  */
 /obj/machinery/telecomms/relay
-	name = "telecommunication relay"
+	name = "Телекоммуникационный ретранслятор"
 	icon_state = "relay"
-	desc = "A mighty piece of hardware used to send massive amounts of data far away."
+	desc = "Мощное аппаратное обеспечение, используемое для передачи огромных объемов данных на огромное расстояние."
 	telecomms_type = /obj/machinery/telecomms/relay
 	density = TRUE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.01

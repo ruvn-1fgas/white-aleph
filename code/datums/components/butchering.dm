@@ -52,7 +52,7 @@
 		var/mob/living/carbon/human/H = M
 		if((user.pulling == H && user.grab_state >= GRAB_AGGRESSIVE) && user.zone_selected == BODY_ZONE_HEAD) // Only aggressive grabbed can be sliced.
 			if(HAS_TRAIT(user, TRAIT_PACIFISM))
-				to_chat(user, span_warning("You don't want to harm other living beings!"))
+				to_chat(user, span_warning("Не хочу вредить живым существам!"))
 				return COMPONENT_CANCEL_ATTACK_CHAIN
 
 			if(H.has_status_effect(/datum/status_effect/neck_slice))
@@ -62,32 +62,33 @@
 			return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/component/butchering/proc/startButcher(obj/item/source, mob/living/M, mob/living/user)
-	to_chat(user, span_notice("You begin to butcher [M]..."))
+	to_chat(user, span_notice("Начинаю разделывать [M]..."))
 	playsound(M.loc, butcher_sound, 50, TRUE, -1)
 	if(do_after(user, speed, M) && M.Adjacent(source))
 		on_butchering(user, M)
 
 /datum/component/butchering/proc/startNeckSlice(obj/item/source, mob/living/carbon/human/H, mob/living/user)
 	if(DOING_INTERACTION_WITH_TARGET(user, H))
-		to_chat(user, span_warning("You're already interacting with [H]!"))
+		to_chat(user, span_warning("Уже взаимодействую с [H]!"))
 		return
 
-	user.visible_message(span_danger("[user] is slitting [H]'s throat!"), \
-					span_danger("You start slicing [H]'s throat!"), \
-					span_hear("You hear a cutting noise!"), ignored_mobs = H)
-	H.show_message(span_userdanger("Your throat is being slit by [user]!"), MSG_VISUAL, \
-					span_userdanger("Something is cutting into your neck!"), NONE)
+	user.visible_message(span_danger("[user] начинает резать глотку [H]!") , \
+					span_danger("Начинаю резать глотку [H]!") , \
+					span_hear("Слышу звуки нарезки мяса!") , ignored_mobs = H)
+	H.show_message(span_userdanger("[user] начинает перерезать мою глотку!") , MSG_VISUAL, \
+					span_userdanger("Что-то режет мою глотку!"), NONE)
 	log_combat(user, H, "attempted throat slitting", source)
 
 	playsound(H.loc, butcher_sound, 50, TRUE, -1)
 	if(do_after(user, clamp(500 / source.force, 30, 100), H) && H.Adjacent(source))
 		if(H.has_status_effect(/datum/status_effect/neck_slice))
-			user.show_message(span_warning("[H]'s neck has already been already cut, you can't make the bleeding any worse!"), MSG_VISUAL, \
-							span_warning("Their neck has already been already cut, you can't make the bleeding any worse!"))
+			user.show_message(span_warning("[H] уже имеет второй рот на шее, куда больше?!") , MSG_VISUAL, \
+							span_warning("Здесь уже есть второй рот на шее, куда больше?!"))
 			return
 
-		H.visible_message(span_danger("[user] slits [H]'s throat!"), \
-					span_userdanger("[user] slits your throat..."))
+		H.visible_message(span_danger("[user] режет глотку [H]!") , \
+					span_userdanger("[user] режет мою глотку..."))
+		playsound(get_turf(H), 'sound/effects/wounds/crackandbleed.ogg', 40)
 		log_combat(user, H, "wounded via throat slitting", source)
 		H.apply_damage(source.force, BRUTE, BODY_ZONE_HEAD, wound_bonus=CANT_WOUND) // easy tiger, we'll get to that in a sec
 		var/obj/item/bodypart/slit_throat = H.get_bodypart(BODY_ZONE_HEAD)
@@ -113,12 +114,12 @@
 		for(var/_i in 1 to amount)
 			if(!prob(final_effectiveness))
 				if(butcher)
-					to_chat(butcher, span_warning("You fail to harvest some of the [initial(remains.name)] from [target]."))
+					to_chat(butcher, span_warning("Не вышло вырезать [initial(remains.name)] из [target]."))
 				continue
 
 			if(prob(bonus_chance))
 				if(butcher)
-					to_chat(butcher, span_info("You harvest some extra [initial(remains.name)] from [target]!"))
+					to_chat(butcher, span_info("Вырезаю [initial(remains.name)] из [target]!"))
 				results += new remains (location)
 			results += new remains (location)
 
@@ -162,8 +163,8 @@
 					diseased_remains.AddComponent(/datum/component/infective, diseases_to_add)
 
 	if(butcher)
-		butcher.visible_message(span_notice("[butcher] butchers [target]."), \
-			span_notice("You butcher [target]."))
+		butcher.visible_message(span_notice("[butcher] разделывает [target]."), \
+								span_notice("Разделываю [target]."))
 	butcher_callback?.Invoke(butcher, target)
 	target.harvest(butcher)
 	target.log_message("has been butchered by [key_name(butcher)]", LOG_ATTACK)

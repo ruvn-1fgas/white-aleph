@@ -1,5 +1,5 @@
 /datum/crafting_recipe/gold_horn
-	name = "Golden Bike Horn"
+	name = "Золотой гудок"
 	result = /obj/item/bikehorn/golden
 	time = 2 SECONDS
 	reqs = list(
@@ -8,17 +8,8 @@
 	)
 	category = CAT_TOOLS
 
-/datum/crafting_recipe/bonfire
-	name = "Bonfire"
-	time = 6 SECONDS
-	reqs = list(/obj/item/grown/log = 5)
-	parts = list(/obj/item/grown/log = 5)
-	blacklist = list(/obj/item/grown/log/steel)
-	result = /obj/structure/bonfire
-	category = CAT_TOOLS
-
 /datum/crafting_recipe/boneshovel
-	name = "Serrated Bone Shovel"
+	name = "Зубчатая костяная лопата"
 	always_available = FALSE
 	reqs = list(
 		/obj/item/stack/sheet/bone = 4,
@@ -29,7 +20,7 @@
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/lasso
-	name = "Bone Lasso"
+	name = "Костяное лассо"
 	reqs = list(
 		/obj/item/stack/sheet/bone = 1,
 		/obj/item/stack/sheet/sinew = 5,
@@ -38,7 +29,7 @@
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/ipickaxe
-	name = "Improvised Pickaxe"
+	name = "Импровизированная кирка"
 	reqs = list(
 		/obj/item/crowbar = 1,
 		/obj/item/knife = 1,
@@ -48,7 +39,7 @@
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/bandage
-	name = "Makeshift Bandage"
+	name = "Импровизированный бинт"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 		/datum/reagent/medicine/c2/libital = 10,

@@ -70,8 +70,8 @@
 	if(stat == DEAD || choking) // plapatin I swear to god
 		return FALSE
 	if(suffocator.has_material_type(/datum/material/plastic)) // dumb goose'll swallow food or drink with plastic in it
-		visible_message(span_danger("[src] hungrily gobbles up \the [suffocator]! "))
-		visible_message(span_boldwarning("[src] is choking on \the [suffocator]! "))
+		visible_message(span_danger("[src] hungrily gobbles up  [suffocator]! "))
+		visible_message(span_boldwarning("[src] is choking on  [suffocator]! "))
 		suffocator.forceMove(src)
 		choke(suffocator)
 		choking = TRUE
@@ -125,11 +125,11 @@
 		return FALSE
 	if (contents.len > GOOSE_SATIATED)
 		if(message_cooldown < world.time)
-			visible_message(span_notice("[src] looks too full to eat \the [tasty]!"))
+			visible_message(span_notice("[src] looks too full to eat  [tasty]!"))
 			message_cooldown = world.time + 5 SECONDS
 		return FALSE
 	if (tasty.foodtypes & GROSS)
-		visible_message(span_notice("[src] hungrily gobbles up \the [tasty]!"))
+		visible_message(span_notice("[src] hungrily gobbles up  [tasty]!"))
 		tasty.forceMove(src)
 		playsound(src,'sound/items/eatfood.ogg', 70, TRUE)
 		vomitCoefficient += 3
@@ -137,7 +137,7 @@
 		return TRUE
 	else
 		if(message_cooldown < world.time)
-			visible_message(span_notice("[src] refuses to eat \the [tasty]."))
+			visible_message(span_notice("[src] refuses to eat  [tasty]."))
 			message_cooldown = world.time + 5 SECONDS
 			return FALSE
 
@@ -150,7 +150,7 @@
 	if(stat == DEAD || choking)
 		return
 	if(prob(25))
-		visible_message(span_warning("[src] is gagging on \the [plastic]!"))
+		visible_message(span_warning("[src] is gagging on  [plastic]!"))
 		manual_emote("gags!")
 		addtimer(CALLBACK(src, PROC_REF(vomit)), 300)
 	else

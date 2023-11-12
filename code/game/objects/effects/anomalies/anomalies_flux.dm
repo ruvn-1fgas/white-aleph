@@ -1,5 +1,5 @@
 /obj/effect/anomaly/flux
-	name = "flux wave anomaly"
+	name = "электромагнитная аномалия"
 	icon_state = "flux"
 	density = TRUE
 	aSignal = /obj/item/assembly/signaler/anomaly/flux

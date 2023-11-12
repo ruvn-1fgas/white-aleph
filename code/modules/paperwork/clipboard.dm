@@ -27,7 +27,7 @@
 	var/datum/weakref/toppaper_ref
 
 /obj/item/clipboard/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins putting [user.p_their()] head into the clip of \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] begins putting [user.p_their()] head into the clip of  [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS //The clipboard's clip is very strong. Industrial duty. Can kill a man easily.
 
 /obj/item/clipboard/Initialize(mapload)
@@ -41,10 +41,10 @@
 /obj/item/clipboard/examine()
 	. = ..()
 	if(!integrated_pen && pen)
-		. += span_notice("Alt-click to remove [pen].")
+		. += span_notice("Alt-клик to remove [pen].")
 	var/obj/item/paper/toppaper = toppaper_ref?.resolve()
 	if(toppaper)
-		. += span_notice("Right-click to remove [toppaper].")
+		. += span_notice("ПКМ to remove [toppaper].")
 
 /// Take out the topmost paper
 /obj/item/clipboard/proc/remove_paper(obj/item/paper/paper, mob/user)

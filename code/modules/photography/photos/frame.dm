@@ -20,7 +20,7 @@
 			displayed = I
 			update_appearance()
 		else
-			to_chat(user, span_warning("\The [src] already contains a photo."))
+			to_chat(user, span_warning(" [src] already contains a photo."))
 	..()
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
@@ -31,7 +31,7 @@
 	if(contents.len)
 		var/obj/item/I = pick(contents)
 		user.put_in_hands(I)
-		to_chat(user, span_notice("You carefully remove the photo from \the [src]."))
+		to_chat(user, span_notice("You carefully remove the photo from  [src]."))
 		displayed = null
 		update_appearance()
 	return ..()
@@ -150,7 +150,7 @@
 
 	if(istype(I, /obj/item/photo))
 		if(framed)
-			to_chat(user, span_warning("\The [src] already contains a photo."))
+			to_chat(user, span_warning(" [src] already contains a photo."))
 			return TRUE
 		var/obj/item/photo/P = I
 		if(!user.transferItemToLoc(P, src))

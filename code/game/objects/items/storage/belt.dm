@@ -1,6 +1,6 @@
 /obj/item/storage/belt
-	name = "not actually a toolbelt"
-	desc = "Can hold various things. This is the base type of /belt, are you sure you should have this?"
+	name = "пояс"
+	desc = "Может хранить любые предметы маленького размера."
 	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "utility"
 	inhand_icon_state = "utility"
@@ -16,7 +16,7 @@
 	var/content_overlays = FALSE //If this is true, the belt will gain overlays based on what it's holding
 
 /obj/item/storage/belt/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins belting [user.p_them()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] begins belting [user.p_them()]self with  [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 
 /obj/item/storage/belt/update_overlays()
@@ -32,8 +32,8 @@
 	update_appearance()
 
 /obj/item/storage/belt/utility
-	name = "toolbelt" //Carn: utility belt is nicer, but it bamboozles the text parsing.
-	desc = "Holds tools."
+	name = "пояс с инструментами" //Carn: utility belt is nicer, but it bamboozles the text parsing.
+	desc = "Хранит инструменты."
 	icon_state = "utility"
 	inhand_icon_state = "utility"
 	worn_icon_state = "utility"
@@ -79,8 +79,8 @@
 	))
 
 /obj/item/storage/belt/utility/chief
-	name = "\improper Chief Engineer's toolbelt" //"the Chief Engineer's toolbelt", because "Chief Engineer's toolbelt" is not a proper noun
-	desc = "Holds tools, looks snazzy."
+	name = "пояс старшего инженера" //"the Chief Engineer's toolbelt", because "Chief Engineer's toolbelt" is not a proper noun
+	desc = "Хранит инструменты, классно смотрится."
 	icon_state = "utility_ce"
 	inhand_icon_state = "utility_ce"
 	worn_icon_state = "utility_ce"
@@ -203,8 +203,8 @@
 	new /obj/item/inducer/syndicate(src)
 
 /obj/item/storage/belt/medical
-	name = "medical belt"
-	desc = "Can hold various medical equipment."
+	name = "медицинский пояс"
+	desc = "Может хранить различные медицинские штуки."
 	icon_state = "medical"
 	inhand_icon_state = "medical"
 	worn_icon_state = "medical"
@@ -268,7 +268,7 @@
 	))
 
 /obj/item/storage/belt/medical/paramedic
-	name = "EMT belt"
+	name = "пояс парамедика"
 	icon_state = "emt"
 	inhand_icon_state = "security"
 	worn_icon_state = "emt"
@@ -323,8 +323,8 @@
 	return to_preload
 
 /obj/item/storage/belt/security
-	name = "security belt"
-	desc = "Can hold security gear like handcuffs and flashes."
+	name = "пояс офицера"
+	desc = "Может хранить наручники, флэшки, но не преступников."
 	icon_state = "security"
 	inhand_icon_state = "security"//Could likely use a better one.
 	worn_icon_state = "security"
@@ -332,7 +332,7 @@
 
 /obj/item/storage/belt/security/Initialize(mapload)
 	. = ..()
-	atom_storage.max_slots = 5
+	atom_storage.max_slots = 6
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	atom_storage.set_holdable(list(
 		/obj/item/ammo_box,
@@ -361,8 +361,8 @@
 	update_appearance()
 
 /obj/item/storage/belt/security/webbing
-	name = "security webbing"
-	desc = "Unique and versatile chest rig, can hold security gear."
+	name = "разгрузка офицера"
+	desc = "Уникальный и универсальный нагрудник, способный удерживать снаряжение офицера."
 	icon_state = "securitywebbing"
 	inhand_icon_state = "securitywebbing"
 	worn_icon_state = "securitywebbing"
@@ -371,11 +371,12 @@
 
 /obj/item/storage/belt/security/webbing/Initialize(mapload)
 	. = ..()
-	atom_storage.max_slots = 6
+	atom_storage.max_slots = 8
+	atom_storage.screen_max_columns = 8
 
 /obj/item/storage/belt/mining
-	name = "explorer's webbing"
-	desc = "A versatile chest rig, cherished by miners and hunters alike."
+	name = "разгрузка исследователя"
+	desc = "Универсальная вместительная разгрузка, которую ценят как шахтеры, так и охотники."
 	icon_state = "explorer1"
 	inhand_icon_state = "explorer1"
 	worn_icon_state = "explorer1"
@@ -383,9 +384,10 @@
 
 /obj/item/storage/belt/mining/Initialize(mapload)
 	. = ..()
-	atom_storage.max_slots = 6
+	atom_storage.max_slots = 16
+	atom_storage.screen_max_columns = 8
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.max_total_storage = 20
+	atom_storage.max_total_storage = 48
 	atom_storage.set_holdable(list(
 		/obj/item/analyzer,
 		/obj/item/clothing/gloves,
@@ -447,8 +449,8 @@
 		core.preserve()
 
 /obj/item/storage/belt/mining/primitive
-	name = "hunter's belt"
-	desc = "A versatile belt, woven from sinew."
+	name = "пояс охотника"
+	desc = "Универсальный ремень, сотканный из сухожилий."
 	icon_state = "ebelt"
 	inhand_icon_state = "ebelt"
 	worn_icon_state = "ebelt"
@@ -458,8 +460,8 @@
 	atom_storage.max_slots = 5
 
 /obj/item/storage/belt/soulstone
-	name = "soul stone belt"
-	desc = "Designed for ease of access to the shards during a fight, as to not let a single enemy spirit slip away."
+	name = "пояс для камней душ"
+	desc = "Предназначен для облегчения доступа к осколкам во время боя, чтобы не пропустить ни одного вражеского духа."
 	icon_state = "soulstonebelt"
 	inhand_icon_state = "soulstonebelt"
 	worn_icon_state = "soulstonebelt"
@@ -480,8 +482,8 @@
 		new /obj/item/soulstone/anybody/chaplain(src)
 
 /obj/item/storage/belt/champion
-	name = "championship belt"
-	desc = "Proves to the world that you are the strongest!"
+	name = "пояс чемпиона"
+	desc = "Доказывает миру, что ты сильнее всех!"
 	icon_state = "championbelt"
 	inhand_icon_state = "championbelt"
 	worn_icon_state = "championbelt"
@@ -495,8 +497,8 @@
 	))
 
 /obj/item/storage/belt/military
-	name = "chest rig"
-	desc = "A set of tactical webbing worn by Syndicate boarding parties."
+	name = "разгрузка"
+	desc = "Набор тактических ремней, которые носят осадные группы синдиката."
 	icon_state = "militarywebbing"
 	inhand_icon_state = "militarywebbing"
 	worn_icon_state = "militarywebbing"
@@ -507,12 +509,12 @@
 	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/belt/military/snack
-	name = "tactical snack rig"
+	name = "тактическая закусочная"
 
 /obj/item/storage/belt/military/snack/Initialize(mapload)
 	. = ..()
 	var/sponsor = pick("Donk Co.", "Waffle Co.", "Roffle Co.", "Gorlax Marauders", "Tiger Cooperative")
-	desc = "A set of snack-tical webbing worn by athletes of the [sponsor] VR sports division."
+	desc = "Набор закусок, которые носят спортсмены спортивного отдела ВР [sponsor]."
 	atom_storage.max_slots = 6
 	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
 	atom_storage.set_holdable(list(
@@ -554,8 +556,8 @@
 		new rig_snacks(src)
 
 /obj/item/storage/belt/military/abductor
-	name = "agent belt"
-	desc = "A belt used by abductor agents."
+	name = "пояс агента"
+	desc = "Пояс, используемый агентами похитителей."
 	icon = 'icons/obj/antags/abductor.dmi'
 	icon_state = "belt"
 	inhand_icon_state = "security"
@@ -572,15 +574,15 @@
 	new /obj/item/stack/cable_coil(src)
 
 /obj/item/storage/belt/military/army
-	name = "army belt"
-	desc = "A belt used by military forces."
+	name = "армейский пояс"
+	desc = "Пояс, используемый вооруженными силами."
 	icon_state = "military"
 	inhand_icon_state = "security"
 	worn_icon_state = "military"
 
 /obj/item/storage/belt/military/assault
-	name = "assault belt"
-	desc = "A tactical assault belt."
+	name = "штурмовой пояс"
+	desc = "Тактический штурмовой пояс."
 	icon_state = "assault"
 	inhand_icon_state = "security"
 	worn_icon_state = "assault"
@@ -596,8 +598,8 @@
 	), src)
 
 /obj/item/storage/belt/grenade
-	name = "grenadier belt"
-	desc = "A belt for holding grenades."
+	name = "пояс гренадёра"
+	desc = "Пояс хранящий гранаты. Бабах."
 	icon_state = "grenadebeltnew"
 	inhand_icon_state = "security"
 	worn_icon_state = "grenadebeltnew"
@@ -634,8 +636,8 @@
 
 
 /obj/item/storage/belt/wands
-	name = "wand belt"
-	desc = "A belt designed to hold various rods of power. A veritable fanny pack of exotic magic."
+	name = "пояс для посохов"
+	desc = "Ремень, предназначенный для удержания различных силовых стержней. Настоящая задница экзотической волшебной пачки."
 	icon_state = "soulstonebelt"
 	inhand_icon_state = "soulstonebelt"
 	worn_icon_state = "soulstonebelt"
@@ -660,8 +662,8 @@
 		W.charges = W.max_charges
 
 /obj/item/storage/belt/janitor
-	name = "janibelt"
-	desc = "A belt used to hold most janitorial supplies."
+	name = "пояс уборщика"
+	desc = "На ремне хранится большинство принадлежностей для уборки."
 	icon_state = "janibelt"
 	inhand_icon_state = "janibelt"
 	worn_icon_state = "janibelt"
@@ -697,8 +699,8 @@
 	new /obj/item/melee/flyswatter(src)
 
 /obj/item/storage/belt/bandolier
-	name = "bandolier"
-	desc = "A bandolier for holding rifle and shotgun ammunition."
+	name = "бандольер"
+	desc = "Бандольер для хранения боеприпасов к дробовикам."
 	icon_state = "bandolier"
 	inhand_icon_state = "bandolier"
 	worn_icon_state = "bandolier"
@@ -714,8 +716,8 @@
 	))
 
 /obj/item/storage/belt/fannypack
-	name = "fannypack"
-	desc = "A dorky fannypack for keeping small items in. Concealed enough, or ugly enough to avert their eyes, that others won't see what you put in or take out easily."
+	name = "барсетка"
+	desc = "Эй! Это не косметичка - это мужская сумка!"
 	icon_state = "fannypack_leather"
 	inhand_icon_state = null
 	worn_icon_state = "fannypack_leather"
@@ -729,65 +731,65 @@
 	atom_storage.silent = TRUE
 
 /obj/item/storage/belt/fannypack/black
-	name = "black fannypack"
+	name = "чёрная барсетка"
 	icon_state = "fannypack_black"
 	worn_icon_state = "fannypack_black"
 
 /obj/item/storage/belt/fannypack/red
-	name = "red fannypack"
+	name = "красная барсетка"
 	icon_state = "fannypack_red"
 	worn_icon_state = "fannypack_red"
 
 /obj/item/storage/belt/fannypack/purple
-	name = "purple fannypack"
+	name = "фиолетовая барсетка"
 	icon_state = "fannypack_purple"
 	worn_icon_state = "fannypack_purple"
 
 /obj/item/storage/belt/fannypack/blue
-	name = "blue fannypack"
+	name = "синяя барсетка"
 	icon_state = "fannypack_blue"
 	worn_icon_state = "fannypack_blue"
 
 /obj/item/storage/belt/fannypack/orange
-	name = "orange fannypack"
+	name = "оранжевая барсетка"
 	icon_state = "fannypack_orange"
 	worn_icon_state = "fannypack_orange"
 
 /obj/item/storage/belt/fannypack/white
-	name = "white fannypack"
+	name = "белая барсетка"
 	icon_state = "fannypack_white"
 	worn_icon_state = "fannypack_white"
 
 /obj/item/storage/belt/fannypack/green
-	name = "green fannypack"
+	name = "зелёная барсетка"
 	icon_state = "fannypack_green"
 	worn_icon_state = "fannypack_green"
 
 /obj/item/storage/belt/fannypack/pink
-	name = "pink fannypack"
+	name = "розовая барсетка"
 	icon_state = "fannypack_pink"
 	worn_icon_state = "fannypack_pink"
 
 /obj/item/storage/belt/fannypack/cyan
-	name = "cyan fannypack"
+	name = "голубая барсетка"
 	icon_state = "fannypack_cyan"
 	worn_icon_state = "fannypack_cyan"
 
 /obj/item/storage/belt/fannypack/yellow
-	name = "yellow fannypack"
+	name = "жёлтая барсетка"
 	icon_state = "fannypack_yellow"
 	worn_icon_state = "fannypack_yellow"
 
 /obj/item/storage/belt/fannypack/cummerbund
-	name = "cummerbund"
-	desc = "A pleated sash that pairs well with a suit jacket."
+	name = "широкий пояс"
+	desc = "Плиссированный пояс, который хорошо сочетается с пиджаком."
 	icon_state = "cummerbund"
 	inhand_icon_state = null
 	worn_icon_state = "cummerbund"
 
 /obj/item/storage/belt/sabre
-	name = "sabre sheath"
-	desc = "An ornate sheath designed to hold an officer's blade."
+	name = "ножны сабли"
+	desc = "Декоративные ножны, предназначенные для хранения сабли офицера."
 	icon_state = "sheath"
 	inhand_icon_state = "sheath"
 	worn_icon_state = "sheath"
@@ -809,18 +811,18 @@
 /obj/item/storage/belt/sabre/examine(mob/user)
 	. = ..()
 	if(length(contents))
-		. += span_notice("Alt-click it to quickly draw the blade.")
+		. += span_notice("Кликните, чтобы немедленно достать саблю.")
 
 /obj/item/storage/belt/sabre/AltClick(mob/user)
 	if(!user.can_perform_action(src, NEED_DEXTERITY|NEED_HANDS))
 		return
 	if(length(contents))
 		var/obj/item/I = contents[1]
-		user.visible_message(span_notice("[user] takes [I] out of [src]."), span_notice("You take [I] out of [src]."))
+		user.visible_message(span_notice("[user] достаёт [I] из [src]."), span_notice("Достаю [I] из [src]."))
 		user.put_in_hands(I)
 		update_appearance()
 	else
-		balloon_alert(user, "it's empty!")
+		balloon_alert(user, "ножны пустые!")
 
 /obj/item/storage/belt/sabre/update_icon_state()
 	icon_state = initial(inhand_icon_state)
@@ -837,8 +839,8 @@
 	update_appearance()
 
 /obj/item/storage/belt/plant
-	name = "botanical belt"
-	desc = "A sturdy leather belt used to hold most hydroponics supplies."
+	name = "ботанический пояс"
+	desc = "Пояс, используемый для хранения большинства принадлежностей для гидропоники. Удивительно, но не зеленый."
 	icon_state = "plantbelt"
 	inhand_icon_state = "utility"
 	worn_icon_state = "plantbelt"

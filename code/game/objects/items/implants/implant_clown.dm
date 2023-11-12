@@ -31,6 +31,6 @@
 
 ///Implant case that spawns with a sad trombone implant, as well as an appropriate name and description
 /obj/item/implantcase/sad_trombone
-	name = "implant case - 'Sad Trombone'"
-	desc = "A glass case containing a sad trombone implant."
+	name = "микроимплант - 'Грустный тромбон'"
+	desc = "Добавьте чуточку драмы."
 	imp_type = /obj/item/implant/sad_trombone

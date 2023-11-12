@@ -175,7 +175,7 @@
 
 /obj/machinery/sleeper/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click [src] to [state_open ? "close" : "open"] it.")
+	. += span_notice("Alt-клик [src] to [state_open ? "close" : "open"] it.")
 
 /obj/machinery/sleeper/process()
 	..()

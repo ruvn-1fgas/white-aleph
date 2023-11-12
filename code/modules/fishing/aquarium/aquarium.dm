@@ -4,8 +4,8 @@
 #define AQUARIUM_MAX_OFFSET 1
 
 /obj/structure/aquarium
-	name = "aquarium"
-	desc = "A vivivarium in which aquatic fuana and flora are usually kept and displayed."
+	name = "аквариум"
+	desc = "В аквариуме содержится водная фауна и флора."
 	density = TRUE
 	anchored = TRUE
 
@@ -140,16 +140,16 @@
 
 /obj/structure/aquarium/examine(mob/user)
 	. = ..()
-	. += span_notice("<b>Alt-click</b> to [panel_open ? "close" : "open"] the control and feed panel.")
+	. += span_notice("<b>Alt-клик</b> для [panel_open ? "закрытия" : "открытия"] панели управления.")
 	if(panel_open && reagents.total_volume)
-		. += span_notice("You can use a plunger to empty the feed storage.")
+		. += span_notice("Можно использовать вантуз для опорожнения хранилища корма.")
 
 /obj/structure/aquarium/AltClick(mob/living/user)
 	. = ..()
 	if(!user.can_perform_action(src))
 		return
 	panel_open = !panel_open
-	balloon_alert(user, "panel [panel_open ? "open" : "closed"]")
+	balloon_alert(user, "панель [panel_open ? "открыта" : "закрыта"]")
 	if(panel_open)
 		reagents.flags |= TRANSPARENT|REFILLABLE
 	else
@@ -164,9 +164,9 @@
 /obj/structure/aquarium/plunger_act(obj/item/plunger/P, mob/living/user, reinforced)
 	if(!panel_open)
 		return
-	to_chat(user, span_notice("You start plunging [name]."))
+	to_chat(user, span_notice("Начинаю опорожнять [name]."))
 	if(do_after(user, 3 SECONDS, target = src))
-		to_chat(user, span_notice("You finish plunging the [name]."))
+		to_chat(user, span_notice("Закончиваю опоржнять [name]."))
 		reagents.expose(get_turf(src), TOUCH) //splash on the floor
 		reagents.clear_reagents()
 
@@ -175,9 +175,9 @@
 		var/obj/item/stack/sheet/glass/glass = item
 		if(istype(glass))
 			if(glass.get_amount() < 2)
-				to_chat(user, span_warning("You need two glass sheets to fix the case!"))
+				to_chat(user, span_warning("Мне понадобятся два листа стекла, чтобы починить корпус!"))
 				return
-			to_chat(user, span_notice("You start fixing [src]..."))
+			to_chat(user, span_notice("Начинаю ремонтировать [src]..."))
 			if(do_after(user, 2 SECONDS, target = src))
 				glass.use(2)
 				broken = FALSE
@@ -192,12 +192,12 @@
 
 	if(istype(item, /obj/item/fish_feed) && !panel_open)
 		if(!item.reagents.total_volume)
-			balloon_alert(user, "[item] is empty!")
+			balloon_alert(user, "[item] пустой!")
 			return TRUE
 		var/list/fishes = get_fishes()
 		for(var/obj/item/fish/fish as anything in fishes)
 			fish.feed(item.reagents)
-		balloon_alert(user, "fed the fish")
+		balloon_alert(user, "покормил рыбок")
 		return TRUE
 	return ..()
 
@@ -223,22 +223,22 @@
 	if(user.pulling && isliving(user.pulling))
 		var/mob/living/living_pulled = user.pulling
 		if(living_pulled.buckled || living_pulled.has_buckled_mobs())
-			to_chat(user, span_warning("[living_pulled] is attached to something!"))
+			to_chat(user, span_warning("[living_pulled] прилипла к чему-то!"))
 			return
-		user.visible_message(span_danger("[user] starts to put [living_pulled] into [src]!"))
+		user.visible_message(span_danger("[user] начинает запускать [living_pulled] в [src]!"))
 		if(do_after(user, 10 SECONDS, target = src))
 			if(QDELETED(living_pulled) || user.pulling != living_pulled || living_pulled.buckled || living_pulled.has_buckled_mobs())
 				return
 			var/datum/component/aquarium_content/content_component = living_pulled.GetComponent(/datum/component/aquarium_content)
 			if(content_component || content_component.is_ready_to_insert(src))
 				return
-			user.visible_message(span_danger("[user] stuffs [living_pulled] into [src]!"))
+			user.visible_message(span_danger("[user] выпускает [living_pulled] в [src]!"))
 			living_pulled.forceMove(src)
 			update_appearance()
 
 ///Apply mood bonus depending on aquarium status
 /obj/structure/aquarium/proc/admire(mob/living/user)
-	to_chat(user,span_notice("You take a moment to watch [src]."))
+	to_chat(user,span_notice("Нахожу минутку, чтобы понаблюдать за [src]."))
 	if(do_after(user, 5 SECONDS, target = src))
 		var/alive_fish = 0
 		var/dead_fish = 0
@@ -304,7 +304,7 @@
 					user.put_in_hands(inside)
 				else
 					inside.forceMove(get_turf(src))
-				to_chat(user,span_notice("You take out [inside] from [src]."))
+				to_chat(user,span_notice("Вылавливаю [inside] из [src]."))
 
 /obj/structure/aquarium/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()

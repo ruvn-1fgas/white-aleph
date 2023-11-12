@@ -1,7 +1,7 @@
 /datum/action/changeling/regenerate
-	name = "Regenerate"
-	desc = "Allows us to regrow and restore missing external limbs and vital internal organs, as well as removing shrapnel, healing major wounds, and restoring blood volume. Costs 10 chemicals."
-	helptext = "Will alert nearby crew if any external limbs are regenerated. Can be used while unconscious."
+	name = "Регенерация"
+	desc = "Позволяет нам вырастить и восстановить недостающие внешние конечности и жизненно важные внутренние органы, а также удалить осколки и восстановить объем крови. Стоит 10 химикатов."
+	helptext = "Оповестит ближайший экипаж, если какие-либо внешние конечности будут восстановлены. Может использоваться в бессознательном состоянии."
 	button_icon_state = "regenerate"
 	chemical_cost = 10
 	dna_cost = CHANGELING_POWER_INNATE
@@ -9,11 +9,11 @@
 
 /datum/action/changeling/regenerate/sting_action(mob/living/user)
 	if(!iscarbon(user))
-		user.balloon_alert(user, "nothing missing!")
+		user.balloon_alert(user, "все и ограны на месте!")
 		return FALSE
 
 	..()
-	to_chat(user, span_notice("You feel an itching, both inside and outside as your tissues knit and reknit."))
+	to_chat(user, span_notice("Чувствуем зуд, как внутри, так и снаружи, ведь наши ткани пересвязываются."))
 	var/mob/living/carbon/carbon_user = user
 	var/got_limbs_back = length(carbon_user.get_missing_limbs()) >= 1
 	carbon_user.fully_heal(HEAL_BODY)
@@ -21,9 +21,9 @@
 	if(got_limbs_back)
 		playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 		carbon_user.visible_message(
-			span_warning("[user]'s missing limbs reform, making a loud, grotesque sound!"),
-			span_userdanger("Your limbs regrow, making a loud, crunchy sound and giving you great pain!"),
-			span_hear("You hear organic matter ripping and tearing!"),
+			span_warning("<b>[user]</b> отращивает недостающие конечности, издавая громкие, гротескные звуки!") ,
+			span_userdanger("Наши конечности вырастают, издают громкие хрустящие звуки и причиняют нам сильную боль!") ,
+			span_hear("Слышу как что-то органическое разрывается!")
 		)
 		carbon_user.emote("scream")
 

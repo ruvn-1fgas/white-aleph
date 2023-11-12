@@ -119,10 +119,10 @@
 				RG.reagents.add_reagent(dispensedreagent, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 				to_chat(user, span_notice("You fill [RG] from [src]."))
 				return TRUE
-			to_chat(user, span_notice("\The [RG] is full."))
+			to_chat(user, span_notice(" [RG] is full."))
 			return FALSE
 	if(!user.combat_mode)
-		to_chat(user, span_notice("You won't have any luck getting \the [O] out if you drop it in the oil."))
+		to_chat(user, span_notice("You won't have any luck getting  [O] out if you drop it in the oil."))
 		return 1
 	else
 		return ..()
@@ -277,7 +277,7 @@
 		if(!weapon.use_tool(src, user, delay = 15, volume = 40) || !opened)
 			return TRUE
 
-		to_chat(user, span_notice("You remove \the [src] completely."))
+		to_chat(user, span_notice("You remove  [src] completely."))
 		user.add_mood_event("graverobbing", /datum/mood_event/graverobbing)
 		deconstruct(TRUE)
 		return TRUE

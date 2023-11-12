@@ -39,7 +39,7 @@
 			if(istype(location, /obj/structure/disposalholder)) // sometimes your loc can be a disposalsholder when you're inside a disposals type, so let's just pass a message that makes sense.
 				message = "You hear a lot of rattling in the disposal pipes around you as reality itself distorts. Yet, you feel safe."
 			else
-				message = "You hold onto \the [victim.loc] as hard as you can, as reality distorts around you. You feel safe."
+				message = "You hold onto  [victim.loc] as hard as you can, as reality distorts around you. You feel safe."
 			to_chat(victim, span_boldannounce(message))
 			continue
 		to_chat(victim, span_boldannounce("You feel reality distort for a moment..."))

@@ -197,7 +197,7 @@ Can accept both a type path, and an instance of a datum. Type path has priority.
 		trader.say("[initial(item_to_buy.name)] appears to be out of stock.")
 		return
 
-	trader.say("It will cost you [product_info[TRADER_PRODUCT_INFO_PRICE]] [trader_data.currency_name] to buy \the [initial(item_to_buy.name)]. Are you sure you want to buy it?")
+	trader.say("It will cost you [product_info[TRADER_PRODUCT_INFO_PRICE]] [trader_data.currency_name] to buy  [initial(item_to_buy.name)]. Are you sure you want to buy it?")
 	var/list/npc_options = list(
 		TRADER_OPTION_YES = radial_icons_cache[TRADER_RADIAL_YES],
 		TRADER_OPTION_NO = radial_icons_cache[TRADER_RADIAL_NO],

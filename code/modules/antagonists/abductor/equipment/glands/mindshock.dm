@@ -9,22 +9,22 @@
 	var/list/mob/living/carbon/human/broadcasted_mobs = list()
 
 /obj/item/organ/internal/heart/gland/mindshock/activate()
-	to_chat(owner, span_notice("You get a headache."))
+	to_chat(owner, span_notice("Голова болит."))
 
 	var/turf/owner_turf = get_turf(owner)
 	for(var/mob/living/carbon/target in orange(4,owner_turf))
 		if(target == owner)
 			continue
 		if(HAS_TRAIT(target, TRAIT_MINDSHIELD))
-			to_chat(target, span_notice("You hear a faint hum fill your ears, which quickly dies down."))
+			to_chat(target, span_notice("Слышу гул в ушах, но он быстро утихает."))
 			continue
 
 		switch(pick(1,3))
 			if(1)
-				to_chat(target, span_userdanger("You hear a loud buzz in your head, silencing your thoughts!"))
+				to_chat(target, span_userdanger("Слышу громкий гул, который заглушает мои мысли!"))
 				target.Stun(50)
 			if(2)
-				to_chat(target, span_warning("You hear an annoying buzz in your head."))
+				to_chat(target, span_warning("Слышу раздражающий гул в голове."))
 				target.adjust_confusion(15 SECONDS)
 				target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 10, 160)
 			if(3)
@@ -42,11 +42,11 @@
 			continue
 
 		if(HAS_TRAIT(target_human, TRAIT_MINDSHIELD))
-			to_chat(target_human, span_notice("You hear a low drone as something foreign attempts to enter your mind, but the noise fades after a few moments."))
+			to_chat(target_human, span_notice("Слышу низкий гул, когда что-то постороннее пытается проникнуть в мой разум, но через несколько мгновений шум стихает."))
 			continue
 
 		broadcasted_mobs += target_human
-		to_chat(target_human, span_userdanger("You suddenly feel an irresistible compulsion to follow an order..."))
+		to_chat(target_human, span_userdanger("Внезапно чувствую непреодолимое желание выполнить приказ..."))
 		to_chat(target_human, span_mind_control("[command]"))
 
 		message_admins("[key_name(user)] broadcasted an abductor mind control message from [key_name(owner)] to [key_name(target_human)]: [command]")
@@ -67,7 +67,7 @@
 		return FALSE
 	for(var/target_mob in broadcasted_mobs)
 		var/mob/living/carbon/human/target_human = target_mob
-		to_chat(target_human, span_userdanger("You feel the compulsion fade, and you <i>completely forget</i> about your previous orders."))
+		to_chat(target_human, span_userdanger("Чувствую, что желание выполнить приказ уходит, и я полностью забываю о нём."))
 		target_human.clear_alert(ALERT_MIND_CONTROL)
 	active_mind_control = FALSE
 	return TRUE

@@ -15,8 +15,8 @@
 #define COIN 2
 
 /obj/machinery/computer/slot_machine
-	name = "slot machine"
-	desc = "Gambling for the antisocial."
+	name = "однорукий бандит"
+	desc = "Для самых смелых."
 	icon = 'icons/obj/machines/computer.dmi'
 	icon_state = "slots"
 	icon_keyboard = null

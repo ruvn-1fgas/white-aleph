@@ -1,11 +1,11 @@
 /datum/mutation/human/firebreath
-	name = "Fire Breath"
-	desc = "An ancient mutation that gives lizards breath of fire."
+	name = "Огненное Дыхание"
+	desc = "Древняя мутация которая позволяет ящерам выдыхать струю пламени."
 	quality = POSITIVE
 	difficulty = 12
 	locked = TRUE
-	text_gain_indication = "<span class='notice'>Your throat is burning!</span>"
-	text_lose_indication = "<span class='notice'>Your throat is cooling down.</span>"
+	text_gain_indication = "<span class='notice'>Моя глотка горит адским пламенем!</span>"
+	text_lose_indication = "<span class='notice'>Пожар в горле потух.</span>"
 	power_path = /datum/action/cooldown/spell/cone/staggered/fire_breath
 	instability = 30
 	energy_coeff = 1
@@ -26,8 +26,8 @@
 	to_modify.self_throw_range += 1 // the breath throws the user back more
 
 /datum/action/cooldown/spell/cone/staggered/fire_breath
-	name = "Fire Breath"
-	desc = "You breathe a cone of fire directly in front of you."
+	name = "Огненное дыхание"
+	desc = "Сила дарованная Великим Ящером!"
 	button_icon_state = "fireball0"
 	sound = 'sound/magic/demon_dies.ogg' //horrifying lizard noises
 

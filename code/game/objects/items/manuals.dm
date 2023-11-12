@@ -305,7 +305,7 @@
 	page_link = "Space_Law"
 
 /obj/item/book/manual/wiki/security_space_law/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] pretends to read \the [src] intently... then promptly dies of laughter!"))
+	user.visible_message(span_suicide("[user] pretends to read  [src] intently... then promptly dies of laughter!"))
 	return OXYLOSS
 
 /obj/item/book/manual/wiki/infections

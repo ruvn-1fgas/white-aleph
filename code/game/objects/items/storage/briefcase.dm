@@ -1,6 +1,6 @@
 /obj/item/storage/briefcase
-	name = "briefcase"
-	desc = "It's made of AUTHENTIC faux-leather and has a price-tag still attached. Its owner must be a real professional."
+	name = "портфель"
+	desc = "Сделан из АУТЕНТИЧНОЙ искусственной кожи, и к нему все еще прикреплен ценник. Его владелец должен быть настоящим профессионалом."
 	icon = 'icons/obj/storage/case.dmi'
 	icon_state = "briefcase"
 	inhand_icon_state = "briefcase"
@@ -12,8 +12,8 @@
 	throw_speed = 2
 	throw_range = 4
 	w_class = WEIGHT_CLASS_BULKY
-	attack_verb_continuous = list("bashes", "batters", "bludgeons", "thrashes", "whacks")
-	attack_verb_simple = list("bash", "batter", "bludgeon", "thrash", "whack")
+	attack_verb_continuous = list("бьёт", "разбивает", "атакует", "лупит")
+	attack_verb_simple = list("бьёт", "разбивает", "атакует", "лупит")
 	resistance_flags = FLAMMABLE
 	max_integrity = 150
 	var/folder_path = /obj/item/folder //this is the path of the folder that gets spawned in New()

@@ -6,15 +6,15 @@
  * basically just meme, cosmetic, and base species entries
 */
 /datum/infuser_entry/fly
-	name = "Rejected"
-	infuse_mob_name = "rejected creature"
-	desc = "For whatever reason, when the body rejects DNA, the DNA goes sour, ending up as some kind of fly-like DNA jumble."
-	threshold_desc = "the DNA mess takes over, and you become a full-fledged flyperson."
+	name = "Отклонено"
+	infuse_mob_name = "мухи"
+	desc = "По какой-то причине, когда тело отвергает ДНК, ДНК становится кислой, превращаясь в своеобразную ДНК мухи."
+	threshold_desc = "то он станет чудовищем!"
 	qualities = list(
-		"buzzy-like speech",
-		"vomit drinking",
-		"unidentifiable organs",
-		"this is a bad idea",
+		"пьёт рвоту",
+		"говорит как муха",
+		"непонятные органы",
+		"это плохая идея",
 	)
 	output_organs = list(
 		/obj/item/organ/internal/appendix/fly,
@@ -24,18 +24,18 @@
 		/obj/item/organ/internal/stomach/fly,
 		/obj/item/organ/internal/tongue/fly,
 	)
-	infusion_desc = "fly-like"
+	infusion_desc = "мухоподобная"
 	tier = DNA_MUTANT_TIER_ZERO
 
 /datum/infuser_entry/vulpini
-	name = "Fox"
-	infuse_mob_name = "vulpini"
-	desc = "Foxes are now quite rare because of the \"fox ears\" craze back in 2555. I mean, also because we're spacefarers who destroyed foxes' natural habitats ages ago, but that applies to most animals."
+	name = "Лиса"
+	infuse_mob_name = "вульпы"
+	desc = "Лисы теперь довольно редки из-за безумной моды на \"лисьи уши\" в 2555 году. Я имею в виду, также потому, что мы космические путешественники, которые уничтожили естественные места обитания лис, но это относится к большинству животных."
 	threshold_desc = DNA_INFUSION_NO_THRESHOLD
 	qualities = list(
-		"oh come on really",
-		"you bring SHAME to all geneticists",
-		"i hope it was worth it",
+		"ну нет",
+		"ты позоришь всех генетиков",
+		"надеюсь, это того стоило",
 	)
 	input_obj_or_mob = list(
 		/mob/living/basic/pet/fox,
@@ -43,7 +43,7 @@
 	output_organs = list(
 		/obj/item/organ/internal/ears/fox,
 	)
-	infusion_desc = "inexcusable"
+	infusion_desc = "непростительная"
 	tier = DNA_MUTANT_TIER_ZERO
 
 /datum/infuser_entry/mothroach
@@ -70,12 +70,14 @@
 	tier = DNA_MUTANT_TIER_ZERO
 
 /datum/infuser_entry/felinid
-	name = "Cat"
-	infuse_mob_name = "feline"
-	desc = "EVERYONE CALM DOWN! I'm not implying anything with this entry. Are we really so surprised that felinids are humans with mixed feline DNA?"
+	name = "Кот"
+	infuse_mob_name = "кота"
+	desc = "УСПОКОЙТЕСЬ! Я на на что не намекаю этой записью. Мы действительно так удивлены, что фелиниды - это люди с примесью днк фелина?"
 	threshold_desc = DNA_INFUSION_NO_THRESHOLD
 	qualities = list(
-		"oh, let me guess, you're a big fan of those japanese tourist bots",
+		"дай угадаю, ты большой поклонник тех японских туристических ботов",
+		"фу, фурри",
+		"надеюсь, это того стоило",
 	)
 	input_obj_or_mob = list(
 		/mob/living/simple_animal/pet/cat,
@@ -84,5 +86,5 @@
 		/obj/item/organ/internal/ears/cat,
 		/obj/item/organ/external/tail/cat,
 	)
-	infusion_desc = "domestic"
+	infusion_desc = "прислуга"
 	tier = DNA_MUTANT_TIER_ZERO

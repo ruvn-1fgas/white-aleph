@@ -66,14 +66,14 @@
 			return
 		if(user.transferItemToLoc(I, src))
 			cell = I
-			to_chat(user, span_notice("You successfully install \the [cell] into [src]."))
+			to_chat(user, span_notice("You successfully install  [cell] into [src]."))
 			return
 	return ..()
 
 /obj/item/inspector/CtrlClick(mob/living/user)
 	if(!user.can_perform_action(src, NEED_DEXTERITY) || !cell_cover_open || !cell)
 		return ..()
-	user.visible_message(span_notice("[user] removes \the [cell] from [src]!"), \
+	user.visible_message(span_notice("[user] removes  [cell] from [src]!"), \
 		span_notice("You remove [cell]."))
 	cell.add_fingerprint(user)
 	user.put_in_hands(cell)
@@ -88,7 +88,7 @@
 	if(!cell)
 		. += "The slot for a cell is empty."
 	else
-		. += "\The [cell] is firmly in place. [span_info("Ctrl-click with an empty hand to remove it.")]"
+		. += " [cell] is firmly in place. [span_info("Ctrl-клик with an empty hand to remove it.")]"
 
 /**
  * Create our report
@@ -106,10 +106,10 @@
 */
 /obj/item/inspector/proc/print_report(mob/user)
 	if(!cell)
-		to_chat(user, "<span class='info'>\The [src] doesn't seem to be on... It feels quite light. Perhaps it lacks a power cell?")
+		to_chat(user, "<span class='info'> [src] doesn't seem to be on... It feels quite light. Perhaps it lacks a power cell?")
 		return
 	if(cell.charge == 0)
-		to_chat(user, "<span class='info'>\The [src] doesn't seem to be on... Perhaps it ran out of power?")
+		to_chat(user, "<span class='info'> [src] doesn't seem to be on... Perhaps it ran out of power?")
 		return
 	if(!cell.use(power_per_print))
 		if(cell.use(power_to_speak))
@@ -155,9 +155,9 @@
 /obj/item/paper/report/examine(mob/user)
 	. = ..()
 	if(scanned_area?.name)
-		. += span_notice("\The [src] contains data on [scanned_area.name].")
+		. += span_notice(" [src] contains data on [scanned_area.name].")
 	else if(scanned_area)
-		. += span_notice("\The [src] contains data on a vague area on station, you should throw it away.")
+		. += span_notice(" [src] contains data on a vague area on station, you should throw it away.")
 	else if(get_total_length())
 		icon_state = "slipfull"
 		. += span_notice("Wait a minute, this isn't an encrypted inspection report! You should throw it away.")
@@ -242,9 +242,9 @@
  * instead of INSPECTOR_POWER_USAGE_NORMAL cell units.
  */
 /obj/item/inspector/clown/bananium
-	name = "\improper Bananium HONK-spect scanner"
-	desc = "Honkmother-blessed inspection device. Performs inspections according to Clown protocols when activated, then \
-			prints a clowncrypted report regarding the maintenance of the station. Hard to replace."
+	name = "Бананиевый ХОНК-спектральный сканер"
+	desc = "Освященный хонкоматерью инспекционный прибор. При активации проводит инспекцию в соответствии с протоколами клоуна, затем \
+			печатает зашифрованный отчет о состоянии станции. Трудно заменить."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "bananium_inspector"
 	w_class = WEIGHT_CLASS_SMALL
@@ -274,10 +274,10 @@
 	if(cell_cover_open)
 		check_settings_legality()
 	if(istype(I, /obj/item/paper/fake_report) || paper_charges >= max_paper_charges)
-		to_chat(user, span_info("\The [src] refuses to consume \the [I]!"))
+		to_chat(user, span_info(" [src] refuses to consume  [I]!"))
 		return
 	if(istype(I, /obj/item/paper))
-		to_chat(user, span_info("\The [src] consumes \the [I]!"))
+		to_chat(user, span_info(" [src] consumes  [I]!"))
 		paper_charges = min(paper_charges + charges_per_paper, max_paper_charges)
 		qdel(I)
 
@@ -299,7 +299,7 @@
 		if(cell.use(power_to_speak))
 			say("ERROR! OUT OF PAPER! MAXIMUM PRINTING SPEED UNAVAIBLE! SWITCH TO A SLOWER SPEED TO OR PROVIDE PAPER!")
 		else
-			to_chat(user, "<span class='info'>\The [src] doesn't seem to be on... Perhaps it ran out of power?")
+			to_chat(user, "<span class='info'> [src] doesn't seem to be on... Perhaps it ran out of power?")
 		return
 	paper_charges--
 	return ..()
@@ -354,9 +354,9 @@
 /obj/item/paper/fake_report/examine(mob/user)
 	. = ..()
 	if(scanned_area?.name)
-		. += span_notice("\The [src] contains no data on [scanned_area.name].")
+		. += span_notice(" [src] contains no data on [scanned_area.name].")
 	else if(scanned_area)
-		. += span_notice("\The [src] contains no data on a vague area on station, you should throw it away.")
+		. += span_notice(" [src] contains no data on a vague area on station, you should throw it away.")
 	else if(get_total_length())
 		. += span_notice("Wait a minute, this isn't an encrypted inspection report! You should throw it away.")
 	else

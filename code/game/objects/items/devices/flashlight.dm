@@ -4,8 +4,8 @@
 #define ALREADY_LIT 3
 
 /obj/item/flashlight
-	name = "flashlight"
-	desc = "A hand-held emergency light."
+	name = "фонарик"
+	desc = "Источник света в полной тьме."
 	custom_price = PAYCHECK_CREW
 	icon = 'icons/obj/lighting.dmi'
 	dir = WEST
@@ -115,15 +115,15 @@
 			return ..() //just hit them in the head
 
 		if(!ISADVANCEDTOOLUSER(user))
-			to_chat(user, span_warning("You don't have the dexterity to do this!"))
+			to_chat(user, span_warning("У меня не хватает ловкости для этого!"))
 			return
 
 		if(!M.get_bodypart(BODY_ZONE_HEAD))
-			to_chat(user, span_warning("[M] doesn't have a head!"))
+			to_chat(user, span_warning("[M] не имеет головы!"))
 			return
 
 		if(light_power < 1)
-			to_chat(user, "[span_warning("\The [src] isn't bright enough to see anything!")] ")
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] недостаточно яркий для этого!</span> ")
 			return
 
 		var/render_list = list()//information will be packaged in a list for clean display to the user
@@ -131,39 +131,39 @@
 		switch(user.zone_selected)
 			if(BODY_ZONE_PRECISE_EYES)
 				if((M.head && M.head.flags_cover & HEADCOVERSEYES) || (M.wear_mask && M.wear_mask.flags_cover & MASKCOVERSEYES) || (M.glasses && M.glasses.flags_cover & GLASSESCOVERSEYES))
-					to_chat(user, span_warning("You're going to need to remove that [(M.head && M.head.flags_cover & HEADCOVERSEYES) ? "helmet" : (M.wear_mask && M.wear_mask.flags_cover & MASKCOVERSEYES) ? "mask": "glasses"] first!"))
+					to_chat(user, span_warning("Мне потребуется снять [(M.head && M.head.flags_cover & HEADCOVERSEYES) ? "этот шлем" : (M.wear_mask && M.wear_mask.flags_cover & MASKCOVERSEYES) ? "эту маску": "эти очки"] сначала!"))
 					return
 
 				var/obj/item/organ/internal/eyes/E = M.get_organ_slot(ORGAN_SLOT_EYES)
 				var/obj/item/organ/internal/brain = M.get_organ_slot(ORGAN_SLOT_BRAIN)
 				if(!E)
-					to_chat(user, span_warning("[M] doesn't have any eyes!"))
+					to_chat(user, span_warning("[M] не имеет глаз!"))
 					return
 
 				M.flash_act(visual = TRUE, length = (user.combat_mode) ? 2.5 SECONDS : 1 SECONDS) // Apply a 1 second flash effect to the target. The duration increases to 2.5 Seconds if you have combat mode on.
 
 				if(M == user) //they're using it on themselves
-					user.visible_message(span_warning("[user] shines [src] into [M.p_their()] eyes."), ignored_mobs = user)
-					render_list += span_info("You direct [src] to into your eyes:\n")
+					user.visible_message(span_warning("[M] светит фонариком себе в глаза."), ignored_mobs = user)
+					render_list += span_info("Свечу фонариком себе в глаза:\n")
 
 					if(M.is_blind())
-						render_list += "<span class='notice ml-1'>You're not entirely certain what you were expecting...</span>\n"
+						render_list += "<span class='notice ml-1'>Не знаю чего я ожидал...</span>\n"
 					else
-						render_list += "<span class='notice ml-1'>Trippy!</span>\n"
+						render_list += "<span class='notice ml-1'>Странное!</span>\n"
 
 				else
-					user.visible_message(span_warning("[user] directs [src] to [M]'s eyes."), ignored_mobs = user)
-					render_list += span_info("You direct [src] to [M]'s eyes:\n")
+					user.visible_message(span_warning("[user] светит фонариком пряма в глаза [M]."), ignored_mobs = user)
+					render_list += span_info("Свечу фонариком прямо в глаза [M].\n")
 
 					if(M.stat == DEAD || M.is_blind() || M.get_eye_protection() > FLASH_PROTECTION_WELDER)
-						render_list += "<span class='danger ml-1'>[M.p_Their()] pupils don't react to the light!</span>\n"//mob is dead
+						render_list += "<span class='danger ml-1'>[M.ru_ego(TRUE, M.gender)] зрачки не реагируют на свет!</span>\n"//mob is dead
 					else if(brain.damage > 20)
-						render_list += "<span class='danger ml-1'>[M.p_Their()] pupils contract unevenly!</span>\n"//mob has sustained damage to their brain
+						render_list += "<span class='danger ml-1'>[M.ru_ego(TRUE, M.gender)] зрачки неравномерно сужаются!</span>\n"//mob has sustained damage to their brain
 					else
-						render_list += "<span class='notice ml-1'>[M.p_Their()] pupils narrow.</span>\n"//they're okay :D
+						render_list += "<span class='notice ml-1'>[M.ru_ego(TRUE, M.gender)] зрачки сужаются.</span>\n"//they're okay :D
 
 					if(M.dna && M.dna.check_mutation(/datum/mutation/human/xray))
-						render_list += "<span class='danger ml-1'>[M.p_Their()] pupils give an eerie glow!</span>\n"//mob has X-ray vision
+						render_list += "<span class='danger ml-1'>[M.ru_ego(TRUE, M.gender)] зрачки сверкают!</span>\n"//mob has X-ray vision
 
 				//display our packaged information in an examine block for easy reading
 				to_chat(user, examine_block(jointext(render_list, "")), type = MESSAGE_TYPE_INFO)
@@ -171,7 +171,7 @@
 			if(BODY_ZONE_PRECISE_MOUTH)
 
 				if(M.is_mouth_covered())
-					to_chat(user, span_warning("You're going to need to remove that [(M.head && M.head.flags_cover & HEADCOVERSMOUTH) ? "helmet" : "mask"] first!"))
+					to_chat(user, span_warning("Мне потребуется снять [(M.head && M.head.flags_cover & HEADCOVERSMOUTH) ? "этот шлем" : "эту маску"] сначала!"))
 					return
 
 				var/list/mouth_organs = new
@@ -184,11 +184,11 @@
 					for(var/I in 1 to organ_count)
 						if(I > 1)
 							if(I == mouth_organs.len)
-								organ_list += ", and "
+								organ_list += ", и "
 							else
 								organ_list += ", "
 						var/obj/item/organ/O = mouth_organs[I]
-						organ_list += (O.gender == "plural" ? O.name : "\an [O.name]")
+						organ_list += (O.gender == "plural" ? O.name : " [O.name]")
 
 				var/pill_count = 0
 				for(var/datum/action/item_action/hands_free/activate_pill/AP in M.actions)
@@ -209,54 +209,54 @@
 								if(WEST)
 									can_use_mirror = mirror.pixel_x < 0
 
-					M.visible_message(span_notice("[M] directs [src] to [ M.p_their()] mouth."), ignored_mobs = user)
-					render_list += span_info("You point [src] into your mouth:\n")
+					M.visible_message(span_notice("[M] светит фонариком себе в рот."), ignored_mobs = M)
+					render_list += span_info("Свечу фонариком себе в рот:\n")
 					if(!can_use_mirror)
-						to_chat(user, span_notice("You can't see anything without a mirror."))
+						to_chat(user, span_notice("Без зеркала ничего не разглядеть."))
 						return
 					if(organ_count)
-						render_list += "<span class='notice ml-1'>Inside your mouth [organ_count > 1 ? "are" : "is"] [organ_list].</span>\n"
+						render_list += "<span class='notice ml-1'>Внутри моего рта [organ_count > 1 ? "находятся" : "находится"] [organ_list].</span>\n"
 					else
-						render_list += "<span class='notice ml-1'>There's nothing inside your mouth.</span>\n"
+						render_list += "<span class='notice ml-1'>У меня во рту нет ничего интересного.</span>\n"
 					if(pill_count)
-						render_list += "<span class='notice ml-1'>You have [pill_count] implanted pill[pill_count > 1 ? "s" : ""].</span>\n"
+						render_list += "<span class='notice ml-1'>У меня во рту есть [pill_count] имплантированн[pill_count > 1 ? "ые таблетки" : "ая таблетка"]..</span>\n"
 
 				else //if we're looking in someone elses mouth
-					user.visible_message(span_notice("[user] directs [src] to [M]'s mouth."), ignored_mobs = user)
-					render_list += span_info("You point [src] into [M]'s mouth:\n")
+					user.visible_message(span_notice("[user] светит фонариком в рот [M]."), ignored_mobs = user)
+					render_list += span_info("Свечу фонариком в рот [M]:\n")
 					if(organ_count)
-						render_list += "<span class='notice ml-1'>Inside [ M.p_their()] mouth [organ_count > 1 ? "are" : "is"] [organ_list].</span>\n"
+						render_list += "<span class='notice ml-1'>Внутри [M.ru_ego(FALSE, M.gender)] рта [organ_count > 1 ? "находятся" : "находится"] [organ_list].</span>\n"
 					else
-						render_list += "<span class='notice ml-1'>[M] doesn't have any organs in [ M.p_their()] mouth.</span>\n"
+						render_list += "<span class='notice ml-1'>Внутри [M.ru_ego(FALSE, M.gender)] рта нет ничего интересного .</span>\n"
 					if(pill_count)
-						render_list += "<span class='notice ml-1'>[M] has [pill_count] pill[pill_count > 1 ? "s" : ""] implanted in [ M.p_their()] teeth.</span>\n"
+						render_list += "<span class='notice ml-1'>У н[M.ru_ego(FALSE, M.gender)] во рту [pill_count] имплантированн[pill_count > 1 ? "ых таблетки": "а таблетка"]."
 
 				//assess any suffocation damage
 				var/hypoxia_status = M.getOxyLoss() > 20
 
 				if(M == user)
 					if(hypoxia_status)
-						render_list += "<span class='danger ml-1'>Your lips appear blue!</span>\n"//you have suffocation damage
+						render_list += "<span class='danger ml-1'>Мои губы посинели!</span>\n"//you have suffocation damage
 					else
-						render_list += "<span class='notice ml-1'>Your lips appear healthy.</span>\n"//you're okay!
+						render_list += "<span class='notice ml-1'>Мои губы выглядят здоровыми.</span>\n"//you're okay!
 				else
 					if(hypoxia_status)
-						render_list += "<span class='danger ml-1'>[M.p_Their()] lips appear blue!</span>\n"//they have suffocation damage
+						render_list += "<span class='danger ml-1'>[M.ru_ego(TRUE, M.gender)] губы посинели!</span>\n"//they have suffocation damage
 					else
-						render_list += "<span class='notice ml-1'>[M.p_Their()] lips appear healthy.</span>\n"//they're okay!
+						render_list += "<span class='notice ml-1'>[M.ru_ego(TRUE, M.gender)] выглядят здоровыми.</span>\n"//they're okay!
 
 				//assess blood level
 				if(M == user)
-					render_list += span_info("You press a finger to your gums:\n")
+					render_list += span_info("Прижимаю палец к своим дёснам:\n")
 				else
-					render_list += span_info("You press a finger to [M.p_their()] gums:\n")
+					render_list += span_info("Прижимаю палец к [M.ru_ego(FALSE, M.gender)] дёснам:\n")
 
 				if(M.blood_volume <= BLOOD_VOLUME_SAFE && M.blood_volume > BLOOD_VOLUME_OKAY)
-					render_list += "<span class='danger ml-1'>Color returns slowly!</span>\n"//low blood
+					render_list += "<span class='danger ml-1'>Цвет медленно возвращается!</span>\n"//low blood
 				else if(M.blood_volume <= BLOOD_VOLUME_OKAY)
-					render_list += "<span class='danger ml-1'>Color does not return!</span>\n"//critical blood
+					render_list += "<span class='danger ml-1'>Цвет не возвращается!</span>\n"//critical blood
 				else
-					render_list += "<span class='notice ml-1'>Color returns quickly.</span>\n"//they're okay :D
+					render_list += "<span class='notice ml-1'>Цвет быстро вернулся.</span>\n"//they're okay :D
 
 				//display our packaged information in an examine block for easy reading
 				to_chat(user, examine_block(jointext(render_list, "")), type = MESSAGE_TYPE_INFO)
@@ -285,8 +285,8 @@
 	return COMSIG_SABOTEUR_SUCCESS
 
 /obj/item/flashlight/pen
-	name = "penlight"
-	desc = "A pen-sized light, used by medical staff. It can also be used to create a hologram to alert people of incoming medical assistance."
+	name = "светоручка"
+	desc = "Фонарик размером с ручку, используется докторами. Также может быть использована для создания голограм больным, чтобы предупредить их о том, что сейчас им окажут помощь."
 	dir = EAST
 	icon_state = "penlight"
 	inhand_icon_state = ""
@@ -302,7 +302,7 @@
 		return
 
 	if(!COOLDOWN_FINISHED(src, holosign_cooldown))
-		balloon_alert(user, "not ready!")
+		balloon_alert(user, "ручка не готова!")
 		return
 
 	var/target_turf = get_turf(target)
@@ -317,8 +317,8 @@
 
 // see: [/datum/wound/burn/flesh/proc/uv()]
 /obj/item/flashlight/pen/paramedic
-	name = "paramedic penlight"
-	desc = "A high-powered UV penlight intended to help stave off infection in the field on serious burned patients. Probably really bad to look into."
+	name = "светоручка парамедика"
+	desc = "Высокомощная УФ светоручка, которая используется для устранения инфекций после сильных ожогов. Не самый лучший вариант для попытки посветить в глаза."
 	icon_state = "penlight_surgical"
 	light_color = LIGHT_COLOR_PURPLE
 	/// Our current UV cooldown
@@ -329,8 +329,8 @@
 	var/uv_power = 1
 
 /obj/effect/temp_visual/medical_holosign
-	name = "medical holosign"
-	desc = "A small holographic glow that indicates a medic is coming to treat a patient."
+	name = "медицинская голотабличка"
+	desc = "Небольшая медицинская голотабличка, которая сообщает о том, что сейчас пациенту окажут помощь."
 	icon_state = "medi_holo"
 	duration = 30
 
@@ -341,8 +341,8 @@
 		visible_message(span_danger("[creator] created a medical hologram!"))
 
 /obj/item/flashlight/seclite
-	name = "seclite"
-	desc = "A robust flashlight used by security."
+	name = "крепкий фонарик"
+	desc = "Надежный фонарик, используемый службой безопасности."
 	dir = EAST
 	icon_state = "seclite"
 	inhand_icon_state = "seclite"
@@ -355,8 +355,8 @@
 
 // the desk lamps are a bit special
 /obj/item/flashlight/lamp
-	name = "desk lamp"
-	desc = "A desk lamp with an adjustable mount."
+	name = "настольная лампа"
+	desc = "Настольная лампа с регулируемым креплением."
 	icon_state = "lamp"
 	inhand_icon_state = "lamp"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
@@ -372,23 +372,23 @@
 
 // green-shaded desk lamp
 /obj/item/flashlight/lamp/green
-	desc = "A classic green-shaded desk lamp."
+	desc = "Классическая настольная лампа с зелёным абажуром."
 	icon_state = "lampgreen"
 	inhand_icon_state = "lampgreen"
 	light_color = LIGHT_COLOR_TUNGSTEN
 
 //Bananalamp
 /obj/item/flashlight/lamp/bananalamp
-	name = "banana lamp"
-	desc = "Only a clown would think to make a ghetto banana-shaped lamp. Even has a goofy pullstring."
+	name = "банановая лампа"
+	desc = "Сделать лампу в форме банана может только клоун. Здесь даже есть тупой шнурок."
 	icon_state = "bananalamp"
 	inhand_icon_state = null
 	light_color = LIGHT_COLOR_BRIGHT_YELLOW
 
 // FLARES
 /obj/item/flashlight/flare
-	name = "flare"
-	desc = "A red Nanotrasen issued flare. There are instructions on the side, it reads 'pull cord, make light'."
+	name = "сигнальная шашка"
+	desc = "Собственность Nanotrasen. Сбоку есть инструкция: \"потяни за шнур, зажги\"."
 	light_range = 7 // Pretty bright.
 	icon_state = "flare"
 	inhand_icon_state = "flare"
@@ -443,7 +443,7 @@
 		return FALSE
 	. = ..()
 
-	name = "lit [initial(name)]"
+	name = "зажечь [initial(name)]"
 	attack_verb_continuous = string_list(list("burns", "singes"))
 	attack_verb_simple = string_list(list("burn", "singe"))
 	hitsound = 'sound/items/welder.ogg'
@@ -486,11 +486,11 @@
 /obj/item/flashlight/flare/proc/ignition(mob/user)
 	if(!fuel)
 		if(user)
-			balloon_alert(user, "out of fuel!")
+			balloon_alert(user, "прогорела!")
 		return NO_FUEL
 	if(light_on)
 		if(user)
-			balloon_alert(user, "already lit!")
+			balloon_alert(user, "уже зажжена!")
 		return ALREADY_LIT
 	if(!toggle_light())
 		return FAILURE
@@ -506,15 +506,14 @@
 
 /obj/item/flashlight/flare/attack_self(mob/user)
 	if(ignition(user) == SUCCESS)
-		user.visible_message(span_notice("[user] lights \the [src]."), span_notice("You light \the [initial(src.name)]!"))
+		user.visible_message(span_notice("[user] зажигает  [src]."), span_notice("Зажигаю  [initial(src.name)]!"))
 
 /obj/item/flashlight/flare/get_temperature()
 	return light_on * heat
 
 /obj/item/flashlight/flare/candle
-	name = "red candle"
-	desc = "In Greek myth, Prometheus stole fire from the Gods and gave it to \
-		humankind. The jewelry he kept for himself."
+	name = "красная свеча"
+	desc = "В греческой мифологии Прометей украл огонь у богов и дал его людям. А украшения оставил себе."
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle1"
 	inhand_icon_state = "candle"
@@ -619,7 +618,7 @@
 /obj/item/flashlight/flare/candle/attack_self(mob/user)
 	if(light_on && (fuel != INFINITY || !can_be_extinguished)) // can't extinguish eternal candles
 		turn_off()
-		user.visible_message(span_notice("[user] snuffs [src]."))
+		user.visible_message(span_notice("[user] задувает [src]."))
 
 /obj/item/flashlight/flare/candle/process(seconds_per_tick)
 	. = ..()
@@ -633,8 +632,8 @@
 	start_on = TRUE
 
 /obj/item/flashlight/flare/torch
-	name = "torch"
-	desc = "A torch fashioned from some leaves and a log."
+	name = "факел"
+	desc = "Не дуть!"
 	light_range = 4
 	icon_state = "torch"
 	inhand_icon_state = "torch"
@@ -647,37 +646,37 @@
 	can_be_extinguished = TRUE
 
 /obj/item/flashlight/lantern
-	name = "lantern"
+	name = "фонарь"
 	icon_state = "lantern"
 	inhand_icon_state = "lantern"
 	lefthand_file = 'icons/mob/inhands/equipment/mining_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/mining_righthand.dmi'
-	desc = "A mining lantern."
+	desc = "Шахтёрский фонарь."
 	light_range = 6 // luminosity when on
 	light_system = MOVABLE_LIGHT
 
 /obj/item/flashlight/lantern/heirloom_moth
-	name = "old lantern"
-	desc = "An old lantern that has seen plenty of use."
+	name = "потёртый фонарь"
+	desc = "Старый фонарь, который повидал много раз."
 	light_range = 4
 
 /obj/item/flashlight/lantern/syndicate
-	name = "suspicious lantern"
-	desc = "A suspicious looking lantern."
+	name = "подозрительный фонарь"
+	desc = "ПОДОЗРИТЕЛЬНО..."
 	icon_state = "syndilantern"
 	inhand_icon_state = "syndilantern"
 	light_range = 10
 
 /obj/item/flashlight/lantern/jade
-	name = "jade lantern"
-	desc = "An ornate, green lantern."
+	name = "нефритовый фонарь"
+	desc = "Изысканный зеленый фонарь."
 	color = LIGHT_COLOR_GREEN
 	light_color = LIGHT_COLOR_GREEN
 
 /obj/item/flashlight/slime
 	gender = PLURAL
-	name = "glowing slime extract"
-	desc = "Extract from a yellow slime. It emits a strong light when squeezed."
+	name = "светящийся экстракт слайма"
+	desc = "Экстракт из жёлтого слайма. Излучает невероятно мощный поток света, если сжать его в руке."
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "slime"
 	inhand_icon_state = null
@@ -726,14 +725,14 @@
 		if(ismob(A))
 			var/mob/M = A
 			log_combat(user, M, "attacked", "EMP-light")
-			M.visible_message(span_danger("[user] blinks \the [src] at \the [A]."), \
-								span_userdanger("[user] blinks \the [src] at you."))
+			M.visible_message(span_danger("[user] щёлкает фонариком в сторону [A.name].") , \
+								span_userdanger("[user] щёлкает фонариком в меня."))
 		else
-			A.visible_message(span_danger("[user] blinks \the [src] at \the [A]."))
-		to_chat(user, span_notice("\The [src] now has [emp_cur_charges] charge\s."))
+			A.visible_message(span_danger("[user] щёлкает фонариком в сторону [A]."))
+		to_chat(user, span_notice("О, да! [capitalize(src.name)] теперь имеет [emp_cur_charges] зарядов."))
 		A.emp_act(EMP_HEAVY)
 	else
-		to_chat(user, span_warning("\The [src] needs time to recharge!"))
+		to_chat(user, span_warning("[capitalize(src.name)] скоро перезарядится!"))
 	return
 
 /obj/item/flashlight/emp/debug //for testing emp_act()
@@ -744,8 +743,8 @@
 // Glowsticks, in the uncomfortable range of similar to flares,
 // but not similar enough to make it worth a refactor
 /obj/item/flashlight/glowstick
-	name = "glowstick"
-	desc = "A military-grade glowstick."
+	name = "светящаяся палочка"
+	desc = "Военного образца."
 	custom_price = PAYCHECK_LOWER
 	w_class = WEIGHT_CLASS_SMALL
 	light_range = 4
@@ -805,15 +804,15 @@
 
 /obj/item/flashlight/glowstick/attack_self(mob/user)
 	if(fuel <= 0)
-		balloon_alert(user, "glowstick is spent!")
+		balloon_alert(user, "кончилась!")
 		return
 	if(light_on)
-		balloon_alert(user, "already lit!")
+		balloon_alert(user, "уже горит!")
 		return
 
 	. = ..()
 	if(.)
-		user.visible_message(span_notice("[user] cracks and shakes [src]."), span_notice("You crack and shake [src], turning it on!"))
+		user.visible_message(span_notice("[user] ломает и трясёт [src]."), span_notice("Ломаю и трясу [src], включая её!"))
 		START_PROCESSING(SSobj, src)
 
 /obj/item/flashlight/glowstick/suicide_act(mob/living/carbon/human/user)
@@ -829,31 +828,31 @@
 	return FIRELOSS
 
 /obj/item/flashlight/glowstick/red
-	name = "red glowstick"
+	name = "красная светящаяся палочка"
 	color = COLOR_SOFT_RED
 
 /obj/item/flashlight/glowstick/blue
-	name = "blue glowstick"
+	name = "синяя светящаяся палочка"
 	color = LIGHT_COLOR_BLUE
 
 /obj/item/flashlight/glowstick/cyan
-	name = "cyan glowstick"
+	name = "голубая светящаяся палочка"
 	color = LIGHT_COLOR_CYAN
 
 /obj/item/flashlight/glowstick/orange
-	name = "orange glowstick"
+	name = "оранжевая светящаяся палочка"
 	color = LIGHT_COLOR_ORANGE
 
 /obj/item/flashlight/glowstick/yellow
-	name = "yellow glowstick"
+	name = "жёлтая светящаяся палочка"
 	color = LIGHT_COLOR_DIM_YELLOW
 
 /obj/item/flashlight/glowstick/pink
-	name = "pink glowstick"
+	name = "розовая светящаяся палочка"
 	color = LIGHT_COLOR_PINK
 
 /obj/item/flashlight/spotlight //invisible lighting source
-	name = "disco light"
+	name = "дискотека"
 	desc = "Groovy..."
 	icon_state = null
 	light_system = MOVABLE_LIGHT
@@ -880,8 +879,8 @@
 		set_light_color(_light_color)
 
 /obj/item/flashlight/flashdark
-	name = "flashdark"
-	desc = "A strange device manufactured with mysterious elements that somehow emits darkness. Or maybe it just sucks in light? Nobody knows for sure."
+	name = "темнильник"
+	desc = "Странное устройство, изготовленное из загадочных элементов, которое каким-то образом излучает тьму. А может просто засасывает свет? Точно никто не знает."
 	icon_state = "flashdark"
 	inhand_icon_state = "flashdark"
 	light_system = STATIC_LIGHT //The overlay light component is not yet ready to produce darkness.
@@ -901,8 +900,8 @@
 
 //type and subtypes spawned and used to give some eyes lights,
 /obj/item/flashlight/eyelight
-	name = "eyelight"
-	desc = "This shouldn't exist outside of someone's head, how are you seeing this?"
+	name = "светоглаза"
+	desc = "Это не должно существовать вне чьей-то головы, как вы это видите?"
 	light_system = MOVABLE_LIGHT
 	light_range = 15
 	light_power = 1

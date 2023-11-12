@@ -7,9 +7,9 @@
  * Store a maximum of `MAX_LOG_ENTRIES` (400) log entries and then deletes them.
  */
 /obj/machinery/telecomms/server
-	name = "telecommunication server"
+	name = "Телекоммуникационный сервер"
 	icon_state = "comm_server"
-	desc = "A machine used to store data and network statistics."
+	desc = "Машина, используемая для хранения данных и сетевой статистики."
 	telecomms_type = /obj/machinery/telecomms/server
 	density = TRUE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.01

@@ -44,7 +44,7 @@
 /obj/item/clothing/suit/hooded/wintercoat/examine(mob/user)
 	. = ..()
 
-	. += span_notice("<b>Alt-click</b> to [zipped ? "un" : ""]zip.")
+	. += span_notice("<b>Alt-клик</b> to [zipped ? "un" : ""]zip.")
 
 
 /obj/item/clothing/suit/hooded/wintercoat/AltClick(mob/user)

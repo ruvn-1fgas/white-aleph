@@ -1,6 +1,6 @@
 /obj/machinery/medipen_refiller
-	name = "Medipen Refiller"
-	desc = "A machine that refills used medipens with chemicals."
+	name = "наполнитель медипенов"
+	desc = "Машина, производящая пустые медипены, а так же перезаряжающая их химикатами. Внимание! Перезарядка осуществляется только для медипенов одобренных медицинской ассоциацией Нанотрейзен. Химический состав наполнителя должен строго соответствовать маркировке, в противном случае операция будет прервана."
 	icon = 'icons/obj/machines/medipen_refiller.dmi'
 	icon_state = "medipen_refiller"
 	density = TRUE

@@ -26,10 +26,10 @@
 		. += "Use in-hand to untie it to wear as a mask!"
 		return
 	if(slot_flags & ITEM_SLOT_NECK)
-		. += "Alt-click to untie it to wear as a mask!"
+		. += "Alt-клик to untie it to wear as a mask!"
 	else
 		. += "Use in-hand to tie it up to wear as a hat!"
-		. += "Alt-click to tie it up to wear on your neck!"
+		. += "Alt-клик to tie it up to wear on your neck!"
 
 /obj/item/clothing/mask/bandana/attack_self(mob/user)
 	if(slot_flags & ITEM_SLOT_NECK)

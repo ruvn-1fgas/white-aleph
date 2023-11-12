@@ -76,7 +76,7 @@
 
 	if(blocked || !istype(victim) || HAS_TRAIT(victim, TRAIT_PIERCEIMMUNE))
 		return FALSE
-	
+
 	if(victim.status_flags & GODMODE)
 		return FALSE
 
@@ -127,9 +127,9 @@
 	SIGNAL_HANDLER
 
 	if(I.isEmbedHarmless())
-		examine_list += "[I] feels sticky, and could probably get stuck to someone if thrown properly!"
+		examine_list += "<hr>[capitalize(I.name)] выглядит липким и вероятнее всего прилипнет к кому-нибудь, если правильно кинуть!"
 	else
-		examine_list += "[I] has a fine point, and could probably embed in someone if thrown properly!"
+		examine_list += "<hr>[capitalize(I.name)] выглядит острым и вероятнее всего воткнётся в кого-нибудь, если правильно кинуть!"
 
 /**
  * checkEmbedProjectile() is what we get when a projectile with a defined shrapnel_type impacts a target.
@@ -211,7 +211,7 @@
 	var/pen_mod = -(armor * penetrative_behaviour) // if our shrapnel is weak into armor, then we restore our armor to the full value.
 	actual_chance += pen_mod // doing the armor pen as a separate calc just in case this ever gets expanded on
 	if(actual_chance <= 0)
-		victim.visible_message(span_danger("[embedding_item] bounces off [victim]'s armor, unable to embed!"), span_notice("[embedding_item] bounces off your armor, unable to embed!"), vision_distance = COMBAT_MESSAGE_RANGE)
+		victim.visible_message(span_danger("[embedding_item] отскакивает от брони [victim]!"), span_notice("[embedding_item] отскакивает от моей брони!"), vision_distance = COMBAT_MESSAGE_RANGE)
 		return FALSE
 
 	return prob(actual_chance)

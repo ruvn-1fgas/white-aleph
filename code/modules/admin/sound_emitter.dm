@@ -42,7 +42,7 @@
 	. += span_boldnotice("Range:</span> [emitter_range]")
 	. += "<b>Sound is playing at [sound_volume]% volume.</b>"
 	if(user.client.holder)
-		. += "<b>Alt-click it to quickly activate it!</b>"
+		. += "<b>Alt-клик it to quickly activate it!</b>"
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/effect/sound_emitter/attack_ghost(mob/user)

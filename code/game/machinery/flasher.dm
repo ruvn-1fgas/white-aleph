@@ -1,8 +1,8 @@
 // It is a gizmo that flashes a small area
 
 /obj/machinery/flasher
-	name = "mounted flash"
-	desc = "A wall-mounted flashbulb device."
+	name = "настенная вспышка"
+	desc = "Вмонтированная в стену яркая лампочка."
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "mflash1"
 	base_icon_state = "mflash"
@@ -158,8 +158,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/flasher, 26)
 	qdel(src)
 
 /obj/machinery/flasher/portable //Portable version of the flasher. Only flashes when anchored
-	name = "portable flasher"
-	desc = "A portable flashing device. Wrench to activate and deactivate. Cannot detect slow movements."
+	name = "стробоскоп"
+	desc = "Мобильная установка с яркой лампой внутри. Автоматически срабатывает при детекции движения. Плохо реагирует на медленно двигающиеся объекты. Для корректной работы необходимо прикрутить к полу. Если не прикручен к полу, то его можно сложить для переноски."
 	icon = 'icons/obj/machines/sec.dmi'
 	icon_state = "pflash1-p"
 	base_icon_state = "pflash"
@@ -192,13 +192,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/flasher, 26)
 		attacking_item.play_tool_sound(src, 100)
 
 		if (!anchored && !isinspace())
-			to_chat(user, span_notice("[src] is now secured."))
+			to_chat(user, span_notice("[capitalize(src.name)] прикручен к полу."))
 			add_overlay("[base_icon_state]-s")
 			set_anchored(TRUE)
 			power_change()
 			proximity_monitor.set_range(flash_range)
 		else
-			to_chat(user, span_notice("[src] can now be moved."))
+			to_chat(user, span_notice("[capitalize(src.name)] откручен."))
 			cut_overlays()
 			set_anchored(FALSE)
 			power_change()
@@ -208,8 +208,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/flasher, 26)
 		return ..()
 
 /obj/item/wallframe/flasher
-	name = "mounted flash frame"
-	desc = "Used for building wall-mounted flashers."
+	name = "каркас стробоскопа"
+	desc = "Для завершения сборки необходимо подключить датчик движения и вспышку. Плохо реагирует на медленно двигающиеся объекты. Для корректной работы необходимо прикрутить к полу."
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "mflash_frame"
 	result_path = /obj/machinery/flasher

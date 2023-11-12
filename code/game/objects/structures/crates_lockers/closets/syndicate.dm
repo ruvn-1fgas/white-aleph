@@ -1,6 +1,6 @@
 /obj/structure/closet/syndicate
-	name = "armory closet"
-	desc = "Why is this here?"
+	name = "оружейный шкаф"
+	desc = "Почему это здесь?"
 	icon_state = "syndicate"
 	armor_type = /datum/armor/closet_syndicate
 	paint_jobs = null
@@ -15,7 +15,7 @@
 	acid = 70
 
 /obj/structure/closet/syndicate/personal
-	desc = "It's a personal storage unit for operative gear."
+	desc = "Личное хранилище для оперативного оборудования."
 
 /obj/structure/closet/syndicate/personal/PopulateContents()
 	..()
@@ -32,7 +32,7 @@
 	new /obj/item/climbing_hook/syndicate(src)
 
 /obj/structure/closet/syndicate/nuclear
-	desc = "It's a storage unit for a Syndicate boarding party."
+	desc = "Хранилище для абордажной группы Синдиката."
 
 /obj/structure/closet/syndicate/nuclear/PopulateContents()
 	for(var/i in 1 to 5)
@@ -43,7 +43,7 @@
 	new /obj/item/modular_computer/pda/syndicate(src)
 
 /obj/structure/closet/syndicate/resources
-	desc = "An old, dusty locker."
+	desc = "Старый, пыльный шкафчик."
 
 // A lot of this stuff is objective items, and it's also only used for debugging, so init times don't matter here.
 /obj/structure/closet/syndicate/resources/populate_contents_immediate()
@@ -108,7 +108,7 @@
 		new /obj/item/tank/jetpack/carbondioxide(src)
 
 /obj/structure/closet/syndicate/resources/everything
-	desc = "It's an emergency storage closet for repairs."
+	desc = "Аварийное хранилище для ремонта."
 	storage_capacity = 60 // This is gonna be used for debug.
 
 // A lot of this stuff is objective items, and it's also only used for debugging, so init times don't matter here.

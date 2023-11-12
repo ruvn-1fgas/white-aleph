@@ -1,6 +1,6 @@
 /obj/structure/closet/body_bag
-	name = "body bag"
-	desc = "A plastic bag designed for the storage and transportation of cadavers."
+	name = "мешок для трупов"
+	desc = "Полиэтиленовый пакет, предназначенный для хранения и транспортировки трупов."
 	icon = 'icons/obj/medical/bodybag.dmi'
 	icon_state = "bodybag"
 	density = FALSE
@@ -30,15 +30,15 @@
 	. = ..()
 	var/static/list/tool_behaviors = list(
 		TOOL_WIRECUTTER = list(
-			SCREENTIP_CONTEXT_RMB = "Remove Tag",
+			SCREENTIP_CONTEXT_RMB = "Убрать бирку",
 		),
 	)
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 	AddElement( \
 		/datum/element/contextual_screentip_bare_hands, \
-		rmb_text = "Fold up", \
+		rmb_text = "сложить", \
 	)
-	AddElement(/datum/element/contextual_screentip_sharpness, lmb_text = "Remove Tag")
+	AddElement(/datum/element/contextual_screentip_sharpness, lmb_text = "Убрать бирку")
 
 /obj/structure/closet/body_bag/Destroy()
 	// If we have a stored bag, and it's in nullspace (not in someone's hand), delete it.
@@ -60,7 +60,7 @@
 	if(!tag_name)
 		return
 	if(interact_tool.tool_behaviour == TOOL_WIRECUTTER || interact_tool.get_sharpness())
-		to_chat(user, span_notice("You cut the tag off [src]."))
+		to_chat(user, span_notice("Отрезаю бирку [src]."))
 		handle_tag()
 
 ///Handles renaming of the bodybag's examine tag.
@@ -99,11 +99,11 @@
 	if(!istype(the_folder))
 		return
 	if(opened)
-		to_chat(the_folder, span_warning("You wrestle with [src], but it won't fold while unzipped."))
+		to_chat(the_folder, span_warning("Борюсь с [src], но он не хочет складываться в открытом состоянии."))
 		return
 	for(var/content_thing in contents)
 		if(istype(content_thing, /mob) || isobj(content_thing))
-			to_chat(the_folder, span_warning("There are too many things inside of [src] to fold it up!"))
+			to_chat(the_folder, span_warning("Внутри [src] слишком много вещей, чтобы сложить его!"))
 			return
 	// toto we made it!
 	return TRUE
@@ -115,13 +115,13 @@
 		* * the_folder - aka user
 		*/
 /obj/structure/closet/body_bag/proc/perform_fold(mob/living/carbon/human/the_folder)
-	visible_message(span_notice("[the_folder] folds up [src]."))
+	visible_message(span_notice("[the_folder] складывает [src]."))
 	var/obj/item/bodybag/folding_bodybag = foldedbag_instance || new foldedbag_path
 	the_folder.put_in_hands(folding_bodybag)
 
 /obj/structure/closet/body_bag/bluespace
-	name = "bluespace body bag"
-	desc = "A bluespace body bag designed for the storage and transportation of cadavers."
+	name = "блюспейс мешок для трупов"
+	desc = "Блюспейс мешок для трупов, предназначенный для хранения и транспортировки трупов. Поразительно."
 	icon = 'icons/obj/medical/bodybag.dmi'
 	icon_state = "bluebodybag"
 	foldedbag_path = /obj/item/bodybag/bluespace
@@ -134,31 +134,31 @@
 	if(!istype(the_folder))
 		return
 	if(opened)
-		to_chat(the_folder, span_warning("You wrestle with [src], but it won't fold while unzipped."))
+		to_chat(the_folder, span_warning("Вы боретесь с [src], но он не хочет складываться пока открыт."))
 		return
 	//end copypaste zone
 	if(contents.len >= mob_storage_capacity / 2)
-		to_chat(the_folder, span_warning("There are too many things inside of [src] to fold it up!"))
+		to_chat(the_folder, span_warning("Внутри [src] слишком много вещей, чтобы сложить его!"))
 		return
 
 	if(the_folder.in_contents_of(src))
-		to_chat(the_folder, span_warning("You can't fold [src] while you're inside of it!"))
+		to_chat(the_folder, span_warning("А как?"))
 		return
 
 	for(var/obj/item/bodybag/bluespace/B in src)
-		to_chat(the_folder, span_warning("You can't recursively fold bluespace body bags!") )
+		to_chat(the_folder, span_warning("Вы не можете складывать блюспейс мешки для трупов друг в друга") )
 		return
 	return TRUE
 
 /obj/structure/closet/body_bag/bluespace/perform_fold(mob/living/carbon/human/the_folder)
-	visible_message(span_notice("[the_folder] folds up [src]."))
+	visible_message(span_notice("[the_folder] складывает [src]."))
 	var/obj/item/bodybag/folding_bodybag = foldedbag_instance || new foldedbag_path
 	var/max_weight_of_contents = initial(folding_bodybag.w_class)
 	for(var/am in contents)
 		var/atom/movable/content = am
 		content.forceMove(folding_bodybag)
 		if(isliving(content))
-			to_chat(content, span_userdanger("You're suddenly forced into a tiny, compressed space!"))
+			to_chat(content, span_userdanger("Внезапно оказываюсь в крошечном, сжатом пространстве!"))
 		if(iscarbon(content))
 			var/mob/living/carbon/mob = content
 			if (mob.dna?.get_mutation(/datum/mutation/human/dwarfism))

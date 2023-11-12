@@ -2,8 +2,8 @@
 ////////////////////////////////////////////EGGS////////////////////////////////////////////
 
 /obj/item/food/chocolateegg
-	name = "chocolate egg"
-	desc = "Such, sweet, fattening food."
+	name = "шоколадное яйцо"
+	desc = "Такая сладкая, жирная еда."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "chocolateegg"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/sugar = 2, /datum/reagent/consumable/coco = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
@@ -17,8 +17,8 @@
 GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 
 /obj/item/food/egg
-	name = "egg"
-	desc = "An egg!"
+	name = "яйцо"
+	desc = "ЯЙЦО!"
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "egg"
 	inhand_icon_state = "egg"
@@ -38,8 +38,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	AddElement(/datum/element/microwavable, /obj/item/food/boiledegg)
 
 /obj/item/food/egg/organic
-	name = "organic egg"
-	desc = "A 100% natural egg from the best hens."
+	name = "органическое яйцо"
+	desc = "100% натуральное яйцо."
 	starting_reagent_purity = 1
 
 /obj/item/food/egg/rotten
@@ -54,7 +54,7 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	AddElement(/datum/element/microwavable, /obj/item/food/boiledegg/rotten)
 
 /obj/item/food/egg/gland
-	desc = "An egg! It looks weird..."
+	desc = "ЯЙЦО! Яйцо?"
 
 /obj/item/food/egg/gland/Initialize(mapload)
 	. = ..()
@@ -90,22 +90,22 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 
 /obj/item/food/egg/attackby(obj/item/item, mob/user, params)
 	if(istype(item, /obj/item/toy/crayon))
-		var/obj/item/toy/crayon/crayon = item
-		var/clr = crayon.crayon_color
+		var/obj/item/toy/crayon/W = item
+		var/clr = W.crayon_color
 
 		if(!(clr in list("blue", "green", "mime", "orange", "purple", "rainbow", "red", "yellow")))
-			to_chat(usr, span_notice("[src] refuses to take on this colour!"))
+			to_chat(usr, span_notice("[capitalize(src.name)] не хочет принимать новый цвет!"))
 			return
 
-		to_chat(usr, span_notice("You colour [src] with [item]."))
+		to_chat(usr, span_notice("Крашу [src] используя [W]."))
 		icon_state = "egg-[clr]"
 
 	else if(istype(item, /obj/item/stamp/clown))
 		var/clowntype = pick("grock", "grimaldi", "rainbow", "chaos", "joker", "sexy", "standard", "bobble",
 			"krusty", "bozo", "pennywise", "ronald", "jacobs", "kelly", "popov", "cluwne")
 		icon_state = "egg-clown-[clowntype]"
-		desc = "An egg that has been decorated with the grotesque, robustable likeness of a clown's face. "
-		to_chat(usr, span_notice("You stamp [src] with [item], creating an artistic and not remotely horrifying likeness of clown makeup."))
+		desc = "Яйцо, украшенное гротескным подобием лица клоуна. "
+		to_chat(usr, span_notice("Штампую [src] используя [item], создавая художественное и ничуть не ужасающее подобие клоунского грима."))
 
 	else if(is_reagent_container(item))
 		var/obj/item/reagent_containers/dunk_test_container = item
@@ -175,8 +175,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	icon_state = "penguin_egg"
 
 /obj/item/food/egg/fertile
-	name = "fertile-looking egg"
-	desc = "An egg! It looks fertilized.\nQuite how you can tell this just by looking at it is a mystery."
+	name = "фертильное яйцо"
+	desc = "ЯЙЦО! Оно выглядит оплодотворенным.\nКак вы можете определить это, просто посмотрев на него? Загадка вселенной..."
 	chick_throw_prob = 100
 
 /obj/item/food/egg/fertile/Initialize(mapload, loc)
@@ -193,8 +193,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	)
 
 /obj/item/food/friedegg
-	name = "fried egg"
-	desc = "A fried egg. Would go well with a touch of salt and pepper."
+	name = "яичница"
+	desc = "Жареное яйцо с оттенком соли и перца."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "friedegg"
 	food_reagents = list(
@@ -203,20 +203,20 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
 	bite_consumption = 1
-	tastes = list("egg" = 4)
+	tastes = list("яйцо" = 4)
 	foodtypes = MEAT | FRIED | BREAKFAST
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/rawegg
-	name = "raw egg"
-	desc = "Supposedly good for you, if you can stomach it. Better fried."
+	name = "сырое яйцо"
+	desc = "Сырое яйцо. Лучше жареное."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "rawegg"
 	food_reagents = list() //Recieves all reagents from its whole egg counterpart
 	bite_consumption = 1
-	tastes = list("raw egg" = 6, "sliminess" = 1)
-	eatverbs = list("gulp down")
+	tastes = list("сырое яйцо" = 6)
+	eatverbs = list("проглатывает")
 	foodtypes = MEAT | RAW
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -224,8 +224,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	AddComponent(/datum/component/grillable, /obj/item/food/friedegg, rand(20 SECONDS, 35 SECONDS), TRUE, FALSE)
 
 /obj/item/food/boiledegg
-	name = "boiled egg"
-	desc = "A hard boiled egg."
+	name = "вареное яйцо"
+	desc = "Сварено вкрутую."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "egg"
 	inhand_icon_state = "egg"
@@ -233,7 +233,7 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 		/datum/reagent/consumable/nutriment/protein = 3,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("egg" = 1)
+	tastes = list("яйцо" = 1)
 	foodtypes = MEAT | BREAKFAST
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
@@ -242,25 +242,24 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/eggsausage
-	name = "egg with sausage"
-	desc = "A good egg with a side of sausages."
+	name = "яйцо с сосиской"
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "eggsausage"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/nutriment = 4)
 	foodtypes = MEAT | FRIED | BREAKFAST
-	tastes = list("egg" = 4, "meat" = 4)
+	tastes = list("яйцо" = 4, "мясо" = 4)
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/boiledegg/rotten
 	food_reagents = list(/datum/reagent/consumable/eggrot = 10)
-	tastes = list("rotten egg" = 1)
+	tastes = list("протухшее яйцо" = 1)
 	foodtypes = GROSS
 	preserved_food = TRUE
 
-/obj/item/food/omelette //FUCK THIS
-	name = "omelette du fromage"
-	desc = "That's all you can say!"
+/obj/item/food/omelette //FUCK THIS // Че тгшникам омлет не нравится? Французов не любят?
+	name = "омлет дю фромаж"
+	desc = "Это все, что ты можешь сказать!"
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "omelette"
 	food_reagents = list(
@@ -269,7 +268,7 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	)
 	bite_consumption = 1
 	w_class = WEIGHT_CLASS_SMALL
-	tastes = list("egg" = 1, "cheese" = 1)
+	tastes = list("яйцо" = 1, "сыр" = 1)
 	foodtypes = MEAT | BREAKFAST | DAIRY
 	venue_value = FOOD_PRICE_CHEAP
 	crafting_complexity = FOOD_COMPLEXITY_2
@@ -278,11 +277,11 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	if(istype(item, /obj/item/kitchen/fork))
 		var/obj/item/kitchen/fork/fork = item
 		if(fork.forkload)
-			to_chat(user, span_warning("You already have omelette on your fork!"))
+			to_chat(user, span_warning("У меня уже есть омлет на вилке!"))
 		else
 			fork.icon_state = "forkloaded"
-			user.visible_message(span_notice("[user] takes a piece of omelette with [user.p_their()] fork!"), \
-				span_notice("You take a piece of omelette with your fork."))
+			user.visible_message(span_notice("[user] отрывает кусочек омлета [user.ru_ego()] вилкой!") , \
+				span_notice("Беру кусочек омлета вилкой."))
 
 			var/datum/reagent/reagent = pick(reagents.reagent_list)
 			reagents.remove_reagent(reagent.type, 1)
@@ -293,8 +292,8 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 	..()
 
 /obj/item/food/benedict
-	name = "eggs benedict"
-	desc = "There is only one egg on this, how rude."
+	name = "яйцо Бенедикт"
+	desc = "Здесь всего одно яйцо, как грубо."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "benedict"
 	food_reagents = list(
@@ -303,14 +302,14 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 		/datum/reagent/consumable/nutriment = 3,
 	)
 	w_class = WEIGHT_CLASS_SMALL
-	tastes = list("egg" = 1, "bacon" = 1, "bun" = 1)
+	tastes = list("яйцо" = 1, "бекон" = 1, "булочка" = 1)
 	foodtypes = MEAT | BREAKFAST | GRAIN
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/eggwrap
-	name = "egg wrap"
-	desc = "The precursor to Pigs in a Blanket."
+	name = "яичная обертка"
+	desc = "Предшественник сосисок в тесте."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "eggwrap"
 	food_reagents = list(
@@ -318,14 +317,14 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 		/datum/reagent/consumable/nutriment/protein = 2,
 		/datum/reagent/consumable/nutriment/vitamin = 3,
 	)
-	tastes = list("egg" = 1)
+	tastes = list("яйцо" = 1)
 	foodtypes = MEAT | VEGETABLES
 	w_class = WEIGHT_CLASS_TINY
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/chawanmushi
-	name = "chawanmushi"
-	desc = "A legendary egg custard that makes friends out of enemies. Probably too hot for a cat to eat."
+	name = "тяван-муси"
+	desc = "Легендарный яичный крем, который превращает врагов в друзей. Возможно, слишком горячий для кота."
 	icon = 'icons/obj/food/egg.dmi'
 	icon_state = "chawanmushi"
 	food_reagents = list(
@@ -333,6 +332,6 @@ GLOBAL_VAR_INIT(chicks_from_eggs, 0)
 		/datum/reagent/consumable/nutriment/protein = 3,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("custard" = 1)
+	tastes = list("заварной крем" = 1)
 	foodtypes = MEAT | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_3

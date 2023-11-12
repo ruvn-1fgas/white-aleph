@@ -76,10 +76,10 @@
 /obj/item/storage/secure/attack_self(mob/user)
 	var/locked = atom_storage.locked
 	user.set_machine(src)
-	var/dat = "<TT><B>[src]</B><BR>\n\nLock Status: [locked ? "LOCKED" : "UNLOCKED"]"
+	var/dat = text("<TT><B>[]</B><BR>\n\nБлокировка: []",src, (locked ? "ЗАБЛОКИРОВАНО" : "РАЗБЛОКИРОВАНО"))
 	var/message = "Code"
 	if (!lock_set)
-		dat += "<p>\n<b>5-DIGIT PASSCODE NOT SET.<br>ENTER NEW PASSCODE.</b>"
+		dat += text("<p>\n<b>ПЯТИЗНАЧНЫЙ КОД НЕ УСТАНОВЛЕН.<br>ВВЕДИТЕ НОВЫЙ КОД.</b>")
 	message = "[entered_code]"
 	if (!locked)
 		message = "*****"
@@ -206,11 +206,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/item/storage/secure/safe, 32)
  * get access to it.
  */
 /obj/item/storage/secure/safe/caps_spare
-	name = "captain's spare ID safe"
-	desc = "In case of emergency, do not break glass. All Captains and Acting Captains are provided with codes to access this safe. \
-It is made out of the same material as the station's Black Box and is designed to resist all conventional weaponry. \
-There appears to be a small amount of surface corrosion. It doesn't look like it could withstand much of an explosion.\
-It remains quite flush against the wall, and there only seems to be enough room to fit something as slim as an ID card."
+	name = "сейф с запасной ID-картой Капитана"
+	desc = "Хранит в себе запасную ID-карту самого верховного лорда. Коды доступа автоматически сообщаются ИО Капитана при прибытии на станцию. Не смотря на расхваливаемую прочность, на корпусе заметны легкие следы ржавчины."
 	can_hack_open = FALSE
 	armor_type = /datum/armor/safe_caps_spare
 	max_integrity = 300

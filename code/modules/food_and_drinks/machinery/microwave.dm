@@ -160,7 +160,7 @@
 	for(var/datum/stock_part/capacitor/capacitor in component_parts)
 		if(capacitor.tier >= 2)
 			vampire_charging_capable = TRUE
-			visible_message(span_notice("The [EXAMINE_HINT("Charge Ready")] light on \the [src] flickers to life."))
+			visible_message(span_notice("The [EXAMINE_HINT("Charge Ready")] light on  [src] flickers to life."))
 			break
 
 /obj/machinery/microwave/examine(mob/user)
@@ -170,26 +170,26 @@
 		. += span_info("Because nothing says 'future' like charging your PDA while overcooking your leftovers. Nanotrasen Wave™ - Multitasking, redefined.")
 
 	if(cell_powered)
-		. += span_notice("This model is wireless, powered by portable cells. [isnull(cell) ? "The cell slot is empty." : "[EXAMINE_HINT("Ctrl-click")] to remove the power cell."]")
+		. += span_notice("This model is wireless, powered by portable cells. [isnull(cell) ? "The cell slot is empty." : "[EXAMINE_HINT("Ctrl-клик")] to remove the power cell."]")
 
 	if(!operating)
 		if(!operating && vampire_charging_capable)
-			. += span_notice("[EXAMINE_HINT("Alt-click")] to change default mode.")
+			. += span_notice("[EXAMINE_HINT("Alt-клик")] to change default mode.")
 
-		. += span_notice("[EXAMINE_HINT("Right-click")] to start [vampire_charging_enabled ? "charging" : "cooking"] cycle.")
+		. += span_notice("[EXAMINE_HINT("ПКМ")] to start [vampire_charging_enabled ? "charging" : "cooking"] cycle.")
 
 	if(!in_range(user, src) && !issilicon(user) && !isobserver(user))
 		. += span_warning("You're too far away to examine [src]'s contents and display!")
 		return
 	if(operating)
-		. += span_notice("\The [src] is operating.")
+		. += span_notice(" [src] is operating.")
 		return
 
 	if(length(ingredients))
 		if(issilicon(user))
-			. += span_notice("\The [src] camera shows:")
+			. += span_notice(" [src] camera shows:")
 		else
-			. += span_notice("\The [src] contains:")
+			. += span_notice(" [src] contains:")
 		var/list/items_counts = new
 		for(var/i in ingredients)
 			if(isstack(i))
@@ -201,10 +201,10 @@
 		for(var/item in items_counts)
 			. += span_notice("- [items_counts[item]]x [item].")
 	else
-		. += span_notice("\The [src] is empty.")
+		. += span_notice(" [src] is empty.")
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
-		. += "[span_notice("The status display reads:")]\n"+\
+		. += "[span_notice("Дисплей:")]\n"+\
 		"[span_notice("- Mode: <b>[vampire_charging_enabled ? "Charge" : "Cook"]</b>.")]\n"+\
 		"[span_notice("- Capacity: <b>[max_n_of_items]</b> items.")]\n"+\
 		span_notice("- Power: <b>[efficiency * TIER_1_CELL_CHARGE_RATE]W</b>.")
@@ -441,7 +441,7 @@
 				ingredients += tray_item
 		if(loaded)
 			open(autoclose = 0.6 SECONDS)
-			to_chat(user, span_notice("You insert [loaded] items into \the [src]."))
+			to_chat(user, span_notice("You insert [loaded] items into  [src]."))
 			update_appearance()
 		return
 
@@ -455,7 +455,7 @@
 
 		ingredients += item
 		open(autoclose = 0.6 SECONDS)
-		user.visible_message(span_notice("[user] adds \a [item] to \the [src]."), span_notice("You add [item] to \the [src]."))
+		user.visible_message(span_notice("[user] adds \a [item] to  [src]."), span_notice("You add [item] to  [src]."))
 		update_appearance()
 		return
 
@@ -480,7 +480,7 @@
 		balloon_alert(user, "set to [vampire_charging_enabled ? "charge" : "cook"]")
 		playsound(src, 'sound/machines/twobeep_high.ogg', 50, FALSE)
 		if(issilicon(user))
-			visible_message(span_notice("[user] sets \the [src] to [vampire_charging_enabled ? "charge" : "cook"]."), blind_message = span_notice("You hear \the [src] make an informative beep!"))
+			visible_message(span_notice("[user] sets  [src] to [vampire_charging_enabled ? "charge" : "cook"]."), blind_message = span_notice("You hear  [src] make an informative beep!"))
 
 /obj/machinery/microwave/CtrlClick(mob/user)
 	. = ..()
@@ -604,7 +604,7 @@
 	start(cooker)
 
 /obj/machinery/microwave/proc/wzhzhzh()
-	visible_message(span_notice("\The [src] turns on."), null, span_hear("You hear a microwave humming."))
+	visible_message(span_notice(" [src] turns on."), null, span_hear("You hear a microwave humming."))
 	operating = TRUE
 	if(cell_powered && !isnull(cell))
 		cell.use(TIER_1_CELL_CHARGE_RATE * efficiency)
@@ -728,7 +728,7 @@
 	cook_loop(type = MICROWAVE_NORMAL, cycles = 10, cooker = cooker)
 
 /obj/machinery/microwave/proc/muck_finish()
-	visible_message(span_warning("\The [src] gets covered in muck!"))
+	visible_message(span_warning(" [src] gets covered in muck!"))
 
 	dirty = MAX_MICROWAVE_DIRTINESS
 	dirty_anim_playing = FALSE

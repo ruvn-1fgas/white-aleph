@@ -277,9 +277,11 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	if(desc_controls)
 		. += span_notice(desc_controls)
 	if(obj_flags & UNIQUE_RENAME)
-		. += span_notice("Use a pen on it to rename it or change its description.")
+		. += "<hr>"
+		. += span_smallnotice("Можно переименовать это используя ручку или что-то подобное.")
 	if(unique_reskin && (!current_skin || infinite_reskin))
-		. += span_notice("Alt-click it to reskin it.")
+		. += "<hr>"
+		. += span_smallnotice("Alt-клик по предмету, чтобы изменить облик.")
 
 /obj/AltClick(mob/user)
 	. = ..()

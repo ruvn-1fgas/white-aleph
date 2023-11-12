@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 /obj/item/book/bible/proc/on_intercepted_bullet(mob/living/victim, obj/projectile/bullet)
 	victim.add_mood_event("blessing", /datum/mood_event/blessing)
 	playsound(victim, 'sound/magic/magic_block_holy.ogg', 50, TRUE)
-	victim.visible_message(span_warning("\The [src] takes \the [bullet] in [victim]'s place!"))
+	victim.visible_message(span_warning(" [src] takes  [bullet] in [victim]'s place!"))
 	var/obj/structure/fluff/paper/stack/pages = new(get_turf(src))
 	pages.dir = pick(GLOB.alldirs)
 	name = "punctured bible"

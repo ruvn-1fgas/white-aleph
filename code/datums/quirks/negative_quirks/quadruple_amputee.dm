@@ -1,9 +1,9 @@
 /datum/quirk/quadruple_amputee
-	name = "Quadruple Amputee"
-	desc = "Oops! All Prosthetics! Due to some truly cruel cosmic punishment, all your limbs have been replaced with surplus prosthetics."
+	name = "Котлетка"
+	desc = "Упс! Все мои конечности - протезы! Из-за некоторого действительно жестокого космического наказания все мои конечности были заменены на дешёвые протезы."
 	icon = "tg-prosthetic-full"
 	value = -6
-	medical_record_text = "During physical examination, patient was found to have all low-budget prosthetic limbs."
+	medical_record_text = "Во время физического обследования пациента было обнаружено, что все его конечности - протезы."
 	hardcore_value = 6
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE
 	mail_goodies = list(/obj/item/weldingtool/mini, /obj/item/stack/cable_coil/five)
@@ -16,5 +16,5 @@
 	human_holder.del_and_replace_bodypart(new /obj/item/bodypart/leg/right/robot/surplus, special = TRUE)
 
 /datum/quirk/quadruple_amputee/post_add()
-	to_chat(quirk_holder, span_boldannounce("All your limbs have been replaced with surplus prosthetics. They are fragile and will easily come apart under duress. \
-	Additionally, you need to use a welding tool and cables to repair them, instead of bruise packs and ointment."))
+	to_chat(quirk_holder, span_boldannounce("Все ваши конечности были заменены на дешёвые протезы. Они хрупкие и легко разваливаются под давлением. \
+	Кроме того, вам нужно использовать сварочный инструмент и кабели для их ремонта, а не обычные аптечки."))

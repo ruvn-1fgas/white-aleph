@@ -3,8 +3,8 @@
 
 ///Pad for the Civilian Bounty Control.
 /obj/machinery/piratepad/civilian
-	name = "civilian bounty pad"
-	desc = "A machine designed to send civilian bounty targets to centcom."
+	name = "гражданская платформа отправки"
+	desc = "Используется для отправки груза на ЦК."
 	layer = TABLE_LAYER
 	resistance_flags = FIRE_PROOF
 	circuit = /obj/item/circuitboard/machine/bountypad
@@ -36,9 +36,9 @@
 
 ///Computer for assigning new civilian bounties, and sending bounties for collection.
 /obj/machinery/computer/piratepad_control/civilian
-	name = "civilian bounty control terminal"
-	desc = "A console for assigning civilian bounties to inserted ID cards, and for controlling the bounty pad for export."
-	status_report = "Ready for delivery."
+	name = "гражданский терминал заказов"
+	desc = "Консоль, которая предоставляет персоналу возможность выполнять небольшие поручения, достаточно лишь вставить свою ID-карту."
+	status_report = "Готово к отправке."
 	icon_screen = "civ_bounty"
 	icon_keyboard = "id_key"
 	warmup_time = 3 SECONDS
@@ -56,7 +56,7 @@
 
 /obj/machinery/computer/piratepad_control/multitool_act(mob/living/user, obj/item/multitool/I)
 	if(istype(I) && istype(I.buffer,/obj/machinery/piratepad/civilian))
-		to_chat(user, span_notice("You link [src] with [I.buffer] in [I] buffer."))
+		to_chat(user, span_notice("Привязываю [src] используя [I.buffer] в буффере [I]."))
 		pad_ref = WEAKREF(I.buffer)
 		return TRUE
 
@@ -75,11 +75,11 @@
 	if(sending)
 		return FALSE
 	if(!inserted_scan_id)
-		status_report = "Please insert your ID first."
+		status_report = "Вставьте сначала вашу ID-карту."
 		playsound(loc, 'sound/machines/synth_no.ogg', 30 , TRUE)
 		return FALSE
 	if(!inserted_scan_id.registered_account.civilian_bounty)
-		status_report = "Please accept a new civilian bounty first."
+		status_report = "Получите новый заказ, пожалуйста."
 		playsound(loc, 'sound/machines/synth_no.ogg', 30 , TRUE)
 		return FALSE
 	status_report = "Civilian Bounty: "
@@ -88,10 +88,10 @@
 		if(AM == pad)
 			continue
 		if(inserted_scan_id.registered_account.civilian_bounty.applies_to(AM))
-			status_report += "Target Applicable."
+			status_report += "Объект подходит."
 			playsound(loc, 'sound/machines/synth_yes.ogg', 30 , TRUE)
 			return
-	status_report += "Not Applicable."
+	status_report += "Неудовлетворительно."
 	playsound(loc, 'sound/machines/synth_no.ogg', 30 , TRUE)
 
 /**
@@ -118,13 +118,13 @@
 			curr_bounty.ship(AM)
 			qdel(AM)
 	if(active_stack >= 1)
-		status_report += "Bounty Target Found x[active_stack]. "
+		status_report += "Найдены требуемые предметы x[active_stack]. "
 	else
-		status_report = "No applicable targets found. Aborting."
+		status_report = "Не обнаружены необходимые предметы. Отмена."
 		stop_sending()
 	if(curr_bounty.can_claim())
 		//Pay for the bounty with the ID's department funds.
-		status_report += "Bounty completed! Please give your bounty cube to cargo for your automated payout shortly."
+		status_report += "Заказ завершён! Пожалуйста, отправьте куб с данными заказа на шаттле для получения вознаграждения."
 		inserted_scan_id.registered_account.reset_bounty()
 		SSeconomy.civ_bounty_tracker++
 
@@ -237,8 +237,8 @@
 		else
 			id_eject(user, target)
 
-	user.visible_message(span_notice("[user] inserts \the [card_to_insert] into \the [src]."),
-						span_notice("You insert \the [card_to_insert] into \the [src]."))
+	user.visible_message(span_notice("[user] inserts  [card_to_insert] into  [src]."),
+						span_notice("You insert  [card_to_insert] into  [src]."))
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 	ui_interact(user)
 	return TRUE
@@ -252,8 +252,8 @@
 		target.forceMove(drop_location())
 		if(!issilicon(user) && Adjacent(user))
 			user.put_in_hands(target)
-		user.visible_message(span_notice("[user] gets \the [target] from \the [src]."), \
-							span_notice("You get \the [target] from \the [src]."))
+		user.visible_message(span_notice("[user] gets  [target] from  [src]."), \
+							span_notice("You get  [target] from  [src]."))
 		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		inserted_scan_id = null
 		return TRUE
@@ -395,7 +395,7 @@
 	var/uses = 2
 
 /obj/item/civ_bounty_beacon/attack_self()
-	loc.visible_message(span_warning("\The [src] begins to beep loudly!"))
+	loc.visible_message(span_warning(" [src] begins to beep loudly!"))
 	addtimer(CALLBACK(src, PROC_REF(launch_payload)), 1 SECONDS)
 
 /obj/item/civ_bounty_beacon/proc/launch_payload()

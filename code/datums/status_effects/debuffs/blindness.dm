@@ -75,8 +75,8 @@
 	return ..()
 
 /atom/movable/screen/alert/status_effect/blind
-	name = "Blind"
-	desc = "You can't see! This may be caused by a genetic defect, eye trauma, being unconscious, or something covering your eyes."
+	name = "Ослеп"
+	desc = "Не вижу! Это может быть вызвано генетическим дефектом, травмой глаза, потерей сознания или чем-то, что закрывает мои глаза."
 	icon_state = "blind"
 
 /// This status effect handles applying a temporary blind to the mob.
@@ -112,7 +112,7 @@
 	// If we should be deleted, give a message letting them know
 	var/mob/living/stored_owner = owner
 	if(remove_duration(2 SECONDS))
-		to_chat(stored_owner, span_green("Your eyes start to feel better!"))
+		to_chat(stored_owner, span_green("Моим глазам уже лучше!"))
 		return
 
 	// Otherwise add a chance to let them know that it's working

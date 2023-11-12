@@ -416,8 +416,8 @@
 		if(!user.can_read(src) || user.is_blind())
 			//The paper's stampable window area is assumed approx 400x500
 			add_stamp(writing_stats["stamp_class"], rand(0, 400), rand(0, 500), rand(0, 360), writing_stats["stamp_icon_state"])
-			user.visible_message(span_notice("[user] blindly stamps [src] with \the [attacking_item]!"))
-			to_chat(user, span_notice("You stamp [src] with \the [attacking_item] the best you can!"))
+			user.visible_message(span_notice("[user] blindly stamps [src] with  [attacking_item]!"))
+			to_chat(user, span_notice("You stamp [src] with  [attacking_item] the best you can!"))
 			playsound(src, 'sound/items/handling/standard_stamp.ogg', 50, vary = TRUE)
 		else
 			to_chat(user, span_notice("You ready your stamp over the paper! "))
@@ -551,7 +551,7 @@
 				return TRUE
 
 			add_stamp(stamp_class, stamp_x, stamp_y, stamp_rotation, stamp_icon_state)
-			user.visible_message(span_notice("[user] stamps [src] with \the [holding.name]!"), span_notice("You stamp [src] with \the [holding.name]!"))
+			user.visible_message(span_notice("[user] stamps [src] with  [holding.name]!"), span_notice("You stamp [src] with  [holding.name]!"))
 			playsound(src, 'sound/items/handling/standard_stamp.ogg', 50, vary = TRUE)
 
 			update_appearance()

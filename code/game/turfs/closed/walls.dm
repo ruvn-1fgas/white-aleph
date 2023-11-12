@@ -18,7 +18,7 @@
 
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
-	canSmoothWith = SMOOTH_GROUP_WALLS
+	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 
 	rcd_memory = RCD_MEMORY_WALL
 	///bool on whether this wall can be chiselled into
@@ -207,8 +207,8 @@
 	else
 		playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
 		add_dent(WALL_DENT_HIT)
-		user.visible_message(span_danger("[user] smashes \the [src]!"), \
-					span_danger("You smash \the [src]!"), \
+		user.visible_message(span_danger("[user] smashes  [src]!"), \
+					span_danger("You smash  [src]!"), \
 					span_hear("You hear a booming smash!"))
 	return TRUE
 

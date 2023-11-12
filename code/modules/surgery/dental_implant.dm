@@ -16,7 +16,7 @@
 		user,
 		target,
 		span_notice("You begin to wedge [tool] in [target]'s [parse_zone(target_zone)]..."),
-		span_notice("[user] begins to wedge \the [tool] in [target]'s [parse_zone(target_zone)]."),
+		span_notice("[user] begins to wedge  [tool] in [target]'s [parse_zone(target_zone)]."),
 		span_notice("[user] begins to wedge something in [target]'s [parse_zone(target_zone)]."),
 	)
 	display_pain(target, "Something's being jammed into your [parse_zone(target_zone)]!")
@@ -37,7 +37,7 @@
 		user,
 		target,
 		span_notice("You wedge [tool] into [target]'s [parse_zone(target_zone)]."),
-		span_notice("[user] wedges \the [tool] into [target]'s [parse_zone(target_zone)]!"),
+		span_notice("[user] wedges  [tool] into [target]'s [parse_zone(target_zone)]!"),
 		span_notice("[user] wedges something into [target]'s [parse_zone(target_zone)]!"),
 	)
 	return ..()

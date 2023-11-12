@@ -1,6 +1,6 @@
 /obj/vehicle/ridden/wheelchair //ported from Hippiestation (by Jujumatic)
-	name = "wheelchair"
-	desc = "A chair with big wheels. It looks like you can move in this on your own."
+	name = "инвалидное кресло"
+	desc = "Кресло с большими колесами. Кажется, вы можете передвигаться в нем самостоятельно."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "wheelchair"
 	layer = OBJ_LAYER
@@ -54,9 +54,9 @@
 
 /obj/vehicle/ridden/wheelchair/wrench_act(mob/living/user, obj/item/I) //Attackby should stop it attacking the wheelchair after moving away during decon
 	..()
-	to_chat(user, span_notice("You begin to detach the wheels..."))
+	to_chat(user, span_notice("Начинаю снимать колёса..."))
 	if(I.use_tool(src, user, 40, volume=50))
-		to_chat(user, span_notice("You detach the wheels and deconstruct the chair."))
+		to_chat(user, span_notice("Снял колеса и разобрал инвалидное кресло."))
 		new /obj/item/stack/rods(drop_location(), 6)
 		new /obj/item/stack/sheet/iron(drop_location(), 4)
 		qdel(src)

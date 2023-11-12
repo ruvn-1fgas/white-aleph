@@ -4,8 +4,8 @@
 	icon_state = "spearglass0"
 	lefthand_file = 'icons/mob/inhands/weapons/polearms_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/polearms_righthand.dmi'
-	name = "spear"
-	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
+	name = "копьё"
+	desc = "Случайно сконструированное, но все же смертельное оружие древнего дизайна."
 	force = 10
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
@@ -71,7 +71,7 @@
 	return ..()
 
 /obj/item/spear/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins to sword-swallow \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] начинает глотать <b>[src.name]</b>! Это выглядит будто [user.p_theyre()] пытается совершить самоубийство!"))
 	return BRUTELOSS
 
 /obj/item/spear/CheckParts(list/parts_list)
@@ -118,7 +118,7 @@
 	return ..()
 
 /obj/item/spear/explosive
-	name = "explosive lance"
+	name = "взрывное копьё"
 	icon_state = "spearbomb0"
 	base_icon_state = "spearbomb"
 	icon_prefix = "spearbomb"
@@ -133,7 +133,7 @@
 		QDEL_NULL(explosive)
 	G.forceMove(src)
 	explosive = G
-	desc = "A makeshift spear with [G] attached to it"
+	desc = "Самодельное копье с [G] на нём"
 
 /obj/item/spear/explosive/CheckParts(list/parts_list)
 	var/obj/item/grenade/G = locate() in parts_list
@@ -148,7 +148,7 @@
 	..()
 
 /obj/item/spear/explosive/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins to sword-swallow \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] начинает глотать <b>[src.name]</b>! Это выглядит будто [user.p_theyre()] пытается совершить суицид!"))
 	user.say("[war_cry]", forced="spear warcry")
 	explosive.forceMove(user)
 	explosive.detonate()
@@ -158,13 +158,13 @@
 
 /obj/item/spear/explosive/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click to set your war cry.")
+	. += span_notice("Alt-клик для установки боевого клича.")
 
 /obj/item/spear/explosive/AltClick(mob/user)
 	if(user.can_perform_action(src))
 		..()
 		if(istype(user) && loc == user)
-			var/input = tgui_input_text(user, "What do you want your war cry to be? You will shout it when you hit someone in melee.", "War Cry", max_length = 50)
+			var/input = tgui_input_text(user, "Какой боевой клич будет? Буду это кричать, когда буду бить кого-то в ближнем бою.", "", max_length = 50)
 			if(input)
 				src.war_cry = input
 
@@ -195,8 +195,8 @@
 
 //GREY TIDE
 /obj/item/spear/grey_tide
-	name = "\improper Grey Tide"
-	desc = "Recovered from the aftermath of a revolt aboard Defense Outpost Theta Aegis, in which a seemingly endless tide of Assistants caused heavy casualities among Nanotrasen military forces."
+	name = "Grey Tide"
+	desc = "Оправившийся от последствий восстания на борту оборонительного поста Theta Aegis, в котором, казалось бы, нескончаемый поток ассистентов привел к большим потерям среди вооруженных сил Nanotrasen."
 	attack_verb_continuous = list("gores")
 	attack_verb_simple = list("gore")
 	force_unwielded = 15
@@ -224,8 +224,8 @@
 	icon_state = "bone_spear0"
 	base_icon_state = "bone_spear0"
 	icon_prefix = "bone_spear"
-	name = "bone spear"
-	desc = "A haphazardly-constructed yet still deadly weapon. The pinnacle of modern technology."
+	name = "костяное копьё"
+	desc = "Случайно сконструированное, но все еще смертельное оружие. Вершина современных технологий."
 
 	throwforce = 22
 	armour_penetration = 15 //Enhanced armor piercing
@@ -248,8 +248,8 @@
 	icon_state = "bamboo_spear0"
 	base_icon_state = "bamboo_spear0"
 	icon_prefix = "bamboo_spear"
-	name = "bamboo spear"
-	desc = "A haphazardly-constructed bamboo stick with a sharpened tip, ready to poke holes into unsuspecting people."
+	name = "бамбуковое копьё"
+	desc = "Бамбуковая палка с острым концом. Невероятно смертельное оружие."
 
 	throwforce = 22	//Better to throw
 	custom_materials = list(/datum/material/bamboo = SHEET_MATERIAL_AMOUNT * 20)

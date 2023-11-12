@@ -1,5 +1,5 @@
 /obj/machinery/computer/quantum_console
-	name = "quantum console"
+	name = "квантовая консоль"
 
 	circuit = /obj/item/circuitboard/computer/quantum_console
 	icon_keyboard = "mining"
@@ -10,7 +10,7 @@
 
 /obj/machinery/computer/quantum_console/Initialize(mapload, obj/item/circuitboard/circuit)
 	. = ..()
-	desc = "Even in the distant year [CURRENT_STATION_YEAR], Nanostrasen is still using REST APIs. How grim."
+	desc = "Даже в далёком [CURRENT_STATION_YEAR] году, Нанотрейзен до сих пор используют REST API. Как печально."
 
 	return INITIALIZE_HINT_LATELOAD
 

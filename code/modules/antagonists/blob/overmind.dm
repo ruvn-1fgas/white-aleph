@@ -6,9 +6,9 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 
 /mob/camera/blob
-	name = "Blob Overmind"
-	real_name = "Blob Overmind"
-	desc = "The overmind. It controls the blob."
+	name = "Надмозг массы"
+	real_name = "Надмозг массы"
+	desc = "Высший разум. Он управляет массой."
 	icon = 'icons/mob/silicon/cameramob.dmi'
 	icon_state = "marker"
 	mouse_opacity = MOUSE_OPACITY_ICON
@@ -110,10 +110,10 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	blobstrain.on_gain()
 
 	if (had_strain)
-		to_chat(src, span_notice("Your strain is now: <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font>!"))
-		to_chat(src, span_notice("The <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> strain [blobstrain.description]"))
+		to_chat(src, "Моя структура теперь: <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font>!")
+		to_chat(src, "<b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> [blobstrain.description]")
 		if(blobstrain.effectdesc)
-			to_chat(src, span_notice("The <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> strain [blobstrain.effectdesc]"))
+			to_chat(src, "<b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> [blobstrain.effectdesc]")
 	SEND_SIGNAL(src, COMSIG_BLOB_SELECTED_STRAIN, blobstrain)
 
 /mob/camera/blob/can_z_move(direction, turf/start, turf/destination, z_move_flags = NONE, mob/living/rider)
@@ -125,7 +125,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	var/turf/target_turf = .
 	if(!is_valid_turf(target_turf)) // Allows unplaced blobs to travel through station z-levels
 		if(z_move_flags & ZMOVE_FEEDBACK)
-			to_chat(src, span_warning("Your destination is invalid. Move somewhere else and try again."))
+			to_chat(src, "Нельзя выбрать данную позицию. Переместитесь в другое место и попробуйте снова.")
 		return null
 
 /mob/camera/blob/proc/is_valid_turf(turf/tile)
@@ -138,8 +138,8 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	if(!blob_core)
 		if(!placed)
 			if(manualplace_min_time && world.time >= manualplace_min_time)
-				to_chat(src, span_boldnotice("You may now place your blob core."))
-				to_chat(src, span_boldannounce("You will automatically place your blob core in [DisplayTimeText(autoplace_max_time - world.time)]."))
+				to_chat(src, span_boldnotice("Теперь можно разместить ядро."))
+				to_chat(src, span_boldannounce("Ядро будет автоматически установлено через [DisplayTimeText(autoplace_max_time - world.time)]."))
 				manualplace_min_time = 0
 			if(autoplace_max_time && world.time >= autoplace_max_time)
 				place_blob_core(BLOB_RANDOM_PLACEMENT)
@@ -149,20 +149,20 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 			qdel(src)
 	else if(!victory_in_progress && (blobs_legit.len >= blobwincount))
 		victory_in_progress = TRUE
-		priority_announce("Biohazard has reached critical mass. Station loss is imminent.", "Biohazard Alert")
+		priority_announce("Угроза достигла критической массы. Потеря станции неизбежна.", "Биологическая тревога")
 		SSsecurity_level.set_level(SEC_LEVEL_DELTA)
 		max_blob_points = INFINITY
 		blob_points = INFINITY
 		addtimer(CALLBACK(src, PROC_REF(victory)), 450)
 	else if(!free_strain_rerolls && (last_reroll_time + BLOB_POWER_REROLL_FREE_TIME<world.time))
-		to_chat(src, span_boldnotice("You have gained another free strain re-roll."))
+		to_chat(src, span_boldnotice("Доступно одно бесплатное перестроение структуры."))
 		free_strain_rerolls = 1
 
 	if(!victory_in_progress && max_count < blobs_legit.len)
 		max_count = blobs_legit.len
 
 	if(announcement_time && (world.time >= announcement_time || blobs_legit.len >= announcement_size) && !has_announced)
-		priority_announce("Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", ANNOUNCER_OUTBREAK5)
+		priority_announce("Подтверждена биологическая угроза 5 уровня на борту [station_name()].Всему персоналу стоит немедленно её устранить.", "Биологическая тревога", ANNOUNCER_OUTBREAK5)
 		has_announced = TRUE
 
 /// Create a blob spore and link it to us
@@ -228,7 +228,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		var/datum/objective/blob_takeover/main_objective = locate() in B.objectives
 		if(main_objective)
 			main_objective.completed = TRUE
-	to_chat(world, span_blobannounce("[real_name] consumed the station in an unstoppable tide!"))
+	to_chat(world, span_blobannounce("[real_name] пожрал станцию!"))
 	SSticker.news_report = BLOB_WIN
 	SSticker.force_ending = FORCE_END_ROUND
 
@@ -259,9 +259,9 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_blobannounce("You are the overmind!"))
+	to_chat(src, span_notice("Я высший разум!"))
 	if(!placed && autoplace_max_time <= world.time)
-		to_chat(src, span_boldannounce("You will automatically place your blob core in [DisplayTimeText(autoplace_max_time - world.time)]."))
+		to_chat(src, span_boldannounce("Ядро будет автоматически установлено через [DisplayTimeText(autoplace_max_time - world.time)]."))
 		to_chat(src, span_boldannounce("You [manualplace_min_time ? "will be able to":"can"] manually place your blob core by pressing the Place Blob Core button in the bottom right corner of the screen."))
 	update_health_hud()
 	add_points(0)
@@ -292,7 +292,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 	if (src.client)
 		if(client.prefs.muted & MUTE_IC)
-			to_chat(src, span_boldwarning("You cannot send IC messages (muted)."))
+			to_chat(src, span_boldwarning("НЕ МОГУ!"))
 			return
 		if (!(ignore_spam || forced) && src.client.handle_spam_prevention(message, MUTE_IC))
 			return
@@ -312,7 +312,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	src.log_talk(message, LOG_SAY)
 
 	var/message_a = say_quote(message)
-	var/rendered = span_big(span_blob("<b>\[Blob Telepathy\] [name](<font color=\"[blobstrain.color]\">[blobstrain.name]</font>)</b> [message_a]"))
+	var/rendered = span_big(span_blob("<b>\[Телепатия\] [name](<font color=\"[blobstrain.color]\">[blobstrain.name]</font>)</b> [message_a]"))
 	relay_to_list_and_observers(rendered, GLOB.blob_telepathy_mobs, src)
 
 /mob/camera/blob/blob_act(obj/structure/blob/B)
@@ -321,15 +321,15 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 /mob/camera/blob/get_status_tab_items()
 	. = ..()
 	if(blob_core)
-		. += "Core Health: [blob_core.get_integrity()]"
-		. += "Power Stored: [blob_points]/[max_blob_points]"
-		. += "Blobs to Win: [blobs_legit.len]/[blobwincount]"
+		. += "Здоровье ядра: [blob_core.get_integrity()]"
+		. += "Энергии накоплено: [blob_points]/[max_blob_points]"
+		. += "Массы для победы: [blobs_legit.len]/[blobwincount]"
 	if(free_strain_rerolls)
-		. += "You have [free_strain_rerolls] Free Strain Reroll\s Remaining"
+		. += "В наличии есть [free_strain_rerolls] перестроений структуры"
 	if(!placed)
 		if(manualplace_min_time)
-			. += "Time Before Manual Placement: [max(round((manualplace_min_time - world.time)*0.1, 0.1), 0)]"
-		. += "Time Before Automatic Placement: [max(round((autoplace_max_time - world.time)*0.1, 0.1), 0)]"
+			. += "Время до установки: [max(round((manualplace_min_time - world.time)*0.1, 0.1), 0)]"
+		. += "Время до автоматической установки: [max(round((autoplace_max_time - world.time)*0.1, 0.1), 0)]"
 
 /mob/camera/blob/Move(NewLoc, Dir = 0)
 	if(placed)

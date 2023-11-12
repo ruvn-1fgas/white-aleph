@@ -175,7 +175,7 @@
 		if(extinguisher.safety)
 			return
 		if (extinguisher.reagents.total_volume < 1)
-			to_chat(user, span_warning("\The [extinguisher] is empty!"))
+			to_chat(user, span_warning(" [extinguisher] is empty!"))
 			return
 		var/cooling = (0 - reagents.chem_temp) * extinguisher.cooling_power * 2
 		reagents.expose_temperature(cooling)

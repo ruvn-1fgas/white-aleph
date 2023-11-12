@@ -803,7 +803,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	switch(macro)
 		//prefixes/agnostic
 		if("the")
-			rest = "\the [rest]"
+			rest = " [rest]"
 		if("a")
 			rest = "\a [rest]"
 		if("an")
@@ -1294,3 +1294,211 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 			return "Синий"
 		else
 			return job
+
+
+/proc/parse_zone(zone)	// Именительный
+	if(zone == BODY_ZONE_PRECISE_R_HAND)
+		return "правая кисть"
+	else if (zone == BODY_ZONE_PRECISE_L_HAND)
+		return "левая кисть"
+	else if (zone == BODY_ZONE_L_ARM)
+		return "левая рука"
+	else if (zone == BODY_ZONE_R_ARM)
+		return "правая рука"
+	else if (zone == BODY_ZONE_L_LEG)
+		return "левая нога"
+	else if (zone == BODY_ZONE_R_LEG)
+		return "правая нога"
+	else if (zone == BODY_ZONE_PRECISE_L_FOOT)
+		return "левая ступня"
+	else if (zone == BODY_ZONE_PRECISE_R_FOOT)
+		return "правая ступня"
+	else if (zone == "chest")
+		return "грудь"
+	else if (zone == "mouth")
+		return "рот"
+	else if (zone == "groin")
+		return "пах"
+	else if (zone == "head")
+		return "голова"
+	else if (zone == "eyes")
+		return "глаза"
+	else
+		return zone
+
+/proc/ru_parse_zone(zone)	// Винительный
+	if(zone == "правая кисть")
+		return "правую кисть"
+	else if (zone == "левая кисть")
+		return "левую кисть"
+	else if (zone == "левая рука")
+		return "левую руку"
+	else if (zone == "правая рука")
+		return "правую руку"
+	else if (zone == "левая нога")
+		return "левую ногу"
+	else if (zone == "правая нога")
+		return "правую ногу"
+	else if (zone == "левая ступня")
+		return "левую ступню"
+	else if (zone == "правая ступня")
+		return "правую ступню"
+	else if (zone == "грудь")
+		return "грудь"
+	else if (zone == "рот")
+		return "рот"
+	else if (zone == "пах")
+		return "пах"
+	else if (zone == "голова")
+		return "голову"
+	else
+		return zone
+
+/proc/ru_gde_zone(zone)	// Дательный
+	if(zone == "правая кисть")
+		return "правой кисти"
+	else if (zone == "левая кисть")
+		return "левой кисти"
+	else if (zone == "левая рука")
+		return "левой руке"
+	else if (zone == "правая рука")
+		return "правой руке"
+	else if (zone == "левая нога")
+		return "левой ноге"
+	else if (zone == "правая нога")
+		return "правой ноге"
+	else if (zone == "левая ступня")
+		return "левой ступне"
+	else if (zone == "правая ступня")
+		return "правой ступне"
+	else if (zone == "грудь")
+		return "груди"
+	else if (zone == "рот")
+		return "ротовой полости"
+	else if (zone == "пах")
+		return "паховой области"
+	else if (zone == "голова")
+		return "голове"
+	else
+		return zone
+
+/proc/ru_otkuda_zone(zone)	// Родительный
+	if(zone == "правая кисть")
+		return "правой кисти"
+	else if (zone == "левая кисть")
+		return "левой кисти"
+	else if (zone == "левая рука")
+		return "левой руки"
+	else if (zone == "правая рука")
+		return "правой руки"
+	else if (zone == "левая нога")
+		return "левой ноги"
+	else if (zone == "правая нога")
+		return "правой ноги"
+	else if (zone == "левая ступня")
+		return "левой ступни"
+	else if (zone == "правая ступня")
+		return "правой ступни"
+	else if (zone == "грудь")
+		return "груди"
+	else if (zone == "рот")
+		return "ротовой полости"
+	else if (zone == "пах")
+		return "паховой области"
+	else if (zone == "голова")
+		return "головы"
+	else
+		return zone
+
+/proc/ru_chem_zone(zone)	// Творительный
+	if(zone == "правая кисть")
+		return "правой кистью"
+	else if (zone == "левая кисть")
+		return "левой кистью"
+	else if (zone == "левая рука")
+		return "левой рукой"
+	else if (zone == "правая рука")
+		return "правой рукой"
+	else if (zone == "левая нога")
+		return "левой ногой"
+	else if (zone == "правая нога")
+		return "правой ногой"
+	else if (zone == "левая ступня")
+		return "левой ступней"
+	else if (zone == "правая ступня")
+		return "правой ступней"
+	else if (zone == "грудь")
+		return "грудью"
+	else if (zone == "рот")
+		return "ртом"
+	else if (zone == "пах")
+		return "пахом"
+	else if (zone == "голова")
+		return "головой"
+	else
+		return zone
+
+/proc/ru_exam_parse_zone(zone)
+	switch(zone)
+		if ("chest")
+			return "грудь"
+		if ("mouth")
+			return "рот"
+		if ("groin")
+			return "пах"
+		if ("head")
+			return "голова"
+		else
+			return zone
+
+/proc/ru_comms(freq)
+	if(freq == "Common")
+		return "Основной"
+	else if (freq == "Security")
+		return "Безопасность"
+	else if (freq == "Engineering")
+		return "Инженерия"
+	else if (freq == "Command")
+		return "Командование"
+	else if (freq == "Science")
+		return "Научный"
+	else if (freq == "Medical")
+		return "Медбей"
+	else if (freq == "Supply")
+		return "Снабжение"
+	else if (freq == "Service")
+		return "Обслуживание"
+	else if (freq == "Exploration")
+		return "Рейнджеры"
+	else if (freq == "AI Private")
+		return "Приватный ИИ"
+	else if (freq == "Syndicate")
+		return "Синдикат"
+	else if (freq == "CentCom")
+		return "ЦентКом"
+	else if (freq == "Red Team")
+		return "Советы"
+	else if (freq == "Blue Team")
+		return "Нацисты"
+	else if (freq == "Green Team")
+		return "Чечня"
+	else if (freq == "Yellow Team")
+		return "Хохлы"
+	else if (freq == "Yohei")
+		return "Криптосвязь"
+	else
+		return freq
+
+/proc/get_num_string(amount, type = "cr")
+	amount = text2num(copytext("[amount]", -2))
+	if(amount >= 20)
+		amount = text2num(copytext("[amount]", -1))
+	switch(type)
+		if("cr")
+			switch(amount)
+				if(0, 5 to 20)
+					return "ов"
+				if(1)
+					return ""
+				if(2 to 4)
+					return "а"

@@ -1,11 +1,11 @@
 /datum/quirk/numb
-	name = "Numb"
-	desc = "You can't feel pain at all."
+	name = "Гипозезия"
+	desc = "Не чувствую боли."
 	icon = FA_ICON_STAR_OF_LIFE
 	value = -4
-	gain_text = "You feel your body becoming numb."
-	lose_text = "The numbness subsides."
-	medical_record_text = "The patient exhibits congenital hypoesthesia, making them insensitive to pain stimuli."
+	gain_text = "Кажется, моё тело перестаёт чувствовать боль."
+	lose_text = "Я снова чувствую боль."
+	medical_record_text = "Пациент имеет врождённую гипозезию, что делает его нечувствительным к болевым стимулам."
 	hardcore_value = 4
 
 /datum/quirk/numb/add(client/client_source)

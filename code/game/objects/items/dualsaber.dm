@@ -7,8 +7,8 @@
 	inhand_icon_state = "dualsaber0"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	name = "double-bladed energy sword"
-	desc = "Handle with care."
+	name = "двойной энергетический меч"
+	desc = "Держите аккуратно."
 	force = 3
 	throwforce = 5
 	throw_speed = 3
@@ -101,7 +101,7 @@
 				return OXYLOSS
 
 	else
-		user.visible_message(span_suicide("[user] begins beating [user.p_them()]self to death with \the [src]'s handle! It probably would've been cooler if [user.p_they()] turned it on first!"))
+		user.visible_message(span_suicide("[user] begins beating [user.p_them()]self to death with  [src]'s handle! It probably would've been cooler if [user.p_they()] turned it on first!"))
 	return BRUTELOSS
 
 /obj/item/dualsaber/Initialize(mapload)

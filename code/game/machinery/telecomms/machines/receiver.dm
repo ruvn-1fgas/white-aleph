@@ -6,9 +6,9 @@
  * Link to Processor Units in case receiver can't send to a telecommunication hub.
  */
 /obj/machinery/telecomms/receiver
-	name = "subspace receiver"
+	name = "подпространственный приемник"
 	icon_state = "broadcast receiver"
-	desc = "This machine has a dish-like shape and green lights. It is designed to detect and process subspace radio activity."
+	desc = "Эта машина имеет форму тарелкообразной приемной антенны и зеленые огоньки. Предназначена для приема и обработки подпространственного радиосигнала."
 	telecomms_type = /obj/machinery/telecomms/receiver
 	density = TRUE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.05

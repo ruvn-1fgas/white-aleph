@@ -1,12 +1,12 @@
 #define PANCAKE_MAX_STACK 10
 
 /obj/item/food/pancakes
-	name = "pancake"
-	desc = "A fluffy pancake. The softer, superior relative of the waffle."
+	name = "блинчик"
+	desc = "Пышный блинчик. Более мягкий, близкий родственник вафли."
 	icon_state = "pancakes_1"
 	inhand_icon_state = null
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("pancakes" = 1)
+	tastes = list("блинчики" = 1)
 	foodtypes = GRAIN | SUGAR | BREAKFAST
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_CHEAP
@@ -15,8 +15,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/pancakes/raw
-	name = "goopy pancake"
-	desc = "A barely cooked mess that some may mistake for a pancake. It longs for the griddle."
+	name = "сырой блинчик"
+	desc = "Едва приготовленное месиво, которое некоторые могут принять за блин. Его стоит положить на сковородку."
 	icon_state = "rawpancakes_1"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("milky batter" = 1)
@@ -34,47 +34,47 @@
 	var/newresult
 	if(istype(garnish, /obj/item/food/grown/berries))
 		newresult = /obj/item/food/pancakes/blueberry
-		name = "raw blueberry pancake"
+		name = "сырой блинчик с черникой"
 		icon_state = "rawbbpancakes_1"
 		stack_name = "rawbbpancakes"
 	else if(istype(garnish, /obj/item/food/chocolatebar))
 		newresult = /obj/item/food/pancakes/chocolatechip
-		name = "raw chocolate chip pancake"
+		name = "сырой блинчик с шоколадной крошкой"
 		icon_state = "rawccpancakes_1"
 		stack_name = "rawccpancakes"
 	else
 		return ..()
 	if(newresult)
 		qdel(garnish)
-		to_chat(user, span_notice("You add [garnish] to [src]."))
+		to_chat(user, span_notice("Добавляю [garnish] к [src]."))
 		AddComponent(/datum/component/grillable, cook_result = newresult)
 
 /obj/item/food/pancakes/raw/examine(mob/user)
 	. = ..()
 	if(name == initial(name))
-		. += "<span class='notice'>You can modify the pancake by adding <b>blueberries</b> or <b>chocolate</b> before finishing the griddle."
+		. += "<span class='notice'>\nВы можете изменить форму блинчика, добавив <b>чернику</b> или <b>шоколад</b> перед приготовлением на сковороде."
 
 /obj/item/food/pancakes/blueberry
-	name = "blueberry pancake"
-	desc = "A fluffy and delicious blueberry pancake."
+	name = "блинчик с черникой"
+	desc = "Пышный и вкусный блинчик с черникой."
 	icon_state = "bbpancakes_1"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 	)
-	tastes = list("pancakes" = 1, "blueberries" = 1)
+	tastes = list("блинчики" = 1, "черника" = 1)
 	stack_name = "bbpancakes"
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pancakes/chocolatechip
-	name = "chocolate chip pancake"
-	desc = "A fluffy and delicious chocolate chip pancake."
+	name = "блинчик с шоколадной крошкой"
+	desc = "Пышный и вкусный блинчик с шоколадной крошкой."
 	icon_state = "ccpancakes_1"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 	)
-	tastes = list("pancakes" = 1, "chocolate" = 1)
+	tastes = list("блинчики" = 1, "шоколад" = 1)
 	stack_name = "ccpancakes"
 	crafting_complexity = FOOD_COMPLEXITY_3
 
@@ -83,7 +83,7 @@
 	update_appearance()
 
 /obj/item/food/pancakes/update_name()
-	name = contents.len ? "stack of pancakes" : initial(name)
+	name = contents.len ? "стопка блинчиков" : initial(name)
 	return ..()
 
 /obj/item/food/pancakes/update_icon(updates = ALL)
@@ -104,13 +104,13 @@
 		if(0)
 			desc = initial(desc)
 		if(1 to 2)
-			desc = "A stack of fluffy pancakes."
+			desc = "Стопка пышных блинчиков."
 		if(3 to 6)
-			desc = "A fat stack of fluffy pancakes!"
+			desc = "Большая стопка пышных, вкусных блинчиков!"
 		if(7 to 9)
-			desc = "A grand tower of fluffy, delicious pancakes!"
+			desc = "Грандиозная башня из пышных, вкусных блинов!"
 		if(PANCAKE_MAX_STACK to INFINITY)
-			desc = "A massive towering spire of fluffy, delicious pancakes. It looks like it could tumble over!"
+			desc = "Массивный возвышающийся шпиль из пышных, вкусных блинчиков. Похоже, он может перевернуться!"
 	. = ..()
 	if (pancakeCount)
 		for(var/obj/item/food/pancakes/ING in contents)
@@ -121,11 +121,11 @@
 	if(istype(item, /obj/item/food/pancakes))
 		var/obj/item/food/pancakes/pancake = item
 		if((contents.len >= PANCAKE_MAX_STACK) || ((pancake.contents.len + contents.len) > PANCAKE_MAX_STACK))
-			to_chat(user, span_warning("You can't add that many pancakes to [src]!"))
+			to_chat(user, span_warning("Не могу добавить больше блинов!"))
 		else
 			if(!user.transferItemToLoc(pancake, src))
 				return
-			to_chat(user, span_notice("You add the [pancake] to the [src]."))
+			to_chat(user, span_notice("Я добавил блинчик к стопке блинов."))
 			pancake.name = initial(pancake.name)
 			contents += pancake
 			update_snack_overlays(pancake)

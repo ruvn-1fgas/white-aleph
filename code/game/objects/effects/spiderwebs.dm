@@ -1,8 +1,8 @@
 //generic procs copied from obj/effect/alien
 /obj/structure/spider
-	name = "web"
+	name = "паутина"
 	icon = 'icons/effects/effects.dmi'
-	desc = "It's stringy and sticky."
+	desc = "Очень липкая и постоянно цепляется."
 	anchored = TRUE
 	density = FALSE
 	max_integrity = 15
@@ -43,9 +43,9 @@
 		return
 	if(!HAS_TRAIT(user,TRAIT_WEB_WEAVER))
 		return
-	loc.balloon_alert_to_viewers("weaving...")
+	loc.balloon_alert_to_viewers("плетёт паутину...")
 	if(!do_after(user, 2 SECONDS))
-		loc.balloon_alert(user, "interrupted!")
+		loc.balloon_alert(user, "был прерван!")
 		return
 	qdel(src)
 	var/obj/item/stack/sheet/cloth/woven_cloth = new /obj/item/stack/sheet/cloth
@@ -68,14 +68,14 @@
 		if(mover.pulledby && HAS_TRAIT(mover.pulledby, TRAIT_WEB_SURFER))
 			return TRUE
 		if(prob(50))
-			loc.balloon_alert(mover, "stuck in web!")
+			loc.balloon_alert(mover, "запутываюсь в паутине!")
 			return FALSE
 	else if(isprojectile(mover))
 		return prob(30)
 
 /obj/structure/spider/stickyweb/sealed
-	name = "sealed web"
-	desc = "A solid thick wall of web, airtight enough to block air flow."
+	name = "плотная паутина"
+	desc = "Паутина достаточно плотная для того, чтобы задерживать воздушные потоки."
 	icon_state = "sealedweb"
 	sealed = TRUE
 	can_atmos_pass = ATMOS_PASS_NO
@@ -100,15 +100,15 @@
 		if(mover.pulledby == allowed_mob)
 			return TRUE
 		if(prob(50))
-			loc.balloon_alert(mover, "stuck in web!")
+			loc.balloon_alert(mover, "запутываюсь в паутине!")
 			return FALSE
 	else if(isprojectile(mover))
 		return prob(30)
 
 /obj/structure/spider/solid
-	name = "solid web"
+	name = "плотная паутина"
+	desc = "Паутина достаточно плотная для того, чтобы задерживать воздушные потоки."
 	icon = 'icons/effects/effects.dmi'
-	desc = "A solid wall of web, thick enough to block air flow."
 	icon_state = "solidweb"
 	can_atmos_pass = ATMOS_PASS_NO
 	opacity = TRUE
@@ -152,7 +152,7 @@
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
 	to_chat(user, span_notice("You struggle against the tight bonds... (This will take about [DisplayTimeText(breakout_time)].)"))
-	visible_message(span_notice("You see something struggling and writhing in \the [src]!"))
+	visible_message(span_notice("You see something struggling and writhing in  [src]!"))
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src)
 			return
@@ -160,7 +160,7 @@
 
 /obj/structure/spider/cocoon/Destroy()
 	var/turf/T = get_turf(src)
-	src.visible_message(span_warning("\The [src] splits open."))
+	src.visible_message(span_warning(" [src] splits open."))
 	for(var/atom/movable/A in contents)
 		A.forceMove(T)
 	return ..()

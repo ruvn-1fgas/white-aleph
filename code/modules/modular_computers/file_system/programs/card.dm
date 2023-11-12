@@ -130,7 +130,7 @@
 				return TRUE
 			else
 				playsound(computer, 'sound/machines/terminal_on.ogg', 50, FALSE)
-				computer.visible_message(span_notice("\The [computer] prints out a paper."))
+				computer.visible_message(span_notice(" [computer] prints out a paper."))
 			return TRUE
 		if("PRG_eject_id")
 			if(inserted_auth_card)

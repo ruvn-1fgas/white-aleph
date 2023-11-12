@@ -217,7 +217,7 @@
 		reset.flag = src
 		reset.icon_state = icon_state
 		reset.name = "[name] landmark"
-		reset.desc = "This is where \the [name] will respawn in a game of CTF"
+		reset.desc = "This is where  [name] will respawn in a game of CTF"
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/item/ctf_flag/LateInitialize()
@@ -257,7 +257,7 @@
 		if(!user.dropItemToGround(src))
 			return
 	if(!isnull(ctf_game))
-		ctf_game.message_all_teams(span_userdanger("\The [initial(name)] has been taken!"))
+		ctf_game.message_all_teams(span_userdanger(" [initial(name)] has been taken!"))
 	STOP_PROCESSING(SSobj, src)
 	anchored = FALSE // Hacky usage that bypasses set_anchored(), because normal checks need this to be FALSE to pass
 	. = ..() //this is the actual normal item checks
@@ -265,7 +265,7 @@
 		anchored = TRUE // Avoid directly assigning to anchored and prefer to use set_anchored() on normal circumstances.
 		return
 	//passing means the user picked up the flag so we can now apply this
-	to_chat(user, span_userdanger("Take \the [initial(name)] to your team's controller!"))
+	to_chat(user, span_userdanger("Take  [initial(name)] to your team's controller!"))
 	user.set_anchored(TRUE)
 	user.status_flags &= ~CANPUSH
 
@@ -275,7 +275,7 @@
 
 	var/obj/item/ctf_flag/flag = item
 	if(flag.team != team)
-		to_chat(user, span_userdanger("Take \the [initial(flag.name)] to your team's controller!"))
+		to_chat(user, span_userdanger("Take  [initial(flag.name)] to your team's controller!"))
 		user.playsound_local(get_turf(user), 'sound/machines/buzz-sigh.ogg', 100, vary = FALSE, use_reverb = FALSE)
 
 /obj/item/ctf_flag/dropped(mob/user)
@@ -285,7 +285,7 @@
 	reset_cooldown = world.time + 20 SECONDS
 	START_PROCESSING(SSobj, src)
 	if(!isnull(ctf_game))
-		ctf_game.message_all_teams(span_userdanger("\The [initial(name)] has been dropped!"))
+		ctf_game.message_all_teams(span_userdanger(" [initial(name)] has been dropped!"))
 	anchored = TRUE // Avoid directly assigning to anchored and prefer to use set_anchored() on normal circumstances.
 
 /obj/item/ctf_flag/red
@@ -386,7 +386,7 @@
 			return
 		controlling_team = ctf_player.team
 		icon_state = "dominator-[controlling_team]"
-		ctf_game.message_all_teams("<span class='userdanger [ctf_game.teams[controlling_team].team_span]'>[user.real_name] has captured \the [src], claiming it for [controlling_team]! Go take it back!</span>")
+		ctf_game.message_all_teams("<span class='userdanger [ctf_game.teams[controlling_team].team_span]'>[user.real_name] has captured  [src], claiming it for [controlling_team]! Go take it back!</span>")
 
 /obj/machinery/ctf/control_point/proc/clear_point()
 	controlling_team = null

@@ -1,8 +1,8 @@
 // This contains all boxes with edible stuffs or stuff related to edible stuffs.
 
 /obj/item/storage/box/donkpockets
-	name = "box of donk-pockets"
-	desc = "Instructions: Heat in microwave. Product will stay perpetually warmed with cutting edge Donk Co. technology."
+	name = "коробка донк-покетов"
+	desc = "<B>Инструкция:</B><I>Нагрейте в микроволновой печи. Продукт остынет, если его не съесть в течение семи минут.</I>"
 	icon_state = "donkpocketbox"
 	illustration = null
 	/// What type of donk pocket are we gonna cram into this box?
@@ -17,38 +17,38 @@
 	atom_storage.set_holdable(list(/obj/item/food/donkpocket))
 
 /obj/item/storage/box/donkpockets/donkpocketspicy
-	name = "box of spicy-flavoured donk-pockets"
+	name = "коробка донк-покетов с пряным вкусом"
 	icon_state = "donkpocketboxspicy"
 	donktype = /obj/item/food/donkpocket/spicy
 
 /obj/item/storage/box/donkpockets/donkpocketteriyaki
-	name = "box of teriyaki-flavoured donk-pockets"
+	name = "коробка донк-покетов со вкусом терияки"
 	icon_state = "donkpocketboxteriyaki"
 	donktype = /obj/item/food/donkpocket/teriyaki
 
 /obj/item/storage/box/donkpockets/donkpocketpizza
-	name = "box of pizza-flavoured donk-pockets"
+	name = "коробка донк-покетов со вкусом пиццы"
 	icon_state = "donkpocketboxpizza"
 	donktype = /obj/item/food/donkpocket/pizza
 
 /obj/item/storage/box/donkpockets/donkpocketgondola
-	name = "box of gondola-flavoured donk-pockets"
+	name = "коробка донк-покетов со вкусом гондолы"
 	icon_state = "donkpocketboxgondola"
 	donktype = /obj/item/food/donkpocket/gondola
 
 /obj/item/storage/box/donkpockets/donkpocketberry
-	name = "box of berry-flavoured donk-pockets"
+	name = "коробка донк-покетов со вкусом ягод"
 	icon_state = "donkpocketboxberry"
 	donktype = /obj/item/food/donkpocket/berry
 
 /obj/item/storage/box/donkpockets/donkpockethonk
-	name = "box of banana-flavoured donk-pockets"
+	name = "коробка донк-покетов со вкусом банана"
 	icon_state = "donkpocketboxbanana"
 	donktype = /obj/item/food/donkpocket/honk
 
 /obj/item/storage/box/papersack
-	name = "paper sack"
-	desc = "A sack neatly crafted out of paper."
+	name = "бумажный мешок"
+	desc = "Мешочек, аккуратно сделанный из бумаги."
 	icon = 'icons/obj/storage/paperbag.dmi'
 	icon_state = "paperbag_None"
 	inhand_icon_state = null
@@ -83,15 +83,15 @@
 /obj/item/storage/box/papersack/update_desc(updates)
 	switch(design_choice)
 		if("None")
-			desc = "A sack neatly crafted out of paper."
+			desc = "Мешок, аккуратно сделанный из бумаги."
 		if("NanotrasenStandard")
-			desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
+			desc = "Стандартный бумажный обеденный мешок Nanotrasen для лояльных сотрудников в дороге."
 		if("SyndiSnacks")
-			desc = "The design on this paper sack is a remnant of the notorious 'SyndieSnacks' program."
+			desc = "Дизайн этого бумажного пакета - пережиток печально известной программы СиндиЗакуски.."
 		if("Heart")
-			desc = "A paper sack with a heart etched onto the side."
+			desc = "Бумажный мешок с выгравированным на боку сердечком."
 		if("SmileyFace")
-			desc = "A paper sack with a crude smile etched onto the side."
+			desc = "Бумажный мешок с грубой улыбкой на боку."
 	return ..()
 
 /obj/item/storage/box/papersack/attackby(obj/item/attacking_item, mob/user, params)
@@ -105,12 +105,12 @@
 		return FALSE
 	if(attacking_item.get_sharpness() && !contents.len)
 		if(design_choice == "None")
-			user.show_message(span_notice("You cut eyeholes into [src]."), MSG_VISUAL)
+			user.show_message(span_notice("Прорезаю дыры для глаз."), MSG_VISUAL)
 			new /obj/item/clothing/head/costume/papersack(drop_location())
 			qdel(src)
 			return FALSE
 		else if(design_choice == "SmileyFace")
-			user.show_message(span_notice("You cut eyeholes into [src] and modify the design."), MSG_VISUAL)
+			user.show_message(span_notice("Прорезаю дыры для глаз в [src] и меняю его дизайн."), MSG_VISUAL)
 			new /obj/item/clothing/head/costume/papersack/smiley(drop_location())
 			qdel(src)
 			return FALSE
@@ -129,29 +129,29 @@
 	if(user.incapacitated())
 		return FALSE
 	if(contents.len)
-		balloon_alert(user, "items inside!")
+		to_chat(user, span_warning("Не могу изменить [src] с предметами внутри!"))
 		return FALSE
 	if(!P || !user.is_holding(P))
-		balloon_alert(user, "needs pen!")
+		to_chat(user, span_warning("Мне понадобится ручка, чтобы изменить [src]!"))
 		return FALSE
 	return TRUE
 
 /obj/item/storage/box/papersack/meat
-	desc = "It's slightly moist and smells like a slaughterhouse."
+	desc = "Он немного влажный и воняет бойней."
 
 /obj/item/storage/box/papersack/meat/PopulateContents()
 	for(var/i in 1 to 7)
 		new /obj/item/food/meat/slab(src)
 
 /obj/item/storage/box/papersack/wheat
-	desc = "It's a bit dusty, and smells like a barnyard."
+	desc = "Он немного пыльный и пахнет сеном."
 
 /obj/item/storage/box/papersack/wheat/PopulateContents()
 	for(var/i in 1 to 7)
 		new /obj/item/food/grown/wheat(src)
 
 /obj/item/storage/box/ingredients //This box is for the randomly chosen version the chef used to spawn with, it shouldn't actually exist.
-	name = "ingredients box"
+	name = "коробка"
 	illustration = "fruit"
 	var/theme_name
 
@@ -159,7 +159,7 @@
 	. = ..()
 	if(theme_name)
 		name = "[name] ([theme_name])"
-		desc = "A box containing supplementary ingredients for the aspiring chef. The box's theme is '[theme_name]'."
+		desc = "Коробка, содержащая дополнительные ингредиенты для начинающего повара."
 		inhand_icon_state = "syringe_kit"
 
 /obj/item/storage/box/ingredients/wildcard
@@ -187,7 +187,7 @@
 		new random_food(src)
 
 /obj/item/storage/box/ingredients/fiesta
-	theme_name = "fiesta"
+	theme_name = "ингредиентов для фиесты"
 
 /obj/item/storage/box/ingredients/fiesta/PopulateContents()
 	new /obj/item/food/tortilla(src)
@@ -197,7 +197,7 @@
 		new /obj/item/food/grown/soybeans(src)
 
 /obj/item/storage/box/ingredients/italian
-	theme_name = "italian"
+	theme_name = "итальянских ингредиентов"
 
 /obj/item/storage/box/ingredients/italian/PopulateContents()
 	for(var/i in 1 to 3)
@@ -206,7 +206,7 @@
 	new /obj/item/reagent_containers/cup/glass/bottle/wine(src)
 
 /obj/item/storage/box/ingredients/vegetarian
-	theme_name = "vegetarian"
+	theme_name = "вегетарианских ингредиентов"
 
 /obj/item/storage/box/ingredients/vegetarian/PopulateContents()
 	for(var/i in 1 to 2)
@@ -218,7 +218,7 @@
 	new /obj/item/food/grown/tomato(src)
 
 /obj/item/storage/box/ingredients/american
-	theme_name = "american"
+	theme_name = "американских ингредиентов"
 
 /obj/item/storage/box/ingredients/american/PopulateContents()
 	for(var/i in 1 to 2)
@@ -228,7 +228,7 @@
 	new /obj/item/food/meatball(src)
 
 /obj/item/storage/box/ingredients/fruity
-	theme_name = "fruity"
+	theme_name = "фруктов"
 
 /obj/item/storage/box/ingredients/fruity/PopulateContents()
 	for(var/i in 1 to 2)
@@ -239,7 +239,7 @@
 	new /obj/item/food/grown/watermelon(src)
 
 /obj/item/storage/box/ingredients/sweets
-	theme_name = "sweets"
+	theme_name = "сладостей"
 
 /obj/item/storage/box/ingredients/sweets/PopulateContents()
 	for(var/i in 1 to 2)
@@ -250,7 +250,7 @@
 	new /obj/item/food/grown/cocoapod(src)
 
 /obj/item/storage/box/ingredients/delights
-	theme_name = "delights"
+	theme_name = "деликатесов"
 
 /obj/item/storage/box/ingredients/delights/PopulateContents()
 	for(var/i in 1 to 2)
@@ -261,7 +261,7 @@
 	new /obj/item/food/grown/vanillapod(src)
 
 /obj/item/storage/box/ingredients/grains
-	theme_name = "grains"
+	theme_name = "злаковых"
 
 /obj/item/storage/box/ingredients/grains/PopulateContents()
 	for(var/i in 1 to 3)
@@ -272,7 +272,7 @@
 	new /obj/item/seeds/poppy(src)
 
 /obj/item/storage/box/ingredients/carnivore
-	theme_name = "carnivore"
+	theme_name = "мяса"
 
 /obj/item/storage/box/ingredients/carnivore/PopulateContents()
 	new /obj/item/food/meat/slab/bear(src)
@@ -284,7 +284,7 @@
 	new /obj/item/food/spidereggs(src)
 
 /obj/item/storage/box/ingredients/exotic
-	theme_name = "exotic"
+	theme_name = "экзотических ингредиентов"
 
 /obj/item/storage/box/ingredients/exotic/PopulateContents()
 	for(var/i in 1 to 2)
@@ -294,7 +294,7 @@
 	new /obj/item/food/grown/chili(src)
 
 /obj/item/storage/box/ingredients/seafood
-	theme_name = "seafood"
+	theme_name = "морепродуктов"
 
 /obj/item/storage/box/ingredients/seafood/PopulateContents()
 	for(var/i in 1 to 2)
@@ -304,7 +304,7 @@
 	new /obj/item/food/fishmeat/gunner_jellyfish(src)
 
 /obj/item/storage/box/ingredients/salads
-	theme_name = "salads"
+	theme_name = "овощей"
 
 /obj/item/storage/box/ingredients/salads/PopulateContents()
 	new /obj/item/food/grown/cabbage(src)
@@ -316,8 +316,8 @@
 	new /obj/item/reagent_containers/condiment/olive_oil(src)
 
 /obj/item/storage/box/ingredients/random
-	theme_name = "random"
-	desc = "This box should not exist, contact the proper authorities."
+	theme_name = "случайных ингредиентов"
+	desc = "Свяжитесь с ЦК."
 
 /obj/item/storage/box/ingredients/random/Initialize(mapload)
 	. = ..()
@@ -326,8 +326,8 @@
 	return INITIALIZE_HINT_QDEL
 
 /obj/item/storage/box/gum
-	name = "bubblegum packet"
-	desc = "The packaging is entirely in Japanese, apparently. You can't make out a single word of it."
+	name = "упаковка жевательной резинки"
+	desc = "Видимо, упаковка полностью на японском языке. Вы не можете разобрать ни слова."
 	icon = 'icons/obj/storage/gum.dmi'
 	icon_state = "bubblegum_generic"
 	w_class = WEIGHT_CLASS_TINY
@@ -345,8 +345,8 @@
 		new/obj/item/food/bubblegum(src)
 
 /obj/item/storage/box/gum/nicotine
-	name = "nicotine gum packet"
-	desc = "Designed to help with nicotine addiction and oral fixation all at once without destroying your lungs in the process. Mint flavored!"
+	name = "упаковка никотиновой жевательной резинки"
+	desc = "Разработан, чтобы помочь избавиться от никотиновой зависимости и оральной фиксации одновременно, не разрушая при этом легкие. Со вкусом мяты!"
 	icon_state = "bubblegum_nicotine"
 	custom_premium_price = PAYCHECK_CREW * 1.5
 
@@ -355,8 +355,8 @@
 		new/obj/item/food/bubblegum/nicotine(src)
 
 /obj/item/storage/box/gum/happiness
-	name = "HP+ gum packet"
-	desc = "A seemingly homemade packaging with an odd smell. It has a weird drawing of a smiling face sticking out its tongue."
+	name = "упаковка резинок HP +"
+	desc = "Внешне самодельная упаковка со странным запахом. У него есть странный рисунок улыбающегося лица, высунувшего язык."
 	icon_state = "bubblegum_happiness"
 	custom_price = PAYCHECK_COMMAND * 3
 	custom_premium_price = PAYCHECK_COMMAND * 3
@@ -364,15 +364,15 @@
 /obj/item/storage/box/gum/happiness/Initialize(mapload)
 	. = ..()
 	if (prob(25))
-		desc += " You can faintly make out the word 'Hemopagopril' was once scribbled on it."
+		desc += "Можно смутно разобрать слово «Гемопагоприл», которое когда-то было нацарапано на нем."
 
 /obj/item/storage/box/gum/happiness/PopulateContents()
 	for(var/i in 1 to 4)
 		new/obj/item/food/bubblegum/happiness(src)
 
 /obj/item/storage/box/gum/bubblegum
-	name = "bubblegum gum packet"
-	desc = "The packaging is entirely in Demonic, apparently. You feel like even opening this would be a sin."
+	name = "упаковка жевательной резинки"
+	desc = "Упаковка, по всей видимости, полностью демоническая. Чувствую, что даже открыть это было бы грехом."
 	icon_state = "bubblegum_bubblegum"
 
 /obj/item/storage/box/gum/bubblegum/PopulateContents()
@@ -500,8 +500,8 @@
 
 /obj/item/storage/box/coffeepack
 	icon_state = "arabica_beans"
-	name = "arabica beans"
-	desc = "A bag containing fresh, dry coffee arabica beans. Ethically sourced and packaged by Waffle Corp."
+	name = "Кофейные зёрна: Арабика"
+	desc = "Пакет, содержащий свежие сухие кофейные зерна арабики. Этично добытые и упакованные Waffle Corp."
 	illustration = null
 	icon = 'icons/obj/food/containers.dmi'
 	var/beantype = /obj/item/food/grown/coffee
@@ -519,6 +519,6 @@
 
 /obj/item/storage/box/coffeepack/robusta
 	icon_state = "robusta_beans"
-	name = "robusta beans"
-	desc = "A bag containing fresh, dry coffee robusta beans. Ethically sourced and packaged by Waffle Corp."
+	name = "Кофейные зёрна: Робуста"
+	desc = "Пакет, содержащий свежие сухие кофейные зерна робуста. Этично добытые и упакованные Waffle Corp."
 	beantype = /obj/item/food/grown/coffee/robusta

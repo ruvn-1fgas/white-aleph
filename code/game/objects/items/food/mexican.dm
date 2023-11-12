@@ -1,13 +1,13 @@
 /obj/item/food/tortilla
-	name = "tortilla"
-	desc = "The base for all your burritos."
+	name = "тортилья"
+	desc = "Основа для всех буррито."
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "tortilla"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("tortilla" = 1)
+	tastes = list("тортилья" = 1)
 	foodtypes = GRAIN
 	w_class = WEIGHT_CLASS_TINY
 	crafting_complexity = FOOD_COMPLEXITY_1
@@ -16,8 +16,8 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/hard_taco_shell, rand(15 SECONDS, 30 SECONDS), TRUE, TRUE)
 
 /obj/item/food/burrito
-	name = "burrito"
-	desc = "Tortilla wrapped goodness."
+	name = "буррито"
+	desc = "Вкуснятина, завернутая в тортилью."
 	icon = 'icons/obj/food/mexican.dmi'
 	icon_state = "burrito"
 	food_reagents = list(
@@ -25,15 +25,15 @@
 		/datum/reagent/consumable/nutriment/protein = 4,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("torilla" = 2, "beans" = 3)
+	tastes = list("тортилья" = 2, "бобы" = 3)
 	foodtypes = GRAIN
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/cheesyburrito
-	name = "cheesy burrito"
-	desc = "It's a burrito filled with cheese."
+	name = "сырное буррито"
+	desc = "Буррито, наполненное сыром."
 	icon = 'icons/obj/food/mexican.dmi'
 	icon_state = "cheesyburrito"
 	food_reagents = list(
@@ -41,15 +41,15 @@
 		/datum/reagent/consumable/nutriment/protein = 5,
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 	)
-	tastes = list("torilla" = 2, "beans" = 3, "cheese" = 1)
+	tastes = list("тортилья" = 2, "бобы" = 3, "сыр" = 1)
 	foodtypes = GRAIN | DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_EXOTIC
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/carneburrito
-	name = "carne asada burrito"
-	desc = "The best burrito for meat lovers."
+	name = "буррито Карне Асада"
+	desc = "Лучшее бурито для любителей мяса."
 	icon = 'icons/obj/food/mexican.dmi'
 	icon_state = "carneburrito"
 	food_reagents = list(
@@ -57,15 +57,15 @@
 		/datum/reagent/consumable/nutriment/protein = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("torilla" = 2, "meat" = 4)
+	tastes = list("тортилья" = 2, "мясо" = 4)
 	foodtypes = GRAIN | MEAT
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_EXOTIC
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/fuegoburrito
-	name = "fuego plasma burrito"
-	desc = "A super spicy burrito."
+	name = "огненно-плазменный буррито"
+	desc = "Очень острый буррито."
 	icon = 'icons/obj/food/mexican.dmi'
 	icon_state = "fuegoburrito"
 	food_reagents = list(
@@ -74,30 +74,30 @@
 		/datum/reagent/consumable/capsaicin = 5,
 		/datum/reagent/consumable/nutriment/vitamin = 3,
 	)
-	tastes = list("torilla" = 2, "beans" = 3, "hot peppers" = 1)
+	tastes = list("тортилья" = 2, "бобы" = 3, "острые перцы" = 1)
 	foodtypes = GRAIN
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_LEGENDARY
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/nachos
-	name = "nachos"
-	desc = "Chips from Space Mexico."
+	name = "начос"
+	desc = "Чипсы из Космо-Мексики."
 	icon = 'icons/obj/food/mexican.dmi'
 	icon_state = "nachos"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 	)
-	tastes = list("nachos" = 1)
+	tastes = list("начос" = 1)
 	foodtypes = GRAIN | FRIED
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_CHEAP
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/cheesynachos
-	name = "cheesy nachos"
-	desc = "The delicious combination of nachos and melting cheese."
+	name = "сырные начос"
+	desc = "Вкуснейшее сочетание начос и плавящегося сыра."
 	icon = 'icons/obj/food/mexican.dmi'
 	icon_state = "cheesynachos"
 	food_reagents = list(
@@ -105,15 +105,15 @@
 		/datum/reagent/consumable/nutriment/protein = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 3,
 	)
-	tastes = list("nachos" = 2, "cheese" = 1)
+	tastes = list("начос" = 2, "сыр" = 1)
 	foodtypes = GRAIN | FRIED | DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_EXOTIC
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/cubannachos
-	name = "Cuban nachos"
-	desc = "That's some dangerously spicy nachos."
+	name = "кубинские начос"
+	desc = "Опасно острые начос."
 	icon = 'icons/obj/food/mexican.dmi'
 	icon_state = "cubannachos"
 	food_reagents = list(
@@ -121,14 +121,14 @@
 		/datum/reagent/consumable/capsaicin = 8,
 		/datum/reagent/consumable/nutriment/vitamin = 4,
 	)
-	tastes = list("nachos" = 2, "hot pepper" = 1)
+	tastes = list("начос" = 2, "острый перец" = 1)
 	foodtypes = VEGETABLES | FRIED | DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/taco
-	name = "classic taco"
-	desc = "A traditional taco with meat, cheese, and lettuce."
+	name = "классическое тако"
+	desc = "Традиционное тако с мясом, сыром и салатом."
 	icon = 'icons/obj/food/mexican.dmi'
 	icon_state = "taco"
 	food_reagents = list(
@@ -136,36 +136,36 @@
 		/datum/reagent/consumable/nutriment/protein = 3,
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 	)
-	tastes = list("taco" = 4, "meat" = 2, "cheese" = 2, "lettuce" = 1)
+	tastes = list("тако" = 4, "мясо" = 2, "сыр" = 2, "салат" = 1)
 	foodtypes = MEAT | DAIRY | GRAIN | VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/taco/plain
-	name = "plain taco"
-	desc = "A traditional taco with meat and cheese, minus the rabbit food."
+	name = "тако"
+	desc = "Традиционное тако с мясом и сыром, за вычетом кроличьего корма."
 	icon_state = "taco_plain"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
 		/datum/reagent/consumable/nutriment/protein = 2,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
-	tastes = list("taco" = 4, "meat" = 2, "cheese" = 2)
+	tastes = list("тако" = 4, "мясо" = 2, "сыр" = 2)
 	foodtypes = MEAT | DAIRY | GRAIN
 	venue_value = FOOD_PRICE_CHEAP
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/taco/fish
-	name = "fish taco"
-	desc = "A taco with fish, cheese, and cabbage."
+	name = "рыбное тако"
+	desc = "Тако с рыбой, сыром и капустой."
 	icon_state = "fishtaco"
-	tastes = list("taco" = 4, "fish" = 2, "cheese" = 2, "cabbage" = 1)
+	tastes = list("тако" = 4, "рыба" = 2, "сыр" = 2, "капуста" = 1)
 	foodtypes = SEAFOOD | DAIRY | GRAIN | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/enchiladas
-	name = "enchiladas"
+	name = "энчилада"
 	desc = "Viva La Mexico!"
 	icon = 'icons/obj/food/mexican.dmi'
 	icon_state = "enchiladas"
@@ -176,14 +176,14 @@
 		/datum/reagent/consumable/capsaicin = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 	)
-	tastes = list("hot peppers" = 1, "meat" = 3, "cheese" = 1, "sour cream" = 1)
+	tastes = list("острые перцы" = 1, "мясо" = 3, "сыр" = 1, "сметана" = 1)
 	foodtypes = MEAT | GRAIN
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/stuffedlegion
-	name = "stuffed legion"
-	desc = "The former skull of a damned human, filled with goliath meat. It has a decorative lava pool made of ketchup and hotsauce."
+	name = "фаршированный Легион"
+	desc = "Использование черепов в качестве мисок для еды еще никогда не казалось таким подходящим."
 	icon_state = "stuffed_legion"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
@@ -191,15 +191,15 @@
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 		/datum/reagent/consumable/capsaicin = 2,
 	)
-	tastes = list("death" = 2, "rock" = 1, "meat" = 1, "hot peppers" = 1)
+	tastes = list("смерть" = 2, "rock" = 1, "мясо" = 1, "острые перцы" = 1)
 	foodtypes = MEAT
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_LEGENDARY
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/chipsandsalsa
-	name = "chips and salsa"
-	desc = "Some tortilla chips with a cup of zesty salsa. Highly addictive!"
+	name = "чипсы и сальса"
+	desc = "Чипсы из тортильи с чашечкой острой сальсы. Высокая степень зависимости!"
 	icon = 'icons/obj/food/mexican.dmi'
 	icon_state = "chipsandsalsa"
 	food_reagents = list(
@@ -207,7 +207,7 @@
 		/datum/reagent/consumable/capsaicin = 2,
 		/datum/reagent/consumable/nutriment/vitamin = 4,
 	)
-	tastes = list("peppers" = 1, "salsa" = 3, "tortilla chips" = 1, "onion" = 1)
+	tastes = list("перцы" = 1, "сальса" = 3, "чипсы" = 1, "лук" = 1)
 	foodtypes = VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
@@ -222,7 +222,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 4,
 		/datum/reagent/consumable/nutriment/protein = 6,
 	)
-	tastes = list("deep-fried tortilla" = 1, "meat" = 3, "cheese" = 1, "onions" = 1)
+	tastes = list("deep-fried tortilla" = 1, "мясо" = 3, "сыр" = 1, "onions" = 1)
 	foodtypes = MEAT | GRAIN | VEGETABLES | DAIRY | FRIED
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
@@ -275,7 +275,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 6,
 		/datum/reagent/consumable/nutriment/protein = 6,
 	)
-	tastes = list("crunchy taco shell" = 1, "cabbage" = 3, "tomatoes" = 1, "ground meat" = 1, "cheese" = 1)
+	tastes = list("crunchy taco shell" = 1, "cabbage" = 3, "tomatoes" = 1, "ground meat" = 1, "сыр" = 1)
 	foodtypes = GRAIN | VEGETABLES | MEAT | DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_4

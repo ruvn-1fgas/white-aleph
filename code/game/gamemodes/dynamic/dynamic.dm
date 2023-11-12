@@ -326,7 +326,7 @@ GLOBAL_LIST_EMPTY(dynamic_forced_rulesets)
 	if(greenshift)
 		priority_announce("Thanks to the tireless efforts of our security and intelligence divisions, there are currently no credible threats to [station_name()]. All station construction projects have been authorized. Have a secure shift!", "Security Report", SSstation.announcer.get_rand_report_sound())
 	else
-		priority_announce("A summary has been copied and printed to all communications consoles.", "Security level elevated.", ANNOUNCER_INTERCEPT)
+		priority_announce("\nA summary has been copied and printed to all communications consoles.", "\nSecurity level elevated.", ANNOUNCER_INTERCEPT)
 		if(SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_BLUE)
 			SSsecurity_level.set_level(SEC_LEVEL_BLUE)
 

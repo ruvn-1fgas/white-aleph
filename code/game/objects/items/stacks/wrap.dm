@@ -5,8 +5,8 @@
  */
 
 /obj/item/stack/wrapping_paper
-	name = "wrapping paper"
-	desc = "Wrap packages with this festive paper to make gifts."
+	name = "оберточная бумага"
+	desc = "Оберните пакеты этой праздничной бумагой, чтобы сделать подарки."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "wrap_paper"
 	inhand_icon_state = "wrap_paper"
@@ -55,7 +55,7 @@
 		new /obj/item/c_tube(T)
 
 /obj/item/stack/wrapping_paper/small
-	desc = "Wrap packages with this festive paper to make gifts. This roll looks a bit skimpy."
+	desc = "Оберните пакеты этой праздничной бумагой, чтобы сделать подарки. Этот рулон выглядит немного скудно."
 	amount = 10
 	merge_type = /obj/item/stack/wrapping_paper/small
 
@@ -64,9 +64,9 @@
  */
 
 /obj/item/stack/package_wrap
-	name = "package wrapper"
-	singular_name = "wrapping sheet"
-	desc = "You can use this to wrap items in."
+	name = "упаковщик"
+	singular_name = "упаковочный лист"
+	desc = "Можно использовать это, чтобы обернуть что-то в неё."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "deliveryPaper"
 	item_flags = NOBLUDGEON
@@ -77,7 +77,7 @@
 	merge_type = /obj/item/stack/package_wrap
 
 /obj/item/stack/package_wrap/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] begins wrapping [user.p_them()]self in \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] begins wrapping [user.p_them()]self in  [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	if(use(3))
 		var/obj/item/delivery/big/parcel = new(get_turf(user.loc))
 		parcel.base_icon_state = "deliverypackage5"
@@ -86,7 +86,7 @@
 		parcel.add_fingerprint(user)
 		return OXYLOSS
 	else
-		balloon_alert(user, "not enough paper!")
+		balloon_alert(user, "Не хватает обёрточной бумаги для суицида!")
 		return SHAME
 
 /obj/item/proc/can_be_package_wrapped() //can the item be wrapped with package wrapper into a delivery package
@@ -192,8 +192,8 @@
 	merge_type = /obj/item/stack/package_wrap/small
 
 /obj/item/c_tube
-	name = "cardboard tube"
-	desc = "A tube... of cardboard."
+	name = "картонная труба"
+	desc = "Труба... картонная. Дебил?"
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "c_tube"
 	inhand_icon_state = "c_tube"

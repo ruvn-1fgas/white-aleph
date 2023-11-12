@@ -1,9 +1,9 @@
 /obj/item/clothing/glasses/sunglasses/oval
-	name = "oval sunglasses"
-	desc = "Vintage wrap around sunglasses. Provides a little protection."
+	name = "овальные очки"
+	desc = "Винтажные солнцезащитные очки. Обеспечивают небольшую защиту"
 	icon_state = "jensenshades"
 
 /obj/item/clothing/suit/jacket/trenchcoat
-	name = "trenchcoat"
-	desc = "A long, black trenchcoat. Makes you feel like you're the one, but you're not."
+	name = "тренч"
+	desc = "Длинный, чёрный тренч. Заставляет почувствовать себя избранным...Буквально на миг"
 	icon_state = "trenchcoat"

@@ -35,12 +35,12 @@
 
 	user.do_attack_animation(target)
 	if(do_stick(source, target, user, px, py))
-		target.balloon_alert_to_viewers("sticker sticked")
+		target.balloon_alert_to_viewers("прикрепил стикер")
 
 ///Add our stick_type to the target with px and py as pixel x and pixel y respectively
 /datum/element/sticker/proc/do_stick(obj/item/source, atom/target, mob/living/user, px, py)
 	if(COUNT_TRAIT_SOURCES(target, TRAIT_STICKERED) >= MAX_ALLOWED_STICKERS)
-		source.balloon_alert_to_viewers("sticker won't stick!")
+		source.balloon_alert_to_viewers("не могу приклеить стикер!")
 		return FALSE
 	target.AddComponent(stick_type, px, py, source, user, washable)
 	return TRUE
@@ -48,6 +48,6 @@
 /datum/element/sticker/proc/on_throw_impact(obj/item/source, atom/hit_atom, datum/thrownthing/throwingdatum)
 	SIGNAL_HANDLER
 	if(prob(50) && do_stick(source, hit_atom, null, rand(-7,7), rand(-7,7)))
-		hit_atom.balloon_alert_to_viewers("sticker landed on sticky side!")
+		hit_atom.balloon_alert_to_viewers("стикер приземляется на липкую сторону!")
 
 #undef MAX_ALLOWED_STICKERS

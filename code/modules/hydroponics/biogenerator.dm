@@ -152,7 +152,7 @@
 	. = ..()
 
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads:")
+		. += span_notice("Дисплей:")
 		. += span_notice(" - Productivity at <b>[productivity * 100]%</b>.")
 		. += span_notice(" - Converting <b>[processed_items_per_cycle]</b> pieces of food per cycle.")
 		. += span_notice(" - Matter consumption at <b>[1 / efficiency * 100]</b>%.")
@@ -218,7 +218,7 @@
 	var/turf/drop_location = drop_location()
 	if(default_deconstruction_crowbar(attacking_item))
 		if(biomass > 0)
-			drop_location.visible_message(span_warning("Biomass spills from \the [src]'s biomass tank!"))
+			drop_location.visible_message(span_warning("Biomass spills from  [src]'s biomass tank!"))
 			playsound(drop_location, 'sound/effects/slosh.ogg', 25, vary = TRUE)
 			new /obj/effect/decal/cleanable/greenglow(drop_location)
 
@@ -234,7 +234,7 @@
 
 	else if(istype(attacking_item, /obj/item/storage/bag))
 		if(current_item_count >= max_items)
-			to_chat(user, span_warning("\The [src] is already full! Activate it to free up some space."))
+			to_chat(user, span_warning(" [src] is already full! Activate it to free up some space."))
 			return TRUE
 
 		var/obj/item/storage/bag/bag = attacking_item
@@ -247,29 +247,29 @@
 				current_item_count++
 
 		if(bag.contents.len == 0)
-			to_chat(user, span_info("You empty \the [bag] into \the [src]."))
+			to_chat(user, span_info("You empty  [bag] into  [src]."))
 
 		else if (current_item_count >= max_items)
-			to_chat(user, span_info("You fill \the [src] from \the [bag] to its capacity."))
+			to_chat(user, span_info("You fill  [src] from  [bag] to its capacity."))
 
 		else
-			to_chat(user, span_info("You fill \the [src] from \the [bag]."))
+			to_chat(user, span_info("You fill  [src] from  [bag]."))
 
 		return TRUE //no afterattack
 
 	else if(istype(attacking_item, /obj/item/food))
 		if(current_item_count >= max_items)
-			to_chat(user, span_warning("\The [src] is full! Activate it."))
+			to_chat(user, span_warning(" [src] is full! Activate it."))
 
 		else
 			if(user.transferItemToLoc(attacking_item, src))
 				current_item_count++
-				to_chat(user, span_info("You insert \the [attacking_item] in \the [src]"))
+				to_chat(user, span_info("You insert  [attacking_item] in  [src]"))
 
 		return TRUE //no afterattack
 
 	else
-		to_chat(user, span_warning("You cannot put \the [attacking_item] in \the [src]!"))
+		to_chat(user, span_warning("You cannot put  [attacking_item] in  [src]!"))
 
 
 /obj/machinery/biogenerator/AltClick(mob/living/user)

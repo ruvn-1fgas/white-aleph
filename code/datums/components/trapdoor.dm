@@ -75,9 +75,9 @@
 	if(!assembly)
 		return
 	if(IS_OPEN(parent))
-		source.balloon_alert(user, "can't unlink trapdoor when its open")
+		source.balloon_alert(user, "невозможно отвязать")
 		return
-	source.balloon_alert(user, "unlinking trapdoor")
+	source.balloon_alert(user, "отвязано")
 	INVOKE_ASYNC(src, PROC_REF(async_try_unlink), source, user, tool)
 	return
 
@@ -85,7 +85,7 @@
 	if(!do_after(user, 5 SECONDS, target=source))
 		return
 	if(IS_OPEN(parent))
-		source.balloon_alert(user, "can't unlink trapdoor when its open")
+		source.balloon_alert(user, "невозможно отвязать")
 		return
 	assembly.linked = FALSE
 	assembly.stored_decals = list()
@@ -93,7 +93,7 @@
 	UnregisterSignal(parent, COMSIG_ATOM_TOOL_ACT(TOOL_MULTITOOL))
 	RegisterSignal(SSdcs, COMSIG_GLOB_TRAPDOOR_LINK, PROC_REF(on_link_requested))
 	assembly = null
-	source.balloon_alert(user, "trapdoor unlinked")
+	source.balloon_alert(user, "отвязано")
 
 /datum/component/trapdoor/proc/decal_detached(datum/source, description, cleanable, directional, pic)
 	SIGNAL_HANDLER
@@ -143,7 +143,7 @@
 			post_change_callbacks += CALLBACK(src, TYPE_PROC_REF(/datum/component/trapdoor, carry_over_trapdoor), path, conspicuous, assembly)
 			return
 		// otherwise, break trapdoor
-		dying_trapdoor.visible_message(span_warning("The trapdoor mechanism in [dying_trapdoor] is broken!"))
+		dying_trapdoor.visible_message(span_warning("Механизм внутри [dying_trapdoor] сломан!"))
 		if(assembly)
 			assembly.linked = FALSE
 			assembly.stored_decals.Cut()
@@ -168,7 +168,7 @@
 /datum/component/trapdoor/proc/on_examine(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 	if(conspicuous)
-		examine_text += "There seems to be a tiny gap around this tile with some wires that you might be able to pulse with a <b>multitool</b>."
+		examine_text += "Здесь видна щель из которой торчат провода, можно потыкать их <b>мультитулом</b>."
 
 /**
  * ## try_opening
@@ -195,17 +195,17 @@
 	var/turf/open/trapdoor_turf = parent
 	var/obj/structure/lattice/blocking = locate() in trapdoor_turf.contents
 	if(blocking)
-		trapdoor_turf.visible_message(span_warning("The trapdoor mechanism in [trapdoor_turf] tries to shut, but is jammed by [blocking]!"))
+		trapdoor_turf.visible_message(span_warning("Механизм люка [trapdoor_turf] пытается закрыться, но ему мешает [blocking]!"))
 		return
 	playsound(trapdoor_turf, 'sound/machines/trapdoor/trapdoor_shut.ogg', 50)
-	trapdoor_turf.visible_message(span_warning("The trapdoor mechanism in [trapdoor_turf] swings shut!"))
+	trapdoor_turf.visible_message(span_warning("Механизм люка [trapdoor_turf] закрывается!"))
 	trapdoor_turf.ChangeTurf(trapdoor_turf_path, flags = CHANGETURF_INHERIT_AIR | CHANGETURF_TRAPDOOR_INDUCED)
 
 #undef IS_OPEN
 
 /obj/item/assembly/trapdoor
-	name = "trapdoor controller"
-	desc = "A sinister-looking controller for a trapdoor."
+	name = "контроллер люка"
+	desc = "Подлый контроллер."
 	icon_state = "trapdoor"
 	///if the trapdoor isn't linked it will try to link on pulse, this shouldn't be spammable
 	COOLDOWN_DECLARE(search_cooldown)
@@ -230,7 +230,7 @@
 		return
 	if(!COOLDOWN_FINISHED(src, search_cooldown))
 		if(loc && pulser)
-			loc.balloon_alert(pulser, "linking on cooldown!")
+			loc.balloon_alert(pulser, "слишком быстро!")
 		return
 	attempt_link_up()
 	COOLDOWN_START(src, search_cooldown, search_cooldown_time)
@@ -239,15 +239,14 @@
 	var/turf/assembly_turf = get_turf(src)
 	if(!COOLDOWN_FINISHED(src, search_cooldown))
 		var/timeleft = DisplayTimeText(COOLDOWN_TIMELEFT(src, search_cooldown))
-		assembly_turf.visible_message(span_warning("[src] is on cooldown! Please wait [timeleft]."), vision_distance = SAMETILE_MESSAGE_RANGE)
+		assembly_turf.visible_message(span_warning("[capitalize(src)] на перезарядке! Надо подождать [timeleft]."), vision_distance = SAMETILE_MESSAGE_RANGE)
 		return
 	if(SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TRAPDOOR_LINK, src) & LINKED_UP)
-		playsound(assembly_turf, 'sound/machines/chime.ogg', 50, TRUE)
-		assembly_turf.visible_message("<span class='notice'>[src] has linked up to a nearby trapdoor! \
-		You may now use it to check where the trapdoor is... be careful!</span>", vision_distance = SAMETILE_MESSAGE_RANGE)
+		playsound(assembly_turf, 'sound/machines/chime.ogg', 25, TRUE)
+		assembly_turf.visible_message("<span class='notice'>[capitalize(src)] успешно привязывается к ближайшему люку!</span>", vision_distance = SAMETILE_MESSAGE_RANGE)
 	else
-		playsound(assembly_turf, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
-		assembly_turf.visible_message(span_warning("[src] has failed to find a trapdoor nearby to link to."), vision_distance = SAMETILE_MESSAGE_RANGE)
+		playsound(assembly_turf, 'sound/misc/error1.ogg', 50, FALSE)
+		assembly_turf.visible_message(span_warning("[capitalize(src)] не может найти люк."), vision_distance = SAMETILE_MESSAGE_RANGE)
 
 /**
  * ## trapdoor remotes!
@@ -256,8 +255,8 @@
  * This base type is an empty shell that needs the assembly added to it first to work.
  */
 /obj/item/trapdoor_remote
-	name = "trapdoor remote"
-	desc = "A small machine that interfaces with a trapdoor controller for easy use."
+	name = "пульт дистанционного управления люком"
+	desc = "Маленькое устройство, которое связывается с контроллером люка для удобного использования."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "trapdoor_remote"
 	COOLDOWN_DECLARE(trapdoor_cooldown)
@@ -267,22 +266,22 @@
 /obj/item/trapdoor_remote/examine(mob/user)
 	. = ..()
 	if(!internals)
-		. += span_warning("[src] has no internals! It needs a trapdoor controller to function.")
+		. += span_warning("[capitalize(src)] не имеет начинки! Нужен контроллер люка для работы.")
 		return
-	. += span_notice("The internals can be removed with a screwdriver.")
+	. += span_notice("Контроллер люка может быть удалён отвёрткой.")
 	if(!internals.linked)
-		. += span_warning("[src] is not linked to a trapdoor.")
+		. += span_warning("[src] не привязан к люку.")
 		return
-	. += span_notice("[src] is linked to a trapdoor.")
+	. += span_notice("[src] привязан к люку.")
 	if(!COOLDOWN_FINISHED(src, trapdoor_cooldown))
-		. += span_warning("It is on a short cooldown.")
+		. += span_warning("На перезарядке.")
 
 /obj/item/trapdoor_remote/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(!internals)
-		to_chat(user, span_warning("[src] has no internals!"))
+		to_chat(user, span_warning("[capitalize(src)] не имеет начинки!"))
 		return
-	to_chat(user, span_notice("You pop [internals] out of [src]."))
+	to_chat(user, span_notice("Вытаскиваю начинку из [src]."))
 	internals.forceMove(get_turf(src))
 	internals = null
 
@@ -291,9 +290,9 @@
 	if(. || !istype(assembly))
 		return
 	if(internals)
-		to_chat(user, span_warning("[src] already has internals!"))
+		to_chat(user, span_warning("[capitalize(src)] переполнен начинкой!"))
 		return
-	to_chat(user, span_notice("You add [assembly] to [src]."))
+	to_chat(user, span_notice("Добавляю [assembly] к [src]."))
 	internals = assembly
 	assembly.forceMove(src)
 
@@ -303,24 +302,24 @@
 		return TRUE
 
 	if(!internals)
-		user.balloon_alert(user, "no device!")
+		user.balloon_alert(user, "нет начинки!")
 		return TRUE
 
 	if(!internals.linked)
 		internals.pulsed(user)
 		// The pulse linked successfully
 		if(internals.linked)
-			user.balloon_alert(user, "linked")
+			user.balloon_alert(user, "соединён")
 		// The pulse failed to link
 		else
-			user.balloon_alert(user, "link failed!")
+			user.balloon_alert(user, "соеинение не удалось")
 		return TRUE
 
 	if(!COOLDOWN_FINISHED(src, trapdoor_cooldown))
-		user.balloon_alert(user, "on cooldown!")
+		user.balloon_alert(user, "на перезарядке!")
 		return TRUE
 
-	user.balloon_alert(user, "trapdoor triggered")
+	user.balloon_alert(user, "активирую люки")
 	playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 	icon_state = "trapdoor_pressed"
 	addtimer(VARSET_CALLBACK(src, icon_state, initial(icon_state)), trapdoor_cooldown_time)
@@ -339,8 +338,8 @@
 
 /// trapdoor parts kit, allows trapdoors to be made by players
 /obj/item/trapdoor_kit
-	name = "trapdoor parts kit"
-	desc = "A kit containing all the parts needed to build a trapdoor. Can only be used on open space."
+	name = "комплект для сборки люка"
+	desc = "Всё для создания люка. Используется на открытом пространстве."
 	icon = 'icons/obj/weapons/improvised.dmi'
 	icon_state = "kitsuitcase"
 	var/in_use = FALSE
@@ -360,7 +359,7 @@
 	if(!isopenspaceturf(target_turf))
 		return
 	in_use = TRUE
-	balloon_alert(user, "constructing trapdoor")
+	balloon_alert(user, "создаём люк")
 	if(!do_after(user, 5 SECONDS, target = target))
 		in_use = FALSE
 		return
@@ -369,6 +368,6 @@
 		return
 	var/turf/new_turf = target_turf.PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 	new_turf.AddComponent(/datum/component/trapdoor, starts_open = FALSE, conspicuous = TRUE)
-	balloon_alert(user, "trapdoor constructed")
+	balloon_alert(user, "люк создан")
 	qdel(src)
 	return

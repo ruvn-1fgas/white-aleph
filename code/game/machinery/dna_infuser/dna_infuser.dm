@@ -4,8 +4,8 @@
 #define SCREAM_TIME 3 SECONDS
 
 /obj/machinery/dna_infuser
-	name = "\improper DNA infuser"
-	desc = "A defunct genetics machine for merging foreign DNA with a subject's own."
+	name = "Рекомбинатор"
+	desc = "Машина для слияния чужой ДНК с собственной."
 	icon = 'icons/obj/machines/cloning.dmi'
 	icon_state = "infuser"
 	base_icon_state = "infuser"
@@ -44,7 +44,7 @@
 		. += span_notice("[span_bold(infusing_from.name)] is in the infusion slot.")
 	. += span_notice("To operate: Obtain dead creature. Depending on size, drag or drop into the infuser slot.")
 	. += span_notice("Subject enters the chamber, someone activates the machine. Voila! One of your organs has... changed!")
-	. += span_notice("Alt-click to eject the infusion source, if one is inside.")
+	. += span_notice("Alt-клик to eject the infusion source, if one is inside.")
 	if(max_tier_allowed < DNA_INFUSER_MAX_TIER)
 		. += span_boldnotice("Right now, the DNA Infuser can only infuse Tier [max_tier_allowed] entries.")
 	else

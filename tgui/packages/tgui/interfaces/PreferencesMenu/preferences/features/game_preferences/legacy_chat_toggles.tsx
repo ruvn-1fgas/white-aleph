@@ -88,6 +88,7 @@ export const chat_pullr: FeatureToggle = {
   name: 'Enable pull request notifications',
   name_ru: 'Уведомления о пулл реквестах',
   category: 'CHAT',
-  description: 'Получать уведомления о создании, закрытии или слиянии пулл реквестов.',
+  description:
+    'Получать уведомления о создании, закрытии или слиянии пулл реквестов.',
   component: CheckboxInput,
 };

@@ -1,8 +1,8 @@
 //RAPID PIPE CLEANER
 
 /obj/item/rcl
-	name = "rapid pipe cleaner layer"
-	desc = "A device used to rapidly deploy pipe cleaners. It has screws on the side which can be removed to slide off the pipe cleaners. Do not use without insulation!"
+	name = "бухта проволоки для плетения"
+	desc = "Устройство для художественной трансформации скучных проводов в произведение искусства!"
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcl-0"
 	inhand_icon_state = "rcl-0"
@@ -78,7 +78,7 @@
 
 		if(!loaded)
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, span_warning("[src] is stuck to your hand!"))
+				to_chat(user, span_warning("[src] прилип!"))
 				return
 			else
 				loaded = W //W.loc is src at this point.
@@ -93,7 +93,7 @@
 		else
 			return
 		update_appearance()
-		to_chat(user, span_notice("You add the pipe cleaners to [src]. It now contains [loaded.amount]."))
+		to_chat(user, span_notice("Добавляю проволоку в [src]. Сейчас она содержит в себе [loaded.amount] метров."))
 	else
 		..()
 
@@ -272,7 +272,7 @@
 	if(!isturf(user.loc))
 		return
 	if(is_empty(user, 0))
-		to_chat(user, span_warning("\The [src] is empty!"))
+		to_chat(user, span_warning(" [src] is empty!"))
 		return
 
 	var/turf/T = get_turf(user)
@@ -322,7 +322,7 @@
 /obj/item/rcl/ghetto
 	actions_types = list()
 	max_amount = 30
-	name = "makeshift rapid pipe cleaner layer"
+	name = "самодельная катушка проводов"
 	ghetto = TRUE
 
 /obj/item/rcl/ghetto/update_icon_state()
@@ -340,11 +340,11 @@
 	return ..()
 
 /datum/action/item_action/rcl_col
-	name = "Change Cable Color"
+	name = "Изменить цвет провода"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "rcl_rainbow"
 
 /datum/action/item_action/rcl_gui
-	name = "Toggle Fast Wiring Gui"
+	name = "Быстрая установка провода"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "rcl_gui"

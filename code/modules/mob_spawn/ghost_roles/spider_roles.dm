@@ -126,7 +126,7 @@
 		return FALSE
 	if(!ready)
 		if(!silent)
-			to_chat(user, span_warning("\The [src] is not ready to hatch yet!"))
+			to_chat(user, span_warning(" [src] is not ready to hatch yet!"))
 		return FALSE
 
 /obj/effect/mob_spawn/ghost_role/spider/special(mob/living/basic/spider/spawned_mob, mob/mob_possessor)

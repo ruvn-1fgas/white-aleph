@@ -1,7 +1,7 @@
 #define BATON_BASH_COOLDOWN (3 SECONDS)
 
 /obj/item/shield
-	name = "shield"
+	name = "щит"
 	icon = 'icons/obj/weapons/shields.dmi'
 	lefthand_file = 'icons/mob/inhands/equipment/shields_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/shields_righthand.dmi'
@@ -51,11 +51,11 @@
 	var/healthpercent = round((atom_integrity/max_integrity) * 100, 1)
 	switch(healthpercent)
 		if(50 to 99)
-			. += span_info("It looks slightly damaged.")
+			. += span_info("Виднеются небольшие царапины.")
 		if(25 to 50)
-			. += span_info("It appears heavily damaged.")
+			. += span_info("Выглядит серьёзно повреждённым.")
 		if(0 to 25)
-			. += span_warning("It's falling apart!")
+			. += span_warning("Вот-вот развалится!")
 
 /obj/item/shield/proc/shatter(mob/living/carbon/human/owner)
 	playsound(owner, shield_break_sound, 50)
@@ -74,8 +74,8 @@
 	return TRUE
 
 /obj/item/shield/buckler
-	name = "wooden buckler"
-	desc = "A medieval wooden buckler."
+	name = "деревянный баклер"
+	desc = "Средневековый деревянный баклер."
 	icon_state = "buckler"
 	inhand_icon_state = "buckler"
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
@@ -85,8 +85,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/shield/roman
-	name = "\improper Roman shield"
-	desc = "Bears an inscription on the inside: <i>\"Romanes venio domus\"</i>."
+	name = "Римский щит"
+	desc = "На внутренней стороне надпись: <i>\"Romanes venio domus\"</i>."
 	icon_state = "roman_shield"
 	inhand_icon_state = "roman_shield"
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4.25)
@@ -95,14 +95,14 @@
 	shield_break_leftover = /obj/item/stack/sheet/iron
 
 /obj/item/shield/roman/fake
-	desc = "Bears an inscription on the inside: <i>\"Romanes venio domus\"</i>. It appears to be a bit flimsy."
+	desc = "На внутренней стороне надпись: <i>\"Romanes venio domus\"</i>. Это кажется немного хрупким."
 	block_chance = 0
 	armor_type = /datum/armor/none
 	max_integrity = 30
 
 /obj/item/shield/riot
-	name = "riot shield"
-	desc = "A shield adept at blocking blunt objects from connecting with the torso of the shield wielder."
+	name = "щит антибунт"
+	desc = "Тактический щит из поликарбоната для подавления мятежей. Неплохо блокирует удары в ближнем бою."
 	icon_state = "riot"
 	inhand_icon_state = "riot"
 	custom_materials = list(/datum/material/glass= SHEET_MATERIAL_AMOUNT * 3.75, /datum/material/iron= HALF_SHEET_MATERIAL_AMOUNT)
@@ -140,8 +140,8 @@
 	return ..()
 
 /obj/item/shield/riot/flash
-	name = "strobe shield"
-	desc = "A shield with a built in, high intensity light capable of blinding and disorienting suspects. Takes regular handheld flashes as bulbs."
+	name = "ослепляющий щит"
+	desc = "Щит со встроенным высокоинтенсивным светом, способным ослеплять и дезориентировать подозреваемых. Принимает обычные ручные флэшки в виде лампочек."
 	icon_state = "flashshield"
 	inhand_icon_state = "flashshield"
 	var/obj/item/assembly/flash/handheld/embedded_flash = /obj/item/assembly/flash/handheld
@@ -204,10 +204,10 @@
 	if(istype(attackby_item, /obj/item/assembly/flash/handheld))
 		var/obj/item/assembly/flash/handheld/flash = attackby_item
 		if(flash.burnt_out)
-			to_chat(user, span_warning("No sense replacing it with a broken bulb!"))
+			to_chat(user, span_warning("Нет смысла заменять её сгоревшей вспышкой!"))
 			return
 		else
-			to_chat(user, span_notice("You begin to replace the bulb..."))
+			to_chat(user, span_notice("Устанавливаю новую вспышку..."))
 			if(do_after(user, 20, target = user))
 				if(QDELETED(flash) || flash.burnt_out)
 					return
@@ -237,11 +237,11 @@
 /obj/item/shield/riot/flash/examine(mob/user)
 	. = ..()
 	if (embedded_flash?.burnt_out)
-		. += span_info("The mounted bulb has burnt out. You can try replacing it with a new <b>flash</b>.")
+		. += span_info("Установленная вспышка перегорела. Стоит попробовать заменить её на новую..")
 
 /obj/item/shield/energy
-	name = "energy combat shield"
-	desc = "A shield that reflects almost all energy projectiles, but is useless against physical attacks. It can be retracted, expanded, and stored anywhere."
+	name = "энергетический боевой щит"
+	desc = "Щит, который отражает все энергетические снаряды, но бесполезен против физических атак. Его можно убирать, расширять и хранить где угодно."
 	icon_state = "eshield"
 	inhand_icon_state = "eshield"
 	w_class = WEIGHT_CLASS_TINY
@@ -292,8 +292,8 @@
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/shield/riot/tele
-	name = "telescopic shield"
-	desc = "An advanced riot shield made of lightweight materials that collapses for easy storage."
+	name = "телескопический щит"
+	desc = "Продвинутая версия пластикового щита Антибунт. Может складываться для уменьшения размеров. Значительная защита от ближнего боя, а так же может блокировать часть выстрелов."
 	icon_state = "teleriot"
 	inhand_icon_state = "teleriot"
 	worn_icon_state = "teleriot"

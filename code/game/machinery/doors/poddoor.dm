@@ -1,6 +1,6 @@
 /obj/machinery/door/poddoor
-	name = "blast door"
-	desc = "A heavy duty blast door that opens mechanically."
+	name = "бронеставни"
+	desc = "Тяжелый бронированный шлюз надежно перекрывающий проход и способный выдержать даже небольшой взрыв."
 	icon = 'icons/obj/doors/blastdoor.dmi'
 	icon_state = "closed"
 	layer = BLASTDOOR_LAYER
@@ -35,7 +35,7 @@
 /obj/machinery/door/poddoor/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if (density)
-		balloon_alert(user, "open the door first!")
+		balloon_alert(user, "необходимо открыть шлюз!")
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	else if (default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
 		return TOOL_ACT_TOOLTYPE_SUCCESS
@@ -43,18 +43,18 @@
 /obj/machinery/door/poddoor/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if (density)
-		balloon_alert(user, "open the door first!")
+		balloon_alert(user, "необходимо открыть шлюз!")
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	if (!panel_open)
 		return
 	if (deconstruction != BLASTDOOR_FINISHED)
 		return
-	var/change_id = tgui_input_number(user, "Set the door controllers ID (Current: [id])", "Door Controller ID", isnum(id) ? id : null, 100)
+	var/change_id = tgui_input_number(user, "Установите номер ID (Текущий: [id])", "Контроллер ID шлюза", isnum(id) ? id : null, 100)
 	if(!change_id || QDELETED(usr) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		return
 	id = change_id
-	to_chat(user, span_notice("You change the ID to [id]."))
-	balloon_alert(user, "id changed")
+	to_chat(user, span_notice("Меняю ID на [id]."))
+	balloon_alert(user, UNLINT("ID изменен"))
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/machinery/door/poddoor/crowbar_act(mob/living/user, obj/item/tool)
@@ -63,53 +63,53 @@
 		open(TRUE)
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	if (density)
-		balloon_alert(user, "open the door first!")
+		balloon_alert(user, "необходимо открыть шлюз!")
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	if (!panel_open)
 		return
 	if (deconstruction != BLASTDOOR_FINISHED)
 		return
-	balloon_alert(user, "removing airlock electronics...")
+	balloon_alert(user, "начинаю извлекать плату...")
 	if(tool.use_tool(src, user, 10 SECONDS, volume = 50))
 		new /obj/item/electronics/airlock(loc)
 		id = null
 		deconstruction = BLASTDOOR_NEEDS_ELECTRONICS
-		balloon_alert(user, "removed airlock electronics")
+		balloon_alert(user, "плата извлечена")
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/machinery/door/poddoor/wirecutter_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if (density)
-		balloon_alert(user, "open the door first!")
+		balloon_alert(user, "необходимо открыть шлюз!")
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	if (!panel_open)
 		return
 	if (deconstruction != BLASTDOOR_NEEDS_ELECTRONICS)
 		return
-	balloon_alert(user, "removing internal cables...")
+	balloon_alert(user, "начинаю срезать проводку...")
 	if(tool.use_tool(src, user, 10 SECONDS, volume = 50))
 		var/datum/crafting_recipe/recipe = locate(recipe_type) in GLOB.crafting_recipes
 		var/amount = recipe.reqs[/obj/item/stack/cable_coil]
 		new /obj/item/stack/cable_coil(loc, amount)
 		deconstruction = BLASTDOOR_NEEDS_WIRES
-		balloon_alert(user, "removed internal cables")
+		balloon_alert(user, "проводка удалена")
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/machinery/door/poddoor/welder_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if (density)
-		balloon_alert(user, "open the door first!")
+		balloon_alert(user, "необходимо открыть шлюз!")
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	if (!panel_open)
 		return
 	if (deconstruction != BLASTDOOR_NEEDS_WIRES)
 		return
-	balloon_alert(user, "tearing apart...") //You're tearing me apart, Lisa!
+	balloon_alert(user, "начинаю разваривать [src] на части...")
 	if(tool.use_tool(src, user, 15 SECONDS, volume = 50))
 		var/datum/crafting_recipe/recipe = locate(recipe_type) in GLOB.crafting_recipes
 		var/amount = recipe.reqs[/obj/item/stack/sheet/plasteel]
 		new /obj/item/stack/sheet/plasteel(loc, amount)
-		user.balloon_alert(user, "torn apart")
+		user.balloon_alert(user, "готово")
 		qdel(src)
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
@@ -117,12 +117,11 @@
 	. = ..()
 	if(panel_open)
 		if(deconstruction == BLASTDOOR_FINISHED)
-			. += span_notice("The maintenance panel is opened and the electronics could be <b>pried</b> out.")
-			. += span_notice("\The [src] could be calibrated to a blast door controller ID with a <b>multitool</b>.")
+			. += span_notice("Панель технического обслуживания открыта, и плата может быть <b>извлечена</b>.")
 		else if(deconstruction == BLASTDOOR_NEEDS_ELECTRONICS)
-			. += span_notice("The <i>electronics</i> are missing and there are some <b>wires</b> sticking out.")
+			. += span_notice("<i>Плата</i> отсутствует, и <b>провода</b> торчат наружу.")
 		else if(deconstruction == BLASTDOOR_NEEDS_WIRES)
-			. += span_notice("The <i>wires</i> have been removed and it's ready to be <b>sliced apart</b>.")
+			. += span_notice("<i>Провода</i> извлечены, теперь корпус можно <b>разварить на части</b>.")
 
 /obj/machinery/door/poddoor/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	id = "[port.shuttle_id]_[id]"
@@ -149,9 +148,9 @@
 /obj/machinery/door/poddoor/attack_alien(mob/living/carbon/alien/adult/user, list/modifiers)
 	if(density & !(resistance_flags & INDESTRUCTIBLE))
 		add_fingerprint(user)
-		user.visible_message(span_warning("[user] begins prying open [src]."),\
-					span_noticealien("You begin digging your claws into [src] with all your might!"),\
-					span_warning("You hear groaning metal..."))
+		user.visible_message(span_warning("[user] начинает взламывать [src]."),\
+					span_noticealien("Вы начинаете вгрызаться в [src] всей своей мощью!"),\
+					span_warning("Вы слышите скрип металла..."))
 		playsound(src, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
 
 		var/time_to_open = 5 SECONDS
@@ -171,8 +170,8 @@
 	opacity = FALSE
 
 /obj/machinery/door/poddoor/ert
-	name = "hardened blast door"
-	desc = "A heavy duty blast door that only opens for dire emergencies."
+	name = "усиленные бронеставни"
+	desc = "Тяжелый бронированный шлюз, который открывается только в случае крайней необходимости."
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 //special poddoors that open when emergency shuttle docks at centcom
@@ -216,13 +215,13 @@
 	id = INCINERATOR_SYNDICATELAVA_AUXVENT
 
 /obj/machinery/door/poddoor/massdriver_ordnance
-	name = "Ordnance Launcher Bay Door"
+	name = "Бронеставни пусковой установки"
 	id = MASSDRIVER_ORDNANCE
 
 /obj/machinery/door/poddoor/massdriver_chapel
-	name = "Chapel Launcher Bay Door"
+	name = "Святые бронеставни"
 	id = MASSDRIVER_CHAPEL
 
 /obj/machinery/door/poddoor/massdriver_trash
-	name = "Disposals Launcher Bay Door"
+	name = "Бронеставни мусоропровода"
 	id = MASSDRIVER_DISPOSALS

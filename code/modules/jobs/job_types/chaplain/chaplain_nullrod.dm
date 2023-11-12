@@ -1,8 +1,8 @@
 // CHAPLAIN NULLROD AND CUSTOM WEAPONS //
 
 /obj/item/nullrod
-	name = "null rod"
-	desc = "A rod of pure obsidian; its very presence disrupts and dampens 'magical forces'. That's what the guidebook says, anyway."
+	name = "жезл Нулификации"
+	desc = "Жезл из чистого обсидиана. Само его присутствие разрушает и ослабляет «магические силы». Во всяком случае так написано в путеводителе."
 	icon = 'icons/obj/weapons/staff.dmi'
 	icon_state = "nullrod"
 	inhand_icon_state = "nullrod"

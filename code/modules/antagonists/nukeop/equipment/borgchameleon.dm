@@ -55,14 +55,14 @@
 /obj/item/borg_chameleon/proc/toggle(mob/living/silicon/robot/user)
 	if(active)
 		playsound(src, 'sound/effects/pop.ogg', 100, TRUE, -6)
-		to_chat(user, span_notice("You deactivate \the [src]."))
+		to_chat(user, span_notice("You deactivate  [src]."))
 		deactivate(user)
 	else
 		if(animation_playing)
-			to_chat(user, span_notice("\the [src] is recharging."))
+			to_chat(user, span_notice(" [src] is recharging."))
 			return
 		animation_playing = TRUE
-		to_chat(user, span_notice("You activate \the [src]."))
+		to_chat(user, span_notice("You activate  [src]."))
 		playsound(src, 'sound/effects/seedling_chargeup.ogg', 100, TRUE, -6)
 		apply_wibbly_filters(user)
 		if (do_after(user, 50, target=user) && user.cell.use(activationCost))

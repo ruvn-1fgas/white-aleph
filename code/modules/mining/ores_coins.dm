@@ -130,7 +130,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	C.adjust_eye_blur(12 SECONDS)
 	C.adjustStaminaLoss(15)//the pain from your eyes burning does stamina damage
 	C.adjust_confusion(5 SECONDS)
-	to_chat(C, span_userdanger("\The [src] gets into your eyes! The pain, it burns!"))
+	to_chat(C, span_userdanger(" [src] gets into your eyes! The pain, it burns!"))
 	qdel(src)
 
 /obj/item/stack/ore/glass/ex_act(severity, target)
@@ -298,7 +298,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 		attacher = key_name(user)
 		user.balloon_alert_to_viewers("attached rig")
 		return
-	
+
 	if(I.tool_behaviour == TOOL_WRENCH && rig)
 		rig.on_found()
 		if(QDELETED(src))
@@ -354,7 +354,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 		notify_admins = TRUE
 
 	if(user)
-		user.visible_message(span_warning("[user] strikes \the [src], causing a chain reaction!"), span_danger("You strike \the [src], causing a chain reaction."))
+		user.visible_message(span_warning("[user] strikes  [src], causing a chain reaction!"), span_danger("You strike  [src], causing a chain reaction."))
 
 	var/attacher_text = attacher ? "Igniter attacher: [ADMIN_LOOKUPFLW(attacher)]" : null
 
@@ -449,9 +449,9 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	return value
 
 /obj/item/coin/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] contemplates suicide with \the [src]!"))
+	user.visible_message(span_suicide("[user] contemplates suicide with  [src]!"))
 	if (!attack_self(user))
-		user.visible_message(span_suicide("[user] couldn't flip \the [src]!"))
+		user.visible_message(span_suicide("[user] couldn't flip  [src]!"))
 		return SHAME
 	addtimer(CALLBACK(src, PROC_REF(manual_suicide), user), 10)//10 = time takes for flip animation
 	return MANUAL_SUICIDE_NONLETHAL
@@ -459,13 +459,13 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 /obj/item/coin/proc/manual_suicide(mob/living/user)
 	var/index = sideslist.Find(coinflip)
 	if (index == 2)//tails
-		user.visible_message(span_suicide("\the [src] lands on [coinflip]! [user] promptly falls over, dead!"))
+		user.visible_message(span_suicide(" [src] lands on [coinflip]! [user] promptly falls over, dead!"))
 		user.adjustOxyLoss(200)
 		user.death(FALSE)
 		user.set_suicide(TRUE)
 		user.suicide_log()
 	else
-		user.visible_message(span_suicide("\the [src] lands on [coinflip]! [user] keeps on living!"))
+		user.visible_message(span_suicide(" [src] lands on [coinflip]! [user] keeps on living!"))
 
 /obj/item/coin/examine(mob/user)
 	. = ..()

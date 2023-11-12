@@ -139,7 +139,11 @@ export const QuirksPage = (props, context) => {
     <ServerPreferencesFetcher
       render={(data) => {
         if (!data) {
-          return <Box>Система особенностей ещё не инициализирована. Надо подождать...</Box>;
+          return (
+            <Box>
+              Система особенностей ещё не инициализирована. Надо подождать...
+            </Box>
+          );
         }
 
         const {

@@ -358,15 +358,15 @@
 		target.add_movespeed_modifier(/datum/movespeed_modifier/shove)
 		if(target_held_item)
 			append_message = "loosening [target.p_their()] grip on [target_held_item]"
-			target.visible_message(span_danger("[target.name]'s grip on \the [target_held_item] loosens!"), //He's already out what are you doing
-				span_warning("Your grip on \the [target_held_item] loosens!"), null, COMBAT_MESSAGE_RANGE)
+			target.visible_message(span_danger("[target.name]'s grip on  [target_held_item] loosens!"), //He's already out what are you doing
+				span_warning("Your grip on  [target_held_item] loosens!"), null, COMBAT_MESSAGE_RANGE)
 		addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon, clear_shove_slowdown)), SHOVE_SLOWDOWN_LENGTH)
 
 	else if(target_held_item)
 		target.dropItemToGround(target_held_item)
 		append_message = "causing [target.p_them()] to drop [target_held_item]"
-		target.visible_message(span_danger("[target.name] drops \the [target_held_item]!"),
-			span_warning("You drop \the [target_held_item]!"), null, COMBAT_MESSAGE_RANGE)
+		target.visible_message(span_danger("[target.name] drops  [target_held_item]!"),
+			span_warning("You drop  [target_held_item]!"), null, COMBAT_MESSAGE_RANGE)
 
 	log_combat(src, target, "shoved", append_message)
 
@@ -380,7 +380,7 @@
 	remove_movespeed_modifier(/datum/movespeed_modifier/shove)
 	var/active_item = get_active_held_item()
 	if(is_type_in_typecache(active_item, GLOB.shove_disarming_types))
-		visible_message(span_warning("[name] regains their grip on \the [active_item]!"), span_warning("You regain your grip on \the [active_item]"), null, COMBAT_MESSAGE_RANGE)
+		visible_message(span_warning("[name] regains their grip on  [active_item]!"), span_warning("You regain your grip on  [active_item]"), null, COMBAT_MESSAGE_RANGE)
 
 /mob/living/carbon/blob_act(obj/structure/blob/B)
 	if (stat == DEAD)
@@ -513,7 +513,7 @@
 		// No moodlets for people who hate touches
 		if(!HAS_TRAIT(src, TRAIT_BADTOUCH))
 			if (helper.grab_state >= GRAB_AGGRESSIVE)
-				add_mood_event("hug", /datum/mood_event/bear_hug)
+				add_mood_event("hug", /datum/mood_event/hug)
 			else
 				if(bodytemperature > helper.bodytemperature)
 					if(!HAS_TRAIT(helper, TRAIT_BADTOUCH))

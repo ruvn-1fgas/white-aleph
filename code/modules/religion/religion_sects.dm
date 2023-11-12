@@ -61,7 +61,7 @@
 /// Activates if religious sect is reset by admins, should clean up anything you added on conversion.
 /datum/religion_sect/proc/on_deconversion(mob/living/chap)
 	SHOULD_CALL_PARENT(TRUE)
-	to_chat(chap, span_boldnotice("You have lost the approval of \the [name]."))
+	to_chat(chap, span_boldnotice("You have lost the approval of  [name]."))
 	if(chap.mind.holy_role == HOLY_ROLE_HIGHPRIEST)
 		to_chat(chap, span_notice("Return to an altar to reform your sect."))
 

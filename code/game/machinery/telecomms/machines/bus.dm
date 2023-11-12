@@ -9,9 +9,9 @@
  * of a server, at the cost of some added latency.
  */
 /obj/machinery/telecomms/bus
-	name = "bus mainframe"
+	name = "мэйнфрейм шины"
 	icon_state = "bus"
-	desc = "A mighty piece of hardware used to send massive amounts of data quickly."
+	desc = "Мощное аппаратное обеспечение, используемое для быстрой передачи огромных объемов данных и связывание машин в общую сеть."
 	telecomms_type = /obj/machinery/telecomms/bus
 	density = TRUE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.01

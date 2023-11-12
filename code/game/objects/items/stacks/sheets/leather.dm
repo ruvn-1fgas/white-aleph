@@ -1,21 +1,21 @@
 /obj/item/stack/sheet/animalhide
-	name = "hide"
-	desc = "Something went wrong."
+	name = "кожа"
+	desc = "Что-то пошло не так."
 	icon_state = "sheet-hide"
 	inhand_icon_state = null
 	novariants = TRUE
 	merge_type = /obj/item/stack/sheet/animalhide
 
 /obj/item/stack/sheet/animalhide/human
-	name = "human skin"
-	desc = "The by-product of human farming."
-	singular_name = "human skin piece"
+	name = "человеческая кожа"
+	desc = "Побочный продукт человеческого происхождения... у тебя все нормально с головой?"
+	singular_name = "кусок человеческой кожи"
 	novariants = FALSE
 	merge_type = /obj/item/stack/sheet/animalhide/human
 
 GLOBAL_LIST_INIT(human_recipes, list( \
-	new/datum/stack_recipe("bloated human costume", /obj/item/clothing/suit/hooded/bloated_human, 5, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("human skin hat", /obj/item/clothing/head/fedora/human_leather, 1, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("раздутый человеческий костюм", /obj/item/clothing/suit/hooded/bloated_human, 5, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("шляпа из человеческой кожи", /obj/item/clothing/head/fedora/human_leather, 1, check_density = FALSE, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/human/get_main_recipes()
@@ -26,32 +26,32 @@ GLOBAL_LIST_INIT(human_recipes, list( \
 	amount = 5
 
 /obj/item/stack/sheet/animalhide/generic
-	name = "skin"
-	desc = "A piece of skin."
-	singular_name = "skin piece"
+	name = "кожа"
+	desc = "Кусочек кожи."
+	singular_name = "кусочек кожи"
 	novariants = FALSE
 	merge_type = /obj/item/stack/sheet/animalhide/generic
 
 /obj/item/stack/sheet/animalhide/corgi
-	name = "corgi hide"
-	desc = "The by-product of corgi farming."
-	singular_name = "corgi hide piece"
+	name = "шкура корги"
+	desc = "Побочный продукт выращивания корги."
+	singular_name = "кусочек кожи корги"
 	icon_state = "sheet-corgi"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/animalhide/corgi
 
 GLOBAL_LIST_INIT(gondola_recipes, list ( \
-	new/datum/stack_recipe("gondola mask", /obj/item/clothing/mask/gondola, 1, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("gondola suit", /obj/item/clothing/under/costume/gondola, 2, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("маска гондолы", /obj/item/clothing/mask/gondola, 1, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("костюм гондолы", /obj/item/clothing/under/costume/gondola, 2, check_density = FALSE, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/corgi/five
 	amount = 5
 
 /obj/item/stack/sheet/animalhide/mothroach
-	name = "mothroach hide"
-	desc = "A thin layer of mothroach hide."
-	singular_name = "mothroach hide piece"
+	name = "шкура гондолы"
+	desc = "Чрезвычайно ценный продукт охоты на гондол."
+	singular_name = "кусочек шкуры гондолы"
 	icon_state = "sheet-mothroach"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/animalhide/mothroach
@@ -60,9 +60,9 @@ GLOBAL_LIST_INIT(gondola_recipes, list ( \
 	amount = 5
 
 /obj/item/stack/sheet/animalhide/gondola
-	name = "gondola hide"
-	desc = "The extremely valuable product of gondola hunting."
-	singular_name = "gondola hide piece"
+	name = "шкура гондолы"
+	desc = "Чрезвычайно ценный продукт охоты на гондол."
+	singular_name = "кусочек шкуры гондолы"
 	icon_state = "sheet-gondola"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/animalhide/gondola
@@ -72,7 +72,7 @@ GLOBAL_LIST_INIT(gondola_recipes, list ( \
 	. += GLOB.gondola_recipes
 
 GLOBAL_LIST_INIT(corgi_recipes, list ( \
-	new/datum/stack_recipe("corgi costume", /obj/item/clothing/suit/hooded/ian_costume, 3, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("костюм корги", /obj/item/clothing/suit/hooded/ian_costume, 3, check_density = FALSE, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/corgi/get_main_recipes()
@@ -80,9 +80,9 @@ GLOBAL_LIST_INIT(corgi_recipes, list ( \
 	. += GLOB.corgi_recipes
 
 /obj/item/stack/sheet/animalhide/cat
-	name = "cat hide"
-	desc = "The by-product of cat farming."
-	singular_name = "cat hide piece"
+	name = "кошачья шкура"
+	desc = "Побочный продукт разведения кошек."
+	singular_name = "кусок шкуры кошки"
 	icon_state = "sheet-cat"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/animalhide/cat
@@ -91,16 +91,16 @@ GLOBAL_LIST_INIT(corgi_recipes, list ( \
 	amount = 5
 
 /obj/item/stack/sheet/animalhide/monkey
-	name = "monkey hide"
-	desc = "The by-product of monkey farming."
-	singular_name = "monkey hide piece"
+	name = "шкура обезьяны"
+	desc = "Побочный продукт разведения обезьян."
+	singular_name = "кусок шкуры обезьяны"
 	icon_state = "sheet-monkey"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/animalhide/monkey
 
 GLOBAL_LIST_INIT(monkey_recipes, list ( \
-	new/datum/stack_recipe("monkey mask", /obj/item/clothing/mask/gas/monkeymask, 1, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("monkey suit", /obj/item/clothing/suit/costume/monkeysuit, 2, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("маска обезьяны", /obj/item/clothing/mask/gas/monkeymask, 1, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("костюм обезьяны", /obj/item/clothing/suit/costume/monkeysuit, 2, check_density = FALSE, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/monkey/get_main_recipes()
@@ -111,9 +111,9 @@ GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	amount = 5
 
 /obj/item/stack/sheet/animalhide/lizard
-	name = "lizard skin"
-	desc = "Sssssss..."
-	singular_name = "lizard skin piece"
+	name = "кожа ящерицы"
+	desc = "Ссссссс..."
+	singular_name = "кусок кожи ящерицы"
 	icon_state = "sheet-lizard"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/animalhide/lizard
@@ -122,16 +122,16 @@ GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	amount = 5
 
 /obj/item/stack/sheet/animalhide/xeno
-	name = "alien hide"
-	desc = "The skin of a terrible creature."
-	singular_name = "alien hide piece"
+	name = "инопланетная шкура"
+	desc = "Кожа ужасного существа."
+	singular_name = "кусок кожи инопланетянина"
 	icon_state = "sheet-xeno"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/animalhide/xeno
 
 GLOBAL_LIST_INIT(xeno_recipes, list ( \
-	new/datum/stack_recipe("alien helmet", /obj/item/clothing/head/costume/xenos, 1, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("alien suit", /obj/item/clothing/suit/costume/xenos, 2, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("голова ксеноса", /obj/item/clothing/head/costume/xenos, 1, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("костюм ксеноса", /obj/item/clothing/suit/costume/xenos, 2, check_density = FALSE, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/xeno/get_main_recipes()
@@ -142,19 +142,19 @@ GLOBAL_LIST_INIT(xeno_recipes, list ( \
 	amount = 5
 
 /obj/item/stack/sheet/animalhide/carp
-	name = "carp scales"
-	desc = "The scaly skin of a space carp. It looks quite beatiful when detached from the foul creature who once wore it."
+	name = "чешуя карпа"
+	desc = "Чешуя карпа. Выглядит довольно красиво, когда отделена от гадкого существа, которое носило ее."
 	singular_name = "carp scale"
 	icon_state = "sheet-carp"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/animalhide/carp
 
 GLOBAL_LIST_INIT(carp_recipes, list ( \
-	new/datum/stack_recipe("carp costume", /obj/item/clothing/suit/hooded/carp_costume, 4, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("carp mask", /obj/item/clothing/mask/gas/carp, 1, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("carpskin chair", /obj/structure/chair/comfy/carp, 2, check_density = FALSE, category = CAT_FURNITURE), \
-	new/datum/stack_recipe("carpskin suit", /obj/item/clothing/under/suit/carpskin, 3, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("carpskin fedora", /obj/item/clothing/head/fedora/carpskin, 2, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("костюм карпа", /obj/item/clothing/suit/hooded/carp_costume, 4, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("маска карпа", /obj/item/clothing/mask/gas/carp, 1, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("стул из чешуи карпа", /obj/structure/chair/comfy/carp, 2, check_density = FALSE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("костюм из чешуи карпа", /obj/item/clothing/under/suit/carpskin, 3, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("федора из чешуи карпа", /obj/item/clothing/head/fedora/carpskin, 2, check_density = FALSE, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/carp/get_main_recipes()
@@ -166,23 +166,23 @@ GLOBAL_LIST_INIT(carp_recipes, list ( \
 
 //don't see anywhere else to put these, maybe together they could be used to make the xenos suit?
 /obj/item/stack/sheet/xenochitin
-	name = "alien chitin"
-	desc = "A piece of the hide of a terrible creature."
-	singular_name = "alien hide piece"
+	name = "инопланетный хитин"
+	desc = "Кусок шкуры ужасного существа."
+	singular_name = "кусок кожи инопланетянина"
 	icon = 'icons/mob/nonhuman-player/alien.dmi'
 	icon_state = "chitin"
 	novariants = TRUE
 	merge_type = /obj/item/stack/sheet/xenochitin
 
 /obj/item/xenos_claw
-	name = "alien claw"
-	desc = "The claw of a terrible creature."
+	name = "инопланетный коготь"
+	desc = "Коготь ужасного существа."
 	icon = 'icons/mob/nonhuman-player/alien.dmi'
 	icon_state = "claw"
 
 /obj/item/weed_extract
-	name = "weed extract"
-	desc = "A piece of slimy, purplish weed."
+	name = "экстракт сорняков"
+	desc = "Кусочек слизистой пурпурной травы."
 	icon = 'icons/mob/nonhuman-player/alien.dmi'
 	icon_state = "weed_extract"
 
@@ -190,41 +190,34 @@ GLOBAL_LIST_INIT(carp_recipes, list ( \
  * Leather SHeet
  */
 /obj/item/stack/sheet/leather
-	name = "leather"
-	desc = "The by-product of mob grinding."
-	singular_name = "leather piece"
+	name = "кожа"
+	desc = "Побочный продукт разведения животных."
+	singular_name = "кусок кожи"
 	icon_state = "sheet-leather"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/leather
 
 GLOBAL_LIST_INIT(leather_recipes, list ( \
-	new/datum/stack_recipe("wallet", /obj/item/storage/wallet, 1, check_density = FALSE, category = CAT_CONTAINERS), \
-	new/datum/stack_recipe("muzzle", /obj/item/clothing/mask/muzzle, 2, check_density = FALSE, category = CAT_ENTERTAINMENT), \
-	new/datum/stack_recipe("basketball", /obj/item/toy/basketball, 20, check_density = FALSE, category = CAT_ENTERTAINMENT), \
-	new/datum/stack_recipe("baseball", /obj/item/toy/beach_ball/baseball, 3, check_density = FALSE, category = CAT_ENTERTAINMENT), \
-	new/datum/stack_recipe("saddle", /obj/item/goliath_saddle, 5, check_density = FALSE, category = CAT_EQUIPMENT), \
-	new/datum/stack_recipe("leather shoes", /obj/item/clothing/shoes/laceup, 2, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("cowboy boots", /obj/item/clothing/shoes/cowboy, 2, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("botany gloves", /obj/item/clothing/gloves/botanic_leather, 3, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("leather satchel", /obj/item/storage/backpack/satchel/leather, 5, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("sheriff vest", /obj/item/clothing/accessory/vest_sheriff, 4, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("leather jacket", /obj/item/clothing/suit/jacket/leather, 7, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe("biker jacket", /obj/item/clothing/suit/jacket/leather/biker, 7, check_density = FALSE, category = CAT_CLOTHING), \
-	new/datum/stack_recipe_list("belts", list( \
-		new/datum/stack_recipe("tool belt", /obj/item/storage/belt/utility, 4, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("botanical belt", /obj/item/storage/belt/plant, 2, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("janitorial belt", /obj/item/storage/belt/janitor, 2, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("medical belt", /obj/item/storage/belt/medical, 2, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("security belt", /obj/item/storage/belt/security, 2, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("shoulder holster", /obj/item/storage/belt/holster, 3, check_density = FALSE, category = CAT_CONTAINERS), \
-		new/datum/stack_recipe("bandolier", /obj/item/storage/belt/bandolier, 5, check_density = FALSE, category = CAT_CONTAINERS), \
-	)),
-	new/datum/stack_recipe_list("cowboy hats", list( \
-		new/datum/stack_recipe("sheriff hat", /obj/item/clothing/head/cowboy/brown, 2, check_density = FALSE, category = CAT_CLOTHING), \
-		new/datum/stack_recipe("desperado hat", /obj/item/clothing/head/cowboy/black, 2, check_density = FALSE, category = CAT_CLOTHING), \
-		new/datum/stack_recipe("ten-gallon hat", /obj/item/clothing/head/cowboy/white, 2, check_density = FALSE, category = CAT_CLOTHING), \
-		new/datum/stack_recipe("deputy hat", /obj/item/clothing/head/cowboy/red, 2, check_density = FALSE, category = CAT_CLOTHING), \
-		new/datum/stack_recipe("drifter hat", /obj/item/clothing/head/cowboy/grey, 2, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("бумажник", /obj/item/storage/wallet, 1, check_density = FALSE, category = CAT_CONTAINERS), \
+	new/datum/stack_recipe("намордник", /obj/item/clothing/mask/muzzle, 2, check_density = FALSE, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("баскетбольный мяч", /obj/item/toy/basketball, 20, check_density = FALSE, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("бейсбольный мяч", /obj/item/toy/beach_ball/baseball, 3, check_density = FALSE, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("седло", /obj/item/goliath_saddle, 5, check_density = FALSE, category = CAT_EQUIPMENT), \
+	new/datum/stack_recipe("кожаные ботинки", /obj/item/clothing/shoes/laceup, 2, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("ковбойские ботинки", /obj/item/clothing/shoes/cowboy, 2, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("ботанические перчатки", /obj/item/clothing/gloves/botanic_leather, 3, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("кожаная сумка", /obj/item/storage/backpack/satchel/leather, 5, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("жилет шерифа", /obj/item/clothing/accessory/vest_sheriff, 4, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("кожаный пиджак", /obj/item/clothing/suit/jacket/leather, 7, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("куртка байкера", /obj/item/clothing/suit/jacket/leather/biker, 7, check_density = FALSE, category = CAT_CLOTHING), \
+	new/datum/stack_recipe_list("пояса", list( \
+		new/datum/stack_recipe("пояс с инструментами", /obj/item/storage/belt/utility, 4, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("ботанический пояс", /obj/item/storage/belt/plant, 2, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("пояс уборщика", /obj/item/storage/belt/janitor, 2, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("медицинский пояс", /obj/item/storage/belt/medical, 2, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("пояс офицера", /obj/item/storage/belt/security, 2, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("пистолетная кобура", /obj/item/storage/belt/holster, 3, check_density = FALSE, category = CAT_CONTAINERS), \
+		new/datum/stack_recipe("бандольер", /obj/item/storage/belt/bandolier, 5, check_density = FALSE, category = CAT_CONTAINERS), \
 	)),
 ))
 
@@ -239,10 +232,10 @@ GLOBAL_LIST_INIT(leather_recipes, list ( \
  * Sinew
  */
 /obj/item/stack/sheet/sinew
-	name = "watcher sinew"
+	name = "сухожилия стражника"
 	icon = 'icons/obj/mining.dmi'
-	desc = "Long stringy filaments which presumably came from a watcher's wings."
-	singular_name = "watcher sinew"
+	desc = "Длинные волокнистые нити, которые предположительно пришли с крыльев наблюдателя."
+	singular_name = "сухожилие стражника"
 	icon_state = "sinew"
 	novariants = TRUE
 	merge_type = /obj/item/stack/sheet/sinew
@@ -262,13 +255,13 @@ GLOBAL_LIST_INIT(leather_recipes, list ( \
 	)
 
 /obj/item/stack/sheet/sinew/wolf
-	name = "wolf sinew"
-	desc = "Long stringy filaments which came from the insides of a wolf."
-	singular_name = "wolf sinew"
+	name = "волчьи сухожилия"
+	desc = "Длинные волокнистые нити, которые пришли изнутри волка."
+	singular_name = "волчье сухожилие"
 	merge_type = /obj/item/stack/sheet/sinew/wolf
 
 GLOBAL_LIST_INIT(sinew_recipes, list ( \
-	new/datum/stack_recipe("sinew restraints", /obj/item/restraints/handcuffs/cable/sinew, 1, check_density = FALSE, category = CAT_EQUIPMENT), \
+	new/datum/stack_recipe("сухожильные наручники", /obj/item/restraints/handcuffs/cable/sinew, 1, check_density = FALSE, category = CAT_EQUIPMENT), \
 ))
 
 /obj/item/stack/sheet/sinew/get_main_recipes()
@@ -278,11 +271,11 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 
 /*Plates*/
 /obj/item/stack/sheet/animalhide/goliath_hide
-	name = "goliath hide plates"
-	desc = "Pieces of a goliath's rocky hide, these might be able to make your suit a bit more durable to attack from the local fauna."
+	name = "шкурные пластины голиафа"
+	desc = "Осколки скалистой шкуры Голиафа могут сделать ваш костюм более стойким к атакам местной фауны."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "goliath_hide"
-	singular_name = "hide plate"
+	singular_name = "шкурная пластина"
 	max_amount = 6
 	novariants = FALSE
 	item_flags = NOBLUDGEON
@@ -292,18 +285,18 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/animalhide/goliath_hide
 
 /obj/item/stack/sheet/animalhide/goliath_hide/polar_bear_hide
-	name = "polar bear hides"
-	desc = "Pieces of a polar bear's fur, these might be able to make your suit a bit more durable to attack from the local fauna."
+	name = "шкура полярного медведя"
+	desc = "Кусочки меха белого медведможнот сделать ваш костюм более стойким к атакам местной фауны."
 	icon_state = "polar_bear_hide"
-	singular_name = "polar bear hide"
+	singular_name = "шкура медведя"
 	merge_type = /obj/item/stack/sheet/animalhide/goliath_hide/polar_bear_hide
 
 /obj/item/stack/sheet/animalhide/ashdrake
-	name = "ash drake hide"
-	desc = "The strong, scaled hide of an ash drake."
+	name = "шкура пепельного дракона"
+	desc = "Сильная чешуйчатая шкура пепельного дракона."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "dragon_hide"
-	singular_name = "drake plate"
+	singular_name = "драконьи пластины"
 	max_amount = 10
 	novariants = FALSE
 	item_flags = NOBLUDGEON
@@ -326,9 +319,9 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 /obj/item/stack/sheet/animalhide/attackby(obj/item/W, mob/user, params)
 	if(W.get_sharpness())
 		playsound(loc, 'sound/weapons/slice.ogg', 50, TRUE, -1)
-		user.visible_message(span_notice("[user] starts cutting hair off \the [src]."), span_notice("You start cutting the hair off \the [src]..."), span_hear("You hear the sound of a knife rubbing against flesh."))
+		user.visible_message(span_notice("<b>[user]</b> начинает срезать шерсть с <b>[src]</b>.") , span_notice("Начинаю срезать шерсть с <b>[src]</b>...") , span_hear("Слыш как нож режет плоть."))
 		if(do_after(user, 50, target = src))
-			to_chat(user, span_notice("You cut the hair from [src.name]."))
+			to_chat(user, span_notice("Срезаю шерсть с <b>[src.singular_name]</b>."))
 			new /obj/item/stack/sheet/hairlesshide(user.drop_location(), amount)
 			use(amount)
 	else
@@ -336,27 +329,27 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 
 /obj/item/stack/sheet/animalhide/examine(mob/user)
 	. = ..()
-	. += span_notice("You can remove the hair with any sharp object.")
+	. += span_notice("Можно срезать шерсть любым острым предметом.")
 
 //Step two - washing..... it's actually in washing machine code.
 
 /obj/item/stack/sheet/hairlesshide
-	name = "hairless hide"
-	desc = "This hide was stripped of its hair, but still needs washing and tanning."
+	name = "безволосая шкура"
+	desc = "Эта шкура была лишена волос, но все еще нуждается в мытье и загаре."
 	singular_name = "hairless hide piece"
-	icon_state = "sheet-hairlesshide"
+	singular_name = "кусок безволосой шкуры"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/hairlesshide
 
 /obj/item/stack/sheet/hairlesshide/examine(mob/user)
 	. = ..()
-	. += span_notice("You can clean it up by washing in the water.")
+	. += span_notice("Можно очистить, намочив в воде.")
 
 //Step three - drying
 /obj/item/stack/sheet/wethide
-	name = "wet hide"
-	desc = "This hide has been cleaned but still needs to be dried."
-	singular_name = "wet hide piece"
+	name = "мокрая шкура"
+	desc = "Эта шкура была очищена, но все еще нуждается в сушке."
+	singular_name = "мокрая шкура"
 	icon_state = "sheet-wetleather"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/wethide
@@ -367,7 +360,7 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 
 /obj/item/stack/sheet/wethide/examine(mob/user)
 	. = ..()
-	. += span_notice("You can dry it up to make leather.")
+	. += span_notice("Можно высушить, чтобы получить кожу.")
 
 /obj/item/stack/sheet/wethide/Initialize(mapload, new_amount, merge = TRUE, list/mat_override=null, mat_amt=1)
 	. = ..()
@@ -378,7 +371,7 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 	AddComponent(/datum/component/bakeable, /obj/item/stack/sheet/leather, rand(15 SECONDS, 20 SECONDS), TRUE, TRUE)
 
 /obj/item/stack/sheet/wethide/burn()
-	visible_message(span_notice("[src] dries up!"))
+	visible_message(span_notice("[src] высыхает!"))
 	new /obj/item/stack/sheet/leather(loc, amount) // all the sheets to incentivize not losing your whole stack by accident
 	qdel(src)
 

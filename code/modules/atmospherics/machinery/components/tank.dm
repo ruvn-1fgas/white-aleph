@@ -349,7 +349,7 @@
 	for(var/datum/material/material as anything in custom_materials)
 		if (frame.material_end_product)
 			// If something looks fishy, you get nothing
-			message_admins("\The [src] had multiple materials set. Unless you were messing around with VV, yell at a coder")
+			message_admins(" [src] had multiple materials set. Unless you were messing around with VV, yell at a coder")
 			frame.material_end_product = null
 			frame.construction_state = TANK_FRAME
 			break

@@ -3,7 +3,7 @@
 //Multi area shuttles are a thing now, use subtypes! ~ninjanomnom
 
 /area/shuttle
-	name = "Shuttle"
+	name = "Шаттл"
 	requires_power = FALSE
 	static_lighting = TRUE
 	has_gravity = STANDARD_GRAVITY
@@ -29,35 +29,35 @@
 ////////////////////////////Syndicate infiltrator////////////////////////////
 
 /area/shuttle/syndicate
-	name = "Syndicate Infiltrator"
+	name = "Лазутчик Синдиката"
 	ambience_index = AMBIENCE_DANGER
 	area_limited_icon_smoothing = /area/shuttle/syndicate
 
 /area/shuttle/syndicate/bridge
-	name = "Syndicate Infiltrator Control"
+	name = "Лазутчик Синдиката: Мостик"
 
 /area/shuttle/syndicate/medical
-	name = "Syndicate Infiltrator Medbay"
+	name = "Лазутчик Синдиката: Медбей"
 
 /area/shuttle/syndicate/armory
-	name = "Syndicate Infiltrator Armory"
+	name = "Лазутчик Синдиката: Арсенал"
 
 /area/shuttle/syndicate/eva
-	name = "Syndicate Infiltrator EVA"
+	name = "Лазутчик Синдиката: ЕВА"
 
 /area/shuttle/syndicate/hallway
-	name = "Syndicate Infiltrator Hall"
+	name = "Лазутчик Синдиката: Шлюз"
 
 /area/shuttle/syndicate/engineering
-	name = "Syndicate Infiltrator Engineering"
+	name = "Лазутчик Синдиката: Инженерка"
 
 /area/shuttle/syndicate/airlock
-	name = "Syndicate Infiltrator Airlock"
+	name = "Лазутчик Синдиката: Шлюз"
 
 ////////////////////////////Pirate Shuttle////////////////////////////
 
 /area/shuttle/pirate
-	name = "Pirate Shuttle"
+	name = "Пиратский шаттл"
 	requires_power = TRUE
 
 /area/shuttle/pirate/flying_dutchman
@@ -67,50 +67,50 @@
 ////////////////////////////Bounty Hunter Shuttles////////////////////////////
 
 /area/shuttle/hunter
-	name = "Hunter Shuttle"
+	name = "Охотник"
 
 /area/shuttle/hunter/russian
-	name = "Russian Cargo Hauler"
+	name = "Русский грузовой шаттл"
 	requires_power = TRUE
 
 ////////////////////////////White Ship////////////////////////////
 
 /area/shuttle/abandoned
-	name = "Abandoned Ship"
+	name = "Забытый корабль"
 	requires_power = TRUE
 	area_limited_icon_smoothing = /area/shuttle/abandoned
 
 /area/shuttle/abandoned/bridge
-	name = "Abandoned Ship Bridge"
+	name = "Забытый корабль: Мостик"
 
 /area/shuttle/abandoned/engine
-	name = "Abandoned Ship Engine"
+	name = "Забытый корабль: Двигатель"
 
 /area/shuttle/abandoned/bar
-	name = "Abandoned Ship Bar"
+	name = "Забытый корабль: Бар"
 
 /area/shuttle/abandoned/crew
-	name = "Abandoned Ship Crew Quarters"
+	name = "Забытый корабль: Каюты"
 
 /area/shuttle/abandoned/cargo
-	name = "Abandoned Ship Cargo Bay"
+	name = "Забытый корабль: Карго"
 
 /area/shuttle/abandoned/medbay
-	name = "Abandoned Ship Medbay"
+	name = "Забытый корабль: Медбей"
 
 /area/shuttle/abandoned/pod
-	name = "Abandoned Ship Pod"
+	name = "Забытый корабль: Под"
 
 ////////////////////////////Single-area shuttles////////////////////////////
 /area/shuttle/transit
-	name = "Hyperspace"
-	desc = "Weeeeee"
+	name = "Гиперпространство"
+	desc = "Уииииииииииии"
 	static_lighting = FALSE
 	base_lighting_alpha = 255
 
 
 /area/shuttle/arrival
-	name = "Arrival Shuttle"
+	name = "Шаттл прибытия"
 	area_flags = UNIQUE_AREA// SSjob refers to this area for latejoiners
 
 
@@ -123,94 +123,94 @@
 
 
 /area/shuttle/pod_1
-	name = "Escape Pod One"
+	name = "Под: Первый"
 	area_flags = NONE
 
 /area/shuttle/pod_2
-	name = "Escape Pod Two"
+	name = "Под: Второй"
 	area_flags = NONE
 
 /area/shuttle/pod_3
-	name = "Escape Pod Three"
+	name = "Под: Третий"
 	area_flags = NONE
 
 /area/shuttle/pod_4
-	name = "Escape Pod Four"
+	name = "Под: Четвёртый"
 	area_flags = NONE
 
 /area/shuttle/mining
-	name = "Mining Shuttle"
+	name = "Шахтёрский шаттл"
 
 /area/shuttle/mining/large
-	name = "Mining Shuttle"
+	name = "Шахтёрский шаттл"
 	requires_power = TRUE
 
 /area/shuttle/labor
-	name = "Labor Camp Shuttle"
+	name = "Шаттл каторги"
 
 /area/shuttle/supply
-	name = "Supply Shuttle"
+	name = "Шаттл снабжения"
 	area_flags = NOTELEPORT
 
 /area/shuttle/escape
-	name = "Emergency Shuttle"
+	name = "Эвакуационный шаттл"
 	area_flags = BLOBS_ALLOWED
 	area_limited_icon_smoothing = /area/shuttle/escape
 	flags_1 = CAN_BE_DIRTY_1
 	area_flags = CULT_PERMITTED
 
 /area/shuttle/escape/backup
-	name = "Backup Emergency Shuttle"
+	name = "Запасной эвакуационный шаттл"
 
 /area/shuttle/escape/brig
-	name = "Escape Shuttle Brig"
+	name = "Бриг эвакуационного шаттла"
 	icon_state = "shuttlered"
 
 /area/shuttle/escape/luxury
-	name = "Luxurious Emergency Shuttle"
+	name = "Роскошный эвакуационный шаттл"
 	area_flags = NOTELEPORT
 
 /area/shuttle/escape/simulation
-	name = "Medieval Reality Simulation Dome"
+	name = "Симулятор средневековья"
 	icon_state = "shuttlectf"
 	area_flags = NOTELEPORT
 	static_lighting = FALSE
 	base_lighting_alpha = 255
 
 /area/shuttle/escape/arena
-	name = "The Arena"
+	name = "Арена"
 	area_flags = NOTELEPORT
 
 /area/shuttle/escape/meteor
-	name = "\proper a meteor with engines strapped to it"
+	name = "метеор с движками"
 	luminosity = NONE
 
 /area/shuttle/escape/engine
 	name = "Escape Shuttle Engine"
 
 /area/shuttle/transport
-	name = "Transport Shuttle"
+	name = "Транспортный шаттл"
 
 /area/shuttle/assault_pod
-	name = "Steel Rain"
+	name = "Стальной дождь"
 
 /area/shuttle/sbc_starfury
-	name = "SBC Starfury"
+	name = "SBC Звездная ярость"
 
 /area/shuttle/sbc_fighter1
-	name = "SBC Fighter 1"
+	name = "SBC Боец 1"
 
 /area/shuttle/sbc_fighter2
-	name = "SBC Fighter 2"
+	name = "SBC Боец 2"
 
 /area/shuttle/sbc_fighter3
-	name = "SBC Fighter 3"
+	name = "SBC Боец 3"
 
 /area/shuttle/sbc_corvette
-	name = "SBC corvette"
+	name = "SBC корвет"
 
 /area/shuttle/syndicate_scout
-	name = "Syndicate Scout"
+	name = "Разведчик Синдиката"
 
 /area/shuttle/ruin
 	name = "Ruined Shuttle"
@@ -221,25 +221,25 @@
 	name = "Ruined Caravan Shuttle"
 
 /area/shuttle/ruin/caravan/syndicate1
-	name = "Syndicate Fighter"
+	name = "Боец Синдиката 1"
 
 /area/shuttle/ruin/caravan/syndicate2
-	name = "Syndicate Fighter"
+	name = "Боец Синдиката 2"
 
 /area/shuttle/ruin/caravan/syndicate3
-	name = "Syndicate Drop Ship"
+	name = "Десантный корабль синдиката"
 
 /area/shuttle/ruin/caravan/pirate
-	name = "Pirate Cutter"
+	name = "Пиратский резак"
 
 /area/shuttle/ruin/caravan/freighter1
-	name = "Small Freighter"
+	name = "Малый грузовой корабль"
 
 /area/shuttle/ruin/caravan/freighter2
-	name = "Tiny Freighter"
+	name = "Крошечный грузовой корабль"
 
 /area/shuttle/ruin/caravan/freighter3
-	name = "Tiny Freighter"
+	name = "Крошечный грузовой корабль"
 
 // ----------- Cyborg Mothership
 
@@ -284,12 +284,12 @@
 		to_chat(L, span_warning("You are not yet worthy of passing. Drag a severed head to the barrier to be allowed entry to the hall of champions."), confidential = TRUE)
 
 /obj/effect/landmark/shuttle_arena_safe
-	name = "hall of champions"
-	desc = "For the winners."
+	name = "зал чемпионов"
+	desc = "Для победителей."
 
 /obj/effect/landmark/shuttle_arena_entrance
-	name = "\proper the arena"
-	desc = "A lava filled battlefield."
+	name = "арена"
+	desc = "Поле боя, заполненное лавой."
 
 /obj/effect/forcefield/arena_shuttle_entrance
 	name = "portal"

@@ -81,7 +81,7 @@
 		return
 
 	if(cell)
-		user.visible_message(span_notice("[user] removes \the [cell] from [src]!"))
+		user.visible_message(span_notice("[user] removes  [cell] from [src]!"))
 		balloon_alert(user, "cell removed")
 		var/turf/user_turf = get_turf(user)
 		cell.forceMove(user_turf)

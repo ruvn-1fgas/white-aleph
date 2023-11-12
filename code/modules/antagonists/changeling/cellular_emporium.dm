@@ -2,7 +2,7 @@
 // The place where Changelings go to purchase biological weaponry.
 /datum/cellular_emporium
 	/// The name of the emporium - why does it need a name? Dunno
-	var/name = "cellular emporium"
+	var/name = "Сотовый эмпориум"
 	/// The changeling who owns this emporium
 	var/datum/antagonist/changeling/changeling
 
@@ -52,7 +52,6 @@
 
 			abilities += list(ability_data)
 
-		// Sorts abilities alphabetically by default
 		sortTim(abilities, /proc/cmp_assoc_list_name)
 
 	data["abilities"] = abilities
@@ -80,13 +79,13 @@
 				changeling.readapt()
 
 		if("evolve")
-			// purchase_power sanity checks stuff like typepath, DNA, and absorbs for us.
-			changeling.purchase_power(text2path(params["path"]))
+			var/sting_name = params["name"]
+			changeling.purchase_power(sting_name)
 
 	return TRUE
 
 /datum/action/cellular_emporium
-	name = "Cellular Emporium"
+	name = "Сотовый Эмпориум"
 	button_icon = 'icons/obj/drinks/soda.dmi'
 	button_icon_state = "changelingsting"
 	background_icon_state = "bg_changeling"

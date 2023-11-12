@@ -4,8 +4,8 @@
 #define DISPENSE_ICECREAM_MODE 4
 
 /obj/item/borg/lollipop
-	name = "treat fabricator"
-	desc = "Reward humans with various treats. Toggle in-module to switch between dispensing and high velocity ejection modes."
+	name = "синтезатор сладостей"
+	desc = "Вознаграждайте людей сладостями. Модуль позволяет выбирать вид лакомства или даже стрелять ими. "
 	icon_state = "lollipop"
 	/// The current amount of available candy
 	var/candy = 5
@@ -45,7 +45,7 @@
 ///Dispenses a lollipop
 /obj/item/borg/lollipop/proc/dispense(atom/atom_dispensed_to, mob/user)
 	if(candy <= 0)
-		to_chat(user, span_warning("No treats left in storage!"))
+		to_chat(user, span_warning("Сладости закончились!"))
 		return FALSE
 	var/turf/turf_to_dispense_to = get_turf(atom_dispensed_to)
 	if(!turf_to_dispense_to || !isopenturf(turf_to_dispense_to))
@@ -64,7 +64,7 @@
 				loc = turf_to_dispense_to,
 				prefill_flavours = list(ICE_CREAM_VANILLA),
 			)
-			food_item.desc = "Eat the ice cream."
+			food_item.desc = "Съешь меня!"
 
 	var/into_hands = FALSE
 	if(ismob(atom_dispensed_to))
@@ -75,9 +75,9 @@
 	check_amount()
 
 	if(into_hands)
-		user.visible_message(span_notice("[user] dispenses a treat into the hands of [atom_dispensed_to]."), span_notice("You dispense a treat into the hands of [atom_dispensed_to]."), span_hear("You hear a click."))
+		user.visible_message(span_notice("[user] дал леденец прямо в руку [atom_dispensed_to]."), span_notice("You dispense a treat into the hands of [atom_dispensed_to]."), span_hear("You hear a click."))
 	else
-		user.visible_message(span_notice("[user] dispenses a treat."), span_notice("You dispense a treat."), span_hear("You hear a click."))
+		user.visible_message(span_notice("[user] произвел леденец."), span_notice("Синтезирую леденец.") , span_hear("Слышу щелчок."))
 
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 	return TRUE
@@ -85,7 +85,7 @@
 /// Shoot a lollipop
 /obj/item/borg/lollipop/proc/shootL(atom/target, mob/living/user, params)
 	if(candy <= 0)
-		to_chat(user, span_warning("Not enough lollipops left!"))
+		to_chat(user, span_warning("Недостаточно леденцов!"))
 		return FALSE
 	candy--
 
@@ -98,13 +98,13 @@
 
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 	lollipop.fire_casing(target, user, params, 0, 0, null, 0, src)
-	user.visible_message(span_warning("[user] blasts a flying lollipop at [target]!"))
+	user.visible_message(span_warning("[user] выстрелил леденцом в [target]!"))
 	check_amount()
 
 /// Shoot a gumball
 /obj/item/borg/lollipop/proc/shootG(atom/target, mob/living/user, params)
 	if(candy <= 0)
-		to_chat(user, span_warning("Not enough gumballs left!"))
+		to_chat(user, span_warning("Недостаточно жвачки!"))
 		return FALSE
 	candy--
 	var/obj/item/ammo_casing/gumball/gumball
@@ -117,7 +117,7 @@
 	gumball.loaded_projectile.color = rgb(rand(0, 255), rand(0, 255), rand(0, 255))
 	playsound(src.loc, 'sound/weapons/bulletflyby3.ogg', 50, TRUE)
 	gumball.fire_casing(target, user, params, 0, 0, null, 0, src)
-	user.visible_message(span_warning("[user] shoots a high-velocity gumball at [target]!"))
+	user.visible_message(span_warning("[user] выстрелил в [target] жвачкой!"))
 	check_amount()
 
 /obj/item/borg/lollipop/afterattack(atom/target, mob/living/user, proximity, click_params)
@@ -125,7 +125,7 @@
 	if(iscyborg(user))
 		var/mob/living/silicon/robot/robot_user = user
 		if(!robot_user.cell.use(12))
-			to_chat(user, span_warning("Not enough power."))
+			to_chat(user, span_warning("Недостаточно энергии."))
 			return AFTERATTACK_PROCESSED_ITEM
 	switch(mode)
 		if(DISPENSE_LOLLIPOP_MODE, DISPENSE_ICECREAM_MODE)
@@ -142,21 +142,21 @@
 	switch(mode)
 		if(DISPENSE_LOLLIPOP_MODE)
 			mode = THROW_LOLLIPOP_MODE
-			to_chat(user, span_notice("Module is now throwing lollipops."))
+			to_chat(user, span_notice("Модуль переключен на стрельбу леденцами."))
 		if(THROW_LOLLIPOP_MODE)
 			mode = THROW_GUMBALL_MODE
-			to_chat(user, span_notice("Module is now blasting gumballs."))
+			to_chat(user, span_notice("Модуль переключен на стрельбу жвачкой."))
 		if(THROW_GUMBALL_MODE)
 			mode = DISPENSE_ICECREAM_MODE
-			to_chat(user, span_notice("Module is now dispensing ice cream."))
+			to_chat(user, span_notice("Модуль переключён на выдачу мороженного."))
 		if(DISPENSE_ICECREAM_MODE)
 			mode = DISPENSE_LOLLIPOP_MODE
-			to_chat(user, span_notice("Module is now dispensing lollipops."))
+			to_chat(user, span_notice("Модуль переключён на выдачу леденцов."))
 	..()
 
 /obj/item/ammo_casing/gumball
-	name = "Gumball"
-	desc = "Why are you seeing this?!"
+	name = "жвачка"
+	desc = "Почему вы смотрите на неё?!"
 	projectile_type = /obj/projectile/bullet/gumball
 	click_cooldown_override = 2
 
@@ -168,8 +168,9 @@
 	projectile_type = /obj/projectile/bullet/gumball/harmful
 
 /obj/projectile/bullet/gumball
-	name = "gumball"
-	desc = "Oh noes! A fast-moving gumball!"
+	name = "жвачка"
+	desc = "О нет! Быстро летящая жвачка!"
+	icon_state = "gumball"
 	icon_state = "gumball"
 	damage = 0
 	speed = 0.5
@@ -188,8 +189,8 @@
 	gumball.color = color
 
 /obj/item/ammo_casing/lollipop //NEEDS RANDOMIZED COLOR LOGIC.
-	name = "Lollipop"
-	desc = "Why are you seeing this?!"
+	name = "леденец"
+	desc = "Почему вы смотрите на это?!"
 	projectile_type = /obj/projectile/bullet/lollipop
 	click_cooldown_override = 2
 
@@ -201,8 +202,8 @@
 	projectile_type = /obj/projectile/bullet/lollipop/harmful
 
 /obj/projectile/bullet/lollipop
-	name = "lollipop"
-	desc = "Oh noes! A fast-moving lollipop!"
+	name = "леденец"
+	desc = "О нет, быстро летящий леденец!"
 	icon_state = "lollipop_1"
 	damage = 0
 	speed = 0.5

@@ -1,6 +1,6 @@
 
 /obj/effect/anomaly/dimensional
-	name = "dimensional anomaly"
+	name = "пространственная аномалия"
 	icon_state = "dimensional"
 	aSignal = /obj/item/assembly/signaler/anomaly/dimensional
 	immortal = TRUE
@@ -73,7 +73,7 @@
 	var/area/new_area = placer.findValidArea()
 	var/turf/new_turf = placer.findValidTurf(new_area)
 
-	priority_announce("Dimensional instability relocated. Expected location: [new_area.name].", "Anomaly Alert")
+	priority_announce("Пространственная аномалия переместилась. Ожидаемое местоположение: [new_area.name].", "Аномальная тревога")
 	src.forceMove(new_turf)
 	prepare_area()
 

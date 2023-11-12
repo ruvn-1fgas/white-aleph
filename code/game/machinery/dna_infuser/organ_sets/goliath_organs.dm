@@ -7,15 +7,14 @@
 /datum/status_effect/organ_set_bonus/goliath
 	id = "organ_set_bonus_goliath"
 	organs_needed = 4
-	bonus_activate_text = span_notice("goliath DNA is deeply infused with you! You can now endure walking on lava!")
-	bonus_deactivate_text = span_notice("You feel your muscle mass shrink and the tendrils around your skin wither. Your Goliath DNA is mostly gone and so is your ability to survive lava.")
+	bonus_activate_text = span_notice("ДНК голиафа теперь часть меня! Теперь я могу не бояться лавы!")
+	bonus_deactivate_text = span_notice("Я чувствую, как мои мышцы сжимаются, а щупальца засыхают. ДНК голиафа практически полностью исчезла, и с ней и моя способность выживать в лаве.")
 	bonus_traits = list(TRAIT_LAVA_IMMUNE)
 
 ///goliath eyes, simple night vision
 /obj/item/organ/internal/eyes/night_vision/goliath
-	name = "goliath eyes"
-	desc = "goliath DNA infused into what was once some normal eyes."
-
+	name = "глаза голиафа"
+	desc = "ДНК голиафа внедрена в то, что когда-то было обычными глазами"
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
 	icon_state = "eyes"
 	greyscale_config = /datum/greyscale_config/mutant_organ
@@ -31,14 +30,13 @@
 
 /obj/item/organ/internal/eyes/night_vision/goliath/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/noticable_organ, "eyes are blood red and stone-like.", BODY_ZONE_PRECISE_EYES)
+	AddElement(/datum/element/noticable_organ, "кроваво-красные глаза похожи на камень.", BODY_ZONE_PRECISE_EYES)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/goliath)
 
 ///goliath lungs! You can breathe lavaland air mix but can't breath pure O2 from a tank anymore.
 /obj/item/organ/internal/lungs/lavaland/goliath
-	name = "mutated goliath-lungs"
-	desc = "goliath DNA infused into what was once some normal lungs."
-
+	name = "легкие голиафа"
+	desc = "ДНК голиафа внедрена в то, что когда-то было обычными легкими."
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
 	icon_state = "lungs"
 	greyscale_config = /datum/greyscale_config/mutant_organ
@@ -46,13 +44,13 @@
 
 /obj/item/organ/internal/lungs/lavaland/goliath/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/noticable_organ, "back is covered in small tendrils.", BODY_ZONE_CHEST)
+	AddElement(/datum/element/noticable_organ, "спина покрыта маленькими щупальцами.", BODY_ZONE_CHEST)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/goliath)
 
 ///goliath brain. you can't use gloves but one of your arms becomes a tendril hammer that can be used to mine!
 /obj/item/organ/internal/brain/goliath
-	name = "mutated goliath-brain"
-	desc = "goliath DNA infused into what was once a normal brain."
+	name = "мозг голиафа"
+	desc = "ДНК голиафа внедрена в то, что когда-то было обычным мозгом."
 
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
 	icon_state = "brain"
@@ -63,7 +61,7 @@
 
 /obj/item/organ/internal/brain/goliath/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/noticable_organ, "arm is just a mass of plate and tendrils.", BODY_ZONE_CHEST)
+	AddElement(/datum/element/noticable_organ, "рука выглядит как масса пластин, удерживаемых щупальцами.", BODY_ZONE_CHEST)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/goliath)
 
 /obj/item/organ/internal/brain/goliath/on_insert(mob/living/carbon/brain_owner)
@@ -89,12 +87,12 @@
 	var/datum/species/rec_species = human_receiver.dna.species
 	rec_species.update_no_equip_flags(brain_owner, initial(rec_species.no_equip_flags))
 	if(hammer)
-		brain_owner.visible_message(span_warning("\The [hammer] disintegrates!"))
+		brain_owner.visible_message(span_warning("[hammer] исчезает!"))
 		QDEL_NULL(hammer)
 
 /obj/item/goliath_infuser_hammer
-	name = "tendril hammer"
-	desc = "A mass of plates held by tendrils has replaced an arm."
+	name = "молот голиафа"
+	desc = "Масса пластин, удерживаемых щупальцами, заменила руку."
 	icon = 'icons/obj/weapons/goliath_hammer.dmi'
 	icon_state = "goliath_hammer"
 	inhand_icon_state = "goliath_hammer"
@@ -106,8 +104,8 @@
 	throwforce = 0
 	throw_range = 0
 	throw_speed = 0
-	attack_verb_continuous = list("smashes", "bashes", "hammers", "crunches", "punches")
-	attack_verb_simple = list("smash", "bash", "hammer", "crunch")
+	attack_verb_continuous = list("разбивает", "колотит", "молотит", "бьет кулаками")
+	attack_verb_simple = list("разбивает", "колотит", "молотит", "бьет кулаками")
 	hitsound = 'sound/effects/bamf.ogg'
 	tool_behaviour = TOOL_MINING
 	toolspeed = 0.1
@@ -122,7 +120,7 @@
 
 /obj/item/goliath_infuser_hammer/examine(mob/user)
 	. = ..()
-	. += "You can use your tendril hammer arm to deliver a devastating blow against mining fauna, but only once every two seconds."
+	. += "Я могу использовать свой молот, чтобы наносить сокрушительные удары мегафауне, но только раз в две секунды."
 
 /obj/item/goliath_infuser_hammer/attack(mob/living/target, mob/living/carbon/human/user, click_parameters)
 	. = ..()
@@ -158,8 +156,8 @@
 
 /// goliath heart gives you the ability to survive ash storms.
 /obj/item/organ/internal/heart/goliath
-	name = "mutated goliath-heart"
-	desc = "goliath DNA infused into what was once a normal heart."
+	name = "сердце голиафа"
+	desc = "ДНК голиафа внедрена в то, что когда-то было обычным сердцем."
 
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
 	icon_state = "heart"
@@ -170,7 +168,7 @@
 
 /obj/item/organ/internal/heart/goliath/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/noticable_organ, "skin has visible hard plates growing from within.", BODY_ZONE_CHEST)
+	AddElement(/datum/element/noticable_organ, "кожа покрыта твердыми пластинами.", BODY_ZONE_CHEST)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/goliath)
 	AddElement(/datum/element/update_icon_blocker)
 

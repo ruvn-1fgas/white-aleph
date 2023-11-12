@@ -48,8 +48,8 @@
 #define PREV_GENE 2
 
 /obj/machinery/computer/scan_consolenew
-	name = "DNA Console"
-	desc = "From here you can research mysteries of the DNA!"
+	name = "Консоль сканера ДНК"
+	desc = "Отображает визуальную информацию о генетической структуре подопытного, позволяет вносить изменения и синтезировать мутаторы. Для разблокировки полного функционала требует подключения к манипулятору ДНК. Поддерживает синхронизацию с компактным сканером ДНК."
 	icon_screen = "dna"
 	icon_keyboard = "med_key"
 	density = TRUE

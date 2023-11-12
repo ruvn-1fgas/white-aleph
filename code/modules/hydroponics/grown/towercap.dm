@@ -80,7 +80,7 @@
 
 /obj/item/grown/log/attackby(obj/item/W, mob/user, params)
 	if(W.get_sharpness())
-		user.show_message(span_notice("You make [plank_name] out of \the [src]!"), MSG_VISUAL)
+		user.show_message(span_notice("You make [plank_name] out of  [src]!"), MSG_VISUAL)
 		var/seed_modifier = 0
 		if(seed)
 			seed_modifier = round(seed.potency / 25)
@@ -96,7 +96,7 @@
 	if(CheckAccepted(W))
 		var/obj/item/food/grown/leaf = W
 		if(HAS_TRAIT(leaf, TRAIT_DRIED))
-			user.show_message(span_notice("You wrap \the [W] around the log, turning it into a torch!"))
+			user.show_message(span_notice("You wrap  [W] around the log, turning it into a torch!"))
 			var/obj/item/flashlight/flare/torch/T = new /obj/item/flashlight/flare/torch(user.loc)
 			usr.dropItemToGround(W)
 			usr.put_in_active_hand(T)

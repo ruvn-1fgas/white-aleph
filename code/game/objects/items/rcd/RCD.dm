@@ -7,7 +7,8 @@
 //RAPID CONSTRUCTION DEVICE
 
 /obj/item/construction/rcd
-	name = "rapid-construction-device (RCD)"
+	name = "РЦД - автоматический строительный комплекс"
+	desc = "Многофункциональный инструмент для быстрого строительства и разбора базовых конструкций, можно загрузить дополнительные чертежи."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
 	worn_icon_state = "RCD"
@@ -81,7 +82,7 @@
 
 /obj/item/construction/rcd/ui_action_click(mob/user, actiontype)
 	if (!COOLDOWN_FINISHED(src, destructive_scan_cooldown))
-		to_chat(user, span_warning("[src] lets out a low buzz."))
+		to_chat(user, span_warning("[src] бздынькает."))
 		return
 
 	COOLDOWN_START(src, destructive_scan_cooldown, RCD_DESTRUCTIVE_SCAN_COOLDOWN)
@@ -309,8 +310,9 @@
 			var/atom/movable/design_path = design[RCD_DESIGN_PATH]
 
 			var/design_name = initial(design_path.name)
+			var/title = capitalize(design_name)
 
-			designs += list(list("title" = design_name, "icon" = sanitize_css_class_name(design_name)))
+			designs += list(list("title" = title, "icon" = design_name))
 		data["categories"] += list(list("cat_name" = sub_category, "designs" = designs))
 
 	return data
@@ -482,7 +484,7 @@
 	)
 
 /obj/item/construction/rcd/combat
-	name = "industrial RCD"
+	name = "промышленный РЦД"
 	icon_state = "ircd"
 	inhand_icon_state = "ircd"
 	max_matter = 500
@@ -491,15 +493,17 @@
 	upgrade = RCD_ALL_UPGRADES
 
 /obj/item/construction/rcd/combat/admin
-	name = "admin RCD"
+	name = "РЦД - автоматический строительный комплекс"
+	icon_state = "rcd"
+	inhand_icon_state = "rcd"
 	max_matter = INFINITY
 	matter = INFINITY
 	upgrade = RCD_ALL_UPGRADES & ~RCD_UPGRADE_SILO_LINK
 
 // Ranged RCD
 /obj/item/construction/rcd/arcd
-	name = "advanced rapid-construction-device (ARCD)"
-	desc = "A prototype RCD with ranged capability and infinite capacity."
+	name = "продвинутый РЦД"
+	desc = "Прототип РЦД с дистанционными протоколами строительства и увеличенной емкостью. Заряжается металлом, стеклом, пласталью и картриджами."
 	max_matter = INFINITY
 	matter = INFINITY
 	canRturf = TRUE
@@ -514,8 +518,8 @@
 #undef RCD_DESTRUCTIVE_SCAN_COOLDOWN
 
 /obj/item/rcd_ammo
-	name = "RCD matter cartridge"
-	desc = "Highly compressed matter for the RCD."
+	name = "картридж спрессованной материи"
+	desc = "А на вид он выглядит значительно легче."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcdammo"
 	w_class = WEIGHT_CLASS_TINY

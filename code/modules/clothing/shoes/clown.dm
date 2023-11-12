@@ -1,5 +1,5 @@
 /obj/item/clothing/shoes/clown_shoes
-	desc = "The prankster's standard-issue clowning shoes. Damn, they're huge! Ctrl-click to toggle waddle dampeners."
+	desc = "The prankster's standard-issue clowning shoes. Damn, they're huge! Ctrl-клик to toggle waddle dampeners."
 	name = "clown shoes"
 	icon_state = "clown"
 	inhand_icon_state = "clown_shoes"

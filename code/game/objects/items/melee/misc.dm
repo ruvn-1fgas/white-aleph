@@ -10,7 +10,7 @@
 
 
 /obj/item/melee/chainofcommand
-	name = "chain of command"
+	name = "цепь командования"
 	desc = "A tool used by great men to placate the frothing masses."
 	icon = 'icons/obj/weapons/whip.dmi'
 	icon_state = "chain"
@@ -36,8 +36,8 @@
 	return OXYLOSS
 
 /obj/item/melee/synthetic_arm_blade
-	name = "synthetic arm blade"
-	desc = "A grotesque blade that on closer inspection seems to be made out of synthetic flesh, it still feels like it would hurt very badly as a weapon."
+	name = "синтетическая рука-лезвие"
+	desc = "Гротескный клинок, который при ближайшем рассмотрении кажется сделанным из синтетической плоти, все равно кажется, что в качестве оружия он причинял бы очень сильную боль."
 	icon = 'icons/obj/weapons/changeling_items.dmi'
 	icon_state = "arm_blade"
 	inhand_icon_state = "arm_blade"
@@ -47,8 +47,8 @@
 	force = 20
 	throwforce = 10
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	attack_verb_continuous = list("атакует", "разрезает", "колет", "режет", "рвет", "разрывает", "нарезает")
+	attack_verb_simple = list("атакует", "разрезает", "колет", "режет", "рвет", "разрывает", "нарезает")
 	sharpness = SHARP_EDGED
 
 /obj/item/melee/synthetic_arm_blade/Initialize(mapload)
@@ -60,8 +60,8 @@
 	//very imprecise
 
 /obj/item/melee/sabre
-	name = "officer's sabre"
-	desc = "An elegant weapon, its monomolecular edge is capable of cutting through flesh and bone with ease."
+	name = "офицерская сабля"
+	desc = "Элегантное оружие, его мономолекулярное лезвие способно разрезать плоть и кости одним взмахом."
 	icon = 'icons/obj/weapons/sword.dmi'
 	icon_state = "sabre"
 	inhand_icon_state = "sabre"
@@ -76,8 +76,8 @@
 	block_chance = 50
 	armour_penetration = 75
 	sharpness = SHARP_EDGED
-	attack_verb_continuous = list("slashes", "cuts")
-	attack_verb_simple = list("slash", "cut")
+	attack_verb_continuous = list("разрезает", "нарезает")
+	attack_verb_simple = list("разрезает", "нарезает")
 	block_sound = 'sound/weapons/parry.ogg'
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
@@ -177,8 +177,8 @@
 	REMOVE_TRAIT(src, TRAIT_NODROP, SABRE_SUICIDE_TRAIT)
 
 /obj/item/melee/beesword
-	name = "The Stinger"
-	desc = "Taken from a giant bee and folded over one thousand times in pure honey. Can sting through anything."
+	name = "\"Жало\""
+	desc = "Взятый у гигантской пчелы и сложенный более чем в тысячу раз в чистом меду. Может ужалить насквозь что угодно."
 	icon = 'icons/obj/weapons/sword.dmi'
 	icon_state = "beesword"
 	inhand_icon_state = "stinger"
@@ -193,8 +193,8 @@
 	attack_speed = CLICK_CD_RAPID
 	block_chance = 20
 	armour_penetration = 65
-	attack_verb_continuous = list("slashes", "stings", "prickles", "pokes")
-	attack_verb_simple = list("slash", "sting", "prickle", "poke")
+	attack_verb_continuous = list("режет", "колет", "тычет", "прокалывает")
+	attack_verb_simple = list("режет", "колет", "тычет", "прокалывает")
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	block_sound = 'sound/weapons/parry.ogg'
 

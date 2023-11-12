@@ -59,11 +59,11 @@
 
 	for(var/atom/movable/checked_atom as anything in next_turf)
 		if(isliving(checked_atom))
-			sm_comp.dust_mob(src, checked_atom, span_danger("\The [src] lunges out on [checked_atom], touching [checked_atom.p_them()]... \
-					[checked_atom.p_their()] body begins to shine with a brilliant light before crystallizing from the inside out and joining \the [src]!"),
+			sm_comp.dust_mob(src, checked_atom, span_danger(" [src] lunges out on [checked_atom], touching [checked_atom.p_them()]... \
+					[checked_atom.p_their()] body begins to shine with a brilliant light before crystallizing from the inside out and joining  [src]!"),
 				span_userdanger("The crystal mass lunges on you and hits you in the chest. As your vision is filled with a blinding light, you think to yourself \"Damn it.\""))
 		else if(istype(checked_atom, /obj/cascade_portal))
-			checked_atom.visible_message(span_userdanger("\The [checked_atom] screeches and closes away as it is hit by \a [src]! Too late!"))
+			checked_atom.visible_message(span_userdanger(" [checked_atom] screeches and closes away as it is hit by \a [src]! Too late!"))
 			playsound(get_turf(checked_atom), 'sound/magic/charge.ogg', 50, TRUE)
 			playsound(get_turf(checked_atom), 'sound/effects/supermatter.ogg', 50, TRUE)
 			qdel(checked_atom)
@@ -151,9 +151,9 @@
  */
 /obj/cascade_portal/proc/consume(atom/movable/consumed_object)
 	if(isliving(consumed_object))
-		consumed_object.visible_message(span_danger("\The [consumed_object] walks into \the [src]... \
+		consumed_object.visible_message(span_danger(" [consumed_object] walks into  [src]... \
 			A blinding light covers [consumed_object.p_their()] body before disappearing completely!"),
-			span_userdanger("You walk into \the [src] as your body is washed with a powerful blue light. \
+			span_userdanger("You walk into  [src] as your body is washed with a powerful blue light. \
 				You contemplate about this decision before landing face first onto the cold, hard floor."),
 			span_hear("You hear a loud crack as a distortion passes through you."))
 
@@ -174,7 +174,7 @@
 		new /obj/effect/particle_effect/sparks(consumed_object)
 		playsound(consumed_object, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	else if(isitem(consumed_object))
-		consumed_object.visible_message(span_danger("\The [consumed_object] smacks into \the [src] and disappears out of sight."), null,
+		consumed_object.visible_message(span_danger(" [consumed_object] smacks into  [src] and disappears out of sight."), null,
 			span_hear("You hear a loud crack as a small distortion passes through you."))
 
 		qdel(consumed_object)

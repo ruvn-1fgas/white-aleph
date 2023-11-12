@@ -174,10 +174,10 @@
 /obj/item/clothing/neck/link_scryer/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += span_notice("The battery charge reads [cell.percent()]%. <b>Right-click</b> with an empty hand to remove it.")
+		. += span_notice("The battery charge reads [cell.percent()]%. <b>ПКМ</b> with an empty hand to remove it.")
 	else
 		. += span_notice("It is missing a battery, one can be installed by clicking with a power cell on it.")
-	. += span_notice("The MODlink ID is [mod_link.id], frequency is [mod_link.frequency || "unset"]. <b>Right-click</b> with multitool to copy/imprint frequency.")
+	. += span_notice("The MODlink ID is [mod_link.id], frequency is [mod_link.frequency || "unset"]. <b>ПКМ</b> with multitool to copy/imprint frequency.")
 	. += span_notice("Use in hand to set name.")
 
 /obj/item/clothing/neck/link_scryer/equipped(mob/living/user, slot)
@@ -415,7 +415,7 @@
 		return
 	link_target.playsound_local(get_turf(called.holder), 'sound/weapons/ring.ogg', 15, vary = TRUE)
 	var/atom/movable/screen/alert/modlink_call/alert = link_target.throw_alert("[REF(src)]_modlink", /atom/movable/screen/alert/modlink_call)
-	alert.desc = "[holder] ([id]) is calling you! Left-click this to accept the call. Right-click to deny it."
+	alert.desc = "[holder] ([id]) is calling you! Left-click this to accept the call. ПКМ to deny it."
 	alert.caller_ref = WEAKREF(src)
 	alert.receiver_ref = WEAKREF(called)
 	alert.user_ref = WEAKREF(user)
@@ -500,7 +500,7 @@
 
 /atom/movable/screen/alert/modlink_call
 	name = "MODlink Call Incoming"
-	desc = "Someone is calling you! Left-click this to accept the call. Right-click to deny it."
+	desc = "Someone is calling you! Left-click this to accept the call. ПКМ to deny it."
 	icon_state = "called"
 	timeout = 10 SECONDS
 	var/end_message = "call timed out!"

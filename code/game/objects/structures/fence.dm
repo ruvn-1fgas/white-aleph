@@ -11,8 +11,8 @@
 #define MAX_HOLE_SIZE LARGE_HOLE
 
 /obj/structure/fence
-	name = "fence"
-	desc = "A chain link fence. Not as effective as a wall, but generally it keeps people out."
+	name = "заборчик"
+	desc = "Забор из сетки рабицы. Не так эффективно, как стена, но людей не пропускает."
 	density = TRUE
 	anchored = TRUE
 
@@ -33,9 +33,9 @@
 
 	switch(hole_size)
 		if(MEDIUM_HOLE)
-			. += "There is a large hole in \the [src]."
+			. += "There is a large hole in  [src]."
 		if(LARGE_HOLE)
-			. += "\The [src] has been completely cut through."
+			. += " [src] has been completely cut through."
 
 /obj/structure/fence/end
 	icon_state = "end"
@@ -70,19 +70,19 @@
 			to_chat(user, span_warning("This fence has too much cut out of it already!"))
 			return
 
-		user.visible_message(span_danger("\The [user] starts cutting through \the [src] with \the [W]."),\
-		span_danger("You start cutting through \the [src] with \the [W]."))
+		user.visible_message(span_danger(" [user] starts cutting through  [src] with  [W]."),\
+		span_danger("You start cutting through  [src] with  [W]."))
 
 		if(do_after(user, CUT_TIME*W.toolspeed, target = src))
 			if(current_stage == hole_size)
 				switch(++hole_size)
 					if(MEDIUM_HOLE)
-						visible_message(span_notice("\The [user] cuts into \the [src] some more."))
+						visible_message(span_notice(" [user] cuts into  [src] some more."))
 						to_chat(user, span_info("You could probably fit yourself through that hole now. Although climbing through would be much faster if you made it even bigger."))
 						AddElement(/datum/element/climbable)
 					if(LARGE_HOLE)
-						visible_message(span_notice("\The [user] completely cuts through \the [src]."))
-						to_chat(user, span_info("The hole in \the [src] is now big enough to walk through."))
+						visible_message(span_notice(" [user] completely cuts through  [src]."))
+						to_chat(user, span_info("The hole in  [src] is now big enough to walk through."))
 						RemoveElement(/datum/element/climbable)
 
 				update_cut_status()
@@ -106,8 +106,8 @@
 //FENCE DOORS
 
 /obj/structure/fence/door
-	name = "fence door"
-	desc = "Not very useful without a real lock."
+	name = "калитка"
+	desc = "Сомнительная польза без замка. В виду активизации деятельности международной террористической организации «ИГИЛ» убедительно просим вас закрывать калитку на крючок."
 	icon_state = "door_closed"
 	cuttable = FALSE
 
@@ -127,7 +127,7 @@
 	return TRUE
 
 /obj/structure/fence/door/proc/toggle(mob/user)
-	visible_message(span_notice("\The [user] [density ? "opens" : "closes"] \the [src]."))
+	visible_message(span_notice(" [user] [density ? "opens" : "closes"]  [src]."))
 	set_density(!density)
 	update_icon_state()
 	playsound(src, 'sound/machines/click.ogg', 100, TRUE)

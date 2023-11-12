@@ -16,14 +16,15 @@
 
 /obj/item/tank/internals/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click the tank to toggle the valve.")
+	. += "<hr>"
+	. += span_notice("Alt-клик для переключения подачи.")
 
 /*
  * Oxygen
  */
 /obj/item/tank/internals/oxygen
-	name = "oxygen tank"
-	desc = "A tank of oxygen, this one is blue."
+	name = "кислородный баллон"
+	desc = "Баллон с кислородом, этот синий."
 	icon_state = "oxygen"
 	inhand_icon_state = "oxygen_tank"
 	tank_holder_icon_state = "holder_oxygen"
@@ -38,14 +39,14 @@
 
 
 /obj/item/tank/internals/oxygen/yellow
-	desc = "A tank of oxygen, this one is yellow."
+	desc = "Баллон с кислородом, этот жёлтый."
 	icon_state = "oxygen_f"
 	inhand_icon_state = "oxygen_f_tank"
 	tank_holder_icon_state = "holder_oxygen_f"
 	dog_fashion = null
 
 /obj/item/tank/internals/oxygen/red
-	desc = "A tank of oxygen, this one is red."
+	desc = "Баллон с кислородом, этот красный."
 	icon_state = "oxygen_fr"
 	inhand_icon_state = "oxygen_fr_tank"
 	tank_holder_icon_state = "holder_oxygen_fr"
@@ -58,8 +59,8 @@
  * Anesthetic
  */
 /obj/item/tank/internals/anesthetic
-	name = "anesthetic tank"
-	desc = "A tank with an N2O/O2 gas mix."
+	name = "баллон анестезии"
+	desc = "Заправлен N2O/O2."
 	icon_state = "anesthetic"
 	inhand_icon_state = "an_tank"
 	tank_holder_icon_state = "holder_anesthetic"
@@ -74,8 +75,8 @@
  * Plasma
  */
 /obj/item/tank/internals/plasma
-	name = "plasma tank"
-	desc = "Contains dangerous plasma. Do not inhale. Warning: extremely flammable."
+	name = "бак плазмы"
+	desc = "Содержит опасную плазму. Не вдыхайте. Предупреждение: очень легко воспламеняется."
 	icon_state = "plasma"
 	inhand_icon_state = "plasma_tank"
 	worn_icon_state = "plasmatank"
@@ -114,8 +115,8 @@
  */
 
 /obj/item/tank/internals/plasmaman
-	name = "plasma internals tank"
-	desc = "A tank of plasma gas designed specifically for use as internals, particularly for plasma-based lifeforms. If you're not a Plasmaman, you probably shouldn't use this."
+	name = "баллон плазмы для дыхания"
+	desc = "Резервуар с плазменным газом, разработанный специально для использования в качестве внутренних устройств, особенно для плазменных форм жизни. Если вы не плазмамен, вам, вероятно, не стоит его использовать."
 	icon_state = "plasmaman_tank"
 	inhand_icon_state = "plasmaman_tank"
 	tank_holder_icon_state = null
@@ -155,8 +156,8 @@
  * Emergency Oxygen
  */
 /obj/item/tank/internals/emergency_oxygen
-	name = "emergency oxygen tank"
-	desc = "Used for emergencies. Contains very little oxygen, so try to conserve it until you actually need it."
+	name = "аварийный кислородный баллон"
+	desc = "Используется в экстренных случаях. Содержит очень мало кислорода, поэтому постарайтесь сохранить его, пока он вам не понадобится."
 	icon_state = "emergency"
 	inhand_icon_state = "emergency_tank"
 	worn_icon_state = "emergency"
@@ -179,7 +180,7 @@
 	return
 
 /obj/item/tank/internals/emergency_oxygen/engi
-	name = "extended-capacity emergency oxygen tank"
+	name = "аварийный кислородный баллон увеличенной емкости"
 	icon_state = "emergency_engi"
 	inhand_icon_state = "emergency_engi_tank"
 	worn_icon_state = "emergency_engi"
@@ -191,7 +192,7 @@
 	return
 
 /obj/item/tank/internals/emergency_oxygen/double
-	name = "double emergency oxygen tank"
+	name = "двойной аварийный кислородный баллон"
 	icon_state = "emergency_double"
 	worn_icon_state = "emergency_engi"
 	tank_holder_icon_state = "holder_emergency_engi"
@@ -205,8 +206,8 @@
 // *
 
 /obj/item/tank/internals/generic
-	name = "gas tank"
-	desc = "A generic tank used for storing and transporting gasses. Can be used for internals."
+	name = "газовый баллон"
+	desc = "Стандартный резервуар, используемый для хранения и транспортировки газов. Может использоваться для дыхания."
 	icon_state = "generic"
 	inhand_icon_state = "generic_tank"
 	distribute_pressure = TANK_DEFAULT_RELEASE_PRESSURE
@@ -220,8 +221,8 @@
  * Funny internals
  */
 /obj/item/tank/internals/emergency_oxygen/engi/clown
-	name = "funny emergency oxygen tank"
-	desc = "Used for emergencies. Contains very little oxygen with an extra of a funny gas, so try to conserve it until you actually need it."
+	name = "смешной баллон"
+	desc = "Используется в экстренных случаях. Содержит очень мало кислорода, поэтому постарайтесь сохранить его, пока он вам не понадобится."
 	icon_state = "emergency_clown"
 	inhand_icon_state = "emergency_clown"
 	worn_icon_state = "emergency_clown"

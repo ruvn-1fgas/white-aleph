@@ -6,14 +6,14 @@
 	return user.holder ? TRUE : FALSE
 
 /datum/keybinding/admin/admin_say
-	hotkey_keys = list("F3")
+	hotkey_keys = list("F5")
 	name = ADMIN_CHANNEL
 	full_name = "Admin say"
 	description = "Talk with other admins."
 	keybind_signal = COMSIG_KB_ADMIN_ASAY_DOWN
 
 /datum/keybinding/admin/admin_ghost
-	hotkey_keys = list("F5")
+	hotkey_keys = list("F6")
 	name = "admin_ghost"
 	full_name = "Aghost"
 	description = "Go ghost"
@@ -27,7 +27,7 @@
 	return TRUE
 
 /datum/keybinding/admin/player_panel_new
-	hotkey_keys = list("F6")
+	hotkey_keys = list("F9")
 	name = "player_panel_new"
 	full_name = "Player Panel New"
 	description = "Opens up the new player panel"
@@ -125,7 +125,7 @@
 	return TRUE
 
 /datum/keybinding/admin/view_tags
-	hotkey_keys = list("F9")
+	hotkey_keys = list("F11")
 	name = "view_tags"
 	full_name = "View Tags"
 	description = "Open the View-Tags menu"

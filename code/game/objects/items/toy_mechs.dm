@@ -14,10 +14,10 @@
 /obj/item/toy/mecha
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "fivestarstoy"
-	verb_say = "beeps"
-	verb_ask = "beeps"
-	verb_exclaim = "beeps"
-	verb_yell = "beeps"
+	verb_say = "бипает"
+	verb_ask = "бипает"
+	verb_exclaim = "бипает"
+	verb_yell = "бипает"
 	w_class = WEIGHT_CLASS_SMALL
 	/// Timer when it'll be off cooldown
 	var/timer = 0

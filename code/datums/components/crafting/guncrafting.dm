@@ -10,8 +10,8 @@
 	return
 
 /obj/item/weaponcrafting/receiver
-	name = "modular receiver"
-	desc = "A prototype modular receiver and trigger assembly for a firearm."
+	name = "модульный приёмник"
+	desc = "Прототип модульного приёмника, который может послужить как спусковой крючок для огнестрела."
 	icon = 'icons/obj/weapons/improvised.dmi'
 	icon_state = "receiver"
 
@@ -24,8 +24,8 @@
 	)
 
 /obj/item/weaponcrafting/stock
-	name = "rifle stock"
-	desc = "A classic rifle stock that doubles as a grip, roughly carved out of wood."
+	name = "приклад"
+	desc = "Классический приклад от винтовки, так же служит как ручка. Грубо выструган из дерева."
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 6)
 	resistance_flags = FLAMMABLE
 	icon = 'icons/obj/weapons/improvised.dmi'
@@ -40,8 +40,8 @@
 	)
 
 /obj/item/weaponcrafting/giant_wrench
-	name = "Big Slappy parts kit"
-	desc = "Illegal parts to make a giant like wrench commonly known as a Big Slappy."
+	name = "Набор запчастей для Big Slappy"
+	desc = "Набор запчастей для изготовления огромного гаечного ключа, известного как Big Slappy."
 	icon = 'icons/obj/weapons/improvised.dmi'
 	icon_state = "weaponkit_gw"
 
@@ -58,43 +58,43 @@
 // GUN PART KIT //
 
 /obj/item/weaponcrafting/gunkit // These don't get a slapcraft component, it's added to the gun - more intuitive player-facing to slap the kit onto the gun.
-	name = "generic gun parts kit"
-	desc = "It's an empty gun parts container! Why do you have this?"
+	name = "стандартный комплект оружейных деталей"
+	desc = "Это пустой контейнер для деталей оружия! Зачем тебе это?"
 	icon = 'icons/obj/weapons/improvised.dmi'
 	icon_state = "kitsuitcase"
 
 /obj/item/weaponcrafting/gunkit/nuclear
-	name = "advanced energy gun parts kit (lethal/nonlethal)"
-	desc = "A suitcase containing the necessary gun parts to tranform a standard energy gun into an advanced energy gun."
+	name = "комплект деталей продвинутой энергетической винтовки"
+	desc = "Кейс, содержащий необходимые детали винтовки для преобразования стандартной энергетической винтовки в продвиную энергетическую винтовку."
 
 /obj/item/weaponcrafting/gunkit/tesla
-	name = "tesla cannon parts kit (lethal)"
-	desc = "A suitcase containing the necessary gun parts to construct a tesla cannon around a stabilized flux anomaly. Handle with care."
+	name = "комлект деталей пушки тесла"
+	desc = "Кейс, содержащий необходимые детали для создания пушки тесла с использованием ядра аномалии. Применять с соблюдением техники безопасности."
 
 /obj/item/weaponcrafting/gunkit/xray
-	name = "x-ray laser gun parts kit (lethal)"
-	desc = "A suitcase containing the necessary gun parts to turn a laser gun into a x-ray laser gun. Do not point most parts directly towards face."
+	name = "комплект деталей рентгеновской лазерной винтовки"
+	desc = "Кейс, содержащий необходимые детали для преобразования стандартной энергетической винтовки в рентгеновскую лазерную винтовку. Не направляйте большую часть деталей прямо на лицо."
 
 /obj/item/weaponcrafting/gunkit/ion
-	name = "ion carbine parts kit (nonlethal/highly destructive/very lethal (silicons))"
-	desc = "A suitcase containing the necessary gun parts to transform a standard laser gun into a ion carbine. Perfect against lockers you don't have access to."
+	name = "комплект деталей ионного карабина"
+	desc = "Кейс, содержащий необходимые детали для преобразования стандартной энергетической винтовки в ионный карабин. Идеально подходит для открытия шкафчиков, к которым у вас нет доступа."
 
 /obj/item/weaponcrafting/gunkit/temperature
-	name = "temperature gun parts kit (less lethal/very lethal (lizardpeople))"
-	desc = "A suitcase containing the necessary gun parts to tranform a standard energy gun into a temperature gun. Fantastic at birthday parties and killing indigenious populations of lizardpeople."
+	name = "комплект деталей для температурной винтовки"
+	desc = "Кейс, содержащий необходимые детали для преобразования стандартной энергетической винтовки в температурную винтовку. Фантастический подарок на день рождения и убийство местных популяций ящеров."
 
 /obj/item/weaponcrafting/gunkit/beam_rifle
-	name = "particle acceleration rifle part kit (lethal)"
-	desc = "The coup de grace of guncrafting. This suitcase contains the highly experimental rig for a particle acceleration rifle. Requires an energy gun, a stabilized flux anomaly and a stabilized gravity anomaly."
+	name = "комплект деталей для частицеускоряющей винтовки"
+	desc = "Кейс, содержащий необходимые детали для преобразования стандартной энергетической винтовки в частицеускоряющую винтовку. Требует энергетическую винтовку, стабилизированную аномалию потока и стабилизированную аномалию гравитации."
 
 /obj/item/weaponcrafting/gunkit/decloner
-	name = "decloner part kit (lethal)"
-	desc = "An uttery baffling array of gun parts and technology that somehow turns a laser gun into a decloner. Haircut not included."
+	name = "комплект деталей клеточного демокуляризатора"
+	desc = "Полный набор запчастей и технологий, который каким-то образом превращает лазерную винтовку в клеточный демокуляризатор. Стрижка не включена."
 
 /obj/item/weaponcrafting/gunkit/ebow
-	name = "energy crossbow part kit (less lethal)"
-	desc = "Highly illegal weapons refurbishment kit that allows you to turn the standard proto-kinetic accelerator into a near-duplicate energy crossbow. Almost like the real thing!"
+	name = "комплект деталей энергетического арбалета"
+	desc = "Кейс, содержащий необходимые детали для преобразования стандартного прото-кинетического ускорителя в энергетический арбалет. Почти как настоящий!"
 
 /obj/item/weaponcrafting/gunkit/hellgun
-	name = "hellfire laser gun degradation kit (warcrime lethal)"
-	desc = "Take a perfectly functioning laser gun. Butcher the inside of the gun so it runs hot and mean. You now have a hellfire laser. You monster."
+	name = "комплект для создания винтовки \"Адское пламя\""
+	desc = "Возьмите полностью функционирующую лазерную винтовку. Изуродуйте внутренности оружия, чтобы оно работало горячо и злобно. Теперь у вас есть винтовка \"Адское пламя\". Вы чудовище."

@@ -41,18 +41,18 @@
 	//Can't grab when capsule is New() because templates aren't loaded then
 	get_template()
 	if(!used)
-		loc.visible_message(span_warning("\The [src] begins to shake. Stand back!"))
+		loc.visible_message(span_warning(" [src] begins to shake. Stand back!"))
 		used = TRUE
 		sleep(5 SECONDS)
 		var/turf/deploy_location = get_turf(src)
 		var/status = template.check_deploy(deploy_location)
 		switch(status)
 			if(SHELTER_DEPLOY_BAD_AREA)
-				src.loc.visible_message(span_warning("\The [src] will not function in this area."))
+				src.loc.visible_message(span_warning(" [src] will not function in this area."))
 			if(SHELTER_DEPLOY_BAD_TURFS, SHELTER_DEPLOY_ANCHORED_OBJECTS, SHELTER_DEPLOY_OUTSIDE_MAP)
 				var/width = template.width
 				var/height = template.height
-				src.loc.visible_message(span_warning("\The [src] doesn't have room to deploy! You need to clear a [width]x[height] area!"))
+				src.loc.visible_message(span_warning(" [src] doesn't have room to deploy! You need to clear a [width]x[height] area!"))
 		if(status != SHELTER_DEPLOY_ALLOWED)
 			used = FALSE
 			return

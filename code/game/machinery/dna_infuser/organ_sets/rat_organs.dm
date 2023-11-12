@@ -7,14 +7,14 @@
 /datum/status_effect/organ_set_bonus/rat
 	id = "organ_set_bonus_rat"
 	organs_needed = 4
-	bonus_activate_text = span_notice("Rodent DNA is deeply infused with you! You've learned how to traverse ventilation!")
-	bonus_deactivate_text = span_notice("Your DNA is no longer majority rat, and so fades your ventilation skills...")
+	bonus_activate_text = span_notice("ДНК крысы теперь часть меня! Теперь я могу ползать по вентиляции!")
+	bonus_deactivate_text = "Моя ДНК стала обычной и теперь я не могу ползать по вентиляции..."
 	bonus_traits = list(TRAIT_VENTCRAWLER_NUDE)
 
 ///way better night vision, super sensitive. lotta things work like this, huh?
 /obj/item/organ/internal/eyes/night_vision/rat
-	name = "mutated rat-eyes"
-	desc = "Rat DNA infused into what was once a normal pair of eyes."
+	name = "глаза крысы"
+	desc = "ДНК крысы внедрена в то, что когда-то было обычными глазами."
 	flash_protect = FLASH_PROTECTION_HYPER_SENSITIVE
 	eye_color_left = "#000000"
 	eye_color_right = "#000000"
@@ -29,13 +29,13 @@
 
 /obj/item/organ/internal/eyes/night_vision/rat/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/noticable_organ, "eyes have deep, shifty black pupils, surrounded by a sickening yellow sclera.", BODY_ZONE_PRECISE_EYES)
+	AddElement(/datum/element/noticable_organ, "зрачки глубокие, подозрительные, окруженные тошнотворной желтой склерой.", BODY_ZONE_PRECISE_EYES)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/rat)
 
 ///increases hunger, disgust recovers quicker, expands what is defined as "food"
 /obj/item/organ/internal/stomach/rat
-	name = "mutated rat-stomach"
-	desc = "Rat DNA infused into what was once a normal stomach."
+	name = "желудок крысы"
+	desc = "ДНК крысы внедрена в то, что когда-то было обычным желудком."
 	disgust_metabolism = 3
 
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
@@ -47,12 +47,12 @@
 /obj/item/organ/internal/stomach/rat/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/rat)
-	AddElement(/datum/element/noticable_organ, "mouth is drooling excessively.", BODY_ZONE_PRECISE_MOUTH)
+	AddElement(/datum/element/noticable_organ, "изо рта течет слюна.", BODY_ZONE_PRECISE_MOUTH)
 
 /// makes you smaller, walk over tables, and take 1.5x damage
 /obj/item/organ/internal/heart/rat
-	name = "mutated rat-heart"
-	desc = "Rat DNA infused into what was once a normal heart."
+	name = "сердце крысы"
+	desc = "ДНК крысы внедрена в то, что когда-то было обычным сердцем."
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
 	icon_state = "heart"
 	greyscale_config = /datum/greyscale_config/mutant_organ
@@ -61,7 +61,6 @@
 /obj/item/organ/internal/heart/rat/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/rat)
-	AddElement(/datum/element/noticable_organ, "hunch%PRONOUN_ES over unnaturally!")
 
 /obj/item/organ/internal/heart/rat/on_insert(mob/living/carbon/receiver)
 	. = ..()
@@ -88,8 +87,8 @@
 
 /// you occasionally squeak, and have some rat related verbal tics
 /obj/item/organ/internal/tongue/rat
-	name = "mutated rat-tongue"
-	desc = "Rat DNA infused into what was once a normal tongue."
+	name = "язык крысы"
+	desc = "ДНК крысы внедрена в то, что когда-то было обычным языком."
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
 	icon_state = "tongue"
 	say_mod = "squeaks"
@@ -102,16 +101,16 @@
 
 /obj/item/organ/internal/tongue/rat/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/noticable_organ, "teeth are oddly shaped and yellowing.", BODY_ZONE_PRECISE_MOUTH)
+	AddElement(/datum/element/noticable_organ, "зубы выглядят желтовато и странно.", BODY_ZONE_PRECISE_MOUTH)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/rat)
 
 /obj/item/organ/internal/tongue/rat/modify_speech(datum/source, list/speech_args)
 	. = ..()
 	var/message = lowertext(speech_args[SPEECH_MESSAGE])
-	if(message == "hi" || message == "hi.")
-		speech_args[SPEECH_MESSAGE] = "Cheesed to meet you!"
-	if(message == "hi?")
-		speech_args[SPEECH_MESSAGE] = "Um... cheesed to meet you?"
+	if(message == "привет" || message == "привет.")
+		speech_args[SPEECH_MESSAGE] = "Чиз ту мит ю!"
+	if(message == "привет?")
+		speech_args[SPEECH_MESSAGE] = "Чиз ту мит ю?"
 
 /obj/item/organ/internal/tongue/rat/on_insert(mob/living/carbon/tongue_owner, special, drop_if_replaced)
 	. = ..()

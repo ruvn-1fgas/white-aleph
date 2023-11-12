@@ -946,8 +946,8 @@ DEFINE_BITFIELD(turret_flags, list(
 /obj/machinery/turretid/examine(mob/user)
 	. += ..()
 	if(issilicon(user) && !(machine_stat & BROKEN))
-		. += {"[span_notice("Ctrl-click [src] to [ enabled ? "disable" : "enable"] turrets.")]
-					[span_notice("Alt-click [src] to set turrets to [ lethal ? "stun" : "kill"].")]"}
+		. += {"[span_notice("Ctrl-клик [src] to [ enabled ? "disable" : "enable"] turrets.")]
+					[span_notice("Alt-клик [src] to set turrets to [ lethal ? "stun" : "kill"].")]"}
 
 /obj/machinery/turretid/attackby(obj/item/I, mob/user, params)
 	if(machine_stat & BROKEN)
@@ -959,7 +959,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		var/obj/item/multitool/M = I
 		if(M.buffer && istype(M.buffer, /obj/machinery/porta_turret))
 			turrets |= WEAKREF(M.buffer)
-			to_chat(user, span_notice("You link \the [M.buffer] with \the [src]."))
+			to_chat(user, span_notice("You link  [M.buffer] with  [src]."))
 			return
 
 	if (issilicon(user))

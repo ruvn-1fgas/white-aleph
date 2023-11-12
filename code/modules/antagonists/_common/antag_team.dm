@@ -5,7 +5,7 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 	///Name of the entire Team
 	var/name = "\improper Team"
 	///What members are considered in the roundend report (ex: 'cultists')
-	var/member_name = "member"
+	var/member_name = "Члены команды"
 	///Whether the team shows up in the roundend report.
 	var/show_roundend_report = TRUE
 
@@ -49,23 +49,25 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 /datum/team/proc/roundend_report()
 	var/list/report = list()
 
-	report += "<span class='header'>\The [name]:</span>"
+	report += "<span class='header'> [name]:</span>"
 	report += "The [member_name]s were:"
 	report += printplayerlist(members)
 
 	if(objectives.len)
-		report += "<span class='header'>Team had following objectives:</span>"
+		report += span_header("Команда имела следующие цели:")
 		var/win = TRUE
 		var/objective_count = 1
 		for(var/datum/objective/objective as anything in objectives)
-			if(!objective.check_completion())
+			if(objective.check_completion())
+				report += "<B>Цель #[objective_count]</B>: [objective.explanation_text] <span class='greentext'>Успех!</span>"
+			else
+				report += "<B>Цель #[objective_count]</B>: [objective.explanation_text] <span class='redtext'>Провал.</span>"
 				win = FALSE
-			report += "<B>Objective #[objective_count]</B>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			objective_count++
 		if(win)
-			report += span_greentext("The [name] was successful!")
+			report += span_greentext("[name] успешны!")
 		else
-			report += span_redtext("The [name] have failed!")
+			report += span_redtext("[name] провалились!")
 
 
 	return "<div class='panel redborder'>[report.Join("<br>")]</div>"

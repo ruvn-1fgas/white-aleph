@@ -1,5 +1,5 @@
 /datum/crafting_recipe/shutters
-	name = "Shutters"
+	name = "Бронежалюзи"
 	reqs = list(
 		/obj/item/stack/sheet/plasteel = 5,
 		/obj/item/stack/cable_coil = 5,
@@ -12,7 +12,7 @@
 	one_per_turf = TRUE
 
 /datum/crafting_recipe/blast_doors
-	name = "Blast Door"
+	name = "Бронеставни"
 	reqs = list(
 		/obj/item/stack/sheet/plasteel = 15,
 		/obj/item/stack/cable_coil = 15,

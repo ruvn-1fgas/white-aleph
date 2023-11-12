@@ -2,8 +2,8 @@
 
 // Cans
 /obj/item/food/canned
-	name = "Canned Air"
-	desc = "If you ever wondered where air came from..."
+	name = "консервированный воздух"
+	desc = "Если вы когда-нибудь задумывались, откуда берется воздух..."
 	food_reagents = list(
 		/datum/reagent/oxygen = 6,
 		/datum/reagent/nitrogen = 24,
@@ -20,7 +20,7 @@
 	return // It's in a can
 
 /obj/item/food/canned/proc/open_can(mob/user)
-	to_chat(user, span_notice("You pull back the tab of \the [src]."))
+	to_chat(user, span_notice("Тяну колечко от крышки <b>[src.name]</b>."))
 	playsound(user.loc, 'sound/items/foodcanopen.ogg', 50)
 	reagents.flags |= OPENCONTAINER
 	preserved_food = FALSE
@@ -33,13 +33,13 @@
 
 /obj/item/food/canned/attack(mob/living/target, mob/user, def_zone)
 	if (!is_drainable())
-		to_chat(user, span_warning("[src]'s lid hasn't been opened!"))
+		to_chat(user, span_warning("[capitalize(src.name)] не вскрыт!"))
 		return FALSE
 	return ..()
 
 /obj/item/food/canned/beans
-	name = "tin of beans"
-	desc = "Musical fruit in a slightly less musical container."
+	name = "консвервированные бобы"
+	desc = "Музыкальный фрукт в чуть менее музыкальном контейнере."
 	icon_state = "beans"
 	trash_type = /obj/item/trash/can/food/beans
 	food_reagents = list(
@@ -52,8 +52,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/canned/peaches
-	name = "canned peaches"
-	desc = "Just a nice can of ripe peaches swimming in their own juices."
+	name = "консервированные персики"
+	desc = "Красивая банка спелых персиков, плавающих в собственном соку."
 	icon_state = "peachcan"
 	trash_type = /obj/item/trash/can/food/peaches
 	food_reagents = list(
@@ -65,16 +65,16 @@
 	foodtypes = FRUIT | SUGAR
 
 /obj/item/food/canned/peaches/maint
-	name = "Maintenance Peaches"
-	desc = "I have a mouth and I must eat."
+	name = "персики для тех. обслуживания"
+	desc = "У меня есть рот, и я должен есть."
 	icon_state = "peachcanmaint"
 	trash_type = /obj/item/trash/can/food/peaches/maint
 	tastes = list("peaches" = 1, "tin" = 7)
 	venue_value = FOOD_PRICE_EXOTIC
 
 /obj/item/food/canned/tomatoes
-	name = "canned San Marzano tomatoes"
-	desc = "A can of premium San Marzano tomatoes, from the hills of Southern Italy."
+	name = "консервированные помидоры San Marzano"
+	desc = "Банка первоклассных томатов San Marzano с холмов Южной Италии."
 	icon_state = "tomatoescan"
 	trash_type = /obj/item/trash/can/food/tomatoes
 	food_reagents = list(
@@ -85,8 +85,8 @@
 	foodtypes = VEGETABLES //fuck you, real life!
 
 /obj/item/food/canned/pine_nuts
-	name = "canned pine nuts"
-	desc = "A small can of pine nuts. Can be eaten on their own, if you're into that."
+	name = "консервированные кедровые орехи"
+	desc = "Небольшая банка кедровых орехов. Можно есть сами по себе, если вам такое нравится."
 	icon_state = "pinenutscan"
 	trash_type = /obj/item/trash/can/food/pine_nuts
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)

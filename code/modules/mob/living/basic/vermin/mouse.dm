@@ -207,7 +207,7 @@
 /mob/living/basic/mouse/proc/try_bite_cable(obj/structure/cable/cable)
 	if(cable.avail() && !HAS_TRAIT(src, TRAIT_SHOCKIMMUNE) && prob(cable_zap_prob))
 		visible_message(
-			span_warning("[src] chews through \the [cable]. It's toast!"),
+			span_warning("[src] chews through  [cable]. It's toast!"),
 			span_userdanger("As you bite deeply into [cable], you suddenly realize this may have been a bad idea."),
 			span_hear("You hear electricity crack."),
 		)
@@ -220,8 +220,8 @@
 
 	else
 		visible_message(
-			span_warning("[src] chews through \the [cable]."),
-			span_notice("You chew through \the [cable]."),
+			span_warning("[src] chews through  [cable]."),
+			span_notice("You chew through  [cable]."),
 		)
 
 	playsound(cable, 'sound/effects/sparks2.ogg', 100, TRUE)

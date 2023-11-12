@@ -64,7 +64,7 @@
 		if(!forced)
 			to_chat(src, span_bolddanger("You exit stealth."))
 		else
-			visible_message(span_danger("\The [src] suddenly appears!"))
+			visible_message(span_danger(" [src] suddenly appears!"))
 			COOLDOWN_START(src, stealth_cooldown, stealth_cooldown_time) //we were forced out of stealth and go on cooldown
 			addtimer(CALLBACK(src, PROC_REF(updatestealthalert)), stealth_cooldown_time)
 			COOLDOWN_START(src, manifest_cooldown, 4 SECONDS) //can't recall for 4 seconds

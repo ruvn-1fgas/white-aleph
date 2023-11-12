@@ -116,7 +116,7 @@
 		if(det_time > 0)
 			. += "The timer is set to [DisplayTimeText(det_time)]."
 		else
-			. += "\The [src] is set for instant detonation."
+			. += " [src] is set for instant detonation."
 	if (dud_flags & GRENADE_USED)
 		. += span_warning("It looks like [p_theyve()] already been used.")
 

@@ -131,7 +131,7 @@
 			return ..()
 		throwpower = I.throwforce
 		damage_type = I.damtype
-	if(check_shields(AM, throwpower, "\the [AM.name]", THROWN_PROJECTILE_ATTACK, 0, damage_type))
+	if(check_shields(AM, throwpower, " [AM.name]", THROWN_PROJECTILE_ATTACK, 0, damage_type))
 		hitpush = FALSE
 		skipcatch = TRUE
 		blocked = TRUE

@@ -1,4 +1,4 @@
-#define USE_GENDER "Выбранный пол"
+#define USE_GENDER "Use gender"
 
 /datum/preference/choiced/body_type
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -6,7 +6,7 @@
 	savefile_key = "body_type"
 	savefile_identifier = PREFERENCE_CHARACTER
 
-	var/list/friendly_genders = list("Мужской", "Женский")
+	var/list/friendly_genders = list(USE_GENDER, "Мужской", "Женский")
 
 /datum/preference/choiced/body_type/init_possible_values()
 	return friendly_genders
@@ -18,7 +18,7 @@
 	if (value == USE_GENDER)
 		target.physique = target.gender
 	else
-		target.physique = value == friendly_genders[1] ? MALE : FEMALE
+		target.physique = value == friendly_genders[2] ? MALE : FEMALE
 
 /datum/preference/choiced/body_type/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))

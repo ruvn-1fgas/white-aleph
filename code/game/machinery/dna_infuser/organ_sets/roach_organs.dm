@@ -9,10 +9,9 @@
 /datum/status_effect/organ_set_bonus/roach
 	id = "organ_set_bonus_roach"
 	organs_needed = 4
-	bonus_activate_text = span_notice("Roach DNA is deeply infused with you! \
-		You feel increasingly resistant to explosives, radiation, and viral agents.")
-	bonus_deactivate_text = span_notice("You are no longer majority roach, \
-		and you feel much more vulnerable to nuclear apocalypses.")
+	bonus_activate_text = span_notice("ДНК таракана теперь часть меня! Я чувствую, что моё тело стало более устойчивым к взрывам, радиации и вирусам.")
+	bonus_deactivate_text = span_notice("Я больше не таракан, и я чувствую, что моё тело не переживёт ядерный апокалипсис.")
+
 	// - Immunity to nuke gibs
 	// - Nukes come with radiation (not actually but yknow)
 	bonus_traits = list(TRAIT_NUKEIMMUNE, TRAIT_RADIMMUNE, TRAIT_VIRUS_RESISTANCE)
@@ -47,8 +46,8 @@
 /// Reduces damage taken from brute attacks from behind,
 /// but increases duration of knockdowns
 /obj/item/organ/internal/heart/roach
-	name = "mutated roach-heart"
-	desc = "Roach DNA infused into what was once a normal heart."
+	name = "сердце таракана"
+	desc = "ДНК таракана внедрена в то, что когда-то было обычным сердцем."
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
@@ -63,7 +62,7 @@
 
 /obj/item/organ/internal/heart/roach/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/noticable_organ, "has hardened, somewhat translucent skin.")
+	AddElement(/datum/element/noticable_organ, "кожа выглядит слека полупрозрачной.")
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/roach)
 	roach_shell = new()
 
@@ -125,7 +124,7 @@
 		return
 
 	if(COOLDOWN_FINISHED(src, harden_effect_cd))
-		source.visible_message(span_warning("[source]'s back hardens against the blow!"))
+		source.visible_message(span_warning("Спина [source] отражает удар!"))
 		playsound(source, 'sound/effects/constructform.ogg', 25, vary = TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 	COOLDOWN_START(src, harden_effect_cd, 5 SECONDS) // Cooldown resets EVERY time we get hit
@@ -159,8 +158,8 @@
 /// Makes disgust a non-issue, very slightly worse at passing off reagents
 /// Also makes you more hungry
 /obj/item/organ/internal/stomach/roach
-	name = "mutated roach-stomach"
-	desc = "Roach DNA infused into what was once a normal stomach."
+	name = "желудок таракана"
+	desc = "ДНК таракана внедрена в то, что когда-то было обычным желудком."
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 	disgust_metabolism = 32 // Demolishes any disgust we have
 	metabolism_efficiency = 0.033 // Slightly worse at transferring reagents
@@ -178,8 +177,8 @@
 /// Roach liver:
 /// Purges toxins at a higher threshold, but takes more damage from them if not purged
 /obj/item/organ/internal/liver/roach
-	name = "mutated roach-liver"
-	desc = "Roach DNA infused into what was once a normal liver."
+	name = "печень таракана"
+	desc = "ДНК таракана внедрено в то, что когда-то было обычной печенью."
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 	toxTolerance = 5 // More tolerance for toxins
 	liver_resistance = 0.25 // But if they manage to get in you're screwed
@@ -212,8 +211,8 @@
 /// Roach appendix:
 /// No appendicitus! weee!
 /obj/item/organ/internal/appendix/roach
-	name = "mutated roach-appendix"
-	desc = "Roach DNA infused into what was once a normal appendix. It could get <i>worse</i>?"
+	name = "аппендикс таракана"
+	desc = "ДНК таракана внедрена в то, что когда-то было обычным аппендиксом."
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'

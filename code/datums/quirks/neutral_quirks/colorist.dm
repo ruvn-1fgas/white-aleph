@@ -1,9 +1,9 @@
 /datum/quirk/item_quirk/colorist
-	name = "Colorist"
-	desc = "You like carrying around a hair dye spray to quickly apply color patterns to your hair."
+	name = "Колорист"
+	desc = "Обожаю перекрашивать свои и чужие волосы, поэтому ношу с собой краску и делаю это быстро!"
 	icon = FA_ICON_FILL_DRIP
 	value = 0
-	medical_record_text = "Patient enjoys dyeing their hair with pretty colors."
+	medical_record_text = "Пациенту нравится перекрашивать свою причёску в разные цвета."
 	mail_goodies = list(/obj/item/dyespray)
 
 /datum/quirk/item_quirk/colorist/add_unique(client/client_source)

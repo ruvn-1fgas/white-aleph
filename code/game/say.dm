@@ -145,7 +145,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 /atom/movable/proc/say_mod(input, list/message_mods = list())
 	var/ending = copytext_char(input, -1)
-	if(copytext_char(input, -2) == "!!")
+	if(copytext_char(input, -1) == "!")
 		return verb_yell
 	else if(message_mods[MODE_SING])
 		. = verb_sing
@@ -168,11 +168,14 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 	SEND_SIGNAL(src, COMSIG_MOVABLE_SAY_QUOTE, args)
 
-	if(copytext_char(input, -2) == "!!")
+	if(copytext_char(input, -1) == "!")
 		spans |= SPAN_YELL
 
 	var/spanned = attach_spans(input, spans)
-	return "[say_mod], \"[spanned]\""
+
+	var/random_mod = "<i>[pick(77;"[say_mod(input, message_mods)],", 25;" — ", 25;"молвит,", 25;"сообщает,")]</i>"
+
+	return "[random_mod] \"[spanned]\""
 
 /// Transforms the speech emphasis mods from [/atom/movable/proc/say_emphasis] into the appropriate HTML tags. Includes escaping.
 #define ENCODE_HTML_EMPHASIS(input, char, html, varname) \
@@ -193,7 +196,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 ///	Modifies the message by comparing the languages of the speaker with the languages of the hearer. Called on the hearer.
 /atom/movable/proc/translate_language(atom/movable/speaker, datum/language/language, raw_message, list/spans, list/message_mods = list())
 	if(!language)
-		return "makes a strange sound."
+		return "издаёт странный звук."
 
 	if(!has_language(language))
 		var/datum/language/dialect = GLOB.language_datum_instances[language]
@@ -208,7 +211,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	return "radio"
 
 /proc/get_radio_name(freq)
-	var/returntext = GLOB.reverseradiochannels["[freq]"]
+	var/returntext = ru_comms(GLOB.reverseradiochannels["[freq]"])
 	if(returntext)
 		return returntext
 	return "[copytext_char("[freq]", 1, 4)].[copytext_char("[freq]", 4, 5)]"
@@ -255,7 +258,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 	radio = _radio
 	source = M
 	if(istype(M))
-		name = radio.anonymize ? "Unknown" : M.GetVoice()
+		name = radio.anonymize ? "Неизвестный" : M.GetVoice()
 		verb_say = M.verb_say
 		verb_ask = M.verb_ask
 		verb_exclaim = M.verb_exclaim
@@ -269,7 +272,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 		if(found_record)
 			job = found_record.rank
 		else
-			job = "Unknown"
+			job = "Неизвестный"
 	else if(iscarbon(M))  // Carbon nonhuman
 		job = "No ID"
 	else if(isAI(M))  // AI
@@ -282,7 +285,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 	else if(isobj(M))  // Cold, emotionless machines
 		job = "Machine"
 	else  // Unidentifiable mob
-		job = "Unknown"
+		job = "Неизвестный"
 
 /atom/movable/virtualspeaker/GetJob()
 	return job

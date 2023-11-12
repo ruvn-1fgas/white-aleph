@@ -504,7 +504,7 @@
 	emped++ //There's been an EMP; better count it
 	var/curremp = emped //Remember which EMP this was
 	if (listening && ismob(loc)) // if the radio is turned on and on someone's person they notice
-		to_chat(loc, span_warning("\The [src] overloads."))
+		to_chat(loc, span_warning(" [src] overloads."))
 	for (var/ch_name in channels)
 		channels[ch_name] = 0
 	set_on(FALSE)

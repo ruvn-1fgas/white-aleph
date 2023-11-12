@@ -6,7 +6,7 @@
 	. = ..()
 
 	if (!iscarbon(target))
-		to_chat(user, span_warning("This must be used on a carbon mob."), confidential = TRUE)
+		to_chat(user, span_warning("Это можно использовать только на /mob/living/carbon."), confidential = TRUE)
 		return
 
 	var/mob/living/carbon/carbon_target = target

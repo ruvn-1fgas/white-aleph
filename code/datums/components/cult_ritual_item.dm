@@ -192,7 +192,7 @@
 /datum/component/cult_ritual_item/proc/do_unanchor_structure(obj/structure/cult_structure, mob/living/cultist)
 	playsound(cult_structure, 'sound/items/deconstruct.ogg', 30, TRUE, ignore_walls = FALSE)
 	cult_structure.set_anchored(!cult_structure.anchored)
-	to_chat(cultist, span_notice("You [cult_structure.anchored ? "":"un"]secure \the [cult_structure] [cult_structure.anchored ? "to":"from"] the floor."))
+	to_chat(cultist, span_notice("You [cult_structure.anchored ? "":"un"]secure  [cult_structure] [cult_structure.anchored ? "to":"from"] the floor."))
 
 /*
  * Removes the targeted rune. If the rune is important, asks for confirmation and logs it.

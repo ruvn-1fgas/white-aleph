@@ -1,8 +1,8 @@
 
 // CHAINSAW
 /obj/item/chainsaw
-	name = "chainsaw"
-	desc = "A versatile power tool. Useful for limbing trees and delimbing humans."
+	name = "бензопила"
+	desc = "Универсальный электроинструмент. Применяется для обрезки деревьев и обрезки людей."
 	icon = 'icons/obj/weapons/chainsaw.dmi'
 	icon_state = "chainsaw_off"
 	lefthand_file = 'icons/mob/inhands/weapons/chainsaw_lefthand.dmi'

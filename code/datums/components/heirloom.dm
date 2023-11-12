@@ -29,12 +29,10 @@
 	var/datum/mind/examiner_mind = user.mind
 
 	if(examiner_mind == owner)
-		examine_list += span_notice("It is your precious [family_name] family heirloom. Keep it safe!")
-		return
-
-	var/datum/antagonist/obsessed/our_creeper = examiner_mind?.has_antag_datum(/datum/antagonist/obsessed)
-	if(our_creeper?.trauma.obsession == owner)
-		examine_list += span_nicegreen("This must be [owner]'s family heirloom! It smells just like them...")
-		return
-
-	examine_list += span_notice("It is the [family_name] family heirloom, belonging to [owner].")
+		examine_list += span_notice("\nА это моя семейная реликвия. Главное - не потерять!")
+	else if (isobserver(user))
+		examine_list += span_notice("\nЭто реликвия семьи [family_name], принадлежащая [skloname(owner.current.name, DATELNI, owner.current.gender)].")
+	else
+		var/datum/antagonist/obsessed/our_creeper = examiner_mind?.has_antag_datum(/datum/antagonist/obsessed)
+		if(our_creeper?.trauma.obsession == owner)
+			examine_list += span_nicegreen("\nПохоже, это семейная реликвия [owner][owner.ru_a()]! Пахнет удивительно похоже...")

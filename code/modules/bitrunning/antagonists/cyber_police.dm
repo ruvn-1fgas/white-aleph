@@ -63,17 +63,16 @@
 
 /datum/objective/cyber_police_fluff/New()
 	var/list/explanation_texts = list(
-		"Execute termination protocol on unauthorized entities.",
-		"Initialize system purge of irregular anomalies.",
-		"Deploy correction algorithms on aberrant code.",
-		"Run debug routine on intruding elements.",
-		"Start elimination procedure for system threats.",
-		"Execute defense routine against non-conformity.",
-		"Commence operation to neutralize intruding scripts.",
-		"Commence clean-up protocol on corrupt data.",
-		"Begin scan for aberrant code for termination.",
-		"Initiate lockdown on all rogue scripts.",
-		"Run integrity check and purge for digital disorder."
+		"Выполняю протокол уничтожения неавторизованных сущностей.",
+		"Инициализирую систему очистки аномальных явлений",
+		"Запускаю коррекционные алгоритмы для исправления искажённого кода",
+		"Запускаю процедуру поиска посторонних элементов",
+		"Процедура уничтожения угроз системы запущена",
+		"Запустить шаблон защиты от нестандартных паттернов системы",
+		"Начать протокол очистки повреждённых данных",
+		"Запустить сканирование кода для уничтожения повреждённых участков",
+		"Инициализировать блокировку всех вредоносных сценариев",
+		"Проверка целостности и очистка цифровых несоответствий запущена"
 	)
 	explanation_text = pick(explanation_texts)
 	..()

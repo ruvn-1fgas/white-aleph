@@ -1,7 +1,7 @@
 /datum/lazy_template/virtual_domain/legion
-	name = "Chamber of Echoes"
+	name = "Палата Эха"
 	cost = BITRUNNER_COST_MEDIUM
-	desc = "A chilling realm that houses Legion's necropolis. Those who succumb to it are forever damned."
+	desc = "Леденящее душу царство, в котором находится некрополь Легиона. Те, кто сдался ему, навеки прокляты."
 	difficulty = BITRUNNER_DIFFICULTY_MEDIUM
 	forced_outfit = /datum/outfit/job/miner
 	key = "legion"

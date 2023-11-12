@@ -715,8 +715,8 @@
 
 /obj/item/toy/talking/proc/activation_message(mob/user)
 	user.visible_message(
-		span_notice("[user] pulls the string on \the [src]."),
-		span_notice("You pull the string on \the [src]."),
+		span_notice("[user] pulls the string on  [src]."),
+		span_notice("You pull the string on  [src]."),
 		span_notice("You hear a string being pulled."))
 
 /obj/item/toy/talking/proc/generate_messages()
@@ -757,8 +757,8 @@
 
 /obj/item/toy/talking/codex_gigas/activation_message(mob/user)
 	user.visible_message(
-		span_notice("[user] presses the button on \the [src]."),
-		span_notice("You press the button on \the [src]."),
+		span_notice("[user] presses the button on  [src]."),
+		span_notice("You press the button on  [src]."),
 		span_notice("You hear a soft click."))
 
 /obj/item/toy/talking/owl
@@ -1016,7 +1016,7 @@
 /obj/item/toy/figure/attack_self(mob/user as mob)
 	if(cooldown <= world.time)
 		cooldown = world.time + 50
-		to_chat(user, span_notice("[src] says \"[toysay]\""))
+		to_chat(user, span_notice("[src] говорит \"[toysay]\""))
 		playsound(user, toysound, 20, TRUE)
 
 /obj/item/toy/figure/cmo
