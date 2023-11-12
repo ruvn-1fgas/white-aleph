@@ -14,7 +14,7 @@
 #define MEDBOT_FREAKOUT_DELAY (15 SECONDS)
 
 /mob/living/simple_animal/bot/medbot
-	name = "\improper Medibot"
+	name = "Медбот"
 	desc = "Маленький медицинский робот. Он немного расстроен."
 	icon = 'icons/mob/silicon/aibots.dmi'
 	icon_state = "medibot0"
@@ -119,14 +119,14 @@
 	medical_mode_flags = MEDBOT_DECLARE_CRIT | MEDBOT_STATIONARY_MODE | MEDBOT_SPEAK_MODE
 
 /mob/living/simple_animal/bot/medbot/mysterious
-	name = "\improper Mysterious Medibot"
+	name = "Mysterious Medibot"
 	desc = "Международный загадочный медбот."
 	skin = "bezerk"
 	damagetype_healer = "all"
 	heal_amount = 10
 
 /mob/living/simple_animal/bot/medbot/derelict
-	name = "\improper Старый Медбот"
+	name = "Старый Медбот "
 	desc = "Кажется его не улучшали со времён Бостон Роботикс..."
 	skin = "bezerk"
 	damagetype_healer = "all"
@@ -136,7 +136,7 @@
 
 /mob/living/simple_animal/bot/medbot/nukie
 	name = "Оппенгеймер"
-	desc = "Медибот, украденный со станции Нанотрасен и модернизированный Синдикатом. Несмотря на все усилия по перепрограммированию, он по-прежнему выглядит очень грустным рядом с ядерной взрывчаткой."
+	desc = "Медибот, украденный со станции Нанотрейзен и модернизированный Синдикатом. Несмотря на все усилия по перепрограммированию, он по-прежнему выглядит очень грустным рядом с ядерной боеголовкой."
 	skin = "bezerk"
 	health = 40
 	maxHealth = 40
@@ -670,7 +670,7 @@
 
 			update_appearance()
 			if(!tending)
-				visible_message("<span class='infoplain'>[src] убирает свои инструменты внутрь своего корпуса.</span>")
+				visible_message("<span class='infoplain'>[src] убирает свои инструменты внутрь корпуса.</span>")
 				soft_reset()
 		else
 			tending = FALSE
