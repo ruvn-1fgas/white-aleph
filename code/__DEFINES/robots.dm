@@ -112,7 +112,7 @@
 /// MULEbots
 #define MULE_BOT "МУЛбот"
 /// Floorbots
-#define FLOOR_BOT "Узбек"
+#define FLOOR_BOT "Флурбот"
 /// Cleanbots
 #define CLEAN_BOT "Клинбот"
 /// Medibots
