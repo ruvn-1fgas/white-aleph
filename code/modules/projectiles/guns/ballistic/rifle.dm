@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/rifle
 	name = "Винтовка"
-	desc = "Разновидность винтовок с продольно-скользящим затвором. Владеть данной винтовкой кощунство."
+	desc = "Разновидность винтовок с продольно-скользящим затвором. Возникает чувство, что у меня не должно её быть."
 	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "sakhno"
 	w_class = WEIGHT_CLASS_BULKY
