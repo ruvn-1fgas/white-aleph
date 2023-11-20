@@ -1,6 +1,3 @@
-/// Define for the pickweight value where you get no parallax
-#define PARALLAX_NONE "parallax_none"
-
 SUBSYSTEM_DEF(parallax)
 	name = "Parallax"
 	wait = 2
@@ -10,23 +7,22 @@ SUBSYSTEM_DEF(parallax)
 	var/list/currentrun
 	var/planet_x_offset = 128
 	var/planet_y_offset = 128
-	/// A random parallax layer that we sent to every player
-	var/atom/movable/screen/parallax_layer/random/random_layer
-	/// Weighted list with the parallax layers we could spawn
-	var/random_parallax_weights = list(
-		/atom/movable/screen/parallax_layer/random/space_gas = 35,
-		/atom/movable/screen/parallax_layer/random/asteroids = 35,
-		PARALLAX_NONE = 30,
-	)
+	var/random_layer
+	var/random_parallax_color
+	var/random_space
+
 
 //These are cached per client so needs to be done asap so people joining at roundstart do not miss these.
 /datum/controller/subsystem/parallax/PreInit()
 	. = ..()
-
-	set_random_parallax_layer(pick_weight(random_parallax_weights))
-
+	random_space = pick(/atom/movable/screen/parallax_layer/layer_1, /atom/movable/screen/parallax_layer/layer_1_2, /atom/movable/screen/parallax_layer/layer_1_3, /atom/movable/screen/parallax_layer/layer_1_4, /atom/movable/screen/parallax_layer/layer_1_5)
+	if(prob(70))	//70% chance to pick a special extra layer
+		random_layer = pick(/atom/movable/screen/parallax_layer/random/space_gas)
+		random_parallax_color = pick(COLOR_TEAL, COLOR_GREEN, COLOR_SILVER, COLOR_YELLOW, COLOR_CYAN, COLOR_ORANGE, COLOR_PURPLE)//Special color for random_layer1. Has to be done here so everyone sees the same color.
 	planet_y_offset = rand(100, 160)
 	planet_x_offset = rand(100, 160)
+
+
 
 /datum/controller/subsystem/parallax/fire(resumed = FALSE)
 	if (!resumed)
@@ -65,7 +61,17 @@ SUBSYSTEM_DEF(parallax)
 		if (MC_TICK_CHECK)
 			return
 	currentrun = null
-
+/*
+............/´¯/)...............(\¯`\
+.........../...//.....ЗДОХНИ.....\\...\
+........../...//.....ТГКОДЕР.......\\...\
+...../´¯/..../´¯\.....ЕБАНЫй...../¯` \....\¯`\
+.././.../..../..../.|_......._|.\....\....\...\.\
+(.(....(....(..../..)..)…...(..(.\....)....)....).)
+.\................\/.../......\...\/................/
+..\.................. /.........\................../
+*/
+/*
 /// Generate a random layer for parallax
 /datum/controller/subsystem/parallax/proc/set_random_parallax_layer(picked_parallax)
 	if(picked_parallax == PARALLAX_NONE)
@@ -98,3 +104,4 @@ SUBSYSTEM_DEF(parallax)
 	random_layer?.apply_global_effects()
 
 #undef PARALLAX_NONE
+*/
