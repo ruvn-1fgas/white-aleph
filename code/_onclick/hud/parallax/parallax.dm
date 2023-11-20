@@ -13,11 +13,11 @@
 
 	if(!length(C.parallax_layers_cached))
 		C.parallax_layers_cached = list()
-		C.parallax_layers_cached += new SSparallax.random_space(null, src)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_1(null, src)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_2(null, src)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, src)
 		if(SSparallax.random_layer)
-			C.parallax_layers_cached += new SSparallax.random_layer
+			C.parallax_layers_cached += new SSparallax.random_layer(null, src)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, src)
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
@@ -314,36 +314,16 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 			new_overlays += texture_overlay
 	cut_overlays()
 	add_overlay(new_overlays)
+
 /atom/movable/screen/parallax_layer/layer_1
 	icon_state = "layer1"
 	speed = 1
 	layer = 1
 	color = "#999999"
 
-
-/atom/movable/screen/parallax_layer/layer_1_2
-	icon_state = "layer1_2"
-	speed = 1
-	layer = 1
-	color = "#999999"
-
-/atom/movable/screen/parallax_layer/layer_1_3
-	icon_state = "layer1_3"
-	speed = 1
-	layer = 1
-	color = "#999999"
-
-/atom/movable/screen/parallax_layer/layer_1_4
-	icon_state = "layer1_4"
-	speed = 1
-	layer = 1
-	color = "#999999"
-
-/atom/movable/screen/parallax_layer/layer_1_5
-	icon_state = "layer1_5"
-	speed = 1
-	layer = 1
-	color = "#999999"
+/atom/movable/screen/parallax_layer/layer_1/Initialize()
+	. = ..()
+	icon_state = "layer1_[rand(1,5)]"
 
 /atom/movable/screen/parallax_layer/layer_2
 	icon_state = "layer2"
