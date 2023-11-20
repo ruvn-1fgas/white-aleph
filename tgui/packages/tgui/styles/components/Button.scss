@@ -27,7 +27,7 @@ $bg-map: colors.$bg-map !default;
   border-left: 1px solid rgba(33, 33, 33, 0.8);
   border-right: 1px solid rgba(33, 33, 33, 0.8);
   border-bottom: 1px solid rgba(33, 33, 33, 0.8);
-  background-color: darken(base.$color-bg, 5%);
+  background-color: base.$color-bg;
 
 
   &:hover {
