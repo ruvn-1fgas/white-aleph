@@ -84,7 +84,6 @@ SUBSYSTEM_DEF(parallax)
 
 	random_layer = new picked_parallax(null,  /* hud_owner = */ null, /* template = */ TRUE)
 	RegisterSignal(random_layer, COMSIG_QDELETING, PROC_REF(clear_references))
-	random_layer.get_random_look()
 
 /// Change the random parallax layer after it's already been set. update_player_huds = TRUE will also replace them in the players client images, if it was set
 /datum/controller/subsystem/parallax/proc/swap_out_random_parallax_layer(atom/movable/screen/parallax_layer/new_type, update_player_huds = TRUE)
@@ -103,10 +102,6 @@ SUBSYSTEM_DEF(parallax)
 	SIGNAL_HANDLER
 
 	random_layer = null
-
-/// Called at the end of SSstation setup, in-case we want to run some code that would otherwise be too early to run (like GLOB. stuff)
-/datum/controller/subsystem/parallax/proc/post_station_setup()
-	random_layer?.apply_global_effects()
 
 #undef PARALLAX_NONE
 
