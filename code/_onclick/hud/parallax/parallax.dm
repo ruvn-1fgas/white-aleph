@@ -17,7 +17,7 @@
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_2(null, src)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, src)
 		if(SSparallax.random_layer)
-			C.parallax_layers_cached += new SSparallax.random_layer(null, src)
+			C.parallax_layers_cached += new SSparallax.random_layer(null, src, FALSE, SSparallax.random_layer)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, src)
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
@@ -337,6 +337,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 
 /atom/movable/screen/parallax_layer/random/space_gas
 	icon_state = "space_gas"
+	speed = 1
 	blend_mode = 3
 
 /atom/movable/screen/parallax_layer/random/space_gas/Initialize(mapload, mob/owner)
