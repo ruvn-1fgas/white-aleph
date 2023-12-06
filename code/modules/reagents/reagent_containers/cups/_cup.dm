@@ -342,8 +342,8 @@
 	list_reagents = list(/datum/reagent/medicine/c2/synthflesh = 50)
 
 /obj/item/reagent_containers/cup/bucket
-	name = "bucket"
-	desc = "It's a bucket."
+	name = "ведро"
+	desc = "Просто металлическое ведро."
 	icon = 'icons/obj/service/janitor.dmi'
 	worn_icon = 'icons/mob/clothing/head/utility.dmi'
 	icon_state = "bucket"
