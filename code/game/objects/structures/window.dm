@@ -650,6 +650,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/plasma/spawner, 0)
 	name = "затемненное окно"
 	icon_state = "twindow"
 
+
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/spawner, 0)
 
 /obj/structure/window/reinforced/tinted/frosted
@@ -743,9 +744,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/tinted/fulltile
-	icon = 'icons/obj/windows/window_glass.dmi'
-	icon_state = "window_glass-0"
-	base_icon_state = "window_glass"
+	icon = 'icons/obj/smooth_structures/tinted_window.dmi'
+	icon_state = "tinted_window-0"
+	base_icon_state = "tinted_window"
 	fulltile = TRUE
 	flags_1 = PREVENT_CLICK_UNDER_1
 	obj_flags = CAN_BE_HIT
