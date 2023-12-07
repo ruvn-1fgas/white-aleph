@@ -5,7 +5,7 @@
 ///holding bag for dice
 /obj/item/storage/dice
 	name = "мешок с игральными костями"
-	desc = "Содержит всю удачу, которая вам когда-либо понадобится".
+	desc = "Содержит всю удачу, которая вам когда-либо понадобится."
 	icon = 'icons/obj/toys/dice.dmi'
 	icon_state = "dicebag"
 	w_class = WEIGHT_CLASS_SMALL
