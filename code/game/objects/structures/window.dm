@@ -649,7 +649,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/plasma/spawner, 0)
 /obj/structure/window/reinforced/tinted
 	name = "затемненное окно"
 	icon_state = "twindow"
-
+	opacity = TRUE
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/spawner, 0)
 
