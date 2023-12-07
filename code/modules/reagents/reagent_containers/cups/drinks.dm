@@ -135,7 +135,7 @@
 
 /obj/item/reagent_containers/cup/glass/ice
 	name = "стаканчик со льдом"
-	desc = "Осторожно, холодный лед, не грызть".
+	desc = "Осторожно, холодный лед, не грызть."
 	custom_price = PAYCHECK_LOWER * 0.6
 	icon_state = "icecup"
 	list_reagents = list(/datum/reagent/consumable/ice = 30)
@@ -149,7 +149,7 @@
 
 /obj/item/reagent_containers/cup/glass/mug // parent type is literally just so empty mug sprites are a thing
 	name = "кружка"
-	desc = "Напиток, подаваемый в стильной кружке".
+	desc = "Напиток, подаваемый в стильной кружке."
 	icon = 'icons/obj/drinks/coffee.dmi'
 	icon_state = "tea_empty"
 	base_icon_state = "tea"
@@ -168,7 +168,7 @@
 
 /obj/item/reagent_containers/cup/glass/mug/coco
 	name = "голландский горячий коко"
-	desc = "Сделано в космической Южной Америке".
+	desc = "Сделано в космической Южной Америке."
 	icon_state = "tea"
 	list_reagents = list(/datum/reagent/consumable/hot_coco = 15, /datum/reagent/consumable/sugar = 5)
 	drink_type = SUGAR
@@ -177,7 +177,7 @@
 
 /obj/item/reagent_containers/cup/glass/mug/nanotrasen
 	name = "кружка NanoTrasen"
-	desc = "Кружка для демонстрации вашей корпоративной гордости".
+	desc = "Кружка для демонстрации вашей корпоративной гордости."
 	icon_state = "mug_nt_empty"
 	base_icon_state = "mug_nt"
 
@@ -345,7 +345,7 @@
 // Admin spawn
 /obj/item/reagent_containers/cup/glass/waterbottle/relic
 	name = "таинственная бутылка"
-	desc = "Бутылка, очень похожая на бутылку с водой, но с какими-то словами, нацарапанными маркером. Кажется, что она излучает какую-то энергию".
+	desc = "Бутылка, очень похожая на бутылку с водой, но с какими-то словами, нацарапанными маркером. Кажется, что она излучает какую-то энергию."
 	flip_chance = 100 // FLIPP
 
 /obj/item/reagent_containers/cup/glass/waterbottle/relic/Initialize(mapload)
@@ -372,7 +372,7 @@
 
 /obj/item/reagent_containers/cup/glass/bottle/juice/smallcarton
 	name = "мелкая картонная коробка"
-	desc = "Небольшая картонная коробка, предназначенная для хранения напитков".
+	desc = "Небольшая картонная коробка, предназначенная для хранения напитков."
 	icon = 'icons/obj/drinks/boxes.dmi'
 	icon_state = "juicebox"
 	volume = 15
@@ -425,7 +425,7 @@
 // itself), in Chemistry-Recipes.dm (for the reaction that changes the components into the drink), and here (for the drinking glass
 // icon states.
 
-/obj/item/reagent_containers/food/drinks/shaker
+/obj/item/reagent_containers/cup/glass/shaker
 	name = "шейкер"
 	desc = "Металлический шейкер для смешивания напитков."
 	icon = 'icons/obj/drinks/bottles.dmi'

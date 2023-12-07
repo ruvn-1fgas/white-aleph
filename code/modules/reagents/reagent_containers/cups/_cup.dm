@@ -191,7 +191,7 @@
 		if(reagents.total_volume >= reagents.maximum_volume)
 			to_chat(user, span_notice("[src] полон."))
 		else
-			to_chat(user, span_notice("Раздавливаю [E] в [src]."))
+			to_chat(user, span_notice("Раздавливаю [attacking_egg] в [src]."))
 			attacking_egg.reagents.trans_to(src, attacking_egg.reagents.total_volume, transferred_by = user)
 			qdel(attacking_egg)
 		return
