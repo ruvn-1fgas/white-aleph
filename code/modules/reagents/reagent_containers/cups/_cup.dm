@@ -251,7 +251,7 @@
 	possible_transfer_amounts = list(5,10,15,20,25,30,50,100)
 	fill_icon_thresholds = list(0, 1, 20, 40, 60, 80, 100)
 
-/obj/item/reagent_containers/glass/cup/plastic
+/obj/item/reagent_containers/cup/beaker/plastic
 	name = "экстра-большой химический стакан"
 	desc = "Большой химический стакан, вместимостью до 120 единиц."
 	icon_state = "beakerwhite"
@@ -261,7 +261,7 @@
 	possible_transfer_amounts = list(5,10,15,20,25,30,60,120)
 	fill_icon_thresholds = list(0, 1, 10, 20, 40, 60, 80, 100)
 
-/obj/item/reagent_containers/glass/cup/meta
+/obj/item/reagent_containers/cup/beaker/meta
 	name = "метаматериальный химический стакан"
 	desc = "Большой химический стакан, вместимостью до 180 единиц."
 	icon_state = "beakergold"
@@ -271,7 +271,7 @@
 	possible_transfer_amounts = list(5,10,15,20,25,30,60,120,180)
 	fill_icon_thresholds = list(0, 1, 10, 25, 35, 50, 60, 80, 100)
 
-/obj/item/reagent_containers/glass/cup/noreact
+/obj/item/reagent_containers/cup/beaker/noreact
 	name = "криостатический химический стакан"
 	desc = "Химический стакан криостазиса, позволяющий хранить химикаты не начиная реакцию. Имеет вместимость до 50 единиц."
 	icon_state = "beakernoreact"
