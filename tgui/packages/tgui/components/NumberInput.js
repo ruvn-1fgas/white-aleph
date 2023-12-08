@@ -189,15 +189,18 @@ export class NumberInput extends Component {
         minHeight={height}
         lineHeight={lineHeight}
         fontSize={fontSize}
-        onMouseDown={this.handleDragStart}>
+        onMouseDown={this.handleDragStart}
+      >
         <div className="NumberInput__barContainer">
           <div
             className="NumberInput__bar"
             style={{
-              // prettier-ignore
-              height: clamp(
-                (displayValue - minValue) / (maxValue - minValue) * 100,
-                0, 100) + '%',
+              height:
+                clamp(
+                  ((displayValue - minValue) / (maxValue - minValue)) * 100,
+                  0,
+                  100
+                ) + '%',
             }}
           />
         </div>

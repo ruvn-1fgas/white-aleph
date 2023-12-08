@@ -2,7 +2,14 @@ import { toFixed } from 'common/math';
 import { toTitleCase } from 'common/string';
 import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from '../backend';
-import { AnimatedNumber, Box, Button, Icon, LabeledList, ProgressBar, Section } from '../components';
+import {
+  Box,
+  Button,
+  Icon,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from '../components';
 import { Window } from '../layouts';
 
 export const ChemDispenser = (props, context) => {
@@ -59,7 +66,8 @@ export const ChemDispenser = (props, context) => {
                 onClick={() => setHasCol(!hasCol)}
               />
             </>
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Energy">
               <ProgressBar value={data.energy / data.maxEnergy}>
@@ -106,7 +114,8 @@ export const ChemDispenser = (props, context) => {
                 />
               )}
             </>
-          }>
+          }
+        >
           <Box mr={-1}>
             {recipes.map((recipe) => (
               <Button
@@ -139,7 +148,8 @@ export const ChemDispenser = (props, context) => {
                 })
               }
             />
-          ))}>
+          ))}
+        >
           <Box mr={-1}>
             {data.chemicals.map((chemical) => (
               <Button
@@ -155,8 +165,8 @@ export const ChemDispenser = (props, context) => {
                       ? 'black'
                       : 'green'
                     : hasCol
-                      ? chemical.pHCol
-                      : 'default'
+                    ? chemical.pHCol
+                    : 'default'
                 }
                 onClick={() =>
                   act('dispense', {
@@ -177,51 +187,14 @@ export const ChemDispenser = (props, context) => {
               content={amount}
               onClick={() => act('remove', { amount })}
             />
-          ))}>
-          <LabeledList>
-            <LabeledList.Item
-              label="Beaker"
-              buttons={
-                !!data.isBeakerLoaded && (
-                  <Button
-                    icon="eject"
-                    content="Eject"
-                    disabled={!data.isBeakerLoaded}
-                    onClick={() => act('eject')}
-                  />
-                )
-              }>
-              {(recording && 'Virtual beaker') ||
-                (data.isBeakerLoaded && (
-                  <>
-                    <AnimatedNumber
-                      initial={0}
-                      value={data.beakerCurrentVolume}
-                    />
-                    /{data.beakerMaxVolume} units
-                  </>
-                )) ||
-                'No beaker'}
-            </LabeledList.Item>
-            <LabeledList.Item label="Contents">
-              <Box color="label">
-                {(!data.isBeakerLoaded && !recording && 'N/A') ||
-                  (beakerContents.length === 0 && 'Nothing')}
-              </Box>
-              {beakerContents.map((chemical) => (
-                <Box key={chemical.name} color="label">
-                  <AnimatedNumber initial={0} value={chemical.volume} /> units
-                  of {chemical.name}
-                </Box>
-              ))}
-              {beakerContents.length > 0 && !!data.showpH && (
-                <Box>
-                  pH:
-                  <AnimatedNumber value={data.beakerCurrentpH} />
-                </Box>
-              )}
-            </LabeledList.Item>
-          </LabeledList>
+          ))}
+        >
+          <BeakerDisplay
+            beaker={beaker}
+            title_label={recording && 'Virtual beaker'}
+            replace_contents={recordedContents}
+            showpH={data.showpH}
+          />
         </Section>
       </Window.Content>
     </Window>

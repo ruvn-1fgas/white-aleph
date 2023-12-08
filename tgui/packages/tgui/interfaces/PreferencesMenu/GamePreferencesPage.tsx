@@ -35,8 +35,9 @@ export const GamePreferencesPage = (props, context) => {
         <Box
           as="span"
           style={{
-            'border-bottom': '2px dotted rgba(255, 255, 255, 0.8)',
-          }}>
+            borderBottom: '2px dotted rgba(255, 255, 255, 0.8)',
+          }}
+        >
           {nameInner}
         </Box>
       );
@@ -90,7 +91,7 @@ export const GamePreferencesPage = (props, context) => {
     );
   }
 
-  const gamePreferenceEntries: [string, InfernoNode][] = sortByName(
+  const gamePreferenceEntries: [string, ReactNode][] = sortByName(
     Object.entries(gamePreferences)
   ).map(([category, preferences]) => {
     return [category, preferences.map((entry) => entry.children)];

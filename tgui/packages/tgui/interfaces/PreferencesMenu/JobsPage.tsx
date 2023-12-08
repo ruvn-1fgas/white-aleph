@@ -3,13 +3,18 @@ import { classes } from 'common/react';
 import { InfernoNode, SFC } from 'inferno';
 import { useBackend } from '../../backend';
 import { Box, Button, Dropdown, Stack, Tooltip } from '../../components';
-import { createSetPreference, Job, JoblessRole, JobPriority, PreferencesMenuData } from './data';
+import {
+  createSetPreference,
+  Job,
+  JoblessRole,
+  JobPriority,
+  PreferencesMenuData,
+} from './data';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 
 const sortJobs = (entries: [string, Job][], head?: string) =>
   sortBy<[string, Job]>(
     ([key, _]) => (key === head ? -1 : 1),
-    ([_, job]) => job.name_ru,
     ([key, _]) => key
   )(entries);
 
@@ -48,7 +53,6 @@ type CreateSetPriority = (priority: JobPriority | null) => () => void;
 const createSetPriorityCache: Record<string, CreateSetPriority> = {};
 
 const createCreateSetPriorityFromName = (
-  context,
   jobName: string
 ): CreateSetPriority => {
   if (createSetPriorityCache[jobName] !== undefined) {
@@ -91,11 +95,12 @@ const PriorityButtons = (props: {
   return (
     <Stack
       style={{
-        'align-items': 'center',
-        'height': '100%',
-        'justify-content': 'flex-end',
-        'padding-left': '0.3em',
-      }}>
+        alignItems: 'center',
+        height: '100%',
+        justifyContent: 'flex-end',
+        paddingLeft: '0.3em',
+      }}
+    >
       {isOverflow ? (
         <>
           <PriorityButton
@@ -214,16 +219,18 @@ const JobRow = (
       height="100%"
       style={{
         'margin-top': 0,
-      }}>
+      }}
+    >
       <Stack fill align="center">
         <Tooltip content={job.description} position="bottom-start">
           <Stack.Item
             className="job-name"
             width="50%"
             style={{
-              'padding-left': '0.3em',
-            }}>
-            {job.name_ru}
+              paddingLeft: '0.3em',
+            }}
+          >
+            {name}
           </Stack.Item>
         </Tooltip>
 

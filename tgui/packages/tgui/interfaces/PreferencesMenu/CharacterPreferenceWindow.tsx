@@ -34,8 +34,9 @@ const CharacterProfiles = (props: {
             onClick={() => {
               props.onClick(slot);
             }}
-            fluid>
-            {profile ?? 'Новый персонаж'}
+            fluid
+          >
+            {profile ?? 'New Character'}
           </Button>
         </Stack.Item>
       ))}
@@ -102,8 +103,9 @@ export const CharacterPreferenceWindow = (props, context) => {
                   currentPage={currentPage}
                   page={Page.Main}
                   setPage={setCurrentPage}
-                  otherActivePages={[Page.Species]}>
-                  Персонаж
+                  otherActivePages={[Page.Species]}
+                >
+                  Character
                 </PageButton>
               </Stack.Item>
 
@@ -111,7 +113,8 @@ export const CharacterPreferenceWindow = (props, context) => {
                 <PageButton
                   currentPage={currentPage}
                   page={Page.Jobs}
-                  setPage={setCurrentPage}>
+                  setPage={setCurrentPage}
+                >
                   {/*
                     Fun fact: This isn't "Jobs" so that it intentionally
                     catches your eyes, because it's really important!
@@ -124,8 +127,9 @@ export const CharacterPreferenceWindow = (props, context) => {
                 <PageButton
                   currentPage={currentPage}
                   page={Page.Antags}
-                  setPage={setCurrentPage}>
-                  Антаги
+                  setPage={setCurrentPage}
+                >
+                  Antagonists
                 </PageButton>
               </Stack.Item>
 
@@ -133,8 +137,9 @@ export const CharacterPreferenceWindow = (props, context) => {
                 <PageButton
                   currentPage={currentPage}
                   page={Page.Quirks}
-                  setPage={setCurrentPage}>
-                  Особенности
+                  setPage={setCurrentPage}
+                >
+                  Quirks
                 </PageButton>
               </Stack.Item>
             </Stack>

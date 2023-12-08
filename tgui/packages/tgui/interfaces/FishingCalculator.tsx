@@ -25,7 +25,7 @@ export const FishingCalculator = (props, context) => {
   const [bait, setBait] = useLocalState<string>(
     context,
     'bait',
-    '/obj/item/food/bait/worm'
+    '/obj/item/food/bait/worm',
   );
   const [spot, setSpot] = useLocalState<string>(
     context,
@@ -88,13 +88,14 @@ export const FishingCalculator = (props, context) => {
             <Button
               onClick={() =>
                 act('recalc', {
-                  'rod': rod,
-                  'bait': bait,
-                  'hook': hook,
-                  'line': line,
-                  'spot': spot,
+                  rod: rod,
+                  bait: bait,
+                  hook: hook,
+                  line: line,
+                  spot: spot,
                 })
-              }>
+              }
+            >
               Calculate
             </Button>
           </Stack.Item>

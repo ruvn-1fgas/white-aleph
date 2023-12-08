@@ -1,14 +1,31 @@
 import { classes } from 'common/react';
 import { sendAct, useBackend, useLocalState } from '../../backend';
-import { Autofocus, Box, Button, Flex, LabeledList, Popper, Stack, TrackOutsideClicks } from '../../components';
-import { createSetPreference, PreferencesMenuData, RandomSetting } from './data';
+import {
+  Autofocus,
+  Box,
+  Button,
+  Flex,
+  LabeledList,
+  Popper,
+  Stack,
+  TrackOutsideClicks,
+} from '../../components';
+import {
+  createSetPreference,
+  PreferencesMenuData,
+  RandomSetting,
+  ServerData,
+} from './data';
 import { CharacterPreview } from '../common/CharacterPreview';
 import { RandomizationButton } from './RandomizationButton';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 import { MultiNameInput, NameInput } from './names';
 import { Gender, GENDERS } from './preferences/gender';
 import features from './preferences/features';
-import { FeatureChoicedServerData, FeatureValueInput } from './preferences/features/base';
+import {
+  FeatureChoicedServerData,
+  FeatureValueInput,
+} from './preferences/features/base';
 import { filterMap, sortBy } from 'common/collections';
 import { useRandomToggleState } from './useRandomToggleState';
 
@@ -90,7 +107,8 @@ const ChoicedSelection = (
           CLOTHING_SELECTION_CELL_SIZE * CLOTHING_SELECTION_MULTIPLIER
         }px`,
         width: `${CLOTHING_SELECTION_CELL_SIZE * CLOTHING_SELECTION_WIDTH}px`,
-      }}>
+      }}
+    >
       <Stack vertical fill>
         <Stack.Item>
           <Stack fill>
@@ -109,12 +127,13 @@ const ChoicedSelection = (
             <Stack.Item grow>
               <Box
                 style={{
-                  'border-bottom': '1px solid #888',
-                  'font-weight': 'bold',
-                  'font-size': '14px',
-                  'text-align': 'center',
-                }}>
-                Выберите {props.name.toLowerCase()}
+                  borderBottom: '1px solid #888',
+                  fontWeight: 'bold',
+                  fontSize: '14px',
+                  textAlign: 'center',
+                }}
+              >
+                Select {props.name.toLowerCase()}
               </Box>
             </Stack.Item>
 
@@ -136,7 +155,8 @@ const ChoicedSelection = (
                     basis={`${CLOTHING_SELECTION_CELL_SIZE}px`}
                     style={{
                       padding: '5px',
-                    }}>
+                    }}
+                  >
                     <Button
                       onClick={() => {
                         props.onSelect(name);
@@ -147,7 +167,8 @@ const ChoicedSelection = (
                       style={{
                         height: `${CLOTHING_SELECTION_CELL_SIZE}px`,
                         width: `${CLOTHING_SELECTION_CELL_SIZE}px`,
-                      }}>
+                      }}
+                    >
                       <Box
                         className={classes([
                           'preferences32x32',
@@ -188,26 +209,29 @@ const GenderButton = (
       popperContent={
         genderMenuOpen && (
           <Stack backgroundColor="white" ml={0.5} p={0.3}>
-            {[Gender.Male, Gender.Female].map((gender) => {
-              return (
-                <Stack.Item key={gender}>
-                  <Button
-                    selected={gender === props.gender}
-                    onClick={() => {
-                      props.handleSetGender(gender);
-                      setGenderMenuOpen(false);
-                    }}
-                    fontSize="22px"
-                    icon={GENDERS[gender].icon}
-                    tooltip={GENDERS[gender].text}
-                    tooltipPosition="top"
-                  />
-                </Stack.Item>
-              );
-            })}
+            {[Gender.Male, Gender.Female, Gender.Other, Gender.Other2].map(
+              (gender) => {
+                return (
+                  <Stack.Item key={gender}>
+                    <Button
+                      selected={gender === props.gender}
+                      onClick={() => {
+                        props.handleSetGender(gender);
+                        setGenderMenuOpen(false);
+                      }}
+                      fontSize="22px"
+                      icon={GENDERS[gender].icon}
+                      tooltip={GENDERS[gender].text}
+                      tooltipPosition="top"
+                    />
+                  </Stack.Item>
+                );
+              }
+            )}
           </Stack>
         )
-      }>
+      }
+    >
       <Button
         onClick={() => {
           setGenderMenuOpen(!genderMenuOpen);
@@ -276,7 +300,8 @@ const MainFeature = (
             />
           </TrackOutsideClicks>
         )
-      }>
+      }
+    >
       <Button
         onClick={() => {
           if (isOpen) {
@@ -291,7 +316,8 @@ const MainFeature = (
         }}
         position="relative"
         tooltip={catalog.name}
-        tooltipPosition="right">
+        tooltipPosition="right"
+      >
         <Box
           className={classes([
             'preferences32x32',
@@ -357,7 +383,9 @@ const PreferenceList = (props: {
         padding: '4px',
       }}
       overflowX="hidden"
-      overflowY="scroll">
+      overflowY="auto"
+      maxHeight={props.maxHeight}
+    >
       <LabeledList>
         {sortPreferences(Object.entries(props.preferences)).map(
           ([featureId, value]) => {
@@ -376,7 +404,9 @@ const PreferenceList = (props: {
               <LabeledList.Item
                 key={featureId}
                 label={feature.name}
-                verticalAlign="middle">
+                tooltip={feature.description}
+                verticalAlign="middle"
+              >
                 <Stack fill>
                   {randomSetting && (
                     <Stack.Item>
@@ -405,13 +435,38 @@ const PreferenceList = (props: {
   );
 };
 
-export const MainPage = (
-  props: {
-    openSpecies: () => void;
-  },
-  context
-) => {
-  const { act, data } = useBackend<PreferencesMenuData>(context);
+export const getRandomization = (
+  preferences: Record<string, unknown>,
+  serverData: ServerData | undefined,
+  randomBodyEnabled: boolean
+): Record<string, RandomSetting> => {
+  if (!serverData) {
+    return {};
+  }
+
+  const { data } = useBackend<PreferencesMenuData>();
+
+  return Object.fromEntries(
+    filterMap(Object.keys(preferences), (preferenceKey) => {
+      if (serverData.random.randomizable.indexOf(preferenceKey) === -1) {
+        return undefined;
+      }
+
+      if (!randomBodyEnabled) {
+        return undefined;
+      }
+
+      return [
+        preferenceKey,
+        data.character_preferences.randomization[preferenceKey] ||
+          RandomSetting.Disabled,
+      ];
+    })
+  );
+};
+
+export const MainPage = (props: { openSpecies: () => void }) => {
+  const { act, data } = useBackend<PreferencesMenuData>();
   const [currentClothingMenu, setCurrentClothingMenu] = useLocalState<
     string | null
   >(context, 'currentClothingMenu', null);
@@ -480,7 +535,9 @@ export const MainPage = (
         };
 
         const randomizationOfMainFeatures = getRandomization(
-          Object.fromEntries(mainFeatures)
+          Object.fromEntries(mainFeatures),
+          serverData,
+          randomBodyEnabled
         );
 
         const nonContextualPreferences = {
@@ -597,13 +654,21 @@ export const MainPage = (
                 <Stack vertical fill>
                   <PreferenceList
                     act={act}
-                    randomizations={getRandomization(contextualPreferences)}
+                    randomizations={getRandomization(
+                      contextualPreferences,
+                      serverData,
+                      randomBodyEnabled
+                    )}
                     preferences={contextualPreferences}
                   />
 
                   <PreferenceList
                     act={act}
-                    randomizations={getRandomization(nonContextualPreferences)}
+                    randomizations={getRandomization(
+                      nonContextualPreferences,
+                      serverData,
+                      randomBodyEnabled
+                    )}
                     preferences={nonContextualPreferences}
                   />
                 </Stack>

@@ -1,6 +1,13 @@
 import { Window } from '../../layouts';
 import { useBackend, useLocalState } from '../../backend';
-import { ByondUi, Stack, Button, Section, ProgressBar, LabeledList } from '../../components';
+import {
+  ByondUi,
+  Stack,
+  Button,
+  Section,
+  ProgressBar,
+  LabeledList,
+} from '../../components';
 import { formatSiUnit } from '../../format';
 import { ModulesPane } from './ModulesPane';
 import { AlertPane } from './AlertPane';
@@ -50,7 +57,8 @@ export const Content = (props, context) => {
                   tooltipPosition="left"
                   onClick={() => act('changename')}
                 />
-              }>
+              }
+            >
               <Stack fill vertical>
                 <Stack.Item>
                   <ByondUi
@@ -152,13 +160,14 @@ const PowerBar = (props, context) => {
           bad: [-Infinity, 0.25],
         }}
         style={{
-          'text-shadow': '1px 1px 0 black',
-        }}>
+          textShadow: '1px 1px 0 black',
+        }}
+      >
         {power_max === null
           ? 'Power cell missing'
           : power_level === 1e31
-            ? 'Infinite'
-            : `${formatSiUnit(power_level * 1000, 0, 'J')} of ${formatSiUnit(
+          ? 'Infinite'
+          : `${formatSiUnit(power_level * 1000, 0, 'J')} of ${formatSiUnit(
               power_max * 1000,
               0,
               'J'
@@ -181,8 +190,9 @@ const IntegrityBar = (props, context) => {
           bad: [-Infinity, 0.25],
         }}
         style={{
-          'text-shadow': '1px 1px 0 black',
-        }}>
+          textShadow: '1px 1px 0 black',
+        }}
+      >
         {!scanmod_rating ? 'Unknown' : `${integrity} of ${integrity_max}`}
       </ProgressBar>
     </LabeledList.Item>
@@ -244,8 +254,8 @@ const CabinSeal = (props, context) => {
                 temp_hazard
                   ? 'danger'
                   : temp_warning
-                    ? 'average'
-                    : 'transparent'
+                  ? 'average'
+                  : 'transparent'
               }
               icon="temperature-low"
               tooltipPosition="top"
@@ -256,8 +266,8 @@ const CabinSeal = (props, context) => {
                 pressure_hazard
                   ? 'danger'
                   : pressure_warning
-                    ? 'average'
-                    : 'transparent'
+                  ? 'average'
+                  : 'transparent'
               }
               icon="gauge-high"
               tooltipPosition="top"
@@ -265,7 +275,8 @@ const CabinSeal = (props, context) => {
             />
           </>
         )
-      }>
+      }
+    >
       <Button
         icon={cabin_sealed ? 'mask-ventilator' : 'wind'}
         content={cabin_sealed ? 'Sealed' : 'Exposed'}

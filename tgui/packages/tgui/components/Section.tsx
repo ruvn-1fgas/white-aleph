@@ -50,52 +50,28 @@ export class Section extends Component<SectionProps> {
     }
   }
 
-  componentWillUnmount() {
-    if (this.scrollable || this.scrollableHorizontal) {
-      removeScrollableNode(this.scrollableRef.current as HTMLElement);
-    }
-  }
-
-  render() {
-    const {
-      className,
-      title,
-      buttons,
-      fill,
-      fitted,
-      scrollable,
-      scrollableHorizontal,
-      children,
-      onScroll,
-      ...rest
-    } = this.props;
-    const hasTitle = canRender(title) || canRender(buttons);
-    return (
-      <div
-        className={classes([
-          'Section',
-          Byond.IS_LTE_IE8 && 'Section--iefix',
-          fill && 'Section--fill',
-          fitted && 'Section--fitted',
-          scrollable && 'Section--scrollable',
-          scrollableHorizontal && 'Section--scrollableHorizontal',
-          className,
-          computeBoxClassName(rest),
-        ])}
-        {...computeBoxProps(rest)}>
-        {hasTitle && (
-          <div className="Section__title">
-            <span className="Section__titleText">{title}</span>
-            <div className="Section__buttons">{buttons}</div>
-          </div>
-        )}
-        <div className="Section__rest">
-          <div
-            ref={this.scrollableRef}
-            onScroll={onScroll}
-            className="Section__content">
-            {children}
-          </div>
+  return (
+    <div
+      className={classes([
+        'Section',
+        fill && 'Section--fill',
+        fitted && 'Section--fitted',
+        scrollable && 'Section--scrollable',
+        scrollableHorizontal && 'Section--scrollableHorizontal',
+        className,
+        computeBoxClassName(rest),
+      ])}
+      {...computeBoxProps(rest)}
+    >
+      {hasTitle && (
+        <div className="Section__title">
+          <span className="Section__titleText">{title}</span>
+          <div className="Section__buttons">{buttons}</div>
+        </div>
+      )}
+      <div className="Section__rest">
+        <div onScroll={onScroll as any} className="Section__content">
+          {children}
         </div>
       </div>
     );

@@ -1,6 +1,15 @@
 import { InfernoNode } from 'inferno';
 import { useBackend, useLocalState } from '../../backend';
-import { Box, Button, Flex, Input, LabeledList, Section, Stack, Tooltip } from '../../components';
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  LabeledList,
+  Section,
+  Stack,
+  Tooltip,
+} from '../../components';
 
 /**
  * This describes something that influences a particular reaction
@@ -102,7 +111,8 @@ const GasHandbook = (props, context) => {
           activeInput={gasActiveInput}
           setActiveInput={setGasActiveInput}
         />
-      }>
+      }
+    >
       {relevantGas && (
         <>
           <Box mb="0.5em">{relevantGas.description}</Box>
@@ -166,7 +176,8 @@ const ReactionHandbook = (props, context) => {
           activeInput={reactionActiveInput}
           setActiveInput={setReactionActiveInput}
         />
-      }>
+      }
+    >
       {relevantReaction && (
         <>
           <Box mb="0.5em">{relevantReaction.description}</Box>
@@ -185,8 +196,9 @@ const ReactionHandbook = (props, context) => {
                     <Tooltip content={factor.tooltip} position="top">
                       <Flex>
                         <Flex.Item
-                          style={{ 'border-bottom': 'dotted 2px' }}
-                          shrink>
+                          style={{ borderBottom: 'dotted 2px' }}
+                          shrink
+                        >
                           {factor.factor_name + ':'}
                         </Flex.Item>
                       </Flex>
@@ -194,7 +206,8 @@ const ReactionHandbook = (props, context) => {
                   ) : (
                     factor.factor_name
                   )
-                }>
+                }
+              >
                 {factor.desc}
               </LabeledList.Item>
             ))}

@@ -39,8 +39,9 @@ export const Adminhelp = (props, context) => {
     <Window title="Create Adminhelp" theme="admin" height={300} width={500}>
       <Window.Content
         style={{
-          'background-image': 'none',
-        }}>
+          backgroundImage: 'none',
+        }}
+      >
         <Stack vertical fill>
           <Stack.Item grow>
             <TextArea
@@ -62,8 +63,9 @@ export const Adminhelp = (props, context) => {
                     fontFamily="arial"
                     backgroundColor="grey"
                     style={{
-                      'font-style': 'normal',
-                    }}>
+                      fontStyle: 'normal',
+                    }}
+                  >
                     Input &apos;{confirmationText}&apos; to proceed.
                     <Input
                       placeholder="Confirmation Prompt"

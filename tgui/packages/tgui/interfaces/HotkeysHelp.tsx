@@ -115,13 +115,20 @@ export const HotkeysHelp = (props, context) => {
                       <Tooltip
                         key={binding.name}
                         content={binding.desc}
-                        position="bottom">
+                        position="bottom"
+                      >
                         <Box p={1} m={1} inline className="HotkeysHelp__pill">
                           {binding.name}
                         </Box>
                       </Tooltip>
                     ) : (
-                      <Box p={1} m={1} inline className="HotkeysHelp__pill">
+                      <Box
+                        key={binding.name}
+                        p={1}
+                        m={1}
+                        inline
+                        className="HotkeysHelp__pill"
+                      >
                         {binding.name}
                       </Box>
                     )
