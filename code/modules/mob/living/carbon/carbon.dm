@@ -147,8 +147,6 @@
 		power_throw++
 	if(neckgrab_throw)
 		power_throw++
-	if(isitem(thrown_thing))
-		var/obj/item/thrown_item = thrown_thing
 	visible_message(span_danger("<b>[src]</b> кидает [thrown_thing][power_throw ? " невероятно сильно!" : "."]"), \
 					span_danger("Кидаю [thrown_thing][power_throw ? " невероятно сильно!" : "."]"))
 	playsound(get_turf(src), 'white/rebolution228/sounds/throw.wav', 50, TRUE)

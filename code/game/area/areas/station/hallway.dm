@@ -144,7 +144,7 @@
 	name = "Коридоры, низ: Ботаника"
 	icon_state = "escape_lounge"
 
-/	area/station/secondary/exit/departure_lounge/shop
+/area/station/secondary/exit/departure_lounge/shop
 	name = "Коридоры, низ: Магазин"
 	icon_state = "escape_lounge2"
 

@@ -173,7 +173,6 @@
 	name = "Свободная комната"
 	icon_state = "vacant_room"
 	ambience_index = AMBIENCE_MAINT
-	ambientsounds = MAINTENANCE
 
 /area/station/commons/vacant_room/office
 	name = "Свободный офис"

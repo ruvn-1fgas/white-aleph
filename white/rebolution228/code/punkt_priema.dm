@@ -2,7 +2,7 @@
 /obj/machinery/priem_steklotara
 	name = "пункт приёма стеклотары"
 	desc = "Позволяет за пустые алкобутылки получать деньги. Как кэшбек, только лучше!"
-	icon = 'white/ClickerOfThings/steklotara/punkt_priema.dmi'
+	icon = 'white/rebolution228/icons/punkt_priema.dmi'
 	icon_state = "open"
 	density = TRUE
 	anchored = TRUE
@@ -14,8 +14,8 @@
 		if (processing)
 			to_chat(user, span_warning("Пункт приёма стеклотары обрабатывает бутылку, подождите!"))
 			return
-		var/obj/item/reagent_containers/cup/glass/bottle/btl = I
-		if (btl.reagents.reagent_list.len != 0)
+		var/obj/item/reagent_containers/cup/glass/bottle/b = I
+		if(b.reagents.total_volume > 0)
 			to_chat(user, span_warning("Бутылка должна быть пуста!"))
 			return
 		qdel(I)
@@ -26,17 +26,17 @@
 		playsound(src, 'sound/machines/chime.ogg', 100, 0)
 		say("Бутылка обнаружена! Подождите...")
 		processing = TRUE
-		addtimer(CALLBACK(src, .proc/drop_money, btl), bottle_process_time)
+		addtimer(CALLBACK(src, .proc/drop_money, b), bottle_process_time)
 	else
 		return ..()
 
 
-/obj/machinery/priem_steklotara/proc/drop_money(/obj/item/reagent_containers/cup/glass/bottle/btl)
+/obj/machinery/priem_steklotara/proc/drop_money(obj/item/reagent_containers/cup/glass/bottle/B)
 	var/cost = 0
-	if (btl.custom_price != null)
-		cost += btl.custom_price / 2
-	if (btl.custom_premium_price != null)
-		cost += btl.custom_premium_price / 4
+	if (B.custom_price != null)
+		cost += B.custom_price / 2
+	if (B.custom_premium_price != null)
+		cost += B.custom_premium_price / 4
 	if (cost == 0)
 		cost = 15
 	while (cost > 0)
