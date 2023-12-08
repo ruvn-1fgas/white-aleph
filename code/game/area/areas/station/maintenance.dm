@@ -187,15 +187,15 @@
 	icon_state = "fsmaint"
 
 /area/station/maintenance/port
-	name = "Техтоннели: Восточные"
+	name = "Техтоннели: Западные"
 	icon_state = "portmaint"
 
 /area/station/maintenance/port/central
-	name = "Техтоннели: Центрально-восточные"
+	name = "Техтоннели: Центрально-западные"
 	icon_state = "centralportmaint"
 
 /area/station/maintenance/port/greater
-	name = "Техтоннели: Основные восточные"
+	name = "Техтоннели: Основные западные"
 	icon_state = "greaterportmaint"
 
 /area/station/maintenance/port/lesser
@@ -203,7 +203,7 @@
 	icon_state = "lesserportmaint"
 
 /area/station/maintenance/port/aft
-	name = "Техтоннели: Восточные"
+	name = "Техтоннели: Юго-западные"
 	icon_state = "apmaint"
 
 /area/station/maintenance/port/fore
