@@ -207,7 +207,7 @@
 	icon_state = "apmaint"
 
 /area/station/maintenance/port/fore
-	name = "Техтоннели: Северно-восточные"
+	name = "Техтоннели: Северно-западные"
 	icon_state = "fpmaint"
 
 /area/station/maintenance/tram
