@@ -259,6 +259,7 @@
 			msg += "\t[C] - [C.holder.rank_names()]"
 			msg += "\n"
 	return msg
+
 /datum/world_topic/who
 	keyword = "who"
 	log = FALSE

@@ -44,13 +44,13 @@ GLOBAL_VAR_INIT(webhook_can_fire, 0)
 	var/list/query = list("event" = event, "data" = data)
 	webhook_send("status_update", query)
 
-/proc/webhook_send(method, data)
+/proc/webhook_send(var/method, var/data)
 	if (!GLOB.webhook_can_fire)
 		return
 
-	if (!CONFIG_GET(string/webhook_address_invst) || !CONFIG_GET(string/comms_key))
+	if (!CONFIG_GET(string/webhook_url) || !CONFIG_GET(string/webhook_key))
 		return
 
-	var/query = "[CONFIG_GET(string/webhook_address_invst)]?key=[CONFIG_GET(string/comms_key)]&method=[method]&data=[url_encode(json_encode(data))]"
+	var/query = "[CONFIG_GET(string/webhook_url)]?key=[CONFIG_GET(string/webhook_key)]&method=[method]&data=[url_encode(json_encode(data))]"
 	spawn(-1)
 		world.Export(query)
