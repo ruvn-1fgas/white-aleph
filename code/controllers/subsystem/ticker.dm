@@ -219,7 +219,7 @@ SUBSYSTEM_DEF(ticker)
 
 
 /datum/controller/subsystem/ticker/proc/setup()
-	to_chat(world, span_boldannounce("Starting game..."))
+	to_chat(world, span_green("-- Запускаем игру... --"))
 	var/init_start = world.timeofday
 
 	mode = new /datum/game_mode/dynamic
@@ -236,7 +236,7 @@ SUBSYSTEM_DEF(ticker)
 		if(!can_continue)
 			log_game("Game failed pre_setup")
 			QDEL_NULL(mode)
-			to_chat(world, "<B>Error setting up game.</B> Reverting to pre-game lobby.")
+			to_chat(world, "<B>Ничего не вышло!</B> Откатываем таймер назад.")
 			SSjob.ResetOccupations()
 			return FALSE
 	else
