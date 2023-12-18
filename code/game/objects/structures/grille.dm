@@ -393,12 +393,12 @@
 /obj/structure/grille/broken // Pre-broken grilles for map placement
 	icon_state = "grille_broken"
 	density = FALSE
-	atom_integrity = 30
 	broken = TRUE
 	rods_amount = 1
 
 /obj/structure/grille/broken/Initialize(mapload)
 	. = ..()
+	atom_integrity = 30
 	holes = (holes | 16)
 	update_icon()
 
