@@ -5880,6 +5880,7 @@
 #include "interface\fonts\tiny_unicode.dm"
 #include "interface\fonts\vcr_osd_mono.dm"
 #include "white\webhook.dm"
+#include "white\rebolution228\code\antimatter.dm"
 #include "white\rebolution228\code\punkt_priema.dm"
 #include "white\rebolution228\code\trash_pile.dm"
 #include "white\rebolution228\code\randomstation\landmarks.dm"

@@ -228,7 +228,7 @@
 	return
 
 
-/obj/machinery/power/am_control_unit/update_icon()
+/obj/machinery/power/am_control_unit/update_appearance()
 	if(active)
 		icon_state = "control_on"
 	else icon_state = "control"
@@ -517,7 +517,7 @@
 		check_stability()
 
 
-/obj/machinery/am_shielding/update_icon()
+/obj/machinery/am_shielding/update_appearance()
 	dirs = 0
 	coredirs = 0
 	cut_overlays()
@@ -601,7 +601,7 @@
 
 /obj/machinery/am_shielding/proc/setup_core()
 	processing = TRUE
-	GLOB.machines |= src
+	SSmachines.register_machine(src)
 	START_PROCESSING(SSmachines, src)
 	if(!control_unit)
 		return
@@ -646,8 +646,8 @@
 	icon = 'white/rebolution228/icons/antimatter.dmi'
 	icon_state = "box"
 	inhand_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	flags_1 = CONDUCT_1
 	throwforce = 5
