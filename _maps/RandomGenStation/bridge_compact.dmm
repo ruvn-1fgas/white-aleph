@@ -1264,6 +1264,7 @@
 	pixel_y = -35
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/apc/cell_5k,
 /turf/open/floor/iron/large,
 /area/station/engineering/gravity_generator)
 "dH" = (
@@ -3915,6 +3916,11 @@
 	},
 /turf/open/floor/iron/large,
 /area/station/hallway/primary/central/south)
+"IZ" = (
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/station/maintenance/central)
 "Jk" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -4682,11 +4688,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/west)
-"YM" = (
-/obj/structure/cable,
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/station/maintenance/central)
 "Zd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
@@ -5542,7 +5543,7 @@ es
 md
 zL
 lL
-YM
+IZ
 lL
 lL
 lL
