@@ -149,7 +149,7 @@
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "aX" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
 /turf/open/floor/plating,
 /area/station/engineering/main)
@@ -1068,8 +1068,22 @@
 /turf/open/floor/engine/airless,
 /area/space/nearstation)
 "tB" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/plating,
+/area/station/engineering/main)
+"tY" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Engineering East"
+	},
+/obj/machinery/vending/wardrobe/engi_wardrobe,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/turf/open/floor/iron,
 /area/station/engineering/main)
 "uB" = (
 /obj/machinery/door/airlock/external{
@@ -1401,7 +1415,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/aft/upper)
 "SZ" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/upper)
 "Tl" = (
@@ -2279,7 +2293,7 @@ tk
 ab
 "}
 (30,1,1) = {"
-ab
+ao
 bl
 ao
 cE
@@ -2307,7 +2321,7 @@ wC
 ab
 "}
 (31,1,1) = {"
-ab
+tY
 au
 aI
 aZ
@@ -2335,7 +2349,7 @@ tk
 ab
 "}
 (32,1,1) = {"
-ab
+ad
 au
 as
 cE

@@ -14511,7 +14511,7 @@
 /turf/open/openspace,
 /area/station/maintenance/space_hut/plasmaman)
 "fHp" = (
-/obj/machinery/power/rad_collector,
+/obj/machinery/shieldgen,
 /turf/open/floor/plating,
 /area/station/engineering/engine_smes)
 "fHD" = (
@@ -20018,13 +20018,13 @@
 	pixel_y = 3
 	},
 /obj/item/book/manual/wiki/engineering_construction,
-/obj/item/clothing/glasses/meson,
 /obj/structure/sign/warning/electric_shock{
 	pixel_y = 32
 	},
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
+/obj/item/clothing/glasses/meson/engine,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "hFC" = (
@@ -42416,9 +42416,10 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "qfX" = (
-/obj/machinery/the_singularitygen,
-/turf/open/floor/plating,
-/area/station/engineering/engine_smes)
+/obj/structure/lattice,
+/obj/effect/landmark/stationroom/engine/default/bottom,
+/turf/open/space/basic,
+/area/space/nearstation)
 "qga" = (
 /turf/closed/wall,
 /area/station/maintenance/starboard/fore)
@@ -43199,9 +43200,7 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "qvE" = (
 /obj/machinery/portable_atmospherics/canister/plasma,
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /obj/machinery/camera/directional/west{
 	c_tag = "Engineering Secure Storage"
 	},
@@ -54172,7 +54171,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/bottom_station_maints)
 "urE" = (
-/obj/effect/landmark/stationroom/engine/random,
+/obj/effect/landmark/stationroom/engine/default,
 /turf/open/openspace/airless,
 /area/space)
 "urK" = (
@@ -88670,7 +88669,7 @@ ylC
 dVt
 dVt
 dVt
-dvN
+qfX
 ylC
 ylC
 ylC
@@ -155976,7 +155975,7 @@ rdL
 fHp
 onG
 qvE
-qfX
+fAz
 fAz
 fAz
 rdL
@@ -156233,7 +156232,7 @@ rdL
 fHp
 uGX
 iUn
-fHp
+fAz
 fAz
 xhV
 rdL
@@ -156487,10 +156486,10 @@ oZa
 ohC
 hxS
 rdL
-fHp
 uGX
 uGX
 uGX
+xhV
 xhV
 xhV
 rdL
