@@ -383,6 +383,6 @@ TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/dark)
 	name = "colorful hex corner"
 	color = "#E300FF" //bright pink as default for mapping
 
-/obj/effect/turf_decal/tile/hex/random/Initialize()
+/obj/effect/turf_decal/tile/hex/random/Initialize(mapload)
 	color = "#[random_short_color()]"
 	. = ..()
