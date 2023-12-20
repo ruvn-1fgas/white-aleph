@@ -1,7 +1,6 @@
 import { createPopper } from '@popperjs/core';
 import { ArgumentsOf } from 'common/types';
-import { Component, CSSProperties } from 'react';
-import { render } from 'react-dom';
+import { Component, findDOMfromVNode, InfernoNode, render } from 'inferno';
 
 type PopperProps = {
   popperContent: InfernoNode;

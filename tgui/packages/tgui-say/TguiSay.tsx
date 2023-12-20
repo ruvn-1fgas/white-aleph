@@ -320,8 +320,7 @@ export class TguiSay extends Component<{}, State> {
             <button
               className={`button button-${theme}`}
               onClick={this.handleIncrementChannel}
-              type="button"
-            >
+              type="button">
               {this.state.buttonContent}
             </button>
             <textarea

@@ -5,7 +5,8 @@
  */
 
 import { BooleanLike, classes, pureComponentHooks } from 'common/react';
-import { InfernoNode, SFC } from 'inferno';
+import { createVNode, InfernoNode, SFC } from 'inferno';
+import { ChildFlags, VNodeFlags } from 'inferno-vnode-flags';
 import { CSS_COLORS } from '../constants';
 
 export type BoxProps = {
@@ -257,15 +258,20 @@ export const Box: SFC<BoxProps> = (props: BoxProps) => {
   if (typeof children === 'function') {
     return children(computeBoxProps(props));
   }
-
-  // Render the component
-  return createElement(
-    typeof as === 'string' ? as : 'div',
-    {
-      ...computedProps,
-      className: computedClassName,
-    },
-    children
+  const computedClassName =
+    typeof className === 'string'
+      ? className + ' ' + computeBoxClassName(rest)
+      : computeBoxClassName(rest);
+  const computedProps = computeBoxProps(rest);
+  // Render a wrapper element
+  return createVNode(
+    VNodeFlags.HtmlElement,
+    as,
+    computedClassName,
+    children,
+    ChildFlags.UnknownChildren,
+    computedProps,
+    undefined
   );
 };
 

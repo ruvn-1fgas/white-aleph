@@ -2,18 +2,7 @@ import { BooleanLike } from 'common/react';
 import { classes } from 'common/react';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
-import {
-  Box,
-  Section,
-  NumberInput,
-  Table,
-  Tabs,
-  LabeledList,
-  NoticeBox,
-  Button,
-  ProgressBar,
-  Stack,
-} from '../components';
+import { Box, Section, NumberInput, Table, Tabs, LabeledList, NoticeBox, Button, ProgressBar, Stack } from '../components';
 
 type BiogeneratorData = {
   processing: BooleanLike;
@@ -86,20 +75,17 @@ export const Biogenerator = (props, context) => {
                       disabled={!can_process || processing}
                       onClick={() => act('activate')}
                     />
-                  }
-                >
+                  }>
                   <ProgressBar
                     value={biomass}
                     minValue={0}
                     maxValue={max_visual_biomass}
-                    color="good"
-                  >
+                    color="good">
                     <Box
                       lineHeight={1.9}
                       style={{
-                        textShadow: '1px 1px 0 black',
-                      }}
-                    >
+                        'text-shadow': '1px 1px 0 black',
+                      }}>
                       {`${parseFloat(biomass.toFixed(2))} units`}
                     </Box>
                   </ProgressBar>
@@ -116,21 +102,18 @@ export const Biogenerator = (props, context) => {
                         content="Eject"
                         onClick={() => act('eject')}
                       />
-                    }
-                  >
+                    }>
                     <ProgressBar
                       value={beakerCurrentVolume}
                       minValue={0}
                       height={2}
                       maxValue={beakerMaxVolume}
-                      color={reagent_color}
-                    >
+                      color={reagent_color}>
                       <Box
                         lineHeight={1.9}
                         style={{
-                          textShadow: '1px 1px 0 black',
-                        }}
-                      >
+                          'text-shadow': '1px 1px 0 black',
+                        }}>
                         {`${beakerCurrentVolume} of ${beakerMaxVolume} units`}
                       </Box>
                     </ProgressBar>
@@ -153,8 +136,7 @@ export const Biogenerator = (props, context) => {
                   align="center"
                   key={category.name}
                   selected={category.name === selectedCategory}
-                  onClick={() => setSelectedCategory(category.name)}
-                >
+                  onClick={() => setSelectedCategory(category.name)}>
                   {category.name}
                 </Tabs.Tab>
               ))}

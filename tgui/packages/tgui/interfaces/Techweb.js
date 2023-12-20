@@ -1,18 +1,6 @@
 import { map, sortBy } from 'common/collections';
 import { useBackend, useLocalState } from '../backend';
-import {
-  Button,
-  Section,
-  Modal,
-  Tabs,
-  Box,
-  Input,
-  Flex,
-  ProgressBar,
-  Collapsible,
-  Icon,
-  Divider,
-} from '../components';
+import { Button, Section, Modal, Tabs, Box, Input, Flex, ProgressBar, Collapsible, Icon, Divider } from '../components';
 import { Window, NtosWindow } from '../layouts';
 import { Experiment } from './ExperimentConfigure';
 
@@ -180,8 +168,7 @@ export const TechwebContent = (props, context) => {
               <span
                 className={`Techweb__SecProtocol ${
                   !!sec_protocols && 'engaged'
-                }`}
-              >
+                }`}>
                 {sec_protocols ? 'Engaged' : 'Disengaged'}
               </span>
             </Box>
@@ -197,8 +184,7 @@ export const TechwebContent = (props, context) => {
                   fluid
                   onClick={() =>
                     setTechwebRoute({ route: 'disk', diskType: 'design' })
-                  }
-                >
+                  }>
                   Design Disk Inserted
                 </Button>
               </Flex.Item>
@@ -209,8 +195,7 @@ export const TechwebContent = (props, context) => {
                   fluid
                   onClick={() =>
                     setTechwebRoute({ route: 'disk', diskType: 'tech' })
-                  }
-                >
+                  }>
                   Tech Disk Inserted
                 </Button>
               </Flex.Item>
@@ -282,20 +267,17 @@ const TechwebOverview = (props, context) => {
             <Tabs>
               <Tabs.Tab
                 selected={!searching && tabIndex === 0}
-                onClick={() => switchTab(0)}
-              >
+                onClick={() => switchTab(0)}>
                 Researched
               </Tabs.Tab>
               <Tabs.Tab
                 selected={!searching && tabIndex === 1}
-                onClick={() => switchTab(1)}
-              >
+                onClick={() => switchTab(1)}>
                 Available
               </Tabs.Tab>
               <Tabs.Tab
                 selected={!searching && tabIndex === 2}
-                onClick={() => switchTab(2)}
-              >
+                onClick={() => switchTab(2)}>
                 Future
               </Tabs.Tab>
               {!!searching && <Tabs.Tab selected>Search Results</Tabs.Tab>}
@@ -366,8 +348,7 @@ const TechwebDiskMenu = (props, context) => {
             )}
             <Button
               icon="upload"
-              onClick={() => act('uploadDisk', { type: diskType })}
-            >
+              onClick={() => act('uploadDisk', { type: diskType })}>
               Disk &rarr; Web
             </Button>
             <Button
@@ -375,8 +356,7 @@ const TechwebDiskMenu = (props, context) => {
               onClick={() => {
                 act('ejectDisk', { type: diskType });
                 setTechwebRoute(null);
-              }}
-            >
+              }}>
               Eject
             </Button>
             <Button icon="home" onClick={() => setTechwebRoute(null)}>
@@ -459,15 +439,13 @@ const TechNodeDetail = (props, context) => {
             <Tabs>
               <Tabs.Tab
                 selected={tabIndex === 0}
-                onClick={() => setTabIndex(0)}
-              >
+                onClick={() => setTabIndex(0)}>
                 Required ({complPrereq}/{prereqNodes.length})
               </Tabs.Tab>
               <Tabs.Tab
                 selected={tabIndex === 1}
                 disabled={unlockedNodes.length === 0}
-                onClick={() => setTabIndex(1)}
-              >
+                onClick={() => setTabIndex(1)}>
                 Unlocks ({unlockedNodes.length})
               </Tabs.Tab>
             </Tabs>
@@ -536,8 +514,7 @@ const TechNode = (props, context) => {
         average: [0.25, 0.5],
         bad: [-Infinity, 0.25],
       }}
-      value={expcompl / required_experiments.length}
-    >
+      value={expcompl / required_experiments.length}>
       Experiments ({expcompl}/{required_experiments.length})
     </ProgressBar>
   );
@@ -552,8 +529,7 @@ const TechNode = (props, context) => {
         average: [0.25, 0.5],
         bad: [-Infinity, 0.25],
       }}
-      value={techcompl / prereq_ids.length}
-    >
+      value={techcompl / prereq_ids.length}>
       Tech ({techcompl}/{prereq_ids.length})
     </ProgressBar>
   );
@@ -579,8 +555,7 @@ const TechNode = (props, context) => {
                 onClick={() => {
                   setTechwebRoute({ route: 'details', selectedNode: id });
                   setTabIndex(0);
-                }}
-              >
+                }}>
                 Details
               </Button>
             )}
@@ -588,15 +563,13 @@ const TechNode = (props, context) => {
               <Button
                 icon="lightbulb"
                 disabled={!can_unlock || tier > 1}
-                onClick={() => act('researchNode', { node_id: id })}
-              >
+                onClick={() => act('researchNode', { node_id: id })}>
                 Research
               </Button>
             )}
           </>
         )
-      }
-    >
+      }>
       {tier !== 0 && (
         <Flex className="Techweb__NodeProgress">
           {costs.map((k) => {
@@ -614,8 +587,7 @@ const TechNode = (props, context) => {
                     reqPts === 0
                       ? 1
                       : Math.min(1, (points[k.type] || 0) / reqPts)
-                  }
-                >
+                  }>
                   {abbreviateName(k.type)} ({nodeProg}/{reqPts})
                 </ProgressBar>
               </Flex.Item>
@@ -649,9 +621,8 @@ const TechNode = (props, context) => {
       {required_experiments.length > 0 && (
         <Collapsible
           className="Techweb__NodeExperimentsRequired"
-          title="Required Experiments"
-        >
-          {required_experiments.map((k, index) => {
+          title="Required Experiments">
+          {required_experiments.map((k) => {
             const thisExp = experiments[k];
             if (thisExp === null || thisExp === undefined) {
               return <LockedExperiment />;
@@ -663,9 +634,8 @@ const TechNode = (props, context) => {
       {Object.keys(discount_experiments).length > 0 && (
         <Collapsible
           className="TechwebNodeExperimentsRequired"
-          title="Discount-Eligible Experiments"
-        >
-          {Object.keys(discount_experiments).map((k, index) => {
+          title="Discount-Eligible Experiments">
+          {Object.keys(discount_experiments).map((k) => {
             const thisExp = experiments[k];
             if (thisExp === null || thisExp === undefined) {
               return <LockedExperiment />;
@@ -692,8 +662,7 @@ const LockedExperiment = (props, context) => {
         fluid
         backgroundColor="#40628a"
         className="ExperimentConfigure__ExperimentName"
-        disabled
-      >
+        disabled>
         <Flex align="center" justify="space-between">
           <Flex.Item color="rgba(0, 0, 0, 0.6)">
             <Icon name="lock" />

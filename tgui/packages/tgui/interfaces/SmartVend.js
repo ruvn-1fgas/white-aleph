@@ -14,14 +14,12 @@ export const SmartVend = (props, context) => {
             !!data.isdryer && (
               <Button
                 icon={data.drying ? 'stop' : 'tint'}
-                onClick={() => act('Dry')}
-              >
+                onClick={() => act('Dry')}>
                 {data.drying ? 'Stop drying' : 'Dry'}
               </Button>
             )
-          }
-        >
-          {contents.length === 0 ? (
+          }>
+          {(data.contents.length === 0 && (
             <NoticeBox>Unfortunately, this {data.name} is empty.</NoticeBox>
           )) || (
             <Table>

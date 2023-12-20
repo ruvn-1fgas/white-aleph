@@ -1,6 +1,6 @@
 import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
-import { Button, NumberInput, Section } from '../components';
+import { AnimatedNumber, Box, Button, LabeledList, NumberInput, Section } from '../components';
 import { Window } from '../layouts';
 
 type Data = {
@@ -75,9 +75,28 @@ export const ChemDebugSynthesizer = (props, context) => {
                 onClick={() => act('makecup')}
               />
             )
-          }
-        >
-          <BeakerDisplay beaker={beaker} showpH />
+          }>
+          {isBeakerLoaded ? (
+            <>
+              <Box>
+                <AnimatedNumber value={beakerCurrentVolume} />
+                {' / ' + beakerMaxVolume + ' u'}
+              </Box>
+              {beakerContents.length > 0 ? (
+                <LabeledList>
+                  {beakerContents.map((chem) => (
+                    <LabeledList.Item key={chem.name} label={chem.name}>
+                      {chem.volume} u
+                    </LabeledList.Item>
+                  ))}
+                </LabeledList>
+              ) : (
+                <Box color="bad">Recipient Empty</Box>
+              )}
+            </>
+          ) : (
+            <Box color="average">No Recipient</Box>
+          )}
         </Section>
       </Window.Content>
     </Window>

@@ -14,21 +14,6 @@ const getValueClass = (value: number): string => {
   }
 };
 
-const getCorrespondingPreferences = (
-  customization_options: string[],
-  relevant_preferences: Record<string, string>
-): Record<string, unknown> => {
-  return Object.fromEntries(
-    filterMap(Object.keys(relevant_preferences), (key) => {
-      if (!customization_options.includes(key)) {
-        return undefined;
-      }
-
-      return [key, relevant_preferences[key]];
-    })
-  );
-};
-
 const QuirkList = (props: {
   quirks: [
     string,
@@ -52,17 +37,15 @@ const QuirkList = (props: {
             tabIndex="1"
             onClick={() => {
               props.onClick(quirkKey, quirk);
-            }}
-          >
+            }}>
             <Stack fill>
               <Stack.Item
                 align="center"
                 style={{
-                  minWidth: '15%',
-                  maxWidth: '15%',
-                  textAlign: 'center',
-                }}
-              >
+                  'min-width': '15%',
+                  'max-width': '15%',
+                  'text-align': 'center',
+                }}>
                 <Icon color="#333" fontSize={3} name={quirk.icon} />
               </Stack.Item>
 
@@ -80,23 +63,20 @@ const QuirkList = (props: {
                   'margin-left': 0,
 
                   // Fixes an IE bug for text overflowing in Flex boxes
-                  minWidth: '0%',
-                }}
-              >
+                  'min-width': '0%',
+                }}>
                 <Stack vertical fill>
                   <Stack.Item
                     className={`${className}--${getValueClass(quirk.value)}`}
                     style={{
-                      borderBottom: '1px solid black',
-                      padding: '2px',
-                    }}
-                  >
+                      'border-bottom': '1px solid black',
+                      'padding': '2px',
+                    }}>
                     <Stack
                       fill
                       style={{
-                        fontSize: '1.2em',
-                      }}
-                    >
+                        'font-size': '1.2em',
+                      }}>
                       <Stack.Item grow basis="content">
                         <b>{quirk.name}</b>
                       </Stack.Item>
@@ -111,78 +91,10 @@ const QuirkList = (props: {
                     grow
                     basis="content"
                     style={{
-                      padding: '3px',
-                    }}
-                  >
+                      'margin-top': 0,
+                      'padding': '3px',
+                    }}>
                     {quirk.description}
-                    {!!quirk.customizable && (
-                      <Popper
-                        options={{
-                          placement: 'bottom-end',
-                        }}
-                        popperContent={
-                          <Box>
-                            {!!quirk.customization_options &&
-                              hasExpandableCustomization && (
-                                <Box
-                                  mt="1px"
-                                  style={{
-                                    boxShadow:
-                                      '0px 4px 8px 3px rgba(0, 0, 0, 0.7)',
-                                  }}
-                                >
-                                  <Stack
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                    }}
-                                    maxWidth="300px"
-                                    backgroundColor="black"
-                                    px="5px"
-                                    py="3px"
-                                  >
-                                    <Stack.Item>
-                                      <PreferenceList
-                                        act={act}
-                                        preferences={getCorrespondingPreferences(
-                                          quirk.customization_options,
-                                          data.character_preferences
-                                            .manually_rendered_features
-                                        )}
-                                        randomizations={getRandomization(
-                                          getCorrespondingPreferences(
-                                            quirk.customization_options,
-                                            data.character_preferences
-                                              .manually_rendered_features
-                                          ),
-                                          props.serverData,
-                                          props.randomBodyEnabled
-                                        )}
-                                        maxHeight="100px"
-                                      />
-                                    </Stack.Item>
-                                  </Stack>
-                                </Box>
-                              )}
-                          </Box>
-                        }
-                      >
-                        {props.selected && (
-                          <Button
-                            selected={customizationExpanded}
-                            icon="cog"
-                            tooltip="Customize"
-                            onClick={(e) => {
-                              e.stopPropagation();
-
-                              setCustomizationExpanded(!customizationExpanded);
-                            }}
-                            style={{
-                              float: 'right',
-                            }}
-                          />
-                        )}
-                      </Popper>
-                    )}
                   </Stack.Item>
                 </Stack>
               </Stack.Item>
@@ -208,8 +120,7 @@ const StatDisplay: StatelessComponent<{}> = (props) => {
       color="black"
       fontSize="1.2em"
       px={3}
-      py={0.5}
-    >
+      py={0.5}>
       {props.children}
     </Box>
   );

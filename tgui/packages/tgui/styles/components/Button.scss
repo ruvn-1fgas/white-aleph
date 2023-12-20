@@ -29,22 +29,13 @@ $bg-map: colors.$bg-map !default;
   border-bottom: 1px solid rgba(33, 33, 33, 0.8);
   background-color: base.$color-bg;
 
-  transition:
-    color 50ms,
-    background-color 50ms;
-  background-color: $color;
-  color: $text-color;
 
   &:hover {
-    transition:
-      color 0ms,
-      background-color 0ms;
+    transition: color 0ms, background-color 0ms;
   }
 
   &:focus {
-    transition:
-      color 100ms,
-      background-color 100ms;
+    transition: color 100ms, background-color 100ms;
   }
 
   &:hover,

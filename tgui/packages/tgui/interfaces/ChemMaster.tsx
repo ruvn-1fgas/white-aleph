@@ -1,20 +1,7 @@
 import { BooleanLike, classes } from 'common/react';
 import { capitalize } from 'common/string';
 import { useBackend, useLocalState } from '../backend';
-import {
-  AnimatedNumber,
-  Box,
-  Button,
-  Section,
-  Table,
-  NumberInput,
-  Tooltip,
-  LabeledList,
-  ColorBox,
-  ProgressBar,
-  Stack,
-  Divider,
-} from '../components';
+import { AnimatedNumber, Box, Button, Section, Table, NumberInput, Tooltip, LabeledList, ColorBox, ProgressBar, Stack, Divider } from '../components';
 import { Window } from '../layouts';
 
 type Data = {
@@ -122,8 +109,7 @@ const ChemMasterContent = (props, context) => {
               />
             </Box>
           )
-        }
-      >
+        }>
         {!hasBeaker && (
           <Box color="label" my={'4px'}>
             No beaker loaded.
@@ -159,8 +145,7 @@ const ChemMasterContent = (props, context) => {
               onClick={() => act('toggleTransferMode')}
             />
           </>
-        }
-      >
+        }>
         {bufferContents.length === 0 && (
           <Box color="label" my={'4px'}>
             Buffer is empty.
@@ -216,14 +201,12 @@ const ChemMasterContent = (props, context) => {
             ) : (
               <Button content="Printing..." icon="gear" iconSpin disabled />
             ))
-          }
-        >
+          }>
           {!!hasContainerSuggestion && (
             <Button.Checkbox
               onClick={() => act('toggleContainerSuggestion')}
               checked={doSuggestContainer}
-              mb={1}
-            >
+              mb={1}>
               Guess container by main reagent in the buffer
             </Button.Checkbox>
           )}
@@ -257,20 +240,17 @@ const ChemMasterContent = (props, context) => {
               content="Stop"
               onClick={() => act('stopPrinting')}
             />
-          }
-        >
+          }>
           <ProgressBar
             value={printingProgress}
             minValue={0}
             maxValue={printingTotal}
-            color="good"
-          >
+            color="good">
             <Box
               lineHeight={1.9}
               style={{
-                textShadow: '1px 1px 0 black',
-              }}
-            >
+                'text-shadow': '1px 1px 0 black',
+              }}>
               {`Printing ${printingProgress} out of ${printingTotal}`}
             </Box>
           </ProgressBar>
@@ -369,8 +349,7 @@ const ContainerButton = ({ container, category }, context) => {
   return (
     <Tooltip
       key={container.ref}
-      content={`${capitalize(container.name)}\xa0(${container.volume}u)`}
-    >
+      content={`${capitalize(container.name)}\xa0(${container.volume}u)`}>
       <Button
         overflow="hidden"
         color="transparent"
@@ -383,12 +362,11 @@ const ContainerButton = ({ container, category }, context) => {
           act('selectContainer', {
             ref: container.ref,
           });
-        }}
-      >
+        }}>
         <Box
           m={isPillPatch ? '0' : '8px'}
           style={{
-            transform: 'scale(2)',
+            'transform': 'scale(2)',
           }}
           className={classes(['chemmaster32x32', container.icon])}
         />
@@ -421,8 +399,7 @@ const AnalysisResults = (props, context) => {
           content="Back"
           onClick={() => act('stopAnalysis')}
         />
-      }
-    >
+      }>
       <LabeledList>
         <LabeledList.Item label="Name">{name}</LabeledList.Item>
         <LabeledList.Item label="Purity">
@@ -430,8 +407,7 @@ const AnalysisResults = (props, context) => {
             style={{
               'text-transform': 'capitalize',
             }}
-            color={purityLevel}
-          >
+            color={purityLevel}>
             {purityLevel}
           </Box>
         </LabeledList.Item>
@@ -466,8 +442,7 @@ const GroupTitle = ({ title }) => {
         style={{
           'text-transform': 'capitalize',
         }}
-        color={'gray'}
-      >
+        color={'gray'}>
         {title}
       </Stack.Item>
       <Stack.Item grow>

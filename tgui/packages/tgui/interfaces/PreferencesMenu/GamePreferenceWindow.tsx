@@ -44,9 +44,8 @@ export const GamePreferenceWindow = (
                 <PageButton
                   currentPage={currentPage}
                   page={GamePreferencesSelectedPage.Settings}
-                  setPage={setCurrentPage}
-                >
-                  Settings
+                  setPage={setCurrentPage}>
+                  Настройки
                 </PageButton>
               </Stack.Item>
 
@@ -54,9 +53,8 @@ export const GamePreferenceWindow = (
                 <PageButton
                   currentPage={currentPage}
                   page={GamePreferencesSelectedPage.Keybindings}
-                  setPage={setCurrentPage}
-                >
-                  Keybindings
+                  setPage={setCurrentPage}>
+                  Сочетания клавиш
                 </PageButton>
               </Stack.Item>
             </Stack>

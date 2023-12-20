@@ -47,43 +47,6 @@ const LabeledListItem = (props: LabeledListItemProps) => {
     children,
     verticalAlign = 'baseline',
   } = props;
-
-  let innerLabel;
-  if (label) {
-    innerLabel = label;
-    if (typeof label === 'string') innerLabel += ':';
-  }
-
-  if (tooltip !== undefined) {
-    innerLabel = (
-      <Tooltip content={tooltip}>
-        <Box
-          as="span"
-          style={{
-            borderBottom: '2px dotted rgba(255, 255, 255, 0.8)',
-          }}
-        >
-          {innerLabel}
-        </Box>
-      </Tooltip>
-    );
-  }
-
-  let labelChild = (
-    <Box
-      as="td"
-      color={labelColor}
-      className={classes([
-        'LabeledList__cell',
-        // Kinda flipped because we want nowrap as default. Cleaner CSS this way though.
-        !labelWrap && 'LabeledList__label--nowrap',
-      ])}
-      verticalAlign={verticalAlign}
-    >
-      {innerLabel}
-    </Box>
-  );
-
   return (
     <tr className={classes(['LabeledList__row', className])}>
       <Box
@@ -103,8 +66,7 @@ const LabeledListItem = (props: LabeledListItemProps) => {
         textAlign={textAlign}
         className={classes(['LabeledList__cell', 'LabeledList__content'])}
         colSpan={buttons ? undefined : 2}
-        verticalAlign={verticalAlign}
-      >
+        verticalAlign={verticalAlign}>
         {content}
         {children}
       </Box>
@@ -128,10 +90,9 @@ const LabeledListDivider = (props: LabeledListDividerProps) => {
       <td
         colSpan={3}
         style={{
-          paddingTop: padding,
-          paddingBottom: padding,
-        }}
-      >
+          'padding-top': padding,
+          'padding-bottom': padding,
+        }}>
         <Divider />
       </td>
     </tr>

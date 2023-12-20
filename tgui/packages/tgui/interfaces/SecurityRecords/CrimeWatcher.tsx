@@ -1,22 +1,7 @@
 import { useLocalState, useBackend } from 'tgui/backend';
 import { SECURETAB, Crime, SecurityRecordsData } from './types';
 import { getSecurityRecord } from './helpers';
-import {
-  BlockQuote,
-  Box,
-  Button,
-  Collapsible,
-  Icon,
-  Input,
-  LabeledList,
-  NoticeBox,
-  RestrictedInput,
-  Section,
-  Stack,
-  Tabs,
-  TextArea,
-  Tooltip,
-} from 'tgui/components';
+import { BlockQuote, Box, Button, Collapsible, Icon, Input, LabeledList, NoticeBox, RestrictedInput, Section, Stack, Tabs, TextArea, Tooltip } from 'tgui/components';
 
 /** Displays a list of crimes and allows to add new ones. */
 export const CrimeWatcher = (props, context) => {
@@ -27,7 +12,7 @@ export const CrimeWatcher = (props, context) => {
   const [selectedTab, setSelectedTab] = useLocalState<SECURETAB>(
     context,
     'selectedTab',
-    SECURETAB.Crimes,
+    SECURETAB.Crimes
   );
 
   return (
@@ -36,21 +21,18 @@ export const CrimeWatcher = (props, context) => {
         <Tabs fluid>
           <Tabs.Tab
             onClick={() => setSelectedTab(SECURETAB.Crimes)}
-            selected={selectedTab === SECURETAB.Crimes}
-          >
+            selected={selectedTab === SECURETAB.Crimes}>
             Crimes: {crimes.length}
           </Tabs.Tab>
           <Tabs.Tab
             onClick={() => setSelectedTab(SECURETAB.Citations)}
-            selected={selectedTab === SECURETAB.Citations}
-          >
+            selected={selectedTab === SECURETAB.Citations}>
             Citations: {citations.length}
           </Tabs.Tab>
           <Tooltip content="Add a new crime or citation" position="bottom">
             <Tabs.Tab
               onClick={() => setSelectedTab(SECURETAB.Add)}
-              selected={selectedTab === SECURETAB.Add}
-            >
+              selected={selectedTab === SECURETAB.Add}>
               <Icon name="plus" />
             </Tabs.Tab>
           </Tooltip>
@@ -152,8 +134,7 @@ const CrimeDisplay = ({ item }: { item: Crime }, context) => {
             <Button
               disabled={!valid || (!higher_access && author !== current_user)}
               icon="pen"
-              onClick={() => setEditing(true)}
-            >
+              onClick={() => setEditing(true)}>
               Edit
             </Button>
             <Button.Confirm
@@ -224,7 +205,7 @@ const CrimeAuthor = (props, context) => {
   const [selectedTab, setSelectedTab] = useLocalState<SECURETAB>(
     context,
     'selectedTab',
-    SECURETAB.Crimes,
+    SECURETAB.Crimes
   );
 
   const nameMeetsReqs = crimeName?.length > 2;

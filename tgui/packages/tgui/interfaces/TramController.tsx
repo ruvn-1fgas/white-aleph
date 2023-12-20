@@ -1,14 +1,6 @@
 import { useBackend, useLocalState } from '../backend';
 import { BooleanLike } from 'common/react';
-import {
-  Stack,
-  Section,
-  LabeledList,
-  ProgressBar,
-  Button,
-  NoticeBox,
-  Dropdown,
-} from '../components';
+import { Stack, Section, LabeledList, ProgressBar, Button, NoticeBox, Dropdown } from '../components';
 import { toFixed } from 'common/math';
 import { Window } from '../layouts';
 
@@ -64,7 +56,7 @@ export const TramController = (props, context) => {
   const [tripDestination, setTripDestination] = useLocalState(
     context,
     'TramDestination',
-    '',
+    ''
   );
 
   return (
@@ -79,20 +71,17 @@ export const TramController = (props, context) => {
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Controller Queue"
-                  color={controllerActive ? 'blue' : 'good'}
-                >
+                  color={controllerActive ? 'blue' : 'good'}>
                   {controllerActive ? 'Processing' : 'Ready'}
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Mechanical Status"
-                  color={controllerOperational ? 'good' : 'bad'}
-                >
+                  color={controllerOperational ? 'good' : 'bad'}>
                   {controllerOperational ? 'Normal' : 'Fault'}
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Processor Status"
-                  color={recoveryMode ? 'average' : 'good'}
-                >
+                  color={recoveryMode ? 'average' : 'good'}>
                   {recoveryMode ? 'Overload' : 'Normal'}
                 </LabeledList.Item>
                 <LabeledList.Item label="Processor Load">
@@ -117,8 +106,7 @@ export const TramController = (props, context) => {
                       average: [24, 28],
                       bad: [0.1, 24],
                       white: [-Infinity, 0],
-                    }}
-                  >
+                    }}>
                     {toFixed(currentSpeed * 2.25, 0) + ' km/h'}
                   </ProgressBar>
                 </LabeledList.Item>
@@ -131,14 +119,12 @@ export const TramController = (props, context) => {
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Idle Platform"
-                  color={controllerActive ? '' : 'blue'}
-                >
+                  color={controllerActive ? '' : 'blue'}>
                   {idlePlatform}
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Destination Platform"
-                  color={controllerActive ? 'blue' : ''}
-                >
+                  color={controllerActive ? 'blue' : ''}>
                   {destinationPlatform}
                 </LabeledList.Item>
               </LabeledList>
@@ -158,8 +144,7 @@ export const TramController = (props, context) => {
                 width="28%"
                 minHeight={2}
                 textAlign="center"
-                onClick={() => act('reset', {})}
-              >
+                onClick={() => act('reset', {})}>
                 Reset/Enable
               </Button>
               <Button
@@ -170,8 +155,7 @@ export const TramController = (props, context) => {
                 width="28%"
                 minHeight={2}
                 textAlign="center"
-                onClick={() => act('estop', {})}
-              >
+                onClick={() => act('estop', {})}>
                 E-Stop/Disable
               </Button>
               <Button
@@ -185,10 +169,9 @@ export const TramController = (props, context) => {
                 textAlign="center"
                 onClick={() =>
                   act('dispatch', {
-                    tripDestination: tripDestination,
+                    'tripDestination': tripDestination,
                   })
-                }
-              >
+                }>
                 Start: Destination
               </Button>
               <Dropdown
@@ -206,8 +189,7 @@ export const TramController = (props, context) => {
                 width="25%"
                 minHeight={2}
                 textAlign="center"
-                onClick={() => act('dopen', {})}
-              >
+                onClick={() => act('dopen', {})}>
                 Open Doors
               </Button>
               <Button
@@ -218,8 +200,7 @@ export const TramController = (props, context) => {
                 width="25%"
                 minHeight={2}
                 textAlign="center"
-                onClick={() => act('dclose', {})}
-              >
+                onClick={() => act('dclose', {})}>
                 Close Doors
               </Button>
               <Button
@@ -230,8 +211,7 @@ export const TramController = (props, context) => {
                 width="48%"
                 minHeight={2}
                 textAlign="center"
-                onClick={() => act('togglesensors', {})}
-              >
+                onClick={() => act('togglesensors', {})}>
                 Bypass Door Sensors
               </Button>
             </Section>
@@ -242,8 +222,7 @@ export const TramController = (props, context) => {
                 lineHeight={2}
                 width="16%"
                 minHeight={2}
-                textAlign="center"
-              >
+                textAlign="center">
                 ESTOP
               </Button>
               <Button
@@ -252,8 +231,7 @@ export const TramController = (props, context) => {
                 lineHeight={2}
                 width="16%"
                 minHeight={2}
-                textAlign="center"
-              >
+                textAlign="center">
                 FAULT
               </Button>
               <Button
@@ -262,8 +240,7 @@ export const TramController = (props, context) => {
                 lineHeight={2}
                 width="16%"
                 minHeight={2}
-                textAlign="center"
-              >
+                textAlign="center">
                 COMMS
               </Button>
               <Button
@@ -272,8 +249,7 @@ export const TramController = (props, context) => {
                 lineHeight={2}
                 width="16%"
                 minHeight={2}
-                textAlign="center"
-              >
+                textAlign="center">
                 RQST
               </Button>
               <Button
@@ -282,8 +258,7 @@ export const TramController = (props, context) => {
                 lineHeight={2}
                 width="16%"
                 minHeight={2}
-                textAlign="center"
-              >
+                textAlign="center">
                 DOORS
               </Button>
               <Button
@@ -292,8 +267,7 @@ export const TramController = (props, context) => {
                 lineHeight={2}
                 width="16%"
                 minHeight={2}
-                textAlign="center"
-              >
+                textAlign="center">
                 BUSY
               </Button>
             </Section>

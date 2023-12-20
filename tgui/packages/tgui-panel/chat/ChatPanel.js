@@ -46,7 +46,7 @@ export class ChatPanel extends Component {
       !prevProps || shallowDiffers(this.props, prevProps);
     if (shouldUpdateStyle) {
       chatRenderer.assignStyle({
-        width: '100%',
+        'width': '100%',
         'white-space': 'pre-wrap',
         'font-size': this.props.fontSize,
         'line-height': this.props.lineHeight,
@@ -63,9 +63,8 @@ export class ChatPanel extends Component {
           <Button
             className="Chat__scrollButton"
             icon="arrow-down"
-            onClick={() => chatRenderer.scrollToBottom()}
-          >
-            Scroll to bottom
+            onClick={() => chatRenderer.scrollToBottom()}>
+            Пролистать вниз
           </Button>
         )}
       </>

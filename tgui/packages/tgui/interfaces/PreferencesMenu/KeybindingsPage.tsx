@@ -1,12 +1,5 @@
-import { Component } from 'react';
-import {
-  Box,
-  Button,
-  KeyListener,
-  Stack,
-  Tooltip,
-  TrackOutsideClicks,
-} from '../../components';
+import { Component } from 'inferno';
+import { Box, Button, KeyListener, Stack, Tooltip, TrackOutsideClicks } from '../../components';
 import { resolveAsset } from '../../assets';
 import { PreferencesMenuData } from './data';
 import { useBackend } from '../../backend';
@@ -45,17 +38,17 @@ const isStandardKey = (event: KeyboardEvent): boolean => {
 };
 
 const KEY_CODE_TO_BYOND: Record<string, string> = {
-  DEL: 'Delete',
-  DOWN: 'South',
-  END: 'Southwest',
-  HOME: 'Northwest',
-  INSERT: 'Insert',
-  LEFT: 'West',
-  PAGEDOWN: 'Southeast',
-  PAGEUP: 'Northeast',
-  RIGHT: 'East',
-  SPACEBAR: 'Space',
-  UP: 'North',
+  'DEL': 'Delete',
+  'DOWN': 'South',
+  'END': 'Southwest',
+  'HOME': 'Northwest',
+  'INSERT': 'Insert',
+  'LEFT': 'West',
+  'PAGEDOWN': 'Southeast',
+  'PAGEUP': 'Northeast',
+  'RIGHT': 'East',
+  'SPACEBAR': 'Space',
+  'UP': 'North',
 };
 
 /**
@@ -134,8 +127,7 @@ class KeybindingButton extends Component<{
         textAlign="center"
         captureKeys={typingHotkey === undefined}
         onClick={onClick}
-        selected={typingHotkey !== undefined}
-      >
+        selected={typingHotkey !== undefined}>
         {typingHotkey || currentHotkey || 'Unbound'}
       </Button>
     );
@@ -161,9 +153,8 @@ const KeybindingName = (props: { keybinding: Keybinding }) => {
       <Box
         as="span"
         style={{
-          borderBottom: '2px dotted rgba(255, 255, 255, 0.8)',
-        }}
-      >
+          'border-bottom': '2px dotted rgba(255, 255, 255, 0.8)',
+        }}>
         {keybinding.name}
       </Box>
     </Tooltip>
@@ -194,8 +185,7 @@ const ResetToDefaultButton = (
         act('reset_keybinds_to_defaults', {
           keybind_name: props.keybindingId,
         });
-      }}
-    >
+      }}>
       Reset to Defaults
     </Button>
   );
@@ -267,8 +257,8 @@ export class KeybindingsPage extends Component<{}, KeybindingsPageState> {
       }
 
       act('set_keybindings', {
-        keybind_name: keybindName,
-        hotkeys: selectedKeybindings[keybindName],
+        'keybind_name': keybindName,
+        'hotkeys': selectedKeybindings[keybindName],
       });
 
       return {

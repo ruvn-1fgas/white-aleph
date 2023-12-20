@@ -27,10 +27,9 @@ const CornerText = (props: {
       style={{
         position: 'relative',
         left: align === 'left' ? '2px' : '-2px',
-        textAlign: align,
-        textShadow: '1px 1px 1px #555',
-      }}
-    >
+        'text-align': align,
+        'text-shadow': '1px 1px 1px #555',
+      }}>
       {children}
     </Box>
   );
@@ -336,15 +335,13 @@ export const StripMenu = (props, context) => {
                       style={{
                         width: BUTTON_DIMENSIONS,
                         height: BUTTON_DIMENSIONS,
-                      }}
-                    >
+                      }}>
                       <Box
                         style={{
                           position: 'relative',
                           width: '100%',
                           height: '100%',
-                        }}
-                      >
+                        }}>
                         <Button
                           onClick={() => {
                             act('use', {
@@ -361,8 +358,7 @@ export const StripMenu = (props, context) => {
                             width: '100%',
                             height: '100%',
                             padding: 0,
-                          }}
-                        >
+                          }}>
                           {slot.image && (
                             <Box
                               as="img"
@@ -390,9 +386,8 @@ export const StripMenu = (props, context) => {
                               position: 'absolute',
                               bottom: 0,
                               right: 0,
-                              zIndex: 2,
-                            }}
-                          >
+                              'z-index': 2,
+                            }}>
                             <Icon name={alternateAction.icon} />
                           </Button>
                         )}

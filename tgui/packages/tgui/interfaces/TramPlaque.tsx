@@ -23,8 +23,7 @@ export const TramPlaque = (props, context) => {
       title="Tram Information Plaque"
       width={600}
       height={360}
-      theme="dark"
-    >
+      theme="dark">
       <Window.Content>
         <NoticeBox info>SkyyTram Mk VI by Nakamura Engineering</NoticeBox>
         <Section
@@ -32,12 +31,11 @@ export const TramPlaque = (props, context) => {
             currentTram.map((serialNumber) => serialNumber.serialNumber) +
             ' - Constructed ' +
             currentTram.map((serialNumber) => serialNumber.mfgDate)
-          }
-        >
+          }>
           <LabeledList>
             <LabeledList.Item label="Distance Travelled">
               {currentTram.map(
-                (serialNumber) => serialNumber.distanceTravelled / 1000,
+                (serialNumber) => serialNumber.distanceTravelled / 1000
               )}{' '}
               km
             </LabeledList.Item>

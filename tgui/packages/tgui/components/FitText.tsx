@@ -1,4 +1,4 @@
-import { Component, createRef, HTMLAttributes, RefObject } from 'react';
+import { Component, createRef, RefObject } from 'inferno';
 
 const DEFAULT_ACCEPTABLE_DIFFERENCE = 5;
 
@@ -80,12 +80,10 @@ export class FitText extends Component<Props, State> {
       <span
         ref={this.ref}
         style={{
-          fontSize: `${this.state.fontSize}px`,
-          ...(typeof this.props.native?.style === 'object'
-            ? this.props.native.style
-            : {}),
-        }}
-      >
+          'font-size': `${this.state.fontSize}px`,
+          ...(typeof this.props.native?.style === 'object' &&
+            this.props.native.style),
+        }}>
         {this.props.children}
       </span>
     );

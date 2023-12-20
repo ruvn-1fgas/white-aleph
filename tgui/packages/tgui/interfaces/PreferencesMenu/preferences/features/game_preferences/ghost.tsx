@@ -1,12 +1,5 @@
 import { multiline } from 'common/string';
-import {
-  CheckboxInput,
-  FeatureChoiced,
-  FeatureChoicedServerData,
-  FeatureDropdownInput,
-  FeatureToggle,
-  FeatureValueProps,
-} from '../base';
+import { CheckboxInput, FeatureChoiced, FeatureChoicedServerData, FeatureDropdownInput, FeatureToggle, FeatureValueProps } from '../base';
 import { Box, Dropdown, Flex } from '../../../../../components';
 import { classes } from 'common/react';
 import { InfernoNode } from 'inferno';
@@ -27,7 +20,8 @@ const insertGhostForm = binaryInsertWith<{
 }>(({ value }) => value);
 
 const GhostFormInput = (
-  props: FeatureValueProps<string, string, FeatureChoicedServerData>
+  props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  context
 ) => {
   const { data } = useBackend<PreferencesMenuData>(context);
 
@@ -109,7 +103,8 @@ export const ghost_orbit: FeatureChoiced = {
     Requires BYOND membership.
   `,
   component: (
-    props: FeatureValueProps<string, string, FeatureChoicedServerData>
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+    context
   ) => {
     const { data } = useBackend<PreferencesMenuData>(context);
 
