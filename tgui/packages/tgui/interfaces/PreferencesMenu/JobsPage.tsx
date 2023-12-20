@@ -15,6 +15,7 @@ import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 const sortJobs = (entries: [string, Job][], head?: string) =>
   sortBy<[string, Job]>(
     ([key, _]) => (key === head ? -1 : 1),
+    ([_, job]) => job.name_ru,
     ([key, _]) => key
   )(entries);
 
@@ -230,7 +231,7 @@ const JobRow = (
               paddingLeft: '0.3em',
             }}
           >
-            {name}
+            {job.name_ru}
           </Stack.Item>
         </Tooltip>
 
