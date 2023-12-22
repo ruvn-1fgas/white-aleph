@@ -1216,7 +1216,7 @@
 	pixel_x = 7;
 	pixel_y = 12
 	},
-/obj/item/clothing/gloves/color/latex{
+/obj/item/clothing/gloves/latex{
 	pixel_y = 2
 	},
 /obj/machinery/airalarm/directional/west{

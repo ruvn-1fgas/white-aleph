@@ -2576,7 +2576,7 @@
 /area/station/medical/virology)
 "Ao" = (
 /obj/structure/table/glass,
-/obj/item/clothing/gloves/color/latex,
+/obj/item/clothing/gloves/latex,
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 8
 	},
@@ -2865,7 +2865,7 @@
 /turf/open/openspace,
 /area/station/medical/medbay/central)
 "DT" = (
-/obj/effect/spawner/structure/window/shuttle,
+/obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/station/medical/medbay/central)
 "Ek" = (

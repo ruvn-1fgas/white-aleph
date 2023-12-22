@@ -118,7 +118,7 @@
 	pixel_y = -32
 	},
 /obj/item/storage/medkit,
-/obj/item/clothing/gloves/color/latex,
+/obj/item/clothing/gloves/latex,
 /obj/item/clothing/suit/apron/surgical,
 /obj/item/clothing/mask/surgical,
 /obj/effect/turf_decal/tile/neutral{

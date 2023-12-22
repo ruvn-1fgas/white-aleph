@@ -4147,6 +4147,7 @@
 	pixel_x = 1;
 	pixel_y = 5
 	},
+/obj/item/stamp/law,
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
 "cef" = (
@@ -7436,8 +7437,12 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/service)
 "dpX" = (
-/obj/item/kirbyplants/random/fullysynthetic,
 /obj/effect/turf_decal/tile/dark_green/half/contrasted,
+/obj/structure/table,
+/obj/machinery/fax{
+	fax_name = "Service Hallway";
+	name = "Service Fax Machine"
+	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/service)
 "dqf" = (
@@ -17972,6 +17977,8 @@
 	pixel_y = 8
 	},
 /obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/item/folder/blue,
+/obj/item/folder/blue,
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
 "gYb" = (
@@ -22459,6 +22466,11 @@
 	},
 /obj/effect/turf_decal/tile/brown,
 /obj/machinery/light/directional/north,
+/obj/structure/table,
+/obj/machinery/fax{
+	fax_name = "Quartermaster's Office";
+	name = "Quartermaster's Fax Machine"
+	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/qm)
 "iID" = (
@@ -22703,6 +22715,12 @@
 "iNM" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light/directional/east,
+/obj/structure/table,
+/obj/machinery/fax{
+	fax_name = "Research Division";
+	name = "Research Division Fax Machine";
+	pixel_x = 1
+	},
 /turf/open/floor/iron/large,
 /area/station/science/lab)
 "iOb" = (
@@ -40297,6 +40315,11 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
+/obj/structure/table/reinforced,
+/obj/machinery/fax{
+	fax_name = "Engineering Lobby";
+	name = "Engineering Lobby Fax Machine"
+	},
 /turf/open/floor/iron,
 /area/station/engineering)
 "pCm" = (
@@ -44576,6 +44599,14 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron,
 /area/station/service/hydroponics/garden)
+"rhW" = (
+/obj/machinery/fax{
+	fax_name = "Detective's Office";
+	name = "Detective's Fax Machine"
+	},
+/obj/structure/table/wood,
+/turf/open/floor/iron/grimy,
+/area/station/security/detectives_office)
 "rik" = (
 /obj/machinery/shower/directional/north,
 /turf/open/floor/iron/freezer,
@@ -50658,6 +50689,11 @@
 	},
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 1
+	},
+/obj/structure/table,
+/obj/machinery/fax{
+	fax_name = "Cargo Office";
+	name = "Cargo Office Fax Machine"
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/cargo/office)
@@ -61600,6 +61636,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
+/obj/machinery/fax{
+	fax_name = "Chief Engineer's Office";
+	name = "Chief Engineer's Fax Machine"
+	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/ce)
 "xBW" = (
@@ -62183,11 +62223,10 @@
 /area/station/command/heads_quarters/rd)
 "xLj" = (
 /obj/structure/table/wood,
-/obj/item/folder/blue,
-/obj/item/folder/blue,
-/obj/item/folder/blue,
-/obj/item/folder/blue,
-/obj/item/stamp/law,
+/obj/machinery/fax{
+	fax_name = "Law Office";
+	name = "Law Office Fax Machine"
+	},
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
 "xLI" = (
@@ -156775,7 +156814,7 @@ hgJ
 kkK
 wpy
 tIt
-fRs
+rhW
 wJI
 pli
 uyI

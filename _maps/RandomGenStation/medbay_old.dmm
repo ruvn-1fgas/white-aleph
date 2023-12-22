@@ -979,7 +979,7 @@
 /area/station/medical/pharmacy)
 "jz" = (
 /obj/structure/table/glass,
-/obj/item/clothing/gloves/color/latex,
+/obj/item/clothing/gloves/latex,
 /obj/machinery/requests_console{
 	department = "Virology";
 	name = "Virology Requests Console";
@@ -4760,7 +4760,7 @@
 /area/station/medical/medbay)
 "SL" = (
 /obj/structure/table,
-/obj/item/clothing/gloves/color/latex,
+/obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/suit/apron/surgical,
 /obj/machinery/light_switch/directional/west,

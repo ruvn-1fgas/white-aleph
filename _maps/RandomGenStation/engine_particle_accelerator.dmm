@@ -465,7 +465,7 @@
 /turf/template_noop,
 /area/space/nearstation)
 "bz" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/shutters/radiation/preopen{
 	id = "engsm";
@@ -721,7 +721,7 @@
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "io" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /obj/machinery/door/poddoor/shutters/radiation/preopen{
 	id = "engsm";
 	name = "Radiation Chamber Shutters"
@@ -991,7 +991,7 @@
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "OM" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "PY" = (
@@ -1020,7 +1020,7 @@
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "WL" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /obj/machinery/door/poddoor/shutters/radiation/preopen{
 	id = "engsm";
 	name = "Radiation Chamber Shutters"

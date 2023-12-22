@@ -643,7 +643,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "wC" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
@@ -928,9 +928,7 @@
 /area/station/engineering/main)
 "CW" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/window/plasma/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/plasma,
 /turf/template_noop,
 /area/space/nearstation)
 "Dd" = (
@@ -1019,7 +1017,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "Fo" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "FF" = (
@@ -1145,7 +1143,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "Ic" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter)
 "Ix" = (

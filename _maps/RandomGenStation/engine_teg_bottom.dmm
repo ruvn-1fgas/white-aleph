@@ -585,7 +585,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "tB" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "tI" = (

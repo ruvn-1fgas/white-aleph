@@ -33,7 +33,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "cn" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/engineering/main)
@@ -486,7 +486,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "Sn" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "Ss" = (

@@ -368,7 +368,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "yU" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /obj/machinery/door/poddoor/shutters/radiation/preopen{
 	id = "engsm";
 	name = "Radiation Chamber Shutters"

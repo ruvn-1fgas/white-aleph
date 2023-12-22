@@ -482,7 +482,7 @@
 /area/station/medical/storage)
 "cv" = (
 /obj/structure/table/glass,
-/obj/item/clothing/gloves/color/latex,
+/obj/item/clothing/gloves/latex,
 /obj/machinery/requests_console{
 	department = "Virology";
 	name = "Virology Requests Console";
