@@ -9,10 +9,7 @@
 /turf/open/floor/iron/dark,
 /area/template_noop)
 "c" = (
-/obj/machinery/light/small/built{
-	dir = 1;
-	icon_state = "bulb-empty"
-	},
+/obj/machinery/light/small/built/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/template_noop)
@@ -35,9 +32,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "g" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/template_noop)
 "h" = (
@@ -139,12 +134,12 @@
 /turf/open/floor/iron/dark,
 /area/template_noop)
 "y" = (
-/obj/machinery/light/small/broken,
+/obj/machinery/light/small/broken/directional/south,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/template_noop)
 "z" = (
-/obj/machinery/light/small/broken,
+/obj/machinery/light/small/broken/directional/south,
 /turf/open/floor/plating,
 /area/template_noop)
 "E" = (

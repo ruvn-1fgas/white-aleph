@@ -119,9 +119,7 @@
 /turf/open/floor/iron,
 /area/template_noop)
 "u" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/iron,
 /area/template_noop)
 "v" = (
@@ -179,9 +177,7 @@
 /turf/open/floor/carpet,
 /area/template_noop)
 "D" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/carpet,
 /area/template_noop)
 "E" = (
@@ -192,7 +188,7 @@
 /area/template_noop)
 "F" = (
 /obj/structure/table/wood,
-/obj/machinery/light/small,
+/obj/machinery/light/small/directional/south,
 /obj/item/clothing/head/wig/random,
 /turf/open/floor/iron,
 /area/template_noop)

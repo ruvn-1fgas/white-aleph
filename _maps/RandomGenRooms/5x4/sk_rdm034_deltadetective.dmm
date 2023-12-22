@@ -15,9 +15,7 @@
 /area/template_noop)
 "e" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /obj/structure/sign/poster/official/do_not_question{
 	pixel_x = 32
 	},
@@ -79,9 +77,7 @@
 "k" = (
 /obj/structure/frame/computer,
 /obj/item/circuitboard/computer/secure_data,
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /obj/machinery/status_display/evac{
 	pixel_x = -32
 	},

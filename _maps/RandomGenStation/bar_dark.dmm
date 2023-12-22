@@ -50,9 +50,7 @@
 	pixel_x = -2;
 	pixel_y = 6
 	},
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
@@ -115,10 +113,7 @@
 	pixel_x = 11
 	},
 /obj/effect/turf_decal/bot/left,
-/obj/machinery/light/small{
-	dir = 1;
-	pixel_y = 0
-	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/wood,
 /area/station/service/theater)
 "ao" = (
@@ -223,9 +218,7 @@
 /obj/structure/sign/poster/contraband/space_cube{
 	pixel_x = 31
 	},
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/iron/grimy,
 /area/station/service/bar)
 "az" = (
@@ -428,9 +421,7 @@
 	dir = 10
 	},
 /obj/machinery/vending/cigarette,
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/service/bar)
 "bb" = (
@@ -463,9 +454,7 @@
 /area/station/service/bar)
 "be" = (
 /obj/structure/kitchenspike,
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/showroomfloor,
 /area/station/service/kitchen)
 "bf" = (
@@ -484,9 +473,7 @@
 /turf/open/floor/iron/showroomfloor,
 /area/station/service/kitchen)
 "bh" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /obj/machinery/airalarm/directional/east{
 	pixel_x = 23
 	},
@@ -503,9 +490,7 @@
 /obj/machinery/airalarm/directional/west{
 	pixel_x = -24
 	},
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
 "bj" = (
@@ -583,10 +568,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 29
 	},
-/obj/machinery/light/small{
-	dir = 1;
-	pixel_y = 0
-	},
+/obj/machinery/light/small/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -596,10 +578,7 @@
 /obj/machinery/light_switch{
 	pixel_y = 26
 	},
-/obj/machinery/light/small{
-	dir = 1;
-	pixel_y = 0
-	},
+/obj/machinery/light/small/directional/north,
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
@@ -653,9 +632,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
+/obj/machinery/camera/autoname/directional/east,
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_x = -32
 	},
@@ -757,9 +734,7 @@
 /obj/machinery/airalarm/directional/north{
 	pixel_y = 23
 	},
-/obj/machinery/light{
-	dir = 1
-	},
+/obj/machinery/light/directional/north,
 /obj/machinery/griddle,
 /turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)
@@ -986,9 +961,7 @@
 	dir = 8
 	},
 /obj/item/kirbyplants/random,
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
 "cG" = (
@@ -1090,7 +1063,7 @@
 /turf/open/floor/wood,
 /area/station/service/bar)
 "cQ" = (
-/obj/machinery/light,
+/obj/machinery/light/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
@@ -1182,7 +1155,7 @@
 	pixel_y = -24
 	},
 /obj/structure/closet/crate/bin,
-/obj/machinery/light/small,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
 "cY" = (
@@ -1199,7 +1172,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 1
 	},
-/obj/machinery/light/small,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
 "da" = (
@@ -1219,7 +1192,7 @@
 /obj/item/radio/intercom{
 	pixel_y = -30
 	},
-/obj/machinery/light/small,
+/obj/machinery/light/small/directional/south,
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood,
 /area/station/service/bar)

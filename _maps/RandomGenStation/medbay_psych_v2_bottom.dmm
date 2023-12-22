@@ -99,9 +99,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/light/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -139,9 +137,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/light/directional/west,
 /obj/machinery/requests_console{
 	department = "Medbay";
 	departmentType = 1;
@@ -175,7 +171,7 @@
 /area/medical/medbay/zone2)
 "pR" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/med_data/laptop{
+/obj/machinery/computer/records/medical/laptop{
 	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/white,
@@ -252,7 +248,7 @@
 /obj/machinery/airalarm/directional/south{
 	pixel_y = -23
 	},
-/obj/machinery/light,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/white,
 /area/medical/medbay/zone2)
 "vQ" = (
@@ -273,10 +269,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
-/obj/machinery/light/small{
-	dir = 1;
-	pixel_y = 0
-	},
+/obj/machinery/light/small/directional/north,
 /obj/machinery/airalarm/directional/east{
 	pixel_x = 23
 	},
@@ -415,7 +408,7 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/zone2)
 "EH" = (
-/obj/machinery/light,
+/obj/machinery/light/directional/south,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -492,7 +485,7 @@
 /area/station/medical/psychology)
 "LR" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/light,
+/obj/machinery/light/directional/south,
 /obj/structure/cable,
 /obj/machinery/button/door{
 	id = "durka_bot_left";
@@ -593,10 +586,7 @@
 /turf/open/floor/carpet/blue,
 /area/station/medical/psychology)
 "Sl" = (
-/obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
-	},
+/obj/machinery/light/directional/north,
 /turf/open/floor/plasteel/monofloor/white,
 /area/station/medical/psychology)
 "SA" = (
@@ -618,10 +608,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
-	},
+/obj/machinery/light/directional/north,
 /obj/machinery/chem_master,
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)

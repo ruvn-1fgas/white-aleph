@@ -113,20 +113,16 @@
 /area/template_noop)
 "F" = (
 /obj/structure/table,
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /obj/item/food/burger/rat,
 /turf/open/floor/iron,
 /area/template_noop)
 "G" = (
-/obj/machinery/light/small,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/plating,
 /area/template_noop)
 "H" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
 /area/template_noop)
 "I" = (
@@ -137,9 +133,7 @@
 	},
 /area/template_noop)
 "J" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/plating,
 /area/template_noop)
 "K" = (
@@ -152,9 +146,7 @@
 /turf/open/floor/grass,
 /area/template_noop)
 "M" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/template_noop)
 "N" = (
@@ -170,9 +162,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/template_noop)
 "R" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/template_noop)

@@ -301,7 +301,7 @@
 /turf/open/floor/iron,
 /area/template_noop)
 "N" = (
-/obj/machinery/light,
+/obj/machinery/light/directional/south,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},

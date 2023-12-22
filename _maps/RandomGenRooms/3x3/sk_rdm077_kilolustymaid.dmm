@@ -83,9 +83,7 @@
 "g" = (
 /obj/structure/janitorialcart,
 /obj/effect/turf_decal/delivery,
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},

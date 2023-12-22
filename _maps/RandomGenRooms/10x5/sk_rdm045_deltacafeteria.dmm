@@ -48,9 +48,7 @@
 /area/template_noop)
 "d" = (
 /obj/structure/chair/stool,
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -112,10 +110,7 @@
 /obj/structure/table,
 /obj/item/clothing/head/chefhat,
 /obj/item/clothing/suit/apron/chef,
-/obj/machinery/light/small{
-	dir = 1;
-	icon_state = "bulb"
-	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/white/side,
 /area/template_noop)
 "j" = (
@@ -269,7 +264,7 @@
 /turf/open/floor/iron,
 /area/template_noop)
 "w" = (
-/obj/machinery/light/small,
+/obj/machinery/light/small/directional/south,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},

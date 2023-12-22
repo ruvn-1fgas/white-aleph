@@ -34,7 +34,7 @@
 	},
 /area/template_noop)
 "k" = (
-/obj/machinery/light/small,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/plating,
 /area/template_noop)
 "l" = (
@@ -49,9 +49,7 @@
 	},
 /area/template_noop)
 "o" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/template_noop)
 "p" = (
@@ -71,9 +69,7 @@
 /obj/item/stack/sheet/mineral/wood,
 /obj/structure/table_frame/wood,
 /obj/item/stack/cable_coil,
-/obj/machinery/light/small/built{
-	dir = 4
-	},
+/obj/machinery/light/small/built/directional/east,
 /turf/open/floor/plating,
 /area/template_noop)
 "u" = (
@@ -92,9 +88,7 @@
 /obj/structure/chair/pew{
 	dir = 8
 	},
-/obj/machinery/light/small/built{
-	dir = 4
-	},
+/obj/machinery/light/small/built/directional/east,
 /turf/open/floor/carpet/royalblue,
 /area/template_noop)
 "x" = (
@@ -113,22 +107,16 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "A" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/plating,
 /area/template_noop)
 "B" = (
 /obj/effect/decal/cleanable/oil,
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
 /area/template_noop)
 "C" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
 	},
@@ -168,7 +156,7 @@
 /obj/structure/chair/pew{
 	dir = 1
 	},
-/obj/machinery/light/small/built,
+/obj/machinery/light/small/built/directional/south,
 /turf/open/floor/carpet/royalblue,
 /area/template_noop)
 "O" = (
@@ -177,9 +165,7 @@
 	},
 /area/template_noop)
 "Q" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
 /area/template_noop)
 "R" = (
@@ -225,7 +211,7 @@
 "Z" = (
 /obj/structure/table/wood,
 /obj/item/storage/fancy/candle_box,
-/obj/machinery/light/small/built,
+/obj/machinery/light/small/built/directional/south,
 /turf/open/floor/carpet/royalblue,
 /area/template_noop)
 

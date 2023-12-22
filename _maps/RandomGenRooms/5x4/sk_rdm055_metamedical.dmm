@@ -62,7 +62,7 @@
 "h" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /obj/structure/rack,
-/obj/item/storage/firstaid/regular,
+/obj/item/storage/medkit,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/ointment,

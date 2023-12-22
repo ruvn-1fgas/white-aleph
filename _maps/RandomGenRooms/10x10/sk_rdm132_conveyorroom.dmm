@@ -7,9 +7,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "c" = (
-/obj/machinery/light/broken{
-	dir = 1
-	},
+/obj/machinery/light/broken/directional/north,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
@@ -18,9 +16,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/maintenance/three,
-/obj/machinery/light{
-	dir = 1
-	},
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron,
 /area/template_noop)
 "e" = (
@@ -85,9 +81,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "q" = (
-/obj/machinery/light/built{
-	dir = 8
-	},
+/obj/machinery/light/built/directional/west,
 /turf/open/floor/iron,
 /area/template_noop)
 "s" = (
@@ -108,9 +102,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "v" = (
-/obj/machinery/light/built{
-	dir = 4
-	},
+/obj/machinery/light/built/directional/east,
 /obj/effect/spawner/random/decoration/glowstick,
 /turf/open/floor/iron,
 /area/template_noop)
@@ -159,9 +151,7 @@
 	},
 /area/template_noop)
 "D" = (
-/obj/machinery/light/broken{
-	dir = 8
-	},
+/obj/machinery/light/broken/directional/west,
 /turf/open/floor/plating,
 /area/template_noop)
 "E" = (
@@ -196,9 +186,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "K" = (
-/obj/machinery/light/broken{
-	dir = 4
-	},
+/obj/machinery/light/broken/directional/east,
 /turf/open/floor/plating,
 /area/template_noop)
 "L" = (
@@ -222,7 +210,7 @@
 	},
 /area/template_noop)
 "P" = (
-/obj/machinery/light/built,
+/obj/machinery/light/built/directional/south,
 /turf/open/floor/iron,
 /area/template_noop)
 "Q" = (

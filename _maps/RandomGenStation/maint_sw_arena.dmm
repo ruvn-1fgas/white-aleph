@@ -51,9 +51,7 @@
 /turf/open/floor/resin,
 /area/station/maintenance/port/aft)
 "p" = (
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/resin,
 /area/station/maintenance/port/aft)
 "w" = (
@@ -83,9 +81,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
 "B" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},

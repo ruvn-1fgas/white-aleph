@@ -55,9 +55,7 @@
 /turf/template_noop,
 /area/space/nearstation)
 "bX" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating,
 /area/station/engineering/main)
@@ -168,10 +166,7 @@
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "dL" = (
-/obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
-	},
+/obj/machinery/light/directional/north,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -193,9 +188,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/plasma,
 /obj/effect/turf_decal/box,
-/obj/machinery/camera/autoname{
-	dir = 5
-	},
+/obj/machinery/camera/autoname/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "et" = (
@@ -291,9 +284,7 @@
 /turf/template_noop,
 /area/space/nearstation)
 "hq" = (
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "hw" = (
@@ -364,9 +355,7 @@
 /area/station/engineering/main)
 "kY" = (
 /obj/effect/turf_decal/box/red,
-/obj/machinery/light{
-	pixel_y = 0
-	},
+/obj/machinery/light/directional/south,
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
 	name = "Cooling Loop Bypass"
@@ -1073,9 +1062,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "GT" = (
@@ -1146,9 +1133,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/light/directional/west,
 /obj/machinery/portable_atmospherics/canister/plasma,
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/dark,
@@ -1264,9 +1249,7 @@
 /turf/open/floor/engine/airless,
 /area/station/engineering/supermatter)
 "LG" = (
-/obj/machinery/light{
-	pixel_y = 0
-	},
+/obj/machinery/light/directional/south,
 /obj/effect/turf_decal/tile/yellow,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible,
 /turf/open/floor/iron/dark,
@@ -1408,15 +1391,13 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/obj/machinery/light{
-	pixel_y = 0
-	},
+/obj/machinery/light/directional/south,
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "Px" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/obj/machinery/light,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "PF" = (
@@ -1467,9 +1448,7 @@
 /area/station/engineering/main)
 "QS" = (
 /obj/effect/turf_decal/tile/yellow,
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "Rq" = (
@@ -1580,9 +1559,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/obj/machinery/light{
-	pixel_y = 0
-	},
+/obj/machinery/light/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
@@ -1720,9 +1697,7 @@
 /turf/template_noop,
 /area/space/nearstation)
 "XD" = (
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/light/directional/west,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer2{
 	dir = 6
 	},
@@ -1778,9 +1753,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/light/directional/east,
 /obj/machinery/camera/autoname/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
@@ -1798,10 +1771,7 @@
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "YZ" = (
-/obj/machinery/light{
-	dir = 1;
-	pixel_y = 0
-	},
+/obj/machinery/light/directional/north,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},

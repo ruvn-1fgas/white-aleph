@@ -9,9 +9,7 @@
 /area/template_noop)
 "cQ" = (
 /obj/item/trash/can/food/peaches/maint,
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/carpet/red,
 /area/template_noop)
 "dn" = (
@@ -94,17 +92,13 @@
 /turf/open/floor/carpet/red,
 /area/template_noop)
 "tz" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/wood,
 /area/template_noop)
 "vn" = (
 /obj/structure/table,
 /obj/machinery/chem_dispenser/drinks,
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/cafeteria,
 /area/template_noop)
 "vt" = (
@@ -137,9 +131,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "xA" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/plating,
 /area/template_noop)
 "xS" = (
@@ -209,9 +201,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/template_noop)
 "Lt" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
 	},
@@ -234,9 +224,7 @@
 /turf/closed/wall,
 /area/template_noop)
 "PP" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
 	},
@@ -250,9 +238,7 @@
 	dir = 4
 	},
 /obj/structure/chair/stool/bar,
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /obj/structure/sign/poster/contraband/syndicate_recruitment{
 	pixel_x = 4;
 	pixel_y = 33

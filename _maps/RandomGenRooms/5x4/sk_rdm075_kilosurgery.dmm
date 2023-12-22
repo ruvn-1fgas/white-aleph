@@ -94,9 +94,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /obj/item/restraints/handcuffs/cable/red,
 /obj/item/clothing/suit/apron/surgical,
 /obj/item/weldingtool/mini,
@@ -149,9 +147,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/delivery,
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/east,
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = 32
 	},

@@ -1,8 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
@@ -100,7 +98,7 @@
 "o" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/harebell,
-/obj/machinery/light/small,
+/obj/machinery/light/small/directional/south,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/template_noop)
@@ -144,7 +142,7 @@
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/tower,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small,
+/obj/machinery/light/small/directional/south,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/template_noop)
