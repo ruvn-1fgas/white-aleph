@@ -181,7 +181,7 @@
 /area/station/engineering/main)
 "la" = (
 /obj/structure/table,
-/obj/item/clothing/suit/radiation,
+/obj/item/clothing/suit/utility/radiation,
 /obj/item/clothing/head/radiation,
 /obj/item/clothing/glasses/meson,
 /turf/open/floor/iron,

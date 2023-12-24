@@ -42,7 +42,7 @@
 /obj/item/am_containment
 	name = "сосуд для антивещества"
 	desc = "Удерживает антивещество."
-	icon = 'white/rebolution228/icons/antimatter.dmi'
+	icon = 'white/master/icons/antimatter.dmi'
 	icon_state = "jar"
 	density = FALSE
 	anchored = FALSE
@@ -83,7 +83,7 @@
 /obj/machinery/power/am_control_unit
 	name = "блок управления АМ"
 	desc = "Это устройство вводит антивещество в подключенные экранирующие устройства, чем больше антивещества вводится, тем больше вырабатывается энергии. Разверните устройство, чтобы настроить его."
-	icon = 'white/rebolution228/icons/antimatter.dmi'
+	icon = 'white/master/icons/antimatter.dmi'
 	icon_state = "control"
 	anchored = FALSE
 	density = TRUE
@@ -142,7 +142,7 @@
 
 	if(!fueljar)//No fuel but we are on, shutdown
 		toggle_power()
-		playsound(src.loc, 'white/rebolution228/sounds/error1.ogg', 50, 0)
+		playsound(src.loc, 'white/master/sounds/error1.ogg', 50, 0)
 		return
 
 	add_avail(stored_power)
@@ -423,7 +423,7 @@
 	name = "реакторная секция антивещества"
 	desc = "Это устройство было построено с использованием плазменной формы жизни, которая, по-видимому, увеличивает естественную способность плазмы реагировать с нейтрино при одновременном снижении горючести."
 
-	icon = 'white/rebolution228/icons/antimatter.dmi'
+	icon = 'white/master/icons/antimatter.dmi'
 	icon_state = "shield"
 	density = TRUE
 	dir = NORTH
@@ -645,7 +645,7 @@
 /obj/item/am_shielding_container
 	name = "экранирующий блок АМ"
 	desc = "Небольшой модуль, содержащий секцию реактора антиматерии. Устанавливается рядом с блоком управления антивеществом или другим экранирующим блоком. Используйте мультитул для подключения этого блока к другим."
-	icon = 'white/rebolution228/icons/antimatter.dmi'
+	icon = 'white/master/icons/antimatter.dmi'
 	icon_state = "box"
 	inhand_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'

@@ -72,7 +72,7 @@
 /area/template_noop)
 "l" = (
 /obj/structure/table,
-/obj/item/storage/firstaid,
+/obj/item/storage/medkit,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/template_noop)

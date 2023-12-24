@@ -337,7 +337,7 @@ TRIMLINE_SUBTYPE_HELPER(/obj/effect/turf_decal/trimline/dark)
 
 /obj/effect/turf_decal/tile/hex
 	name = "hex tile decal"
-	icon = 'white/rebolution228/icons/decals.dmi'
+	icon = 'white/master/icons/decals.dmi'
 	icon_state = "hex_tile_corner"
 	alpha = 35
 

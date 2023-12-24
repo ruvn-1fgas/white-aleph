@@ -60,7 +60,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "Y" = (
-/obj/structure/bed/roller{
+/obj/structure/bed/medical/emergency{
 	name = "rusty cot"
 	},
 /obj/item/bedsheet/blue,
