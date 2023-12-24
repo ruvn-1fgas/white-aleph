@@ -124,9 +124,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "sw" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "sZ" = (
 /obj/structure/curtain,
@@ -149,9 +148,8 @@
 /turf/open/floor/iron,
 /area/template_noop)
 "zY" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "AU" = (
 /obj/structure/table,
@@ -168,9 +166,8 @@
 /area/template_noop)
 "Ee" = (
 /obj/item/trash/popcorn,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "GN" = (
 /obj/structure/closet,
@@ -241,15 +238,13 @@
 "TI" = (
 /obj/item/trash/cheesie,
 /obj/machinery/light/directional/east,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "Uy" = (
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "UJ" = (
 /obj/structure/closet,

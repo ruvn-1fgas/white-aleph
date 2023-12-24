@@ -14,9 +14,8 @@
 "c" = (
 /obj/machinery/light/small/directional/north,
 /obj/structure/cable,
-/turf/open/floor/wood{
-	icon_state = "wood-broken5"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "d" = (
 /obj/item/storage/fancy/cigarettes/cigpack_shadyjims,
@@ -31,9 +30,8 @@
 /area/template_noop)
 "g" = (
 /obj/machinery/light/small/directional/north,
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "h" = (
 /obj/structure/closet/secure_closet/freezer/meat/open,

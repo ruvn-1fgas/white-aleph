@@ -21,10 +21,10 @@
 /area/template_noop)
 "f" = (
 /obj/structure/table,
-/obj/item/candle{
+/obj/item/flashlight/flare/candle{
 	pixel_x = -5
 	},
-/obj/item/candle{
+/obj/item/flashlight/flare/candle{
 	pixel_x = 5
 	},
 /obj/item/fakeartefact,

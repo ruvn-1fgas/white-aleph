@@ -15,11 +15,6 @@
 "d" = (
 /turf/open/floor/plating,
 /area/template_noop)
-"e" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
-/area/template_noop)
 "f" = (
 /obj/machinery/light/broken/directional/north,
 /turf/open/floor/plating,
@@ -71,9 +66,8 @@
 /turf/open/floor/iron,
 /area/template_noop)
 "q" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "r" = (
 /obj/structure/table,
@@ -87,9 +81,8 @@
 /area/template_noop)
 "t" = (
 /obj/effect/decal/cleanable/ash,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "u" = (
 /obj/structure/chair{
@@ -107,9 +100,8 @@
 /area/template_noop)
 "x" = (
 /obj/item/paper/crumpled,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "y" = (
 /obj/structure/table,
@@ -163,9 +155,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "J" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "K" = (
 /obj/item/chair,
@@ -228,7 +219,7 @@ n
 i
 y
 b
-e
+J
 L
 d
 "}
@@ -269,7 +260,7 @@ N
 b
 "}
 (6,1,1) = {"
-e
+J
 k
 q
 t
@@ -322,7 +313,7 @@ n
 i
 v
 b
-e
+J
 I
 b
 b

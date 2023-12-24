@@ -267,9 +267,9 @@
 /obj/structure/table/glass,
 /obj/machinery/requests_console{
 	department = "Chemistry";
-	departmentType = 2;
 	pixel_x = -30;
-	receive_ore_updates = 1
+	receive_ore_updates = 1;
+	supplies_requestable = 1
 	},
 /obj/machinery/light/directional/west,
 /obj/item/hand_labeler{
@@ -741,9 +741,10 @@
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Chief Medical Officer's Desk";
-	departmentType = 5;
 	name = "Chief Medical Officer RC";
-	pixel_y = 32
+	pixel_y = 32;
+	assistance_requestable = 1;
+	anon_tips_receiver = 1
 	},
 /obj/machinery/light/directional/north,
 /obj/structure/cable,
@@ -2695,9 +2696,9 @@
 	},
 /obj/machinery/requests_console{
 	department = "Medbay";
-	departmentType = 1;
 	name = "Medbay RC";
-	pixel_y = 30
+	pixel_y = 30;
+	assistance_requestable = 1
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/aft)
@@ -3115,9 +3116,9 @@
 /obj/effect/turf_decal/tile/yellow,
 /obj/machinery/requests_console{
 	department = "Medbay";
-	departmentType = 1;
 	name = "Medbay RC";
-	pixel_y = -30
+	pixel_y = -30;
+	assistance_requestable = 1
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
@@ -4033,9 +4034,9 @@
 "Dy" = (
 /obj/machinery/requests_console{
 	department = "Medbay";
-	departmentType = 1;
 	name = "Medbay RC";
-	pixel_y = -30
+	pixel_y = -30;
+	assistance_requestable = 1
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -6444,9 +6445,9 @@
 	},
 /obj/machinery/requests_console{
 	department = "Medbay";
-	departmentType = 1;
 	name = "Medbay RC";
-	pixel_x = -30
+	pixel_x = -30;
+	assistance_requestable = 1
 	},
 /obj/item/reagent_containers/chem_pack{
 	pixel_x = 1;
@@ -6972,8 +6973,9 @@
 /obj/structure/table,
 /obj/machinery/requests_console{
 	department = "Security";
-	departmentType = 5;
-	pixel_y = 30
+	pixel_y = 30;
+	assistance_requestable = 1;
+	anon_tips_receiver = 1
 	},
 /obj/machinery/camera/directional/north{
 	c_tag = "Security Post - Medbay";

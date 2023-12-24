@@ -694,6 +694,9 @@
 /area/station/service/bar)
 "bK" = (
 /obj/machinery/vending/boozeomat,
+/obj/structure/sign/picture_frame/portrait/bar{
+	pixel_x = 32
+	},
 /turf/open/floor/wood,
 /area/station/service/bar)
 "bL" = (
@@ -996,8 +999,8 @@
 /obj/machinery/reagentgrinder,
 /obj/machinery/requests_console{
 	department = "Kitchen";
-	departmentType = 2;
-	pixel_x = 30
+	pixel_x = 30;
+	supplies_requestable = 1
 	},
 /turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)

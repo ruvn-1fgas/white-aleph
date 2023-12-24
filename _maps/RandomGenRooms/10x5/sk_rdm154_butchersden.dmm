@@ -39,9 +39,8 @@
 /turf/closed/wall,
 /area/template_noop)
 "w" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "x" = (
 /obj/machinery/gibber,
@@ -64,11 +63,6 @@
 "B" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
-/area/template_noop)
-"C" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
 /area/template_noop)
 "E" = (
 /obj/structure/closet/secure_closet/freezer/meat,
@@ -125,9 +119,8 @@
 /area/template_noop)
 "Q" = (
 /obj/effect/spawner/random/trash/grille_or_waste,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "R" = (
 /obj/effect/landmark/event_spawn,
@@ -139,9 +132,8 @@
 /area/template_noop)
 "W" = (
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "X" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -191,7 +183,7 @@ c
 F
 "}
 (6,1,1) = {"
-C
+w
 J
 R
 W

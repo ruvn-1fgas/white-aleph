@@ -26,9 +26,8 @@
 /obj/item/stock_parts/manipulator,
 /obj/machinery/light/broken/directional/north,
 /obj/item/stock_parts/cell/hyper,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "e" = (
 /obj/structure/table,
@@ -41,9 +40,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "g" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "h" = (
 /obj/structure/rack,

@@ -13,9 +13,8 @@
 "d" = (
 /obj/item/clothing/shoes/clown_shoes,
 /obj/item/stack/ore/bananium,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 
 (1,1,1) = {"

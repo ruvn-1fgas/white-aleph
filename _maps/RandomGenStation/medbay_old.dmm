@@ -63,9 +63,9 @@
 /obj/item/stack/sheet/mineral/plasma,
 /obj/machinery/requests_console{
 	department = "Chemistry";
-	departmentType = 2;
 	pixel_x = -30;
-	receive_ore_updates = 1
+	receive_ore_updates = 1;
+	supplies_requestable = 1
 	},
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/white/smooth_large,
@@ -1123,9 +1123,9 @@
 	},
 /obj/machinery/requests_console{
 	department = "Medbay";
-	departmentType = 1;
 	name = "Medbay RC";
-	pixel_x = 30
+	pixel_x = 30;
+	assistance_requestable = 1
 	},
 /obj/machinery/light/directional/south,
 /mob/living/simple_animal/bot/cleanbot{
@@ -1936,9 +1936,10 @@
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Chief Medical Officer's Desk";
-	departmentType = 5;
 	name = "Chief Medical Officer RC";
-	pixel_y = 32
+	pixel_y = 32;
+	assistance_requestable = 1;
+	anon_tips_receiver = 1
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -3202,10 +3203,10 @@
 "Ed" = (
 /obj/machinery/requests_console{
 	department = "Medbay";
-	departmentType = 1;
 	name = "Medbay RC";
 	pixel_x = -30;
-	pixel_y = 3
+	pixel_y = 3;
+	assistance_requestable = 1
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay)
@@ -3936,8 +3937,9 @@
 	},
 /obj/machinery/requests_console{
 	department = "Security";
-	departmentType = 5;
-	pixel_y = 30
+	pixel_y = 30;
+	assistance_requestable = 1;
+	anon_tips_receiver = 1
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -4854,9 +4856,9 @@
 "Tq" = (
 /obj/machinery/requests_console{
 	department = "Medbay";
-	departmentType = 1;
 	name = "Medbay RC";
-	pixel_x = 30
+	pixel_x = 30;
+	assistance_requestable = 1
 	},
 /obj/structure/sink/directional/west,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
@@ -5372,9 +5374,9 @@
 "Yd" = (
 /obj/machinery/requests_console{
 	department = "Medbay";
-	departmentType = 1;
 	name = "Medbay RC";
-	pixel_y = 30
+	pixel_y = 30;
+	assistance_requestable = 1
 	},
 /obj/machinery/modular_computer/preset/cargochat/medical,
 /obj/effect/turf_decal/tile/blue/half/contrasted{

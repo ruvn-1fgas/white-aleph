@@ -140,9 +140,9 @@
 /obj/machinery/light/directional/west,
 /obj/machinery/requests_console{
 	department = "Medbay";
-	departmentType = 1;
 	name = "Medbay RC";
-	pixel_x = -30
+	pixel_x = -30;
+	assistance_requestable = 1
 	},
 /obj/structure/railing,
 /turf/open/floor/iron/white,

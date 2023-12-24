@@ -539,10 +539,6 @@
 /area/station/service/bar)
 "by" = (
 /obj/machinery/disposal/bin,
-/obj/structure/sign/plaques{
-	pixel_x = -28;
-	pixel_y = -4
-	},
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
@@ -557,6 +553,9 @@
 	name = "barman privacy";
 	pixel_x = -6;
 	pixel_y = 28
+	},
+/obj/structure/sign/picture_frame/portrait/bar{
+	pixel_x = -30
 	},
 /turf/open/floor/carpet/royalblack,
 /area/station/service/bar)
@@ -859,9 +858,9 @@
 "cr" = (
 /obj/machinery/requests_console{
 	department = "Bar";
-	departmentType = 2;
 	pixel_x = 30;
-	receive_ore_updates = 1
+	receive_ore_updates = 1;
+	supplies_requestable = 1
 	},
 /obj/machinery/camera/directional/east{
 	c_tag = "Bar"
@@ -1030,8 +1029,8 @@
 /obj/machinery/reagentgrinder,
 /obj/machinery/requests_console{
 	department = "Kitchen";
-	departmentType = 2;
-	pixel_x = 30
+	pixel_x = 30;
+	supplies_requestable = 1
 	},
 /turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)

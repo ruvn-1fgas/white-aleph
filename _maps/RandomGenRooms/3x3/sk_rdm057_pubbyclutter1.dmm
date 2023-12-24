@@ -8,9 +8,8 @@
 /area/template_noop)
 "c" = (
 /obj/structure/closet/emcloset,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "d" = (
 /obj/structure/chair/comfy/black{

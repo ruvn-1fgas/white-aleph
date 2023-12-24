@@ -8,9 +8,8 @@
 /obj/structure/grille/broken,
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/maintenance/four,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "bd" = (
 /obj/machinery/door/airlock/maintenance/external/glass,
@@ -44,15 +43,9 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/iron,
 /area/template_noop)
-"ec" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
-/area/template_noop)
 "eD" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "eQ" = (
 /obj/effect/turf_decal/delivery/red,
@@ -66,9 +59,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "go" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "hh" = (
 /obj/structure/falsewall,
@@ -142,9 +134,8 @@
 /area/template_noop)
 "rm" = (
 /obj/effect/landmark/blobstart,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "rP" = (
 /obj/item/storage/pod{
@@ -204,9 +195,8 @@
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 6
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "xF" = (
 /obj/effect/turf_decal/tile/red,
@@ -455,7 +445,7 @@ iv
 iv
 aT
 hM
-ec
+eD
 Sg
 hM
 aC

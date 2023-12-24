@@ -64,8 +64,8 @@
 /obj/machinery/reagentgrinder,
 /obj/machinery/requests_console{
 	department = "Kitchen";
-	departmentType = 2;
-	pixel_x = 30
+	pixel_x = 30;
+	supplies_requestable = 1
 	},
 /turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)
@@ -401,15 +401,14 @@
 /area/station/hallway/primary/starboard)
 "mi" = (
 /obj/structure/table/wood,
-/obj/structure/sign/plaques{
-	pixel_x = -28;
-	pixel_y = -4
-	},
 /obj/machinery/chem_dispenser/drinks{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
+	},
+/obj/structure/sign/picture_frame/portrait/bar{
+	pixel_x = -30
 	},
 /turf/open/floor/wood,
 /area/station/service/bar)
@@ -1036,9 +1035,9 @@
 "MD" = (
 /obj/machinery/requests_console{
 	department = "Bar";
-	departmentType = 2;
 	pixel_x = 30;
-	receive_ore_updates = 1
+	receive_ore_updates = 1;
+	supplies_requestable = 1
 	},
 /obj/structure/ladder,
 /turf/open/floor/wood,
