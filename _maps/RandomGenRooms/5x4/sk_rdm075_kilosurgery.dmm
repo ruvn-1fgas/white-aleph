@@ -44,7 +44,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/cat_butcherer,
+/mob/living/basic/cat_butcherer,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/template_noop)

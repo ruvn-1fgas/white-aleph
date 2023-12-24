@@ -40,8 +40,8 @@
 /obj/item/cultivator{
 	pixel_x = 6
 	},
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/cup/bucket,
+/obj/item/reagent_containers/cup/bucket,
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/grass,
 /area/template_noop)
@@ -51,7 +51,7 @@
 /turf/open/floor/grass,
 /area/template_noop)
 "l" = (
-/mob/living/simple_animal/butterfly,
+/mob/living/basic/butterfly,
 /turf/open/floor/grass,
 /area/template_noop)
 "m" = (
@@ -118,9 +118,9 @@
 /obj/item/clothing/suit/utility/beekeeper_suit,
 /obj/item/clothing/suit/utility/beekeeper_suit,
 /obj/item/clothing/suit/utility/beekeeper_suit,
-/obj/item/clothing/head/beekeeper_head,
-/obj/item/clothing/head/beekeeper_head,
-/obj/item/clothing/head/beekeeper_head,
+/obj/item/clothing/head/utility/beekeeper_head,
+/obj/item/clothing/head/utility/beekeeper_head,
+/obj/item/clothing/head/utility/beekeeper_head,
 /obj/item/melee/flyswatter,
 /obj/item/melee/flyswatter,
 /obj/item/melee/flyswatter,

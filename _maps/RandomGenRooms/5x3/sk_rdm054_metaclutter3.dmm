@@ -45,7 +45,7 @@
 "e" = (
 /obj/structure/closet,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/item/reagent_containers/food/drinks/beer{
+/obj/item/reagent_containers/cup/glass/beer{
 	desc = "Takes you to a whole new level of thinking.";
 	name = "Meta-Cider"
 	},
@@ -61,7 +61,7 @@
 "g" = (
 /obj/structure/rack,
 /obj/item/clothing/suit/costume/poncho,
-/obj/item/clothing/head/sombrero,
+/obj/item/clothing/head/costume/sombrero,
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/template_noop)

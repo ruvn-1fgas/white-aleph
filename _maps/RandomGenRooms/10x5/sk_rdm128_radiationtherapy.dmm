@@ -247,7 +247,7 @@
 /area/template_noop)
 "K" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/cat_butcherer,
+/mob/living/basic/cat_butcherer,
 /turf/open/floor/iron,
 /area/template_noop)
 "V" = (
