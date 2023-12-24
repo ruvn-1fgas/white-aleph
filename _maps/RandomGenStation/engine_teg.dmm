@@ -928,7 +928,7 @@
 /area/station/engineering/main)
 "CW" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/window/reinforced/plasma,
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
 /turf/template_noop,
 /area/space/nearstation)
 "Dd" = (

@@ -38,7 +38,7 @@
 /obj/structure/sign/departments/science{
 	pixel_y = 32
 	},
-/obj/item/kitchen/knife,
+/obj/item/knife/kitchen,
 /turf/open/floor/plating,
 /area/template_noop)
 "i" = (
@@ -179,7 +179,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "K" = (
-/mob/living/simple_animal/hostile/retaliate/poison/snake,
+/mob/living/basic/snake,
 /turf/open/floor/plating,
 /area/template_noop)
 "L" = (

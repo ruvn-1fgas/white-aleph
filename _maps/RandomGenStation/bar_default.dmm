@@ -118,9 +118,7 @@
 /turf/open/floor/wood/parquet,
 /area/station/service/theater)
 "ar" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/wood/parquet,
 /area/station/service/theater)
 "as" = (
@@ -200,9 +198,7 @@
 	req_access_txt = "28"
 	},
 /obj/effect/turf_decal/delivery,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/spawner/random/trash/mess,
 /turf/open/floor/iron,
 /area/station/service/kitchen)
@@ -228,9 +224,7 @@
 /turf/open/floor/wood/parquet,
 /area/station/service/theater)
 "aH" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
@@ -434,20 +428,18 @@
 /turf/open/floor/iron/showroomfloor,
 /area/station/service/kitchen)
 "bi" = (
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/table/wood,
 /obj/item/instrument/violin,
 /turf/open/floor/wood/parquet,
 /area/station/service/theater)
 "bj" = (
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/wood/parquet,
 /area/station/service/theater)
 "bk" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/wood/parquet,
 /area/station/service/theater)
 "bl" = (

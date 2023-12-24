@@ -8,10 +8,10 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "c" = (
-/obj/item/stack/tile/plasteel,
-/obj/item/stack/tile/plasteel,
-/obj/item/stack/tile/plasteel,
-/obj/item/stack/tile/plasteel,
+/obj/item/stack/tile/iron,
+/obj/item/stack/tile/iron,
+/obj/item/stack/tile/iron,
+/obj/item/stack/tile/iron,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/template_noop)

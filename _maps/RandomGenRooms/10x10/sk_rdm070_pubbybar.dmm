@@ -28,7 +28,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "h" = (
-/obj/structure/sign/barsign,
+/obj/machinery/barsign,
 /turf/closed/wall,
 /area/template_noop)
 "i" = (

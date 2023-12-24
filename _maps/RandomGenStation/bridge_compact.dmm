@@ -1879,8 +1879,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/south)
 "fD" = (
-/obj/structure/window/reinforced{
-	dir = 4;
+/obj/structure/window/reinforced/spawner/directional/east{
 	layer = 2.9
 	},
 /obj/effect/turf_decal/bot,
@@ -3264,9 +3263,7 @@
 /turf/open/floor/iron/large,
 /area/station/engineering/gravity_generator)
 "tX" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/bot,
 /obj/machinery/power/shieldwallgen,
 /turf/open/floor/iron/large,

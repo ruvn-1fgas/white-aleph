@@ -208,9 +208,7 @@
 	req_access_txt = "28"
 	},
 /obj/effect/turf_decal/delivery,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/spawner/random/trash/mess,
 /turf/open/floor/iron,
 /area/station/service/kitchen)

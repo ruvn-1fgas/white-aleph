@@ -32,15 +32,15 @@
 /turf/open/floor/iron/dark,
 /area/template_noop)
 "f" = (
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "g" = (
 /obj/effect/spawner/random/clothing/costume,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "h" = (
 /obj/structure/flora/bush,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "i" = (
 /obj/effect/turf_decal/tile/blue{
@@ -53,11 +53,11 @@
 /area/template_noop)
 "j" = (
 /obj/structure/flora/tree/pine,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "k" = (
 /obj/effect/spawner/random/clothing/gloves,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "l" = (
 /obj/machinery/light/directional/west,
@@ -69,7 +69,7 @@
 /area/template_noop)
 "m" = (
 /obj/item/dnainjector/geladikinesis,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "n" = (
 /obj/machinery/light/directional/east,
@@ -83,27 +83,27 @@
 /area/template_noop)
 "o" = (
 /obj/item/soap,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "p" = (
 /obj/item/clothing/shoes/winterboots,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "q" = (
 /obj/effect/spawner/random/trash/grille_or_waste,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "r" = (
 /obj/structure/statue/snow/snowman,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "t" = (
 /obj/item/clothing/suit/hooded/wintercoat,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "u" = (
 /obj/item/hatchet,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "v" = (
 /obj/effect/turf_decal/tile/blue{
@@ -138,15 +138,15 @@
 /area/template_noop)
 "B" = (
 /obj/effect/spawner/random/maintenance,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "C" = (
 /obj/item/shovel,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 "D" = (
 /obj/item/nullrod/chainsaw,
-/turf/open/floor/grass/snow/safe/oxy,
+/turf/open/misc/snow/actually_safe,
 /area/template_noop)
 
 (1,1,1) = {"

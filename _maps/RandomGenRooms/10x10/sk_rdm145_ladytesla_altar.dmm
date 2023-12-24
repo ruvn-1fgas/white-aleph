@@ -90,7 +90,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/template_noop)
 "y" = (
-/obj/item/candle,
+/obj/item/flashlight/flare/candle,
 /turf/open/floor/carpet/royalblue,
 /area/template_noop)
 "z" = (
@@ -154,13 +154,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "R" = (
-/obj/item/cardboard_cutout{
-	desc = "A cardboard cutout of the tesla ball generator. You could scribble over it easily.";
-	icon = 'icons/obj/tesla_engine/tesla_generator.dmi';
-	icon_state = "TheSingGen";
-	name = "energy ball generator";
-	pixel_y = 12
-	},
+/obj/item/toy/figure,
 /turf/open/floor/plating,
 /area/template_noop)
 "S" = (

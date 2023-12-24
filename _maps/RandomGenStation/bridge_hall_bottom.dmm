@@ -1441,9 +1441,7 @@
 "zS" = (
 /obj/machinery/power/shieldwallgen,
 /obj/effect/turf_decal/bot,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/teleporter)
 "zT" = (
@@ -1510,9 +1508,7 @@
 "Ar" = (
 /obj/machinery/power/shieldwallgen,
 /obj/effect/turf_decal/bot,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/airalarm/directional/north{
 	pixel_y = 23
 	},

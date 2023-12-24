@@ -49,7 +49,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "l" = (
-/obj/machinery/modular_computer/console/preset/civilian,
+/obj/machinery/modular_computer/preset/civilian,
 /turf/open/floor/plating,
 /area/template_noop)
 "m" = (
@@ -86,7 +86,6 @@
 "u" = (
 /obj/item/wirecutters,
 /obj/structure/rack,
-/obj/item/wirerod,
 /turf/open/floor/carpet,
 /area/template_noop)
 "w" = (

@@ -3,7 +3,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "b" = (
-/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/rack,
 /obj/item/storage/box/ingredients/carnivore,
 /turf/open/floor/grass,
@@ -13,13 +13,13 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "d" = (
-/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/deepfryer,
 /turf/open/floor/iron/cafeteria,
 /area/template_noop)
 "g" = (
 /obj/structure/window/reinforced/spawner,
-/mob/living/simple_animal/mouse/gray,
+/mob/living/basic/mouse/gray,
 /turf/open/floor/grass,
 /area/template_noop)
 "h" = (
@@ -53,8 +53,8 @@
 /area/template_noop)
 "r" = (
 /obj/structure/window/reinforced/spawner,
-/obj/structure/window/reinforced/spawner/east,
-/mob/living/simple_animal/mouse/brown,
+/obj/structure/window/reinforced/spawner/directional/east,
+/mob/living/basic/mouse/brown,
 /turf/open/floor/grass,
 /area/template_noop)
 "v" = (
@@ -65,46 +65,46 @@
 /obj/structure/rack,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
-/obj/item/kitchen/knife/butcher,
+/obj/item/knife/butcher,
 /obj/item/clothing/suit/apron/chef,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/template_noop)
 "z" = (
-/mob/living/simple_animal/mouse/brown,
+/mob/living/basic/mouse/brown,
 /turf/open/floor/grass,
 /area/template_noop)
 "A" = (
-/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/reagent_dispensers/cooking_oil,
 /turf/open/floor/iron/cafeteria,
 /area/template_noop)
 "B" = (
-/mob/living/simple_animal/mouse/white,
+/mob/living/basic/mouse/white,
 /turf/open/floor/grass,
 /area/template_noop)
 "C" = (
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner/east,
-/mob/living/simple_animal/mouse/gray,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/mob/living/basic/mouse/gray,
 /turf/open/floor/grass,
 /area/template_noop)
 "D" = (
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner/east,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/table,
-/obj/item/reagent_containers/cup/glass/beer{
+/obj/item/reagent_containers/cup/glass/bottle/beer{
 	pixel_x = -7;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/cup/glass/beer{
+/obj/item/reagent_containers/cup/glass/bottle/beer{
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/cup/glass/beer{
+/obj/item/reagent_containers/cup/glass/bottle/beer{
 	pixel_y = 6
 	},
-/obj/item/reagent_containers/cup/glass/beer{
+/obj/item/reagent_containers/cup/glass/bottle/beer{
 	pixel_x = -1
 	},
 /turf/open/floor/iron/cafeteria,
@@ -139,7 +139,7 @@
 /area/template_noop)
 "L" = (
 /obj/machinery/door/window/right/directional/east,
-/mob/living/simple_animal/mouse/gray,
+/mob/living/basic/mouse/gray,
 /turf/open/floor/grass,
 /area/template_noop)
 "M" = (
@@ -163,7 +163,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "S" = (
-/obj/structure/sign/barsign{
+/obj/machinery/barsign{
 	pixel_y = 32
 	},
 /obj/effect/mapping_helpers/broken_floor,
@@ -174,8 +174,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "V" = (
-/obj/structure/window/reinforced/spawner/north,
-/mob/living/simple_animal/mouse/white,
+/obj/structure/window/reinforced/spawner/directional/north,
+/mob/living/basic/mouse/white,
 /turf/open/floor/grass,
 /area/template_noop)
 

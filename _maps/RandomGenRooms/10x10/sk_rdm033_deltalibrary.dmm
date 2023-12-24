@@ -104,12 +104,12 @@
 "r" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/carpet,
 /area/template_noop)
 "s" = (
 /obj/structure/table/wood,
-/obj/item/storage/pill_bottle/dice,
+/obj/item/storage/dice,
 /turf/open/floor/carpet,
 /area/template_noop)
 "t" = (
@@ -180,10 +180,10 @@
 /turf/open/floor/wood,
 /area/template_noop)
 "G" = (
-/obj/structure/destructible/cult/tome,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/old,
+/obj/structure/destructible/cult/item_dispenser/archives,
 /turf/open/floor/plating,
 /area/template_noop)
 "H" = (
@@ -199,7 +199,7 @@
 /area/template_noop)
 "K" = (
 /obj/effect/decal/cleanable/blood/old,
-/obj/item/organ/tongue/bone,
+/obj/item/organ/internal/tongue/bone,
 /turf/open/floor/plating,
 /area/template_noop)
 "L" = (

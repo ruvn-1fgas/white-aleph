@@ -386,12 +386,8 @@
 /area/station/ai_monitored/security/armory)
 "cj" = (
 /obj/structure/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/door/window/left/directional/south{
 	name = "Armory Rack";
 	req_access_txt = "3"
@@ -443,12 +439,8 @@
 /obj/machinery/camera/directional/north{
 	c_tag = "Armory Motion Sensor"
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/door/window/left/directional/south{
 	name = "Armory Rack";
 	req_access_txt = "3"
@@ -496,12 +488,8 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/door/window/left/directional/south{
 	name = "Armory Rack";
 	req_access_txt = "3"
@@ -535,12 +523,8 @@
 	},
 /obj/item/gun/energy/ionrifle,
 /obj/item/clothing/suit/hooded/ablative,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/door/window/left/directional/south{
 	name = "Armory Rack";
 	req_access_txt = "3"
@@ -560,12 +544,8 @@
 /area/station/ai_monitored/security/armory)
 "cn" = (
 /obj/structure/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/door/window/left/directional/south{
 	name = "Armory Rack";
 	req_access_txt = "3"
@@ -845,18 +825,13 @@
 "dd" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/bot,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/door/window/left/directional/south{
 	name = "Armory Rack";
 	req_access_txt = "3"
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/north{
 	layer = 2.9
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -2040,9 +2015,7 @@
 /turf/open/floor/iron/white,
 /area/station/security/brig)
 "fZ" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/iv_drip,
 /obj/item/reagent_containers/blood/o_minus,
 /obj/item/reagent_containers/blood/o_minus,
@@ -2861,9 +2834,7 @@
 /turf/open/floor/iron/white,
 /area/station/security/brig)
 "hz" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/computer/operating{
 	dir = 1
 	},

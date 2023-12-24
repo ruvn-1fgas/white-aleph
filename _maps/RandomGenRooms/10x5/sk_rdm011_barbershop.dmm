@@ -57,7 +57,7 @@
 /obj/item/retractor,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/clothing/suit/apron/surgical,
-/obj/item/roller,
+/obj/item/emergency_bed,
 /obj/item/tank/internals/anesthetic,
 /obj/structure/closet/cardboard,
 /obj/item/cautery,
@@ -107,7 +107,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/template_noop)
 "r" = (
-/obj/structure/window/spawner/west,
+/obj/structure/window/spawner/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/template_noop)
@@ -123,7 +123,7 @@
 /turf/open/floor/iron,
 /area/template_noop)
 "v" = (
-/obj/structure/window/spawner/west,
+/obj/structure/window/spawner/directional/west,
 /obj/structure/table/wood,
 /turf/open/floor/carpet,
 /area/template_noop)
@@ -144,7 +144,7 @@
 /obj/structure/closet/crate/freezer{
 	name = "refreshment cooler"
 	},
-/obj/item/reagent_containers/cup/glass/beer/light,
+/obj/item/reagent_containers/cup/glass/bottle/beer/light,
 /obj/item/reagent_containers/cup/soda_cans/sodawater,
 /obj/item/reagent_containers/cup/soda_cans/shamblers,
 /obj/item/reagent_containers/cup/soda_cans/shamblers,

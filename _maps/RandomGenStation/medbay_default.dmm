@@ -170,7 +170,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/blue/filled/end,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron,
 /area/station/medical/medbay/aft)
 "bf" = (
@@ -563,7 +563,7 @@
 /area/station/medical/storage)
 "ds" = (
 /obj/structure/table/glass,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/item/storage/medkit/toxin{
 	pixel_x = -7;
 	pixel_y = 3
@@ -586,9 +586,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/item/storage/medkit{
 	pixel_x = 5;
 	pixel_y = -3
@@ -873,10 +871,8 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/yellow,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
 "fv" = (
@@ -1370,8 +1366,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/end{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/north{
 	layer = 2.9
 	},
 /obj/item/radio/intercom{
@@ -2162,9 +2157,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/disposalpipe/segment,
 /obj/item/storage/box/beakers{
 	pixel_x = -8;
@@ -2492,13 +2485,10 @@
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "rQ" = (
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/north{
 	layer = 2.9
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -2908,9 +2898,7 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay)
 "vL" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -3234,9 +3222,7 @@
 	dir = 1
 	},
 /obj/machinery/chem_dispenser,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
@@ -3290,7 +3276,7 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/structure/table/glass,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
@@ -3720,8 +3706,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/north{
 	pixel_y = 2
 	},
 /turf/open/floor/iron/dark,
@@ -3734,10 +3719,8 @@
 /area/station/medical/medbay/central)
 "BW" = (
 /obj/machinery/chem_heater,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
@@ -3824,8 +3807,7 @@
 	dir = 4
 	},
 /obj/machinery/chem_dispenser,
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/north{
 	layer = 2.9
 	},
 /obj/effect/turf_decal/tile/yellow{
@@ -3870,8 +3852,7 @@
 	freq = 1400;
 	location = "Medbay"
 	},
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/north{
 	layer = 2.9
 	},
 /obj/effect/turf_decal/tile/yellow,
@@ -3913,9 +3894,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/power/apc{
 	areastring = "/area/medical/cryo";
 	name = "Cryo APC";
@@ -4725,9 +4704,7 @@
 	dir = 4
 	},
 /obj/machinery/chem_dispenser,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
@@ -5012,7 +4989,7 @@
 /area/station/medical/medbay/aft)
 "KL" = (
 /obj/structure/table/glass,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/item/storage/medkit/fire{
 	pixel_x = 7;
 	pixel_y = 3
@@ -5039,9 +5016,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
 "KM" = (
@@ -5142,11 +5117,8 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/yellow,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north{
 	layer = 2.9
 	},
 /obj/structure/disposalpipe/segment,
@@ -5475,7 +5447,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/item/storage/box/beakers{
 	pixel_x = -8;
 	pixel_y = -6
@@ -6907,8 +6879,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/north{
 	pixel_y = 2
 	},
 /turf/open/floor/iron/dark,

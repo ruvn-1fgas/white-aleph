@@ -21,9 +21,6 @@
 /area/template_noop)
 "d" = (
 /obj/structure/table,
-/obj/item/stock_parts/manipulator,
-/obj/item/stock_parts/manipulator,
-/obj/item/stock_parts/manipulator,
 /obj/machinery/light/broken/directional/north,
 /obj/item/stock_parts/cell/hyper,
 /obj/effect/mapping_helpers/broken_floor,

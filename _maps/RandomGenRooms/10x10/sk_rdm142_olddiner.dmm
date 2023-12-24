@@ -169,7 +169,7 @@
 /area/template_noop)
 "Hd" = (
 /obj/structure/table/wood,
-/obj/item/kitchen/knife,
+/obj/item/knife/kitchen,
 /turf/open/floor/plating,
 /area/template_noop)
 "Il" = (
@@ -229,7 +229,7 @@
 /turf/open/floor/carpet,
 /area/template_noop)
 "UO" = (
-/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/wood,
 /obj/machinery/microwave,
 /turf/open/floor/plating,
@@ -253,7 +253,7 @@
 "Yr" = (
 /obj/structure/table/wood,
 /obj/machinery/microwave,
-/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/plating,
 /area/template_noop)
 "Yt" = (

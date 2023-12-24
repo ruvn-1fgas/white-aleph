@@ -57,7 +57,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/retaliate/ghost,
+/mob/living/basic/ghost,
 /turf/open/floor/iron/dark,
 /area/template_noop)
 "g" = (
@@ -80,7 +80,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/storage/pill_bottle/dice{
+/obj/item/storage/dice{
 	pixel_x = -4
 	},
 /obj/item/pen/red{
@@ -102,7 +102,7 @@
 /area/template_noop)
 "k" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/bookmanagement{
+/obj/machinery/computer/libraryconsole/bookmanagement{
 	pixel_y = 5
 	},
 /obj/effect/turf_decal/tile/neutral,

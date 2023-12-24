@@ -114,11 +114,6 @@
 /turf/open/floor/iron/white/side,
 /area/template_noop)
 "j" = (
-/obj/structure/sink/kitchen{
-	desc = "A sink used for washing one's hands and face. It looks rusty and home-made";
-	name = "old sink";
-	pixel_y = 28
-	},
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/red,
@@ -291,13 +286,14 @@
 /obj/structure/rack,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/box/donkpockets,
-/obj/item/kitchen/knife/butcher,
+/obj/item/knife/butcher,
 /obj/item/stack/package_wrap,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/template_noop)
 "R" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
+/obj/structure/sink/kitchen/directional/west,
 /turf/open/floor/iron/white,
 /area/template_noop)
 "Y" = (

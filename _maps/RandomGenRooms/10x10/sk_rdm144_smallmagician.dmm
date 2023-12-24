@@ -13,7 +13,7 @@
 /turf/open/floor/carpet/red,
 /area/template_noop)
 "dn" = (
-/obj/structure/chair/sofa,
+/obj/structure/chair/sofa/middle,
 /turf/open/floor/carpet/red,
 /area/template_noop)
 "fI" = (
@@ -127,7 +127,7 @@
 /area/template_noop)
 "wR" = (
 /obj/machinery/vending/boozeomat,
-/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/plating,
 /area/template_noop)
 "xA" = (
@@ -179,7 +179,7 @@
 /area/template_noop)
 "HW" = (
 /obj/structure/closet/crate/trashcart,
-/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/grille/broken,
 /turf/open/floor/plating,
 /area/template_noop)
@@ -194,7 +194,7 @@
 /area/template_noop)
 "Lp" = (
 /obj/structure/table/wood,
-/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/spawner/random/entertainment/gambling,
 /turf/open/floor/iron/cafeteria,
 /area/template_noop)
@@ -252,7 +252,7 @@
 /turf/open/floor/carpet,
 /area/template_noop)
 "Un" = (
-/obj/structure/chair/sofa{
+/obj/structure/chair/sofa/middle{
 	dir = 1
 	},
 /turf/open/floor/carpet/red,

@@ -88,8 +88,8 @@
 /area/template_noop)
 "C" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/disks_plantgene,
 /obj/machinery/light/small/directional/west,
+/obj/item/disk/tech_disk,
 /turf/open/floor/plating,
 /area/template_noop)
 "E" = (

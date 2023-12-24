@@ -77,17 +77,23 @@
 /turf/open/floor/wood,
 /area/template_noop)
 "m" = (
-/obj/structure/chair/stool/bar,
+/obj/structure/chair/stool/bar{
+	dir = 1
+	},
 /turf/open/floor/wood,
 /area/template_noop)
 "n" = (
-/obj/structure/chair/stool/bar,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/structure/chair/stool/bar{
+	dir = 1
+	},
 /turf/open/floor/wood,
 /area/template_noop)
 "o" = (
-/obj/structure/chair/stool/bar,
 /obj/effect/decal/cleanable/vomit/old,
+/obj/structure/chair/stool/bar{
+	dir = 1
+	},
 /turf/open/floor/wood,
 /area/template_noop)
 

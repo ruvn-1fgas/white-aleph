@@ -105,9 +105,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/item/instrument/eguitar,
 /obj/item/instrument/guitar{
 	pixel_x = 11
@@ -135,9 +133,7 @@
 /obj/item/kirbyplants{
 	icon_state = "plant-24"
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/airalarm/directional/north{
 	pixel_y = 32
 	},
@@ -245,9 +241,7 @@
 	req_access_txt = "28"
 	},
 /obj/effect/turf_decal/delivery,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/spawner/random/trash/mess,
 /turf/open/floor/iron,
 /area/station/service/kitchen)
@@ -1315,9 +1309,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
@@ -1545,12 +1537,10 @@
 	dir = 10
 	},
 /obj/structure/table/wood,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/item/instrument/violin,
 /obj/item/instrument/piano_synth,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/turf_decal/bot/left,
 /turf/open/floor/wood,
 /area/station/service/theater)
@@ -1699,9 +1689,7 @@
 /obj/structure/musician/piano{
 	icon_state = "piano"
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/wood,
 /area/station/service/theater)
 "Ro" = (

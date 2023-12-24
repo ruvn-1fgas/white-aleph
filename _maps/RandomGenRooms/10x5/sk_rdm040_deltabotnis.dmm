@@ -71,23 +71,16 @@
 /turf/open/floor/iron,
 /area/template_noop)
 "l" = (
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = 11
-	},
 /obj/effect/turf_decal/bot,
+/obj/structure/sink/directional/west,
 /turf/open/floor/iron,
 /area/template_noop)
 "m" = (
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = -12;
-	pixel_y = 2
-	},
 /obj/structure/sign/warning/no_smoking{
 	pixel_x = -32
 	},
 /obj/effect/turf_decal/bot,
+/obj/structure/sink/directional/east,
 /turf/open/floor/iron,
 /area/template_noop)
 "n" = (

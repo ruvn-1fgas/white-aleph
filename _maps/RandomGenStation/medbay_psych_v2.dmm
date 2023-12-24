@@ -123,7 +123,7 @@
 /area/station/medical/treatment_center)
 "cq" = (
 /obj/structure/table/glass,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/item/storage/medkit/fire{
 	pixel_x = 7;
 	pixel_y = 3
@@ -289,7 +289,7 @@
 /area/station/medical/medbay/central)
 "eh" = (
 /obj/structure/table/glass,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/item/storage/medkit/toxin{
 	pixel_x = -7;
 	pixel_y = 3
@@ -887,9 +887,7 @@
 /area/station/medical/medbay/lobby)
 "kK" = (
 /obj/structure/cable,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/engine,
 /area/station/medical/medbay/lobby)
 "kP" = (
@@ -1886,9 +1884,7 @@
 "BD" = (
 /obj/structure/bed/medical/emergency,
 /obj/machinery/iv_drip,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -1954,9 +1950,7 @@
 /obj/vehicle/ridden/wheelchair{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -2437,9 +2431,7 @@
 /obj/vehicle/ridden/wheelchair{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -3083,9 +3075,7 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/medical/medbay/lobby)
 "RJ" = (
@@ -3524,9 +3514,7 @@
 "XG" = (
 /obj/structure/bed/medical/emergency,
 /obj/machinery/iv_drip,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/newscaster{
 	pixel_y = -28
 	},

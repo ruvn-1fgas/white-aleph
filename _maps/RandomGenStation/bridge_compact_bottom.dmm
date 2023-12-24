@@ -273,9 +273,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/bottom_station_maints)
 "hk" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/wood,
 /obj/machinery/computer/security/wooden_tv,
 /turf/open/floor/iron/grimy,
@@ -714,9 +712,7 @@
 /turf/open/floor/iron/grimy,
 /area/station/command/heads_quarters/captain)
 "qw" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/fourcolor,
@@ -837,15 +833,11 @@
 	name = "Core Modules";
 	req_access_txt = "20"
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/spawner/random/aimodule/harmless,
 /obj/effect/spawner/random/aimodule/neutral,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/item/ai_module/core/full/custom,
 /obj/item/ai_module/supplied/quarantine,
 /turf/open/floor/iron/dark,
@@ -951,14 +943,10 @@
 	req_access_txt = "20"
 	},
 /obj/item/ai_module/reset/purge,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/spawner/random/aimodule/harmful,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/item/ai_module/supplied/protect_station,
 /obj/item/ai_module/supplied/freeform,
 /turf/open/floor/iron/dark,
@@ -975,16 +963,10 @@
 	dir = 4
 	},
 /obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/plating,
 /area/station/command/meeting_room)
 "vy" = (
@@ -1203,9 +1185,7 @@
 /area/station/command/heads_quarters/captain)
 "Bb" = (
 /obj/structure/table,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/item/storage/fancy/donut_box{
 	pixel_x = -2
 	},
@@ -1659,9 +1639,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "KB" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/shower{
 	pixel_y = 16
 	},
@@ -1879,9 +1857,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/bottom_station_maints)
 "Pe" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/light/directional/south,
 /obj/structure/table/wood,
 /obj/item/folder/blue,
@@ -2164,9 +2140,7 @@
 /area/station/command/heads_quarters/captain)
 "WF" = (
 /obj/structure/table,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/item/storage/toolbox/emergency{
 	pixel_x = 6;
 	pixel_y = 4
