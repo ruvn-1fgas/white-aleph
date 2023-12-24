@@ -44,7 +44,7 @@
 /area/station/maintenance/port/aft)
 "k" = (
 /obj/structure/chess/blackpawn,
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/north,
 /turf/open/floor/iron/white,
 /area/station/maintenance/port/aft)
 "m" = (
@@ -68,7 +68,7 @@
 /area/station/maintenance/port/aft)
 "r" = (
 /obj/structure/chess/blackpawn,
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/port/aft)
 "s" = (
