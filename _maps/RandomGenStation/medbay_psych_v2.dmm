@@ -1360,11 +1360,11 @@
 	},
 /obj/machinery/requests_console{
 	announcementConsole = 1;
+	anon_tips_receiver = 1;
+	assistance_requestable = 1;
 	department = "Chief Medical Officer's Desk";
 	name = "Chief Medical Officer RC";
-	pixel_y = 32;
-	assistance_requestable = 1;
-	anon_tips_receiver = 1
+	pixel_y = 32
 	},
 /obj/machinery/light/directional/north,
 /obj/structure/cable,
@@ -3222,10 +3222,10 @@
 /area/station/command/heads_quarters/cmo)
 "TS" = (
 /obj/machinery/requests_console{
+	assistance_requestable = 1;
 	department = "Medbay";
 	name = "Medbay RC";
-	pixel_y = 30;
-	assistance_requestable = 1
+	pixel_y = 30
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -3539,7 +3539,7 @@
 	id = "durka_hub";
 	name = "Panic Bunker"
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/station/medical/medbay/lobby)
 "XN" = (
 /obj/effect/turf_decal/trimline/red/filled/line{

@@ -911,11 +911,11 @@
 	},
 /obj/machinery/requests_console{
 	announcementConsole = 1;
+	anon_tips_receiver = 1;
+	assistance_requestable = 1;
 	department = "Bridge";
 	name = "Bridge RC";
-	pixel_y = -30;
-	assistance_requestable = 1;
-	anon_tips_receiver = 1
+	pixel_y = -30
 	},
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark,
@@ -2300,7 +2300,7 @@
 	dir = 10
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/station/hallway/primary/central/low_level_centre)
 "hp" = (
 /obj/structure/disposalpipe/segment{
@@ -3353,7 +3353,7 @@
 "wg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/station/hallway/primary/central/low_level_centre)
 "wu" = (
 /obj/effect/turf_decal/tile/blue{
@@ -3643,7 +3643,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/east)
 "Dp" = (
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/station/hallway/primary/central/low_level_centre)
 "DR" = (
 /obj/machinery/light/small/directional/north,
@@ -3903,7 +3903,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/station/hallway/primary/central/low_level_centre)
 "Kd" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -3936,7 +3936,7 @@
 "KM" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/directional/west,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/station/hallway/primary/central/low_level_centre)
 "KP" = (
 /obj/structure/cable,
@@ -4072,7 +4072,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/station/hallway/primary/central/low_level_centre)
 "NG" = (
 /turf/open/openspace,
@@ -4350,7 +4350,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 5
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/station/hallway/primary/central/low_level_centre)
 "Uj" = (
 /obj/structure/cable,
@@ -4460,7 +4460,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/station/hallway/primary/central/low_level_centre)
 "Wt" = (
 /obj/structure/lattice/catwalk,

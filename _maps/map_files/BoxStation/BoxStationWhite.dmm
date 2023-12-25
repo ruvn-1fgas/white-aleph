@@ -306,10 +306,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/port)
-"aeo" = (
-/obj/structure/holosign/barrier/wetsign,
-/turf/open/floor/plating,
-/area/space/nearstation)
 "aeA" = (
 /obj/item/radio/intercom{
 	pixel_y = 20
@@ -14248,14 +14244,15 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/neutral,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/stripes/white/line{
 	dir = 8
 	},
-/turf/open/floor/iron,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
 /area/station/secondary/exit/departure_lounge/shop)
 "fHe" = (
 /turf/closed/wall,
@@ -41565,11 +41562,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
-"qfX" = (
-/obj/structure/lattice,
-/obj/effect/landmark/stationroom/engine/default/bottom,
-/turf/open/space/basic,
-/area/space/nearstation)
 "qga" = (
 /turf/closed/wall,
 /area/station/maintenance/starboard/fore)
@@ -54894,16 +54886,15 @@
 /turf/open/floor/plating,
 /area/station/maintenance/fore/lesser)
 "vaS" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/stripes/white/line{
 	dir = 8
 	},
-/turf/open/floor/iron,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
 /area/station/secondary/exit/departure_lounge/shop)
 "vbe" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -80118,7 +80109,7 @@ dvN
 dvN
 ldY
 dvN
-aeo
+dvN
 dvN
 dvN
 dvN
@@ -87410,7 +87401,7 @@ ylC
 dVt
 dVt
 dVt
-qfX
+dvN
 ylC
 ylC
 ylC

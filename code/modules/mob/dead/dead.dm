@@ -45,7 +45,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	if(client.holder)
 		. += "✓ | Игроков приготовлено: [SSticker.totalPlayersReady]"
 		. += "✓ | Админов приготовлено: [SSticker.total_admins_ready] / [length(GLOB.admins)]"
-
+/*
 #define SERVER_HOPPER_TRAIT "server_hopper"
 
 /mob/dead/proc/server_hop()
@@ -90,7 +90,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	C << link("[addr]")
 
 #undef SERVER_HOPPER_TRAIT
-
+*/
 /mob/dead/proc/update_z(new_z) // 1+ to register, null to unregister
 	if (registered_z != new_z)
 		if (registered_z)
