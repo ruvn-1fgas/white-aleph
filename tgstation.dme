@@ -5886,6 +5886,7 @@
 #include "white\master\code\garland_pack.dm"
 #include "white\master\code\punkt_priema.dm"
 #include "white\master\code\trash_pile.dm"
+#include "white\master\code\white_ambience.dm"
 #include "white\master\code\randomstation\landmarks.dm"
 #include "white\master\code\randomstation\maint.dm"
 #include "white\master\code\randomstation\maintenance.dm"
