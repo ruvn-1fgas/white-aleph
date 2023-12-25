@@ -1006,9 +1006,7 @@
 /area/space/nearstation)
 "qE" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/camera/autoname/directional/east{
-	start_active = 1
-	},
+/obj/machinery/camera/directional/west,
 /turf/template_noop,
 /area/space/nearstation)
 "qP" = (
@@ -1188,7 +1186,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/directional/east,
+/obj/machinery/camera/directional/west,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "CL" = (

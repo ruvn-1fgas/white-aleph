@@ -742,7 +742,7 @@
  */
 /mob/verb/mode()
 	set name = "Использовать предмет в руке"
-	set category = "Object"
+	set category = "IC"
 	set src = usr
 
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(execute_mode)))
