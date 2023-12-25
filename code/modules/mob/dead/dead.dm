@@ -18,9 +18,9 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	add_to_mob_list()
 
 	prepare_huds()
-
+/*
 	if(length(CONFIG_GET(keyed_list/cross_server)))
-		add_verb(src, /mob/dead/proc/server_hop)
+		add_verb(src, /mob/dead/proc/server_hop)*/
 	set_focus(src)
 	become_hearing_sensitive()
 	log_mob_tag("TAG: [tag] CREATED: [key_name(src)] \[[src.type]\]")

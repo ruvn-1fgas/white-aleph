@@ -6,12 +6,17 @@
 
 	var/msg = "<b>Текущие игроки:</b>\n"
 
+	var/living = 0
+	var/dead = 0
+	var/observers = 0
+	var/lobby = 0
+	var/living_antags = 0
+	var/dead_antags = 0
+
 	var/list/Lines = list()
-	var/columns_per_row = DEFAULT_WHO_CELLS_PER_ROW
 
 	if(holder)
 		if (check_rights(R_ADMIN,0) && isobserver(src.mob))//If they have +ADMIN and are a ghost they can see players IC names and statuses.
-			columns_per_row = 1
 			var/mob/dead/observer/G = src.mob
 			if(!G.started_as_observer)//If you aghost to do this, KorPhaeron will deadmin you in your sleep.
 				log_admin("[key_name(usr)] checked advanced who in-round")
@@ -21,22 +26,33 @@
 					entry += " <i>(as [client.holder.fakekey])</i>"
 				if (isnewplayer(client.mob))
 					entry += " - <font color='darkgray'><b>Лобби</b></font>"
+					lobby++
 				else
-					entry += " - Playing as [client.mob.real_name]"
+					entry += " - [client.mob.real_name]"
 					switch(client.mob.stat)
 						if(UNCONSCIOUS, HARD_CRIT)
 							entry += " - <font color='darkgray'><b>Без сознания</b></font>"
+							living++
 						if(DEAD)
 							if(isobserver(client.mob))
 								var/mob/dead/observer/O = client.mob
 								if(O.started_as_observer)
 									entry += " - <font color='gray'>Наблюдает</font>"
+									observers++
 								else
 									entry += " - <font color='black'><b>МЁРТВ</b></font>"
+									dead++
 							else
 								entry += " - <font color='black'><b>МЁРТВ</b></font>"
+								dead++
+						else
+							living++
 					if(is_special_character(client.mob))
 						entry += " - <b><font color='red'>Антагонист</font></b>"
+						living_antags++
+						if(client.mob.stat == DEAD)
+							dead_antags++
+							living_antags--
 				entry += " [ADMIN_QUE(client.mob)]"
 				entry += " ([round(client.avgping, 1)]мс)"
 				Lines += entry

@@ -515,7 +515,7 @@
 	if(IsSleeping())
 		to_chat(src, span_warning("Уже сплю!"))
 		return
-		else
+	else
 		switch(tgui_alert(src, "Сколько будем спать?", "Алло", list("30 секунд", "45 секунд", "60 секунд"), timeout = 15 SECONDS))
 			if("30 секунд")
 				SetSleeping(30 SECONDS)
