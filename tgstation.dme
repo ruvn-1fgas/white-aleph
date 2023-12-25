@@ -5883,6 +5883,7 @@
 #include "white\master\code\antimatter.dm"
 #include "white\master\code\cryopods.dm"
 #include "white\master\code\durka.dm"
+#include "white\master\code\garland_pack.dm"
 #include "white\master\code\punkt_priema.dm"
 #include "white\master\code\trash_pile.dm"
 #include "white\master\code\randomstation\landmarks.dm"
