@@ -108,14 +108,7 @@
 	if(!C?.mob)
 		return
 	if(!C.played)
-		var/sound/S = sound(pick(longambient_type))
-		S.repeat = TRUE
-		S.channel = CHANNEL_BUZZ
-		S.wait = FALSE
-		S.volume = 15
-		S.status = SOUND_STREAM
-
-		SEND_SOUND(C.mob, S)
+		SEND_SOUND(C.mob, sound(pick(longambient_type), repeat = TRUE, channel = CHANNEL_BUZZ, wait = FALSE, volume = 15, status = SOUND_STREAM))
 		C.played = TRUE
 
 		if(C)
