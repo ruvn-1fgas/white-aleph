@@ -9514,12 +9514,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
 "dYk" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w{
-	dir = 4
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/iron/freezer,
 /area/station/science/xenobiology)
 "dYn" = (
@@ -23327,11 +23325,8 @@
 /turf/open/openspace,
 /area/station/science/xenobiology)
 "jbI" = (
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = 11
-	},
 /obj/structure/cable,
+/obj/structure/sink/directional/west,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/science/xenobiology)
 "jbT" = (
@@ -34488,11 +34483,11 @@
 /turf/open/floor/engine,
 /area/station/engineering/storage_shared)
 "nqY" = (
-/obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/components/unary/passive_vent,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/freezer,
 /area/station/science/xenobiology)
 "nrf" = (
@@ -37328,11 +37323,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 4
 	},
-/obj/machinery/camera{
-	c_tag = "Xenobiology Pens Hall - Fore";
-	dir = 6;
-	network = list("ss13","rd","xeno_pens")
-	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/science/xenobiology)
 "ost" = (
@@ -38660,10 +38650,6 @@
 	},
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4
-	},
-/obj/machinery/door/airlock/multi_tile/public/glass{
-	dir = 4;
-	name = "Arrivals Dock"
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/hallway/primary/port)
@@ -40579,7 +40565,7 @@
 "pKt" = (
 /obj/machinery/camera/directional/west{
 	c_tag = "Xenobiology Kill Chamber";
-	network = list("ss13","rd","xeno_pens")
+	network = list("ss13","rd","xeno")
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -44798,6 +44784,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
+/obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/science/xenobiology)
 "rnt" = (
@@ -45323,16 +45310,10 @@
 "rAK" = (
 /obj/machinery/door/airlock/research/glass{
 	name = "Kill Chamber";
-	normalspeed = 0;
-	req_access_txt = "55"
+	normalspeed = 0
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
 /turf/open/floor/iron/freezer,
 /area/station/science/xenobiology)
 "rAL" = (
@@ -50230,7 +50211,6 @@
 	name = "containment blast door"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/obj/machinery/door/firedoor/border_only,
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/large,
 /area/station/science/xenobiology)
@@ -54322,9 +54302,7 @@
 /turf/closed/wall/r_wall,
 /area/station/science/robotics/mechbay)
 "uOD" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/iron/freezer,
 /area/station/science/xenobiology)
 "uOJ" = (

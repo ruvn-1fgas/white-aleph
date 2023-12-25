@@ -1724,6 +1724,9 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/east)
+"xE" = (
+/turf/open/openspace/airless,
+/area/station/hallway/primary/central/north)
 "xG" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
@@ -3630,9 +3633,9 @@ Dl
 gd
 dm
 Tk
-Rk
-Rk
-Rk
+xE
+xE
+xE
 zj
 VW
 Nh
