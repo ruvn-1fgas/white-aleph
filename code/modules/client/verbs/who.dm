@@ -40,10 +40,10 @@
 									entry += " - <font color='gray'>Наблюдает</font>"
 									observers++
 								else
-									entry += " - <font color='black'><b>МЁРТВ</b></font>"
+									entry += " - <font color='white'><b>МЁРТВ</b></font>"
 									dead++
 							else
-								entry += " - <font color='black'><b>МЁРТВ</b></font>"
+								entry += " - <font color='white'><b>МЁРТВ</b></font>"
 								dead++
 						else
 							living++
