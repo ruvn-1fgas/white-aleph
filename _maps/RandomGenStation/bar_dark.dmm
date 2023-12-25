@@ -993,9 +993,9 @@
 /obj/machinery/reagentgrinder,
 /obj/machinery/requests_console{
 	department = "Kitchen";
-	pixel_x = 30;
-	supplies_requestable = 1
+	pixel_x = 30
 	},
+/obj/effect/mapping_helpers/requests_console/supplies,
 /turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)
 "cL" = (

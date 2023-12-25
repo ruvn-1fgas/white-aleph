@@ -141,9 +141,9 @@
 /obj/machinery/requests_console{
 	department = "Medbay";
 	name = "Medbay RC";
-	pixel_x = -30;
-	assistance_requestable = 1
+	pixel_x = -30
 	},
+/obj/effect/mapping_helpers/requests_console/assistance,
 /obj/structure/railing,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/extra)

@@ -63,10 +63,10 @@
 /obj/item/stack/sheet/mineral/plasma,
 /obj/machinery/requests_console{
 	department = "Chemistry";
-	pixel_x = -30;
-	receive_ore_updates = 1;
-	supplies_requestable = 1
+	pixel_x = -30
 	},
+/obj/effect/mapping_helpers/requests_console/ore_update,
+/obj/effect/mapping_helpers/requests_console/supplies,
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/pharmacy)
@@ -1120,9 +1120,9 @@
 /obj/machinery/requests_console{
 	department = "Medbay";
 	name = "Medbay RC";
-	pixel_x = 30;
-	assistance_requestable = 1
+	pixel_x = 30
 	},
+/obj/effect/mapping_helpers/requests_console/assistance,
 /obj/machinery/light/directional/south,
 /mob/living/simple_animal/bot/cleanbot{
 	name = "C.L.E.A.N."
@@ -1933,10 +1933,10 @@
 	announcementConsole = 1;
 	department = "Chief Medical Officer's Desk";
 	name = "Chief Medical Officer RC";
-	pixel_y = 32;
-	assistance_requestable = 1;
-	anon_tips_receiver = 1
+	pixel_y = 32
 	},
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -3198,9 +3198,9 @@
 	department = "Medbay";
 	name = "Medbay RC";
 	pixel_x = -30;
-	pixel_y = 3;
-	assistance_requestable = 1
+	pixel_y = 3
 	},
+/obj/effect/mapping_helpers/requests_console/assistance,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay)
 "Ek" = (
@@ -3928,10 +3928,10 @@
 	},
 /obj/machinery/requests_console{
 	department = "Security";
-	pixel_y = 30;
-	assistance_requestable = 1;
-	anon_tips_receiver = 1
+	pixel_y = 30
 	},
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -4843,9 +4843,9 @@
 /obj/machinery/requests_console{
 	department = "Medbay";
 	name = "Medbay RC";
-	pixel_x = 30;
-	assistance_requestable = 1
+	pixel_x = 30
 	},
+/obj/effect/mapping_helpers/requests_console/assistance,
 /obj/structure/sink/directional/west,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
@@ -5361,9 +5361,9 @@
 /obj/machinery/requests_console{
 	department = "Medbay";
 	name = "Medbay RC";
-	pixel_y = 30;
-	assistance_requestable = 1
+	pixel_y = 30
 	},
+/obj/effect/mapping_helpers/requests_console/assistance,
 /obj/machinery/modular_computer/preset/cargochat/medical,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1

@@ -1085,10 +1085,10 @@
 "eD" = (
 /obj/machinery/requests_console{
 	department = "Security";
-	pixel_x = -30;
-	assistance_requestable = 1;
-	anon_tips_receiver = 1
+	pixel_x = -30
 	},
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/effect/mapping_helpers/requests_console/assistance,
 /obj/machinery/camera/directional/west{
 	c_tag = "Brig Control Room"
 	},
@@ -1178,10 +1178,10 @@
 "eO" = (
 /obj/machinery/requests_console{
 	department = "Security";
-	pixel_y = 30;
-	assistance_requestable = 1;
-	anon_tips_receiver = 1
+	pixel_y = 30
 	},
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -3183,10 +3183,10 @@
 	announcementConsole = 1;
 	department = "Head of Security's Desk";
 	name = "Head of Security RC";
-	pixel_y = 30;
-	assistance_requestable = 1;
-	anon_tips_receiver = 1
+	pixel_y = 30
 	},
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/effect/mapping_helpers/requests_console/assistance,
 /obj/machinery/computer/records/medical/laptop,
 /obj/item/storage/secure/safe/hos{
 	pixel_x = 36;

@@ -733,10 +733,10 @@
 "cu" = (
 /obj/machinery/requests_console{
 	department = "Bar";
-	pixel_x = 30;
-	receive_ore_updates = 1;
-	supplies_requestable = 1
+	pixel_x = 30
 	},
+/obj/effect/mapping_helpers/requests_console/ore_update,
+/obj/effect/mapping_helpers/requests_console/supplies,
 /obj/machinery/camera/directional/east{
 	c_tag = "Bar"
 	},
@@ -874,9 +874,9 @@
 /obj/machinery/reagentgrinder,
 /obj/machinery/requests_console{
 	department = "Kitchen";
-	pixel_x = 30;
-	supplies_requestable = 1
+	pixel_x = 30
 	},
+/obj/effect/mapping_helpers/requests_console/supplies,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "cQ" = (
