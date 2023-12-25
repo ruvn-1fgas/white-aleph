@@ -509,6 +509,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/command,
 /turf/open/floor/plating,
 /area/station/command/teleporter)
 "bL" = (
@@ -1269,6 +1270,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/border_only,
+/obj/effect/mapping_helpers/airlock/access/any/engineering,
 /turf/open/floor/iron,
 /area/station/engineering/gravity_generator)
 "dT" = (
@@ -1324,6 +1326,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/command,
 /turf/open/floor/iron,
 /area/station/command/teleporter)
 "ee" = (
@@ -1926,6 +1929,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering,
 /turf/open/floor/iron,
 /area/station/engineering/gravity_generator)
 "fK" = (
@@ -2419,6 +2423,7 @@
 	},
 /obj/structure/fans/tiny,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/command,
 /turf/open/floor/plating,
 /area/station/hallway/primary/central/low_level_centre)
 "hZ" = (
@@ -2895,6 +2900,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/command,
 /turf/open/floor/plating,
 /area/station/hallway/primary/central/low_level_centre)
 "kS" = (
@@ -3241,6 +3247,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/command/hop,
 /turf/open/floor/iron,
 /area/station/command/meeting_room)
 "sH" = (
@@ -3916,6 +3923,15 @@
 /obj/machinery/power/shieldwallgen,
 /turf/open/floor/iron/large,
 /area/station/command/teleporter)
+"Ku" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/any/engineering,
+/turf/open/floor/plating,
+/area/station/maintenance/central)
 "Kx" = (
 /obj/machinery/camera/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
@@ -3958,6 +3974,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/captain)
 "KW" = (
@@ -4283,6 +4300,7 @@
 	req_one_access_txt = "19"
 	},
 /obj/structure/fans/tiny,
+/obj/effect/mapping_helpers/airlock/access/any/engineering,
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "Sp" = (
@@ -4554,6 +4572,7 @@
 	req_access_txt = "20"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/command,
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/captain)
 "Yy" = (
@@ -5759,7 +5778,7 @@ dv
 dE
 dO
 af
-Bs
+Ku
 dW
 dW
 Mg

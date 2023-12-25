@@ -931,6 +931,7 @@
 	name = "Escape Pod Four";
 	shuttledocked = 1
 	},
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/plating,
 /area/station/security)
 "eg" = (
@@ -1004,6 +1005,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security)
 "eo" = (
@@ -1606,6 +1608,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security/armory,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/warden)
 "fM" = (
@@ -2098,6 +2101,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security/armory,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/warden)
 "gK" = (
@@ -2110,6 +2114,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/iron,
 /area/station/security)
 "gO" = (
@@ -2120,6 +2125,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/brig)
 "gP" = (
@@ -2361,6 +2367,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/iron,
 /area/station/security/brig)
 "hK" = (
@@ -2377,6 +2384,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/iron,
 /area/station/security/brig)
 "hL" = (
@@ -2506,6 +2514,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/iron,
 /area/station/security/brig)
 "im" = (
@@ -2584,6 +2593,7 @@
 	req_access_txt = "63"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security/entrance,
 /turf/open/floor/iron,
 /area/station/security/brig)
 "it" = (
@@ -2602,6 +2612,7 @@
 	req_access_txt = "63"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security/entrance,
 /turf/open/floor/iron,
 /area/station/security/brig)
 "iu" = (
@@ -2785,6 +2796,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/fans/tiny,
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/plating,
 /area/station/security)
 "iS" = (
@@ -2801,6 +2813,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/plating,
 /area/station/security)
 "iU" = (
@@ -2820,6 +2833,7 @@
 	name = "Escape Pod Four";
 	shuttledocked = 1
 	},
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/plating,
 /area/station/security)
 "iX" = (
@@ -3107,6 +3121,7 @@
 	req_access_txt = "63"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security/entrance,
 /turf/open/floor/iron,
 /area/station/security/brig)
 "le" = (
@@ -3115,6 +3130,7 @@
 	req_access_txt = "63"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/brig)
 "nI" = (
@@ -3172,6 +3188,7 @@
 /obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security/entrance,
 /turf/open/floor/iron,
 /area/station/security/brig)
 "pO" = (
@@ -3286,6 +3303,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/security/hos,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hos)
 "Oi" = (
@@ -3369,6 +3387,10 @@
 /obj/item/restraints/handcuffs,
 /obj/item/assembly/flash/handheld,
 /turf/open/floor/iron/large,
+/area/station/security)
+"Yh" = (
+/obj/effect/mapping_helpers/airlock/access/all/security,
+/turf/open/floor/plating,
 /area/station/security)
 "Yy" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -5834,7 +5856,7 @@ iR
 iS
 iT
 iU
-iV
+Yh
 iX
 bb
 aS
