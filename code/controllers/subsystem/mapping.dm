@@ -606,9 +606,8 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 		if (!(R.ruin_type in themed_ruins))
 			themed_ruins[R.ruin_type] = list()
-		themed_ruins[R.ruin_type][R.name] = R
-
-		if (istype(R, /datum/map_template/ruin/station)) //yogs
+			themed_ruins[R.ruin_type][R.name] = R
+		else if(istype(R, /datum/map_template/ruin/station)) //yogs
 			station_room_templates[R.name] = R //yogs
 		else if (istype(R, /datum/map_template/ruin/maint)) // white
 			station_room_templates[R.name] = R // white
