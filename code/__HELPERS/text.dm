@@ -803,17 +803,17 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	switch(macro)
 		//prefixes/agnostic
 		if("the")
-			rest = " [rest]"
+			rest = "[rest]"
 		if("a")
-			rest = "\a [rest]"
+			rest = "[rest]"
 		if("an")
-			rest = "\an [rest]"
+			rest = "[rest]"
 		if("proper")
-			rest = "\proper [rest]"
+			rest = "[rest]"
 		if("improper")
-			rest = "\improper [rest]"
+			rest = "[rest]"
 		if("roman")
-			rest = "\roman [rest]"
+			rest = "[rest]"
 		//postfixes
 		if("th")
 			base = "[rest]\th"

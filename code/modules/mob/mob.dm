@@ -574,7 +574,7 @@
 		if(examine_time && (world.time - examine_time < EXAMINE_MORE_WINDOW))
 			result = examinify.examine_more(src)
 			if(!length(result))
-				result += span_notice("<i>Осматриваю <b>[src]</b> тщательно, но не могу найти что-то ещё интересное...</i>")
+				result += span_notice("<i>Осматриваю <b>[examinify]</b> тщательно, но не могу найти что-то ещё интересное...</i>")
 		else
 			result = examinify.examine(src)
 			client.recent_examines[ref_to_atom] = world.time // set to when we last normal examine'd them

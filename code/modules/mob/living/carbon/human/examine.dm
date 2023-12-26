@@ -113,8 +113,6 @@
 
 		. += wear_id.get_id_examine_strings(user)
 
-	. += "<hr>"
-
 	//Status effects
 	var/list/status_examines = get_status_effect_examinations()
 	if (length(status_examines))
@@ -385,14 +383,14 @@
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
 		var/datum/record/crew/target_record = find_record(perpname)
 		if(target_record)
-			. += "<span class='deptradio'>Должность:</span> [target_record.rank]\n<a href='?src=[REF(src)];hud=1;photo_front=1;examine_time=[world.time]'>\[Фото\]</a><a href='?src=[REF(src)];hud=1;photo_side=1;examine_time=[world.time]'>\[Альт. Фото\]</a>"
+			. += "<hr><span class='deptradio'>Должность:</span> [target_record.rank]\n<a href='?src=[REF(src)];hud=1;photo_front=1;examine_time=[world.time]'>\[Фото\]</a><a href='?src=[REF(src)];hud=1;photo_side=1;examine_time=[world.time]'>\[Альт. Фото\]</a>"
 		if(HAS_TRAIT(user, TRAIT_MEDICAL_HUD))
 			var/cyberimp_detect
 			for(var/obj/item/organ/internal/cyberimp/cyberimp in organs)
 				if(IS_ROBOTIC_ORGAN(cyberimp) && !(cyberimp.organ_flags & ORGAN_HIDDEN))
 					cyberimp_detect += "[!cyberimp_detect ? "[cyberimp.get_examine_string(user)]" : ", [cyberimp.get_examine_string(user)]"]"
 			if(cyberimp_detect)
-				. += "<span class='notice ml-1'>Detected cybernetic modifications:</span>"
+				. += "<hr><span class='notice ml-1'>Обнаружены кибернетические модификации:</span>"
 				. += "<span class='notice ml-2'>[cyberimp_detect]</span>"
 			if(target_record)
 				var/health_record = target_record.physical_status
@@ -416,14 +414,14 @@
 					if(target_record.security_note)
 						security_note = target_record.security_note
 
-				. += "<span class='deptradio'>Статус:</span> <a href='?src=[REF(src)];hud=s;status=1;examine_time=[world.time]'>\[[wanted_status]\]</a>"
+				. += "<hr><span class='deptradio'>Статус:</span> <a href='?src=[REF(src)];hud=s;status=1;examine_time=[world.time]'>\[[wanted_status]\]</a>"
 				. += "<span class='deptradio'>Заметки: [security_note]"
 				. += jointext(list("<span class='deptradio'>Security record:</span> <a href='?src=[REF(src)];hud=s;view=1;examine_time=[world.time]'>\[Показать\]</a>",
 					"<a href='?src=[REF(src)];hud=s;add_citation=1;examine_time=[world.time]'>\[Добавить цитату\]</a>",
 					"<a href='?src=[REF(src)];hud=s;add_crime=1;examine_time=[world.time]'>\[Добавить нарушение\]</a>",
 					"<a href='?src=[REF(src)];hud=s;add_note=1;examine_time=[world.time]'>\[Добавить комментарий\]</a>"), "")
 	else if(isobserver(user))
-		. += span_info("<b>Черты:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]")
+		. += span_info("<hr>	<b>Черты:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]")
 	. += "</span>"
 
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
@@ -445,7 +443,7 @@
 		return
 
 	return examine_list.Join("\n")
-/* I Think I Ll Lost My Mind In Hysteria
+
 /mob/living/carbon/human/examine_more(mob/user)
 	. = ..()
 	if ((wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE)))
@@ -453,16 +451,19 @@
 	var/age_text
 	switch(age)
 		if(-INFINITY to 25)
-			age_text = "very young"
+			age_text = "очень молод[ru_aya()]"
 		if(26 to 35)
-			age_text = "of adult age"
+			age_text = "молод[ru_aya()]"
 		if(36 to 55)
-			age_text = "middle-aged"
+			age_text = "среднего возраста"
 		if(56 to 75)
-			age_text = "rather old"
+			age_text = "достаточно взросл[ru_aya()]"
 		if(76 to 100)
-			age_text = "very old"
+			if(gender == FEMALE)
+				age_text = "старуха"
+			else
+				age_text = "старик"
 		if(101 to INFINITY)
-			age_text = "withering away"
-	. += list(span_notice("[p_They()] appear[p_s()] to be [age_text]."))
-*/
+			age_text = "сейчас превратится в пыль"
+	. += list(span_notice("<hr>[ru_who(TRUE)] на вид [age_text]."))
+
