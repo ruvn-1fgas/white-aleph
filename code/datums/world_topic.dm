@@ -300,7 +300,7 @@
 		return "you are retard"
 
 	for(var/client/C in GLOB.clients)
-		if(get_chat_toggles(С) & CHAT_OOC) // ooc ignore
+		if(get_chat_toggles(C) & CHAT_OOC) // ooc ignore
 			to_chat(C, "<font color='[GLOB.OOC_COLOR]'><span class='ooc'><span class='prefix'>DOOC</span> <EM>[input["ckey"]]:</EM> <span class='message linkify'>[input["ooc"]]</span></span></font>")
 
 /datum/world_topic/ahelp
