@@ -58,7 +58,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "aw" = (
@@ -71,7 +71,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "ax" = (
@@ -112,7 +112,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "aI" = (
@@ -411,7 +411,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/upper)
 "cw" = (
@@ -475,7 +475,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "cQ" = (
@@ -633,7 +633,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "ec" = (
@@ -1080,7 +1080,7 @@
 	req_access_txt = "10;13"
 	},
 /obj/structure/fans/tiny,
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/upper)
 "uD" = (
@@ -1265,7 +1265,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "GN" = (

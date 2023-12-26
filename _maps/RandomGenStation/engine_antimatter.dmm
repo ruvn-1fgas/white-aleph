@@ -192,7 +192,7 @@
 	req_access_txt = "10;13"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "lC" = (
@@ -430,7 +430,7 @@
 	dir = 1
 	},
 /obj/structure/fans/tiny,
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "DO" = (
@@ -490,7 +490,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/border_only,
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "HQ" = (
@@ -524,7 +524,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/border_only,
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "Js" = (
@@ -785,7 +785,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/mail_sorting/engineering/general,
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "Yt" = (

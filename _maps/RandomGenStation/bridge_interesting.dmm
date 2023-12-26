@@ -538,7 +538,7 @@
 	dir = 6
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/iron/large,
 /area/station/engineering/gravity_generator)
 "bq" = (
@@ -580,7 +580,7 @@
 	dir = 6
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/command,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/wood,
 /area/station/command/meeting_room)
 "bv" = (
@@ -689,7 +689,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/command,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command)
 "bE" = (
@@ -1150,7 +1150,7 @@
 	req_one_access_txt = "20"
 	},
 /obj/structure/fans/tiny,
-/obj/effect/mapping_helpers/airlock/access/all/command,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/plating,
 /area/station/command/teleporter)
 "cJ" = (
@@ -1469,7 +1469,7 @@
 	dir = 6
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/command,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/wood,
 /area/station/command/meeting_room)
 "ds" = (
@@ -2140,7 +2140,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 6
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/iron,
 /area/station/command)
 "iM" = (
@@ -2510,7 +2510,7 @@
 	dir = 6
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/engineering,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/iron,
 /area/station/engineering/gravity_generator)
 "lD" = (
@@ -2543,7 +2543,7 @@
 	dir = 6
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/command,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/iron,
 /area/station/command/teleporter)
 "lJ" = (
@@ -3091,7 +3091,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 6
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/iron,
 /area/station/command)
 "ot" = (
@@ -3183,7 +3183,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 6
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/iron,
 /area/station/command)
 "oD" = (
@@ -3740,7 +3740,7 @@
 	name = "Bridge";
 	req_access_txt = "19"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/iron,
 /area/station/command)
 "pQ" = (
@@ -3929,7 +3929,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 6
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/iron,
 /area/station/command)
 "qr" = (
@@ -3940,7 +3940,7 @@
 	name = "Bridge";
 	req_access_txt = "19"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/iron,
 /area/station/command)
 "qs" = (

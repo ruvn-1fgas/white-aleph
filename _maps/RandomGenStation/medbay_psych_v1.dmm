@@ -1892,6 +1892,7 @@
 	name = "Pharmacy Desk";
 	req_access_txt = "69"
 	},
+/obj/effect/mapping_helpers/mail_sorting/medbay/general,
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
 "sY" = (
@@ -5171,6 +5172,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
+/obj/effect/mapping_helpers/mail_sorting/medbay/general,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay)
 "XL" = (

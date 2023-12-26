@@ -4231,6 +4231,7 @@
 	id = "pharmacy_shutters2";
 	name = "Pharmacy Shutter"
 	},
+/obj/effect/mapping_helpers/mail_sorting/medbay/general,
 /turf/open/floor/iron,
 /area/station/medical/pharmacy)
 "Ok" = (
