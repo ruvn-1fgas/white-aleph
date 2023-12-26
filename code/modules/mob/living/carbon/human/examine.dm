@@ -78,7 +78,7 @@
 	for(var/obj/item/held_thing in held_items)
 		if(held_thing.item_flags & (ABSTRACT|EXAMINE_SKIP|HAND_ITEM))
 			continue
-		. += "В [get_held_index_name(get_held_index_of_item(held_thing))] он[t_a] держит [get_examine_string(held_thing)]."
+		. += "В [get_held_index_name(get_held_index_of_item(held_thing))] он[t_a] держит [held_thing.get_examine_string(user)]."
 
 	//gloves
 	if(gloves && !(obscured & ITEM_SLOT_GLOVES) && !(gloves.item_flags & EXAMINE_SKIP))
@@ -134,12 +134,12 @@
 
 		if(!just_sleeping)
 			if(HAS_TRAIT(src, TRAIT_SUICIDED))
-				. += "<span class='warning'>[t_on] выглядит как суицидник... [t_ego] уже невозможно спасти.</span>\n"
+				. += "<span class='warning'>[t_on] выглядит как суицидник... [t_ego] уже невозможно спасти.</span>"
 
 			. += generate_death_examine_text()
 
 	if(get_bodypart(BODY_ZONE_HEAD) && !get_organ_by_type(/obj/item/organ/internal/brain))
-		. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>\n"
+		. += "<span class='deadsay'>Похоже, что у н[t_ego] нет мозга...</span>"
 
 	var/list/msg = list()
 
