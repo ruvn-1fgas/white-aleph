@@ -23,6 +23,7 @@
 	name = "Kitchen cold room";
 	req_access_txt = "28"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /turf/open/floor/iron/showroomfloor,
 /area/station/service/kitchen)
 "aA" = (
@@ -289,6 +290,7 @@
 	id = "kitchenhydro";
 	name = "Service Shutter"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)
 "jj" = (
@@ -471,6 +473,7 @@
 	name = "Service Hall";
 	req_one_access_txt = "22;25;26;28;35;37;38;46;70"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/service,
 /turf/open/floor/mineral/plastitanium,
 /area/station/service/bar)
 "pQ" = (
@@ -607,6 +610,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/access/all/service/bar,
 /turf/open/floor/mineral/plastitanium,
 /area/station/hallway/secondary/service)
 "uT" = (
@@ -725,6 +729,7 @@
 	name = "bar shutters"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/service/bar,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "yP" = (
@@ -840,6 +845,7 @@
 	},
 /obj/effect/landmark/navigate_destination,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/service,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "Fl" = (
@@ -1055,6 +1061,7 @@
 	id = "kitchenhydro";
 	name = "Service Shutter"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /turf/open/floor/iron/showroomfloor,
 /area/station/service/kitchen)
 "MX" = (
@@ -1210,6 +1217,7 @@
 	req_one_access_txt = "35;28"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /turf/open/floor/mineral/plastitanium,
 /area/station/service/kitchen)
 "Tf" = (
@@ -1337,6 +1345,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/service,
 /turf/open/floor/wood,
 /area/station/hallway/secondary/service)
 "Xh" = (

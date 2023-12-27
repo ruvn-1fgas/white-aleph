@@ -25,6 +25,7 @@
 	req_access_txt = "13"
 	},
 /obj/structure/fans/tiny,
+/obj/effect/mapping_helpers/airlock/access/all/engineering,
 /turf/open/floor/plating,
 /area/station/maintenance/bottom_station_maints)
 "BR" = (
