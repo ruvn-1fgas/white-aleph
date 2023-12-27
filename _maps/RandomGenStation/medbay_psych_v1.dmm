@@ -25,8 +25,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
-	name = "Durka";
-	req_access_txt = "5"
+	name = "Durka"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /turf/open/floor/iron/white,
@@ -44,8 +43,7 @@
 "ax" = (
 /obj/machinery/door/airlock/medical/glass{
 	id_tag = "MedbayFoyer";
-	name = "Medbay";
-	req_access_txt = "5"
+	name = "Medbay"
 	},
 /obj/effect/mapping_helpers/airlock/unres,
 /obj/machinery/door/firedoor,
@@ -88,7 +86,7 @@
 	dir = 1
 	},
 /obj/machinery/power/apc{
-	areastring = "/area/medical/psychology";
+	areastring = "/area/vmedical/psychology";
 	name = "Psychology APC";
 	pixel_y = -24
 	},
@@ -156,8 +154,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/medical{
-	name = "Durka";
-	req_access_txt = "5"
+	name = "Durka"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue,
@@ -179,8 +176,7 @@
 /area/station/medical/medbay/central)
 "bn" = (
 /obj/machinery/door/airlock/medical/glass{
-	name = "Medbay Storage";
-	req_access_txt = "5"
+	name = "Medbay Storage"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue{
@@ -236,8 +232,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical/glass{
-	name = "Medbay Storage";
-	req_access_txt = "5"
+	name = "Medbay Storage"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -271,8 +266,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical/glass{
-	name = "Medbay Storage";
-	req_access_txt = "5"
+	name = "Medbay Storage"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /turf/open/floor/iron/white,
@@ -489,8 +483,7 @@
 /obj/machinery/door/window/left/directional/north{
 	dir = 4;
 	name = "First-Aid Supplies";
-	red_alert_access = 1;
-	req_access_txt = "5"
+	red_alert_access = 1
 	},
 /obj/item/storage/medkit/fire{
 	pixel_x = 3;
@@ -619,9 +612,7 @@
 /area/station/medical/psychology)
 "dv" = (
 /obj/structure/fans/tiny,
-/obj/machinery/door/airlock/external{
-	req_access_txt = "5"
-	},
+/obj/machinery/door/airlock/external,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/external,
 /turf/open/floor/plating,
@@ -991,8 +982,7 @@
 "gQ" = (
 /obj/machinery/door/airlock/medical/glass{
 	id_tag = null;
-	name = "Durka Cell";
-	req_access_txt = "5"
+	name = "Durka Cell"
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -1059,8 +1049,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/medical/glass{
-	name = "Medbay Storage";
-	req_access_txt = "5"
+	name = "Medbay Storage"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue{
@@ -1241,8 +1230,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/medical/glass{
-	name = "Durka Showers";
-	req_access_txt = "5"
+	name = "Durka Showers"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
@@ -1330,8 +1318,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
-	name = "Medbay";
-	req_access_txt = "5"
+	name = "Medbay"
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -1452,7 +1439,7 @@
 /obj/structure/closet/secure_closet/chemical,
 /obj/item/radio/headset/headset_med,
 /obj/machinery/power/apc{
-	areastring = "/area/medical/pharmacy";
+	areastring = "/area/station/medical/pharmacy";
 	dir = 1;
 	name = "Pharmacy APC";
 	pixel_y = 23
@@ -1644,8 +1631,7 @@
 	},
 /obj/machinery/door/airlock/command{
 	name = "Chief Medical Officer";
-	req_access = null;
-	req_access_txt = "40"
+	req_access = null
 	},
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/medical/cmo,
@@ -1730,8 +1716,7 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
-	name = "Medbay Maintenance";
-	req_access_txt = "5"
+	name = "Medbay Maintenance"
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
@@ -1825,8 +1810,7 @@
 /area/station/medical/medbay)
 "su" = (
 /obj/machinery/door/airlock/medical{
-	name = "Surgery B";
-	req_access_txt = "5"
+	name = "Surgery B"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue{
@@ -1889,8 +1873,7 @@
 /obj/item/pen,
 /obj/machinery/door/window/right/directional/east{
 	dir = 2;
-	name = "Pharmacy Desk";
-	req_access_txt = "69"
+	name = "Pharmacy Desk"
 	},
 /obj/effect/mapping_helpers/mail_sorting/medbay/general,
 /turf/open/floor/iron/white,
@@ -2125,8 +2108,7 @@
 /area/station/medical/pharmacy)
 "uZ" = (
 /obj/machinery/door/airlock/medical{
-	name = "Surgery A";
-	req_access_txt = "5"
+	name = "Surgery A"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue{
@@ -2232,8 +2214,7 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/machinery/door/airlock/medical/glass{
-	name = "Pharmacy";
-	req_access_txt = "69"
+	name = "Pharmacy"
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -2302,8 +2283,7 @@
 	},
 /obj/machinery/door/airlock/medical/glass{
 	id_tag = null;
-	name = "Durka";
-	req_access_txt = "5"
+	name = "Durka"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue{
@@ -2449,8 +2429,7 @@
 /area/station/medical/medbay/aft)
 "zm" = (
 /obj/machinery/door/airlock/medical{
-	name = "Durka";
-	req_access_txt = "5"
+	name = "Durka"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue,
@@ -2590,8 +2569,7 @@
 "Bx" = (
 /obj/machinery/door/airlock/medical/glass{
 	id_tag = null;
-	name = "Durka";
-	req_access_txt = "5"
+	name = "Durka"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue{
@@ -2709,8 +2687,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/medical{
-	name = "Durka Psych";
-	req_access_txt = "5"
+	name = "Durka Psych"
 	},
 /obj/structure/sign/departments/psychology{
 	pixel_y = -32
@@ -3052,8 +3029,7 @@
 	id = "pharmacy_shutters";
 	name = "Pharmacy Shutter Control";
 	pixel_x = 6;
-	pixel_y = 24;
-	req_one_access_txt = "69"
+	pixel_y = 24
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
@@ -3138,8 +3114,7 @@
 	dir = 4;
 	icon_state = "right";
 	name = "First-Aid Supplies";
-	red_alert_access = 1;
-	req_access_txt = "5"
+	red_alert_access = 1
 	},
 /obj/item/storage/medkit/toxin{
 	pixel_x = 3;
@@ -3176,8 +3151,7 @@
 "Gz" = (
 /obj/machinery/button/crematorium{
 	id = "crematoriumMed";
-	pixel_y = -32;
-	req_access_txt = "5"
+	pixel_y = -32
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 5
@@ -3209,8 +3183,7 @@
 /area/station/medical/medbay)
 "Hj" = (
 /obj/machinery/door/airlock/medical{
-	name = "Durka";
-	req_access_txt = "5"
+	name = "Durka"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue{
@@ -3453,7 +3426,7 @@
 	dir = 1
 	},
 /obj/machinery/power/apc{
-	areastring = "/area/command/heads_quarters/cmo";
+	areastring = "/area/station/command/heads_quarters/cmo";
 	dir = 1;
 	name = "CMO Office APC";
 	pixel_y = 23
@@ -3496,8 +3469,7 @@
 	id = "pharmacy_shutters";
 	name = "Pharmacy Shutter Control";
 	pixel_x = 6;
-	pixel_y = 24;
-	req_one_access_txt = "69"
+	pixel_y = 24
 	},
 /obj/machinery/chem_dispenser,
 /obj/effect/turf_decal/tile/yellow{
@@ -3593,9 +3565,7 @@
 	id = "durkaLockdown";
 	name = "Durka Lockdown"
 	},
-/obj/machinery/door/airlock/external{
-	req_access_txt = "5"
-	},
+/obj/machinery/door/airlock/external,
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/medical/medbay/central)
@@ -3631,8 +3601,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/medical{
-	name = "Durka Arsenal";
-	req_access_txt = "5"
+	name = "Durka Arsenal"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /turf/open/floor/iron/white,
@@ -3766,8 +3735,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/medical{
-	name = "Durka Procedures";
-	req_access_txt = "5"
+	name = "Durka Procedures"
 	},
 /obj/structure/sign/warning/secure_area{
 	pixel_x = 32
@@ -3855,8 +3823,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/airlock/medical{
-	name = "Durka";
-	req_access_txt = "5"
+	name = "Durka"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue{
@@ -3929,8 +3896,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/door/airlock/medical{
-	name = "Durka HQ";
-	req_access_txt = "5"
+	name = "Durka HQ"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
@@ -4354,8 +4320,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/medical{
-	name = "Gasen Stock";
-	req_access_txt = "5"
+	name = "Gasen Stock"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /turf/open/floor/iron/dark/smooth_large,
@@ -4386,8 +4351,7 @@
 	autoclose = 0;
 	frequency = 1449;
 	id_tag = "virology_airlock_exterior";
-	name = "Virology Exterior Airlock";
-	req_access_txt = "39"
+	name = "Virology Exterior Airlock"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue,
@@ -4434,8 +4398,7 @@
 /area/station/medical/medbay/central)
 "Sz" = (
 /obj/machinery/door/airlock/medical/glass{
-	name = "Gasen";
-	req_access_txt = "5"
+	name = "Gasen"
 	},
 /obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
@@ -4708,8 +4671,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/airlock/medical{
-	name = "Durka";
-	req_access_txt = "5"
+	name = "Durka"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /turf/open/floor/iron/white,
@@ -4903,9 +4865,7 @@
 /area/station/medical/medbay/central)
 "Wm" = (
 /obj/structure/cable,
-/obj/machinery/door/airlock/external{
-	req_access_txt = "5"
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -5049,8 +5009,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/medical{
-	name = "Durka Staff";
-	req_access_txt = "5"
+	name = "Durka Staff"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /turf/open/floor/wood,
@@ -5112,9 +5071,7 @@
 /area/station/medical/medbay/central)
 "Xr" = (
 /obj/structure/cable,
-/obj/machinery/door/airlock/external{
-	req_access_txt = "5"
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -5145,13 +5102,11 @@
 /area/station/medical/medbay/central)
 "XA" = (
 /obj/machinery/door/window/left/directional/east{
-	name = "Medbay Delivery";
-	req_access_txt = "5"
+	name = "Medbay Delivery"
 	},
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=4";
 	dir = 4;
-	freq = 1400;
 	location = "Medbay"
 	},
 /obj/structure/window/reinforced/spawner/directional/north{

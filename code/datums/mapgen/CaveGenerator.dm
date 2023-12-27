@@ -188,5 +188,5 @@
 		CHECK_TICK
 
 	var/message = "Население живностью у [name] завершено за [(REALTIMEOFDAY - start_time)/10] секунд!"
-	to_chat(world, span_boldannounce("[message]"))
+	to_chat(world, span_green(" -- #<b>[name]</b>:> <b>[(REALTIMEOFDAY - start_time)/10]</b> -- "))
 	log_world(message)

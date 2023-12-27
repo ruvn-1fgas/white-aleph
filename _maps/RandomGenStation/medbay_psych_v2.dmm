@@ -153,8 +153,7 @@
 /obj/machinery/door/window/left/directional/north{
 	dir = 8;
 	name = "First-Aid Supplies";
-	red_alert_access = 1;
-	req_access_txt = "5"
+	red_alert_access = 1
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
@@ -261,8 +260,7 @@
 	},
 /obj/machinery/door/window/brigdoor/left/directional/east{
 	dir = 8;
-	name = "Medbay Desk";
-	req_access_txt = "69"
+	name = "Medbay Desk"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/fans/tiny,
@@ -320,8 +318,7 @@
 	dir = 4;
 	icon_state = "right";
 	name = "First-Aid Supplies";
-	red_alert_access = 1;
-	req_access_txt = "5"
+	red_alert_access = 1
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
@@ -331,8 +328,7 @@
 	dir = 8;
 	icon_state = "right";
 	name = "First-Aid Supplies";
-	red_alert_access = 1;
-	req_access_txt = "5"
+	red_alert_access = 1
 	},
 /obj/item/storage/medkit/brute{
 	pixel_x = 7;
@@ -515,8 +511,7 @@
 	dir = 6
 	},
 /obj/machinery/door/window/brigdoor/left/directional/east{
-	name = "Medbay Desk";
-	req_access_txt = "69"
+	name = "Medbay Desk"
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/medbay/lobby)
@@ -799,8 +794,7 @@
 	id = "durka_windows";
 	name = "Бронеставни";
 	pixel_x = 6;
-	pixel_y = 24;
-	req_one_access_txt = "5"
+	pixel_y = 24
 	},
 /obj/machinery/computer/crew,
 /turf/open/floor/iron/white,
@@ -1358,16 +1352,12 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/requests_console{
-	announcementConsole = 1;
-	department = "Chief Medical Officer's Desk";
-	name = "Chief Medical Officer RC";
-	pixel_y = 32
-	},
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/machinery/light/directional/north,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/requests_console/announcement,
+/obj/machinery/requests_console/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/cmo)
 "tc" = (
@@ -1517,8 +1507,7 @@
 "wo" = (
 /obj/machinery/door/airlock/command{
 	name = "Chief Medical Officer";
-	req_access = null;
-	req_access_txt = "40"
+	req_access = null
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1603,8 +1592,7 @@
 	id = "cmoprivacy";
 	name = "Приватность";
 	pixel_x = 25;
-	pixel_y = 22;
-	req_access_txt = "40"
+	pixel_y = 22
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/cmo)
@@ -1659,7 +1647,7 @@
 	dir = 9
 	},
 /obj/machinery/power/apc{
-	areastring = "/area/command/heads_quarters/cmo";
+	areastring = "/area/station/command/heads_quarters/cmo";
 	dir = 1;
 	name = "CMO Office APC";
 	pixel_y = 23
@@ -1999,8 +1987,7 @@
 "Cl" = (
 /obj/machinery/door/airlock/medical/glass{
 	id_tag = "MedbayFoyer";
-	name = "Medbay";
-	req_access_txt = "5"
+	name = "Medbay"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2280,8 +2267,7 @@
 /area/station/medical/medbay/central)
 "FE" = (
 /obj/machinery/door/airlock/medical/glass{
-	name = "Pharmacy";
-	req_access_txt = "69"
+	name = "Pharmacy"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2386,8 +2372,7 @@
 "GS" = (
 /obj/machinery/door/airlock/medical/glass{
 	id_tag = "MedbayFoyer";
-	name = "Medbay";
-	req_access_txt = "5"
+	name = "Medbay"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2460,8 +2445,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/door/airlock/virology/glass{
-	name = "Virology";
-	req_access_txt = "39"
+	name = "Virology"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/medical/virology,
@@ -2543,8 +2527,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/right/directional/east{
-	name = "Pharmacy Desk";
-	req_access_txt = "69"
+	name = "Pharmacy Desk"
 	},
 /obj/item/reagent_containers/cup/beaker/large{
 	pixel_x = -2;
@@ -2708,8 +2691,7 @@
 "LT" = (
 /obj/machinery/door/airlock/medical/glass{
 	id_tag = "MedbayFoyer";
-	name = "Medbay";
-	req_access_txt = "5"
+	name = "Medbay"
 	},
 /obj/effect/mapping_helpers/airlock/unres,
 /obj/machinery/door/firedoor,
@@ -2865,8 +2847,7 @@
 "OH" = (
 /obj/machinery/door/airlock/medical/glass{
 	id_tag = "MedbayFoyer";
-	name = "Medbay";
-	req_access_txt = "5"
+	name = "Medbay"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2892,8 +2873,7 @@
 /obj/machinery/door/window/left/directional/north{
 	dir = 4;
 	name = "First-Aid Supplies";
-	red_alert_access = 1;
-	req_access_txt = "5"
+	red_alert_access = 1
 	},
 /obj/item/storage/medkit/o2{
 	pixel_x = -7;
@@ -3403,8 +3383,7 @@
 /area/station/medical/medbay/aft)
 "VT" = (
 /obj/machinery/door/airlock/medical/glass{
-	name = "Medbay Storage";
-	req_access_txt = "5"
+	name = "Medbay Storage"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3447,8 +3426,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/medical/glass{
 	id_tag = "MedbayFoyer";
-	name = "Medbay";
-	req_access_txt = "5"
+	name = "Medbay"
 	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{

@@ -4,8 +4,7 @@
 /area/template_noop)
 "ab" = (
 /obj/machinery/door/airlock{
-	name = "Theatre Backstage";
-	req_access_txt = "46"
+	name = "Theatre Backstage"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/service/theatre,
@@ -63,8 +62,7 @@
 /area/station/service/bar)
 "aj" = (
 /obj/machinery/door/window/left/directional/south{
-	name = "Bar Delivery";
-	req_access_txt = "25"
+	name = "Bar Delivery"
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
@@ -195,8 +193,7 @@
 /area/station/service/kitchen)
 "aC" = (
 /obj/machinery/door/window/left/directional/south{
-	name = "Kitchen Delivery";
-	req_access_txt = "28"
+	name = "Kitchen Delivery"
 	},
 /obj/effect/turf_decal/delivery,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -379,9 +376,7 @@
 /turf/open/floor/iron,
 /area/station/service/bar)
 "bb" = (
-/obj/structure/closet/secure_closet/bar{
-	req_access_txt = "25"
-	},
+/obj/structure/closet/secure_closet/bar,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "bc" = (
@@ -455,8 +450,7 @@
 /area/station/service/bar)
 "bm" = (
 /obj/machinery/door/airlock{
-	name = "Bar Storage";
-	req_access_txt = "25"
+	name = "Bar Storage"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/landmark/navigate_destination,
@@ -573,8 +567,7 @@
 /area/station/service/bar)
 "bB" = (
 /obj/machinery/door/airlock{
-	name = "Kitchen cold room";
-	req_access_txt = "28"
+	name = "Kitchen cold room"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
@@ -907,8 +900,7 @@
 	name = "Service Shutter"
 	},
 /obj/machinery/door/airlock/medical/glass{
-	name = "Service Door";
-	req_one_access_txt = "35;28"
+	name = "Service Door"
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/cafeteria{
@@ -966,8 +958,7 @@
 	id = "kitchenhydro";
 	name = "Service Shutter Control";
 	pixel_x = 24;
-	pixel_y = 7;
-	req_access_txt = "28"
+	pixel_y = 7
 	},
 /turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)
@@ -1054,8 +1045,7 @@
 "cN" = (
 /obj/machinery/door/window/right/directional/south{
 	dir = 8;
-	name = "Bar Door";
-	req_one_access_txt = "25;28"
+	name = "Bar Door"
 	},
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -1116,8 +1106,7 @@
 	id = "kitchen";
 	name = "Kitchen Shutters Control";
 	pixel_x = -1;
-	pixel_y = -24;
-	req_access_txt = "28"
+	pixel_y = -24
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
@@ -1234,8 +1223,7 @@
 /area/station/service/bar)
 "dd" = (
 /obj/machinery/door/airlock{
-	name = "Kitchen";
-	req_access_txt = "28"
+	name = "Kitchen"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/navigate_destination,
@@ -1277,8 +1265,7 @@
 "di" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock{
-	name = "Bar Service Hall";
-	req_one_access_txt = "25"
+	name = "Bar Service Hall"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1289,8 +1276,7 @@
 "dj" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock{
-	name = "Service Hall";
-	req_one_access_txt = "22;25;26;28;35;37;38;46;70"
+	name = "Service Hall"
 	},
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -1307,8 +1293,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	name = "Kitchen Service Hall";
-	req_access_txt = "28";
-	req_one_access_txt = null
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1480,8 +1464,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/public/glass{
-	name = "Kitchen";
-	req_access_txt = "28"
+	name = "Kitchen"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters/preopen{

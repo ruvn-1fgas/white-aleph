@@ -42,8 +42,7 @@
 /obj/machinery/button/door{
 	id = "durka_bot_right";
 	name = "Бронежалюзи нижние правые";
-	pixel_y = -32;
-	req_one_access_txt = "5"
+	pixel_y = -32
 	},
 /turf/open/floor/plating,
 /area/station/medical/psychology)
@@ -123,8 +122,7 @@
 "jN" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
-	name = "Medbay Maintenance";
-	req_access_txt = "5"
+	name = "Medbay Maintenance"
 	},
 /obj/machinery/door/poddoor/shutters{
 	id = "durka_bot_left";
@@ -486,8 +484,7 @@
 /obj/machinery/button/door{
 	id = "durka_bot_left";
 	name = "Бронежалюзи нижние левые";
-	pixel_y = -32;
-	req_one_access_txt = "5"
+	pixel_y = -32
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
@@ -563,8 +560,7 @@
 /area/station/medical/medbay/extra)
 "RS" = (
 /obj/machinery/door/airlock/medical/glass{
-	name = "Chemistry Storage";
-	req_access_txt = "33"
+	name = "Chemistry Storage"
 	},
 /obj/machinery/door/firedoor/border_only,
 /obj/machinery/door/firedoor/border_only{
@@ -623,7 +619,6 @@
 	},
 /obj/machinery/door/airlock/medical{
 	name = "Psychology";
-	req_access_txt = "70"
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
@@ -645,8 +640,7 @@
 "WM" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
-	name = "Medbay Maintenance";
-	req_access_txt = "5"
+	name = "Medbay Maintenance"
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
