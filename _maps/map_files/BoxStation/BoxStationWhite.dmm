@@ -8726,8 +8726,7 @@
 /area/station/hallway/primary/central/low_level_eva)
 "dNu" = (
 /obj/machinery/door/airlock/hatch{
-	name = "MiniSat Antechamber";
-	req_one_access_txt = "65"
+	name = "MiniSat Antechamber"
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -22748,8 +22747,7 @@
 /area/station/bitrunning/den)
 "iUS" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Auxillary Base Construction";
-	req_one_access_txt = "32;47;48"
+	name = "Auxillary Base Construction"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -26929,8 +26927,7 @@
 /area/station/science/research)
 "kya" = (
 /obj/machinery/door/airlock/hatch{
-	name = "MiniSat Chamber Observation";
-	req_one_access_txt = "65"
+	name = "MiniSat Chamber Observation"
 	},
 /obj/structure/cable,
 /obj/structure/railing/corner{
@@ -28170,8 +28167,7 @@
 	id = "aux_base_shutters";
 	name = "Public Shutters Control";
 	pixel_x = 29;
-	pixel_y = -12;
-	req_one_access_txt = "32;47;48"
+	pixel_y = -12
 	},
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
@@ -34316,8 +34312,7 @@
 /area/space/nearstation)
 "nvB" = (
 /obj/machinery/door/airlock/hatch{
-	name = "MiniSat Chamber Hallway";
-	req_one_access_txt = "65"
+	name = "MiniSat Chamber Hallway"
 	},
 /obj/structure/cable,
 /obj/structure/railing/corner,
@@ -35438,8 +35433,7 @@
 /area/station/science/breakroom)
 "nRj" = (
 /obj/machinery/door/airlock/hatch{
-	name = "MiniSat Foyer";
-	req_one_access_txt = "65"
+	name = "MiniSat Foyer"
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -41057,8 +41051,7 @@
 /area/station/hallway/primary/port)
 "qfh" = (
 /obj/machinery/door/airlock/highsecurity{
-	name = "Xenobiology Exit";
-	req_one_access_txt = "12;13;55"
+	name = "Xenobiology Exit"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/plating,
@@ -48885,8 +48878,7 @@
 	id = "chemistry_shutters_2";
 	name = "Chemistry shutters";
 	pixel_x = 24;
-	pixel_y = -28;
-	req_one_access_txt = "5; 69"
+	pixel_y = -28
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/zone2)
