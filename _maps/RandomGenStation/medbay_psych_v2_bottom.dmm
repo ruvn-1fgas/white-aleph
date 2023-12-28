@@ -136,13 +136,9 @@
 	dir = 8
 	},
 /obj/machinery/light/directional/west,
-/obj/machinery/requests_console{
-	department = "Medbay";
-	name = "Medbay RC";
-	pixel_x = -30
-	},
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/structure/railing,
+/obj/machinery/requests_console/auto_name/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/extra)
 "ob" = (
@@ -562,16 +558,13 @@
 /obj/machinery/door/airlock/medical/glass{
 	name = "Chemistry Storage"
 	},
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/medical/pharmacy,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
 "RU" = (
@@ -618,15 +611,10 @@
 	pixel_y = -32
 	},
 /obj/machinery/door/airlock/medical{
-	name = "Psychology";
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
+	name = "Psychology"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/psychology,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/psychology)
 "VX" = (
@@ -647,16 +635,11 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /obj/machinery/door/poddoor/shutters{
 	id = "durka_bot_right";
 	name = "Бронежалюзи нижние правые"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/station/medical/psychology)
 "Xd" = (

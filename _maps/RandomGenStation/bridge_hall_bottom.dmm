@@ -1045,6 +1045,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/bottom_station_maints)
 "sF" = (
@@ -1089,6 +1090,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/bottom_station_maints)
 "tL" = (
@@ -1156,8 +1158,11 @@
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hop)
 "uD" = (
-/obj/machinery/door/window/left/directional/north{
-	dir = 2
+/obj/machinery/door/window{
+	base_state = "right";
+	icon_state = "right";
+	name = "Captain's Desk Door";
+	req_access = list("captain")
 	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
@@ -2067,16 +2072,6 @@
 /area/station/command/meeting_room/council)
 "Mf" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/left/directional/north{
-	dir = 2;
-	name = "Reception Window"
-	},
-/obj/machinery/door/window/brigdoor{
-	base_state = "rightsecure";
-	dir = 1;
-	icon_state = "rightsecure";
-	name = "Head of Personnel's Desk"
-	},
 /obj/machinery/flasher{
 	id = "hopflash";
 	pixel_x = 28
@@ -2087,6 +2082,17 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/window/left/directional/north{
+	dir = 2;
+	name = "Reception Window"
+	},
+/obj/machinery/door/window/brigdoor{
+	base_state = "rightsecure";
+	dir = 1;
+	icon_state = "rightsecure";
+	name = "Head of Personnel's Desk";
+	req_access = list("hop")
+	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/hop)
 "Mx" = (
@@ -2872,6 +2878,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/bottom_station_maints/north)
 "YH" = (

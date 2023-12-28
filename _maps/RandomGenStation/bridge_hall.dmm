@@ -1571,16 +1571,17 @@
 /obj/structure/table,
 /obj/item/ai_module/supplied/oxygen,
 /obj/item/ai_module/zeroth/onehuman,
-/obj/machinery/door/window{
-	dir = 1;
-	name = "High-Risk Modules"
-	},
 /obj/item/ai_module/reset/purge,
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/spawner/random/aimodule/harmful,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/item/ai_module/supplied/protect_station,
 /obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	dir = 1;
+	name = "High-Risk Modules";
+	req_access = list("captain")
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "vX" = (
@@ -2313,18 +2314,19 @@
 /obj/structure/table,
 /obj/item/ai_module/core/full/asimov,
 /obj/item/ai_module/core/freeformcore,
-/obj/machinery/door/window{
-	base_state = "right";
-	dir = 1;
-	icon_state = "right";
-	name = "Core Modules"
-	},
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/spawner/random/aimodule/harmless,
 /obj/effect/spawner/random/aimodule/neutral,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/item/ai_module/core/full/custom,
 /obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 1;
+	icon_state = "right";
+	name = "Core Modules";
+	req_access = list("captain")
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "Gf" = (
@@ -3029,6 +3031,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/south,
+/obj/effect/mapping_helpers/requests_console/announcement,
 /turf/open/floor/iron/dark,
 /area/station/command)
 "Qs" = (

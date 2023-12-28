@@ -60,10 +60,11 @@
 /turf/open/floor/wood,
 /area/station/service/bar)
 "aj" = (
-/obj/machinery/door/window/left/directional/south{
-	name = "Bar Delivery"
-	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/window/left/directional/south{
+	name = "Bar Delivery";
+	req_access = list("bar")
+	},
 /turf/open/floor/iron,
 /area/station/service/bar)
 "ak" = (
@@ -190,12 +191,15 @@
 /turf/open/floor/iron/showroomfloor,
 /area/station/service/kitchen)
 "aC" = (
-/obj/machinery/door/window/left/directional/south{
-	name = "Kitchen Delivery"
-	},
 /obj/effect/turf_decal/delivery,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/spawner/random/trash/mess,
+/obj/machinery/door/window/left/directional/north{
+	desc = "??????? ??????.";
+	dir = 2;
+	name = "Kitchen Delivery";
+	req_access = list("kitchen")
+	},
 /turf/open/floor/iron,
 /area/station/service/kitchen)
 "aD" = (
@@ -901,6 +905,7 @@
 	name = "Service Door"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -1041,10 +1046,6 @@
 /turf/open/floor/iron,
 /area/station/service/bar)
 "cN" = (
-/obj/machinery/door/window/right/directional/south{
-	dir = 8;
-	name = "Bar Door"
-	},
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
@@ -1054,7 +1055,11 @@
 	id = "barmanpriv";
 	name = "bar shutters"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/service/bar,
+/obj/machinery/door/window/right/directional/south{
+	dir = 8;
+	name = "Bar Door";
+	req_access = list("bar")
+	},
 /turf/open/floor/iron,
 /area/station/service/bar)
 "cO" = (
@@ -1225,6 +1230,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/navigate_destination,
+/obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)
 "de" = (
@@ -1290,7 +1296,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	name = "Kitchen Service Hall";
+	name = "Kitchen Service Hall"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,

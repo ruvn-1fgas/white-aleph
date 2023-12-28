@@ -207,12 +207,15 @@
 /turf/open/floor/plating,
 /area/station/service/bar)
 "il" = (
-/obj/machinery/door/window/left/directional/south{
-	name = "Kitchen Delivery"
-	},
 /obj/effect/turf_decal/delivery,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/spawner/random/trash/mess,
+/obj/machinery/door/window/left/directional/north{
+	desc = "??????? ??????.";
+	dir = 2;
+	name = "Kitchen Delivery";
+	req_access = list("kitchen")
+	},
 /turf/open/floor/iron,
 /area/station/service/kitchen)
 "it" = (
@@ -683,10 +686,6 @@
 /turf/open/floor/wood,
 /area/station/service/theater)
 "zd" = (
-/obj/machinery/door/window/right/directional/south{
-	dir = 8;
-	name = "Bar Door"
-	},
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
@@ -696,7 +695,11 @@
 	id = "barmanpriv";
 	name = "bar shutters"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/service/bar,
+/obj/machinery/door/window/right/directional/south{
+	dir = 8;
+	name = "Bar Door";
+	req_access = list("bar")
+	},
 /turf/open/floor/iron,
 /area/station/service/bar)
 "zt" = (
@@ -812,10 +815,11 @@
 /turf/open/floor/iron,
 /area/station/service/bar)
 "DB" = (
-/obj/machinery/door/window/left/directional/south{
-	name = "Bar Delivery"
-	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/window/left/directional/south{
+	name = "Bar Delivery";
+	req_access = list("bar")
+	},
 /turf/open/floor/iron,
 /area/station/service/bar)
 "DS" = (

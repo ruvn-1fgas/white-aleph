@@ -150,10 +150,10 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/machinery/door/window/left/directional/north{
+/obj/machinery/door/window/right/directional/south{
 	dir = 8;
-	name = "First-Aid Supplies";
-	red_alert_access = 1
+	name = "First Aid Supplies";
+	req_access = list("medical")
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
@@ -255,18 +255,21 @@
 /area/station/medical/medbay/aft)
 "dT" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor/left/directional/east{
-	name = "Medbay Desk"
-	},
-/obj/machinery/door/window/brigdoor/left/directional/east{
-	dir = 8;
-	name = "Medbay Desk"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/fans/tiny,
 /obj/machinery/door/poddoor/preopen{
 	id = "durka_hub";
 	name = "Panic Bunker"
+	},
+/obj/machinery/door/window/brigdoor/left/directional/north{
+	dir = 4;
+	name = "Medbay Desk";
+	req_access = list("brig_entrance")
+	},
+/obj/machinery/door/window/brigdoor/left/directional/north{
+	dir = 8;
+	name = "Medbay Desk";
+	req_access = list("brig_entrance")
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/medbay/lobby)
@@ -314,22 +317,15 @@
 	pixel_x = 5;
 	pixel_y = -3
 	},
-/obj/machinery/door/window/left/directional/north{
+/obj/machinery/door/window/right/directional/south{
 	dir = 4;
-	icon_state = "right";
-	name = "First-Aid Supplies";
-	red_alert_access = 1
+	name = "First Aid Supplies";
+	req_access = list("medical")
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
 "ei" = (
 /obj/structure/table/glass,
-/obj/machinery/door/window/left/directional/north{
-	dir = 8;
-	icon_state = "right";
-	name = "First-Aid Supplies";
-	red_alert_access = 1
-	},
 /obj/item/storage/medkit/brute{
 	pixel_x = 7;
 	pixel_y = 3
@@ -355,6 +351,11 @@
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
+	},
+/obj/machinery/door/window/right/directional/south{
+	dir = 8;
+	name = "First Aid Supplies";
+	req_access = list("medical")
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
@@ -510,8 +511,9 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 6
 	},
-/obj/machinery/door/window/brigdoor/left/directional/east{
-	name = "Medbay Desk"
+/obj/machinery/door/window/brigdoor/left/directional/north{
+	dir = 4;
+	req_access = list("brig_entrance")
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/medbay/lobby)
@@ -1102,12 +1104,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/virology)
 "oc" = (
@@ -1127,9 +1124,6 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/medbay/lobby)
 "oi" = (
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
@@ -2526,9 +2520,6 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/right/directional/east{
-	name = "Pharmacy Desk"
-	},
 /obj/item/reagent_containers/cup/beaker/large{
 	pixel_x = -2;
 	pixel_y = 8
@@ -2542,6 +2533,10 @@
 	name = "Pharmacy Shutter"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/window/right/directional/east{
+	name = "Pharmacy Desk";
+	req_access = list("pharmacy")
+	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/pharmacy)
 "Kc" = (
@@ -2870,11 +2865,6 @@
 /area/station/medical/treatment_center)
 "OO" = (
 /obj/structure/table/glass,
-/obj/machinery/door/window/left/directional/north{
-	dir = 4;
-	name = "First-Aid Supplies";
-	red_alert_access = 1
-	},
 /obj/item/storage/medkit/o2{
 	pixel_x = -7;
 	pixel_y = 3
@@ -2900,6 +2890,11 @@
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
+	},
+/obj/machinery/door/window/right/directional/south{
+	dir = 4;
+	name = "First Aid Supplies";
+	req_access = list("medical")
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
@@ -3207,11 +3202,6 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/cmo)
 "TS" = (
-/obj/machinery/requests_console{
-	department = "Medbay";
-	name = "Medbay RC";
-	pixel_y = 30
-	},
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -3219,6 +3209,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/machinery/requests_console/auto_name/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "Uj" = (

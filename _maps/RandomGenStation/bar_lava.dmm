@@ -197,6 +197,7 @@
 	id = "kitchenhydro";
 	name = "Service Shutter"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)
 "gg" = (
@@ -307,12 +308,15 @@
 /turf/open/floor/wood,
 /area/station/service/bar)
 "ke" = (
-/obj/machinery/door/window/left/directional/south{
-	name = "Kitchen Delivery"
-	},
 /obj/effect/turf_decal/delivery,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/spawner/random/trash/mess,
+/obj/machinery/door/window/left/directional/north{
+	desc = "??????? ??????.";
+	dir = 2;
+	name = "Kitchen Delivery";
+	req_access = list("kitchen")
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/station/service/bar)
 "kh" = (
@@ -607,10 +611,11 @@
 /turf/open/floor/mineral/plastitanium,
 /area/station/hallway/secondary/service)
 "uT" = (
-/obj/machinery/door/window/left/directional/south{
-	name = "Bar Delivery"
-	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/window/left/directional/south{
+	name = "Bar Delivery";
+	req_access = list("bar")
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/station/service/bar)
 "vo" = (
@@ -709,17 +714,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/door/window/right/directional/south{
-	dir = 4;
-	name = "Bar Door"
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 4;
 	id = "barmanpriv";
 	name = "bar shutters"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/service/bar,
+/obj/machinery/door/window/right/directional/south{
+	dir = 4;
+	name = "Bar Door";
+	req_access = list("bar")
+	},
 /turf/open/floor/wood,
 /area/station/service/bar)
 "yP" = (

@@ -494,14 +494,15 @@
 /turf/open/floor/carpet,
 /area/station/command/meeting_room)
 "ll" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green,
 /obj/machinery/door/window{
 	base_state = "right";
 	dir = 8;
 	icon_state = "right";
-	name = "Captain's Desk Door"
+	name = "Captain's Desk Door";
+	req_access = list("captain")
 	},
-/obj/structure/table/wood,
-/obj/item/flashlight/lamp/green,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/captain)
 "lv" = (
@@ -817,12 +818,6 @@
 /obj/structure/table,
 /obj/item/ai_module/core/full/asimov,
 /obj/item/ai_module/core/freeformcore,
-/obj/machinery/door/window{
-	base_state = "right";
-	dir = 4;
-	icon_state = "right";
-	name = "Core Modules"
-	},
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/spawner/random/aimodule/harmless,
 /obj/effect/spawner/random/aimodule/neutral,
@@ -830,6 +825,11 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/item/ai_module/core/full/custom,
 /obj/item/ai_module/supplied/quarantine,
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	dir = 4;
+	name = "High-Risk Modules";
+	req_access = list("captain")
+	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "tj" = (
@@ -894,6 +894,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/bottom_station_maints/north)
 "un" = (
@@ -922,10 +923,6 @@
 /obj/structure/table,
 /obj/item/ai_module/supplied/oxygen,
 /obj/item/ai_module/zeroth/onehuman,
-/obj/machinery/door/window{
-	dir = 8;
-	name = "High-Risk Modules"
-	},
 /obj/item/ai_module/reset/purge,
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/spawner/random/aimodule/harmful,
@@ -933,6 +930,11 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/item/ai_module/supplied/protect_station,
 /obj/item/ai_module/supplied/freeform,
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	dir = 8;
+	name = "High-Risk Modules";
+	req_access = list("captain")
+	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "vr" = (
@@ -1994,6 +1996,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/plating,
 /area/station/hallway/primary/central/low_level_centre)
 "SM" = (

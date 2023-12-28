@@ -1539,16 +1539,6 @@
 /area/station/command/heads_quarters/hop)
 "eL" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/left/directional/north{
-	dir = 8;
-	name = "Reception Window"
-	},
-/obj/machinery/door/window/brigdoor{
-	base_state = "rightsecure";
-	dir = 4;
-	icon_state = "rightsecure";
-	name = "Head of Personnel's Desk"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -1562,6 +1552,17 @@
 	},
 /obj/structure/desk_bell{
 	pixel_x = 7
+	},
+/obj/machinery/door/window/left/directional/north{
+	dir = 8;
+	name = "Reception Window"
+	},
+/obj/machinery/door/window/brigdoor{
+	base_state = "rightsecure";
+	dir = 4;
+	icon_state = "rightsecure";
+	name = "Head of Personnel's Desk";
+	req_access = list("hop")
 	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/hop)
@@ -1871,6 +1872,7 @@
 /area/station/command/heads_quarters/hop)
 "fC" = (
 /obj/effect/turf_decal/delivery,
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/south)
 "fD" = (

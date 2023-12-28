@@ -1349,10 +1349,6 @@
 /area/station/medical/medbay/lobby)
 "nK" = (
 /obj/structure/table,
-/obj/machinery/door/window/right/directional/north{
-	name = "First-Aid Supplies";
-	red_alert_access = 1
-	},
 /obj/item/storage/medkit/fire{
 	pixel_x = 10;
 	pixel_y = 3
@@ -1366,6 +1362,12 @@
 	},
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/window/left/directional/north{
+	icon_state = "right";
+	name = "First-Aid Supplies";
+	red_alert_access = 1;
+	req_access = list("medical")
+	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
 "nM" = (
@@ -3188,13 +3190,8 @@
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
 "Ed" = (
-/obj/machinery/requests_console{
-	department = "Medbay";
-	name = "Medbay RC";
-	pixel_x = -30;
-	pixel_y = 3
-	},
 /obj/effect/mapping_helpers/requests_console/assistance,
+/obj/machinery/requests_console/auto_name/directional/west,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay)
 "Ek" = (
@@ -3285,9 +3282,9 @@
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
 "Ff" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/iron/white/smooth_large,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white,
 /area/station/medical/medbay)
 "Fh" = (
 /obj/structure/table,
@@ -3919,10 +3916,6 @@
 /obj/machinery/camera/directional/north{
 	c_tag = "Security Post - Medbay"
 	},
-/obj/machinery/requests_console{
-	department = "Security";
-	pixel_y = 30
-	},
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/turf_decal/tile/red{
@@ -3932,6 +3925,7 @@
 	dir = 4
 	},
 /obj/machinery/computer/records/medical,
+/obj/machinery/requests_console/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/medical)
 "Lo" = (
@@ -4193,33 +4187,35 @@
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/right/directional/east{
-	base_state = "left";
-	dir = 1;
-	icon_state = "left";
-	name = "Pharmacy Desk"
-	},
 /obj/item/folder/white,
 /obj/item/pen,
 /obj/machinery/door/poddoor/preopen{
 	id = "pharmacy_shutters2";
 	name = "Pharmacy Shutter"
 	},
-/obj/effect/mapping_helpers/mail_sorting/medbay/general,
+/obj/machinery/door/window/right/directional/east{
+	base_state = "left";
+	dir = 1;
+	icon_state = "left";
+	name = "Pharmacy Desk";
+	req_access = list("pharmacy")
+	},
 /turf/open/floor/iron,
 /area/station/medical/pharmacy)
 "Ok" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/right/directional/east{
-	dir = 8;
-	name = "Chemistry Desk"
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/preopen{
 	id = "pharmacy_shutters";
 	name = "Chemistry shutters"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/medical/pharmacy,
+/obj/machinery/door/window/right/directional/east{
+	base_state = "left";
+	dir = 8;
+	icon_state = "left";
+	name = "Pharmacy Desk";
+	req_access = list("pharmacy")
+	},
 /turf/open/floor/plating,
 /area/station/medical/pharmacy)
 "On" = (
@@ -4830,16 +4826,12 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/morgue)
 "Tq" = (
-/obj/machinery/requests_console{
-	department = "Medbay";
-	name = "Medbay RC";
-	pixel_x = 30
-	},
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/structure/sink/directional/west,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
 	},
+/obj/machinery/requests_console/auto_name/directional/east,
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
 "Tt" = (
@@ -4966,11 +4958,12 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay)
 "Uw" = (
-/obj/machinery/door/window/left/directional/east{
-	name = "Medical Delivery"
-	},
 /obj/effect/turf_decal/delivery,
-/obj/effect/mapping_helpers/airlock/access/all/medical/general,
+/obj/machinery/door/window/right/directional/south{
+	dir = 4;
+	name = "Medical Deliveries";
+	req_access = list("medical")
+	},
 /turf/open/floor/iron,
 /area/station/medical/medbay)
 "UA" = (
@@ -5348,12 +5341,6 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/surgery)
 "Yd" = (
-/obj/machinery/requests_console{
-	department = "Medbay";
-	name = "Medbay RC";
-	pixel_y = 30
-	},
-/obj/effect/mapping_helpers/requests_console/assistance,
 /obj/machinery/modular_computer/preset/cargochat/medical,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
@@ -5479,10 +5466,6 @@
 /area/station/maintenance/aft)
 "Zh" = (
 /obj/structure/table,
-/obj/machinery/door/window/left/directional/north{
-	name = "First-Aid Supplies";
-	red_alert_access = 1
-	},
 /obj/item/storage/medkit/toxin{
 	pixel_x = -4;
 	pixel_y = 3
@@ -5511,6 +5494,12 @@
 	},
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/window/left/directional/north{
+	icon_state = "right";
+	name = "First-Aid Supplies";
+	red_alert_access = 1;
+	req_access = list("medical")
+	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
 "Zz" = (
@@ -5881,7 +5870,7 @@ nH
 QZ
 Nk
 IX
-IX
+Ff
 PU
 rq
 mc
@@ -6217,7 +6206,7 @@ Vi
 Od
 VJ
 sP
-Ff
+pB
 Mi
 oT
 rw

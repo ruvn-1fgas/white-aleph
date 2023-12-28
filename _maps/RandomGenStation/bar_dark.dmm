@@ -80,10 +80,10 @@
 /area/station/service/bar)
 "aj" = (
 /obj/machinery/door/window/left/directional/south{
-	name = "Bar Delivery"
+	name = "Bar Delivery";
+	req_access = list("bar")
 	},
 /obj/effect/turf_decal/loading_area,
-/obj/effect/mapping_helpers/airlock/access/all/service/bar,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
 "ak" = (
@@ -234,12 +234,15 @@
 /turf/open/floor/iron/showroomfloor,
 /area/station/service/kitchen)
 "aC" = (
-/obj/machinery/door/window/left/directional/south{
-	name = "Kitchen Delivery"
-	},
 /obj/effect/turf_decal/delivery,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/spawner/random/trash/mess,
+/obj/machinery/door/window/left/directional/north{
+	desc = "??????? ??????.";
+	dir = 2;
+	name = "Kitchen Delivery";
+	req_access = list("kitchen")
+	},
 /turf/open/floor/iron,
 /area/station/service/kitchen)
 "aD" = (
@@ -891,9 +894,8 @@
 	name = "Service Door"
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/iron/cafeteria{
-	dir = 5
-	},
+/obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
+/turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)
 "cy" = (
 /turf/open/floor/light/colour_cycle/dancefloor_a,
@@ -913,7 +915,7 @@
 	id = "barmanpriv";
 	name = "bar shutters"
 	},
-/turf/open/floor/iron/cafeteria,
+/turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)
 "cB" = (
 /obj/structure/table,
@@ -1018,7 +1020,8 @@
 	},
 /obj/machinery/door/window/right/directional/south{
 	dir = 8;
-	name = "Bar Door"
+	name = "Bar Door";
+	req_access = list("bar")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 1
@@ -1199,6 +1202,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/navigate_destination,
+/obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /turf/open/floor/iron/kitchen/diagonal,
 /area/station/service/kitchen)
 "de" = (
@@ -1209,7 +1213,7 @@
 	id = "kitchen";
 	name = "kitchen shutters"
 	},
-/turf/open/floor/iron/cafeteria,
+/turf/open/floor/iron/white/smooth_large,
 /area/station/service/kitchen)
 "df" = (
 /obj/structure/table/reinforced,
@@ -1218,7 +1222,7 @@
 	id = "kitchen";
 	name = "kitchen shutters"
 	},
-/turf/open/floor/iron/cafeteria,
+/turf/open/floor/iron/white/smooth_large,
 /area/station/service/kitchen)
 "dg" = (
 /obj/machinery/door/firedoor,
@@ -1440,7 +1444,7 @@
 	name = "kitchen shutters"
 	},
 /obj/structure/displaycase/forsale/kitchen,
-/turf/open/floor/iron/cafeteria,
+/turf/open/floor/iron/white/smooth_large,
 /area/station/service/kitchen)
 "Ak" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
