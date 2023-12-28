@@ -21,7 +21,6 @@
 "ad" = (
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=2";
-	freq = 1400;
 	location = "Bar"
 	},
 /obj/structure/plasticflaps/opaque,
@@ -84,7 +83,6 @@
 "am" = (
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=2";
-	freq = 1400;
 	location = "Kitchen"
 	},
 /obj/structure/plasticflaps/opaque,
