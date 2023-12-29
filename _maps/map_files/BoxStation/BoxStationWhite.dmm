@@ -50374,13 +50374,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/bottom_station_maints/east)
-"tDd" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/docking_port/stationary/escape_pod{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/station/hallway/secondary/entry)
 "tDe" = (
 /turf/closed/wall/r_wall,
 /area/station/ai_monitored/turret_protected/aisat/hallway)
@@ -135232,7 +135225,7 @@ jqJ
 xcC
 tbZ
 tzR
-tDd
+tzR
 tzR
 tbZ
 xcC
@@ -135246,7 +135239,7 @@ jqJ
 xcC
 tbZ
 tzR
-tDd
+tzR
 tzR
 tbZ
 xcC
