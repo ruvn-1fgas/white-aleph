@@ -5,7 +5,7 @@
 #ifndef LOWMEMORYMODE
 	#ifdef ALL_MAPS
 
-		#include "map_files\BoxStation/BoxStationWhite.dmm"
+		#include "map_files\BoxStation\BoxStationWhite.dmm"
 		#include "map_files\Deltastation\DeltaStation2.dmm"
 		#include "map_files\IceBoxStation\IceBoxStation.dmm"
 		#include "map_files\MetaStation\MetaStation.dmm"
