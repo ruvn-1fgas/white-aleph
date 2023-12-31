@@ -43340,6 +43340,10 @@
 	},
 /turf/open/floor/engine,
 /area/station/ai_monitored/command/nuke_storage)
+"qSx" = (
+/obj/structure/steam_vent,
+/turf/open/floor/plating,
+/area/station/maintenance/bottom_station_maints/north)
 "qSR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible{
 	dir = 1
@@ -89730,7 +89734,7 @@ azs
 uBJ
 dNo
 dNo
-dNo
+qSx
 dNo
 dNo
 kNU
