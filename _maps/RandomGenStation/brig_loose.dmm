@@ -1869,13 +1869,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/security)
-"eI" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/docking_port/stationary/escape_pod{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/security)
 "eJ" = (
 /obj/structure/cable,
 /obj/machinery/holopad/secure,
@@ -5906,7 +5899,7 @@ ab
 VP
 be
 bg
-eI
+bg
 bg
 be
 ab
