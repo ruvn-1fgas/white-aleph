@@ -2967,13 +2967,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/security)
-"jo" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/docking_port/stationary/escape_pod{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/security)
 "jp" = (
 /obj/machinery/camera/motion/directional/south{
 	c_tag = "Armory - External"
@@ -6066,7 +6059,7 @@ aS
 UX
 ba
 fq
-jo
+fq
 fq
 ba
 aS

@@ -1438,13 +1438,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/security)
-"eI" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/docking_port/stationary/escape_pod{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/security)
 "eQ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6633,7 +6626,7 @@ ab
 TD
 be
 tR
-eI
+tR
 tR
 be
 ab
