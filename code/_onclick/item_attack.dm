@@ -249,8 +249,8 @@
 
 	var/damage = take_damage(attacking_item.force, attacking_item.damtype, MELEE, 1)
 	//only witnesses close by and the victim see a hit message.
-	user.visible_message(span_danger("<b>[user]</b> бьёт <b>[src]</b> используя <b>[attacking_item]</b>[no_damage ? ", не оставляя даже царапины" : ""]!"), \
-			span_danger("Бью <b>[src]</b> используя <b>[attacking_item]</b>[no_damage ? ", не оставляя даже царапины" : ""]!"), null, COMBAT_MESSAGE_RANGE)
+	user.visible_message(span_danger("<b>[user]</b> бьёт <b>[src]</b> используя <b>[attacking_item]</b>[damage ? "." : ", не оставляя даже царапины"]!"), \
+			span_danger("Бью <b>[src]</b> используя <b>[attacking_item]</b>[damage ? "." : ", не оставляя даже царапины"]!"), null, COMBAT_MESSAGE_RANGE)
 	log_combat(user, src, "attacked", attacking_item)
 
 /area/attacked_by(obj/item/attacking_item, mob/living/user)
