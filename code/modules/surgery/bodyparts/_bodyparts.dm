@@ -321,13 +321,13 @@
 
 	var/is_disabled = ""
 	if(bodypart_disabled)
-		is_disabled = "\[ПАРАЛИЗОВАНА\]"
+		is_disabled = "\[ПАРАЛИЗОВАНА]"
 		if(no_damage)
 			is_disabled += " но"
 		else
 			is_disabled += " и"
 
-	check_list += "\t <span class='[no_damage ? "notice" : "warning"]'>Моя [name][is_disabled][status].</span>"
+	check_list += "\t <span class='[no_damage ? "notice" : "warning"]'>Моя [name] [is_disabled] [status].</span>"
 
 	for(var/datum/wound/wound as anything in wounds)
 		switch(wound.severity)
