@@ -274,7 +274,7 @@
 		// Organ damage, missing organs
 		if(H.organs && H.organs.len)
 			var/render = FALSE
-			var/toReport = "<span class='info ml-1'>Органы:</span>\
+			var/toReport = "<span class='info ml-1'>Органы:\n</span>\
 				<table class='ml-2'><tr>\
 				<td style='width:6em;'><font color='#7777CC'><b>Орган</b></font></td>\
 				[advanced ? "<td style='width:3em;'><font color='#7777CC'><b>Урон</b></font></td>" : ""]\
@@ -282,9 +282,23 @@
 
 			for(var/obj/item/organ/organ as anything in H.organs)
 				var/status = organ.get_status_text()
+				if(H.has_reagent(/datum/reagent/inverse/technetium))
+					if(organ.damage)
+						status = "<font color='#E42426'> Повреждён на [round((organ.damage/organ.maxHealth)*100, 1)]%.</font>"
+				else
+					if (organ.organ_flags & ORGAN_FAILING)
+						status = "<font color='#cc3333'>Не работает</font>"
+					else if (organ.damage > organ.high_threshold)
+						status = "<font color='#ff9933'>Сильно повреждён</font>"
+					else if (organ.damage > organ.low_threshold)
+						status = "<font color='#ffcc33'>Повреждён</font>"
 				if (status != "")
 					render = TRUE
-					toReport += "<font color='#E42426'>[organ.name] повреждён на [round((organ.damage/organ.maxHealth)*100, 1)]%.</font>"
+					toReport += "<tr><td><font color='#7777CC'>[organ.name]</font></td>\
+						[advanced ? "<td><font color='#7777CC'>[CEILING(organ.damage,1)]</font></td>" : ""]\
+						<td>[status]</td></tr>"
+
+			toReport += "</table>"
 
 			var/missing_organs = list()
 			if(!H.get_organ_slot(ORGAN_SLOT_BRAIN))
@@ -310,7 +324,7 @@
 					toReport += "\n<span class='alert ml-2'>У пациента нет [organ].</span>"
 
 			if(render)
-				render_list += toReport + "</table>" // tables do not need extra linebreak
+				render_list += toReport
 
 		//Genetic stability
 		if(advanced && H.has_dna())

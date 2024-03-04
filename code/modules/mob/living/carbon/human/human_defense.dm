@@ -648,40 +648,81 @@
 		return
 	var/list/combined_msg = list()
 
-	visible_message(span_notice("<b>[capitalize(src)]</b> осматривает себя."))
-
-	combined_msg += span_notice("<b>You check yourself for injuries.</b>")
+	visible_message(span_notice("<b>[capitalize(src)]</b> осматривает себя.") , null)
 
 	var/list/missing = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+
+	combined_msg += "<div class='examine_block'><span class='info'>Моё состояние примерно такое:</span><hr><table>"
 
 	for(var/obj/item/bodypart/body_part as anything in bodyparts)
 		missing -= body_part.body_zone
 		if(body_part.bodypart_flags & BODYPART_PSEUDOPART) //don't show injury text for fake bodyparts; ie chainsaw arms or synthetic armblades
 			continue
+		var/limb_max_damage = body_part.max_damage
+		var/status = ""
+		var/brutedamage = body_part.brute_dam
+		var/burndamage = body_part.burn_dam
 
-		body_part.check_for_injuries(src, combined_msg)
+		if(HAS_TRAIT(src, TRAIT_SELF_AWARE))
+			status = "ФИЗИЧЕСКИЙ: [brutedamage]</span>] И \[<span class='warning'>ОЖОГИ: [burndamage]"
+			if(!brutedamage && !burndamage)
+				status = "НЕТ УРОНА"
+		else
+			if(brutedamage > 0)
+				status = body_part.light_brute_msg
+			if(brutedamage > (limb_max_damage*0.4))
+				status = body_part.medium_brute_msg
+			if(brutedamage > (limb_max_damage*0.8))
+				status = body_part.heavy_brute_msg
+			if(brutedamage > 0 && burndamage > 0)
+				status += "</span>] \[<span class='warning'>"
+
+			if(burndamage > (limb_max_damage*0.8))
+				status += body_part.heavy_burn_msg
+			else if(burndamage > (limb_max_damage*0.2))
+				status += body_part.medium_burn_msg
+			else if(burndamage > 0)
+				status += body_part.light_burn_msg
+
+			if(status == "")
+				status = "ЦЕЛАЯ"
+		var/no_damage
+		if(status == "ЦЕЛАЯ" || status == "НЕТ УРОНА")
+			no_damage = TRUE
+		var/isdisabled = ""
+		if(body_part.bodypart_disabled)
+			isdisabled = "\[ПАРАЛИЗОВАНА\]"
+			if(no_damage)
+				isdisabled += " но"
+			else
+				isdisabled += " и"
+		var/partmsg = "<tr><td><b>[uppertext(body_part.name)]:</b></td><td>[isdisabled] \[<span class='[no_damage ? "info" : "red"]'>[uppertext(status)]</span>\] "
+
+		for(var/thing in body_part.wounds)
+			var/datum/wound/W = thing
+			switch(W.severity)
+				if(WOUND_SEVERITY_TRIVIAL)
+					partmsg += "\[<span class='danger'>[uppertext(W.name)]</span>\] "
+				if(WOUND_SEVERITY_MODERATE)
+					partmsg += "\[<span class='red'>[uppertext(W.name)]</span>\] "
+				if(WOUND_SEVERITY_SEVERE, WOUND_SEVERITY_CRITICAL)
+					partmsg += "\[<span class='red'><b>[uppertext(W.name)]</b></span>\] "
+
+		if(body_part.get_modified_bleed_rate())
+			partmsg += "\[<span class='red'>КРОВОТЕЧЕНИЕ</span>\] "
+
+		for(var/obj/item/I in body_part.embedded_objects)
+			if(I.isEmbedHarmless())
+				partmsg += "\[<a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='info'>[uppertext(I.name)]</a>\]"
+			else
+				partmsg += "\[<a href='?src=[REF(src)];embedded_object=[REF(I)];embedded_limb=[REF(body_part)]' class='red'>[uppertext(I.name)]</a>\]"
+
+		combined_msg += "[partmsg]</td></tr>"
 
 	for(var/t in missing)
-		combined_msg += span_boldannounce("Your [parse_zone(t)] is missing!")
+		combined_msg += "<tr><td><b>[uppertext(ru_exam_parse_zone(parse_zone(t)))]:</b></td><td>\[<span class='boldannounce'>ОТСУТСТВУЕТ</span>\]</td></tr>"
 
-	if(is_bleeding())
-		var/list/obj/item/bodypart/bleeding_limbs = list()
-		for(var/obj/item/bodypart/part as anything in bodyparts)
-			if(part.get_modified_bleed_rate())
-				bleeding_limbs += part
-
-		var/num_bleeds = LAZYLEN(bleeding_limbs)
-		var/bleed_text = "<span class='danger'>You are bleeding from your"
-		switch(num_bleeds)
-			if(1 to 2)
-				bleed_text += " [bleeding_limbs[1].name][num_bleeds == 2 ? " and [bleeding_limbs[2].name]" : ""]"
-			if(3 to INFINITY)
-				for(var/i in 1 to (num_bleeds - 1))
-					var/obj/item/bodypart/BP = bleeding_limbs[i]
-					bleed_text += " [BP.name],"
-				bleed_text += " and [bleeding_limbs[num_bleeds].name]"
-		bleed_text += "!</span>"
-		combined_msg += bleed_text
+	combined_msg += "</table>"
 
 	if(getStaminaLoss())
 		if(getStaminaLoss() > 30)
@@ -695,10 +736,10 @@
 			else if(toxloss > 20)
 				combined_msg += span_danger("Меня тошнит.")
 			else if(toxloss > 40)
-				combined_msg += span_danger("Сейчас блевану!")
+				combined_msg += span_danger("Меня сейчас вырвет!")
 		if(oxyloss)
 			if(oxyloss > 10)
-				combined_msg += span_danger("Ощущаю головкружение.")
+				combined_msg += span_danger("Ощущаю головокружение.")
 			else if(oxyloss > 20)
 				combined_msg += span_danger("Всё такое мутное вдали.")
 			else if(oxyloss > 30)
@@ -742,13 +783,13 @@
 			broken.Insert(broken.len, "и ")
 			broken_plural = TRUE
 		else
-			var/holder = broken[1] //our one and only element
+			var/holder = broken[1]	//our one and only element
 			if(holder[length(holder)] == "s")
 				broken_plural = TRUE
 		//Put the items in that list into a string of text
 		for(var/B in broken)
 			broken_message += B
-		combined_msg += span_warning("<hr>Похоже [broken_message] не [broken_plural ? "работает" : "работают"]!")
+		combined_msg += span_warning("<hr>Похоже, [broken_message] не [broken_plural ? "работает" : "работают"]!")
 	if(damaged.len)
 		if(damaged.len > 1)
 			damaged.Insert(damaged.len, "и ")
@@ -759,12 +800,12 @@
 				damaged_plural = TRUE
 		for(var/D in damaged)
 			damaged_message += D
-		combined_msg += span_info("Похоже [damaged_message] [damaged_plural ? "имеет" : "имеют"] повреждения.")
+		combined_msg += span_info("Похоже, [damaged_message] [damaged_plural ? "имеет" : "имеют"] повреждения.")
 
 	if(quirks.len)
 		combined_msg += span_info("<hr>Имею черты: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].")
 
-	to_chat(src, examine_block(combined_msg.Join("\n")))
+	to_chat(src, combined_msg.Join("\n"))
 
 /mob/living/carbon/human/damage_clothes(damage_amount, damage_type = BRUTE, damage_flag = 0, def_zone)
 	if(damage_type != BRUTE && damage_type != BURN)

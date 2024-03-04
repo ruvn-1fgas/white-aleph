@@ -292,7 +292,8 @@
 		if(!shown_brute && !shown_burn)
 			status = "не имеет повреждений"
 		else
-			status = "[shown_brute] физического урона и [shown_burn] ожогового урона"
+			status = "ФИЗИЧЕСКИЙ: [shown_brute]</span>] И \[<span class='warning'ОЖОГИ: [shown_burn] "
+			// status = "[shown_brute] физического урона и [shown_burn] ожогового урона"
 
 	else
 		if(shown_brute > (max_damage * 0.8))
@@ -313,32 +314,38 @@
 			status += light_burn_msg
 
 		if(status == "")
-			status = "OK"
+			status = "ЦЕЛАЯ"
 
 	var/no_damage
-	if(status == "OK" || status == "не имеет повреждений")
+	if(status == "ЦЕЛАЯ" || status == "НЕТ УРОНА")
 		no_damage = TRUE
 
 	var/is_disabled = ""
 	if(bodypart_disabled)
-		is_disabled = "\[ПАРАЛИЗОВАНА\]"
+		is_disabled = "\[ПАРАЛИЗОВАНА]"
 		if(no_damage)
 			is_disabled += " но"
 		else
 			is_disabled += " и"
 
-	check_list += "\t <span class='[no_damage ? "notice" : "warning"]'>Моя [name][is_disabled][status].</span>"
+	check_list += "<tr><td><b>[uppertext(name)]:</b></td><td>[is_disabled] \[<span class='[no_damage ? "info" : "red"]'>[uppertext(status)]</span>]"
 
 	for(var/datum/wound/wound as anything in wounds)
 		switch(wound.severity)
 			if(WOUND_SEVERITY_TRIVIAL)
-				check_list += "\t [span_danger("Моя [name] имеет [wound.a_or_from] [lowertext(wound.name)].")]"
+				check_list += "[span_danger(uppertext(wound.name))]"
+				// check_list += "\t [span_danger("Моя [name] имеет [wound.a_or_from] [lowertext(wound.name)].")]"
 			if(WOUND_SEVERITY_MODERATE)
-				check_list += "\t [span_warning("Моя [name] имеет [wound.a_or_from] [lowertext(wound.name)]!")]"
+				check_list += "[span_warning(uppertext(wound.name))]"
+				// check_list += "\t [span_warning("Моя [name] имеет [wound.a_or_from] [lowertext(wound.name)]!")]"
 			if(WOUND_SEVERITY_SEVERE)
-				check_list += "\t [span_boldwarning("Моя [name] имеет [wound.a_or_from] [lowertext(wound.name)]!!")]"
+				check_list += "[span_boldwarning(uppertext(wound.name))]"
+				// check_list += "\t [span_boldwarning("Моя [name] имеет [wound.a_or_from] [lowertext(wound.name)]!!")]"
 			if(WOUND_SEVERITY_CRITICAL)
-				check_list += "\t [span_boldwarning("Моя [name] имеет [wound.a_or_from] [lowertext(wound.name)]!!!")]"
+				check_list += "[span_boldwarning(uppertext(wound.name))]"
+				// check_list += "\t [span_boldwarning("Моя [name] имеет [wound.a_or_from] [lowertext(wound.name)]!!!")]"
+
+
 
 	for(var/obj/item/embedded_thing in embedded_objects)
 		var/stuck_word = embedded_thing.isEmbedHarmless() ? "stuck" : "embedded"
