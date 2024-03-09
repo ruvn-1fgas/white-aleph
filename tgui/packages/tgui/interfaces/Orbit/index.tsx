@@ -2,11 +2,26 @@ import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { capitalizeFirst, multiline } from 'common/string';
 import { useBackend, useLocalState } from 'tgui/backend';
-import { Button, Collapsible, Icon, Input, LabeledList, NoticeBox, Section, Stack } from 'tgui/components';
+import {
+  Button,
+  Collapsible,
+  Icon,
+  Input,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+} from 'tgui/components';
 import { Window } from 'tgui/layouts';
 import { JOB2ICON } from '../common/JobToIcon';
 import { ANTAG2COLOR } from './constants';
-import { getAntagCategories, getDisplayColor, getDisplayName, getMostRelevant, isJobOrNameMatch } from './helpers';
+import {
+  getAntagCategories,
+  getDisplayColor,
+  getDisplayName,
+  getMostRelevant,
+  isJobOrNameMatch,
+} from './helpers';
 import type { AntagGroup, Antagonist, Observable, OrbitData } from './types';
 
 export const Orbit = (props, context) => {
@@ -218,7 +233,8 @@ const ObservableSection = (
         bold
         color={color ?? 'grey'}
         open={!!color}
-        title={title + ` - (${filteredSection.length})`}>
+        title={title + ` - (${filteredSection.length})`}
+      >
         {filteredSection.map((poi, index) => {
           return <ObservableItem color={color} item={poi} key={index} />;
         })}
@@ -245,7 +261,8 @@ const ObservableItem = (
       icon={(job && JOB2ICON[job]) || null}
       onClick={() => act('orbit', { auto_observe: autoObserve, ref: ref })}
       tooltip={(!!health || !!extra) && <ObservableTooltip item={item} />}
-      tooltipPosition="bottom-start">
+      tooltipPosition="bottom-start"
+    >
       {capitalizeFirst(getDisplayName(full_name, name))}
       {!!orbiters && (
         <>

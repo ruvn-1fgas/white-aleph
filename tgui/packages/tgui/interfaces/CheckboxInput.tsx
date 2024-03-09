@@ -1,4 +1,13 @@
-import { Button, Icon, Input, NoticeBox, Section, Stack, Table, Tooltip } from '../components';
+import {
+  Button,
+  Icon,
+  Input,
+  NoticeBox,
+  Section,
+  Stack,
+  Table,
+  Tooltip,
+} from '../components';
 import { TableCell, TableRow } from '../components/Table';
 import { createSearch, decodeHtmlEntities } from 'common/string';
 import { useBackend, useLocalState } from '../backend';
@@ -75,7 +84,8 @@ export const CheckboxInput = (props, context) => {
                           !selections.includes(item)
                         }
                         fluid
-                        onClick={() => selectItem(item)}>
+                        onClick={() => selectItem(item)}
+                      >
                         {item}
                       </Button.Checkbox>
                     </TableCell>

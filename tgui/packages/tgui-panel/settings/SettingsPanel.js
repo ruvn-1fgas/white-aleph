@@ -6,7 +6,21 @@
 
 import { toFixed } from 'common/math';
 import { useDispatch, useSelector } from 'common/redux';
-import { Box, Button, ColorBox, Divider, Dropdown, Flex, Input, LabeledList, NumberInput, Section, Stack, Tabs, TextArea } from 'tgui/components';
+import {
+  Box,
+  Button,
+  ColorBox,
+  Divider,
+  Dropdown,
+  Flex,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+  Stack,
+  Tabs,
+  TextArea,
+} from 'tgui/components';
 import { ChatPageSettings } from '../chat';
 import { rebuildChat, saveChatToDisk } from '../chat/actions';
 import { THEMES } from '../themes';
@@ -32,7 +46,8 @@ export const SettingsPanel = (props, context) => {
                       tabId: tab.id,
                     })
                   )
-                }>
+                }
+              >
                 {tab.name}
               </Tabs.Tab>
             ))}

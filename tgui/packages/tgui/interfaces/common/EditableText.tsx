@@ -55,7 +55,8 @@ export const EditableText = (props: Props, context) => {
             'text-decoration-thickness': '1px',
             'text-underline-offset': '1px',
           }}
-          onClick={() => setEditing(true)}>
+          onClick={() => setEditing(true)}
+        >
           {!text ? '(none)' : text}
         </Box>
       </Stack.Item>

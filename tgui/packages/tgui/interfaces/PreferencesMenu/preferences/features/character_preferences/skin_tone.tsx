@@ -1,6 +1,11 @@
 import { sortBy } from 'common/collections';
 import { Box, Stack } from '../../../../../components';
-import { Feature, FeatureChoicedServerData, FeatureValueProps, StandardizedDropdown } from '../base';
+import {
+  Feature,
+  FeatureChoicedServerData,
+  FeatureValueProps,
+  StandardizedDropdown,
+} from '../base';
 
 type HexValue = {
   lightness: number;
@@ -42,8 +47,8 @@ export const skin_tone: Feature<string, string, SkinToneServerData> = {
                     style={{
                       background: hexColor.value,
                       'box-sizing': 'content-box',
-                      'height': '11px',
-                      'width': '11px',
+                      height: '11px',
+                      width: '11px',
                     }}
                   />
                 </Stack.Item>

@@ -88,7 +88,7 @@
  * * Presence of the <, >, \ and / characters.
  * * Presence of ASCII special control characters (horizontal tab and new line not included).
  * */
-/proc/reject_bad_text(text, max_length = 512, ascii_only = TRUE)
+/proc/reject_bad_text(text, max_length = 512, ascii_only = FALSE)
 	if(ascii_only)
 		if(length(text) > max_length)
 			return null
@@ -363,9 +363,11 @@
 //Returns a string with the first element of the string capitalized.
 /proc/capitalize(t)
 	. = t
-	if(t)
-		. = t[1]
-		return uppertext(.) + copytext(t, 1 + length(.))
+	if(isatom(t))
+		var/atom/A = t
+		t = A.name
+	. = copytext_char(t, 1, 2)
+	return uppertext(.) + copytext_char(t, 2)
 
 ///Returns a string with the first letter of each word capitialized
 /proc/full_capitalize(input)
@@ -1188,7 +1190,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 
 /// Removes all non-alphanumerics from the text, keep in mind this can lead to id conflicts
 /proc/sanitize_css_class_name(name)
-	var/static/regex/regex = new(@"[^a-zA-Z0-9]","g")
+	var/static/regex/regex = new(@"[^a-zA-Zа-яА-Я0-9]","g")
 	return replacetext(name, regex, "")
 
 /// Converts a semver string into a list of numbers

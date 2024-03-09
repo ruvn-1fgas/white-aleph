@@ -1,7 +1,18 @@
 import { BooleanLike } from 'common/react';
 import { capitalize, createSearch } from 'common/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Dimmer, Divider, Icon, Input, NumberInput, Section, Stack, Tabs } from '../components';
+import {
+  Box,
+  Button,
+  Dimmer,
+  Divider,
+  Icon,
+  Input,
+  NumberInput,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
 import { Window } from '../layouts';
 
 const buttonWidth = 2;
@@ -83,7 +94,8 @@ const ShoppingTab = (props, context) => {
                   if (searchItem.length > 0) {
                     setSearchItem('');
                   }
-                }}>
+                }}
+              >
                 {category}
               </Tabs.Tab>
             ))}

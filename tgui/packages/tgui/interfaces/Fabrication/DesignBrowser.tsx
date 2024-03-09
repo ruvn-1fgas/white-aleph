@@ -105,9 +105,9 @@ type Category<T extends Design = Design> = {
  * UI.
  */
 const BLACKLISTED_CATEGORIES: Record<string, boolean> = {
-  'initial': true,
-  'core': true,
-  'hacked': true,
+  initial: true,
+  core: true,
+  hacked: true,
 };
 
 /**
@@ -214,7 +214,7 @@ export const DesignBrowser = <T extends Design = Design>(
               <Section title="Categories" fitted />
             </Stack.Item>
             <Stack.Item grow>
-              <Section fill style={{ 'overflow': 'auto' }}>
+              <Section fill style={{ overflow: 'auto' }}>
                 <div className="FabricatorTabs">
                   <div
                     className={classes([
@@ -222,7 +222,8 @@ export const DesignBrowser = <T extends Design = Design>(
                       selectedCategory === ALL_CATEGORY &&
                         'FabricatorTabs__Tab--active',
                     ])}
-                    onClick={() => onCategorySelected(ALL_CATEGORY)}>
+                    onClick={() => onCategorySelected(ALL_CATEGORY)}
+                  >
                     <div className="FabricatorTabs__Label">
                       <div className="FabricatorTabs__CategoryName">
                         All Designs
@@ -257,10 +258,11 @@ export const DesignBrowser = <T extends Design = Design>(
             searchText.length > 0
               ? `Results for "${searchText}"`
               : selectedCategory === ALL_CATEGORY
-                ? 'All Designs'
-                : selectedCategory
+              ? 'All Designs'
+              : selectedCategory
           }
-          fill>
+          fill
+        >
           <Stack vertical fill>
             <Stack.Item>
               <Section>
@@ -272,7 +274,7 @@ export const DesignBrowser = <T extends Design = Design>(
               </Section>
             </Stack.Item>
             <Stack.Item grow>
-              <Section fill style={{ 'overflow': 'auto' }}>
+              <Section fill style={{ overflow: 'auto' }}>
                 {searchText.length > 0 ? (
                   sortBy((design: T) => design.name)(
                     Object.values(root.descendants)
@@ -319,7 +321,8 @@ export const DesignBrowser = <T extends Design = Design>(
                 style={{
                   'font-size': '2em',
                   'text-align': 'center',
-                }}>
+                }}
+              >
                 <Icon name="cog" spin />
                 {' Building items...'}
               </Dimmer>
@@ -361,12 +364,13 @@ const DesignBrowserTab = <T extends Design = Design>(
       onClick={
         depth === 0
           ? /* For top-level categories, set the selected category. */
-          () => setSelectedCategory(category.title)
+            () => setSelectedCategory(category.title)
           : /* For deeper categories, scroll the subcategory header into view. */
-          () => {
-            document.getElementById(category.anchorKey)?.scrollIntoView(true);
-          }
-      }>
+            () => {
+              document.getElementById(category.anchorKey)?.scrollIntoView(true);
+            }
+      }
+    >
       <div className="FabricatorTabs__Label">
         <div className="FabricatorTabs__CategoryName">{category.title}</div>
         {depth === 0 && (
@@ -493,7 +497,8 @@ const CategoryView = <T extends Design = Design>(
     <Section
       title={category.title}
       id={category.anchorKey}
-      buttons={categoryButtons && categoryButtons(category)}>
+      buttons={categoryButtons && categoryButtons(category)}
+    >
       {body}
     </Section>
   );

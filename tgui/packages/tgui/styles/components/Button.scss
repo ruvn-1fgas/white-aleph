@@ -9,7 +9,7 @@
 
 $color-default: colors.bg(colors.$primary) !default;
 $color-disabled: #999999 !default;
-$color-disabled-text: #000000 !default;
+$color-disabled-text: #111111 !default;
 $color-selected: colors.bg(colors.$green) !default;
 $color-caution: colors.bg(colors.$yellow) !default;
 $color-danger: colors.bg(colors.$red) !default;
@@ -28,7 +28,6 @@ $bg-map: colors.$bg-map !default;
   border-right: 1px solid rgba(33, 33, 33, 0.8);
   border-bottom: 1px solid rgba(33, 33, 33, 0.8);
   background-color: base.$color-bg;
-
 
   &:hover {
     transition: color 0ms, background-color 0ms;
@@ -66,7 +65,9 @@ $bg-map: colors.$bg-map !default;
     margin-bottom: 0;
   }
 
-  .fa, .fas, .far {
+  .fa,
+  .fas,
+  .far {
     margin-left: -0.25em;
     margin-right: -0.25em;
     min-width: 1.333em;
@@ -140,7 +141,7 @@ $bg-map: colors.$bg-map !default;
 .Button--disabled {
   background-color: $color-disabled-text !important;
   color: $color-disabled !important;
-  border: 1px solid $color-disabled  !important;
+  border: 1px solid $color-disabled !important;
   box-shadow: none;
 
   &:hover {

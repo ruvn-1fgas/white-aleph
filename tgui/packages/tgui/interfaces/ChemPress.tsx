@@ -1,5 +1,12 @@
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, LabeledList, NumberInput, Section } from '../components';
+import {
+  Box,
+  Button,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+} from '../components';
 import { capitalizeAll } from 'common/string';
 import { Window } from '../layouts';
 
@@ -94,7 +101,8 @@ export const ChemPress = (props, context) => {
                     act('change_product', {
                       ref: design.ref,
                     })
-                  }>
+                  }
+                >
                   <Box
                     className={design.class_name}
                     style={{

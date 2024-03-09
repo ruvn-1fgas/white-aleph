@@ -3,7 +3,14 @@ import { flow } from 'common/fp';
 import { BooleanLike, classes } from 'common/react';
 import { createSearch } from 'common/string';
 import { useBackend, useLocalState } from '../backend';
-import { Button, ByondUi, Input, NoticeBox, Section, Stack } from '../components';
+import {
+  Button,
+  ByondUi,
+  Input,
+  NoticeBox,
+  Section,
+  Stack,
+} from '../components';
 import { Window } from '../layouts';
 
 type Data = {
@@ -131,7 +138,8 @@ const CameraSelector = (props, context) => {
                 act('switch_camera', {
                   camera: camera.ref,
                 })
-              }>
+              }
+            >
               {camera.name}
             </div>
           ))}

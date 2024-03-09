@@ -67,7 +67,8 @@ export const LightSpawn = (props, context) => {
                     onClick={() => setCurrentCategory(category)}
                     fontSize="14px"
                     bold
-                    textColor="#eee">
+                    textColor="#eee"
+                  >
                     {category}
                   </Tabs.Tab>
                 ))}
@@ -77,7 +78,8 @@ export const LightSpawn = (props, context) => {
                   <Tabs.Tab
                     key={id}
                     selected={currentTemplate === id}
-                    onClick={() => setCurrentTemplate(id)}>
+                    onClick={() => setCurrentTemplate(id)}
+                  >
                     <Stack vertical>
                       <Stack.Item
                         align="center"

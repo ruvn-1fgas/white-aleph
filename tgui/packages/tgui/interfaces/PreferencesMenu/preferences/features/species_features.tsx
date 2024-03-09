@@ -1,4 +1,11 @@
-import { FeatureColorInput, Feature, FeatureChoiced, FeatureDropdownInput, FeatureValueProps, FeatureChoicedServerData } from './base';
+import {
+  FeatureColorInput,
+  Feature,
+  FeatureChoiced,
+  FeatureDropdownInput,
+  FeatureValueProps,
+  FeatureChoicedServerData,
+} from './base';
 
 export const eye_color: Feature<string> = {
   name: 'Цвет глаз',

@@ -21,12 +21,12 @@ export const StationAlertConsoleContent = (props, context) => {
   const { cameraView } = data;
 
   const sortingKey = {
-    'Fire': 0,
-    'Atmosphere': 1,
-    'Power': 2,
-    'Burglar': 3,
-    'Motion': 4,
-    'Camera': 5,
+    Fire: 0,
+    Atmosphere: 1,
+    Power: 2,
+    Burglar: 3,
+    Motion: 4,
+    Camera: 5,
   };
 
   const sortedAlarms = flow([sortBy((alarm) => sortingKey[alarm.name])])(
@@ -62,8 +62,8 @@ export const StationAlertConsoleContent = (props, context) => {
                         alert.cameras === 1
                           ? alert.cameras + ' Camera'
                           : alert.cameras > 1
-                            ? alert.cameras + ' Cameras'
-                            : 'No Camera'
+                          ? alert.cameras + ' Cameras'
+                          : 'No Camera'
                       }
                       onClick={() =>
                         act('select_camera', {

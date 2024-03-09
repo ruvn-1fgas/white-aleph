@@ -87,7 +87,7 @@
 /area/ruin/space/has_grav/hellfactoryoffice)
 "aq" = (
 /obj/item/pressure_plate/hologrid{
-	name = "bossman's hologrid";
+	name = "BOSSMAN'S HOLOGRID";
 	reward = /obj/item/stack/spacecash/c10000
 	},
 /turf/open/floor/iron/grimy,
@@ -853,7 +853,7 @@
 /area/ruin/space/has_grav/hellfactory)
 "oV" = (
 /obj/structure/sign/warning/cold_temp{
-	name = "\improper BLAST FREEZER"
+	name = "BLAST FREEZER"
 	},
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/hellfactory)

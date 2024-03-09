@@ -248,10 +248,10 @@ class PaperSheetStamper extends Component<PaperSheetStamperProps> {
 export const Stamp = (props, context): InfernoElement<HTMLDivElement> => {
   const { activeStamp, sprite, x, y, rotation, opacity, yOffset = 0 } = props;
   const stamp_transform = {
-    'left': x + 'px',
-    'top': y + yOffset + 'px',
-    'transform': 'rotate(' + rotation + 'deg)',
-    'opacity': opacity || 1.0,
+    left: x + 'px',
+    top: y + yOffset + 'px',
+    transform: 'rotate(' + rotation + 'deg)',
+    opacity: opacity || 1.0,
     'z-index': activeStamp ? Z_INDEX_STAMP_PREVIEW : Z_INDEX_STAMP,
   };
 
@@ -361,7 +361,8 @@ export class PrimaryView extends Component {
                     <Box
                       inline
                       pr={'5px'}
-                      color={tooManyCharacters ? 'bad' : 'default'}>
+                      color={tooManyCharacters ? 'bad' : 'default'}
+                    >
                       {`${usedCharacters} / ${max_length}`}
                     </Box>
                     <Button.Confirm
@@ -382,7 +383,8 @@ export class PrimaryView extends Component {
                       }}
                     />
                   </>
-                }>
+                }
+              >
                 <TextArea
                   scrollbar
                   noborder
@@ -961,7 +963,8 @@ export class PreviewView extends Component<PreviewViewProps> {
         fitted
         scrollable
         scrollableRef={scrollableRef}
-        onScroll={handleOnScroll}>
+        onScroll={handleOnScroll}
+      >
         <Box
           fillPositionedParent
           position="relative"
@@ -1026,7 +1029,8 @@ export const PaperSheet = (props, context) => {
       title={paper_name}
       theme="paper"
       width={420}
-      height={500 + (writeMode ? TEXTAREA_INPUT_HEIGHT : 0)}>
+      height={500 + (writeMode ? TEXTAREA_INPUT_HEIGHT : 0)}
+    >
       <Window.Content backgroundColor={paper_color}>
         <PrimaryView />
       </Window.Content>

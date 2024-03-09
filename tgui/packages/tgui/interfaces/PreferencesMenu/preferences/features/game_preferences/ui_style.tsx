@@ -1,5 +1,10 @@
 import { classes } from 'common/react';
-import { FeatureChoiced, FeatureChoicedServerData, FeatureValueProps, sortChoices } from '../base';
+import {
+  FeatureChoiced,
+  FeatureChoicedServerData,
+  FeatureValueProps,
+  sortChoices,
+} from '../base';
 import { Box, Dropdown, Stack } from '../../../../../components';
 
 const UIStyleInput = (
@@ -25,7 +30,7 @@ const UIStyleInput = (
             <Box
               className={classes(['preferences64x32', icon])}
               style={{
-                'transform': 'scale(0.8)',
+                transform: 'scale(0.8)',
               }}
             />
           </Stack.Item>

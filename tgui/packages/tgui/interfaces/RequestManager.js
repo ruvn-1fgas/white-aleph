@@ -52,7 +52,8 @@ export const RequestManager = (props, context) => {
               />
               <FilterPanel />
             </>
-          }>
+          }
+        >
           {displayedRequests.map((request) => (
             <div className="RequestManager__row" key={request.id}>
               <div className="RequestManager__rowContents">
@@ -80,12 +81,12 @@ export const RequestManager = (props, context) => {
 };
 
 const displayTypeMap = {
-  'request_prayer': 'PRAYER',
-  'request_centcom': 'CENTCOM',
-  'request_syndicate': 'SYNDICATE',
-  'request_nuke': 'NUKE CODE',
-  'request_fax': 'FAX',
-  'request_internet_sound': 'INTERNET SOUND',
+  request_prayer: 'PRAYER',
+  request_centcom: 'CENTCOM',
+  request_syndicate: 'SYNDICATE',
+  request_nuke: 'NUKE CODE',
+  request_fax: 'FAX',
+  request_internet_sound: 'INTERNET SOUND',
 };
 
 const RequestType = (props) => {
@@ -153,7 +154,8 @@ const FilterPanel = (props, context) => {
           className="RequestManager__filterPanel"
           style={{
             display: filterVisible ? 'block' : 'none',
-          }}>
+          }}
+        >
           <Table width="0">
             {Object.keys(displayTypeMap).map((type) => {
               return (
@@ -176,7 +178,8 @@ const FilterPanel = (props, context) => {
             })}
           </Table>
         </div>
-      }>
+      }
+    >
       <Button icon="cog" onClick={() => setFilterVisible(!filterVisible)}>
         Type Filter
       </Button>

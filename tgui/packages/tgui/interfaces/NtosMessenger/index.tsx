@@ -1,4 +1,14 @@
-import { Box, Button, Icon, Section, Stack, Input, TextArea, Dimmer, Divider } from '../../components';
+import {
+  Box,
+  Button,
+  Icon,
+  Section,
+  Stack,
+  Input,
+  TextArea,
+  Dimmer,
+  Divider,
+} from '../../components';
 import { useBackend, useLocalState } from '../../backend';
 import { createSearch } from 'common/string';
 import { BooleanLike } from 'common/react';
@@ -273,7 +283,8 @@ const ChatButton = (props: ChatButtonProps, context) => {
       fluid
       onClick={() => {
         act('PDA_viewMessages', { ref: props.chatRef });
-      }}>
+      }}
+    >
       {hasUnreads &&
         `[${unreadMessages <= 9 ? unreadMessages : '9+'} unread message${
           unreadMessages !== 1 ? 's' : ''
@@ -306,7 +317,8 @@ const SendToAllSection = (props, context) => {
               onClick={() => {
                 act('PDA_sendEveryone', { message: message });
                 setmessage('');
-              }}>
+              }}
+            >
               Send
             </Button>
           </Stack.Item>

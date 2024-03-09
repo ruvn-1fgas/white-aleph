@@ -1,6 +1,28 @@
 import { useBackend, useLocalState } from '../../backend';
-import { Box, Button, LabeledList, NumberInput, ColorBox, Input, Dropdown, Stack } from '../../components';
-import { EntryCoordProps, EntryFloatProps, EntryGradientProps, EntryIconStateProps, EntryTransformProps, MatrixTypes, ParticleUIData, P_DATA_ICON_ADD, P_DATA_ICON_REMOVE, P_DATA_ICON_WEIGHT, SpaceToNum, SpaceTypes } from './data';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NumberInput,
+  ColorBox,
+  Input,
+  Dropdown,
+  Stack,
+} from '../../components';
+import {
+  EntryCoordProps,
+  EntryFloatProps,
+  EntryGradientProps,
+  EntryIconStateProps,
+  EntryTransformProps,
+  MatrixTypes,
+  ParticleUIData,
+  P_DATA_ICON_ADD,
+  P_DATA_ICON_REMOVE,
+  P_DATA_ICON_WEIGHT,
+  SpaceToNum,
+  SpaceTypes,
+} from './data';
 import { editKeyOf, editWeightOf, setGradientSpace } from './helpers';
 
 export const EntryFloat = (props: EntryFloatProps, context) => {
@@ -81,8 +103,8 @@ export const EntryGradient = (props: EntryGradientProps, context) => {
   const isLooping = gradient?.find((x) => x === 'loop');
   const space_type = gradient?.includes('space')
     ? Object.keys(SpaceToNum).find(
-      (space) => SpaceToNum[space] === gradient['space']
-    )
+        (space) => SpaceToNum[space] === gradient['space']
+      )
     : 'COLORSPACE_RGB';
   return (
     <LabeledList.Item label={name}>
@@ -118,7 +140,7 @@ export const EntryGradient = (props: EntryGradientProps, context) => {
                 var: var_name,
                 new_value: gradient
                   ? setGradientSpace(gradient, SpaceToNum[e])
-                  : { 'space': SpaceToNum[e] },
+                  : { space: SpaceToNum[e] },
               })
             }
             width="145px"
@@ -183,8 +205,8 @@ export const EntryTransform = (props: EntryTransformProps, context) => {
     len < 7
       ? 'Simple Matrix'
       : len < 13
-        ? 'Complex Matrix'
-        : 'Projection Matrix';
+      ? 'Complex Matrix'
+      : 'Projection Matrix';
   const { name, var_name, transform } = props;
   return (
     <LabeledList.Item label={name}>
@@ -306,8 +328,8 @@ export const EntryIconState = (props: EntryIconStateProps, context) => {
   const { name, var_name, icon_state } = props;
   const newValue =
     typeof icon_state === 'string'
-      ? { [icon_state]: 1, 'None': 0 }
-      : { ...icon_state, 'None': 0 };
+      ? { [icon_state]: 1, None: 0 }
+      : { ...icon_state, None: 0 };
   return (
     <LabeledList.Item label={name}>
       <Stack>

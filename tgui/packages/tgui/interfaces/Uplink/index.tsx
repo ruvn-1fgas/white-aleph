@@ -5,10 +5,23 @@ import { Component, Fragment } from 'inferno';
 import { fetchRetry } from '../../http';
 import { resolveAsset } from '../../assets';
 import { BooleanLike } from 'common/react';
-import { Box, Tabs, Button, Stack, Section, Tooltip, Dimmer } from '../../components';
+import {
+  Box,
+  Tabs,
+  Button,
+  Stack,
+  Section,
+  Tooltip,
+  Dimmer,
+} from '../../components';
 import { PrimaryObjectiveMenu } from './PrimaryObjectiveMenu';
 import { Objective, ObjectiveMenu } from './ObjectiveMenu';
-import { calculateProgression, calculateDangerLevel, dangerDefault, dangerLevelsTooltip } from './calculateDangerLevel';
+import {
+  calculateProgression,
+  calculateDangerLevel,
+  dangerDefault,
+  dangerLevelsTooltip,
+} from './calculateDangerLevel';
 
 type UplinkItem = {
   id: string;
@@ -311,7 +324,8 @@ export class Uplink extends Component<{}, UplinkState> {
                                           : 'green'
                                       }
                                       ml={1}
-                                      mr={1}>
+                                      mr={1}
+                                    >
                                       {progressionPercentage}%
                                     </Box>
                                     {progressionPercentage < 0
@@ -325,7 +339,8 @@ export class Uplink extends Component<{}, UplinkState> {
                             </Box>
                           )) ||
                           "Your current threat level. You are a killing machine and don't need to improve your threat level."
-                        }>
+                        }
+                      >
                         {/* If we have no progression,
                       just give them a generic title */}
                         {has_progression
@@ -349,19 +364,22 @@ export class Uplink extends Component<{}, UplinkState> {
                         <Fragment>
                           <Tabs.Tab
                             selected={currentTab === 0}
-                            onClick={() => this.setState({ currentTab: 0 })}>
+                            onClick={() => this.setState({ currentTab: 0 })}
+                          >
                             Primary Objectives
                           </Tabs.Tab>
                           <Tabs.Tab
                             selected={currentTab === 1}
-                            onClick={() => this.setState({ currentTab: 1 })}>
+                            onClick={() => this.setState({ currentTab: 1 })}
+                          >
                             Secondary Objectives
                           </Tabs.Tab>
                         </Fragment>
                       )}
                       <Tabs.Tab
                         selected={currentTab === 2 || !has_objectives}
-                        onClick={() => this.setState({ currentTab: 2 })}>
+                        onClick={() => this.setState({ currentTab: 2 })}
+                      >
                         Market
                       </Tabs.Tab>
                     </Tabs>
@@ -442,7 +460,8 @@ export class Uplink extends Component<{}, UplinkState> {
                           fontFamily={'Bahnschrift'}
                           fontSize={3}
                           align={'top'}
-                          as="span">
+                          as="span"
+                        >
                           SHOP LOCKED
                         </Box>
                       </Dimmer>

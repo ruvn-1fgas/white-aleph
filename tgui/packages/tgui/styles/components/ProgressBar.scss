@@ -42,12 +42,9 @@ $bg-map: colors.$bg-map !default;
   text-align: right;
   font-weight: bold;
   font-weight: bold;
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 1),
-               1px -1px 0 rgba(0, 0, 0, 1),
-               -1px 1px 0 rgba(0, 0, 0, 1),
-               1px 1px 0 rgba(0, 0, 0, 1);
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 1), 1px -1px 0 rgba(0, 0, 0, 1),
+    -1px 1px 0 rgba(0, 0, 0, 1), 1px 1px 0 rgba(0, 0, 0, 1);
 }
-
 
 .ProgressBar--color--default {
   border: base.em(1px) solid $color-default-fill;

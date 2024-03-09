@@ -2,7 +2,20 @@ import { map, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { classes } from 'common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Dropdown, Input, Modal, NoticeBox, NumberInput, LabeledList, Section, Stack, Flex, Table } from '../components';
+import {
+  Box,
+  Button,
+  Dropdown,
+  Input,
+  Modal,
+  NoticeBox,
+  NumberInput,
+  LabeledList,
+  Section,
+  Stack,
+  Flex,
+  Table,
+} from '../components';
 import { Window } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -14,7 +27,8 @@ export const LibraryConsole = (props, context) => {
       theme={display_lore ? 'spookyconsole' : ''}
       title="Library Terminal"
       width={880}
-      height={520}>
+      height={520}
+    >
       <Window.Content m="0">
         <Flex height="100%">
           <Flex.Item>
@@ -146,7 +160,8 @@ export const InventoryDetails = (props, context) => {
                     book_id: book.ref,
                   })
                 }
-                icon="times">
+                icon="times"
+              >
                 Clear Record
               </Button>
             </Table.Cell>
@@ -459,7 +474,8 @@ export const SearchAndDisplay = (props, context) => {
             textAlign="right"
             onClick={() => act('search')}
             color={params_changed ? 'good' : ''}
-            icon="book">
+            icon="book"
+          >
             Search
           </Button>
           <Button
@@ -467,7 +483,8 @@ export const SearchAndDisplay = (props, context) => {
             textAlign="right"
             onClick={() => act('clear_data')}
             color="bad"
-            icon="fire">
+            icon="fire"
+          >
             Reset Search
           </Button>
         </Stack.Item>
@@ -488,7 +505,8 @@ export const SearchAndDisplay = (props, context) => {
                     book_id: record.id,
                   })
                 }
-                icon="print">
+                icon="print"
+              >
                 {record.id}
               </Button>
             </Table.Cell>
@@ -585,7 +603,8 @@ export const Upload = (props, context) => {
                 scrollable
                 preserveWhitespace
                 fontSize="15px"
-                title="Content:">
+                title="Content:"
+              >
                 <Box dangerouslySetInnerHTML={contentHtml} />
               </Section>
             </Stack.Item>
@@ -601,8 +620,8 @@ export const Upload = (props, context) => {
                   active_newscaster_cooldown
                     ? "Send your book to the station's newscaster's channel."
                     : 'Please wait ' +
-                    cooldown_string +
-                    ' before sending your book to the newscaster!'
+                      cooldown_string +
+                      ' before sending your book to the newscaster!'
                 }
                 tooltipPosition="top"
                 icon="newspaper"
@@ -719,7 +738,8 @@ export const Print = (props, context) => {
                       poster === selectedPoster &&
                       'Button--selected',
                   ])}
-                  onClick={() => setSelectedPoster(poster)}>
+                  onClick={() => setSelectedPoster(poster)}
+                >
                   {poster}
                 </div>
               ))}
@@ -732,7 +752,8 @@ export const Print = (props, context) => {
                 fontSize="25px"
                 italic
                 bold
-                textColor="#0b94c4">
+                textColor="#0b94c4"
+              >
                 {bible_name}
               </Stack.Item>
               <Stack.Item textAlign="center" fontSize="22px" textColor="purple">

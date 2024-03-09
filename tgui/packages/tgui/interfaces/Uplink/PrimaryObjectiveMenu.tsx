@@ -35,7 +35,8 @@ export const PrimaryObjectiveMenu = (
             fontFamily={'Bahnschrift'}
             fontSize={3}
             align={'top'}
-            as="span">
+            as="span"
+          >
             PRIORITY MESSAGE
             <br />
             SOURCE: xxx.xxx.xxx.224:41394

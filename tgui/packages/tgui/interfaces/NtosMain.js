@@ -23,10 +23,11 @@ export const NtosMain = (props, context) => {
     <NtosWindow
       title={
         (PC_device_theme === 'syndicate' && 'Syndix Main Menu') ||
-        'NtOS Main Menu'
+        'NtOS - Главное меню'
       }
       width={400}
-      height={500}>
+      height={500}
+    >
       <NtosWindow.Content scrollable>
         {Boolean(
           removable_media.length ||
@@ -99,22 +100,25 @@ export const NtosMain = (props, context) => {
                 />
               )}
             </>
-          }>
+          }
+        >
           <Table>
             <Table.Row>
-              ID Name:{' '}
+              Имя ID:{' '}
               {show_imprint
                 ? login.IDName +
-                ' ' +
-                (proposed_login.IDName ? '(' + proposed_login.IDName + ')' : '')
+                  ' ' +
+                  (proposed_login.IDName
+                    ? '(' + proposed_login.IDName + ')'
+                    : '')
                 : proposed_login.IDName ?? ''}
             </Table.Row>
             <Table.Row>
-              Assignment:{' '}
+              Должность:{' '}
               {show_imprint
                 ? login.IDJob +
-                ' ' +
-                (proposed_login.IDJob ? '(' + proposed_login.IDJob + ')' : '')
+                  ' ' +
+                  (proposed_login.IDJob ? '(' + proposed_login.IDJob + ')' : '')
                 : proposed_login.IDJob ?? ''}
             </Table.Row>
           </Table>
@@ -170,7 +174,7 @@ const ProgramsTable = (props, context) => {
   );
 
   return (
-    <Section title="Programs">
+    <Section title="Программы">
       <Table>
         {filtered_programs.map((program) => (
           <Table.Row key={program.name}>
@@ -192,7 +196,7 @@ const ProgramsTable = (props, context) => {
                 <Button
                   color="transparent"
                   icon="times"
-                  tooltip="Close program"
+                  tooltip="Закрыть"
                   tooltipPosition="left"
                   onClick={() =>
                     act('PC_killprogram', {

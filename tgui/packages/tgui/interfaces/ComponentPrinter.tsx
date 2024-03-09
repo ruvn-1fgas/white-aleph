@@ -87,7 +87,8 @@ const Recipe = (props: RecipeProps, context) => {
             'FabricatorRecipe__Button',
             'FabricatorRecipe__Button--icon',
             !canPrint && 'FabricatorRecipe__Button--disabled',
-          ])}>
+          ])}
+        >
           <Icon name="question-circle" />
         </div>
       </Tooltip>
@@ -99,7 +100,8 @@ const Recipe = (props: RecipeProps, context) => {
             SHEET_MATERIAL_AMOUNT={SHEET_MATERIAL_AMOUNT}
             available={available}
           />
-        }>
+        }
+      >
         <div
           className={classes([
             'FabricatorRecipe__Title',
@@ -107,7 +109,8 @@ const Recipe = (props: RecipeProps, context) => {
           ])}
           onClick={() =>
             canPrint && act('print', { designId: design.id, amount: 1 })
-          }>
+          }
+        >
           <div className="FabricatorRecipe__Icon">
             <Box
               width={'32px'}

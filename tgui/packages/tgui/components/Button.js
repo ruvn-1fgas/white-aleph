@@ -99,7 +99,8 @@ export const Button = (props) => {
           return;
         }
       }}
-      {...computeBoxProps(rest)}>
+      {...computeBoxProps(rest)}
+    >
       <div className="Button__content">
         {icon && iconPosition !== 'right' && (
           <Icon
@@ -265,14 +266,15 @@ export class ButtonInput extends Component {
           'Button--color--' + color,
         ])}
         {...rest}
-        onClick={() => this.setInInput(true)}>
+        onClick={() => this.setInInput(true)}
+      >
         {icon && <Icon name={icon} rotation={iconRotation} spin={iconSpin} />}
         <div>{content}</div>
         <input
           ref={this.inputRef}
           className="NumberInput__input"
           style={{
-            'display': !this.state.inInput ? 'none' : undefined,
+            display: !this.state.inInput ? 'none' : undefined,
             'text-align': 'left',
           }}
           onBlur={(e) => {
