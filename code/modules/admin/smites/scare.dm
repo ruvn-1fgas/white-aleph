@@ -51,7 +51,7 @@
 		animate(whole_screen, transform = matrix()*2, time = 40, easing = BOUNCE_EASING)
 		dude.clear_fullscreen("screamer", rand(15, 60))
 
-	playsound(dude, get_random_sound(), 100)
+	dude.playsound_local(dude, get_random_sound(), 100)
 	dude.emote("scream")
 
 	addtimer(CALLBACK(src, PROC_REF(clear_efffects), dude), 60)
