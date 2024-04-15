@@ -16,8 +16,6 @@
 	var/spawned_loot = FALSE
 
 /obj/structure/closet/crate/necropolis/tendril/attackby(obj/item/item, mob/user, params)
-	if(!istype(item, /obj/item/skeleton_key) || spawned_loot)
-		return ..()
 	var/loot = rand(1,20)
 	var/mod
 	switch(loot)
@@ -84,7 +82,7 @@
 		return FALSE
 
 	if(!broken && !force && !spawned_loot)
-		balloon_alert(user, "its locked!")
+		balloon_alert(user, "закрыт!")
 		return FALSE
 
 	return TRUE
@@ -173,10 +171,3 @@
 			new /obj/item/wisp_lantern(src)
 		if(3)
 			new /obj/item/prisoncube(src)
-
-/obj/item/skeleton_key
-	name = "skeleton key"
-	desc = "An artifact usually found in the hands of the natives of lavaland, which NT now holds a monopoly on."
-	icon = 'icons/obj/mining_zones/artefacts.dmi'
-	icon_state = "skeleton_key"
-	w_class = WEIGHT_CLASS_SMALL
