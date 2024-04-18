@@ -376,7 +376,7 @@
 
 /obj/item/storage/belt/mining
 	name = "разгрузка исследователя"
-	desc = "Универсальная вместительная разгрузка, которую ценят как шахтеры, так и охотники."
+	desc = "Универсальная вместительная разгрузка, которую ценят как шахтёры, так и охотники."
 	icon_state = "explorer1"
 	inhand_icon_state = "explorer1"
 	worn_icon_state = "explorer1"
