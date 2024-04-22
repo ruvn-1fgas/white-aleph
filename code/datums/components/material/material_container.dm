@@ -359,10 +359,10 @@
 				//was this the original item in the players hand? put what's left back in the player's hand
 				if(!isnull(original_item))
 					user.put_in_active_hand(original_item)
-					message = "Всего [inserted] лист[get_ending(inserted, list("", "а", "ов"))] [(isstacksheet(target)) ? item_skloname : item_name] было поглощено [parent.name]."
+					message = "Всего [inserted] лист[get_ending(inserted, list("", "а", "ов"))] [(isstacksheet(target)) ? item_skloname : item_name] было поглощено [parent]."
 			//collect all messages to print later
 			if(!message)
-				message = "[inserted] лист[get_ending(inserted, list("", "а", "ов"))] [(isstacksheet(target)) ? item_skloname : item_name] был[inserted == 1 ? "" : "о"] поглощено [parent.name]."
+				message = "[inserted] лист[get_ending(inserted, list("", "а", "ов"))] [(isstacksheet(target)) ? item_skloname : item_name] был[inserted == 1 ? "" : "о"] поглощено [parent]."
 			if(inserts[message])
 				inserts[message] += 1
 			else
