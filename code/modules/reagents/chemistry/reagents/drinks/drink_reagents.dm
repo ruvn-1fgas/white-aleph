@@ -80,6 +80,7 @@
 	color = "#863333" // rgb: 134, 51, 51
 	taste_description = "ягоды"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/applejuice
 	enname = "Apple Juice"
@@ -88,6 +89,7 @@
 	color = "#ECFF56" // rgb: 236, 255, 86
 	taste_description = "яблоки"
 	ph = 3.2 // ~ 2.7 -> 3.7
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/poisonberryjuice
 	enname = "Poison Berry Juice"
@@ -96,6 +98,7 @@
 	color = "#863353" // rgb: 134, 51, 83
 	taste_description = "ягоды"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/poisonberryjuice/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -109,6 +112,7 @@
 	color = "#863333" // rgb: 134, 51, 51
 	taste_description = "сочный арбуз"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/lemonjuice
 	enname = "Lemon Juice"
@@ -118,6 +122,7 @@
 	taste_description = "кислота"
 	ph = 2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/banana
 	enname = "Banana Juice"
@@ -126,6 +131,7 @@
 	color = "#863333" // rgb: 175, 175, 0
 	taste_description = "банан"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/banana/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -140,6 +146,7 @@
 	description = "Абсолютное ничто."
 	taste_description = "ничего"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/glass_style/shot_glass/nothing
 	required_drink_type = /datum/reagent/consumable/nothing
@@ -160,6 +167,7 @@
 	color = "#FF4DD2"
 	taste_description = "ржака"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/laughter/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -174,6 +182,7 @@
 	color = "#FF4DD2"
 	taste_description = "ржака"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/superlaughter/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -190,6 +199,7 @@
 	color = "#302000" // rgb: 48, 32, 0
 	taste_description = "ирландская грусть"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/pickle
 	enname = "Pickle Juice"
@@ -199,6 +209,7 @@
 	color = "#302000" // rgb: 48, 32, 0
 	taste_description = "божественное чудо"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/pickle/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -214,6 +225,7 @@
 	color = "#290029" // dark purple
 	taste_description = "виноградная сода"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/plumjuice
 	enname = "Plum Juice"
@@ -222,6 +234,7 @@
 	color = "#b6062c"
 	taste_description = "сливы"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/milk
 	enname = "Milk"
@@ -232,6 +245,7 @@
 	ph = 6.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	default_container = /obj/item/reagent_containers/condiment/milk
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 // Milk is good for humans, but bad for plants.
 // The sugars cannot be used by plants, and the milk fat harms growth. Except shrooms.
@@ -258,6 +272,7 @@
 	taste_description = "соевое молоко"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	default_container = /obj/item/reagent_containers/condiment/soymilk
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/soymilk/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -273,6 +288,7 @@
 	taste_description = "сливочное молоко"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	default_container = /obj/item/reagent_containers/cup/glass/bottle/juice/cream
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/cream/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	if(affected_mob.getBruteLoss() && SPT_PROB(10, seconds_per_tick))
@@ -290,7 +306,7 @@
 	taste_description = "горечь"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_STOCK
-
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/coffee/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -316,6 +332,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_STOCK
 	default_container = /obj/item/reagent_containers/cup/glass/mug/tea
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/tea/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -367,6 +384,7 @@
 	taste_description = "солнце и лето"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/tea/arnold_palmer
 	enname = "Arnold Palmer"
@@ -377,6 +395,7 @@
 	nutriment_factor = 10
 	taste_description = "горький чай"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/tea/arnold_palmer/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -391,6 +410,7 @@
 	nutriment_factor = 0
 	taste_description = "горечь и холод"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/icecoffee/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -408,6 +428,7 @@
 	nutriment_factor = 0
 	taste_description = "горечь и намёк на дым"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/hot_ice_coffee/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -427,6 +448,7 @@
 	nutriment_factor = 0
 	taste_description = "сладкий чай"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/icetea/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -445,6 +467,7 @@
 	color = "#100800" // rgb: 16, 8, 0
 	taste_description = "кола"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/space_cola/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -459,6 +482,7 @@
 	quality = DRINK_GOOD
 	taste_description = "fruity overlysweet cola"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/roy_rogers/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	affected_mob.set_jitter_if_lower(12 SECONDS * REM * seconds_per_tick)
@@ -474,6 +498,7 @@
 	quality = DRINK_VERYGOOD
 	taste_description = "будущее"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/nuka_cola/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
@@ -504,6 +529,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	/// If we activated the effect
 	var/effect_enabled = FALSE
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/rootbeer/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
@@ -534,6 +560,7 @@
 	quality = DRINK_VERYGOOD
 	taste_description = "carbonated oil"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/grey_bull/on_mob_metabolize(mob/living/carbon/affected_atom)
 	. = ..()
@@ -562,6 +589,7 @@
 	color = "#102000" // rgb: 16, 32, 0
 	taste_description = "сладкая цитрусовая сода"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/spacemountainwind/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -577,6 +605,7 @@
 	color = "#102000" // rgb: 16, 32, 0
 	taste_description = "вишневая сода" // FALSE ADVERTISING
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/dr_gibb/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -590,6 +619,7 @@
 	color = "#00FF00" // rgb: 0, 255, 0
 	taste_description = "вишневая сода" // FALSE ADVERTISING
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/space_up/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -602,6 +632,7 @@
 	color = "#8CFF00" // rgb: 135, 255, 0
 	taste_description = "острый лайм и лимонная сода"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/lemon_lime/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -614,6 +645,7 @@
 	color = "#9385bf" // rgb: 58, 52, 75
 	taste_description = "сладкий и соленый запах"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/pwr_game/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
@@ -635,6 +667,7 @@
 	color = "#f00060" // rgb: 94, 0, 38
 	taste_description = "газированная металлическая сода"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/shamblers/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -647,6 +680,7 @@
 	color = "#619494" // rgb: 97, 148, 148
 	taste_description = "минералка"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 // A variety of nutrients are dissolved in club soda, without sugar.
 // These nutrients include carbon, oxygen, hydrogen, phosphorous, potassium, sulfur and sodium, all of which are needed for healthy plant growth.
@@ -667,6 +701,7 @@
 	color = "#0064C8" // rgb: 0, 100, 200
 	taste_description = "свежесть и терпкость"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/tonic/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -682,6 +717,7 @@
 	color = "#762399" // rgb: 118, 35, 153
 	taste_description = "grapes and the fresh open sea"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/wellcheers/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -705,6 +741,7 @@
 	overdose_threshold = 60
 	taste_description = "барбекю и ностальгия"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/monkey_energy/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -752,6 +789,7 @@
 	taste_description = "сливочное кофе"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/soy_latte/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -775,6 +813,7 @@
 	taste_description = "взбитые сливки"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/cafe_latte/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -797,6 +836,7 @@
 	quality = DRINK_VERYGOOD
 	taste_description = "фрукт, выращенные твоей мамой"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/doctor_delight/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -821,6 +861,7 @@
 	quality = DRINK_VERYGOOD
 	taste_description = "sweet tangy fruit"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/cinderella/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -836,6 +877,7 @@
 	taste_description = "сливочная вишня"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/bluecherryshake
 	enname = "Blue Cherry Shake"
@@ -846,6 +888,7 @@
 	nutriment_factor = 8
 	taste_description = "сливочно-голубая вишня"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/vanillashake
 	enname = "Vanilla Shake"
@@ -857,6 +900,7 @@
 	taste_description = "сладкий ванильный крем"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/caramelshake
 	enname = "Caramel Shake"
@@ -868,6 +912,7 @@
 	taste_description = "сладкая карамель"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/choccyshake
 	enname = "Chocolate Shake"
@@ -879,6 +924,7 @@
 	taste_description = "сладкий шоколад"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/strawberryshake
 	enname = "Strawberry Shake"
@@ -890,6 +936,7 @@
 	taste_description = "сладкая клубника"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/bananashake
 	enname = "Banana Shake"
@@ -901,6 +948,7 @@
 	taste_description = "сладкий банан"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/pumpkin_latte
 	enname = "Pumpkin Latte"
@@ -911,7 +959,7 @@
 	nutriment_factor = 3
 	taste_description = "сливочная тыква"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 /datum/reagent/consumable/gibbfloats
 	enname = "Gibb Floats"
 	name = "Хороший Пловец"
@@ -921,6 +969,7 @@
 	nutriment_factor = 3
 	taste_description = "сливочная вишня"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/pumpkinjuice
 	enname = "Pumpkin Juice"
@@ -929,6 +978,7 @@
 	color = "#FFA500"
 	taste_description = "тыква"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/blumpkinjuice
 	enname = "Blumpkin Juice"
@@ -937,6 +987,7 @@
 	color = "#00BFFF"
 	taste_description = "глоток воды из бассейна"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/triple_citrus
 	enname = "Triple Citrus"
@@ -946,6 +997,7 @@
 	quality = DRINK_NICE
 	taste_description = "крайняя горечь"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/grape_soda
 	enname = "Grape Soda"
@@ -954,6 +1006,7 @@
 	color = "#E6CDFF"
 	taste_description = "виноградная сода"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/grape_soda/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -967,6 +1020,7 @@
 	quality = DRINK_NICE
 	taste_description = "шоколадное молоко"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/hot_coco
 	enname = "Hot Coco"
@@ -976,6 +1030,7 @@
 	color = "#403010" // rgb: 64, 48, 16
 	taste_description = "сливочный шоколад"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/hot_coco/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	affected_mob.adjust_bodytemperature(5 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * seconds_per_tick, 0, affected_mob.get_body_temp_normal())
@@ -995,6 +1050,7 @@
 	quality = DRINK_VERYGOOD
 	taste_description = "сливочный шоколад"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/italian_coco/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1008,6 +1064,7 @@
 	taste_description = "мята"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	default_container = /obj/item/reagent_containers/cup/glass/bottle/juice/menthol
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/menthol/on_mob_life(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1020,6 +1077,7 @@
 	color = "#EA1D26"
 	taste_description = "сладкие гранаты"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/parsnipjuice
 	enname = "Parsnip Juice"
@@ -1028,6 +1086,7 @@
 	color = "#FFA500"
 	taste_description = "пастернак"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/pineapplejuice
 	enname = "Pineapple Juice"
@@ -1038,6 +1097,7 @@
 	taste_description = "ананас"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	default_container = /obj/item/reagent_containers/cup/glass/bottle/juice/pineapplejuice
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/peachjuice //Intended to be extremely rare due to being the limiting ingredients in the blazaam drink
 	enname = "Peach Juice"
@@ -1046,6 +1106,7 @@
 	color = "#E78108"
 	taste_description = "персики"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/cream_soda
 	enname = "Cream Soda"
@@ -1055,6 +1116,7 @@
 	quality = DRINK_VERYGOOD
 	taste_description = "шипучая ваниль"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/cream_soda/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1068,6 +1130,7 @@
 	quality = DRINK_NICE
 	taste_description = "сладкая имбирная специя"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/sol_dry/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1081,6 +1144,7 @@
 	quality = DRINK_GOOD
 	taste_description = "sweet cherry syrup and ginger spice"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/shirley_temple/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	affected_mob.adjust_disgust(-3 * REM * seconds_per_tick)
@@ -1095,6 +1159,7 @@
 	taste_description = "чудо"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	var/current_size = RESIZE_DEFAULT_SIZE
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/red_queen/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1120,6 +1185,7 @@
 	description = "Экзотично! Вы уже чувствуете себя, как в отпуске."
 	taste_description = "сочный бунго"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/prunomix
 	enname = "Pruno Mixture"
@@ -1128,6 +1194,7 @@
 	description = "Фрукты, сахар, дрожжи и вода, измельченные в едкую суспензию."
 	taste_description = "мусор"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/aloejuice
 	enname = "Aloe Juice"
@@ -1136,6 +1203,7 @@
 	description = "Полезный и освежающий сок."
 	taste_description = "овощи"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/aloejuice/on_mob_life(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1151,6 +1219,7 @@
 	quality = DRINK_VERYGOOD
 	taste_description = "cool refreshing watermelon"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/agua_fresca/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1167,6 +1236,7 @@
 	nutriment_factor = 0
 	taste_description = "mushrooms"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/mushroom_tea/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1183,6 +1253,7 @@
 	nutriment_factor = 0
 	taste_description = "жгучая зудящая боль"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/toechtauese_syrup
 	enname = "Töchtaüse Syrup"
@@ -1192,6 +1263,7 @@
 	nutriment_factor = 0
 	taste_description = "sugar, spice, and nothing nice"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/strawberry_banana
 	enname = "strawberry banana smoothie"
@@ -1201,6 +1273,7 @@
 	nutriment_factor = 0
 	taste_description = "клубника и банан"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/berry_blast
 	enname = "berry blast smoothie"
@@ -1210,6 +1283,7 @@
 	nutriment_factor = 0
 	taste_description = "смесь ягод"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/funky_monkey
 	enname = "funky monkey smoothie"
@@ -1219,6 +1293,7 @@
 	nutriment_factor = 0
 	taste_description = "шоколад и банан"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/green_giant
 	enname = "green giant smoothie"
@@ -1228,6 +1303,7 @@
 	nutriment_factor = 0
 	taste_description = "green, just green"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/melon_baller
 	enname = "melon baller smoothie"
@@ -1237,6 +1313,7 @@
 	nutriment_factor = 0
 	taste_description = "свежий арбуз"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/vanilla_dream
 	enname = "vanilla dream smoothie"
@@ -1246,6 +1323,7 @@
 	nutriment_factor = 0
 	taste_description = "сливочная ваниль"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/cucumberjuice
 	enname = "Cucumber Juice"
@@ -1254,6 +1332,7 @@
 	color = "#6cd87a"
 	taste_description = "огурец"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/cucumberlemonade
 	enname = "Cucumber Lemonade"
@@ -1263,6 +1342,7 @@
 	quality = DRINK_GOOD
 	taste_description = "citrus soda with cucumber"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/cucumberlemonade/on_mob_life(mob/living/carbon/doll, seconds_per_tick, times_fired)
 	. = ..()
@@ -1278,6 +1358,7 @@
 	color = "#d4422f" // rgb: 212,66,47
 	taste_description = "sludge seeping down your throat"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/mississippi_queen/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
 	. = ..()
@@ -1297,6 +1378,7 @@
 	color = "#583d09" // rgb: 88, 61, 9
 	taste_description = "one of your 26 favorite letters"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/t_letter/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1316,6 +1398,7 @@
 	color = "#c4b000"
 	taste_description = "bubbly yerba mate"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/coconut_milk
 	enname = "Coconut Milk"
@@ -1324,6 +1407,7 @@
 	color = "#DFDFDF"
 	taste_description = "milky coconut"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/melon_soda
 	enname = "Melon Soda"
@@ -1332,6 +1416,7 @@
 	color = "#6FEB48"
 	taste_description = "fizzy melon"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/volt_energy
 	enname = "24-Volt Energy"
@@ -1340,6 +1425,7 @@
 	color = "#99E550"
 	taste_description = "sour pear"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/volt_energy/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()

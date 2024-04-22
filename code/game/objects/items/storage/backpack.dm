@@ -543,6 +543,7 @@
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/razor(src)
 	new /obj/item/blood_filter(src)
+	new /obj/item/breathing_bag(src)
 
 /obj/item/storage/backpack/duffelbag/coroner
 	name = "вещмешок коронера"
@@ -600,6 +601,8 @@
 	new /obj/item/surgical_drapes(src)
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/blood_filter(src)
+	new /obj/item/breathing_bag(src)
+
 
 /obj/item/storage/backpack/duffelbag/engineering
 	name = "промышленный  вещмешок"
@@ -691,6 +694,7 @@
 	new /obj/item/clothing/suit/jacket/straight_jacket(src)
 	new /obj/item/clothing/mask/muzzle(src)
 	new /obj/item/mmi/syndie(src)
+	new /obj/item/breathing_bag(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/ammo
 	name = "вещмешок с аммуницией"

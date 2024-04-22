@@ -5915,6 +5915,8 @@
 #include "interface\fonts\vcr_osd_mono.dm"
 #include "white\webhook.dm"
 #include "white\Feline\code\scarecrow.dm"
+#include "white\Feline\code\med\designes.dm"
+#include "white\Feline\code\med\tools.dm"
 #include "white\hule\anonism.dm"
 #include "white\master\code\antimatter.dm"
 #include "white\master\code\cryopods.dm"
