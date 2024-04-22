@@ -209,6 +209,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/survival_pod/spawne
 
 /obj/machinery/smartfridge/survival_pod/preloaded/Initialize(mapload)
 	. = ..()
+	var/obj/item/reagent_containers/cup/glass/waterbottle/A = new(src)
+	load(A)
 	for(var/i in 1 to 5)
 		var/obj/item/food/donkpocket/warm/W = new(src)
 		load(W)
