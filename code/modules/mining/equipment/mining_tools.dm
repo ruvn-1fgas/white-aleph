@@ -359,7 +359,7 @@
 	tool_behaviour = (active ? TOOL_WRENCH : initial(tool_behaviour))
 	armour_penetration = (active ? 30 : initial(armour_penetration))
 	if(user)
-		balloon_alert(user, "Big Slappy [active ? "открыт" : "закрыт"]")
+		balloon_alert(user, "[active ? "открываю" : "закрываю"] Big Slappy")
 	playsound(src, 'sound/items/ratchet.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
