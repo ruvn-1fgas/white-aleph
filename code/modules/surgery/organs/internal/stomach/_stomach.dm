@@ -126,14 +126,14 @@
 	//The fucking TRAIT_FAT mutation is the dumbest shit ever. It makes the code so difficult to work with
 	if(HAS_TRAIT_FROM(human, TRAIT_FAT, OBESITY))//I share your pain, past coder.
 		if(human.overeatduration < (200 SECONDS))
-			to_chat(human, span_notice("Я снова в форме!"))
+			to_chat(human, span_notice("Возвращаю свою стройную форму!"))
 			REMOVE_TRAIT(human, TRAIT_FAT, OBESITY)
 			human.remove_movespeed_modifier(/datum/movespeed_modifier/obesity)
 			human.update_worn_undersuit()
 			human.update_worn_oversuit()
 	else
 		if(human.overeatduration >= (200 SECONDS))
-			to_chat(human, span_danger("Хочу плакать!"))
+			to_chat(human, span_danger("Мне удалось разжиреть!"))
 			ADD_TRAIT(human, TRAIT_FAT, OBESITY)
 			human.add_movespeed_modifier(/datum/movespeed_modifier/obesity)
 			human.update_worn_undersuit()
@@ -162,6 +162,7 @@
 		human.adjust_nutrition(-hunger_rate * seconds_per_tick)
 
 	var/nutrition = human.nutrition
+	var/hydration = human.hydration
 	if(nutrition > NUTRITION_LEVEL_FULL && !HAS_TRAIT(human, TRAIT_NOFAT))
 		if(human.overeatduration < 20 MINUTES) //capped so people don't take forever to unfat
 			human.overeatduration = min(human.overeatduration + (1 SECONDS * seconds_per_tick), 20 MINUTES)
@@ -174,15 +175,15 @@
 		human.metabolism_efficiency = 1
 	else if(nutrition > NUTRITION_LEVEL_FED && human.satiety > 80)
 		if(human.metabolism_efficiency != 1.25)
-			to_chat(human, span_notice("Чувствую себя бодро."))
+			to_chat(human, span_notice("Ощущаю сытость."))
 			human.metabolism_efficiency = 1.25
 	else if(nutrition < NUTRITION_LEVEL_STARVING + 50)
 		if(human.metabolism_efficiency != 0.8)
-			to_chat(human, span_notice("Чувствую себя вяло."))
+			to_chat(human, span_notice("Снова хочется кушать."))
 		human.metabolism_efficiency = 0.8
 	else
 		if(human.metabolism_efficiency == 1.25)
-			to_chat(human, span_notice("Больше не чувствую себя бодро."))
+			to_chat(human, span_notice("Похоже надо покушать."))
 		human.metabolism_efficiency = 1
 
 	//Hunger slowdown for if mood isn't enabled
@@ -200,6 +201,16 @@
 			human.throw_alert(ALERT_NUTRITION, /atom/movable/screen/alert/hungry)
 		if(0 to NUTRITION_LEVEL_STARVING)
 			human.throw_alert(ALERT_NUTRITION, /atom/movable/screen/alert/starving)
+
+	switch(hydration)
+		if(HYDRATION_LEVEL_OVERHYDRATED to INFINITY)
+			human.throw_alert("thirsty", /atom/movable/screen/alert/overhydrated)
+		if(HYDRATION_LEVEL_NORMAL to HYDRATION_LEVEL_OVERHYDRATED)
+			human.clear_alert("thirsty")
+		if(HYDRATION_LEVEL_THIRSTY to HYDRATION_LEVEL_NORMAL)
+			human.throw_alert("thirsty", /atom/movable/screen/alert/thirsty)
+		if(-INFINITY to HYDRATION_LEVEL_DEHYDRATED)
+			human.throw_alert("thirsty", /atom/movable/screen/alert/dehydrated)
 
 ///for when mood is disabled and hunger should handle slowdowns
 /obj/item/organ/internal/stomach/proc/handle_hunger_slowdown(mob/living/carbon/human/human)

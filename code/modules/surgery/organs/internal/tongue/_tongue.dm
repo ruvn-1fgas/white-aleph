@@ -367,7 +367,7 @@
 
 	tongue_holder.visible_message(span_notice("[tongue_holder] держит [src] в руках и сосредотачивается на мгновение") , span_notice("Ты пытаешься модифицировать связи [src]."))
 	if(do_after(tongue_holder, delay=15, target=src))
-		to_chat(H, span_notice("Настраиваю [src] на свой канал."))
+		to_chat(tongue_holder, span_notice("Настраиваю [src] на свой канал."))
 		mothership = tongue.mothership
 
 /obj/item/organ/internal/tongue/abductor/examine(mob/examining_mob)

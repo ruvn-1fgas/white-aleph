@@ -57,7 +57,7 @@
 			if(!held_item)
 				continue
 			stored_items += held_item
-			to_chat(owner, span_notice("Моя [owner.get_held_index_name(owner.get_held_index_of_item(I))] усиливает захват."))
+			to_chat(owner, span_notice("Моя [owner.get_held_index_name(owner.get_held_index_of_item(held_item))] усиливает захват."))
 			ADD_TRAIT(held_item, TRAIT_NODROP, IMPLANT_TRAIT)
 			RegisterSignal(held_item, COMSIG_ITEM_DROPPED, PROC_REF(on_held_item_dropped))
 	else
@@ -76,7 +76,7 @@
 	for(var/obj/item/stored_item as anything in stored_items)
 		throw_target = pick(oview(range))
 		stored_item.throw_at(throw_target, range, 2)
-		to_chat(owner, span_warning("Моя [owner.get_held_index_name(owner.get_held_index_of_item(I))] спазмирует и [I.name] вылетает из неё!"))
+		to_chat(owner, span_warning("Моя [owner.get_held_index_name(owner.get_held_index_of_item(stored_item))] спазмирует и [stored_item.name] вылетает из неё!"))
 	stored_items = list()
 
 
