@@ -355,10 +355,11 @@
 
 /datum/reagent/consumable/ethanol/vermouth
 	enname = "Vermouth"
-	description = "You suddenly feel a craving for a martini..."
+	name = "Вермут"
+	description = "Вдруг испытываю желание выпить мартини..."
 	color = "#91FF91" // rgb: 145, 255, 145
 	boozepwr = 45
-	taste_description = "dry alcohol"
+	taste_description = "сухой спирт"
 	ph = 3.25
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 

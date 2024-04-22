@@ -771,7 +771,7 @@
 	description = "Замороженная вода, вашему стоматологу не понравится, если вы будете ее жевать."
 	reagent_state = SOLID
 	color = "#619494" // rgb: 97, 148, 148
-	taste_description
+	taste_description = "лед"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	default_container = /obj/item/reagent_containers/cup/glass/ice
 
