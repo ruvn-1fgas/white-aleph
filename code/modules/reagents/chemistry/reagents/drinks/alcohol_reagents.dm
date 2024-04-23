@@ -364,7 +364,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/wine
-	name = "Вермут"
+	name = "Вино"
 	enname = "Wine"
 	description = "Вам вдруг захотелось выпить мартини..."
 	color = "#7E4043" // rgb: 126, 64, 67
