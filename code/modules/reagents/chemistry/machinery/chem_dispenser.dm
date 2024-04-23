@@ -9,7 +9,7 @@
 		if ("mine_salve")
 			return "minerssalve"
 		else
-			return ckey(id)
+			return lowertext(id)
 
 /obj/machinery/chem_dispenser
 	name = "Хим-раздатчик"
@@ -43,6 +43,7 @@
 		/datum/reagent/carbon,
 		/datum/reagent/chlorine,
 		/datum/reagent/copper,
+		/datum/reagent/silver,
 		/datum/reagent/consumable/ethanol,
 		/datum/reagent/fluorine,
 		/datum/reagent/hydrogen,
@@ -328,7 +329,7 @@
 		if("clear_recipes")
 			if(!is_operational)
 				return
-			var/yesno = tgui_alert(usr, "Очистить рецепты",, list("Да","Нет"))
+			var/yesno = tgui_alert(usr, "Очистить рецепты?",, list("Да","Нет"))
 			if(yesno == "Да")
 				saved_recipes = list()
 			. = TRUE

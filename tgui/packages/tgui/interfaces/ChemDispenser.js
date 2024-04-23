@@ -124,7 +124,11 @@ export const ChemDispenser = (props, context) => {
                 icon="tint"
                 width="129.5px"
                 lineHeight={1.75}
-                content={recipe.name}
+                content={
+                  recipe.name.length > 15
+                    ? recipe.name.substring(0, 12) + '...'
+                    : recipe.name
+                }
                 onClick={() =>
                   act('dispense_recipe', {
                     recipe: recipe.name,
@@ -160,7 +164,11 @@ export const ChemDispenser = (props, context) => {
                 icon="tint"
                 width="129.5px"
                 lineHeight={1.75}
-                content={chemical.title}
+                content={
+                  chemical.title.length > 15
+                    ? chemical.title.substring(0, 12) + '...'
+                    : chemical.title
+                }
                 tooltip={'pH: ' + chemical.pH}
                 backgroundColor={
                   recipeReagents.includes(chemical.id)
@@ -213,7 +221,7 @@ export const ChemDispenser = (props, context) => {
                       initial={0}
                       value={data.beakerCurrentVolume}
                     />
-                    /{data.beakerMaxVolume} units
+                    /{data.beakerMaxVolume} единиц
                   </>
                 )) ||
                 'Нет ёмкости'}
@@ -221,12 +229,12 @@ export const ChemDispenser = (props, context) => {
             <LabeledList.Item label="Содержимое">
               <Box color="label">
                 {(!data.isBeakerLoaded && !recording && 'N/A') ||
-                  (beakerContents.length === 0 && 'Nothing')}
+                  (beakerContents.length === 0 && 'Ничего')}
               </Box>
               {beakerContents.map((chemical) => (
                 <Box key={chemical.name} color="label">
-                  <AnimatedNumber initial={0} value={chemical.volume} /> units
-                  of {chemical.name}
+                  <AnimatedNumber initial={0} value={chemical.volume} /> ед{' '}
+                  {chemical.name}
                 </Box>
               ))}
               {beakerContents.length > 0 && !!data.showpH && (
